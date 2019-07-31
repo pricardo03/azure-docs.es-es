@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 89c04a55138d57fd2ff37a96f2bc92b12d1780d9
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5cbbd507352471f5e093ef018de4b0c849aad442
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341229"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000790"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -151,7 +151,7 @@ Los contenedores también son las entidades de facturación de Azure Cosmos DB. 
 
 ### <a name="how-do-i-create-a-database"></a>¿Cómo se crea una base de datos?
 
-Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-dotnet.md#create-collection-database), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/cosmos-db/).
+Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-java.md#add-a-container), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>¿Cómo se configuran los usuarios y los permisos?
 
@@ -742,9 +742,9 @@ Los controladores del cliente del SDK de Apache Cassandra que usan CQLv3 se util
 
 Sí, puede usar la sintaxis normal para crear una clave de partición compuesta.
 
-### <a name="can-i-use-stable-loader-for-data-loading"></a>¿Puedo usar el cargador sstable para cargar los datos?
+### <a name="can-i-use-sstableloader-for-data-loading"></a>¿Puedo usar sstableloader para cargar los datos?
 
-No, no se admite este cargador.
+No, sstableloader no se admite.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>¿Un clúster de Apache Cassandra local se puede emparejar con Cassandra API de Azure Cosmos DB?
 

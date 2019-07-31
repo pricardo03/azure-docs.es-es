@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150017"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305734"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -67,7 +67,7 @@ Para usar PowerShell para iniciar una conmutación por error de la cuenta, prime
 1. Desinstale las instalaciones anteriores de Azure PowerShell:
 
     - Quite cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
-    - Quite todos los módulos de **Azure*** desde `%Program Files%\WindowsPowerShell\Modules`.
+    - Quite todos los módulos de **Azure** desde `%Program Files%\WindowsPowerShell\Modules`.
     
 1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Abra una ventana de Windows PowerShell y ejecute el siguiente comando para instalar la versión más reciente:
  
@@ -96,7 +96,7 @@ Para iniciar una conmutación por error de la cuenta desde PowerShell, ejecute e
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 Para usar la CLI de Azure para iniciar una conmutación por error de la cuenta, ejecute los siguientes comandos:
 

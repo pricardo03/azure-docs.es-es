@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: baca05a9c007849d813b2f4de17378e6d18da4a5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701738"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839293"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -45,7 +45,7 @@ Puede crear una canalización que tenga una actividad de copia para mover datos 
 
 - La manera más fácil de crear una canalización es usar el Asistente para copiar datos. Para ver un tutorial rápido sobre cómo crear una canalización con el Asistente para copiar datos, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Para instrucciones paso a paso sobre cómo crear una canalización que tiene una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para obtener ejemplos de JSON para copiar datos desde un origen HTTP a Azure Blob Storage, consulte la sección [Ejemplos de JSON](#json-examples).
+- También puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Resource Manager**, la **API de .NET** o **API REST**. Para instrucciones paso a paso sobre cómo crear una canalización que tiene una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para obtener ejemplos de JSON para copiar datos desde un origen HTTP a Azure Blob Storage, consulte la sección [Ejemplos de JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -231,7 +231,7 @@ Para más información, consulte [Formatos de compresión de archivos en Azure D
 
 ## <a name="json-examples"></a>Ejemplos de JSON
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos de un origen HTTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar *directamente* de cualquiera de los orígenes a cualquiera de los receptores [admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
+En los siguientes ejemplos, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos de un origen HTTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar *directamente* de cualquiera de los orígenes a cualquiera de los receptores [admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 **Ejemplo: Copia de datos de un origen HTTP a Azure Blob Storage**
 

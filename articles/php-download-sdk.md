@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
-ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yaya
+ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411591"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873890"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
 
@@ -45,11 +45,11 @@ En las instrucciones de este tema se da por hecho que tiene [PHP][install-php] i
 
 Las bibliotecas de clientes PHP para Azure proporcionan una interfaz para tener acceso a características de Azure, como los servicios de administración de datos y los servicios en la nube, desde cualquier sistema operativo. Estas bibliotecas se pueden instalar mediante el Compositor.
 
-Si desea obtener información sobre el uso de las bibliotecas de clientes PHP para Azure, consulte [Uso del servicio BLOB][blob-service], [Uso del servicio Tabla][table-service] y [Uso del servicio Cola][queue-service].
+Si desea obtener información sobre el uso de las bibliotecas de clientes PHP para Azure, consulte [Uso de Blob service][blob-service], [How to Use the Table Service][table-service] y [Uso de Queue service][queue-service].
 
 ### <a name="install-via-composer"></a>Instalación mediante el compositor
 
-1. [Instalación de Git][install-git] En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
+1. [Instale Git][install-git]. En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
 
 2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
 
@@ -69,11 +69,11 @@ Si desea obtener información sobre el uso de las bibliotecas de clientes PHP pa
 
 Azure PowerShell es un conjunto de cmdlets de PowerShell para implementar y administrar servicios de Azure (como Cloud Services y Virtual Machines). Los emuladores de Azure son emuladores de servicios en la nube y servicios de administración de datos que le permiten probar localmente una aplicación. Estos componentes solo son compatibles con Windows.
 
-La manera recomendada de instalar Azure PowerShell y los emuladores de Azure es utilizar el [instalador de plataforma web de Microsoft][download-wpi]. Observe que también puede elegir instalar otros componentes de desarrollo, como PHP, SQL Server, los controladores de Microsoft para SQL Server para PHP y WebMatrix.
+La manera recomendada de instalar Azure PowerShell y los emuladores de Azure es utilizar el [Instalador de plataforma web de Microsoft][download-wpi]. Observe que también puede elegir instalar otros componentes de desarrollo, como PHP, SQL Server, los controladores de Microsoft para SQL Server para PHP y WebMatrix.
 
-Para obtener más información sobre el uso de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell][powershell-tools].
+Para más información sobre el uso de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell][powershell-tools].
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 La interfaz de la línea de comandos de Azure es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Azure Websites y Azure Virtual Machines. Para obtener información acerca de cómo instalar la CLI de Azure, consulte [Instalar la CLI de Azure](cli-install-nodejs.md).
 

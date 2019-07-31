@@ -1,6 +1,6 @@
 ---
-title: Contenido del rol de administrador para cargas de trabajo de Microsoft 365 en Azure AD | Microsoft Docs
-description: Buscar contenido y las referencias de API de los roles de administrador para las cargas de trabajo de Microsoft 365 en Azure Active Directory
+title: Contenido del rol Administrador para servicios de Microsoft 365 en Azure AD | Microsoft Docs
+description: Buscar contenido y las referencias de API de los roles Administrador para los servicios de Microsoft 365 en Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,20 +15,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468188"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304393"
 ---
-# <a name="administrator-roles-for-microsoft-365-workloads"></a>Roles de administrador para cargas de trabajo de Microsoft 365
+# <a name="administrator-roles-for-microsoft-365-services"></a>Roles Administrador para servicios de Microsoft 365
 
 Todos los productos de Microsoft 365 pueden administrarse con roles de administrador de Azure AD. Algunos productos también proporcionan roles adicionales que son específicos de ese producto. Para obtener información sobre los roles compatibles con cada producto, consulte la tabla siguiente. Puede encontrar discusiones generales sobre los problemas de delegación en [Delegación de administración en Azure Active Directory](roles-concept-delegation.md).
 
 ## <a name="where-to-find-content"></a>Dónde encontrar el contenido
 
-Carga de trabajo de Microsoft 365 | Contenido del rol | Contenido de la API
+Servicio de Microsoft 365 | Contenido del rol | Contenido de la API
 ---------------------- | ------------------ | -----------------
 Roles de administrador de los planes de negocios de Office 365 y Microsoft 365 | [Funciones de administración de Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | No disponible
 Azure Active Directory (Azure AD) y Azure AD Identity Protection| [Roles de administrador de Azure AD](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Obtener asignaciones de roles](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

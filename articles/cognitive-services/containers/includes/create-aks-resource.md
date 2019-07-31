@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con los contenedores
+title: Creación de un recurso de clúster de Azure Kubernetes Service
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo crear recursos de Azure Kubernetes (AKS).
 services: cognitive-services
@@ -7,34 +7,34 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 1d68c08f6dfca74c38973af1686d614f3f10cc28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455099"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877452"
 ---
-## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Creación de un recurso de clúster de Azure Kubernetes Service (AKS)
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creación de un recurso de clúster de Azure Kubernetes Service
 
-1. Vaya a [Create](https://ms.portal.azure.com/#create/microsoft.aks) (Crear) en Kubernetes Services.
+1. Vaya a [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) y seleccione **Crear**.
 
-1. En la pestaña **Basics** (Aspectos básicos), escriba los siguientes detalles:
+1. Introduzca la siguiente información de la pestaña **Aspectos básicos**:
 
     |Configuración|Valor|
     |--|--|
     |Subscription|Seleccione una suscripción adecuada|
-    |Grupos de recursos|Seleccione un grupo de recursos disponible|
-    |Nombre del clúster de Kubernetes|Nombre que quiera (en minúsculas)|
+    |Resource group|Seleccione un grupo de recursos disponible|
+    |Nombre del clúster de Kubernetes|Escriba un nombre (en minúsculas)|
     |Region|Seleccione una ubicación cercana|
     |Versión de Kubernetes|1.12.8 (predeterminado)|
-    |Prefijo del nombre DNS|Se crea automáticamente, pero puede invalidarlo si lo desea|
+    |Prefijo del nombre DNS|Se crea automáticamente, pero puede invalidarlo|
     |Tamaño del nodo|Estándar DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Número de nodos|Deje el control deslizante en el valor predeterminado|
 
-1. En la pestaña **Scale** (Escala), deje los *nodos virtuales* y el *conjunto de escalado de máquinas virtuales* con sus los valores predeterminados.
-1. En la pestaña **Authentication** (Autenticación), deje la *entidad de servicio* y la opción *Enable RBAC* (Habilitar RBAC) con sus los valores predeterminados.
+1. En la pestaña **Escala**, deje **Nodos virtuales** y **Conjuntos de escalado de máquinas virtuales (versión preliminar)** establecidos en sus valores predeterminados.
+1. En la pestaña **Autenticación**, deje las opciones **Entidad de servicio** y **Habilitar RBAC** establecidas en sus valores predeterminados.
 1. En la pestaña **Networking** (Redes), escriba las siguientes selecciones:
 
     |Configuración|Valor|
@@ -42,10 +42,10 @@ ms.locfileid: "67455099"
     |Enrutamiento de aplicación HTTP|Sin|
     |Configuración de red|Básica|
 
-1. En la pestaña **Monitoring** (Supervisión), asegúrese de que la opción *Enable container monitoring* (Habilitar la supervisión del contenedor) esté establecida en **Yes** (Sí) y deje el *área de trabajo de Log Analytics* con su valor predeterminado
+1. En la pestaña **Supervisión**, asegúrese de que la opción **Habilitar la supervisión de contenedores** esté establecida en **Sí** y deje **Área de trabajo de Log Analytics** con el valor predeterminado.
 1. En la pestaña **Tags** (Etiquetas), deje los pares nombre/valor en blanco por ahora.
-1. Haga clic en **Review and Create** (Revisar y crear).
-1. Una vez pasada la validación, seleccione **Create** (Crear).
+1. Seleccione **Revisar y crear**.
+1. Una vez pasada la validación, seleccione **Crear**.
 
 > [!NOTE]
-> Si se produce un error en la validación, es posible que se deba a un error de la *entidad de servicio*. Vuelva a la pestaña *Authentication* (Autenticación), y seleccione la pestaña *Review + create* (Revisar + crear) donde se debe ejecutar y pasar la validación.
+> Si se produce un error en la validación, es posible que se deba a un error de la "entidad de servicio". Vuelva a la pestaña **Autenticación** y a **Revisar y crear**, donde se debe ejecutar y pasar la validación.

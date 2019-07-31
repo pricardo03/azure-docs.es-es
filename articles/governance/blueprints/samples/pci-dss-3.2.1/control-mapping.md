@@ -8,18 +8,18 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 38b1cc6249da98e11167416c8e18d06de1645679
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540946"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226027"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
 En el siguiente artículo se detalla cómo se asigna la muestra de plano técnico de Azure Blueprints PCI-DSS v3.2.1 a los controles de PCI-DSS v3.2.1. Para obtener más información sobre los controles, consulte [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Las siguientes asignaciones son para los controles de **PCI-DSS v3.2.1:2018**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la iniciativa de directiva integrada **[Versión preliminar] Auditar los controles PCI v3.2.1:2018 e implementar extensiones de VM específicas para admitir los requisitos de auditoría**.
+Las siguientes asignaciones son para los controles de **PCI-DSS v3.2.1:2018**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la iniciativa de directiva integrada **\[Versión preliminar\] Auditar los controles PCI v3.2.1:2018 e implementar extensiones de VM específicas para admitir los requisitos de auditoría**.
 
 ## <a name="132-and-134-boundary-protection"></a>Protección de límites de 1.3.2 y 1.3.4
 
@@ -98,12 +98,12 @@ Azure implementa el control de acceso basado en rol (RBAC) para permitirle admin
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- [Versión preliminar]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Versión preliminar]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Versión preliminar]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
 
 ## <a name="103-and-1054-audit-generation"></a>Generación de auditoría de 10.3 y 10.5.4
 

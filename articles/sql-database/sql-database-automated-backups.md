@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460674"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261194"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -54,7 +54,7 @@ Puede probar algunas de estas operaciones con los ejemplos siguientes:
 
 ## <a name="how-long-are-backups-kept"></a>Cuánto tiempo se conservan las copias de seguridad
 
-Cada instancia de SQL Database tiene un período de retención de copia de seguridad predeterminado de entre siete y 35 días que depende del modelo de compra y el nivel de servicio. Puede actualizar el período de retención de copia de seguridad de una base de datos en un servidor de SQL Database. Para más información, consulte [Cambio del período de retención de Azure Backup](#how-to-change-the-pitr-backup-retention-period).
+Todas las bases de datos de Azure SQL (únicas, agrupadas y de instancia administrada) tienen un período de retención de copias de seguridad predeterminado de **siete** días. Puede [cambiar el período de retención de copia de seguridad a 35 días máximo](#how-to-change-the-pitr-backup-retention-period).
 
 Si elimina una base de datos, SQL Database mantendrá las copias de seguridad de la misma manera que para una base de datos en línea. Por ejemplo, si elimina una base de datos básica que tiene un período de retención de siete días, una copia de seguridad con cuatro días de antigüedad se guarda durante tres días más.
 
@@ -62,23 +62,6 @@ Si tiene que conservar las copias de seguridad durante más tiempo que el perío
 
 > [!IMPORTANT]
 > Si elimina el servidor de Azure SQL que hospeda las bases de datos SQL, todos los grupos elásticos y las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado. Pero si ha configurado la retención a largo plazo, no se eliminarán las copias de seguridad de las bases de datos con LTR y estas bases de datos se pueden restaurar.
-
-### <a name="default-backup-retention-period"></a>Período de retención predeterminado de la copia de seguridad
-
-#### <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
-
-El período de retención predeterminado de una base de datos creada mediante el modelo de compra basado en DTU depende del nivel de servicio:
-
-- El nivel de servicio básico es **una** semana.
-- El nivel de servicio estándar es **cinco** semanas.
-- El nivel de servicio premium es **cinco** semanas.
-
-#### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
-
-Si va a usar el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md), el período de retención de copia de seguridad predeterminado es **siete** días (para bases de datos únicas, agrupadas y de instancia). Para todas las bases de datos de Azure SQL (únicas, agrupadas y de instancia), puede [cambiar el período de retención de las copias de seguridad a un máximo de 35 días](#how-to-change-the-pitr-backup-retention-period).
-
-> [!WARNING]
-> Si reduce el período de retención actual, todas las copias de seguridad existentes anteriores al período de retención nuevo dejan de estar disponibles. Si aumenta el período de retención actual, SQL Database mantendrá las copias de seguridad existentes hasta que se alcance el nuevo período de retención.
 
 ## <a name="how-often-do-backups-happen"></a>Con qué frecuencia se producen las copias de seguridad
 
@@ -109,7 +92,11 @@ Si la base de datos se cifra con TDE, las copias de seguridad se cifran de forma
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Garantía de integridad de la copia de seguridad de Microsoft
 
-El equipo de ingeniería de Azure SQL Database prueba permanentemente y de manera automática la restauración de las copias de seguridad automatizadas de las bases de datos del servicio. Tras la restauración, las bases de datos también reciben comprobaciones de integridad mediante DBCC CHECKDB. Los problemas encontrados durante la comprobación de integridad producen una alerta para el equipo de ingeniería. Para más información acerca de la integridad de los datos en Azure SQL Database, consulte [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integridad de datos en Azure SQL Database).
+De forma continuada, el equipo de ingeniería de Azure SQL Database prueba automáticamente la restauración de las copias de seguridad automatizadas de las bases de datos que se encuentran en los servidores lógicos y los grupos elásticos (esta función no está disponible en Instancia administrada). Tras la restauración a un momento dado, las bases de datos también reciben comprobaciones de integridad mediante DBCC CHECKDB.
+
+Instancia administrada realiza una copia de seguridad inicial automática con `CHECKSUM` de las bases de datos restauradas mediante el comando `RESTORE` nativo o el servicio de migración de datos una vez finalizada la migración.
+
+Los problemas encontrados durante la comprobación de integridad producen una alerta para el equipo de ingeniería. Para más información acerca de la integridad de los datos en Azure SQL Database, consulte [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integridad de datos en Azure SQL Database).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Cómo afectan las copias de seguridad automatizadas al cumplimiento
 
@@ -120,6 +107,9 @@ Al migrar la base de datos de un nivel de servicio basado en DTU con la retenci�
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Cómo cambiar el período de retención de las copias de seguridad de PITR
 
 Puede cambiar el período de retención predeterminado de copia de seguridad de PITR mediante Azure Portal, PowerShell o la API REST. Los valores admitidos son: 7, 14, 21, 28 o 35 días. En los ejemplos siguientes se muestra cómo cambiar la retención PITR a 28 días.
+
+> [!WARNING]
+> Si reduce el período de retención actual, todas las copias de seguridad existentes anteriores al período de retención nuevo dejan de estar disponibles. Si aumenta el período de retención actual, SQL Database mantendrá las copias de seguridad existentes hasta que se alcance el nuevo período de retención.
 
 > [!NOTE]
 > Estas API solo afectarán al período de retención PITR. Si ha configurado LTR para la base de datos, no se verá afectada. Para más información sobre cómo cambiar los períodos de retención de LTR, consulte [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).

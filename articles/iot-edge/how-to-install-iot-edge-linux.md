@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: bbab0d8d0947c18cf8e6c178d12fdbd7b335d2b6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 822efe2534d49c0995a672232107cc322e547989
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485895"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227506"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)
 
@@ -183,19 +183,23 @@ Abra el archivo de configuración.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Busque la sección de aprovisionamiento del archivo. Quite la marca de comentario del modo de aprovisionamiento **manual** y asegúrese de que el modo de aprovisionamiento de dps está marcado como comentario. Actualice el valor de **device_connection_string** con la cadena de conexión desde un dispositivo IoT Edge.
+Busque las configuraciones de aprovisionamiento del archivo y quite la marca de comentario de la sección **Manual provisioning configuration**. Actualice el valor de **device_connection_string** con la cadena de conexión desde un dispositivo IoT Edge. Asegúrese de que las demás secciones de aprovisionamiento estén comentadas.
 
    ```yaml
+   # Manual provisioning configuration
    provisioning:
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
+   # DPS TPM provisioning configuration
    # provisioning:
    #   source: "dps"
    #   global_endpoint: "https://global.azure-devices-provisioning.net"
    #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
-   ```
+   #   attestation:
+   #     method: "tpm"
+   #     registration_id: "{registration_id}"
+```
 
 Guarde y cierre el archivo.
 
@@ -209,7 +213,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opción 2: Aprovisionamiento automático
 
-Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo](how-to-auto-provision-simulated-device-linux.md). El aprovisionamiento automático solo funciona con dispositivos que tienen un chip de Módulo de plataforma segura (TPM). Por ejemplo, los dispositivos Raspberry Pi no incluyen TPM de forma predeterminada.
+Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo](how-to-auto-provision-simulated-device-linux.md). Hay una serie de mecanismos de atestación que IoT Edge admite al usar el aprovisionamiento automático, pero los requisitos de hardware también afectan a las elecciones. Por ejemplo, de forma predeterminada, los dispositivos Raspberry Pi no cuentan con un chip Módulo de plataforma segura (TPM).
 
 Abra el archivo de configuración.
 
@@ -217,18 +221,22 @@ Abra el archivo de configuración.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Busque la sección de aprovisionamiento del archivo. Quite la marca de comentario del modo de aprovisionamiento **dps** y marque como comentario la sección manual. Actualice los valores de **scope_id** y **registration_id** con los valores de IoT Hub Device Provisioning Service y el dispositivo IoT Edge con TPM.
+Busque las configuraciones de aprovisionamiento del archivo y quite la marca de comentario de la sección adecuada para el mecanismo de atestación. Cuando utilice atestación TPM, por ejemplo, actualice los valores de **scope_id** y **registration_id** con los valores de IoT Hub Device Provisioning Service y del dispositivo IoT Edge con TPM, respectivamente.
 
    ```yaml
+   # Manual provisioning configuration
    # provisioning:
    #   source: "manual"
    #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
+   # DPS TPM provisioning configuration
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
      scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
+     attestation:
+       method: "tpm"
+       registration_id: "{registration_id}"
    ```
 
 Guarde y cierre el archivo.

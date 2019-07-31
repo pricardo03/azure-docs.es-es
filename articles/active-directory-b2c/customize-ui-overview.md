@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511172"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227152"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Dependiendo de sus necesidades en lo que a estas experiencias se refiere, puede 
 - Si los clientes intentan editar su perfil antes de iniciar sesión, se les redirige a una página que usted mismo puede personalizar siguiendo los mismos pasos que se usan para personalizar la página de inicio de sesión de Azure AD.
 - Si está usando [directivas personalizadas](active-directory-b2c-overview-custom.md) para proporcionar en la aplicación las opciones de registro o inicio de sesión, de restablecimiento de contraseña o de edición de perfiles, use los [archivos de directiva para personalizar la interfaz de usuario](active-directory-b2c-ui-customization-custom.md).
 - Si necesita proporcionar contenido dinámico en función de la decisión de un cliente, use [directivas personalizadas que puedan cambiar el contenido de la página](active-directory-b2c-ui-customization-custom-dynamic.md) según el parámetro que se envíe en una cadena de consulta. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o el dispositivo móvil.
-- Puede habilitar el código del lado cliente de JavaScript en los [flujos de usuario](user-flow-javascript-overview.md) de Azure AD B2C o en las [directivas personalizadas](page-contract.md).
+- Puede habilitar el código del lado cliente de JavaScript en los [flujos de usuario](user-flow-javascript-overview.md) de Azure AD B2C o en las [directivas personalizadas](page-layout.md).
 
 Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/). En tiempo de ejecución, el contenido se carga desde una dirección URL especificada en un flujo de usuario o directiva. Puede especificar diferentes direcciones URL para distintas páginas. Cuando el contenido se carga desde la dirección URL se combina con un fragmento HTML insertado en Azure AD B2C y, a continuación, se muestra la página al cliente.
 
@@ -37,7 +37,7 @@ Cuando use sus propios archivos HTML y CSS para personalizar la interfaz de usua
 
 - Azure AD B2C combina contenido HTML en las páginas. No copie ni intente cambiar el contenido predeterminado que proporciona Azure AD B2C. Es preferible compilar su propio contenido de HTML desde cero y usar el contenido predeterminado como referencia.
 - JavaScript ya se puede incluir en el contenido personalizado.
-- Estas son las versiones de explorador admitidas: 
+- Estas son las versiones de explorador admitidas:
     - Internet Explorer 11 y 10 y Microsoft Edge
     - Compatibilidad limitada con Internet Explorer 9 y 8.
     - Google Chrome 42.0 y versiones posteriores
@@ -50,11 +50,11 @@ Para los flujos de usuario de la versión v2, puede elegir una plantilla predise
 
 En el menú de la izquierda, en **Personalizar**, seleccione **Diseños de página**. A continuación, seleccione **Plantilla (versión preliminar)** .
 
-![Elección de una plantilla de diseño de página](media/customize-ui-overview/template.png)
+![Lista desplegable de selección de plantilla en la página flujo de usuario de Azure Portal](media/customize-ui-overview/template.png)
 
 Seleccione una plantilla de la lista. Por ejemplo, la plantilla **Ocean Blue** aplica el siguiente diseño a las páginas de flujo de usuarios:
 
-![Plantilla Ocean Blue](media/customize-ui-overview/ocean-blue.png)
+![Ejemplo de la plantilla Ocean Blue que se representa en la página de inicio de sesión de suscripción](media/customize-ui-overview/ocean-blue.png)
 
 Cuando elige una plantilla, el diseño seleccionado se aplica a todas las páginas del flujo de usuarios y el identificador URI de cada página es visible en el campo **URI de página personalizado**.
 
@@ -85,13 +85,13 @@ Realice el siguiente procedimiento para personalizar la interfaz de usuario:
 - Hospedar el contenido en un punto de conexión HTTPS (donde se permite CORS). Tenga en cuenta que los métodos de solicitud GET y OPTIONS se deben habilitar al configurar CORS.
 - Use CSS para aplicar estilo a los elementos de la interfaz de usuario que inserta Azure AD B2C en la página. En el ejemplo siguiente se muestra un archivo CSS sencillo que también incluye la configuración de los elementos HTML insertados en el registro:
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -99,7 +99,7 @@ Realice el siguiente procedimiento para personalizar la interfaz de usuario:
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;

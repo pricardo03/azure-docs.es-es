@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604284"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875376"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -37,6 +37,7 @@ ms.locfileid: "65604284"
 
 ## <a name="can-i-use-application-insights-with-"></a>¿Se puede usar Application Insights con...?
 
+* [Aplicaciones web en un servidor IIS en una máquina virtual de Azure o conjunto de escalado de máquinas virtuales de Azure](azure-vm-vmss-apps.md)
 * [Aplicaciones web en un servidor de IIS: local o en una máquina virtual](asp-net.md)
 * [Aplicaciones web de Java](java-get-started.md)
 * [Aplicaciones de Node.js](nodejs.md)
@@ -104,7 +105,7 @@ De las aplicaciones web de servidor:
 * Solicitudes HTTP
 * [Dependencias](asp-net-dependencies.md). Llamadas a: instancias de SQL Database; llamadas HTTP a servicios externos; Azure Cosmos DB, tabla, almacenamiento de blobs y colas. 
 * [Excepciones](asp-net-exceptions.md) y seguimientos de pila.
-* [Contadores de rendimiento](performance-counters.md): si usa el [Monitor de estado](monitor-performance-live-website-now.md), la [supervisión de Azure](azure-web-apps.md) o el [escritor de collectd de Application Insights](java-collectd.md).
+* [Contadores de rendimiento](performance-counters.md): si usa el [Monitor de estado](monitor-performance-live-website-now.md), la [supervisión de Azure para App Services](azure-web-apps.md), la [supervisión de Azure para la máquina virtual o el conjunto de escalado de máquinas virtuales](azure-vm-vmss-apps.md) o el [escritor de collectd de Application Insights](java-collectd.md).
 * [Eventos y métricas personalizados](api-custom-events-metrics.md) que puede crear mediante código.
 * [Registros de seguimiento](asp-net-trace-logs.md) si configura el recopilador adecuado.
 

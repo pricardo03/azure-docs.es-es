@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16d11a707851cdbb3e315c9a6d2fe592a97eca9a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66168006"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839582"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -50,12 +50,12 @@ Puede copiar datos desde los siguientes almacenes de datos **hacia Azure Blob St
 >
 > La actividad de copia no elimina datos del origen una vez copiados los datos correctamente en el destino. Si necesita eliminar datos de origen tras una copia correcta, cree una [actividad personalizada](data-factory-use-custom-activities.md) para tal fin y úsela en la canalización. Para más información, consulte el [ejemplo de eliminación de un blob o una carpeta en GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 Puede crear una canalización con actividad de copia que mueva los datos desde Azure Blob Storage o hacia él mediante el uso de diferentes herramientas o API.
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Este artículo tiene un [tutorial](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) para crear una canalización para copiar datos entre ubicaciones de Azure Blob Storage. Para ver un tutorial sobre la creación de una canalización para copiar datos desde una cuenta de Azure Blob Storage en una base de datos de Azure SQL, consulte [Tutorial: crear una canalización con el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -466,7 +466,7 @@ Para más información sobre las propiedades admitidas por BlobSource y BlobSink
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>Ejemplos de JSON para copiar datos hacia y desde Blob Storage
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre Azure Blob Storage y Azure SQL Database. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
+En los siguientes ejemplos, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre Azure Blob Storage y Azure SQL Database. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 ### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>Ejemplo JSON: Copia de datos de Blob Storage en SQL Database
 El ejemplo siguiente muestra:

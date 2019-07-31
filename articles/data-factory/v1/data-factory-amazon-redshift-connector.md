@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335442"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836681"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -44,7 +44,7 @@ Puede crear una canalización con una actividad de copia para mover los datos de
 
 La manera más fácil de crear una canalización es usar el Asistente para copia de Azure Data Factory. Para un tutorial rápido sobre cómo crear una canalización con el Asistente para copia, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-También puede crear una canalización mediante Azure Portal, Visual Studio, Azure PowerShell u otras herramientas. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+También puede crear una canalización mediante Visual Studio, Azure PowerShell u otras herramientas. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 

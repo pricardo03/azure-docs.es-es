@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services. Implementación de Azure Active Directory Application Proxy | Microsoft Docs
+title: 'Azure Active Directory Domain Services: Implementación de Azure AD Application Proxy | Microsoft Docs'
 description: En este artículo se explica cómo usar el proxy de aplicación en dominios administrados de Azure Active Directory Domain Services.
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e9ccbd81a8efeb69ea073d89edd6579a6d59699a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473606"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234169"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementación del proxy de aplicación de Azure AD en dominios administrados de Azure Active Directory Domain Services.
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Con Azure AD Domain Services, ahora podrá trasladar aplicaciones heredadas que se ejecutan de forma local en los servicios de infraestructura de Azure. Después, podrá publicar estas aplicaciones mediante el proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a los usuarios de su organización.
@@ -86,7 +86,7 @@ Anteriormente, aprovisionó una máquina virtual Windows Server y la unió al do
     ![Mensaje del Solucionador de problemas que todo está correcto](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. Debería ver el conector recién instalado que aparece en la página del proxy de aplicación del directorio de Azure AD.
 
-    ![](./media/app-proxy/app-proxy-connector-page.png)
+    ![En Azure Portal, el conector instalado se muestra como disponible](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > Puede decidir instalar conectores en varios servidores para garantizar una alta disponibilidad durante la autenticación de las aplicaciones publicadas a través del proxy de aplicación de Azure AD. Siga los mismos pasos mencionados anteriormente para instalar el conector en otros servidores unidos al dominio administrado.

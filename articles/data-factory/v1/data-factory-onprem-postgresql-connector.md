@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462010"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839910"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Movimiento de datos de PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -50,7 +50,6 @@ Puede crear una canalización con una actividad de copia que mueva datos desde u
 
 - La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 - Puede usar las siguientes herramientas para crear una canalización:
-  - Portal de Azure
   - Visual Studio
   - Azure PowerShell
   - Plantilla del Administrador de recursos de Azure
@@ -79,8 +78,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
+| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -111,7 +110,7 @@ Cuando el origen es de tipo **RelationalSource** (lo que incluye PostgreSQL), es
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Ejemplo JSON: Copia de datos de PostgreSQL a un blob de Azure
-Este ejemplo proporciona definiciones de JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos PostgreSQL a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
+En este ejemplo se proporcionan definiciones de JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos PostgreSQL a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 > [!IMPORTANT]
 > Este ejemplo proporciona fragmentos JSON. No incluye instrucciones paso a paso para crear la factoría de datos. Las instrucciones paso a paso se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .

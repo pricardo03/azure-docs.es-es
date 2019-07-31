@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 998f8080509e7ba18ea1a759dff2ed8b8742c910
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477691"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253100"
 ---
 # <a name="mapping-data-flow-parameters"></a>Parámetros de asignación de Data Flow
 
@@ -50,7 +50,7 @@ Una vez que haya creado el flujo de datos con parámetros, podrá ejecutarlo des
 
 ![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-assign.png "Setting a Data Flow parameter")
 
-Si el tipo de datos del parámetro es una cadena, al hacer clic en el cuadro de texto para establecer los valores del parámetro, puede especificar una expresión de canalización o de flujo de datos. Si opta por una expresión de canalización, aparecerá el panel de expresiones de canalización. Asegúrese de incluir funciones de canalización en la sintaxis de interpolación de cadenas mediante el uso de "@{<expression>}", por ejemplo:
+Si el tipo de datos del parámetro es una cadena, al hacer clic en el cuadro de texto para establecer los valores del parámetro, puede especificar una expresión de canalización o de flujo de datos. Si opta por una expresión de canalización, aparecerá el panel de expresiones de canalización. Asegúrese de incluir funciones de canalización en la sintaxis de interpolación de cadenas mediante `'@{<expression>}'`, por ejemplo:
 
 ```'@{pipeline().RunId}'```
 

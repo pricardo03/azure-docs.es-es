@@ -64,7 +64,7 @@ Actualizaremos el parámetro `WebFrontEnd_cpu` para actualizar los recursos de C
 
 2. Abra el archivo **service.yaml** del proyecto **WebFrontEnd** en **WebFrontEnd** > **Service Resources** (Recursos de servicios).
 
-    Tenga en cuenta que en la sección `resources:`, `cpu:` está establecido en `"[parameters('WebFrontEnd_cpu')]"`. Si el proyecto se va a compilar para la nube, el valor de `'WebFrontEnd_cpu` se tomará de **Entornos** > **Nube** >  archivo **parameters.yaml**, y será `1.5`. Si el proyecto se va a compilar para ejecutarse localmente, el valor se tomará de **Entornos >  **** Local > **archivo**parameters.yaml **, y será "0,5".
+    Tenga en cuenta que en la sección `resources:`, `cpu:` está establecido en `"[parameters('WebFrontEnd_cpu')]"`. Si el proyecto se va a compilar para la nube, el valor de `'WebFrontEnd_cpu` se tomará de **Entornos** > **Nube** >  archivo **parameters.yaml**, y será `1.5`. Si el proyecto se compila para ejecutarse localmente, se tendrá el valor de la **entornos** > **Local** > **parameters.yaml** archivo, y será "0,5".
 
 > [!Tip]
 > De forma predeterminada, el archivo de parámetros que es del mismo nivel que el archivo profile.yaml se usará para proporcionar los valores para ese archivo profile.yaml.

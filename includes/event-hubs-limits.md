@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66736014"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812504"
 ---
 En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -31,6 +31,7 @@ En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azu
 | Unidades de rendimiento máximo |Espacio de nombres |Si se supera el límite de unidades de procesamiento, los datos se limitan y se genera un excepción [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar un número mayor de unidades de procesamiento para el nivel Estándar rellene una [solicitud de soporte técnico](/azure/azure-supportability/how-to-create-azure-support-request). Las [unidades de rendimiento adicionales](../articles/event-hubs/event-hubs-auto-inflate.md) se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 |
 | Número de reglas de autorización por espacio de nombres |Espacio de nombres|Las solicitudes posteriores de creación de reglas de autorización se rechazan.|12 |
 | Número de llamadas al método GetRuntimeInformation | Entidad | - | 50 por segundo | 
+| Número de reglas de red virtual (VNet) y de configuración IP | Entidad | - | 128 | 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Cuotas y límites de Event Hubs dedicado
 La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija con un uso mínimo de 4 horas. El nivel Dedicado ofrece todas las características del plan Estándar, pero con una capacidad de escalado de nivel empresarial para aquellos clientes que tienen cargas de trabajo muy exigentes. 

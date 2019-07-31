@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: fa5fd3ef8b144826468f56ea2a14be592cef5dc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541317"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234372"
 ---
 # <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
 
@@ -88,6 +88,52 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
 1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+
+## <a name="content-with-multipartform-data-type"></a>Contenido con el tipo multipart/form-data
+
+Para controlar el contenido que tiene el tipo `multipart/form-data` en las solicitudes HTTP, puede agregar un objeto JSON que incluya los atributos `$content-type` y `$multipart` al cuerpo de la solicitud HTTP con este formato.
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+Por ejemplo, supongamos que tiene una aplicación lógica que envía una solicitud HTTP POST para un archivo de Excel a un sitio web mediante la API de ese sitio, que admite el tipo `multipart/form-data`. Este es el aspecto de esta acción:
+
+![Datos de formulario de varias partes](./media/connectors-native-http/http-action-multipart.png)
+
+Este es el mismo ejemplo que muestra la definición de JSON de la acción HTTP en la definición de flujo de trabajo subyacente:
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido de PowerShell: Creación, carga y consulta de índices mediante las API de REST de Azure Search - Azure Search'
 description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante Invoke-RestMethod de PowerShell y la API de REST de Azure Search.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6bff2c84a4bfd81b94054b85744c17a1cd217756
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485484"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847066"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Search en PowerShell con las API REST
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ ms.locfileid: "67485484"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Este artículo le guiará a través del proceso para crear, cargar y consultar un índice de Azure Search mediante PowerShell y las [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). En el artículo se explica cómo se ejecutan los comandos de PowerShell de forma interactiva. Como alternativa, podría ejecutar un script finalizado. Para descargar una copia, vaya al [repositorio azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart).
+Este artículo le guiará a través del proceso para crear, cargar y consultar un índice de Azure Search mediante PowerShell y las [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). En el artículo se explica cómo se ejecutan los comandos de PowerShell de forma interactiva. También puede [descargar y ejecutar un script de PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que realice las mismas operaciones.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar y luego [regístrese en Azure Search](search-create-service-portal.md).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este inicio rápido se usan los siguientes servicios y herramientas. 
+Para este inicio rápido, se requieren los siguientes servicios y herramientas. 
 
 + [PowerShell 5.1 o una versión posterior](https://github.com/PowerShell/PowerShell) con [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para pasos secuenciales e interactivos.
 
@@ -64,7 +64,7 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 2. Cree un objeto **$url** que especifique la colección de índices del servicio. Reemplace el nombre del servicio (YOUR-SEARCH-SERVICE-NAME) por un servicio de búsqueda válido.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Ejecute **Invoke-RestMethod** para enviar una solicitud GET al servicio y comprobar la conexión. Agregue **ConvertTo-Json** para poder ver las respuestas que se envían desde el servicio.
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Limpieza 
 
-Debería eliminar el índice si ya no lo necesita. Un servicio gratuito está limitado a tres índices. Es posible que le interese eliminar los índices que no usa activamente para poder seguir paso a paso otros tutoriales.
+Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

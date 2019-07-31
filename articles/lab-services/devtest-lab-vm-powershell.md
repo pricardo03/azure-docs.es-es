@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a6938bd541e316dbe9f333c670c382faab6ad21
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622446"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854258"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Creación de una máquina virtual con DevTest Labs mediante Azure PowerShell
 Este artículo muestra cómo crear una máquina virtual en Azure DevTest Labs mediante Azure PowerShell. Puede usar scripts de PowerShell para automatizar la creación de máquinas virtuales en un laboratorio en Azure DevTest Labs. 
@@ -82,6 +82,7 @@ try {
           "labSubnetName"           = $labSubnetName;
           "notes"                   = "Windows Server 2016 Datacenter";
           "osType"                  = "windows"
+          "expirationDate"          = "2019-12-01"
           "galleryImageReference"   = @{
              "offer"     = "WindowsServer";
              "publisher" = "MicrosoftWindowsServer";
@@ -188,6 +189,39 @@ El siguiente procedimiento proporciona pasos para obtener las propiedades de una
 5. Seleccione **Run** (Ejecutar).
 6. Verá las **propiedades de la imagen** según la máquina virtual creada. 
 
+## <a name="set-expiration-date"></a>Establecimiento de la fecha de expiración
+En escenarios como aprendizaje, demostraciones y evaluaciones, es posible que desee crear máquinas virtuales y eliminarlas automáticamente después de una duración fija para no incurrir en costos innecesarios. Mediante PowerShell, puede establecer una fecha de expiración para una máquina virtual al crearla, tal como se muestra en la sección [Script de PowerShell](#powershell-script) de ejemplo.
+
+Este es un script de PowerShell de ejemplo que establece la fecha de expiración de todas las máquinas virtuales existentes en un laboratorio:
+
+```powershell
+# Values to change
+$subscriptionId = '<Enter the subscription Id that contains lab>'
+$labResourceGroup = '<Enter the lab resource group>'
+$labName = '<Enter the lab name>'
+$VmName = '<Enter the VmName>'
+$expirationDate = '<Enter the expiration date e.g. 2019-12-16>'
+
+# Log into your Azure account
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+$VmResourceId = "subscriptions/$subscriptionId/resourcegroups/$labResourceGroup/providers/microsoft.devtestlab/labs/$labName/virtualmachines/$VmName"
+
+$vm = Get-AzureRmResource -ResourceId $VmResourceId -ExpandProperties
+
+# Get all the Vm properties
+$VmProperties = $vm.Properties
+
+# Set the expirationDate property
+If ($VmProperties.expirationDate -eq $null) {
+    $VmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $expirationDate
+} Else {
+    $VmProperties.expirationDate = $expirationDate
+}
+
+Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
+```
 
 
 ## <a name="next-steps"></a>Pasos siguientes

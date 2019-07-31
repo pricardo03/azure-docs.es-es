@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274181"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260367"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
 
@@ -1091,7 +1091,7 @@ Para el atributo `includeTrigger`, puede especificar valores `true` o `false`.
 
 *Ejemplo 1*
 
-Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y devuelve el texto "Hola mundo de <nombre_de_la_aplicación_lógica>" como el resultado. En este ejemplo, el código hace referencia al nombre del flujo de trabajo mediante el acceso a la propiedad `workflowContext.workflow.name` a través del objeto `workflowContext` de solo lectura. Para más información sobre el uso del objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y devuelve el texto "Hola mundo de \<nombre_de_la_aplicación_lógica>" como resultado. En este ejemplo, el código hace referencia al nombre del flujo de trabajo mediante el acceso a la propiedad `workflowContext.workflow.name` a través del objeto `workflowContext` de solo lectura. Para más información sobre el uso del objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1634,7 +1634,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <CSV *or* HTML>| Cadena | El formato de la tabla que desea crear | 
+| \<CSV *o* HTML>| Cadena | El formato de la tabla que desea crear | 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
 |||| 
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de068563e50da4510343572fd641aadd93157073
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755114"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868640"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -54,11 +54,17 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
 | [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de Avere vFXT. |
 | [Operador de Avere](#avere-operator) | Lo usa el clúster de Avere vFXT para su administración. |
+| [Propietario de los datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-owner-preview) | Concede acceso total a los recursos de Azure Event Hubs. |
+| [Receptor de datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-receiver-preview) | Concede acceso de recepción a los recursos de Azure Event Hubs. |
+| [Emisor de datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-sender-preview) | Concede acceso de emisión a los recursos de Azure Event Hubs. |
 | [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. |
 | [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. |
 | [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. |
+| [Propietario de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-owner-preview) | Concede acceso total a los recursos de Azure Service Bus. |
+| [Receptor de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-receiver-preview) | Concede acceso de recepción a los recursos de Azure Service Bus. |
+| [Emisor de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-sender-preview) | Concede acceso de emisión a los recursos de Azure Service Bus. |
 | [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. |
-| [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes y conceder acceso a otros usuarios |
+| [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes ni conceder acceso a otros usuarios |
 | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
 | [Lector de copias de seguridad](#backup-reader) | Puede ver servicios de copia de seguridad, pero no puede realizar cambios. |
 | [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. |
@@ -88,7 +94,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
-| [Propietario de los datos de Event Hubs](#event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. | 
 | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
 | [Lector de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. |
 | [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Permite leer y modificar las configuraciones de clúster de HDInsight. |
@@ -98,8 +103,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Creador de laboratorio](#lab-creator) | Le permite crear, administrar y eliminar los laboratorios administrados en sus cuentas de Azure Lab. |
 | [Colaborador de Log Analytics](#log-analytics-contributor) | Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. |
 | [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. |
-| [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no acceder a ellas. |
-| [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas. |
+| [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas. |
+| [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite editarlas ni actualizarlas. |
 | [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. |
 | [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. |
 | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
@@ -119,7 +124,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. |
 | [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. |
 | [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
-| [Propietario de los datos de Service Bus](#service-bus-data-owner) | Concede acceso total a los recursos de Azure Service Bus. |
 | [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. |
 | [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. |
 | [Lector de Site Recovery](#site-recovery-reader) | Permite visualizar el estado de Site Recovery, pero no realizar otras operaciones de administración. |
@@ -130,15 +134,15 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Colaborador de Instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere configuración de red, pero no puede conceder acceso a otros usuarios. |
 | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. |
 | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
-| [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite administrar cuentas de almacenamiento, pero no acceder a ellas. |
-| [Rol de servicio de operador de claves de cuentas de almacenamiento](#storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento pueden enumerar y regenerar claves de cuentas de almacenamiento. |
-| [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y a los datos de Azure Storage |
-| [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Permite acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. |
-| [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Permite el acceso de lectura a los contenedores de blobs y a los datos de Azure Storage. |
-| [Colaborador de datos de la cola de Storage](#storage-queue-data-contributor) | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage. |
-| [Procesador de mensajes de datos de la cola de Storage](#storage-queue-data-message-processor) | Permite el acceso para ojear, recibir y eliminar los mensajes de la cola de Azure Storage. |
-| [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Permite el envío de mensajes de la cola de Azure Storage. |
-| [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage. |
+| [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite la administración de cuentas de almacenamiento. Proporciona acceso a la clave de cuenta, que puede usarse para tener acceso a datos a través de la autorización de clave compartida. |
+| [Rol de servicio de operador de claves de cuentas de almacenamiento](#storage-account-key-operator-service-role) | Permite enumerar y regenerar claves de acceso de la cuenta de almacenamiento. |
+| [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Proporciona acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Lee y enumera blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Colaborador de datos de la cola de Storage](#storage-queue-data-contributor) | Lee, escribe y elimina los mensajes de la cola y a la cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Procesador de mensajes de datos de la cola de Storage](#storage-queue-data-message-processor) | Consulta, recupera y elimina un mensaje de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Agrega mensaje a una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+| [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 | [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. |
 | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
 | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |
@@ -548,6 +552,51 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Propietario de los datos de Azure Event Hubs (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso total a los recursos de Azure Event Hubs. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Acciones** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Receptor de datos de Azure Event Hubs (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso de recepción a los recursos de Azure Event Hubs. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Acciones** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Emisor de datos de Azure Event Hubs (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso de emisión a los recursos de Azure Event Hubs. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Acciones** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rol de administrador de clúster de Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Propietario de datos de Azure Service Bus (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso total a los recursos de Azure Service Bus. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Acciones** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Receptor de datos de Azure Service Bus (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso de recepción a los recursos de Azure Service Bus. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Acciones** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Emisor de datos de Azure Service Bus (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Concede acceso de emisión a los recursos de Azure Service Bus. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Acciones** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Propietario del registro de Azure Stack
 > [!div class="mx-tableFixed"]
 > | | |
@@ -614,7 +712,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes y conceder acceso a otros usuarios |
+> | **Descripción** | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes ni conceder acceso a otros usuarios |
 > | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -625,7 +723,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualiza la lista de contenedores |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Crear y administrar trabajos de copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporta trabajos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Crear y administrar metadatos relacionados con la administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Crear y administrar resultados de operaciones de administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Crear y administrar directivas de copia de seguridad |
@@ -691,7 +788,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualiza la lista de contenedores |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Crear y administrar trabajos de copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporta trabajos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Crear y administrar resultados de operaciones de administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtiene los resultados de la operación de directiva. |
@@ -758,7 +854,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Devuelve el resultado de la operación de trabajo. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Devuelve todos los objetos de trabajo |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporta trabajos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Devuelve el resultado de la operación de Backup para el almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtiene los resultados de la operación de directiva. |
@@ -1175,6 +1270,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Advisor/configurations/read | Obtener configuraciones |
 > | Microsoft.Advisor/recommendations/read | Lee las recomendaciones |
+> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1197,6 +1293,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Advisor/configurations/read | Obtener configuraciones |
 > | Microsoft.Advisor/recommendations/read | Lee las recomendaciones |
+> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1409,22 +1506,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="event-hubs-data-owner"></a>Propietario de los datos de Event Hubs
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descripción** | Concede acceso total a los recursos de Azure Event Hubs. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **Acciones** |  |
-> | Microsoft.EventHubs/* | Permite el acceso de administración total al espacio de nombres de Event Hubs. |
-> | **NotActions** |  |
-> | *Ninguna* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Permite el acceso total a los datos del espacio de nombres de Event Hubs. |
-> | **NotDataActions** |  |
-> | *Ninguna* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1620,7 +1701,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite administrar aplicaciones lógicas, pero no acceder a ellas. |
+> | **Descripción** | Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -1654,7 +1735,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite leer, habilitar y deshabilitar aplicaciones lógicas. |
+> | **Descripción** | Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite editarlas ni actualizarlas. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -1721,9 +1802,9 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Descripción** | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Acciones** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Obtiene la identidad asignada a un usuario existente. |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Crea una nueva identidad asignada a un usuario o actualiza las etiquetas asociadas a una identidad asignada a un usuario existente. |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina la identidad asignada a un usuario existente. |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
@@ -1822,6 +1903,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2073,22 +2155,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | *Ninguna* |  |
 > | **DataActions** |  |
 > | *Ninguna* |  |
-> | **NotDataActions** |  |
-> | *Ninguna* |  |
-
-## <a name="service-bus-data-owner"></a>Propietario de los datos de Service Bus
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descripción** | Concede acceso total a los recursos de Azure Service Bus. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **Acciones** |  |
-> | Microsoft.ServiceBus/* | Permite el acceso de administración total al espacio de nombres de Service Bus. |
-> | **NotActions** |  |
-> | *Ninguna* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Permite el acceso total a los datos del espacio de nombres de Service Bus. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -2494,7 +2560,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite la administración de cuentas de almacenamiento. No proporciona acceso a los datos de la cuenta de almacenamiento. |
+> | **Descripción** | Permite la administración de cuentas de almacenamiento. Proporciona acceso a la clave de cuenta, que puede usarse para tener acceso a datos a través de la autorización de clave compartida. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer toda la autorización |
@@ -2601,7 +2667,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Consulta, recupera y elimina mensajes de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
+> | **Descripción** | Consulta, recupera y elimina un mensaje de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Acciones** |  |
 > | *Ninguna* |  |

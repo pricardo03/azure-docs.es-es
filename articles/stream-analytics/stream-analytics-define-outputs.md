@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 854fd5ca2bb6c27b7f8815bf85e19c6cf147e475
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443641"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278056"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
 En este artículo se describen los tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos.
 
-Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming (si las necesita); para ello, proporcione varias cláusulas INTO en la consulta.
+Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming (si las necesita); para ello, proporcione varias cláusulas INTO en la consulta.
 
 Para crear, editar y probar las salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), la [API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), la [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) y [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -68,7 +68,9 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 > [!NOTE]
 > La oferta de Azure SQL Database es compatible con una salida de trabajo de Stream Analytics, pero aún no es compatible una máquina virtual de Azure que ejecuta SQL Server con una base de datos conectada o en una instancia administrada de SQL de Azure. Esto está sujeto a cambios en versiones futuras.
 
-## <a name="blob-storage"></a>Almacenamiento de blobs
+## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob Storage y Azure Data Lake Gen2
+
+La salida a Azure Data Lake Gen2 se ofrece como una característica en versión preliminar pública.
 
 Azure Blob Storage ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción a Blob Storage y su uso, consulte [Carga, descarga y enumeración de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -83,7 +85,9 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 | Patrón de la ruta de acceso | Opcional. Patrón de la ruta de acceso al archivo que se usa para escribir los blobs dentro del contenedor especificado. <br /><br /> En el patrón de la ruta de acceso, puede optar por usar una o más instancias de las variables de fecha y hora para especificar la frecuencia con la que se escriben los blobs: <br /> {date}, {time} <br /><br />Puede usar la creación de particiones de blobs personalizada para especificar un nombre {field} personalizado de los datos de eventos para crear particiones de los blobs. El nombre del campo es alfanumérico y puede incluir espacios, guiones y caracteres de subrayado. Entre las restricciones en los campos personalizados se incluyen las siguientes: <ul><li>Los nombres de campo no distinguen entre mayúsculas y minúsculas. Por ejemplo, el servicio no puede diferenciar entre la columna "ID" y la columna "id".</li><li>No se permiten los campos anidados. En su lugar, utilice un alias en la consulta del trabajo para "aplanar" el campo.</li><li>No pueden usarse expresiones como nombre de campo.</li></ul> <br />Esta característica también permite usar configuraciones del especificador de un formato de fecha y hora personalizado en la ruta de acceso. Los formatos de fecha y hora personalizados se deben especificar de uno en uno, delimitado por la palabra clave {datetime:\<especificador >}. \<especificador> permite el uso de aaaa, MM, M, dd, d, HH, H, mm, m, ss o s. La palabra clave {datetime:\<especificador >} se puede utilizar varias veces en la ruta de acceso para formar configuraciones de fecha y hora personalizadas. <br /><br />Ejemplos: <ul><li>Ejemplo 1: cluster1/logs/{date}/{time}</li><li>Ejemplo 2: cluster1/logs/{date}</li><li>Ejemplo 3: cluster1/{client_id}/{date}/{time}</li><li>Ejemplo 4: cluster1/{datetime:ss}/{myField}, donde la consulta es: SELECT data.myField AS myField FROM Input;</li><li>Ejemplo 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />La marca de tiempo de la estructura de carpetas que creó usa la zona horaria UTC y no la hora local.<br /><br />La nomenclatura de los archivos usa la siguiente convención: <br /><br />{Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension<br /><br />Archivos de salida de ejemplo:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Para obtener más información acerca de esta característica, consulte [Particionamiento de la salida de blobs personalizada en Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Formato de fecha | Opcional. Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH. |
-| Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
+| Formato de serialización de eventos | Formato de serialización para los datos de salida. JSON, CSV, Avro y Parquet son compatibles. |
+|Número mínimo de filas (solo Parquet)|Número mínimo de filas por lote. En el caso de Parquet, cada lote creará un archivo. El valor predeterminado actual es 2000 filas y el máximo permitido es 10 000 filas.|
+|Tiempo máximo (solo Parquet)|Tiempo de espera máximo por lote. Después de este tiempo, el lote se escribirá en la salida aunque no se cumpla el requisito de filas mínimas. El valor predeterminado actual es 1 minuto y el máximo permitido es 2 horas. Si la salida del blob tiene una frecuencia de patrón de ruta de acceso, el tiempo de espera no puede ser mayor que el intervalo de tiempo de la partición.|
 | Encoding    | Si usa el formato CSV o JSON, debe especificar una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
 | Delimitador   | Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato      | Solo se aplica para la serialización de JSON. La opción **Separado por líneas** especifica que en el formato de la salida cada objeto JSON está separado por una línea nueva. La opción **Matriz** especifica que el formato de la salida es una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado por líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |
@@ -149,7 +153,7 @@ Power BI utiliza la directiva de retención primero en entrar, primero en salir 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Conversión de un tipo de datos de Stream Analytics a Power BI
 Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de ejecución si cambia el esquema de salida. Se realiza un seguimiento de los cambios de nombre de columna, los cambios de tipo de columna y la adición o eliminación de columnas.
 
-Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a [tipos de Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) de Power BI si no existen una tabla y un conjunto de datos de Power BI.
+Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) a [tipos de Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) de Power BI si no existen una tabla y un conjunto de datos de Power BI.
 
 De Stream Analytics | A Power BI
 -----|-----

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531680"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302085"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
@@ -79,7 +79,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
    ![Especificar los detalles de "Retraso hasta"](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Agregue todas las acciones que desee ejecutar mediante la selección de [~ más de 200 conectores](../connectors/apis-list.md). 
+1. Agregue todas las acciones que desee ejecutar mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). 
 
    Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus: 
 
@@ -141,7 +141,7 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
    Para más información acerca de las opciones de programación avanzadas, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 
-1. Agregue todas las acciones que desee mediante la selección de [Más de 200 conectores](../connectors/apis-list.md). En el desencadenador, elija **Next step** (Paso siguiente). Busque y seleccione las acciones que desea.
+1. Agregue otras acciones que desee mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). En el desencadenador, elija **Next step** (Paso siguiente). Busque y seleccione las acciones que desea.
 
    Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus: 
 

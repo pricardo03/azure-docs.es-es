@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567357"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839543"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Storage Gen1 mediante Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -49,12 +49,12 @@ El conector de Data Lake Store admite estos tipos de autenticación:
 
 Se recomienda que use la autenticación de la entidad de servicio, en especial para una copia de datos programada. Con la autenticación se credenciales de usuario puede darse la situación de que expiren los tokens. Para información sobre los detalles de configuración, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 Puede crear una canalización con actividad de copia que mueva los datos hacia Azure Data Lake Store y desde este servicio mediante el uso de diferentes herramientas o API.
 
 La manera más fácil de crear una canalización es usar el **Asistente para copia**. Para ver un tutorial sobre la creación de una canalización mediante el Asistente para copia, consulte [Tutorial: crear una canalización con el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -208,7 +208,7 @@ Para más información sobre las clases de Data Factory que se usan en el códig
 
 2. Asegúrese de que se concede al menos el rol de **lector** al usuario o a la entidad de servicio en la cuenta de Data Lake. Aquí se muestra cómo hacerlo:
 
-    1. Vaya al Azure Portal -> cuenta de Data Lake Store.
+    1. Vaya a Azure Portal -> su cuenta de Data Lake Store.
     2. Haga clic en **Control de acceso (IAM)** en la hoja de Data Lake Store.
     3. Haga clic en **Agregar asignación de roles**.
     4. Establezca **Rol** en **Lector** y seleccione el usuario o la entidad de servicio que usará a modo de copia para conceder acceso.
@@ -307,7 +307,7 @@ En esta sección se describe el comportamiento resultante de la operación de co
 Para más información, consulte el artículo [Formatos de compresión de archivos admitidos por Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Ejemplos de JSON para copiar datos hacia y desde Data Lake Store
-En los ejemplos siguientes se proporcionan definiciones de JSON de ejemplo. Puede usar estas definiciones de ejemplo para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos entre Azure Data Lake Store y Azure Blob Storage. En cambio, los datos pueden copiarse _directamente_ desde cualquiera de los orígenes a cualquiera de los receptores admitidos. Para más información, consulte la sección "Almacenes de datos y formatos que se admiten" del artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
+En los ejemplos siguientes se proporcionan definiciones de JSON de ejemplo. Puede usar estas definiciones de ejemplo para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos entre Azure Data Lake Store y Azure Blob Storage. En cambio, los datos pueden copiarse _directamente_ desde cualquiera de los orígenes a cualquiera de los receptores admitidos. Para más información, consulte la sección "Almacenes de datos y formatos que se admiten" del artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Ejemplo: copia de datos desde Azure Blob Storage hacia Azure Data Lake Store
 El código de ejemplo de esta sección muestra:

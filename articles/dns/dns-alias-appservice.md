@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 11/3/2018
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d20ef750aa4556a73852982631423d3d08271f5
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790749"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854107"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
@@ -43,7 +43,7 @@ Cree un grupo de recursos que contenga todos los recursos usados en este artícu
 Cree dos planes web de App Service en el grupo de recursos, con la siguiente tabla para consultar la información de configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOMBRE  |Sistema operativo  |Ubicación  |Nivel de precios  |
+|NOMBRE  |Sistema operativo  |Location  |Nivel de precios  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Este de EE. UU|D1-Shared para desarrollo/pruebas|
 |ASP-02     |Windows|Centro de EE. UU.|D1-Shared para desarrollo/pruebas|
@@ -87,7 +87,7 @@ Ahora puede crear los puntos de conexión de las dos aplicaciones web.
 3. Haga clic en **Agregar**.
 4. Use la tabla siguiente para configurar los puntos de conexión:
 
-   |Type  |NOMBRE  |Destino  |Ubicación  |Configuración de encabezado personalizado|
+   |type  |NOMBRE  |Destino  |Location  |Configuración de encabezado personalizado|
    |---------|---------|---------|---------|---------|
    |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
    |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|host:\<la dirección URL que anotó para App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**
@@ -104,7 +104,7 @@ Cuando la zona DNS esté lista, puede agregar un registro de alias para el vért
 2. Haga clic en **Conjunto de registros**.
 3. Agregue el conjunto de registros con la siguiente tabla:
 
-   |NOMBRE  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
+   |NOMBRE  |type  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
    |---------|---------|---------|---------|-----|
    |@     |Una|Sí|Recurso de Azure|Traffic Manager: su perfil|
 
@@ -144,3 +144,5 @@ Para más información sobre los registros de alias, consulte los artículos sig
 - [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md)
 - [Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager](tutorial-alias-tm.md)
 - [Preguntas más frecuentes sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+
+Para información sobre cómo migrar un nombre de DNS activo, consulte [Migración de un nombre de DNS activo a Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

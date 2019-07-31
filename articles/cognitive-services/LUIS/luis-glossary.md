@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523494"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302522"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -96,11 +96,11 @@ Las [entidades](luis-concept-entity-types.md) son palabras importantes en las [e
 
 En las [pruebas por lotes](luis-interactive-test.md#batch-testing), una medida de la precisión de la prueba.
 
-## <a name="false-negative"></a>Falso negativo (TN)
+## <a name="false-negative"></a>Falso negativo (FN)
 
 En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la ausencia de la intención o entidad de destino.
 
-## <a name="false-positive"></a>Falso positivo (TP)
+## <a name="false-positive"></a>Falso positivo (FP)
 
 En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la existencia de la intención o entidad de destino.
 

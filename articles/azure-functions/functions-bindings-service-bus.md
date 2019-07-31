@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480230"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254732"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -295,7 +295,7 @@ En C# y el script de C#, puede usar los tipos de parámetros siguientes para el 
 * `string`: si el mensaje es texto.
 * `byte[]`: útil para datos binarios.
 * Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
-* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Estos parámetros son para la versión de Azure Functions 1.x; para 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
 

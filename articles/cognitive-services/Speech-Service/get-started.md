@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: aaae84fcb7df2abfe7e78adb64c22fb19fe45f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606730"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226419"
 ---
 # <a name="try-speech-services-for-free"></a>Prueba gratuita de los servicios de Voz
 
@@ -89,7 +89,7 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
 
    * Un nombre para el recurso nuevo. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
    * Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
-   * Elija la región donde se va a usar el recurso. En la actualidad, los servicios de Voz están disponibles en las regiones de Asia Oriental, Europa del Norte y Oeste de EE. UU.
+   * Elija la [región](regions.md) donde se va a usar el recurso.
    * Elija un plan de tarifa de pago o gratuito. Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
    * Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
    * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.

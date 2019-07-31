@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1baf4af41fd5dcb6723b6ee2827ae91b43b072d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780960"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807720"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 
@@ -57,27 +57,21 @@ Para cambiar las opciones de firma de certificados SAML y el algoritmo de firma 
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Aparecerá una lista de las aplicaciones empresariales de su cuenta.
 1. Seleccione una aplicación. Aparecerá una página de información general de la aplicación.
 
-   ![Página de información general de la aplicación](./media/certificate-signing-options/application-overview-page.png)
+   ![Ejemplo: Página de información general de la aplicación](./media/certificate-signing-options/application-overview-page.png)
 
 Después, cambie las opciones de firma de certificados en el token SAML de esa aplicación:
 
 1. En el panel izquierdo de la página de información general de la aplicación, seleccione **Inicio de sesión único**.
+1. Si se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , vaya al paso 5.
+1. Si no aparece la página **Seleccione un método de inicio de sesión único**, seleccione **Cambiar los modos de inicio de sesión único** para que se muestre.
+1. En la página **Seleccione un método de inicio de sesión único**, haga clic en **SAML**, si está disponible. (Si **SAML** no está disponible, la aplicación no es compatible con SAML, por lo que puede omitir el resto de este procedimiento y el artículo).
+1. En la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , busque el encabezado **Certificado de firma de SAML** y seleccione el icono **Editar** (con forma de lápiz). Aparecerá la página **Certificado de firma de SAML**.
 
-2. Si se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , vaya al paso 5.
+   ![Ejemplo: Página Certificado de firma de SAML](./media/certificate-signing-options/saml-signing-page.png)
 
-3. Si no aparece la página **Seleccione un método de inicio de sesión único**, seleccione **Cambiar los modos de inicio de sesión único** para que se muestre.
-
-4. En la página **Seleccione un método de inicio de sesión único**, haga clic en **SAML**, si está disponible. (Si **SAML** no está disponible, la aplicación no es compatible con SAML, por lo que puede omitir el resto de este procedimiento y el artículo).
-
-5. En la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , busque el encabezado **Certificado de firma de SAML** y seleccione el icono **Editar** (con forma de lápiz). Aparecerá la página **Certificado de firma de SAML**.
-
-   ![Página de firma de SAML](./media/certificate-signing-options/saml-signing-page.png)
-
-6. En la lista desplegable **Opción de firma**, seleccione **Firmar respuesta SAML**, **Firmar aserción SAML** o **Firmar respuesta y aserción SAML**. Las descripciones de estas opciones aparecen en la sección [Opciones de firma de certificado](#certificate-signing-options), anteriormente en este artículo.
-
-7. En la lista desplegable **Algoritmo de firma**, elija **SHA-1** o **SHA-256**. Las descripciones de estas opciones aparecen en la sección [Algoritmos de firma de certificado](#certificate-signing-algorithms), anteriormente en este artículo.
-
-8. Si está satisfecho con las opciones que ha seleccionado, haga clic en **Guardar** para aplicar la nueva configuración del certificado de firma de SAML. En caso contrario, seleccione **X** para descartar los cambios.
+1. En la lista desplegable **Opción de firma**, seleccione **Firmar respuesta SAML**, **Firmar aserción SAML** o **Firmar respuesta y aserción SAML**. Las descripciones de estas opciones aparecen en la sección [Opciones de firma de certificado](#certificate-signing-options), anteriormente en este artículo.
+1. En la lista desplegable **Algoritmo de firma**, elija **SHA-1** o **SHA-256**. Las descripciones de estas opciones aparecen en la sección [Algoritmos de firma de certificado](#certificate-signing-algorithms), anteriormente en este artículo.
+1. Si está satisfecho con las opciones que ha seleccionado, haga clic en **Guardar** para aplicar la nueva configuración del certificado de firma de SAML. En caso contrario, seleccione **X** para descartar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

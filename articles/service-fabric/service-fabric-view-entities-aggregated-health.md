@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: e4edcc0aecfbf03aff7cf9bee764522bb1c489f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716392"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249180"
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
@@ -1053,7 +1053,7 @@ Las consultas que contienen **HealthState** para las entidades son las siguiente
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Continúe llamando a la misma consulta y pase el token de continuación de la consulta anterior para obtener los siguientes resultados.
+> Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Continúe llamando a la misma consulta y pase el token de continuación de la consulta anterior para obtener los siguientes resultados.
 
 ### <a name="examples"></a>Ejemplos
 El código siguiente obtiene las aplicaciones incorrectas en el clúster:

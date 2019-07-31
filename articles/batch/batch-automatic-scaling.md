@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b3a4401318544928f8e6d63c3460808467ecc1d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118118"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296756"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
@@ -40,7 +40,7 @@ En este artículo se describen las distintas entidades que conforman las fórmul
 >
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
-Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (REST de Batch) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalabilidad automática se asignará a la propiedad element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] del elemento [autoScaleFormula][rest_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio Batch) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -59,10 +59,11 @@ Incluya estas instrucciones en la fórmula de escalado automático para llegar a
 
 El número objetivo de nodos puede ser mayor, menor o igual que el número actual de nodos de ese tipo que hay en el grupo. Batch evalúa la fórmula de escalado automático del grupo según un intervalo específico (consulte [Intervalo de escalado automático](#automatic-scaling-interval)). Batch ajusta el número de destino de cada tipo de nodo del grupo al número que especifica la fórmula de escalado automático en el momento de la evaluación.
 
-### <a name="sample-autoscale-formula"></a>Fórmula de escalado automático de muestras
+### <a name="sample-autoscale-formulas"></a>Fórmulas de escalado automático de ejemplo
 
-Aquí puede ver un ejemplo de fórmula de escalado automático que se puede ajustar para trabajar en la mayoría de escenarios. Las variables `startingNumberOfVMs` y `maxNumberofVMs` de la fórmula de ejemplo se pueden ajustar a sus necesidades. Esta fórmula escala los nodos dedicados, pero se puede modificar para escalar también los nodos de prioridad baja. 
+A continuación, se presentan ejemplos de dos fórmulas de escalabilidad automática, que se pueden ajustar para trabajar en la mayoría de los escenarios. Las variables `startingNumberOfVMs` y `maxNumberofVMs` de las fórmulas de ejemplo se pueden ajustar a sus necesidades.
 
+#### <a name="pending-tasks"></a>Tareas pendientes
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
@@ -72,6 +73,17 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
 Con esta fórmula de escalado automático, el grupo se crea inicialmente con una sola máquina virtual. La métrica `$PendingTasks` define el número de tareas que están en ejecución o en cola. La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece la variable `$TargetDedicatedNodes` en consecuencia. La fórmula garantiza que el número de destino de nodos dedicados nunca supere la cantidad de 25 máquinas virtuales. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y la fórmula de escalado automático reduce el grupo.
+
+Esta fórmula escala los nodos dedicados, pero se puede modificar para escalar también los nodos de prioridad baja.
+
+#### <a name="preempted-nodes"></a>Nodos con prioridad 
+```
+maxNumberofVMs = 25;
+$TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
+$TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+```
+
+En este ejemplo se crea un grupo que empieza por 25 nodos de prioridad baja. Cada vez que se adelanta un nodo de prioridad baja, se reemplaza por un nodo dedicado. Como en el primer ejemplo, la variable `maxNumberofVMs` impide que el grupo supere 25 máquinas virtuales. Este ejemplo es útil para sacar provecho de las máquinas virtuales de prioridad baja y, al mismo tiempo, garantizar que solo se produzca un número fijo de retrasos en la duración del grupo.
 
 ## <a name="variables"></a>variables
 En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio están integradas en el servicio de Batch. Algunas variables definidas por el servicio son de lectura y escritura, mientras que otras son de solo lectura. Las variables definidas por el usuario son las que usted define. En la fórmula de ejemplo que se muestra en la sección anterior, `$TargetDedicatedNodes` y `$PendingTasks` son variables definidas por el servicio. Las variables `startingNumberOfVMs` y `maxNumberofVMs` son variables definidas por el usuario.
@@ -280,7 +292,7 @@ Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El 
             <li>$TargetLowPriorityNodes</li>
             <li>$CurrentDedicatedNodes</li>
             <li>$CurrentLowPriorityNodes</li>
-            <li>$preemptedNodeCount</li>
+            <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
     <p>Estas variables definidas por el servicio se usan para realizar ajustes basados en el uso de recursos de nodo:</p>
@@ -386,7 +398,7 @@ Además de Batch .NET, puede usar cualquiera de los demás [SDK de Batch](batch-
 ### <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
 De forma predeterminada, el servicio de Batch ajusta el tamaño de un grupo según su fórmula de escalado automático cada 15 minutos. Este intervalo se puede configurar con las siguientes propiedades de grupo:
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (.NET para Batch)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval][rest_autoscaleinterval] (API de REST)
 
 Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo que se sitúa fuera de este margen, el servicio de Batch devolverá un error de solicitud incorrecta (400).
@@ -416,7 +428,7 @@ Al habilitar el escalado automático en un grupo existente, tenga en cuenta las 
 >
 >
 
-Este fragmento de código de C# usa la biblioteca [.NET para Batch][net_api] para habilitar el escalado automático en un grupo existente:
+Este fragmento de código de C# usa la biblioteca [Batch .NET][net_api] para habilitar el escalado automático en un grupo existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -463,7 +475,7 @@ Para evaluar una fórmula de escalado automático, primero debe habilitar el esc
 
     En esta solicitud de API de REST, especifique el identificador del grupo en el URI y la fórmula de escalado automático en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
-En este fragmento de código de [Batch .NET][net_api] se evalúa una fórmula de escalado automático. Si el grupo no tiene habilitado el escalado automático, lo habilitaremos primero.
+En este fragmento de código de [Batch .NET][net_api] se evalúa una fórmula de escalabilidad automática. Si el grupo no tiene habilitado el escalado automático, lo habilitaremos primero.
 
 ```csharp
 // First obtain a reference to an existing pool

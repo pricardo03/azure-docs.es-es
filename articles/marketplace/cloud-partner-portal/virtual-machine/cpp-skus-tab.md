@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799948"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868719"
 ---
 # <a name="virtual-machine-skus-tab"></a>Pestaña SKU de máquina virtual
 
@@ -68,6 +68,11 @@ En la tabla siguiente se describen el propósito, el contenido y el formato de e
 ## <a name="additional-pricing-considerations"></a>Consideraciones adicionales sobre precios
 
 El modelo de precios indicado anteriormente es una descripción básica.  Se están llevando a cabo modificaciones y puede verse afectado por la normativa impositiva regional o local y las directivas de precios de Microsoft. 
+
+### <a name="new-core-sizes-added-on-722019"></a>Nuevos tamaños de núcleo agregados el 2/7/2019
+
+A los publicadores de máquinas virtuales se les notificó el 2 de julio de 2019 la incorporación de nuevos precios para los nuevos tamaños de máquina virtual de Azure (en función del número de núcleos).  Los nuevos precios son para los tamaños de núcleo 10, 44, 48, 60, 120, 208 y 416.  Para ofertas de máquinas virtuales existentes, los nuevos precios para estos tamaños de núcleo se han calculado automáticamente en función de los precios actuales.  Los publicadores tienen hasta el 1 de agosto de 2019 para revisar los precios adicionales y realizar los cambios deseados.  Después de esta fecha, si el publicador no los ha vuelto a publicar, se aplicarán los precios calculados automáticamente para estos nuevos tamaños de núcleo.
+
 
 ### <a name="simplified-currency-pricing"></a>Precios en moneda simplificada
 

@@ -3,18 +3,18 @@ title: Autenticación con Azure Maps | Microsoft Docs
 description: Autenticación para usar los servicios de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393669"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838053"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -31,7 +31,7 @@ Para información sobre cómo ver las claves, consulte [Visualización de los de
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticación con Azure Active Directory (versión preliminar)
 
-Azure Maps ofrece ahora la integración con [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para la autenticación de solicitudes de servicios de Azure Maps. Azure AD proporciona autenticación basada en identidad, como [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), para conceder acceso de nivel de usuario o de nivel de aplicación a recursos de Azure Maps. Las secciones siguientes pueden ayudarle a comprender los conceptos y componentes de la integración de Azure Maps con Azure AD.
+Azure Maps ofrece ahora la integración con [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para la autenticación de solicitudes de servicios de Azure Maps. Azure AD proporciona autenticación basada en identidad, como [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), para conceder acceso de nivel de usuario, de nivel de grupo y de nivel de aplicación a recursos de Azure Maps. Las secciones siguientes pueden ayudarle a comprender los conceptos y componentes de la integración de Azure Maps con Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Autenticación con tokens de acceso de OAuth
 
@@ -57,7 +57,7 @@ Después de recibir un token de Azure AD, se puede enviar una solicitud a Azure 
 | Encabezado de solicitud    |    Valor    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Autorización     | Bearer eyJ0e….HNIVN |
+| Authorization     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` es el GUID basado en la cuenta de Azure Maps que aparece en la página de autenticación de Azure Maps.
@@ -75,9 +75,9 @@ Para información sobre cómo ver el identificador de cliente, consulte [Visuali
 
 ## <a name="control-access-with-rbac"></a>Control del acceso con RBAC
 
-Azure AD le permite a que controlar el acceso a recursos protegidos mediante RBAC. Después de crear la cuenta de Azure Maps y de registrar la aplicación de Azure AD de Azure Maps dentro del inquilino de Azure AD, puede configurar RBAC para un usuario, una aplicación o un recurso de Azure en la página del portal de cuentas de Azure Maps.
+Azure AD le permite a que controlar el acceso a recursos protegidos mediante RBAC. Después de crear la cuenta de Azure Maps y de registrar la aplicación de Azure AD de Azure Maps dentro del inquilino de Azure AD, puede configurar RBAC para un usuario, un grupo, una aplicación o un recurso de Azure en la página del portal de cuentas de Azure Maps.
 
-Azure Maps admite control de acceso de lectura para usuarios y aplicaciones de Azure AD, y servicios de Azure individuales mediante identidades administradas para recursos de Azure.
+Azure Maps admite control de acceso de lectura para usuarios, grupos y aplicaciones de Azure AD, y servicios de Azure individuales mediante identidades administradas para recursos de Azure.
 
 ![Azure Maps Data Reader (versión preliminar)](./media/azure-maps-authentication/concept.png)
 

@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512962"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835626"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Los elementos **Predicates** y **PredicateValidations** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos con el formato adecuado en el inquilino de Azure Active Directory (Azure AD) B2C.  
+Los elementos **Predicates** y **PredicateValidations** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos con el formato adecuado en el inquilino de Azure Active Directory (Azure AD) B2C.
 
-En el siguiente diagrama se muestra la relación entre los elementos:  
+En el siguiente diagrama se muestra la relación entre los elementos:
 
-![Predicados](./media/predicates/predicates.png)
+![Diagrama que muestra las relaciones de los elementos Predicates y PredicateValidations](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Predicados  
+## <a name="predicates"></a>Predicados
 
 El elemento **Predicate** define una validación básica para comprobar el valor de un tipo de notificación y devuelve `true` o `false`. La validación se realiza mediante el uso de un elemento **Method** especificado y un conjunto de elementos **Parameter** relevantes para el método. Por ejemplo, un predicado puede comprobar si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados, o si un valor de notificación de cadena contiene un juego de caracteres. Si se produce un error en la comprobación, el elemento **UserHelpText** proporciona un mensaje de error para los usuarios. El valor del elemento **UserHelpText** se puede localizar mediante la [personalización de idioma](localization.md).
 
@@ -35,7 +35,7 @@ El elemento **Predicates** contiene el elemento siguiente:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | Una lista de predicados. | 
+| Predicate | 1:n | Una lista de predicados. |
 
 El elemento **Predicate** contiene los siguientes atributos:
 
@@ -49,13 +49,13 @@ El elemento **Predicate** contiene los siguientes elementos:
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | S se produce un error en la comprobación, un mensaje de error para los usuarios. Esta cadena se puede localizar con la [personalización de idioma](localization.md). |
-| Parámetros | 1:1 | Parámetros para el tipo de método de la validación de cadenas. | 
+| Parámetros | 1:1 | Parámetros para el tipo de método de la validación de cadenas. |
 
 El elemento **Parameters** contiene los siguientes elementos:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| Parámetro | 1:n | Parámetros para el tipo de método de la validación de cadenas. | 
+| Parámetro | 1:n | Parámetros para el tipo de método de la validación de cadenas. |
 
 El elemento **Parameter** contiene los siguientes atributos:
 
@@ -108,7 +108,7 @@ En el ejemplo siguiente se muestra un método `IsDateRange` con los parámetros 
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Mientras que los predicados definen la validación que se va a comparar con un tipo de notificación, **PredicateValidations** agrupa un conjunto de predicados para formar una validación de entrada de usuario que se puede aplicar a un tipo de notificación. Cada elemento **PredicateValidation** contiene un conjunto de elementos **PredicateGroup** que contienen un conjunto de elementos **PredicateReference** que dirigen a un elemento **Predicate**. Para pasar la validación, el valor de la notificación debe superar todas las pruebas de cualquier predicado en todo el **PredicateGroup** con su conjunto de elementos **PredicateReference**.
 
@@ -134,7 +134,7 @@ El elemento **PredicateValidations** contiene el elemento siguiente:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | Una lista de validación de predicados. | 
+| PredicateValidation | 1:n | Una lista de validación de predicados. |
 
 El elemento **PredicateValidation** contiene el atributo siguiente:
 
@@ -146,13 +146,13 @@ El elemento **PredicateValidation** contiene el elemento siguiente:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | Una lista de grupos de predicados. | 
+| PredicateGroups | 1:n | Una lista de grupos de predicados. |
 
 El elemento **PredicateGroups** contiene el elemento siguiente:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | Una lista de predicados. | 
+| PredicateGroup | 1:n | Una lista de predicados. |
 
 El elemento **PredicateGroup** contiene el atributo siguiente:
 
@@ -164,8 +164,8 @@ El elemento **PredicateGroup** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Una descripción del predicado que puede ser útil para que los usuarios sepan qué valor deben introducir. | 
-| PredicateReferences | 1:n | Una lista de referencias de predicados. | 
+| UserHelpText | 1:1 |  Una descripción del predicado que puede ser útil para que los usuarios sepan qué valor deben introducir. |
+| PredicateReferences | 1:n | Una lista de referencias de predicados. |
 
 El elemento **PredicateReferences** contiene los siguientes atributos:
 
@@ -177,7 +177,7 @@ El elemento **PredicateReferences** contiene los siguientes elementos:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | Una referencia a un predicado. | 
+| PredicateReference | 1:n | Una referencia a un predicado. |
 
 El elemento **PredicateReference** contiene los siguientes atributos:
 
@@ -188,7 +188,7 @@ El elemento **PredicateReference** contiene los siguientes atributos:
 
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
 
-Con **Predicates** y **PredicateValidationsInput** puede controlar los requisitos de complejidad para las contraseñas proporcionadas por un usuario al crear una cuenta. De forma predeterminada, Azure AD B2C utiliza contraseñas seguras. Azure AD B2C también admite opciones de configuración para controlar la complejidad de las contraseñas que los clientes pueden usar. Puede definir la complejidad de la contraseña mediante el uso de estos predicados: 
+Con **Predicates** y **PredicateValidationsInput** puede controlar los requisitos de complejidad para las contraseñas proporcionadas por un usuario al crear una cuenta. De forma predeterminada, Azure AD B2C utiliza contraseñas seguras. Azure AD B2C también admite opciones de configuración para controlar la complejidad de las contraseñas que los clientes pueden usar. Puede definir la complejidad de la contraseña mediante el uso de estos predicados:
 
 - **IsLengthBetween8And64** con el método `IsLengthRange` valida que la contraseña debe tener entre 8 y 64 caracteres.
 - **Lowercase** con el método `IncludesCharacters` valida que la contraseña contiene una letra minúscula.
@@ -348,7 +348,7 @@ En el tipo de notificación, agregue el elemento **PredicateValidationReference*
 
 A continuación, se muestra cómo se organizan los elementos cuando Azure AD B2C muestra el mensaje de error siguiente:
 
-![Proceso de predicado](./media/predicates/predicates-pass.png)
+![Diagrama de ejemplo de la complejidad de la contraseña de los elementos Predicate y PredicateGroup](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurar un intervalo de fechas
 
@@ -382,8 +382,8 @@ Agregue un **PredicateValidation** con una referencia al predicado `DateRange`.
 </PredicateValidations>
 ```
 
-En el tipo de notificación, agregue el elemento **PredicateValidationReference** y especifique el identificador como `CustomDateRange`. 
-    
+En el tipo de notificación, agregue el elemento **PredicateValidationReference** y especifique el identificador como `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296486755f0935e4eb8dcdb663da46ef60ef38bc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441010"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311325"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
 
@@ -180,8 +180,7 @@ Get-MsolUser -All | Disable-MFA -KeepMethods
 # Enforce MFA for all users
 Get-MsolUser -All | Set-MfaState -State Enforced
 
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
+# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-MFA {
 
     [CmdletBinding()]
@@ -272,7 +271,7 @@ Algunas aplicaciones heredadas y locales que no se autentican directamente en Az
 
 * Aplicaciones heredadas locales, que deben usar Application Proxy.
 * Aplicaciones locales de RADIUS, que deben usar el adaptador de MFA con el servidor NPS.
-* Aplicaciones locales de AD FS, que deben usar el adaptador de MFA con AD FS 2016.
+* Aplicaciones locales de AD FS, que deben usar el adaptador de MFA con AD FS 2016 o posterior.
 
 Las aplicaciones que se autentican directamente con Azure AD y tienen autenticación moderna (WS-Fed, SAML, OAuth, OpenID Connect) pueden hacer uso directo de las directivas de acceso condicional.
 
@@ -322,13 +321,13 @@ A diferencia de AD FS en Windows Server 2012 R2, el adaptador de Azure MFA para 
 
 Cuando se usa Azure MFA con AD FS 2016 y la aplicación de destino está sujeta a la directiva de acceso condicional, debe tener en cuenta consideraciones adicionales:
 
-* El acceso condicional está disponible cuando la aplicación es un usuario de confianza de Azure AD y está federada con AD FS 2016.
-* El acceso condicional no está disponible cuando la aplicación es un usuario de confianza de AD FS 2016 y está federada o administrada con AD FS 2016.
-* Además, el acceso condicional no está disponible cuando AD FS 2016 está configurado para usar Azure MFA como método de autenticación principal.
+* El acceso condicional está disponible cuando la aplicación es un usuario de confianza de Azure AD y está federada con AD FS 2016 o posterior.
+* El acceso condicional no está disponible cuando la aplicación es un usuario de confianza de AD FS 2016 o AD FS 2019 y está federada o administrada con AD FS 2016 o AD FS 2019.
+* Además, el acceso condicional no está disponible cuando AD FS 2016 o AD FS 2019 está configurado para usar Azure MFA como método de autenticación principal.
 
 #### <a name="ad-fs-logging"></a>Registro de AD FS
 
-La escritura de registros estándar de AD FS 2016 en el registro de seguridad de Windows y el registro de administración de AD FS contiene información sobre las solicitudes de autenticación y si se realizaron correctamente o no. Los datos de registro de eventos dentro de estos eventos indican si se usó Azure MFA. Por ejemplo, un evento de auditoría de AD FS con ID 1200 puede contener:
+La escritura de registros estándar de AD FS 2016 y 2019 en el registro de seguridad de Windows y el registro de administración de AD FS contiene información sobre las solicitudes de autenticación y si se realizaron correctamente o no. Los datos de registro de eventos dentro de estos eventos indican si se usó Azure MFA. Por ejemplo, un evento de auditoría de AD FS con ID 1200 puede contener:
 
 ```
 <MfaPerformed>true</MfaPerformed>

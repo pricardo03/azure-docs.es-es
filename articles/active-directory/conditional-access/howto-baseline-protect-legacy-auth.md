@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560933"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227324"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)
 
@@ -27,7 +27,7 @@ Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Az
 
 Hoy en día, la mayoría de los intentos de inicio de sesión que ponen en peligro la seguridad proceden de la autenticación heredada. La autenticación heredada no admite la autenticación multifactor (MFA). Aunque tenga una directiva MFA habilitada en su directorio, un actor malintencionado puede autenticarse mediante un protocolo heredado y omitir MFA.
 
-La mejor manera de proteger su cuenta frente a las solicitudes de autenticación malintencionadas que realizan los protocolos heredados es bloquear todos estos intentos. A fin de que pueda bloquear fácilmente todas las solicitudes de inicio de sesión que realizan los protocolos heredados, hemos creado una directiva de base de referencia que se encarga justamente de esto.
+La mejor manera de proteger su cuenta frente a las solicitudes de autenticación malintencionadas que realizan los protocolos heredados es bloquear todos estos intentos. En un esfuerzo por facilitar la protección del entorno, hemos creado esta directiva de base de referencia para bloquear la autenticación heredada.
 
 **Bloqueo de la autenticación heredada** es una [directiva de base de referencia](concept-baseline-protection.md) que bloquea todas las solicitudes de autenticación que se hacen mediante protocolos heredados. Todos los usuarios deben usar una autenticación moderna para iniciar sesión correctamente. Si se usa junto con las otras directivas de base de referencia, se bloquearán todas las solicitudes procedentes de protocolos heredados y todos los usuarios deberán usar MFA siempre que sea necesario. Esta directiva no bloquea a Exchange ActiveSync.
 
@@ -78,13 +78,13 @@ SharePoint Online está habilitado de forma predeterminada para la autenticaci�
 
 Para evitar las solicitudes de autenticación heredadas realizadas por Skype Empresarial, es necesario habilitar la autenticación moderna para Skype Empresarial en la Web. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Skype Empresarial.
 
-Para habilitar la autenticación moderna de Skype Empresarial, le sugerimos que realice la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no puede realizarla en este momento, deberá habilitar la autenticación moderna para Skype Empresarial en la Web para que Skype Empresarial empiece a usar la autenticación moderna. Consulte el artículo [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported) (Topologías de Skype Empresarial admitidas con la autenticación moderna) para conocer los pasos para habilitar la autenticación moderna para Skype Empresarial.
+Le sugerimos que realice la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no puede migrar en este momento, deberá habilitar la autenticación moderna para Skype Empresarial en la Web para que Skype Empresarial empiece a usar la autenticación moderna. Consulte los pasos del artículo [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported) (Topologías de Skype Empresarial admitidas con la autenticación moderna) para habilitar la autenticación moderna para Skype Empresarial.
 
 Además de habilitar la autenticación moderna para Skype Empresarial en la Web, le recomendamos que habilite la autenticación moderna para Exchange Online cuando habilite la autenticación moderna para Skype Empresarial. Este proceso permitirá sincronizar el estado de la autenticación moderna en Exchange Online y Skype Empresarial en la Web y evitará que se realicen varias solicitudes de inicio de sesión de los clientes de Skype Empresarial.
 
 ### <a name="step-5-using-mobile-devices"></a>Paso 5: Uso de dispositivos móviles
 
-Las aplicaciones de su dispositivo móvil también necesitan bloquear la autenticación heredada. Le recomendamos usar Outlook para dispositivos móviles. Outlook para dispositivos móviles admite la autenticación moderna de forma predeterminada y cumplirá otras directivas de protección de la base de referencia de MFA.
+Las aplicaciones de su dispositivo móvil también necesitan bloquear la autenticación heredada. Le recomendamos usar Outlook para dispositivos móviles. Outlook para móviles admite la autenticación moderna de forma predeterminada y cumplirá otras directivas de protección de la base de referencia de MFA.
 
 Para usar el cliente de correo electrónico nativo de iOS, deberá ejecutar la versión 11.0 u otra posterior de iOS para asegurarse de que el cliente de correo electrónico se ha actualizado a fin de bloquear la autenticación heredada.
 
@@ -92,7 +92,8 @@ Para usar el cliente de correo electrónico nativo de iOS, deberá ejecutar la v
 
 Si es un cliente híbrido que usa Exchange Server y Skype Empresarial en el entorno local, ambos servicios deberán actualizarse para habilitar la autenticación moderna. Cuando usa la autenticación moderna en un entorno híbrido, igualmente autentica a los usuarios en el entorno local. Sin embargo, el proceso para autorizar su acceso a los recursos (archivos o mensajes de correo electrónico) cambia.
 
-Antes de empezar a habilitar la autenticación moderna en el entorno local, asegúrese de cumplir los requisitos y, cuando sea así, estará listo para habilitarla.
+Antes de poder empezar a habilitar la autenticación moderna en el entorno local, asegúrese de que cumple los requisitos previos.
+Ahora está listo para habilitar la autenticación moderna en el entorno local.
 
 Los pasos para habilitar la autenticación moderna se encuentran en los artículos siguientes:
 
@@ -101,11 +102,11 @@ Los pasos para habilitar la autenticación moderna se encuentran en los artícul
 
 ## <a name="enable-the-baseline-policy"></a>Habilitación de la directiva de base de referencia
 
-La **directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)** viene preconfigurada y se mostrará en la parte superior cuando navegue a la hoja Acceso condicional en Azure Portal.
+La **directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)** viene preconfigurada y se mostrará en la parte superior cuando navegue a la hoja Acceso condicional en Azure Portal. Esta configuración solo surte efecto después de un inicio de sesión correcto, de modo que los usuarios seguirán teniendo la opción de intentar usar la autenticación heredada.
 
 Para habilitar esta directiva y proteger a su organización:
 
-1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en  **Azure Portal** con uno de los siguientes roles: Administrador global, Administrador de seguridad o Administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Baseline policy: Block legacy authentication (preview)** (Directiva de base de referencia: Bloquear la autenticación heredada [versión preliminar]).
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.

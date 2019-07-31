@@ -11,19 +11,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 043ecdcb83d2ee39e3373f029c00c6237f87601c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709704"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869249"
 ---
 # <a name="available-skus-for-hli"></a>SKU disponibles para HLI
 
-El servicio SAP HANA en Azure (instancias grandes) está disponible en varias configuraciones en las regiones de Azure Oeste de EE. UU. y Este de EE. UU., Este de Australia, Sudeste de Australia, Europa Occidental, Europa del Norte, Japón Oriental y Japón Occidental.
+El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 3 está disponible en varias configuraciones en las siguientes regiones de Azure:
+
+- Oeste de EE. UU.
+- Este de EE. UU
+- Este de Australia
+- Sudeste de Australia
+- Europa occidental
+- Europa del Norte
+- Este de Japón
+- Oeste de Japón
+
+El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 4 está disponible en varias configuraciones en las siguientes regiones de Azure:
+
+- Oeste de EE. UU. 2
+- Este de EE. UU
+- Europa occidental
+- Europa del Norte
+
+
 
 [Lista de SKU de instancias grandes certificadas para SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure):
 
@@ -48,7 +66,7 @@ En SAP HANA TDIv5, SAP permite tamaños específicos del cliente y proyectos esp
 - [Dispositivos certificados para SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [Plataformas IaaS certificadas para SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-En muchos casos, estas configuraciones de servidor específicas del cliente conllevan más memoria que las unidades de servidor certificadas con SAP. Cuando se trabaja con SAP, los clientes tienen la posibilidad de obtener soporte técnico de SAP y certificar sus configuraciones de servidor con el tamaño específico del cliente. Las siguientes SKU estándar de grandes instancias de HANA están disponibles en Azure y en la lista de precios de Microsoft para dichos proyectos de tamaño específico del cliente TDIv5.
+En muchos casos, estas configuraciones de servidor específicas del cliente conllevan más memoria que las unidades de servidor certificadas con SAP. Cuando se trabaja con SAP, los clientes tienen la posibilidad de obtener soporte técnico de SAP y certificar sus configuraciones de servidor con el tamaño específico del cliente. Las siguientes SKU estándar de HANA (instancias grandes) están disponibles en Azure y en la lista de precios de Microsoft para dichos proyectos de tamaño específico del cliente TDIv5.
 
 | SKU|CPU | Memoria | Storage | Disponibilidad |
 | ---| --- | --- | --- | --- |

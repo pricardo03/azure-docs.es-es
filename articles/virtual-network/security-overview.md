@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: ca4908e642644ccbf349841d143bfcc18e944025
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478870"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305833"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -32,11 +33,11 @@ Un grupo de seguridad de red puede contener cero reglas, o tantas reglas como de
 
 |Propiedad  |Explicación  |
 |---------|---------|
-|Name|Un nombre único dentro del grupo de seguridad de red.|
+|NOMBRE|Un nombre único dentro del grupo de seguridad de red.|
 |Prioridad | Un número entre 100 y 4096. Las reglas se procesan en orden de prioridad. Se procesan primero las reglas con los números más bajos ya que estos tienen más prioridad. Si el tráfico coincide con una regla, se detiene el procesamiento. Como resultado, las reglas con menor prioridad (números más altos) que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.|
 |Origen o destino| Cualquiera, una dirección IP individual, un bloque CIDR de enrutamiento entre dominios sin clases (10.0.0.0/24, por ejemplo), una [etiqueta de servicio](#service-tags) o un [grupo de seguridad de aplicaciones](#application-security-groups). Si especifica una dirección para un recurso de Azure, especifique la dirección IP privada asignada al recurso. Las grupos de seguridad de red se procesan después de que Azure traduzca una dirección IP pública a una dirección IP privada para el tráfico de entrada y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para el tráfico de salida. Más información sobre [direcciones IP](virtual-network-ip-addresses-overview-arm.md) de Azure. La especificación de un intervalo, una etiqueta de servicio o grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad. La posibilidad de especificar varias direcciones IP individuales e intervalos (no puede especificar varias etiquetas de servicio ni grupos de aplicaciones) en una regla se conoce como [reglas de seguridad aumentada](#augmented-security-rules). Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varias direcciones IP ni intervalos de ellas en grupos de seguridad de red creados mediante el modelo de implementación clásica. Más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocol     | TCP, UDP o cualquiera que incluya (entre otros) TCP, UDP e ICMP. No se puede especificar ICMP de forma independiente; si necesita usarlo, utilice la opción Cualquiera. |
-|Direction| Si la regla se aplica al tráfico entrante o al saliente.|
+|Protocolo     | TCP, UDP, ICMP o Cualquiera.|
+|Dirección| Si la regla se aplica al tráfico entrante o al saliente.|
 |Intervalo de puertos     |Puede especificar un puerto individual o un intervalo de puertos. Por ejemplo, puede especificar 80 o 10000-10005. La especificación de intervalos le permite crear menos reglas de seguridad. Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varios puertos ni intervalos de ellos en la misma regla de seguridad de los grupos de seguridad de red creados mediante el modelo de implementación clásica.   |
 |.     | Permitir o denegar        |
 
@@ -51,42 +52,56 @@ Las reglas de seguridad aumentada permiten simplificar la definición de segurid
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 
- Una etiqueta de servicio representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad. No puede crear su propia etiqueta de servicio, ni especificar qué direcciones IP se incluyen dentro de una etiqueta. Microsoft administra los prefijos de direcciones que incluye la etiqueta de servicio y actualiza automáticamente esta a medida que las direcciones cambian. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. 
- 
- Puede descargar e integrar con un firewall local la lista de etiquetas de servicio con información de prefijos en las siguientes publicaciones semanales de las nubes [pública](https://www.microsoft.com/download/details.aspx?id=56519), [gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064).
+Una etiqueta de servicio representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad. No puede crear su propia etiqueta de servicio, ni especificar qué direcciones IP se incluyen dentro de una etiqueta. Microsoft administra los prefijos de direcciones que incluye la etiqueta de servicio y actualiza automáticamente esta a medida que las direcciones cambian. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. 
 
- Las siguientes etiquetas de servicio están disponibles para su uso en la definición de reglas de seguridad. Sus nombres pueden variar ligeramente según el [modelo de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Las siguientes etiquetas de servicio están disponibles para su uso en las [reglas de grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). También pueden usarse las etiquetas de servicio con asterisco al final (es decir, AzureCloud *) en las [reglas de red de Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). 
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): Esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales, conectados y [emparejadas](virtual-network-peering-overview.md) redes virtuales o redes virtuales conectadas a un [virtual puerta de enlace de red](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y tratar los prefijos utilizados en [rutas definidas por el usuario](virtual-networks-udr-overview.md).
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): Esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados y las redes virtuales [del mismo nivel](virtual-network-peering-overview.md) o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y los prefijos de dirección usados en las [rutas definidas por el usuario](virtual-networks-udr-overview.md). Tenga en cuenta que esta etiqueta puede contener la ruta predeterminada. 
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
 * **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta predeterminada denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible a través de la red pública de Internet. El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las [direcciones IP públicas del centro de datos](https://www.microsoft.com/download/details.aspx?id=41653). Si especifica *AzureCloud* como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si solo desea permitir el acceso a AzureCloud en una [región](https://azure.microsoft.com/regions) determinada, puede especificarla. Por ejemplo, si desea permitir el acceso a AzureCloud solo en la región este de EE. UU., puede especificar *AzureCloud.EastUS* como etiqueta de servicio. 
-* **AzureTrafficManager** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de las direcciones IP de sondeo de Azure Traffic Manager. En [Preguntas más frecuentes sobre Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs), puede encontrar más información acerca de las direcciones IP de sondeo de Azure Traffic Manager. 
-* **Storage** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso al almacenamiento de una determinada [región](https://azure.microsoft.com/regions), puede especificarla. Por ejemplo, si desea permitir el acceso a Azure Storage solo en la región este de EE. UU., puede especificar *Storage.EastUS* como etiqueta de servicio. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. 
-* **Sql** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección de la base de datos de SQL Azure, Azure Database for MySQL, -Azure Database for PostgreSQL y los servicios de Azure SQL Data Warehouse. Si especifica *Sql* como valor, el tráfico a Sql se permite o se deniega. Si solo desea permitir el acceso a SQL en una [región](https://azure.microsoft.com/regions) determinada, puede especificarla. Por ejemplo, si desea permitir el acceso a Azure SQL Database solo en la región este de EE. UU., puede especificar *Sql.EastUS* como etiqueta de servicio. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. 
-* **AzureCosmosDB** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Cosmos Database. Si especifica *AzureCosmosDB* como valor, el tráfico a AzureCosmosDB se permite o deniega. Si solo desea permitir el acceso a AzureCosmosDB en una [región](https://azure.microsoft.com/regions), específica, puede especificar la región en el siguiente formato AzureCosmosDB.[nombre de región]. 
-* **AzureKeyVault** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Key Vault. Si especifica *AzureKeyVault* como valor, el tráfico a AzureKeyVault se permite o deniega. Si solo desea permitir el acceso a AzureKeyVault en una [región](https://azure.microsoft.com/regions), específica, puede especificar la región en el siguiente formato AzureKeyVault.[nombre de región]. 
-* **EventHub** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Event Hubs. Si especifica *EventHub* como valor, el tráfico a EventHub se permite o se deniega. Si solo desea permitir el acceso a EventHub en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: EventHub.[nombre de región]. 
-* **ServiceBus** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del servicio de bus de servicio de Azure con el nivel de servicio Premium. Si especifica *ServiceBus* como valor, el tráfico a ServiceBus se permite o se deniega. Si solo desea permitir el acceso a ServiceBus en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: ServiceBus.[nombre de región]. 
-* **MicrosoftContainerRegistry** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Microsoft Container Registry. Si especifica *MicrosoftContainerRegistry* como valor, el tráfico a MicrosoftContainerRegistry se permite o se deniega. Si solo desea permitir el acceso a MicrosoftContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: MicrosoftContainerRegistry.[nombre de región]. 
-* **AzureContainerRegistry** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Container Registry. Si especifica *AzureContainerRegistry* como valor, el tráfico a AzureContainerRegistry se permite o deniega. Si solo desea permitir el acceso a AzureContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureContainerRegistry.[nombre de región]. 
-* **AppService** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service. Si especifica *AppService* como valor, el tráfico a AppService se permite o se deniega. Si solo desea permitir el acceso a AppService en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AppService.[nombre de región]. 
-* **AppServiceManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service Management. Si especifica *AppServiceManagement* como valor, el tráfico a AppServiceManagement se permite o se deniega. 
-* **ApiManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure API Management. Si especifica *ApiManagement* para el valor, el tráfico se permitirá o denegará desde la interfaz de administración de ApiManagement.  
-* **AzureConnectors** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Connectors. Si especifica *AzureConnectors* como valor, el tráfico a AzureConnectors se permite o se deniega. Si solo desea permitir el acceso a AzureConnectors en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureConnectors.[nombre de región]. 
-* **GatewayManager** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica *GatewayManager* como valor, el tráfico a GatewayManager se permite o se deniega.  
-* **AzureDataLake** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Data Lake. Si especifica *AzureDataLake* como valor, el tráfico a AzureDataLake se permite o se deniega. 
-* **AzureActiveDirectory** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Active Directory. Si especifica *AzureActiveDirectory* como valor, el tráfico a AzureActiveDirectory se permite o se deniega.  
-* **AzureMonitor** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMonitor. Si especifica *AzureMonitor* como valor, el tráfico a AzureMonitor se permite o se deniega. 
-* **ServiceFabric** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio ServiceFabric. Si especifica *ServiceFabric* como valor, el tráfico a ServiceFabric se permite o se deniega. 
-* **AzureMachineLearning** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMachineLearning. Si especifica *AzureMachineLearning* como valor, el tráfico a AzureMachineLearning se permite o se deniega. 
-* **BatchNodeManagement** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del servicio Azure BatchNodeManagement. Si especifica *BatchNodeManagement* para el valor, el tráfico se permite o deniega desde el servicio Batch en nodos de proceso.
+* **AzureCloud*** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las [direcciones IP públicas del centro de datos](https://www.microsoft.com/download/details.aspx?id=41653). Si especifica *AzureCloud* como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si solo desea permitir el acceso a AzureCloud en una [región](https://azure.microsoft.com/regions), específica, puede especificar la región en el siguiente formato AzureCloud.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureTrafficManager*** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de las direcciones IP de sondeo de Azure Traffic Manager. En [Preguntas más frecuentes sobre Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs), puede encontrar más información acerca de las direcciones IP de sondeo de Azure Traffic Manager. Esta etiqueta se recomienda para la regla de seguridad de entrada.  
+* **Storage*** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso a Storage en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: Storage.[nombre de región]. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **Sql*** (solo Resource Manager): Esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL y Azure SQL Data Warehouse. Si especifica *Sql* como valor, el tráfico a Sql se permite o se deniega. Si solo desea permitir el acceso a Sql en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: Sql.[nombre de región]. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureCosmosDB*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Cosmos Database. Si especifica *AzureCosmosDB* como valor, el tráfico a AzureCosmosDB se permite o deniega. Si solo desea permitir el acceso a AzureCosmosDB en una [región](https://azure.microsoft.com/regions), específica, puede especificar la región en el siguiente formato AzureCosmosDB.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureKeyVault*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Key Vault. Si especifica *AzureKeyVault* como valor, el tráfico a AzureKeyVault se permite o deniega. Si solo desea permitir el acceso a AzureKeyVault en una [región](https://azure.microsoft.com/regions), específica, puede especificar la región en el siguiente formato AzureKeyVault.[nombre de región]. Esta etiqueta tiene dependencia de la etiqueta **AzureActiveDirectory**. Esta etiqueta se recomienda para la regla de seguridad de salida.  
+* **EventHub*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Event Hubs. Si especifica *EventHub* como valor, el tráfico a EventHub se permite o se deniega. Si solo desea permitir el acceso a EventHub en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: EventHub.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **ServiceBus*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del servicio Azure ServiceBus con el nivel de servicio Premium. Si especifica *ServiceBus* como valor, el tráfico a ServiceBus se permite o se deniega. Si solo desea permitir el acceso a ServiceBus en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: ServiceBus.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **MicrosoftContainerRegistry*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Microsoft Container Registry. Si especifica *MicrosoftContainerRegistry* como valor, el tráfico a MicrosoftContainerRegistry se permite o se deniega. Si solo desea permitir el acceso a MicrosoftContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: MicrosoftContainerRegistry.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureContainerRegistry*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Container Registry. Si especifica *AzureContainerRegistry* como valor, el tráfico a AzureContainerRegistry se permite o deniega. Si solo desea permitir el acceso a AzureContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureContainerRegistry.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AppService*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service. Si especifica *AppService* como valor, el tráfico a AppService se permite o se deniega. Si solo desea permitir el acceso a AppService en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AppService.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de salida a front-ends de WebApps.  
+* **AppServiceManagement*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de App Service Environment. Si especifica *AppServiceManagement* como valor, el tráfico a AppServiceManagement se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida. 
+* **ApiManagement*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de APIM. Si especifica *ApiManagement* como valor, el tráfico a ApiManagement se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida. 
+* **AzureConnectors*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección de los conectores de Logic Apps para las conexiones de sondeo/back-end. Si especifica *AzureConnectors* como valor, el tráfico a AzureConnectors se permite o se deniega. Si solo desea permitir el acceso a AzureConnectors en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureConnectors.[nombre de región]. Esta etiqueta se recomienda para la regla de seguridad de entrada. 
+* **GatewayManager** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de VPN/App Gateway. Si especifica *GatewayManager* como valor, el tráfico a GatewayManager se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada. 
+* **AzureDataLake*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Data Lake. Si especifica *AzureDataLake* como valor, el tráfico a AzureDataLake se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureActiveDirectory*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Active Directory. Si especifica *AzureActiveDirectory* como valor, el tráfico a AzureActiveDirectory se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de salida.
+* **AzureMonitor*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección de las métricas de Log Analytics, App Insights, AzMon y personalizadas (puntos de conexión GiG). Si especifica *AzureMonitor* como valor, el tráfico a AzureMonitor se permite o se deniega. Para Log Analytics, esta etiqueta tiene dependencia de la etiqueta **Storage**. Esta etiqueta se recomienda para la regla de seguridad de salida.
+* **ServiceFabric*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio ServiceFabric. Si especifica *ServiceFabric* como valor, el tráfico a ServiceFabric se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureMachineLearning*** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMachineLearning. Si especifica *AzureMachineLearning* como valor, el tráfico a AzureMachineLearning se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **BatchNodeManagement*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de Azure Batch. Si especifica *BatchNodeManagement* para el valor, el tráfico se permite o deniega desde el servicio Batch en nodos de ejecución. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida. 
+* **AzureBackup*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del servicio AzureBackup. Si especifica *AzureBackup* como valor, el tráfico a AzureBackup se permite o se deniega. Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory**. Esta etiqueta se recomienda para la regla de seguridad de salida. 
+* **AzureActiveDirectoryDomainServices*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de Azure Active Directory Domain Services. Si especifica *AzureActiveDirectoryDomainServices* como valor, el tráfico a AzureActiveDirectoryDomainServices se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida.  
+* **SqlManagement*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de SQL. Si especifica *SqlManagement* como valor, el tráfico a SqlManagement se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida. 
+* **CognitiveServicesManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección de tráfico para Cognitive Services. Si especifica *CognitiveServicesManagement* como valor, el tráfico a CognitiveServicesManagement se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de salida.  
+* **Dynamics365ForMarketingEmail** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio de correo de marketing de Dynamics 365. Si especifica *Dynamics365ForMarketingEmail* para el valor, el tráfico a Dynamics365ForMarketingEmail se admite o deniega. Si solo desea permitir el acceso a Dynamics365ForMarketingEmail en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: Dynamics365ForMarketingEmail.[nombre de región].
+* **AzurePlatformDNS** (solo Resource Manager): esta etiqueta denota DNS, que es un servicio de infraestructura básico. Si especifica *AzurePlatformDNS* para el valor, puede deshabilitar la [consideración de la plataforma de Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) predeterminada para DNS. Tenga cuidado al usar esta etiqueta. Se recomienda realizar pruebas antes de usar esta etiqueta. 
+* **AzurePlatformIMDS** (solo Resource Manager): esta etiqueta denota IMDS, que es un servicio de infraestructura básico. Si especifica *AzurePlatformIMDS* para el valor, puede deshabilitar la [consideración de la plataforma de Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) predeterminada para IMDS. Tenga cuidado al usar esta etiqueta. Se recomienda realizar pruebas antes de usar esta etiqueta. 
+* **AzurePlatformLKM** (solo Resource Manager): esta etiqueta denota el servicio de administración de claves o licencias de Windows. Si especifica *AzurePlatformLKM* para el valor, puede deshabilitar la [consideración de la plataforma de Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) predeterminada para las licencias. Tenga cuidado al usar esta etiqueta. Se recomienda realizar pruebas antes de usar esta etiqueta. 
 
 > [!NOTE]
 > Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. 
 
 > [!NOTE]
 > Si implementa un [punto de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) para un servicio, como Azure Storage o Azure SQL Database, Azure agrega una [ruta](virtual-networks-udr-overview.md#optional-default-routes) a una subred de red virtual para el servicio. Los prefijos de dirección de la ruta son los mismos prefijos de dirección, o intervalos CIDR, que la etiqueta de servicio correspondiente.
+
+### <a name="service-tags-in-on-premises"></a>Etiquetas de servicio en un entorno local  
+Puede descargar e integrar con un firewall local la lista de etiquetas de servicio con información de prefijos en las siguientes publicaciones semanales de las nubes [pública](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Germany](https://www.microsoft.com/download/details.aspx?id=57064).
+
+Además, puede recuperar mediante programación esta información mediante la **API del servicio de detección de etiquetas** (versión preliminar): [REST](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell) y la [ CLI de Azure](https://aka.ms/discoveryapi_cli). 
+
+> [!NOTE]
+> Las siguientes publicaciones semanales (versión anterior) para las nubes de Azure [pública](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [China](https://www.microsoft.com/en-us/download/details.aspx?id=42064) y [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) caerán en desuso el 30 de junio de 2020. Empiece a usar las publicaciones actualizadas como se describe anteriormente. 
 
 ## <a name="default-security-rules"></a>reglas de seguridad predeterminadas
 
@@ -96,43 +111,43 @@ Azure crea las siguientes reglas predeterminadas en cada grupo de seguridad de r
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todo|PERMITIR|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Cualquiera|PERMITIR|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todo|PERMITIR|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Cualquiera|PERMITIR|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todo|Denegar|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Cualquiera|Denegar|
 
 ### <a name="outbound"></a>Salida
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todo | PERMITIR |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Cualquiera | PERMITIR |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todo | PERMITIR |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Cualquiera | PERMITIR |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todo | Denegar |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Cualquiera | Denegar |
 
-En las columnas **Origen** y **Destino**, *VirtualNetwork*, *AzureLoadBalancer* e *Internet* son [etiquetas de servicios](#service-tags), en lugar de direcciones IP. En la columna de protocolos, **Todos** abarca TCP, UDP e ICMP. Cuando se crea una regla, puede especificar TCP, UDP o Todos, pero no puede especificar ICMP de forma independiente. Por lo tanto, si la regla requiere ICMP, seleccione la opción *Todos* para el protocolo. *0.0.0.0/0* en las columnas **Origen** y **Destino** representa todas las direcciones. Los clientes, como Azure portal, CLI de Azure, o puede usar Powershell * o any para esta expresión.
+En las columnas **Origen** y **Destino**, *VirtualNetwork*, *AzureLoadBalancer* e *Internet* son [etiquetas de servicios](#service-tags), en lugar de direcciones IP. En la columna de protocolos, **Cualquiera** abarca TCP, UDP e ICMP. Al crear una regla, puede especificar TCP, UDP, ICMP o Cualquiera. *0.0.0.0/0* en las columnas **Origen** y **Destino** representa todas las direcciones. Los clientes, como Azure Portal, la CLI de Azure o PowerShell, pueden usar * o any para esta expresión.
  
 Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reglas de prioridad más alta.
 
@@ -148,7 +163,7 @@ En la imagen anterior, *NIC1* y *NIC2* son miembros del grupo de seguridad de ap
 
 Esta regla es necesaria para permitir el tráfico de Internet a los servidores web. Dado que la regla de seguridad predeterminada [DenyAllInbound](#denyallinbound) deniega el tráfico entrante desde Internet, no es necesaria ninguna regla adicional para los grupos de seguridad de aplicaciones *AsgLogic* y *AsgDb*.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | PERMITIR |
 
@@ -156,15 +171,15 @@ Esta regla es necesaria para permitir el tráfico de Internet a los servidores w
 
 Dado que la regla de seguridad predeterminada [AllowVNetInBound](#allowvnetinbound) permite todas las comunicaciones entre los recursos de la misma red virtual, se necesita esta regla para denegar el tráfico desde todos los recursos.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | Todo | Denegar |
+| 120 | * | * | AsgDb | 1433 | Cualquiera | Denegar |
 
 ### <a name="allow-database-businesslogic"></a>Allow-Database-BusinessLogic
 
 Esta regla permite el tráfico desde el grupo de seguridad de aplicaciones *AsgLogic* al grupo de seguridad de aplicaciones *AsgDb*. La prioridad de esta regla es mayor que la prioridad de la regla *Deny-Database-All*. Como resultado, esta regla se procesa antes que la regla *Deny-Database-All*, por lo que se permite el tráfico del grupo de seguridad de aplicaciones *AsgLogic*, mientras que el resto del tráfico es bloqueado.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | PERMITIR |
 
@@ -211,7 +226,7 @@ Para el tráfico saliente, Azure procesa las reglas de un grupo de seguridad de 
 Puede ver fácilmente las reglas agregadas que se aplican a una interfaz de red mediante la visualización de las [reglas de seguridad vigentes](virtual-network-network-interface.md#view-effective-security-rules) de una interfaz de red. También puede usar la funcionalidad [Comprobación del flujo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure Network Watcher para determinar si se permite la comunicación hacia una interfaz de red o desde esta. El flujo IP le indica si se permite o deniega la comunicación y qué regla de seguridad de red permite o deniega el tráfico.
 
 > [!NOTE]
-> Grupos de seguridad de red asociadas a subredes o máquinas virtuales y servicios en la nube implementados en el modelo de implementación clásica y a subredes o interfaces de red en el modelo de implementación de Resource Manager. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Los grupos de seguridad de red se asocian a las subredes o a las máquinas virtuales y a los servicios en la nube que se implementan en el modelo de implementación clásica, y en las subredes o interfaces de red del modelo de implementación de Resource Manager. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > A menos que tenga una razón concreta, se recomienda que asocie un grupo de seguridad de red a una subred o a una interfaz de red, pero no a ambas. Puesto que las reglas de un grupo de seguridad de red asociado a una subred pueden entrar en conflicto con las reglas de un grupo de seguridad de red asociado a una interfaz de red, puede tener problemas de comunicación inesperados que necesiten solución.

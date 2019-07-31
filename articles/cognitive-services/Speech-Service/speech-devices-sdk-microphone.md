@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606330"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277489"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendaciones de matriz de micrófonos del SDK de dispositivos de voz
 
@@ -43,34 +43,34 @@ Las propiedades recomendadas al seleccionar micrófonos son:
 
 | Parámetro                         | Recomendado                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (señal de 1 kHz a 94 dBSPL, ruido ponderado con A)   |
+| SNR                               | \>= 65 dB (señal de 1 kHz a 94 dBSPL, ruido ponderado con A)   |
 | Coincidencia de amplitud                | ± 1 dB a 1 kHz                     |
 | Coincidencia de fase                    | ± 2° a 1 kHz                       |
-| Punto de sobrecarga acústico (AOP)     | \> 120 dBSPL (THD = 10 %)          |
+| Punto de sobrecarga acústico (AOP)     | \>= 120 dBSPL (THD = 10 %)          |
 | Velocidad de bits                          | 24 bits como mínimo                    |
 | Frecuencia de muestreo                     | Mínimo 16 kHz\*                   |
-| Direccionalidad                       | Omnidireccional                   |
 | Respuesta de frecuencia                | \+ 3 dB, máscara flotante 8000-200 Hz\*|
 | Confiabilidad                       | Intervalo de temperatura de almacenamiento: entre -40° C y 70° C<br />Intervalo de temperatura de funcionamiento: entre -20° C y 55° C  |
 
-*\*Pueden ser necesarias velocidades de muestreo más altas o "más amplias" en aplicaciones de comunicaciones de alta calidad (VoIP)*
+*\*Pueden ser necesarias velocidades de muestreo más altas o "más amplias" en aplicaciones de comunicaciones de alta calidad (VoIP)* .
 
 Una buena selección de componentes debe ir acompañada de una buena integración electroacústica para evitar reducir el rendimiento de los componentes usados. Los casos de uso único también pueden necesitar requisitos adicionales (por ejemplo, intervalos de temperatura de funcionamiento).
 
 ## <a name="microphone-array-integration"></a>Integración de la matriz de micrófonos
 
-El rendimiento de las matrices cuando se integran en un dispositivo y después de cualquier ganancia fija o EQ debe cumplir las siguientes recomendaciones:
+El rendimiento de la matriz de micrófono cuando se integra en un dispositivo diferirá de la especificación del componente. Es importante asegurarse de que los micrófonos están bien adaptados después de la integración. Por tanto, el rendimiento del dispositivo medido después de cualquier ganancia fija o EQ debe cumplir las siguientes recomendaciones:
 
 |  Parámetro        |    Recomendado |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (señal de 1 kHz a 94 dBSPL, ruido ponderado con A) |
+|  SNR                 | \> 63 dB (señal de 1 kHz a 94 dBSPL, ruido ponderado con A) |
 |  Sensibilidad de salida  | -26 dBFS/Pa a 1 kHz (recomendado) |
 |  Coincidencia de amplitud  | ± 2 dB, 200-8000 Hz |
-|  Coincidencia de fase      | ± 5°, 200-8000 Hz |
-| THD %                 | ≤ 1 %, 200-8000 Hz, 94 dBSPL, quinto orden |
-|  Respuesta de frecuencia  | ± 6 dB, máscara flotante a 200-8000 Hz\* |
+| THD %\*                 | ≤ 1 %, 200-8000 Hz, 94 dBSPL, quinto orden |
+|  Respuesta de frecuencia  | ± 6 dB, máscara flotante a 200-8000 Hz\*\* |
 
-*\*Pueden ser necesarios intervalos de frecuencia "más amplios" para las aplicaciones de comunicaciones de alta calidad (VoIP)*
+*\*\* Se requiere un altavoz de baja distorsión para medir THD (por ejemplo, Neumann KH120)* .
+
+*\*\*Pueden ser necesarios intervalos de frecuencia "más amplios" para las aplicaciones de comunicaciones de alta calidad (VoIP)* .
 
 ## <a name="speaker-integration-recommendations"></a>Recomendaciones de integración del altavoz
 

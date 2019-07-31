@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502090"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875199"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -39,7 +39,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 > [!NOTE]
 > Si se detecta tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar datos duplicados del contenido enviado. Para obtener más información sobre este tema, consulte la [sección Solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) a continuación.
 
-## <a name="enable-agent-based-monitoring-net"></a>Habilitación de la supervisión basada en agentes en .NET
+## <a name="enable-agent-based-monitoring-for-net-applications"></a>Habilitación de la supervisión basada en agentes para aplicaciones .NET
 
 > [!NOTE]
 > No se admite la combinación de APPINSIGHTS_JAVASCRIPT_ENABLED y urlCompression. Para más información, consulte la explicación de la [sección Solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -75,7 +75,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
     * Para obtener la lista de valores de configuración de procesador de telemetría de muestreo adaptable compatibles, puede consultar el [código](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) y la [documentación asociada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## <a name="enable-agent-based-monitoring-net-core"></a>Habilitación de la supervisión basada en agentes en .NET Core
+## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Habilitación de la supervisión basada en agentes para aplicaciones .NET Core
 
 Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.0, ASP.NET Core 2.1 y ASP.NET Core 2.2.
 
@@ -96,7 +96,7 @@ Actualmente, la orientación del marco de trabajo completo de .NET Core, la impl
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-net"></a>Habilitación de la supervisión de cliente en .NET
+## <a name="enable-client-side-monitoring-for-net-applications"></a>Habilitación de la supervisión del lado cliente para aplicaciones .NET
 
 La supervisión de cliente está habilitada en ASP.NET. Para habilitar la supervisión de cliente:
 
@@ -113,7 +113,7 @@ La supervisión de cliente está habilitada en ASP.NET. Para habilitar la superv
 
 Para deshabilitar la supervisión de cliente, quite el par clave-valor asociado de la configuración de la aplicación o establezca el valor en false.
 
-## <a name="enable-client-side-monitoring-net-core"></a>Habilitación de la supervisión de cliente en .NET Core
+## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Habilitación de la supervisión del lado cliente para aplicaciones .NET Core
 
 La supervisión de cliente está **habilitada de manera predeterminada** para las aplicaciones de .NET Core con la **recopilación recomendada**, independientemente de si está presente el valor "APPINSIGHTS_JAVASCRIPT_ENABLED" de la aplicación.
 
@@ -169,7 +169,6 @@ La estructura básica de JSON de la configuración de la aplicación para App Se
           }
         }
       ]
-
 ```
 
 Para obtener un ejemplo de una plantilla de Azure Resource Manager con la configuración de la aplicación establecida para Application Insights, esta [plantilla](https://github.com/Andrew-MSFT/BasicImageGallery) puede resultar útil, sobre todo en la sección que empieza a partir de la [línea 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).

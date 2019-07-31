@@ -9,23 +9,25 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551866"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277636"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
 Los conectores proporcionan acceso rápido desde Azure Logic Apps a eventos, datos y acciones entre otras aplicaciones, servicios, sistemas, protocolos y plataformas. El uso de conectores en las aplicaciones lógicas permite ampliar las funcionalidades de las aplicaciones locales y en la nube para realizar tareas con los datos que ya tiene y con los que cree.
 
-Aunque Logic Apps ofrece [más de 200 conectores](https://docs.microsoft.com/connectors), en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para el procesamiento de datos e información. Para buscar la lista completa de conectores y la información de referencia de cada conector, como desencadenadores, acciones y límites, revise las páginas de referencia de conectores de [Introducción a los conectores](https://docs.microsoft.com/connectors). Además, obtenga más información sobre [desencadenadores y acciones](#triggers-actions), el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y los [detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Aunque Logic Apps ofrece [cientos de conectores](https://docs.microsoft.com/connectors), en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para procesar datos e información. Para buscar la lista completa de conectores y la información de referencia de cada conector, como desencadenadores, acciones y límites, revise las páginas de referencia de conectores de [Introducción a los conectores](https://docs.microsoft.com/connectors). Además, obtenga más información sobre [desencadenadores y acciones](#triggers-actions), el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y los [detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > Para integrar con un servicio o API que no tiene conector, puede llamar directamente al servicio a través de un protocolo como HTTP, o bien crear un [conector personalizado](#custom).
 
 Los conectores están disponibles como desencadenadores y acciones integrados, o como conectores administrados:
+
+<a name="built-in"></a>
 
 * [**Integrados**](#built-ins): estos desencadenadores y acciones integrados son "nativos" de Azure Logic Apps y ayudan a crear aplicaciones lógicas que se ejecutan en programaciones personalizadas, se comunican con otros puntos de conexión, reciben solicitudes y las responden, y llaman a funciones de Azure, aplicaciones de API de Azure (Web Apps), sus propias API administradas y publicadas con Azure API Management, y aplicaciones lógicas anidadas que pueden recibir solicitudes. También puede usar acciones integradas que le ayudarán a organizar y controlar el flujo de trabajo de la aplicación lógica, y a trabajar con datos.
 
@@ -35,6 +37,8 @@ Los conectores están disponibles como desencadenadores y acciones integrados, o
   >
   > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
   > Para más información sobre los precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+
+<a name="managed-connectors"></a>
 
 * **Conectores administrados**: Implementados y administrados por Microsoft, estos conectores proporcionan desencadenadores y acciones para acceder a servicios en la nube, sistemas locales o ambos, incluidos Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint y muchos más. Algunos conectores admiten específicamente escenarios de comunicación de negocio a negocio (B2B) y requieren una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica. Antes de usar algunos conectores, es posible que tenga que crear conexiones, que se administran mediante Azure Logic Apps. 
 
@@ -73,9 +77,9 @@ Logic Apps proporciona desencadenadores y acciones integrados para que pueda cre
 |   |   |   |   | 
 |---|---|---|---| 
 | [![Icono de API][schedule-icon]<br/>**Programación**][recurrence-doc] | - Ejecute la aplicación lógica según una programación especificada, con periodicidades básicas o complejas, con el desencadenador **Periodicidad**. <p>- Pause la aplicación lógica durante un tiempo especificado con la acción **Retraso**. <p>- Pause la aplicación lógica hasta la fecha y hora especificadas con la acción **Retraso hasta**. | [![Icono de API][http-icon]<br/>**HTTP**][http-doc] | Comuníquese con cualquier punto de conexión mediante HTTP con desencadenadores y acciones para HTTP, HTTP + Swagger y HTTP + Webhook. | 
-| [![Icono de API][http-request-icon]<br/>**Solicitud**][http-request-doc] | - Haga que su aplicación lógica se pueda llamar desde otras aplicaciones o servicios, desencadene ante eventos de recursos de Event Grid o desencadene ante respuestas a las alertas de Azure Security Center con el desencadenador **Solicitud**. <p>- Envíe respuestas a una aplicación o servicio con la acción **Respuesta**. | [![Icono de la API][batch-icon]<br/>**Lotes**][batch-doc] | - Procese mensajes por lotes con el desencadenador **Mensajes del lote**. <p>- Llame a aplicaciones lógicas que tengan desencadenadores por lotes con la acción **Enviar mensajes al lote**. | 
+| [![Icono de API][http-request-icon]<br/>**Solicitud**][http-request-doc] | - Haga que su aplicación lógica se pueda llamar desde otras aplicaciones o servicios, desencadene ante eventos de recursos de Event Grid o desencadene ante respuestas a las alertas de Azure Security Center con el desencadenador **Solicitud**. <p>- Envíe respuestas a una aplicación o servicio con la acción **Respuesta**. | [![Icono de la API][batch-icon]<br/>**Batch**][batch-doc] | - Procese mensajes por lotes con el desencadenador **Mensajes del lote**. <p>- Llame a aplicaciones lógicas que tengan desencadenadores por lotes con la acción **Enviar mensajes al lote**. | 
 | [![Icono de API][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Llame a funciones de Azure que ejecuten fragmentos de código personalizados (C# o Node.js) desde las aplicaciones lógicas. | [![Icono de API][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Llame a los desencadenadores y las acciones definidos por las API que administre y publique con Azure API Management. | 
-| [![Icono de API][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Llame a las aplicaciones de API o las aplicaciones web de Azure hospedadas en Azure App Service. Los desencadenadores y las acciones definidos por estas aplicaciones aparecen como cualquier otro desencadenador y acción de primera clase cuando se incluye Swagger. | [![Icono de API][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Llame a otras aplicaciones lógicas que comiencen con un desencadenador Solicitud. | 
+| [![Icono de API][azure-app-services-icon]<br/>**Azure App Service**][azure-app-services-doc] | Llame a las aplicaciones de API o las aplicaciones web de Azure hospedadas en Azure App Service. Los desencadenadores y las acciones definidos por estas aplicaciones aparecen como cualquier otro desencadenador y acción de primera clase cuando se incluye Swagger. | [![Icono de API][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Llame a otras aplicaciones lógicas que comiencen con un desencadenador Solicitud. | 
 ||||| 
 
 ### <a name="control-workflow"></a>Controlar el flujo de trabajo
@@ -109,9 +113,9 @@ Logic Apps proporciona estos conocidos conectores estándar para automatizar tar
 |   |   |   |   | 
 |---|---|---|---| 
 | [![Icono de API][azure-service-bus-icon]<br/>**Azure Service Bus**][azure-service-bus-doc] | Administre mensajes asincrónicos, sesiones y suscripciones a temas con el conector más usado en Logic Apps. | [![Icono de API][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. | 
-| [![Icono de API][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico de Office 365 para poder crear y administrar mensajes de correo electrónico, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. | [![Icono de API][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | Conéctese a su cuenta de almacenamiento para poder crear y administrar el contenido en blobs. | 
+| [![Icono de API][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico de Office 365 para poder crear y administrar mensajes de correo electrónico, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. | [![Icono de API][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | Conéctese a su cuenta de almacenamiento para poder crear y administrar el contenido en blobs. | 
 | [![Icono de API][sftp-icon]<br/>**SFTP**][sftp-doc] | Conéctese a servidores SFTP accesibles desde internet para poder trabajar con archivos y carpetas. | [![Icono de API][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | Conéctese a SharePoint Online para poder administrar archivos, datos adjuntos, carpetas y mucho más. | 
-| [![Icono de API][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Conéctese a su cuenta de Dynamics 365 para poder crear y administrar registros, elementos y mucho más. | [![Icono de API][ftp-icon]<br/>**FTP**][ftp-doc] | Conéctese a servidores FTP accesibles desde internet para poder trabajar con archivos y carpetas. | 
+| [![Icono de API][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Conéctese a su cuenta de Dynamics 365 para poder crear y administrar registros, elementos y mucho más. | [![Icono de API][ftp-icon]<br/>**FTP**][ftp-doc] | Conéctese a servidores FTP accesibles desde internet para poder trabajar con archivos y carpetas. | 
 | [![Icono de API][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Conéctese a su cuenta de Salesforce para poder crear y administrar elementos tales como registros, trabajos, objetos y mucho más. | [![Icono de API][twitter-icon]<br/>**Twitter**][twitter-doc] | Conéctese a su cuenta de Twitter para poder administrar tweets, seguidores, escalas de tiempo y mucho más. Guarde sus tweets en SharePoint, Excel o SQL. | 
 | [![Icono de API][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Consuma y publique eventos en un centro de eventos. Por ejemplo, obtenga una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real. | [![Icono de API][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | Supervise los eventos publicados por Event Grid, por ejemplo, cuando cambian los recursos de Azure o los recursos de terceros. | 
 |||||
@@ -124,8 +128,8 @@ Estos son algunos de los conectores estándar más usados que proporciona Logic 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Icono de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Icono de API][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![Icono de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icono de API][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Icono de API][mysql-icon]<br/>**MySQL** | 
-| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL Server</br>** ][sql-server-doc] | ![Icono de API][teradata-icon]<br/>**Teradata** | 
+| ![Icono de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Icono de API][file-system-icon]<br/>**Sistema de</br> archivos**][file-system-doc] | [![Icono de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icono de API][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Icono de API][mysql-icon]<br/>**MySQL** | 
+| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![Icono de API][teradata-icon]<br/>**Teradata** | 
 |||||
 
 <a name="integration-account-connectors"></a>
@@ -137,7 +141,7 @@ Logic Apps proporciona conectores estándar para crear soluciones de negocio a n
 |   |   |   |   | 
 |---|---|---|---| 
 | [![Icono de API][as2-icon]<br/>**Descodificación de</br> AS2**][as2-doc] | [![Icono de API][as2-icon]<br/>**Codificación de</br> AS2**][as2-doc] | [![Icono de API][edifact-icon]<br/>**Descodificación de</br> EDIFACT**][edifact-decode-doc] | [![Icono de API][edifact-icon]<br/>**Codificación de</br> EDIFACT**][edifact-encode-doc] | 
-| [![Icono de API][flat-file-decode-icon]<br/>**Descodificación de</br> archivos planos**][flat-file-decode-doc] | [![Icono de API][flat-file-encode-icon]<br/>**Codificación de</br> archivos planos**][flat-file-encode-doc] | [![Icono de API][integration-account-icon]<br/>**Cuenta de<br/>integración**][integration-account-doc] | [![Icono de la API][liquid-icon]<br/>**Transformaciones de**</br>**Liquid**][json-liquid-transform-doc] | 
+| [![Icono de API][flat-file-decode-icon]<br/>**Descodificación de</br> archivos planos**][flat-file-decode-doc] | [![Icono de API][flat-file-encode-icon]<br/>**Codificación de</br> archivos planos**][flat-file-encode-doc] | [![Icono de API][integration-account-icon]<br/>**Cuenta de<br/>integración**][integration-account-doc] | [![Icono de API][liquid-icon]<br/>**Transformaciones de**</br>**Liquid**][json-liquid-transform-doc] | 
 | [![Icono de API][x12-icon]<br/>**Descodificación de</br> X12**][x12-decode-doc] | [![Icono de API][x12-icon]<br/>**Codificación de</br> X12**][x12-encode-doc] | [![Icono de la API][xml-transform-icon]<br/>**Transformaciones de**</br>**XML**][xml-transform-doc] | [![Icono de API][xml-validate-icon]<br/>**Validación de <br/>XML**][xml-validate-doc] |  
 ||||| 
 
@@ -149,7 +153,7 @@ Logic Apps proporciona estos conectores empresariales para acceder a sistemas em
 
 |   |   |   | 
 |---|---|---| 
-| [![Icono de API][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![Icono de API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icono de API][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![Icono de API][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![Icono de API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icono de API][sap-icon]<br/>**SAP**][sap-connector-doc] |
 |||| 
 
 <a name="triggers-actions"></a>

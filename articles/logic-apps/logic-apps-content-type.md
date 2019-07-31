@@ -1,21 +1,20 @@
 ---
-title: 'Administración de los tipos de contenido: Azure Logic Apps | Microsoft Docs'
+title: 'Control de tipos de contenido: Azure Logic Apps'
 description: Más información sobre cómo Logic Apps controla los tipos de contenido en el tiemp de diseño y el tiempo de ejecución
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685770"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868921"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Control de tipos de contenido en Azure Logic Apps
 
@@ -144,11 +143,12 @@ En esta lista se describe cómo Logic Apps convierte el contenido al usar estas 
 * `xml()`: convierte los datos a `application/xml`
 * `binary()`: convierte los datos a `application/octet-stream`
 * `string()`: convierte los datos a `text/plain`
-* `base64()`: convierte el contenido a una cadena base64
+* `base64()`: convierte el contenido a una cadena codificada en base64
 * `base64toString()`: convierte una cadena codificada en base64 a `text/plain`
 * `base64toBinary()`: convierte una cadena codificada en base64 a `application/octet-stream`
-* `encodeDataUri()`: codifica una cadena como una matriz de bytes dataUri
-* `decodeDataUri()`: descodifica una `dataUri` en una matriz de bytes
+* `dataUri()`: convierte una cadena a un identificador URI de datos
+* `dataUriToBinary()`: convierte un identificador URI de datos a una cadena binaria
+* `dataUriToString()`: convierte un identificador URI de datos a una cadena
 
 Por ejemplo, si recibe una solicitud HTTP donde `Content-Type` se establece en `application/xml`, por ejemplo, este contenido:
 

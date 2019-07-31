@@ -10,12 +10,12 @@ ms.date: 11/20/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 87651aa1fd44a831e94a00b5871faaae51f2f6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d44dabe68900aa45b076f44cc38ed85d6938afa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148307"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249947"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
@@ -80,7 +80,7 @@ Después puede importar el archivo de marco en la aplicación realizando el sigu
 #import <AZSClient/AZSClient.h>
 ```
 
-Si usa Swift, deberá crear un encabezado puente e importar <AZSClient/AZSClient.h> aquí:
+Si usa Swift, deberá crear un encabezado puente e importar \<AZSClient/AZSClient.h> aquí:
 
 1. Cree un archivo de encabezado `Bridging-Header.h` y agregue la instrucción "import" anterior.
 2. Vaya a la pestaña *Configuración de compilación* y busque *Objective-C Bridging Header*.

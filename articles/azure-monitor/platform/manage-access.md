@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 07/16/2019
 ms.author: magoedte
-ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fbfbd8e26ab3e92f06194322be7ec2be2fb180fd
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295515"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254458"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administración de los datos de registro y las áreas de trabajo en Azure Monitor
 Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a datos del registro, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
@@ -192,12 +192,18 @@ Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta puede 
 
 Las siguientes actividades también requieren permisos de Azure:
 
-| .                                                          | Permisos de Azure necesarios | Notas |
-|-----------------------------------------------------------------|--------------------------|-------|
-| Agregar y quitar soluciones de supervisión                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Es necesario conceder estos permisos en el nivel de suscripción o grupo de recursos. |
-| Cambiar el plan de tarifa                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+||. |Permisos de Azure necesarios |Notas |
+|-------|-------------------------|------|
+| Agregar y quitar soluciones de supervisión | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Es necesario conceder estos permisos en el nivel de suscripción o grupo de recursos. |
+| Cambiar el plan de tarifa | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Ver los datos en los iconos de soluciones *Backup* y *Site Recovery* | Administrador o coadministrador | Accede a los recursos implementados mediante el modelo de implementación clásica |
-| Creación de un área de trabajo en Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| Creación de un área de trabajo en Azure Portal | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| Ver las propiedades básicas del área de trabajo y especificar la hoja del área de trabajo en el portal | `Microsoft.OperationalInsights/workspaces/read` ||
+| Consultar registros con cualquier interfaz | `Microsoft.OperationalInsights/workspaces/query/read` ||
+| Acceder a todos los tipos de registros mediante consultas | `Microsoft.OperationalInsights/workspaces/query/*/read` ||
+| Acceder a una tabla de registro específica | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
+| Leer las claves del área de trabajo para permitir el envío de registros a este área de trabajo | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
+
 
 
 #### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Administración del acceso al área de trabajo de Log Analytics mediante permisos de Azure 
@@ -215,9 +221,9 @@ El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
 | type    | Permiso | DESCRIPCIÓN |
 | ------- | ---------- | ----------- |
-| . | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
-| . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |
-| . | `Microsoft.OperationalInsights/workspaces/search/action` | Capacidad de realizar consultas de búsqueda de registros v1 |
+| . | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y configuraciones de todos los recursos <br> En el caso de las áreas de trabajo, permite permisos completos sin restricciones para leer la configuración del área de trabajo y realizar consultas en los datos. Consulte opciones más específicas anteriormente. |
+| . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | En desuso, no es necesario asignarlos a los usuarios. |
+| . | `Microsoft.OperationalInsights/workspaces/search/action` | En desuso, no es necesario asignarlos a los usuarios. |
 | . | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
 |No acción | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Evita la lectura de la clave del área de trabajo necesaria para usar la API de recopilación de datos e instalar agentes. Esto impide que los usuarios agreguen nuevos recursos al área de trabajo. |
 
@@ -242,7 +248,7 @@ El rol Colaborador de Log Analytics incluye las siguientes acciones de Azure:
 
 | Permiso | DESCRIPCIÓN |
 | ---------- | ----------- |
-| `*/read`     | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
+| `*/read`     | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y configuraciones de todos los recursos <br> En el caso de las áreas de trabajo, permite permisos completos sin restricciones para leer la configuración del área de trabajo y realizar consultas en los datos. Consulte opciones más específicas anteriormente. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidad para crear y configurar cuentas de Azure Automation, incluido agregar y editar runbooks |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Agregar, actualizar y eliminar extensiones de máquina virtual, incluida la extensión de Microsoft Monitoring Agent y el agente de OMS para la extensión de Linux |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Ver la clave de la cuenta de almacenamiento. Necesaria para configurar Log Analytics para leer los registros de cuentas de Azure Storage |
@@ -268,7 +274,7 @@ Cuando los usuarios consulten los registros desde un área de trabajo mediante e
 | Permiso | DESCRIPCIÓN |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Ejemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidad para ver todos los datos de registro para el recurso.  |
-
+| `Microsoft.Insights/diagnosticSettings/write ` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |
 
 Este permiso se suele conceder desde un rol que incluye los permisos _\*/read o_ _\*_ como los permisos [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Tenga en cuenta que los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 

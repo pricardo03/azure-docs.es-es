@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462418"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839929"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
@@ -77,13 +77,13 @@ Este conector de Oracle admite dos versiones de controladores:
 
 Si utiliza el asistente para copia para crear la canalización de copia, el tipo de controlador se determina automáticamente. El controlador de Microsoft se usa de forma predeterminada, a menos que la versión de la puerta de enlace sea anterior a la versión 2.7 o seleccione Oracle como receptor.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Puede crear una canalización con una actividad de copia. La canalización mueve los datos a o desde una base de datos de Oracle local mediante el uso de diferentes herramientas o API.
 
 La manera más fácil de crear una canalización es usar el Asistente para copiar. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-También puede usar una de las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
+Puede usar una las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** o **API REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
 Tanto si usa las herramientas como las API, complete los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -187,7 +187,7 @@ En la actividad de copia, si el origen es de tipo **OracleSource**, están dispo
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Ejemplos de JSON para copiar datos a la base de datos de Oracle y desde esta
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Los ejemplos muestran cómo copiar datos desde una base de datos de Oracle a Azure Blob Storage y viceversa. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados en [Formatos y almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
+En los siguientes ejemplos, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Los ejemplos muestran cómo copiar datos desde una base de datos de Oracle a Azure Blob Storage y viceversa. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados en [Formatos y almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 **Ejemplo: Copia de datos de Oracle a Azure Blob Storage**
 

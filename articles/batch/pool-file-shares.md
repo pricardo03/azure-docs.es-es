@@ -4,7 +4,7 @@ description: Cómo montar un recurso compartido de archivos de Azure a partir de
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 914bc11736b08dab6b334307dc188b5d153c7331
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8c9d041648408b05b7cd160d5aea9dfb33ac061d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341317"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322379"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Uso de un recurso compartido de archivos con un grupo de Batch
 
@@ -52,7 +52,7 @@ En Batch, deberá montar el recurso compartido cada vez que se ejecute una tarea
 Por ejemplo, incluya un comando `net use` para montar el recurso compartido de archivos como parte de cada línea de comandos de la tarea. Para montar el recurso compartido de archivos, se necesitan las siguientes credenciales:
 
 * **Nombre de usuario**: AZURE\\\<storageaccountname\>, por ejemplo, AZURE\\*mystorageaccountname*
-* **Contraseña**: <StorageAccountKeyWhichEnds in==>, por ejemplo, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Contraseña**: \<StorageAccountKeyWhichEnds in==>, por ejemplo, *XXXXXXXXXXXXXXXXXXXXX==*
 
 El siguiente comando monta un recurso compartido de archivos *myfileshare* en la cuenta de almacenamiento *mystorageaccountname* como la unidad *S:* :
 
@@ -129,7 +129,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 A continuación, ejecute el comando `mount` para montar el recurso compartido de archivos mediante estas credenciales:
 
 * **Nombre de usuario**: \<storageaccountname\>, por ejemplo, *mystorageaccountname*
-* **Contraseña**: <StorageAccountKeyWhichEnds in==>, por ejemplo, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Contraseña**: \<StorageAccountKeyWhichEnds in==>, por ejemplo, *XXXXXXXXXXXXXXXXXXXXX==*
 
 El siguiente comando monta un recurso compartido de archivos *myfileshare* en la cuenta de almacenamiento *mystorageaccountname* en */mnt/MyAzureFileShare*: 
 

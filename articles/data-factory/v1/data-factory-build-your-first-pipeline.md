@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564598"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839435"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para transformar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +35,7 @@ ms.locfileid: "60564598"
 
 En este tutorial, se crea una instancia de Azure Data Factory con una canalización de datos. La canalización transforma los datos de entrada mediante la ejecución de un script de Hive en un clúster de Azure HDInsight (Hadoop) para generar datos de salida.  
 
-Este artículo se proporciona información general del tutorial y se indican sus requisitos previos. Una vez que complete los requisitos previos, puede seguir el tutorial con uno de los siguientes SDK o herramientas: Azure Portal, Visual Studio, PowerShell, plantilla de Resource Manager, REST API. Seleccione una de las opciones de la lista desplegable del principio o los vínculos del final de este artículo para realizar el tutorial mediante una de estas opciones.    
+Este artículo se proporciona información general del tutorial y se indican sus requisitos previos. Una vez que complete los requisitos previos, puede seguir el tutorial con uno de los siguientes SDK o herramientas: Visual Studio, PowerShell, plantilla de Resource Manager, API REST. Seleccione una de las opciones de la lista desplegable del principio o los vínculos del final de este artículo para realizar el tutorial mediante una de estas opciones.    
 
 ## <a name="tutorial-overview"></a>Información general del tutorial
 En este tutorial, realizará los siguientes pasos:
@@ -93,13 +92,12 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 Una vez que se cumplan los requisitos previos, seleccione uno de los siguientes SDK o herramientas para realizar el tutorial: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure Portal y Visual Studio proporcionan una forma de generar factorías de datos mediante GUI. Mientras que las opciones de PowerShell, la plantilla de Resource Manager y la API de REST proporcionan una forma de generar factorías de datos mediante scripts/programación.
+Visual Studio proporciona una forma de generar factorías de datos mediante GUI. Mientras que las opciones de PowerShell, la plantilla de Resource Manager y la API de REST proporcionan una forma de generar factorías de datos mediante scripts/programación.
 
 > [!NOTE]
 > En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. No copia los datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

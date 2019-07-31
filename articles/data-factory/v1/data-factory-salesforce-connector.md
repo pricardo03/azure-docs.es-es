@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309209"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839612"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -52,7 +52,7 @@ Puede crear una canalización con actividad de copia que mueva datos desde Sales
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -71,8 +71,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
+| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| password |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -124,7 +124,7 @@ Para consultar los registros eliminados temporalmente de papelera de reciclaje d
 * Para consultar todos los registros, tanto existentes como eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Ejemplo JSON: Copia de datos de Salesforce a un blob de Azure
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización usando [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 Aquí tiene los artefactos de Data Factory que necesita crear para implementar el escenario. Las secciones que siguen a la lista proporcionan detalles acerca de estos pasos.
 

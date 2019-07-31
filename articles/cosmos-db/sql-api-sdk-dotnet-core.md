@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340194"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226181"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: notas de la versión y recursos
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -35,20 +36,14 @@ ms.locfileid: "67340194"
 |**Descarga del SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**Documentación de la API**|[Documentación de referencia de API de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Muestras**|[Ejemplos de código de .NET](sql-api-dotnet-samples.md)|
-|**Introducción**|[Introducción al SDK para .NET Core de Azure Cosmos DB](sql-api-dotnet-core-get-started-preview.md)|
+|**Primeros pasos**|[Introducción a .NET de Azure Cosmos DB](sql-api-sdk-dotnet.md)|
 |**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Plataforma admitida actualmente**|[.NET Standard 1.6 y .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notas de la versión
 
-El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con la última versión del [SDK de .NET para Azure Cosmos DB](sql-api-sdk-dotnet.md).
-
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1 (versión preliminar)
-* Versión preliminar 1 de la [versión 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) del SDK de .NET para la versión preliminar pública.
-* .NET Standard como destino, que es compatible con .NET Framework 4.6.1+ y .NET Core 2.0+
-* Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas.
-* Compatibilidad con secuencias.
-* Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta.
+> [!NOTE]
+> Si usa .NET Core, consulte la versión 3. x más reciente del [SDK de .NET](sql-api-sdk-dotnet-standard.md), que tiene como destino .NET Standard. 
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 

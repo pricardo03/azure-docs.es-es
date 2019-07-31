@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256180"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226823"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Úselo para [automáticamente la solicitud de instrumento, seguir las dependencias y los contadores de rendimiento recopilar](auto-collect-dependencies.md#java), diagnosticar problemas de rendimiento y excepciones, y [escribir código] [ api] para realizar un seguimiento de qué hacen los usuarios con la aplicación. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Úsela para [instrumentar automáticamente solicitudes, realizar un seguimiento de dependencias y recopilar contadores de rendimiento](auto-collect-dependencies.md#java), diagnosticar problemas de rendimiento y excepciones y [escribir código][api] para realizar un seguimiento de lo que hacen los usuarios con la aplicación. 
 
 ![Captura de pantalla de información general con datos de ejemplo](./media/java-get-started/overview-graphs.png)
 
@@ -71,7 +71,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 ```
 
 * *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *¿Necesita actualizar a un nuevo SDK?*  Actualice las dependencias del proyecto.
+* *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si usa Gradle... <a name="gradle-setup" />
 Si su proyecto ya se ha configurado para usar Grade para la compilación, combine el siguiente código al archivo build.gradle.
@@ -169,6 +169,8 @@ También se puede [configurar en el código](../../azure-monitor/app/api-custom-
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Tenga en cuenta que [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) no admite la lectura de la clave de instrumentación desde el código.
 
 ## <a name="4-add-an-http-filter"></a>4. Adición de un filtro HTTP
 El último paso de la configuración permite que el componente de la solicitud HTTP registre las solicitudes web. (No es necesario si solo desea la API básica).
@@ -319,7 +321,7 @@ Haga clic en cualquier gráfico para ver métricas agregadas más detalladas.
 ### <a name="instance-data"></a>Datos de instancia
 Haga clic en un tipo de solicitud específico para ver las instancias individuales.
 
-![Profundizar en una vista de ejemplo concretos](./media/java-get-started/007-instance.png)
+![Profundización en una vista de ejemplo concreta](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análisis: Lenguaje de consulta eficaz
 A medida que acumula más datos, puede ejecutar consultas tanto para agregar datos como para buscar instancias individuales.  [Analytics](../../azure-monitor/app/analytics.md) es una eficaz herramienta tanto para conocer el rendimiento y el uso, como para el diagnóstico.
@@ -344,7 +346,7 @@ Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los us
 
 ## <a name="azure-app-service-config-spring-boot"></a>Configuración de Azure App Service (Spring Boot)
 
-Aplicaciones de Spring Boot que se ejecutan en Windows requieren configuración adicional para ejecutarse en Azure App Services. Modificar **web.config** y agregue lo siguiente:
+Las aplicaciones de Spring Boot que se ejecutan en Windows requieren configuración adicional para ejecutarse en Azure App Services. Modifique **web.config** y agregue lo siguiente:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -364,7 +366,7 @@ Las excepciones no controladas se recopilan automáticamente.
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a TrackException en el código][apiexceptions].
+* [Insertar llamadas a TrackException() en el código][apiexceptions].
 * [Instalar el agente de Java en el servidor](java-agent.md). Debe especificar los métodos que desee ver.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Supervisión de llamadas a métodos y dependencias externas
@@ -379,9 +381,9 @@ La configuración del SDK de entrada se explica más en detalle en nuestro artí
 La configuración del SDK de salida se define en el archivo [AI-Agent.xml](java-agent.md).
 
 ## <a name="performance-counters"></a>contadores de rendimiento
-Abra **investigar**, **métricas**para ver un intervalo de contadores de rendimiento.
+Abra **Investigar** y **Métricas** para ver un intervalo de contadores de rendimiento.
 
-![Captura de pantalla del panel de métricas con los bytes privados del proceso seleccionado](./media/java-get-started/011-perf-counters.png)
+![Captura de pantalla del panel de métricas con los bytes privados del proceso seleccionados](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizar la recopilación de contadores de rendimiento
 Para deshabilitar la recopilación del conjunto estándar de contadores de rendimiento, agregue el siguiente código bajo el nodo raíz del archivo ApplicationInsights.xml:
@@ -434,30 +436,6 @@ Cada [contador de rendimiento de Windows](https://msdn.microsoft.com/library/win
 ### <a name="unix-performance-counters"></a>Contadores de rendimiento de Unix
 * [Instale collectd con el complemento de Application Insights](java-collectd.md) para obtener una amplia variedad de datos de red y del sistema.
 
-## <a name="local-forwarder"></a>Reenviador local
-
-Un [reenviador local](https://docs.microsoft.com/azure/application-insights/local-forwarder) es un agente que recopila datos de telemetría de Application Insights o [OpenCensus](https://opencensus.io/) procedentes de diversos SDK y plataformas y los enruta a Application Insights. Se puede ejecutar en Windows y Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Si usa el inicio de SpringBoot, agregue lo siguiente al archivo de configuración (application.properies):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Los valores predeterminados son los mismos para la configuración de application.properties y applicationinsights.xml de SpringBoot.
-
 ## <a name="get-user-and-session-data"></a>Obtención de datos de usuario y sesión
 Bien, va a enviar telemetría desde el servidor web. Ahora, para obtener la visión completa de 360 grados de la aplicación, puede agregar mayor supervisión:
 
@@ -465,7 +443,7 @@ Bien, va a enviar telemetría desde el servidor web. Ahora, para obtener la visi
 * [Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 
 ## <a name="capture-log-traces"></a>Captura de seguimiento de registros
-Application Insights se puede utilizar para segmentar y desglosar los registros desde Log4J, Logback u otras plataformas de registro. Puede correlacionar los registros con solicitudes HTTP y otra telemetría. [Vea cómo][javalogs].
+Application Insights se puede utilizar para segmentar y desglosar los registros desde Log4J, Logback u otras plataformas de registro. Puede correlacionar los registros con solicitudes HTTP y otra telemetría. [Más información][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Envío de su propia telemetría
 Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telemetría.
@@ -476,7 +454,7 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 ## <a name="availability-web-tests"></a>Pruebas web de disponibilidad
 Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente.
 
-[Más información sobre cómo configurar pruebas web de disponibilidad.][availability]
+[Obtenga más información sobre cómo configurar las pruebas web de disponibilidad.][availability]
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
 [Solución de problemas de Java](java-troubleshoot.md)

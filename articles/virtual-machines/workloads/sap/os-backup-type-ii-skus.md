@@ -11,24 +11,28 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dacc0a745fc387dcaf6be282b562d83e1b798ea4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710099"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868965"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Copia de seguridad y restauración del sistema operativo para SKU de tipo II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Copia de seguridad y restauración del sistema operativo para SKU de tipo II de los sellos de revisión 3
 
-En este documento se describen los pasos para realizar una copia de seguridad y una restauración a nivel de archivo del sistema operativo para las **SKU de tipo II** de instancias grandes de HANA. 
+En este documento se describen los pasos para realizar una copia de seguridad y una restauración de nivel de archivo del sistema operativo para las **SKU de tipo II** de HANA (instancias grandes) de la revisión 3. 
+
+>[!Important]
+> **Este artículo no se aplica a las implementaciones de SKU de tipo II en sellos de HANA (instancias grandes) de la revisión 4.** Se puede realizar una copia de seguridad de los LUN de arranque de las unidades de HANA (instancias grandes) de tipo II que se implementan en los sellos de HANA (instancias grandes) de la revisión 4 con instantáneas de almacenamiento, ya que este es el caso con las SKU de tipo I en sellos de la revisión 3.
+
 
 >[!NOTE]
 >En los scripts de copia de seguridad del SO se usa el software ReaR, que viene preinstalado en el servidor.  
 
-Después de que el equipo de Microsoft Service Management ha realizado el aprovisionamiento, el servidor se configura de forma predeterminada con la programación de dos copias de seguridad para realizar una copia de seguridad a nivel de archivo del sistema operativo. Puede comprobar la programación del trabajo de copia de seguridad mediante el comando siguiente:
+Después de que el equipo de Microsoft `Service Management` haya realizado el aprovisionamiento, el servidor se configura de forma predeterminada con dos programaciones de copia de seguridad para realizar una copia de seguridad de nivel de archivo del sistema operativo. Puede comprobar las programaciones de los trabajos de copia de seguridad mediante el comando siguiente:
 ```
 #crontab –l
 ```
@@ -38,7 +42,7 @@ En cualquier momento se puede cambiar la programación de la copia de seguridad 
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
-La copia de seguridad del sistema de archivos del sistema operativo se programa mediante un **trabajo de cron**. Sin embargo, también puede realizar la copia de seguridad a nivel de archivo del sistema operativo de forma manual. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
+La copia de seguridad del sistema de archivos del sistema operativo ya está programada mediante un **trabajo de cron**. Sin embargo, también puede realizar la copia de seguridad a nivel de archivo del sistema operativo de forma manual. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
 
 ```
 #rear -v mkbackup

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486874"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839355"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -35,7 +35,7 @@ Data Factory le permite crear flujos de trabajo basados en datos para mover dato
 Para más información, consulte [Información general y conceptos clave](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>¿Dónde puedo encontrar detalles de precios de Azure Data Factory?
-Vea la [página de detalles de precios de Azure Data Factory][adf-pricing-details] para obtener información al respecto.  
+Vea la página de [detalles de precios de Data Factory][adf-pricing-details] para obtener información al respecto.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>¿Cómo puedo comenzar con Azure Data Factory?
 * Para obtener información general sobre Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Consulte la sección **Límites de Azure Data Factory** del artículo [Límites,
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>¿Cuál es la experiencia de desarrollador/creación con el servicio Azure Data Factory?
 Puede crear factorías de datos mediante una de las siguientes herramientas y SDK:
 
-* **Azure Portal** : las hojas de Data Factory de Azure Portal proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Factoría de datos**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Consulte [Creación de la primera canalización de datos mediante Azure Portal](data-factory-build-your-first-pipeline-using-editor.md) para obtener un ejemplo de uso del portal o el editor para crear e implementar una factoría de datos.
 * **Visual Studio** : puede usar Visual Studio para crear una instancia de Data Factory de Azure. Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
 * **Azure PowerShell** : consulte el tutorial [Creación y supervisión de Azure Data Factory mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para crear una factoría de datos mediante PowerShell. Consulte el contenido de [Referencia de cmdlets de Data Factory][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.
 * **Biblioteca de clases .NET** Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET](data-factory-create-data-factories-programmatically.md) para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Data Factory][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.
-* **API de REST** También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de Data Factory][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de Data Factory.
+* **API de REST** También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte [Referencia de la API REST de Data Factory][msdn-rest-api-reference] para ver una amplia documentación sobre la API REST de Data Factory.
 * **Plantilla de Azure Resource Manager** Consulte [Tutorial: Creación de la primera factoría de datos de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para detalles.
 
 ### <a name="can-i-rename-a-data-factory"></a>¿Se puede cambiar el nombre de una Factoría de datos?

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
-ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
+ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444886"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876374"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envío de correos electrónicos con SendGrid y Azure
 ## <a name="overview"></a>Información general
-Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\# y admiten .NET Standard 1.3. Entre los escenarios descritos se incluyen creación de correos electrónicos, envío de correos electrónicos, incorporación de datos adjuntos y habilitación de varias configuraciones de correo y seguimiento. Para más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][Next steps].
+Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\# y admiten .NET Standard 1.3. Entre los escenarios descritos se incluyen creación de correos electrónicos, envío de correos electrónicos, incorporación de datos adjuntos y habilitación de varias configuraciones de correo y seguimiento. Para obtener más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][Next steps] .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>¿Qué es el servicio de correo electrónico SendGrid?
 SendGrid es un [servicio de correo electrónico basado en la nube] que ofrece un sistema confiable de [entrega de correo electrónico transaccional], escalabilidad y análisis en tiempo real junto, con API flexibles que facilitan la integración personalizada. A continuación se indican casos de uso comunes de SendGrid:
@@ -93,7 +94,7 @@ El siguiente ejemplo muestra la forma de crear un objeto de correo electrónico 
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-Para más información sobre las propiedades y los métodos que admite el tipo **SendGrid**, consulte [sendgrid-csharp][sendgrid-csharp] en GitHub.
+Para obtener más información sobre las propiedades y los métodos que admite el tipo **SendGrid** , consulte [sendgrid-csharp][sendgrid-csharp] en GitHub.
 
 ## <a name="how-to-send-an-email"></a>Procedimientos para: Enviar un correo electrónico
 Después de crear un mensaje de correo electrónico, puede enviarlo con la API de SendGrid. También puede usar la [biblioteca integrada de .NET][NET-library].
@@ -232,7 +233,7 @@ Es posible agregar datos adjuntos a un mensaje llamando al método **AddAttachme
     msg.AddAttachment(banner2);
 
 ## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procedimientos para: Usar la configuración de correo para habilitar pies de página, seguimiento y análisis
-SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de configuraciones de correo y de seguimiento. Todas estas configuraciones se pueden agregar a un mensaje de correo electrónico para habilitar funciones específicas, como el seguimiento por clics, Google Analytics, el seguimiento de suscripciones, etc. Para obtener una lista completa de las aplicaciones, consulte la [documentación de la configuración][settings-documentation].
+SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de configuraciones de correo y de seguimiento. Todas estas configuraciones se pueden agregar a un mensaje de correo electrónico para habilitar funciones específicas, como el seguimiento por clics, Google Analytics, el seguimiento de suscripciones, etc. Para una lista completa de las aplicaciones, consulte la [documentación de la configuración][settings-documentation].
 
 Es posible incluir aplicaciones en los mensajes de correo de **SendGrid** con métodos implementados como parte de la clase **SendGridMessage**. Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seguimiento por clics:
 

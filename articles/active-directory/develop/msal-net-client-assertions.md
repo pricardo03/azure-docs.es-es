@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a938f85b2047ea5cceada98df6adba2c560c1a1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278661"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442502"
 ---
 # <a name="confidential-client-assertions"></a>Aserciones de cliente confidenciales
 Con el fin de demostrar su identidad, las aplicaciones cliente confidenciales intercambian un secreto con Azure AD. El secreto puede ser:
@@ -34,7 +34,7 @@ Este secreto también puede ser una aserción firmada directamente.
 MSAL.NET tiene cuatro métodos para proporcionar credenciales o aserciones a la aplicación cliente confidencial:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### <a name="signed-assertions"></a>Aserciones firmadas

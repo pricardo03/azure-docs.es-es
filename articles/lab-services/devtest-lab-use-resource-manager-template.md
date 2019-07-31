@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101578"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854274"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creación de máquinas virtuales con una plantilla de Azure Resource Manager 
 
@@ -51,9 +51,8 @@ En [Procedimientos recomendados para crear plantillas de Azure Resource Manager]
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visualización y guardado de una plantilla de Resource Manager de una máquina virtual
 1. Siga los pasos de [Creación de su primera máquina virtual en un laboratorio](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) para empezar a crear una máquina virtual.
 1. Escriba la información necesaria para la máquina virtual y agréguele cualquier artefacto que desee.
+1. Cambie a la pestaña **Configuración avanzada**. 
 1. En la parte inferior de la ventana Parámetros de configuración, elija **View ARM template** (Ver plantilla ARM).
-
-   ![Botón View ARM template (Ver plantilla ARM)](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copie y guarde la plantilla de Resource Manager para usarla más adelante para crear otra máquina virtual.
 
    ![Plantilla de Resource Manager que se debe guardar para usarla más adelante](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
@@ -63,6 +62,11 @@ Después de guardar la plantilla de Resource Manager, debe actualizar la secció
 ![Personalización de los parámetros con un archivo JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
 La plantilla de Resource Manager ya está lista para usarse para [crear una máquina virtual](devtest-lab-create-environment-from-arm.md).
+
+## <a name="set-expiration-date"></a>Establecimiento de la fecha de expiración
+En escenarios como aprendizaje, demostraciones y evaluaciones, es posible que desee crear máquinas virtuales y eliminarlas automáticamente después de una duración fija para no incurrir en costos innecesarios. Puede crear una máquina virtual de laboratorio con una fecha de expiración especificando la propiedad **expirationDate** para la máquina virtual. Consulte la misma plantilla de Resource Manager en [nuestro repositorio de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
+
 
 ### <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [crear entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md).

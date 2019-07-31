@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205272"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304328"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -62,9 +62,16 @@ Para obtener más información sobre las comunicaciones con respecto a los cambi
 
 Cuando se introduce una nueva versión secundaria, la versión secundaria y la versión de revisión compatibles más antiguas quedan obsoletas y se retiran. Por ejemplo, si la lista de versiones que se admiten actualmente es:
 
-<a name="supported-version-list"></a>Lista de versiones admitidas
-----------------------
-1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b, 1.9.a, 1.9.b
+```
+1.12.a
+1.12.b
+1.11.a
+1.11.b
+1.10.a
+1.10.b
+1.9.a
+1.9.b
+```
 
 Y AKS publica 1.13.x, esto significa que se quitarán las versiones 1.9. x (todas las versiones 1.9) y se quedarán sin soporte.
 
@@ -74,15 +81,19 @@ Y AKS publica 1.13.x, esto significa que se quitarán las versiones 1.9. x (toda
 
 Además de lo anterior sobre las versiones secundarias, AKS admite las dos últimas versiones de *revisión** de una determinada versión secundaria. Por ejemplo, dadas las siguientes versiones admitidas:
 
-<a name="supported-version-list"></a>Lista de versiones admitidas
-----------------------
+```
+Current Supported Version List
+------------------------------
 1.12.1, 1.12.2, 1.11.4, 1.11.5
+```
 
 Si anteriormente Kubernetes publicó 1.12.3 y 1.11.6 y AKS publica esas versiones de revisión, las versiones de revisión más antiguas quedan en desuso y se eliminan, y la lista de versiones admitidas pasa a ser:
 
-<a name="supported-version-list"></a>Lista de versiones admitidas
+```
+New Supported Version List
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
+```
 
 > [!NOTE]
 > Los clientes no deben fijar la creación de clústeres, la integración continua u otros trabajos automatizados a versiones de revisión específicas. 

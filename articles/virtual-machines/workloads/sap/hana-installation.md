@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2019
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbbfad7f9fa1c5515b187114277f054f7c5ea84b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5bfd278cc4252167aace3aca52fec65fb3c6367f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709579"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869132"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -35,7 +35,7 @@ Cuando tenga pensado instalar HANA 2.0, consulte la [nota de compatibilidad de S
 > [!IMPORTANT] 
 > Para las unidades de tipo II, actualmente solo se admite la versión del sistema operativo SLES 12 SP2. 
 
-Antes de comenzar la instalación de HANA se debe realizar lo siguiente:
+Antes de comenzar la instalación de HANA valide lo siguiente:
 - [Unidades HLI](#validate-the-hana-large-instance-units)
 - [Configuración del sistema operativo](#operating-system)
 - [Configuración de la red](#networking)
@@ -46,15 +46,17 @@ Antes de comenzar la instalación de HANA se debe realizar lo siguiente:
 
 Después de recibir la unidad de HANA (instancias grandes) de Microsoft, valide la siguiente configuración y haga los ajustes que sean necesarios.
 
-El **primer paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias es -registrar el sistema operativo de la instancia con el proveedor de este. Este paso incluye registrar el sistema operativo SUSE Linux en una instancia de SUSE SMT que se implementó en una máquina virtual de Azure. 
+El **primer paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias, es comprobar en Azure Portal si las instancias se muestran con las SKU y el sistema operativo correctos en Azure Portal. Lea [Control de instancias grandes de HANA en Azure mediante Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) para conocer los pasos necesarios para realizar las comprobaciones.
+
+El **segundo paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias es registrar el sistema operativo de la instancia con el proveedor de este. Este paso incluye registrar el sistema operativo SUSE Linux en una instancia de SUSE SMT que se implementó en una máquina virtual de Azure. 
 
 La unidad de HANA (instancia grande) se puede conectar a esta instancia de SMT. (Para más información, consulte [Configuración de servidor SMT para SUSE Linux](hana-setup-smt.md)). O bien, debe registrar el sistema operativo RedHat con la instancia de RedHat Subscription Manager a la que necesite conectarse. Para más información, consulte los comentarios que aparecen en [¿Qué es SAP HANA en Azure (instancias grandes)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Este paso es necesario para aplicar revisiones en el sistema operativo, que es responsabilidad del cliente. Para SUSE, busque la documentación sobre cómo instalar y configurar SMT en esta página sobre la [instalación de SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
-El **segundo paso** es comprobar si hay nuevas revisiones y correcciones de la versión del sistema operativo específica. Compruebe si el nivel de revisión de la instancia grande de HANA es el más reciente. Puede haber casos en los que no se incluyen las revisiones más recientes. Después de hacerse cargo de una unidad de instancia grande de HANA, es obligatorio comprobar si se necesitan aplicar parches.
+El **tercer paso** es comprobar si hay nuevas revisiones y correcciones de la versión del sistema operativo específica. Compruebe si el nivel de revisión de la instancia grande de HANA es el más reciente. Puede haber casos en los que no se incluyen las revisiones más recientes. Después de hacerse cargo de una unidad de instancia grande de HANA, es obligatorio comprobar si se necesitan aplicar parches.
 
-El **tercer paso** consiste en comprobar las notas de SAP correspondientes a la instalación y configuración de SAP HANA en la versión concreta del sistema operativo. Debido a los cambios en las recomendaciones o en las notas de SAP o las configuraciones que dependen de los escenarios de instalación individuales, Microsoft no siempre podrá configurar a la perfección una unidad de instancia grande de HANA. 
+El **cuarto paso** consiste en comprobar las notas de SAP correspondientes a la instalación y configuración de SAP HANA en la versión concreta del sistema operativo. Debido a los cambios en las recomendaciones o en las notas de SAP o las configuraciones que dependen de los escenarios de instalación individuales, Microsoft no siempre podrá configurar a la perfección una unidad de instancia grande de HANA. 
 
 Por tanto, como cliente es obligatorio que lea las notas de SAP relacionadas con SAP HANA en la versión exacta de Linux. Compruebe también las configuraciones de la versión del sistema operativo necesaria y aplique los valores de configuración si todavía no lo hace.
 
@@ -70,15 +72,15 @@ Específicamente, compruebe los siguientes parámetros y, si es necesario, ajús
 
 A partir de SP1 SLES12 y RHEL 7.2, se deben establecer estos parámetros en un archivo de configuración en el directorio /etc/sysctl.d. Por ejemplo, se debe crear un archivo de configuración con el nombre 91-NetApp-HANA.conf. Para las versiones anteriores de SLES y RHEL, estos parámetros deben establecerse en in/etc/sysctl.conf.
 
-Para todas las versiones de RHEL que empiecen con RHEL 6.3, tenga en cuenta lo siguiente: 
+Para todas las versiones de RHEL que empiecen con RHEL 6.3, tenga en cuenta: 
 - El parámetro sunrpc.tcp_slot_table_entries = 128 se debe establecer en /etc/modprobe.d/sunrpc-local.conf. Si el archivo no existe, debe agregar esta entrada para crearlo: 
     - options sunrpc tcp_max_slot_table_entries=128
 
-El **cuarto paso** consiste en comprobar la hora del sistema de la unidad de instancia grande de HANA. Las instancias se implementan con una zona horaria del sistema. Esta zona horaria representa la ubicación de la región de Azure donde se encuentra el sello de instancia grande de HANA. Puede cambiar la hora del sistema o la zona horaria de sus instancias. 
+El **quinto paso** consiste en comprobar la hora del sistema de la unidad de HANA (instancias grandes). Las instancias se implementan con una zona horaria del sistema. Esta zona horaria representa la ubicación de la región de Azure donde se encuentra el sello de instancia grande de HANA. Puede cambiar la hora del sistema o la zona horaria de sus instancias. 
 
 Si pide más instancias para su inquilino, se debe adaptar la zona horaria de las instancias recién entregadas. Microsoft no tiene ninguna información sobre la zona horaria del sistema donde instale las instancias tras la entrega. Por lo tanto, las instancias recién implementadas pueden no tener la misma zona horaria que a las que cambió. Es su responsabilidad como cliente adaptar la zona horaria de las instancias entregadas, en caso de ser necesario. 
 
-El **quinto paso** consiste en comprobar etc/hosts. A medida que se van entregando las hojas, se les asignan direcciones IP diferentes con fines distintos. Compruebe el archivo /etc/hosts. Cuando se agreguen unidades a un inquilino existente, no espere que etc/hosts en los sistemas recién implementados se mantenga correctamente con las direcciones IP de los sistemas entregados anteriormente. Es su responsabilidad como cliente asegurarse de que una instancia recién implementada pueda interactuar y resolver los nombres de las unidades que implementó anteriormente en el inquilino. 
+El **sexto paso** consiste en comprobar etc/hosts. A medida que se van entregando las hojas, se les asignan direcciones IP diferentes con fines distintos. Compruebe el archivo /etc/hosts. Cuando se agreguen unidades a un inquilino existente, no espere que etc/hosts en los sistemas recién implementados se mantenga correctamente con las direcciones IP de los sistemas entregados anteriormente. Es su responsabilidad como cliente asegurarse de que una instancia recién implementada pueda interactuar y resolver los nombres de las unidades que implementó anteriormente en el inquilino. 
 
 
 ## <a name="operating-system"></a>Sistema operativo
@@ -143,7 +145,7 @@ Para más información sobre los detalles de Ethernet para su arquitectura, cons
 
 ## <a name="storage"></a>Storage
 
-La distribución de almacenamiento de SAP HANA en Azure (instancias largas) es configurada por SAP HANA en Azure Service Management a través de las instrucciones recomendadas de SAP. Estas instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+La distribución de almacenamiento de SAP HANA en Azure (instancias largas) la configura SAP HANA en Azure `service management` a través de las instrucciones recomendadas de SAP. Estas instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 
 Los tamaños aproximados de los diferentes volúmenes con las diferentes SKU de grandes instancias de HANA se documentan en [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -171,7 +173,7 @@ El volumen HANA/log/backup no está pensado para ser el volumen para las copias 
 
 Además del almacenamiento proporcionado, puede adquirir capacidad de almacenamiento adicional en incrementos de 1 TB. Este almacenamiento adicional se puede agregar como nuevos volúmenes a una instancia grande de HANA.
 
-Durante la incorporación de SAP HANA en Azure Service Management, el cliente especifica un identificador de usuario (UID) y un identificador de grupo (GID) para el usuario sidadm y el grupo sapsys (por ejemplo: 1000,500). Debe usar estos mismos valores durante la instalación del sistema SAP HANA. Como quiere implementar varias instancias de HANA en una unidad, obtendrá varios conjuntos de volúmenes (un conjunto por cada instancia). Como resultado, durante la implementación tendrá que definir lo siguiente:
+Durante la incorporación de SAP HANA en Azure `service management`, el cliente especifica un identificador de usuario (UID) y un identificador de grupo (GID) para el usuario sidadm y el grupo sapsys (por ejemplo: 1000,500). Debe usar estos mismos valores durante la instalación del sistema SAP HANA. Como quiere implementar varias instancias de HANA en una unidad, obtendrá varios conjuntos de volúmenes (un conjunto por cada instancia). Como resultado, durante la implementación tendrá que definir:
 
 - El SID de las distintas instancias de HANA (del que se deriva sidadm).
 - Los tamaños de memoria de las distintas instancias de HANA. El tamaño de memoria por instancia define el tamaño de los volúmenes en cada conjunto de volúmenes individuales.

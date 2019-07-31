@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 2f3723e0a1b14edd6f516f3cc080501bea80d486
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442048"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228044"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -68,7 +68,7 @@ Aunque es poco habitual, en los centros de datos de Azure pueden producirse inte
 
 A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse de un evento de interrupción no planeado. La posible pérdida de datos se conoce como objetivo de punto de recuperación (RPO).
 
-Los diferentes métodos de recuperación ofrecen distintos niveles de RPO y RTO. Puede elegir un método de recuperación específico o usar una combinación de métodos para lograr la total recuperación de la aplicación. En la tabla siguiente se comparan el RPO y el RTO de cada opción de recuperación.
+Los diferentes métodos de recuperación ofrecen distintos niveles de RPO y RTO. Puede elegir un método de recuperación específico o usar una combinación de métodos para lograr la total recuperación de la aplicación. En la tabla siguiente se comparan el RPO y el RTO de cada opción de recuperación. Los grupos de conmutación por error automática simplifican la implementación y el uso de la replicación geográfica y agregan las funcionalidades adicionales, como se describe en la tabla siguiente.
 
 | Método de recuperación | RTO | RPO |
 | --- | --- | --- | 

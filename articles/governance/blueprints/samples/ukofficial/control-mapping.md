@@ -8,18 +8,18 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 01a8e104f6d590113784db28e4bfde849d78b15f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491908"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226006"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
 En el artículo siguiente se detalla cómo se asignan los ejemplos de planos técnicos de UK OFFICIAL y UK NHS a los controles UK OFFICIAL y UK NHS. Para obtener más información sobre los controles, consulte [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
-Las asignaciones siguientes son para los controles **UK OFFICIAL** y **UK NHS**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la iniciativa de directiva integrada **[Versión preliminar] Auditar los controles UK OFFICIAL y UK NHS e implementar extensiones de VM específicas para cumplir con los requisitos de la auditoría**.
+Las asignaciones siguientes son para los controles **UK OFFICIAL** y **UK NHS**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la iniciativa de directiva integrada **\[Versión preliminar\] Auditar los controles UK OFFICIAL y UK NHS e implementar extensiones de VM específicas para cumplir con los requisitos de la auditoría**.
 
 ## <a name="1-data-in-transit-protection"></a>1\. Protección de datos en tránsito
 
@@ -37,8 +37,8 @@ Conocer dónde los recursos de Azure pueden tener configuraciones criptográfica
 - Se debe aplicar el cifrado de discos en máquinas virtuales.
 - Se deben cifrar las variables de cuenta de Automation.
 - Se debe habilitar la transferencia segura a cuentas de almacenamiento.
-- Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric.
-- Se debe habilitar el Cifrado de datos transparente en bases de datos SQL.
+- Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric
+- Se debe habilitar el Cifrado de datos transparente en bases de datos SQL
 - Implementación del Cifrado de datos transparente de SQL DB.
 - Exigencia de cifrado en las cuentas de Data Lake Store.
 - Ubicaciones permitidas (codificadas de forma rígida como "UK SOUTH" y "UK WEST").
@@ -50,8 +50,8 @@ Este plano técnico ayuda a administrar las vulnerabilidades del sistema de info
 
 - Supervisión de la falta de Endpoint Protection en Azure Security Center
 - Se deben instalar actualizaciones del sistema en los equipos.
-- Se deben corregir vulnerabilidades en la configuración de seguridad en las máquinas.
-- Se deben corregir las vulnerabilidades en las bases de datos SQL.
+- Se deben corregir vulnerabilidades en la configuración de seguridad en las máquinas
+- Se deben corregir las vulnerabilidades en las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades.
 
 ## <a name="53-protective-monitoring"></a>5.3. Supervisión de protección
@@ -68,10 +68,10 @@ Este plano técnico ayuda a proteger los recursos de información del sistema me
 Azure implementa el control de acceso basado en rol (RBAC) para ayudar a administrar quién tiene acceso a los recursos en Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de lectura/escritura y las cuentas con permisos de propietario y de lectura/escritura que no tienen habilitada la autenticación multifactor.
 
 - MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción.
-- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción.
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
+- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción.
 
 Este plano técnico asigna definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft.
@@ -82,34 +82,34 @@ Este plano técnico asigna definiciones de Azure Policy para auditar el uso de l
 Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción.
-- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción.
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
+- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
-- [Versión preliminar]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Versión preliminar\]: Auditoría de que los permisos del archivo/etc/passwd de la máquina virtual Linux se establecen en 0644
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de Azure Policy que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Versión preliminar]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Versión preliminar]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Versión preliminar]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Versión preliminar]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Versión preliminar]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Versión preliminar]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
 
 Este plano técnico también ayuda a controlar el acceso a los recursos de Azure mediante la asignación de definiciones de Azure Policy. Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos. Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
-- [Versión preliminar]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Versión preliminar]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- [Versión preliminar]: Audit Linux VMs that have accounts without passwords
-- [Versión preliminar]: Audit Linux VMs that allow remote connections from accounts without passwords
-- Se deben migrar las cuentas de almacenamiento a nuevos recursos de Azure Resource Manager.
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Linux que permitan conexiones remotas de cuentas sin contraseña
+- \[Versión preliminar\]: Realizar una auditoría de las VM Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: Realizar una auditoría de las VM Linux que permitan conexiones remotas desde cuentas sin contraseña
+- Se deben migrar las cuentas de almacenamiento a nuevos recursos de Azure Resource Manager
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager.
 - Auditar las máquinas virtuales que no utilizan discos administrados
 
@@ -139,13 +139,13 @@ Este plano técnico asigna definiciones de Azure Policy para auditar el uso de l
 Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción.
-- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción.
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
+- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
-- [Versión preliminar]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Versión preliminar\]: Auditoría de que los permisos del archivo/etc/passwd de la máquina virtual Linux se establecen en 0644
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 
@@ -154,8 +154,8 @@ Este plano técnico permite garantizar que los eventos del sistema se registran.
 - Supervisión de servidores SQL Server no auditados en Azure Security Center.
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
-- [Versión preliminar]: Deploy Log Analytics Agent for Linux VMs
-- [Versión preliminar]: Deploy Log Analytics Agent for Windows VMs
+- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
+- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Implementar Network Watcher al crear redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes

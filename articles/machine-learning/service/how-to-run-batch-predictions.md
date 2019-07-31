@@ -9,18 +9,17 @@ ms.topic: conceptual
 ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
-ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/12/2019
+ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60818502"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358715"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Ejecutar predicciones por lotes en grandes conjuntos de datos con Azure Machine Learning Service
 
-En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos usando, para ello, Azure Machine Learning Service.
+En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos mediante Azure Machine Learning Service.
 
 La predicción por lotes (o puntuación por lotes) proporciona una inferencia rentable con un rendimiento sin precedentes para aplicaciones asincrónicas. Las canalizaciones de predicción por lotes pueden escalarse para realizar inferencias en terabytes de datos de producción. La predicción por lotes está optimizada para las predicciones de alto rendimiento y de tipo "fire-and-forget" (envíelo y olvídese) cuando se trabaja con una gran cantidad de datos.
 
@@ -38,12 +37,13 @@ En los pasos siguientes, se creará una [canalización de aprendizaje automátic
 - Cree un área de trabajo de Azure Machine Learning que contendrá todos los recursos de su canalización. Puede usar el siguiente código o, si quiere obtener más opciones, consulte [Crear un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
 
   ```python
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
+  from azureml.core import Workspace
+  ws = Workspace.create(name = '<workspace-name>',
+                        subscription_id = '<subscription-id>',
+                        resource_group = '<resource-group>',
+                        location = '<workspace_region>',
+                        exist_ok = True
+                        )
   ```
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar los recursos de aprendizaje automático
@@ -59,19 +59,20 @@ Los siguientes pasos configuran los recursos que necesita para ejecutar una cana
 
 Primero, obtenga acceso al almacén de datos que tiene el modelo, las etiquetas y las imágenes.
 
-Usará para ello un contenedor de blob público llamado *sampledata* en la cuenta *pipelinedata* que contiene imágenes del conjunto de evaluación de ImageNet. El nombre del almacén de datos para este contenedor público es *images_datastore*. Registre este almacén de datos con su espacio de trabajo:
+Use un contenedor de blob público llamado *sampledata* en la cuenta *pipelinedata* que contiene imágenes del conjunto de evaluación de ImageNet. El nombre del almacén de datos para este contenedor público es *images_datastore*. Registre este almacén de datos con su espacio de trabajo:
 
 ```python
-# Public blob container details
+from azureml.core import Datastore
+
 account_name = "pipelinedata"
-datastore_name="images_datastore"
-container_name="sampledata"
- 
+datastore_name = "images_datastore"
+container_name = "sampledata"
+
 batchscore_blob = Datastore.register_azure_blob_container(ws,
-                      datastore_name=datastore_name,
-                      container_name= container_name,
-                      account_name=account_name,
-                      overwrite=True)
+                                                          datastore_name=datastore_name,
+                                                          container_name=container_name,
+                                                          account_name=account_name,
+                                                          overwrite=True)
 ```
 
 A continuación, configúrelo para usar el almacén de datos predeterminado en las salidas.
@@ -89,23 +90,25 @@ Ahora debe hacer referencia a los datos en su canalización como entradas para l
 Un objeto [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference)  se encarga de representar un origen de datos en una canalización. El objeto  `DataReference`  apunta a los datos que están en o que son accesibles desde un almacén de datos. Tenga en cuenta que necesita los objetos `DataReference` para el directorio que usa para las imágenes de entrada, el directorio en el que se almacena el modelo entrenado previamente, el directorio para las etiquetas y el directorio de salida.
 
 ```python
-input_images = DataReference(datastore=batchscore_blob, 
+from azureml.data.data_reference import DataReference
+
+input_images = DataReference(datastore=batchscore_blob,
                              data_reference_name="input_images",
                              path_on_datastore="batchscoring/images",
                              mode="download")
-                           
-model_dir = DataReference(datastore=batchscore_blob, 
+
+model_dir = DataReference(datastore=batchscore_blob,
                           data_reference_name="input_model",
                           path_on_datastore="batchscoring/models",
-                          mode="download")                          
-                         
-label_dir = DataReference(datastore=batchscore_blob, 
+                          mode="download")
+
+label_dir = DataReference(datastore=batchscore_blob,
                           data_reference_name="input_labels",
                           path_on_datastore="batchscoring/labels",
-                          mode="download")                          
-                         
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
+                          mode="download")
+
+output_dir = PipelineData(name="scores",
+                          datastore=def_data_store,
                           output_path_on_compute="batchscoring/results")
 ```
 
@@ -114,6 +117,9 @@ output_dir = PipelineData(name="scores",
 En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Por ejemplo, puede crear un `Azure Machine Learning compute`.
 
 ```python
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+
 compute_name = "gpucluster"
 compute_min_nodes = 0
 compute_max_nodes = 4
@@ -126,20 +132,20 @@ if compute_name in ws.compute_targets:
 else:
     print('Creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(
-                     vm_size = vm_size, # NC6 is GPU-enabled
-                     vm_priority = 'lowpriority', # optional
-                     min_nodes = compute_min_nodes, 
-                     max_nodes = compute_max_nodes)
+        vm_size=vm_size,  # NC6 is GPU-enabled
+        vm_priority='lowpriority',  # optional
+        min_nodes=compute_min_nodes,
+        max_nodes=compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, 
-                        compute_name, 
-                        provisioning_config)
-    
+    compute_target = ComputeTarget.create(ws,
+                                          compute_name,
+                                          provisioning_config)
+
     compute_target.wait_for_completion(
-                     show_output=True, 
-                     min_node_count=None, 
-                     timeout_in_minutes=20)
+        show_output=True,
+        min_node_count=None,
+        timeout_in_minutes=20)
 ```
 
 ## <a name="prepare-the-model"></a>Preparar el modelo
@@ -159,7 +165,7 @@ model_dir = 'models'
 if not os.path.isdir(model_dir):
     os.mkdir(model_dir)
 
-url="http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
+url = "http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
 response = urllib.request.urlretrieve(url, "model.tar.gz")
 tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
@@ -173,13 +179,13 @@ Aquí se explica cómo registrar el modelo:
 import shutil
 from azureml.core.model import Model
 
-# register downloaded model 
+# register downloaded model
 model = Model.register(
-        model_path = "models/inception_v3.ckpt",
-        model_name = "inception", # This is the name of the registered model
-        tags = {'pretrained': "inception"},
-        description = "Imagenet trained tensorflow inception",
-        workspace = ws)
+    model_path="models/inception_v3.ckpt",
+    model_name="inception",  # This is the name of the registered model
+    tags={'pretrained': "inception"},
+    description="Imagenet trained tensorflow inception",
+    workspace=ws)
 ```
 
 ## <a name="write-your-scoring-script"></a>Escribir un script de puntuación
@@ -205,7 +211,7 @@ def get_class_label_dict(label_file):
 
 class DataIterator:
   # Definition of the DataIterator here
-  
+
 def main(_):
     # Refer to batch-scoring Notebook for implementation.
     label_file_name = os.path.join(args.label_dir, "labels.txt")
@@ -232,14 +238,12 @@ def main(_):
         saver = tf.train.Saver()
         saver.restore(sess, model_path)
         out_filename = os.path.join(args.output_dir, "result-labels.txt")
-            
+
         # copy the file to artifacts
         shutil.copy(out_filename, "./outputs/")
 ```
 
 ## <a name="build-and-run-the-batch-scoring-pipeline"></a>Compilar y ejecutar la canalización de puntuación por lotes
-
-Ya tiene todo lo que necesita para construir la canalización, así que ahora solo tiene que combinar estos elementos.
 
 ### <a name="prepare-the-run-environment"></a>Preparar el entorno de ejecución
 
@@ -247,8 +251,11 @@ Especifique las dependencias conda para su script. Necesitará este objeto más 
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
+cd = CondaDependencies.create(
+    pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
 
 # Runconfig
 amlcompute_run_config = RunConfiguration(conda_dependencies=cd)
@@ -263,9 +270,10 @@ amlcompute_run_config.environment.spark.precache_packages = False
 Cree un parámetro de canalización mediante un objeto  [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py)  con un valor predeterminado.
 
 ```python
+from azureml.pipeline.core.graph import PipelineParameter
 batch_size_param = PipelineParameter(
-                    name="param_batch_size", 
-                    default_value=20)
+    name="param_batch_size",
+    default_value=20)
 ```
 
 ### <a name="create-the-pipeline-step"></a>Crear el paso de canalización
@@ -273,15 +281,16 @@ batch_size_param = PipelineParameter(
 Cree el paso de canalización mediante el script, la configuración del entorno y los parámetros. Especifique el destino de proceso que ya adjuntó a su área de trabajo como el destino de ejecución del script. Use [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) para crear el paso de la canalización.
 
 ```python
+from azureml.pipeline.steps import PythonScriptStep
 inception_model_name = "inception_v3.ckpt"
 
 batch_score_step = PythonScriptStep(
     name="batch_scoring",
     script_name="batch_score.py",
-    arguments=["--dataset_path", input_images, 
+    arguments=["--dataset_path", input_images,
                "--model_name", "inception",
-               "--label_dir", label_dir, 
-               "--output_dir", output_dir, 
+               "--label_dir", label_dir,
+               "--output_dir", output_dir,
                "--batch_size", batch_size_param],
     compute_target=compute_target,
     inputs=[input_images, label_dir],
@@ -295,9 +304,13 @@ batch_score_step = PythonScriptStep(
 A continuación, ejecute la canalización y examine la salida que generó. La salida tiene una puntuación correspondiente a cada imagen de entrada.
 
 ```python
+import pandas as pd
+from azureml.pipeline.core import Pipeline
+
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
+pipeline_run = Experiment(ws, 'batch_scoring').submit(
+    pipeline, pipeline_params={"param_batch_size": 20})
 
 # Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
@@ -306,7 +319,6 @@ pipeline_run.wait_for_completion(show_output=True)
 step_run = list(pipeline_run.get_children())[0]
 step_run.download_file("./outputs/result-labels.txt")
 
-import pandas as pd
 df = pd.read_csv("result-labels.txt", delimiter=":", header=None)
 df.columns = ["Filename", "Prediction"]
 df.head()
@@ -318,8 +330,8 @@ Cuando esté satisfecho con el resultado de la ejecución, publique la canalizac
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
-    name="Inception_v3_scoring", 
-    description="Batch scoring using Inception v3 model", 
+    name="Inception_v3_scoring",
+    description="Batch scoring using Inception v3 model",
     version="1.0")
 ```
 
@@ -328,17 +340,17 @@ published_pipeline = pipeline_run.publish_pipeline(
 Para volver a ejecutar la canalización, necesitará un token de encabezado de autenticación de Azure Active Directory, tal como se describe en la [clase AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
+from azureml.pipeline.core.run import PipelineRun
 from azureml.pipeline.core import PublishedPipeline
 
 rest_endpoint = published_pipeline.endpoint
 # specify batch size when running the pipeline
-response = requests.post(rest_endpoint, 
-        headers=aad_token, 
-        json={"ExperimentName": "batch_scoring",
-               "ParameterAssignments": {"param_batch_size": 50}})
+response = requests.post(rest_endpoint,
+                         headers=aad_token,
+                         json={"ExperimentName": "batch_scoring",
+                               "ParameterAssignments": {"param_batch_size": 50}})
 
 # Monitor the run
-from azureml.pipeline.core.run import PipelineRun
 published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 
 RunDetails(published_pipeline_run).show()
@@ -346,7 +358,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver cómo funciona esto de un extremo a otro, pruebe el cuaderno de puntuación por lotes en [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
+Para ver cómo funciona esto de un extremo a otro, pruebe el cuaderno de puntuación por lotes en [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

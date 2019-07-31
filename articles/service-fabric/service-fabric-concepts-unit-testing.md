@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595500"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249266"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Prueba unitaria de servicios con estado en Service Fabric
 
@@ -51,8 +51,8 @@ Además, tener varias instancias permite que las pruebas cambien los roles de ca
 El administrador de estados debe considerarse como un recurso remoto y, por lo tanto, se debe simular. Cuando se hace una simulación del administrador de estados, debe haber algún almacenamiento subyacente en memoria para el seguimiento de lo que se guarda en el administrador de estados, de forma que pueda leerse y comprobarse. Una manera sencilla de conseguirlo es crear instancias ficticias de cada uno de los tipos de colecciones de confianza. Dentro de esos objetos ficticios, utilice un tipo de datos que se alinee estrechamente con las operaciones realizadas en esa colección. Los siguientes son algunos tipos de datos sugeridos para cada colección de confianza
 
 - IReliableDictionary < TKey, TValue > -> System.Collections.Concurrent.ConcurrentDictionary < TKey, TValue >
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Muchas instancias de administrador de estados, un almacenamiento único
 Como se mencionó antes, el administrador de estados y las colecciones de confianza deben tratarse como un recurso remoto. Por lo tanto, estos recursos deben y van a simularse dentro de las pruebas unitarias. Sin embargo, cuando se ejecutan varias instancias de un servicio con estado, es un desafío mantener cada administrador de estado ficticio sincronizado entre las distintas instancias de servicio con estado. Cuando se ejecuta el servicio con estado en el clúster, Service Fabric se encarga de mantener el administrador de estado de cada réplica secundaria coherente con la réplica principal. Por lo tanto, las pruebas se deben comportar del mismo modo para que puedan simular los cambios de rol.

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2253e9f6331662f0ead0251f9affd7996e02aa31
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511062"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846874"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Pase de un token de acceso a través de una directiva personalizada a la aplicación en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Un [directiva personalizada](active-directory-b2c-get-started-custom.md) en Azure Active Directory (Azure AD) B2C proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Agregue un tipo de notificación y envíe dicha notificación a la directiva personalizada para pasar el token a través de las aplicaciones que registre en Azure AD B2C. 
+Un [directiva personalizada](active-directory-b2c-get-started-custom.md) en Azure Active Directory (Azure AD) B2C proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Agregue un tipo de notificación y envíe dicha notificación a la directiva personalizada para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
 
 Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) y [OpenID Connect](active-directory-b2c-reference-oidc.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
@@ -29,7 +29,7 @@ Azure AD B2C admite pasar el token de acceso de los proveedores de identidades d
 
 - La directiva personalizada se configura con un proveedor de identidades de OAuth 2.0. o de OpenID Connect.
 
-## <a name="add-the-claim-elements"></a>Incorporación de elementos de notificación 
+## <a name="add-the-claim-elements"></a>Incorporación de elementos de notificación
 
 1. Abra el archivo *TrustframeworkExtensions.xml* y agregue el siguiente elemento **ClaimType** con un identificador de `identityProviderAccessToken` al elemento **ClaimsSchema**:
 
@@ -102,13 +102,8 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
     Debería ver algo parecido al siguiente ejemplo:
 
-    ![Token descodificado](./media/idp-pass-through-custom/idp-pass-through-custom-token.png)
+    ![Token descodificado en jwt.ms con el bloque idp_access_token resaltado](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre los tokens en la [referencia del token de Azure Active Directory](active-directory-b2c-reference-tokens.md).
-
-
-
-
-

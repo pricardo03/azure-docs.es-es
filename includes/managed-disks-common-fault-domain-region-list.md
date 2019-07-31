@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 073b50011e640bc65cf4887635dd620d9b009df4
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148459"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812514"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Número de dominios de error por región
 
@@ -40,6 +40,7 @@ ms.locfileid: "67148459"
 | Oeste de la India          | 2                       |
 | Corea Central       | 2                       |
 | Corea del Sur         | 2                       |
+| Norte de Emiratos Árabes Unidos           | 2                       |
 |                     |                         |
 | Este de Australia      | 2                       |
 | Sudeste de Australia | 2                       |

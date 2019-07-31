@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 96c1223cf15f1022e9e0a27180bd9cdeebcf8505
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ddd8922f1830b2f57c8ecb4ff62871961b09fec
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449788"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228324"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -39,16 +39,12 @@ El servicio está disponible con carácter general en las regiones de Azure. Pue
 
 Regions                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure en China](https://azure.microsoft.com/global-infrastructure/china)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Centro-oeste de EE. UU. público](https://azure.microsoft.com/regions/)                           | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11 
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Azure en China](https://www.azure.cn/)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
 
 Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
-
-> [!NOTE]
-> 01-02-2019 se está implementando actualmente y estará disponible en otras regiones en breve.
 
 Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
 
@@ -56,7 +52,9 @@ Para probar el servicio de metadatos de instancia, cree una máquina virtual des
 
 ### <a name="versioning"></a>Control de versiones
 
-El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2018-10-01`. Las versiones compatibles actuales son (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
+Instance Metadata Service tiene versiones y es obligatorio especificar la versión de la API en la solicitud HTTP.
+
+Puede ver las versiones más recientes enumeradas en esta [tabla de disponibilidad](#service-availability).
 
 A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
 
@@ -194,7 +192,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
 ```
 
 **Respuesta**
@@ -206,6 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -222,6 +221,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "publicKeys": [],
     "publisher": "MicrosoftWindowsDesktop",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "rs4-pro",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
@@ -265,14 +265,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 Los metadatos de instancia se pueden recuperar en Windows a través del programa `curl`:
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
 O a través del cmdlet de PowerShell `Invoke-RestMethod`:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
 ```
 
 **Respuesta**
@@ -284,6 +284,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -300,6 +301,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "publicKeys": [],
     "publisher": "MicrosoftSQLServer",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "Enterprise",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
@@ -369,6 +371,7 @@ provider | Proveedor de la máquina virtual | 01 de octubre de 2018
 publicKeys | [Colección de claves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignada a la máquina virtual y rutas de acceso | 2018-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
+resourceId | El identificador [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) del recurso | 2019-03-11
 sku | SKU específica de la imagen de VM | 2017-04-02
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
@@ -408,7 +411,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version es un campo obligatorio y la versión compatible con los datos atestiguados es la 2018-10-01.
+Api-version es un campo obligatorio. Consulte la [sección de disponibilidad del servicio](#service-availability) para ver las versiones de API admitidas.
 Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede usar para realizar un seguimiento de la solicitud y, si no se proporciona, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
 
  **Respuesta**
@@ -440,7 +443,7 @@ curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
 ```
 
-Api-version es un campo obligatorio y la versión compatible con los datos atestiguados es la 2018-10-01.
+Api-version es un campo obligatorio. Consulte la sección de disponibilidad del servicio para ver las versiones de API admitidas.
 Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede usar para realizar un seguimiento de la solicitud y, si no se proporciona, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
 
  **Respuesta**

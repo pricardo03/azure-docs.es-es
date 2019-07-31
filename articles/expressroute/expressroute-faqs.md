@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754744"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854341"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -123,13 +123,23 @@ No perderá conectividad si se produce un error en una de las conexiones cruzada
 
 Se pueden conectar varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento a la misma red virtual para proporcionar una alta disponibilidad en el caso de que un único circuito deje de estar disponible. A continuación, puede [asignar mayor peso](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a la conexión local que se va a favorecer frente a un circuito concreto. Se recomienda encarecidamente que los clientes configuren al menos dos circuitos ExpressRoute para evitar puntos únicos de error. 
 
+Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para diseñar para alta disponibilidad y [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) para diseñar para la recuperación ante desastres.  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>¿Cómo implementar redundancia en el emparejamiento de Microsoft?
 
-Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para obtener acceso a servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Office 365 e implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
+Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para acceder a los servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Office 365, que implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
+
+Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para diseñar para lograr alta disponibilidad.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
 Se puede lograr la alta disponibilidad mediante la conexión de circuitos de ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Para obtener más información, consulte [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md).
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>¿Cómo me aseguro de que el tráfico destinado a los servicios públicos de Azure, como Azure Storage y Azure SQL, en el emparejamiento de Microsoft o público se prefiere en la ruta de ExpressRoute?
+
+Debe implementar el atributo *Preferencia local* en los enrutadores para asegurarse de que la ruta local a Azure siempre se prefiere en los circuitos de ExpressRoute.
+
+Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
 
 ### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 

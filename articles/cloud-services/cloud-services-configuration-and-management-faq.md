@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337432"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254418"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -282,7 +282,7 @@ Consulte los [Límites específicos del servicio](../azure-subscription-service-
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>¿Por qué la unidad de mi máquina virtual del servicio en la nube muestra muy poco espacio libre en disco?
 Este es el comportamiento esperado y que no debería causar ningún problema para la aplicación. El registro en diario está activado para la unidad %approot% en las máquinas virtuales de Azure PaaS, que esencialmente consume el doble de espacio que suelen ocupar los archivos. De todas formas, hay varios aspectos a tener en cuenta que básicamente hacen que esto no sea un problema.
 
-El tamaño de la unidad % approot % se calcula como < tamaño de .cspkg + tamaño máximo del diario + un margen de espacio disponible>, o 1,5 GB, de los dos valores el que sea mayor. El tamaño de la máquina virtual no influye en este cálculo. (El tamaño de la máquina virtual solo afecta al tamaño de la unidad C: temporal). 
+El tamaño de la unidad %approot% se calcula como \<tamaño de .cspkg + tamaño máximo del diario + un margen de espacio disponible>, o 1,5 GB, el que sea mayor de los dos valores. El tamaño de la máquina virtual no influye en este cálculo. (El tamaño de la máquina virtual solo afecta al tamaño de la unidad C: temporal). 
 
 No se admite para escribir en la unidad % approot %. Si va a escribir en la máquina virtual de Azure, tiene que hacerlo en un recurso de LocalStorage temporal (u otras opciones, como almacenamiento de blobs, Azure Files, etc.). Por lo que la cantidad de espacio libre en la carpeta % approot % no es algo significativo. Si no está seguro de si la aplicación está escribiendo en la unidad % approot %, siempre puede dejar que el servicio se ejecute durante unos días y, a continuación, comparar los tamaños del "antes" y el "después". 
 

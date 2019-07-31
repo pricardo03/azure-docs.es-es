@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390833"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260741"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introducción a Azure Storage (proyectos de WebJobs de Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ El servicio de almacenamiento de tabla de Azure permite almacenar una gran canti
 Algunos de los fragmentos de código muestran el atributo **Table** usado en funciones que se llaman manualmente, es decir, sin usar ninguno de los atributos de desencadenador.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Cómo agregar entidades a una tabla
-Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>** , donde **T** especifica el esquema de las entidades que quiere agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector\<T>** o **IAsyncCollector\<T>** , donde **T** especifica el esquema de las entidades que quiere agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
 
 El ejemplo de código siguiente agrega entidades **Person** a una tabla denominada *Ingress*.
 
@@ -79,7 +79,7 @@ Cuando finaliza la función, la página **Detalles de invocación** informa la c
 ![Función de entrada finalizada](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Cómo leer varias entidades desde una tabla
-Para leer una tabla, use el atributo **Table** con un parámetro **IQueryable<T>** donde el tipo **T** se deriva de **TableEntity** o implementa **ITableEntity**.
+Para leer una tabla, use el atributo **Table** con un parámetro **IQueryable\<T>** donde el tipo **T** se deriva de **TableEntity** o implementa **ITableEntity**.
 
 El ejemplo de código siguiente lee y registra todas las filas de la tabla **Ingress** :
 

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/17/2018
+ms.subservice: load-data
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461864"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304295"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
@@ -78,9 +78,9 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 5. Haga clic en **Seleccionar**.
 
-6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos está optimizado para elasticidad o proceso y el número de unidades de almacenamiento de datos. 
+6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos es Gen1 o Gen2 y especificar el número de unidades de almacenamiento de datos. 
 
-7. Para este tutorial, seleccione el nivel de servicio **Optimizado para Elasticity**. De forma predeterminada, el control deslizante se establece en **DW400**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
+7. Para este tutorial, seleccione el nivel de servicio **Gen1**. De forma predeterminada, el control deslizante se establece en **DW400**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
 
     ![configuración del rendimiento](media/load-data-wideworldimportersdw/configure-performance.png)
 

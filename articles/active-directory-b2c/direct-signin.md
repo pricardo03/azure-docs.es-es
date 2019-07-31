@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 869097ac3b91e55d5dbf948680450f31efafd359
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c0f3d8f3f49001e1326688ccc794e19d1148e5d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511107"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846890"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configuración de inicio de sesión directo con Azure Active Directory B2C
 
-Al configurar el inicio de sesión en su aplicación con Azure Active Directory (AD) B2C, puede rellenar previamente el nombre de inicio de sesión o puede iniciar sesión directamente en un proveedor de identidades sociales específico, como Facebook, LinkedIn o una cuenta de Microsoft. 
+Al configurar el inicio de sesión en su aplicación con Azure Active Directory (AD) B2C, puede rellenar previamente el nombre de inicio de sesión o puede iniciar sesión directamente en un proveedor de identidades sociales específico, como Facebook, LinkedIn o una cuenta de Microsoft.
 
 ## <a name="prepopulate-the-sign-in-name"></a>Rellenar previamente el nombre de inicio de sesión
 
 Durante el recorrido de inicio de sesión de un usuario, una aplicación de usuario de confianza puede tener como destino un nombre de usuario o dominio específico. Cuando el destino es un usuario, una aplicación puede especificar, en la solicitud de autorización, el parámetro de consulta `login_hint` con el nombre de inicio de sesión de usuario. Azure AD B2C rellena automáticamente el nombre de inicio de sesión, mientras que el usuario sólo necesita proporcionar la contraseña.
 
-![uso de la sugerencia de inicio de sesión](./media/direct-signin/login-hint.png) 
+![Página de inicio de sesión de registro con el parámetro de consulta login_hint resaltado en la dirección URL](./media/direct-signin/login-hint.png)
 
 El usuario puede cambiar el valor en el cuadro de texto de inicio de sesión.
 
@@ -49,9 +49,9 @@ Si usa una directiva personalizada, invalide el perfil técnico `SelfAsserted-Lo
 
 Si se ha configurado el recorrido de inicio de sesión para que la aplicación incluya cuentas de redes sociales como Facebook, LinkedIn o Google, puede especificar el parámetro `domain_hint`. Este parámetro de consulta proporciona una sugerencia a Azure AD B2C acerca del proveedor de identidades sociales que debe usarse para iniciar sesión. Por ejemplo, si la aplicación especifica `domain_hint=facebook.com`, el inicio de sesión va directamente a la página de inicio de sesión de Facebook.
 
-![uso de sugerencia de dominio](./media/direct-signin/domain-hint.png) 
+![Página de inicio de sesión de registro con el parámetro de consulta domain_hint resaltado en la dirección URL](./media/direct-signin/domain-hint.png)
 
-Si usa una directiva personalizada, puede configurar el nombre de dominio mediante el elemento XML `<Domain>domain name</Domain>` de cualquier `<ClaimsProvider>`. 
+Si usa una directiva personalizada, puede configurar el nombre de dominio mediante el elemento XML `<Domain>domain name</Domain>` de cualquier `<ClaimsProvider>`.
 
 ```xml
 <ClaimsProvider>

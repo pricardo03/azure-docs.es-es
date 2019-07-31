@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537044"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849406"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Una directiva personalizada se representa como uno o más archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen los elementos de la directiva, como el esquema de notificaciones, las transformaciones de notificaciones, las definiciones de contenido, los proveedores de notificaciones, los perfiles técnicos, el recorrido del usuario y los pasos de orquestación. Cada archivo de directiva se define con el elemento **TrustFrameworkPolicy** de nivel superior de un archivo de directiva. 
+Una directiva personalizada se representa como uno o más archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen los elementos de la directiva, como el esquema de notificaciones, las transformaciones de notificaciones, las definiciones de contenido, los proveedores de notificaciones, los perfiles técnicos, el recorrido del usuario y los pasos de orquestación. Cada archivo de directiva se define con el elemento **TrustFrameworkPolicy** de nivel superior de un archivo de directiva.
 
 ```XML
 <TrustFrameworkPolicy
@@ -68,11 +68,11 @@ Estos tipos de archivos de directiva suelen usarse en un recorrido del usuario:
 
 - Un archivo de **base** que contiene la mayoría de las definiciones. Para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas, le recomendamos que realice un número mínimo de cambios en este archivo.
 - Un archivo de **extensiones** que contiene los cambios de configuración únicos del inquilino. Este archivo de directiva se basa en el archivo de base. Use este archivo para agregar nuevas funciones o reemplazar funciones existentes. Por ejemplo, puede usar este archivo para federar con nuevos proveedores de identidades.
-- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro o inicio de sesión, un restablecimiento de contraseña o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones. 
+- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro o inicio de sesión, un restablecimiento de contraseña o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones.
 
 Una aplicación de usuario de confianza realiza una llamada al archivo de directiva de usuario de confianza para ejecutar una tarea específica. Por ejemplo, para iniciar el flujo de inicio de sesión. El Marco de experiencia de identidad en Azure AD B2C agrega primero todos los elementos del archivo de base; después, agrega los elementos del archivo de extensiones; y, por último, agrega los elementos del archivo de directiva de usuario de confianza para aplicar la directiva actual. Los elementos del mismo nombre y tipo en el archivo del usuario de confianza reemplazan a esos elementos en las extensiones, y los elementos de las extensiones reemplazan a los elementos del archivo base. En el diagrama siguiente, se muestra la relación entre los archivos de directiva y las aplicaciones de usuario de confianza.
 
-![Modelo de herencia](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagrama que muestra el modelo de herencia de directiva del marco de confianza](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 Este es el modelo de herencia:
 
@@ -84,7 +84,7 @@ Para obtener información, consulte [Introducción a las directivas personalizad
 
 ## <a name="base-policy"></a>Directiva de base
 
-Para heredar una directiva de otra directiva, es necesario declarar un elemento **BasePolicy** dentro del elemento **TrustFrameworkPolicy** del archivo de directiva. El elemento **BasePolicy** es una referencia a la directiva de base en las que se basa esta directiva.  
+Para heredar una directiva de otra directiva, es necesario declarar un elemento **BasePolicy** dentro del elemento **TrustFrameworkPolicy** del archivo de directiva. El elemento **BasePolicy** es una referencia a la directiva de base en las que se basa esta directiva.
 
 El elemento **BasePolicy** contiene los elementos siguientes:
 
@@ -94,7 +94,7 @@ El elemento **BasePolicy** contiene los elementos siguientes:
 | PolicyId | 1:1 | El identificador de la directiva principal. |
 
 
-En el ejemplo siguiente, se muestra cómo especificar una directiva de base. Esta directiva **B2C_1A_TrustFrameworkExtensions** se basa en la directiva **B2C_1A_TrustFrameworkBase**. 
+En el ejemplo siguiente, se muestra cómo especificar una directiva de base. Esta directiva **B2C_1A_TrustFrameworkExtensions** se basa en la directiva **B2C_1A_TrustFrameworkBase**.
 
 ``` XML
 <TrustFrameworkPolicy
@@ -136,9 +136,9 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-Un recorrido del usuario define la lógica empresarial del proceso por el que pasará el usuario. Cada recorrido del usuario es un conjunto de pasos de orquestación que realiza una serie de acciones, de forma secuencial y en términos de autenticación y recopilación de información. 
+Un recorrido del usuario define la lógica empresarial del proceso por el que pasará el usuario. Cada recorrido del usuario es un conjunto de pasos de orquestación que realiza una serie de acciones, de forma secuencial y en términos de autenticación y recopilación de información.
 
-El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico o vincular y desvincular una cuenta de red social. 
+El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico o vincular y desvincular una cuenta de red social.
 
 Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](technicalprofiles.md). Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades. Por ejemplo, un perfil técnico puede realizar estas acciones, entre otras:
 
@@ -148,7 +148,7 @@ Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](te
 - Leer y escribir datos en un almacén de identidades de Azure AD B2C.
 - Llamar a un servicio de API de RESTful personalizado.
 
-![Ejecución de directiva](./media/trustframeworkpolicy/custom-policy-execution.png)
+![Diagrama que muestra el flujo de ejecución de la directiva](./media/trustframeworkpolicy/custom-policy-execution.png)
 
  El elemento **TrustFrameworkPolicy** contiene los elementos siguientes:
 

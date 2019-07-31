@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509420"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835381"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede habilitar la funcionalidad Mantener la sesión iniciada (KMSI) para la web y las aplicaciones nativas en Azure Active Directory (Azure AD) B2C. Esta característica concede acceso a los usuarios que vuelven a la aplicación sin pedirles que vuelvan a escribir el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión. 
+Puede habilitar la funcionalidad Mantener la sesión iniciada (KMSI) para la web y las aplicaciones nativas en Azure Active Directory (Azure AD) B2C. Esta característica concede acceso a los usuarios que vuelven a la aplicación sin pedirles que vuelvan a escribir el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
 
-Los usuarios no deben habilitar esta opción en equipos públicos. 
+Los usuarios no deben habilitar esta opción en equipos públicos.
 
-![Habilitación de Mantener la sesión iniciada](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![Ejemplo de página de inicio de sesión de registro que muestra la casilla Mantener la sesión iniciada](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Un inquilino de Azure AD B2C configurado para permitir el registro o inicio de sesión de la cuenta local. Si no dispone de un inquilino, puede crear uno con los pasos de [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
 
-## <a name="add-a-content-definition-element"></a>Incorporación de un elemento de la definición de contenido 
+## <a name="add-a-content-definition-element"></a>Incorporación de un elemento de la definición de contenido
 
-En el elemento **BuildingBlocks** del archivo de extensión, agregue un elemento **ContentDefinitions**. 
+En el elemento **BuildingBlocks** del archivo de extensión, agregue un elemento **ContentDefinitions**.
 
 1. En el elemento **ContentDefinitions**, agregue un elemento **ContentDefinition** con un identificador de `api.signuporsigninwithkmsi`.
-2. En el elemento **ContentDefinition**, agregue los elementos **LoadUri**, **RecoveryUri** y **DataUri**. El valor `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` del elemento **DataUri** es un identificador comprensible para la máquina que abrirá una casilla para KMSI en las páginas de inicio de sesión. Este valor no se puede cambiar. 
+2. En el elemento **ContentDefinition**, agregue los elementos **LoadUri**, **RecoveryUri** y **DataUri**. El valor `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` del elemento **DataUri** es un identificador comprensible para la máquina que abrirá una casilla para KMSI en las páginas de inicio de sesión. Este valor no se puede cambiar.
 
     ```XML
     <BuildingBlocks>
@@ -50,15 +50,15 @@ En el elemento **BuildingBlocks** del archivo de extensión, agregue un elemento
           </Metadata>
         </ContentDefinition>
       </ContentDefinitions>
-    </BuildingBlocks>                       
+    </BuildingBlocks>
     ```
 
-## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Incorporación de un proveedor de notificaciones de inicio de sesión de la cuenta local  
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Incorporación de un proveedor de notificaciones de inicio de sesión de la cuenta local
 
 Puede definir el inicio de sesión de la cuenta local como proveedor de notificaciones con el elemento **ClaimsProvider** en el archivo de extensión de la directiva:
 
-1. Abra el archivo *TrustFrameworkExtensions.xml* desde el directorio de trabajo. 
-2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz. El [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) incluye un proveedor de notificaciones de inicio de sesión de la cuenta local. 
+1. Abra el archivo *TrustFrameworkExtensions.xml* desde el directorio de trabajo.
+2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz. El [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) incluye un proveedor de notificaciones de inicio de sesión de la cuenta local.
 3. Agregue un elemento **ClaimsProvider** con los elementos **DisplayName** y **TechnicalProfile** tal y como se muestra en el ejemplo siguiente:
 
     ```XML
@@ -96,14 +96,14 @@ Agregue los identificadores de aplicación al archivo *TrustFrameworkExtensions.
 
 ## <a name="create-a-kmsi-enabled-user-journey"></a>Creación de un recorrido del usuario habilitado para KMSI
 
-Agregue el proveedor de notificaciones de inicio de sesión de una cuenta local al recorrido del usuario. 
+Agregue el proveedor de notificaciones de inicio de sesión de una cuenta local al recorrido del usuario.
 
 1. Abra el archivo base de la directiva. Por ejemplo, *TrustFrameworkBase.xml*.
 2. Busque el elemento **UserJourneys** y copie todo el contenido del elemento **UserJourney** que usa el identificador de `SignUpOrSignIn`.
 3. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*, y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
 4. Pegue todo el elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
 5. Cambie el valor del identificador del nuevo recorrido del usuario. Por ejemplo, `SignUpOrSignInWithKmsi`.
-6. Por último, en el primer paso de orquestación, cambie el valor de **ContentDefinitionReferenceId** a `api.signuporsigninwithkmsi`. El establecimiento de este valor habilita la casilla en el recorrido del usuario. 
+6. Por último, en el primer paso de orquestación, cambie el valor de **ContentDefinitionReferenceId** a `api.signuporsigninwithkmsi`. El establecimiento de este valor habilita la casilla en el recorrido del usuario.
 7. Guarde y cargue el archivo de extensión y asegúrese de que el resultado de todas las comprobaciones es satisfactorio.
 
     ```XML
@@ -150,10 +150,10 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 2. Abra el nuevo archivo y actualice el atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Este es el nombre de la directiva. Por ejemplo, `SignUpOrSignInWithKmsi`.
 3. Cambie el atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del nuevo recorrido del usuario que ha creado. Por ejemplo, `SignUpOrSignInWithKmsi`.
 
-    KMSI se configura mediante el elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** y **SessionExpiryInSeconds** como sus primeros elementos secundarios. El atributo **KeepAliveInDays** controla el tiempo que permanece conectado el usuario. En el ejemplo siguiente, la sesión de KMSI expira automáticamente tras `7` días con independencia de la frecuencia con la que el usuario realiza la autenticación en modo silencioso. El establecimiento del valor **KeepAliveInDays** en `0` desactiva la funcionalidad KMSI. De manera predeterminada, este valor es `0`. Si el valor de **SessionExpiryType** es `Rolling`, la sesión de KMSI se amplía en `7` días cada vez que el usuario realiza la autenticación silenciosa.  Si `Rolling` está seleccionado, debe mantener el número de días al mínimo. 
+    KMSI se configura mediante el elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** y **SessionExpiryInSeconds** como sus primeros elementos secundarios. El atributo **KeepAliveInDays** controla el tiempo que permanece conectado el usuario. En el ejemplo siguiente, la sesión de KMSI expira automáticamente tras `7` días con independencia de la frecuencia con la que el usuario realiza la autenticación en modo silencioso. El establecimiento del valor **KeepAliveInDays** en `0` desactiva la funcionalidad KMSI. De manera predeterminada, este valor es `0`. Si el valor de **SessionExpiryType** es `Rolling`, la sesión de KMSI se amplía en `7` días cada vez que el usuario realiza la autenticación silenciosa.  Si `Rolling` está seleccionado, debe mantener el número de días al mínimo.
 
-    El valor de **SessionExpiryInSeconds** representa la hora de expiración de una sesión de inicio de sesión único (SSO). Azure AD B2C lo usa internamente para comprobar si la sesión de KMSI ha expirado o no. El valor de **KeepAliveInDays** determina el valor de Max-Age y Expires de la cookie de SSO en el explorador web. A diferencia de **SessionExpiryInSeconds**, **KeepAliveInDays** se usa para evitar que el explorador borre la cookie cuando se cierre. Un usuario solo puede iniciar sesión en modo silencioso si existe la cookie de sesión de SSO, lo que controla **KeepAliveInDays**, y no ha expirado, lo que controla **SessionExpiryInSeconds**. 
-    
+    El valor de **SessionExpiryInSeconds** representa la hora de expiración de una sesión de inicio de sesión único (SSO). Azure AD B2C lo usa internamente para comprobar si la sesión de KMSI ha expirado o no. El valor de **KeepAliveInDays** determina el valor de Max-Age y Expires de la cookie de SSO en el explorador web. A diferencia de **SessionExpiryInSeconds**, **KeepAliveInDays** se usa para evitar que el explorador borre la cookie cuando se cierre. Un usuario solo puede iniciar sesión en modo silencioso si existe la cookie de sesión de SSO, lo que controla **KeepAliveInDays**, y no ha expirado, lo que controla **SessionExpiryInSeconds**.
+
     Si un usuario no habilita **Keep me signed in** (Mantener la sesión iniciada) en la página de registro e inicio de sesión, la sesión expira una vez transcurrido el tiempo indicado por **SessionExpiryInSeconds** o cuando se cierra el explorador. Si un usuario habilita **Keep me signed in** (Mantener la sesión iniciada), el valor de **KeepAliveInDays** reemplaza el valor de **SessionExpiryInSeconds** y dicta el tiempo de expiración de la sesión. Aunque los usuarios cierren el explorador y vuelvan a abrirlo, pueden seguir con la sesión iniciada en modo silencioso siempre que el tiempo esté dentro del establecido por **KeepAliveInDays**. Se recomienda que establezca el valor de **SessionExpiryInSeconds** para un período breve (1200 segundos), mientras que el valor de **KeepAliveInDays** se puede establecer en un período relativamente largo (7 días), como se muestra en el ejemplo siguiente:
 
     ```XML

@@ -4,14 +4,14 @@ description: Use Azure Resource Manager y la CLI de Azure para implementar recur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206534"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853828"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -145,6 +145,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+Si usa la CLI de Azure con el símbolo del sistema de Windows (CMD) o PowerShell, pase la matriz con el formato `exampleArray="['value1','value2']"`.
 
 También puede obtener el contenido del archivo y proporcionar ese contenido como un parámetro en línea.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c692b1c5b77b95e5487a847b46473906135c3d86
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565589"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261149"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -115,7 +115,7 @@ Durante la instalación de inserción del agente de movilidad, se realizan los s
 #### <a name="installation-settings"></a>Configuración de la instalación
 **Configuración** | **Detalles**
 --- | ---
-Uso | UnifiedAgent.exe /Role <MS/MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Uso | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform “VmWare” /Silent
 Registros de configuración | En %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 /InstallLocation| Parámetro opcional. Especifique la ubicación (cualquier carpeta) de la instalación de Mobility Service.
@@ -154,7 +154,7 @@ Registros de configuración del agente | En %ProgramData%\ASRSetupLogs\ASRUnifie
 #### <a name="installation-settings"></a>Configuración de la instalación
 **Configuración** | **Detalles**
 --- | ---
-Uso | ./install -d <Install Location> -r <MS/MT> -v VmWare -q
+Uso | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 -r | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 -d | Parámetro opcional. Especifique la ubicación de instalación de Mobility Service: /usr/local/ASR.
 -v | Obligatorio. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.

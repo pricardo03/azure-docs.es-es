@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2019
-ms.author: rclaus
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2cfe9dc02e69f3b47c99e01bc70bffc942338fd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707266"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869178"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)
 
@@ -90,9 +90,9 @@ Algunos ejemplos de la ejecución de varias instancias de SAP HANA tendrían est
 Hay también otras variaciones. 
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
-El almacenamiento usado para HANA (instancias grandes) permite un cifrado transparente de los datos cuando se almacenan en los discos. Cuando se implementa una unidad de HANA (instancias grandes), puede habilitar a este tipo de cifrado. También puede cambiar a volúmenes cifrados después de que se complete la implementación. El movimiento de volúmenes no cifrados a cifrados es transparente y no requiere ningún tiempo de inactividad. 
+Desde finales del año 2018, el almacenamiento usado para HANA (instancias grandes) usa un cifrado transparente para los datos cuando se almacenan en los discos. En las implementaciones anteriores, podía optar por obtener los volúmenes cifrados. Si decidió realizar esta opción, puede solicitar que los volúmenes se cifren en línea. El movimiento de volúmenes no cifrados a cifrados es transparente y no requiere ningún tiempo de inactividad. 
 
-Con las SKU de clase de tipo I, se cifra el volumen en el que está almacenado el LUN de arranque. En el caso de las SKU de clase de tipo II de HANA (instancias grandes), tendrá que cifrar el LUN de arranque con los métodos del sistema operativo. Para más información, póngase en contacto con el equipo de Microsoft Service Management.
+Con las SKU de clase de tipo I, se cifra el volumen en el que está almacenado el LUN de arranque. En los sellos de HANA (instancias grandes) de la revisión 3, con la clase de tipo II de HANA (instancias grandes), es necesario cifrar el LUN de arranque con los métodos del sistema operativo. En los sellos de HANA (instancias grandes) de la revisión 4, con unidades de tipo II, el volumen en el que el LUN de arranque está almacenado también se cifra en reposo. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Configuración necesaria para instancias más grandes de HANA en instancias grandes de HANA
 El almacenamiento usado en instancias grandes de HANA tiene una limitación de tamaño de archivo. La [limitación de tamaño es de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por archivo. A diferencia de las limitaciones de tamaño de archivo de los sistemas de archivos EXT3, HANA no es consciente implícitamente de la limitación de almacenamiento exigida por el almacenamiento de instancias grandes de HANA. Por consiguiente, HANA no creará automáticamente un nuevo archivo de datos cuando se alcance el límite de tamaño de archivo de 16 TB. Cuando HANA intente aumentar el archivo más allá de 16 TB, informará de errores y el servidor de índice terminará bloqueándose.

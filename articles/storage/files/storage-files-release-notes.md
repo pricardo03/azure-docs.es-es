@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 7/12/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5a2ec72f835b720e0c760069b58ef8f092aedcb2
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449971"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875832"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,8 +25,9 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de lanzamiento | Status |
 |----|----------------------|--------------|------------------|
-| Versión V7: [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junio de 2019 | [Lanzamiento como paquete piloto](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Paquete acumulativo de actualizaciones de junio de 2019: [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junio de 2019 | Compatible (versión recomendada) |
+| Paquete acumulativo de actualizaciones de julio de 2019: [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julio de 2019 | Compatible: [lanzamiento como paquete piloto](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| Versión V7: [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junio de 2019 | Compatible |
+| Paquete acumulativo de actualizaciones de junio de 2019: [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junio de 2019 | Compatible |
 | Paquete acumulativo de actualizaciones de junio de 2019: [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junio de 2019 | Compatible |
 | Paquete acumulativo de actualizaciones de mayo de 2019: [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de mayo de 2019 | Compatible |
 | Versión V6: [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Compatible |
@@ -45,6 +46,15 @@ Las siguientes versiones son compatibles con Azure File Sync:
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-7100"></a>Versión del agente 7.1.0.0
+Las notas siguientes corresponden a la versión 7.1.0.0 del agente de Azure File Sync publicada el 12 de julio de 2019. Estas notas se suman a las notas de la versión enumeradas para la versión 7.0.0.0.
+
+Lista de problemas corregidos en esta versión:  
+- El acceso o exploración en una ubicación de punto de conexión de servidor a través de SMB son lentos en Windows Server 2012 R2. 
+- Aumento del uso de CPU después de instalar el agente de Azure File Sync versión 6.
+- Mejoras en la telemetría de la nube por niveles.
+- Mejoras de confiabilidad varias para la sincronización y la nube por niveles.
+
 ## <a name="agent-version-7000"></a>Versión del agente 7.0.0.0
 Las notas siguientes corresponden a la versión 7.0.0.0 del agente de Azure File Sync, publicada el 19 de junio de 2019.
 
@@ -62,7 +72,7 @@ Las notas siguientes corresponden a la versión 7.0.0.0 del agente de Azure File
     - Existen varias mejoras de confiabilidad y rendimiento en esta versión. Algunas de ellas están orientadas a mejorar la eficacia de la nube por niveles, y Azure File Sync funciona en general de mejor forma en situaciones en las que hay una programación de limitación de ancho de banda establecida.
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) en la Guía de planeación. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
 Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
@@ -159,7 +169,7 @@ Las notas siguientes corresponden a la versión 6.0.0.0 del agente de Azure File
 - Mejoras varias de confiabilidad de la sincronización y la nube por niveles
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) en la Guía de planeación. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
 Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
@@ -256,7 +266,7 @@ Las notas siguientes son para la versión 5.0.2.0 del agente de Azure File Sync 
     - La sincronización intentará reanudar la transferencia de datos en lugar de volver a transmitirlos si una transferencia se interrumpe debido a archivos de gran tamaño 
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) en la Guía de planeación. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
 Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
@@ -339,7 +349,7 @@ Lista de problemas corregidos en esta versión:
 Las notas siguientes corresponden a la versión 4.0.1.0 del agente de Azure File Sync (publicada el 13 de noviembre de 2018).
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) en la Guía de planeación. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
 Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
@@ -415,7 +425,7 @@ Esta versión incluye las siguientes correcciones:
 Las notas siguientes corresponden a la versión 3.1.0.0 del agente de Azure File Sync (publicada el 19 de junio de 2018).
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) en la Guía de planeación. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
 Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, vea [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).

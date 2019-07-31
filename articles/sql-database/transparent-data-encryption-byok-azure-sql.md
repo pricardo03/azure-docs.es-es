@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 645c140819042153b23d8e06417d4c5f441a14a9
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926018"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249228"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault: compatibilidad con Bring Your Own Key
 
@@ -179,7 +179,7 @@ Una vez que una base de datos se haya cifrado con TDE mediante una clave de Key 
 
 Para restaurar una copia de seguridad cifrada con un protector de TDE de Key Vault, asegúrese de que el material de clave aún está en el almacén original bajo el nombre de la clave original. Cuando se cambia el protector de TDE para una base de datos, las copias de seguridad antiguas de la base de datos **no se actualizan** para usar el protector de TDE más reciente. Por lo tanto, se recomienda mantener todas las versiones antiguas del protector de TDE en Key Vault, de manera que se puedan restaurar las copias de seguridad de la base de datos.
 
-Si una clave que puede ser necesaria para restaurar una copia de seguridad ya no está disponible en su almacén de claves original, se devuelve el siguiente mensaje de error: "Target server `<Servername>` does not have access to all AKV Uris created between <Timestamp #1> and <Timestamp #2>. Please retry operation after restoring all AKV Uris" (El servidor destino no tiene acceso a todos los URI de AKV creados entre <marca de tiempo #1> y <marca de tiempo #2>. Vuelva a intentar la operación después de restaurar a todos los URI de AKV").
+Si una clave que puede ser necesaria para restaurar una copia de seguridad ya no está disponible en su almacén de claves original, se devuelve el siguiente mensaje de error: "Target server `<Servername>` does not have access to all AKV Uris created between \<Timestamp #1> and \<Timestamp #2>. Please retry operation after restoring all AKV Uris" (El servidor destino no tiene acceso a todos los URI de AKV creados entre <marca de tiempo #1> y <marca de tiempo #2>. Vuelva a intentar la operación después de restaurar a todos los URI de AKV").
 
 Para evitar este problema, ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para devolver la lista de claves de Key Vault que se han agregado al servidor (a menos que las haya eliminado un usuario). Para asegurarse de que se pueden restaurar las copias de seguridad, asegúrese de que el servidor de destino para la copia de seguridad tiene acceso a todas estas claves.
 

@@ -4,7 +4,7 @@ description: Describe cómo puede identificar e interactuar con HANA en Azure (i
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/02/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d64fe6c244ffcb6da2926dfea6efaa6da315727
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482302"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234467"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 En este documento se describe la manera en que se presenta [HANA (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) en [Azure Portal](https://portal.azure.com) y qué actividades se pueden realizar en este portal con las unidades de HANA (instancias grandes) que se implementan. La visibilidad de HANA (instancias grandes) en Azure Portal la proporciona un proveedor de recursos de Azure específico que actualmente está en versión preliminar pública.
@@ -73,7 +73,7 @@ Si ha implementado varios inquilinos de HANA (instancias grandes) en la misma su
 ## <a name="look-at-attributes-of-single-hli-unit"></a>Búsqueda de atributos de una única unidad de HANA (instancias grandes)
 En la lista de unidades de HANA (instancias grandes), puede hacer clic en una sola unidad para obtener los detalles de ella. 
 
-En la pantalla de información general aparecerá una presentación de la unidad con el siguiente aspecto:
+En la pantalla de información general, después de hacer clic en "Mostrar más" aparecerá una presentación de la unidad con el siguiente aspecto:
 
 ![Información general de una unidad de HANA (instancias grandes)](./media/hana-li-portal/portal-show-overview.png)
 
@@ -82,12 +82,21 @@ Al examinar los diferentes atributos que aparecen podemos ver que apenas se dife
 - [SKU disponibles para HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [Arquitectura de almacenamiento de SAP HANA (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
+Los datos adicionales del lado inferior derecho son la revisión del sello de HANA (instancias grandes). Los valores posibles son:
+
+- Revisión 3
+- Revisión 4
+
+La revisión 4 es la arquitectura más reciente publicada de HANA (instancias grandes) con mejoras importantes en la latencia de red entre las máquinas virtuales de Azure y las unidades de HANA (instancias grandes) implementadas en los sellos o las filas de la revisión 4.
+Otra información muy importante se encuentra en la esquina inferior derecha de la información general con el nombre del grupo de ubicación de proximidad de Azure que se crea automáticamente para cada unidad de HANA (instancias grandes) implementada. Se debe hacer referencia a este grupo de selección de ubicación de proximidad al implementar las máquinas virtuales de Azure que hospedan el nivel de aplicación de SAP. Mediante el uso del [grupo de ubicación de proximidad de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) asociado a la unidad de HANA (instancias grandes), se asegura de que las máquinas virtuales de Azure se implementan cerca de la unidad de HANA (instancias grandes). La forma en que se pueden usar los grupos de selección de ubicación de proximidad para ubicar el nivel de aplicación de SAP en el mismo centro de datos de Azure que las unidades de HANA (instancias grandes) hospedadas de la revisión 4 se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
+
 Un campo adicional en la columna derecha del encabezado informa sobre el estado de energía de la unidad de HANA (instancias grandes).
 
 > [!NOTE]
 > El estado de energía describe si la unidad de hardware está encendida o apagada. No informa sobre si el sistema operativo está en funcionamiento. Si reinicia una unidad de HANA (instancias grandes), verá que transcurre un pequeño intervalo en el que el estado de la unidad cambia de **Iniciándose** a **Iniciada**. El hecho de tener el estado **Iniciada** significa que el sistema operativo se está iniciando o que ya se ha iniciado por completo. Como resultado, después de un reinicio de la unidad, es posible que no pueda iniciar sesión inmediatamente en la unidad tan pronto como el estado cambie a **Iniciada**.
 > 
 
+Si presiona "Ver más", se muestra información adicional. Se muestra información adicional de la revisión del sello de HANA (instancias grandes), en la que se implementó la unidad. Consulte el artículo [¿Qué es SAP HANA en Azure (instancias grandes)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para las distintas revisiones de los sellos de HANA (instancias grandes).
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Actividades de comprobación de una unidad de HANA (instancias grandes) 
 Además de ofrecer información general de las unidades de HANA (instancias grandes), también puede comprobar las actividades de una unidad determinada. Un registro de actividades puede tener el siguiente aspecto:

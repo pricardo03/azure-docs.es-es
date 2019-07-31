@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071332"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812908"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Patrones de Durable Functions y conceptos técnicos (Azure Functions)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>Patrón 6: Agregación (versión preliminar)
+### <a name="aggregator"></a>Patrón 6: Agregación (versión preliminar)
 
 El sexto patrón se trata de agregar datos de eventos durante un período de tiempo en una sola*entidad* direccionable. En este patrón, los datos que se agreguen pueden proceder de varios orígenes, pueden entregarse en lotes o pueden estar dispersos en largos períodos de tiempo. Es posible que el agregador tome medidas según datos de eventos a medida que llegan, y puede que los clientes externos necesiten consultar los datos agregados.
 
@@ -385,27 +385,46 @@ El aspecto más difícil de implementar este patrón con funciones normales sin 
 Mediante una [función de entidad duradera](durable-functions-preview.md#entity-functions) se puede implementar este patrón fácilmente como una sola función.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Las entidades durables también se pueden modelar como clases .NET. Esto puede ser útil si la lista de operaciones se hace muy grande y si es principalmente estática. El ejemplo siguiente es una implementación equivalente de la entidad `Counter` que utiliza clases y métodos .NET.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-De forma similar, los clientes pueden consultar el estado de una función de entidad mediante métodos en el enlace `orchestrationClient`.
+Los proxies generados dinámicamente también están disponibles para la señalización de entidades con seguridad de tipos. Y, además de la señalización, los clientes también pueden consultar el estado de una función de entidad mediante métodos del enlace `orchestrationClient`.
 
 > [!NOTE]
 > Las funciones de entidad actualmente solo están disponibles en [Durable Functions 2.0 preview](durable-functions-preview.md).

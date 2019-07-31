@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Habilitar la compatibilidad con el servicio de perfil de usuario de SharePoint | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Habilitación del servicio de perfil de usuario de SharePoint | Microsoft Docs'
 description: Configuración de dominios administrados de Azure Active Directory Domain Services para admitir la sincronización de perfiles para SharePoint Server
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: iainfou
-ms.openlocfilehash: 4293052f19ad883c9df7f177456d55c0997072e1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4a9ee05b37a69927d70269dccef2b74a2c251722
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473486"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234099"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Configuración de un dominio administrado para admitir la sincronización de perfiles para SharePoint Server
 SharePoint Server incluye un servicio de perfiles de usuario que se usa para la sincronización de perfiles de usuario. Para configurar el servicio de perfiles de usuario, es necesario conceder los permisos apropiados en un dominio de Active Directory. Para más información, vea [Concesión de permisos de Active Directory Domain Services para la sincronización de perfiles en SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).

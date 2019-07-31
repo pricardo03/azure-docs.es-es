@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de código de Azure Active Directory v1.0 | Microsoft Docs
+title: Ejemplos de código de Azure Active Directory v1.0 | Microsoft Docs
 description: Se proporciona un índice de ejemplos de código de Azure Active Directory (punto de conexión v1.0), organizados por escenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e8edcf6cad16644a454fd9b56b42ffd1fab61
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482547"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276769"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Ejemplos de código de Azure Active Directory (punto de conexión v1.0)
 
@@ -58,7 +58,7 @@ En los ejemplos siguientes se ilustra la firma de aplicaciones web por los usuar
  Plataforma | Únicamente inicio de sesión del usuario | Llama a Microsoft Graph o a AAD Graph| Llama a otra API web de ASP.NET o de ASP.NET Core 2.0
  -------- | ------------------- | --------------------- | -------------------------
 ![Esta imagen muestra el logotipo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Esta imagen muestra el logotipo de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/azure/active-directory/develo/pguidedsetups/active-directory-aspnetwebapp-v1) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
+![Esta imagen muestra el logotipo de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](quickstart-v1-aspnet-webapp.md) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
 ![Esta imagen muestra el logotipo de Python](media/sample-v2-code/logo_python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![Esta imagen muestra el logotipo de Java](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![Esta imagen muestra el logotipo de PHP](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
@@ -82,7 +82,7 @@ En los siguientes ejemplos se muestran aplicaciones cliente públicas (aplicacio
 Aplicación cliente | Plataforma | Flujo y concesión | Llama a Microsoft Graph | Llama a una API web de ASP.NET o ASP.NET Core 2.x
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Escritorio (WPF)           | ![Esta imagen muestra el logotipo de .NET/C#](media/sample-v2-code/logo_NET.png)  | Interactive | Parte de [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Móvil (UWP)            | .![Esta imagen muestra el logotipo de .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interactive | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> En este ejemplo se usa [WAM](https://docs.microsoft.com/windows/uw/psecurity/web-account-manager), no [ADAL.NET](https://aka.ms/adalnet).|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicación de UWP que usa ADAL.NET para llamar a una API web de un único inquilino) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicación de UWP que usa ADAL.NET para llamar a una API web multiinquilino)|
+Móvil (UWP)            | .![Esta imagen muestra el logotipo de .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interactive | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> En este ejemplo se usa [WAM](/windows/uwp/security/web-account-manager), no [ADAL.NET](https://aka.ms/adalnet).|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicación de UWP que usa ADAL.NET para llamar a una API web de un único inquilino) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicación de UWP que usa ADAL.NET para llamar a una API web multiinquilino)|
 Mobile (Android, iOS, UWP)   | ![Esta imagen muestra el logotipo de .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Móvil (Android)           | ![Esta imagen muestra el logotipo de Android](media/sample-v2-code/logo_Android.png) | Interactive |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Mobile (iOS)           | ![Esta imagen muestra iOS/Objective-C o Swift](media/sample-v2-code/logo_iOS.png) | Interactive |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |

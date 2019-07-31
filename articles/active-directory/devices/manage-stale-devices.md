@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481652"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499825"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -70,7 +70,7 @@ Para limpiar eficazmente los dispositivos obsoletos del entorno, debe definir un
 Para actualizar un dispositivo en Azure AD, necesita una cuenta que tenga asignada uno de los roles siguientes:
 
 - Administrador global
-- Administrador de dispositivos en la nube (nuevo rol disponible ahora)
+- Administrador de dispositivos en la nube
 - Administrador de servicios de Intune
 
 En la directiva de limpieza, seleccione las cuentas que tengan los roles necesarios asignados. 
@@ -145,6 +145,13 @@ La marca de tiempo se actualiza para admitir escenarios de ciclo de vida del dis
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>¿Por qué debería preocuparme por mis claves de BitLocker?
 
 Una vez configuradas, las claves de BitLocker para dispositivos Windows 10 se almacenan en el objeto de dispositivo en Azure AD. Si se elimina un dispositivo obsoleto, también se eliminan las claves de BitLocker almacenadas en el dispositivo. Debe determinar si su directiva de limpieza se alinea con el ciclo de vida real del dispositivo antes de eliminar un dispositivo obsoleto. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>¿Por qué debería preocuparme por los dispositivos Windows AutoPilot?
+
+Cuando un dispositivo Azure AD se asocia a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
+- Con implementaciones no meticulosas controladas por el usuario de Windows AutoPilot, se creará un nuevo dispositivo Azure AD, pero no se etiquetará con ZTDID.
+- Con implementaciones en modo de autoimplementación de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado.  (Se trata de un mecanismo de seguridad para asegurarse de que ningún dispositivo “impostor” intenta unirse a Azure AD sin credenciales). El error indicará una falta de coincidencia de ZTDID.
+- Con implementaciones meticulosas de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado. (En segundo plano, las implementaciones meticulosas usan el mismo proceso del modo de autoimplementación, por lo que aplican los mismos mecanismos de seguridad).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>¿Cómo puedo conocer todos los tipos de dispositivos unidos?
 

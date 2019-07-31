@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233898"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846678"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo de entidad|description|
 |--|--|
-|Calendario|Calendario no va sobre reuniones personales y citas, _ni_ sobre eventos públicos (como programaciones de la copa del mundo, calendarios de eventos de Seattle o calendarios genéricos, por ejemplo, qué día es hoy, cuándo comienza el otoño o cuándo es el día del trabajo).|
+|Calendario|Calendario no va sobre reuniones personales y citas, _ni_ sobre eventos públicos (como programaciones de la copa del mundo, calendarios de eventos de Seattle) o calendarios genéricos (por ejemplo, qué día es hoy, cuándo comienza el otoño o cuándo es el día del trabajo).|
 |Comunicación|Solicitudes para realizar llamadas, enviar mensajes de texto o mensajes instantáneos, buscar y agregar contactos y otras diversas solicitudes relacionadas con la comunicación (generalmente saliente). Las consultas de solo nombres de contacto no pertenecen al dominio de comunicación.|
 |Email|Correo electrónico es un subdominio del dominio Comunicación. Contiene principalmente solicitudes para enviar y recibir mensajes por correo electrónico.|
 |HomeAutomation|El dominio HomeAutomation ofrece intenciones y entidades relacionadas con el control de dispositivos domésticos inteligentes. Admite principalmente el comando de control relacionado con las luces y el aire acondicionado, pero tiene algunas capacidades de generalización para otros aparatos eléctricos.|

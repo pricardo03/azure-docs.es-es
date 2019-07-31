@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e97a979c37af8ade51b4ff6ca4b2c5b4eec126e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409074"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232725"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conexión de Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub en la nube
 
@@ -49,6 +49,9 @@ También necesitará lo siguiente para el entorno de desarrollo:
 
 * Una suscripción de Azure activa. Si no tiene ninguna cuenta de Azure, [cree una cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en solo unos minutos.
 * Un equipo PC o Mac que ejecute Windows o Ubuntu.
+* [GIT](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [Controlador Adafruit Huzzah ESP8266 para USB](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * Una red inalámbrica a la que se conectará HUZZAH ESP8266.
 * Conexión a Internet para descargar la herramienta de configuración.
 * [Extensión de Visual Studio Code para Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
@@ -65,10 +68,6 @@ Los elementos siguientes son opcionales en caso de que no tenga un sensor. Tambi
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperación de la cadena de conexión del centro de IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registro de un nuevo dispositivo en el centro de IoT
 

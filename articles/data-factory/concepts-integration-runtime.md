@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312061"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875273"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -85,7 +85,7 @@ Si desea realizar la integración de datos de manera segura en un entorno de red
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de IR autohospedado
 IR autohospedado debe instalarse en un equipo local o en una máquina virtual dentro de una red privada. Actualmente, solo se admite ejecutar instancias de Integration Runtime autohospedados en un sistema operativo Windows.  
 
-Para una alta disponibilidad y escalabilidad, puede escalar horizontalmente IR autohospedado mediante la asociación de la instancia lógica con varias máquinas locales en modo activo-activo.  Para más información, consulte el artículo sobre cómo crear y configurar un IR autohospedado en las guías de procedimientos.
+Para una alta disponibilidad y escalabilidad, puede escalar horizontalmente IR autohospedado mediante la asociación de la instancia lógica con varias máquinas locales en modo activo-activo.  Para más información, consulte el artículo sobre cómo [crear y configurar un IR autohospedado](create-self-hosted-integration-runtime.md) en las guías de procedimientos.
 
 ## <a name="azure-ssis-integration-runtime"></a>Integration Runtime de SSIS de Azure
 Para levantar y mover la carga de trabajo de SSIS existente, puede crear una instancia de Integration Runtime de SSIS de Azure para ejecutar paquetes SSIS de forma nativa.

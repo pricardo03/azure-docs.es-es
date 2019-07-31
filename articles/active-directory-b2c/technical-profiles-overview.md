@@ -10,25 +10,25 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512452"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849437"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades utilizando una directiva personalizada en Azure Active Directory (Azure AD) B2C. Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña. 
+Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades utilizando una directiva personalizada en Azure Active Directory (Azure AD) B2C. Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña.
 
 ## <a name="type-of-technical-profiles"></a>Tipo de perfiles técnicos
 
 Un perfil técnico posibilita estos tipos de escenarios:
 
 - [Azure Active Directory](active-directory-technical-profile.md): proporciona compatibilidad para la administración de usuarios de Azure Active Directory B2C.
-- [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza. 
+- [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza.
 - **Proveedor de factor de teléfono**: autenticación multifactor.
 - [OAuth1](oauth1-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 2.0.
@@ -37,15 +37,15 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de API REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
-- **WsFed**: federación con cualquier proveedor de identidades del protocolo WsFed. 
-- [Administración de sesiones](active-directory-b2c-reference-sso-custom.md): administración de distintos tipos de sesiones. 
+- **WsFed**: federación con cualquier proveedor de identidades del protocolo WsFed.
+- [Administración de sesiones](active-directory-b2c-reference-sso-custom.md): administración de distintos tipos de sesiones.
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico
 
-Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez que finalice el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones. 
+Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez que finalice el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones.
 
-![Flujo del perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
+![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
 1. **InputClaimsTransformation**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de entrada se recogen del contenedor de notificaciones y, después de la ejecución, las notificaciones de salida se colocan de nuevo en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de entrada pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente.
 2. **InputClaims**: las notificaciones se toman de contenedor de notificaciones y se usan para el perfil técnico. Por ejemplo, un [perfil técnico autoafirmado](self-asserted-technical-profile.md) usa las notificaciones de entrada para rellenar previamente las notificaciones de salida que proporciona el usuario. Un perfil técnico de la API REST usa las notificaciones de entrada para enviar los parámetros de entrada al punto de conexión de la API REST. Azure Active Directory usa la notificación de entrada como un identificador único para leer, actualizar o eliminar una cuenta.
@@ -59,7 +59,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 6. **OutputClaimsTransformations**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de salida se toman del contenedor de notificaciones. Las notificaciones de salida del perfil técnico de los pasos anteriores pueden ser notificaciones de entrada de una transformación de notificaciones de salida. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de salida pueden ser también notificaciones de entrada de una transformación de notificaciones de salida subsiguiente.
 7. **Administración de sesión de inicio de sesión único (SSO)**  - [La administración de sesión de SSO](active-directory-b2c-reference-sso-custom.md) controla la interacción con un usuario después de que el usuario se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local.
 
-Un perfil técnico puede heredar de otro perfil técnico para cambiar la configuración o agregar funcionalidad nueva.  El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico base del que se deriva un perfil técnico.  
+Un perfil técnico puede heredar de otro perfil técnico para cambiar la configuración o agregar funcionalidad nueva.  El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico base del que se deriva un perfil técnico.
 
 Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** incluye **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico establece el elemento de metadatos **RaiseErrorIfClaimsPrincipalDoesNotExist** en `true`y genera un error si no existe una cuenta de redes sociales en el directorio. **AAD-UserReadUsingAlternativeSecurityId-NoError** invalida este comportamiento y deshabilita el mensaje de error si el usuario no ha existido.
 
@@ -70,7 +70,7 @@ Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError
   </Metadata>
   <IncludeTechnicalProfile ReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
 </TechnicalProfile>
-``` 
+```
 
 **AAD UserReadUsingAlternativeSecurityId** incluye el perfil técnico de `AAD-Common`.
 

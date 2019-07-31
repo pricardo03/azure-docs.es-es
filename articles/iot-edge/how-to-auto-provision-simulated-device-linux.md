@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a13c130c45c746a42c0acf1ec2646f3c8f9bc51
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248120"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227529"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Cree y aprovisione un dispositivo IoT Edge con un TPM virtual en una máquina virtual de Linux.
 
@@ -106,6 +106,8 @@ En la máquina virtual, cree una herramienta de SDK de C que se pueda utilizar p
    make
    sudo ./tpm_device_provision
    ```
+   >[!TIP]
+   >Si va a probar con el simulador de TPM, deberá colocar un parámetro adicional `-Duse_tpm_simulator:BOOL=ON` para habilitarlo. El comando completo será `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`.
 
 5. Copie los valores de **Id. de registro** y **Clave de aprobación**. Use estos valores para crear una inscripción individual para el dispositivo en DPS. 
 
@@ -120,7 +122,6 @@ Cuando Device Provisioning Service esté en ejecución, copie el valor de **Ámb
 Recupere la información de aprovisionamiento de la máquina virtual y úsela para crear una inscripción individual en Device Provisioning Service. 
 
 Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado inicial de dispositivo gemelo**. En el dispositivo gemelo, puede establecer etiquetas para agrupar dispositivos por cualquier métrica que necesite en su solución, como la región, el entorno, la ubicación o el tipo de dispositivo. Estas etiquetas se usan para crear [implementaciones automáticas](how-to-deploy-monitor.md). 
-
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta la instancia de IoT Hub Device Provisioning Service. 
 

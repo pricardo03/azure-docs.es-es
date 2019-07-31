@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1fcb308c73ee93308515d91398bedee3c41ccf38
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186111"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362626"
 ---
 ## <a name="trigger"></a>Desencadenador
 
@@ -327,6 +327,7 @@ Este es el código de Python:
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventHubEvent):
     logging.info('Function triggered to process a message: ', event.get_body())
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
@@ -360,7 +361,7 @@ public void eventHubProcessor(
  }
 ```
 
- En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `EventHubTrigger` en los parámetros cuyo valor provendría del centro de eventos. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>.
+ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `EventHubTrigger` en los parámetros cuyo valor provendría del centro de eventos. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional\<T>.
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
@@ -385,7 +386,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `eventHubTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el elemento de evento en el código de la función. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
@@ -630,9 +631,10 @@ import datetime
 import logging
 import azure.functions as func
 
+
 def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
-    logging.info('Message created at: %s', timestamp);   
+    logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
 ```
 
@@ -675,7 +677,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "eventHub". |
-|**dirección** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
 |**name** | N/D | Nombre de la variable que se usa en el código de la función que representa el evento. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |

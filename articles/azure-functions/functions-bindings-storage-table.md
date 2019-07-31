@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5c3049b5f9f7607b9b75f3bee48b6ccd44601b15
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654261"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254755"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -493,7 +493,7 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 
 ## <a name="input---java-annotations"></a>Entrada: anotaciones de Java
 
-En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@TableInput` en los parámetros cuyo valor provendría del almacenamiento de la tabla.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>. 
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@TableInput` en los parámetros cuyo valor provendría del almacenamiento de la tabla.  Esta anotación se puede usar con tipos nativos Java, POJO o valores que aceptan valores NULL mediante Optional\<T>. 
 
 ## <a name="input---configuration"></a>Entrada: configuración
 

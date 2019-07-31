@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658331"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836963"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
-La **capacidad** la [métrica de Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) individual más importante para tomar decisiones informadas acerca de si se debe escalar una instancia de API Management para acomodar más carga. Su construcción es compleja e impone un comportamiento concreto.
+La **capacidad** la [métrica de Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) más importante para tomar decisiones informadas acerca de si se debe escalar una instancia de API Management para acomodar más carga. Su construcción es compleja e impone un comportamiento concreto.
 
 En este artículo se explica lo que es la **capacidad** y su comportamiento. Muestra cómo acceder a la métrica de **capacidad** en Azure Portal y sugiere cuándo hay que considerar la posibilidad de escalar o actualizar una instancia de API Management.
 
@@ -40,12 +40,14 @@ Para seguir los pasos de este artículo, debe tener:
 
 ![Métrica de capacidad](./media/api-management-capacity/capacity-ingredients.png)
 
-La **capacidad** es un indicador de la carga de una instancia de APIM. Refleja el uso de los recursos (CPU y memoria) y las longitudes de cola de la red. El uso de la CPU y la memoria revela el consumo de recursos por parte de:
+La **capacidad** es un indicador de la carga de una instancia de API Management. Refleja el uso de los recursos (CPU y memoria) y las longitudes de cola de la red. El uso de la CPU y la memoria revela el consumo de recursos por parte de:
 
-+ Los servicios de APIM, como las acciones de administración o el procesamiento de solicitudes, lo que puede incluir el reenvío de solicitudes o la ejecución de una directiva
++ Los servicios de API Management, como las acciones de administración o el procesamiento de solicitudes, lo que puede incluir el reenvío de solicitudes o la ejecución de una directiva
 + Procesos seleccionados del sistema operativo, entre los que se incluyen los procesos que implican el costo de los protocolos de enlace de SSL en las nuevas conexiones.
 
 La **capacidad** total es un promedio de sus propios valores de cada unidad de una instancia de API Management.
+
+Aunque la **métrica de capacidad** está diseñada para solucionar problemas con la instancia de API Management, hay casos en los que los problemas no se reflejarán en los cambios en la **métrica de capacidad**.
 
 ## <a name="capacity-metric-behavior"></a>Comportamiento de la métrica de capacidad
 
@@ -63,6 +65,8 @@ Cuanto más complejas sean las operaciones de las solicitudes, más alto será e
 ![Picos de la métrica de capacidad](./media/api-management-capacity/capacity-spikes.png)
 
 La **capacidad** también puede tener picos intermitentes o ser mayor que cero aunque no se procesen solicitudes. Esto sucede debido a acciones específicas del sistema o de la plataforma, y no debe tenerse en cuenta al decidir si se escala una instancia.
+
+Una **métrica de capacidad** baja no implica necesariamente que la instancia de API Management no experimente ningún problema.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Uso de Azure Portal para examinar la capacidad
   

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512078"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849377"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C
 
@@ -44,11 +44,11 @@ Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, a
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que está usando el directorio que contiene su suscripción de Azure. Seleccione el **filtro de directorio y suscripciones** en el menú superior y elija el directorio que contiene su suscripción. Este directorio es diferente que el de la carpeta que contiene el inquilino de Azure B2C.
-3. Elija Todos los servicios en la esquina superior izquierda de Azure Portal, busque y seleccione **Cuentas de almacenamiento**. 
+3. Elija Todos los servicios en la esquina superior izquierda de Azure Portal, busque y seleccione **Cuentas de almacenamiento**.
 4. Seleccione **Agregar**.
 5. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, proporcione un nombre válido para el nuevo grupo de recursos y haga clic en **Aceptar**.
 6. Escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure, tener entre tres y 24 caracteres y solo pueden contener números y letras minúsculas.
-7. Seleccione la ubicación de la cuenta de almacenamiento o acepte la ubicación predeterminada. 
+7. Seleccione la ubicación de la cuenta de almacenamiento o acepte la ubicación predeterminada.
 8. Acepte los demás valores predeterminados, seleccione **Revisar y crear**y, después, haga clic en **Crear**.
 9. Una vez creada la cuenta de almacenamiento, seleccione **Ir al recurso**.
 
@@ -68,7 +68,7 @@ Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, a
 5. En **Encabezados expuestos**, escriba un asterisco (*).
 6. Para **Antigüedad máxima**, introduzca 200.
 
-    ![Habilitación de CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![Página de configuración de CORS en Azure Blob Storage en Azure Portal](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Haga clic en **Save**(Guardar).
 
@@ -85,14 +85,14 @@ Para personalizar la interfaz de usuario de la experiencia de registro, primero 
         <title>My B2C Application</title>
         <link rel="stylesheet" href="https://your-storage-account.blob.core.windows.net/your-container/style.css">
       </head>
-      <body>  
+      <body>
         <h1>My B2C Application</h1>
         <div id="api"></div>
       </body>
     </html>
     ```
 
-    La página se puede diseñar como quiera, pero el elemento div **api** es necesario para cualquier archivo de personalización HTML que cree. 
+    La página se puede diseñar como quiera, pero el elemento div **api** es necesario para cualquier archivo de personalización HTML que cree.
 
 3. Guarde el archivo como *custom-ui.html*.
 4. Cree el siguiente archivo CSS sencillo que centra todos los elementos en la página de registro o de inicio de sesión, incluidos los elementos que Azure AD B2C inserta.
@@ -103,7 +103,7 @@ Para personalizar la interfaz de usuario de la experiencia de registro, primero 
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 300px ;
@@ -111,7 +111,7 @@ Para personalizar la interfaz de usuario de la experiencia de registro, primero 
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 300px ;
@@ -130,7 +130,7 @@ En este tutorial, almacenará los archivos que ha creado en la cuenta de almacen
 2. Seleccione la cuenta de almacenamiento que creó, seleccione **Blobs** y, después, seleccione el contenedor que ha creado.
 3. Seleccione **Cargar**, vaya al archivo*custom-ui.html* y selecciónelo y, después, haga clic en **Cargar**.
 
-    ![Cargar archivos de personalización](./media/tutorial-customize-ui/upload-blob.png)
+    ![Página Cargar blob en el portal con el botón Cargar y Archivos resaltados](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copie la dirección URL del archivo que cargó para usarla más adelante en el tutorial.
 5. Repita el paso 3 y 4 para el archivo *style.css*.
@@ -149,11 +149,11 @@ En este tutorial, almacenará los archivos que ha creado en la cuenta de almacen
 2. En la parte superior de la página, haga clic en **Ejecutar flujo de usuario**.
 3. Haga clic en el botón **Ejecutar flujo de usuario**.
 
-    ![Ejecución del flujo de usuario de registro o de inicio de sesión](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Página Ejecutar flujo de usuario para el flujo de usuario de registro o de inicio de sesión](./media/tutorial-customize-ui/run-user-flow.png)
 
     Debería ver una página similar al ejemplo siguiente con los elementos centrados basándose en el archivo CSS que ha creado:
 
-    ![Resultados del flujo de usuario](./media/tutorial-customize-ui/run-now.png) 
+    ![Explorador web que muestra la página de registro o inicio de sesión con elementos de la interfaz de usuario personalizados](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

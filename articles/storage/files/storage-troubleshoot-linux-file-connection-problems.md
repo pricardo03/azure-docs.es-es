@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449837"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807271"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -94,19 +94,30 @@ Hay una cuota de 2000 identificadores abiertos en un único archivo. Si tiene 20
 
 Reduzca el número de identificadores abiertos simultáneos cerrando algunos de ellos y, después, vuelva a realizar la operación.
 
+Para ver los identificadores abiertos de un recurso compartido de archivos, un directorio o un archivo, use el cmdlet de PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle).  
+
+Para cerrar los identificadores abiertos de un recurso compartido de archivos, un directorio o un archivo, use el cmdlet de PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle).
+
+> [!Note]  
+> Los cmdlets Get-AzStorageFileHandle y Close-AzStorageFileHandle se incluyen en la versión 2.4, o posterior, del módulo Az de PowerShell. Para instalar el módulo Az de PowerShell más reciente, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Copia de archivos lenta en y desde Azure Files en Linux
 
 - Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que use 1 MiB como tamaño de E/S para disfrutar de un rendimiento óptimo.
-- Si conoce el tamaño final de un archivo que amplía mediante operaciones de escritura y el software no presenta problemas de compatibilidad cuando una cola no escrita del archivo contiene ceros, establezca el tamaño de archivo con antelación en lugar de hacer que cada escritura sea una escritura de ampliación.
 - Utilice el método de copia correcto:
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
-    - El uso de cp con paralelo podría mejorar la velocidad de copia, el número de subprocesos depende de la carga de trabajo y el caso de uso. En este ejemplo se usan seis: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - El uso de cp o dd con paralelo podría mejorar la velocidad de copia. El número de subprocesos depende de la carga de trabajo y el caso de uso. Los ejemplos siguientes usan seis: 
+    - Ejemplo de cp (cp usará el tamaño de bloque predeterminado del sistema de archivos como el tamaño del fragmento): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Ejemplo de dd (este comando establece explícitamente el tamaño del fragmento en 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Herramientas de terceros de código abierto como:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart): ordena los archivos y los empaqueta en particiones.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync): usa Fpart y una herramienta de copia para generar varias instancias para migrar datos desde src_dir a dst_url.
         - [Mutil](https://github.com/pkolano/mutil): herramientas cp y md5sum multiproceso basadas en GNU coreutils.
+- Establecer el tamaño del archivo de antemano, en lugar de hacer que cada escritura sea una escritura de extensión, ayuda a mejorar la velocidad de copia en escenarios donde se conoce el tamaño del archivo. Si es necesario evitar las escrituras de extensión, puede establecer un tamaño de archivo de destino con el comando `truncate - size <size><file>`. Después, el comando `dd if=<source> of=<target> bs=1M conv=notrunc` copiará un archivo de origen sin tener que actualizar repetidamente el tamaño del archivo de destino. Por ejemplo, puede establecer el tamaño del archivo de destino para cada archivo que desee copiar (suponga que un recurso compartido está montado en/mnt/share):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - y después - copiar los archivos sin escrituras de extensión en paralelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error de montaje(115): Operación en curso" cuando monta Azure Files mediante SMB 3.0
@@ -140,6 +151,23 @@ Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de a
 ### <a name="solution-for-cause-2"></a>Solución para la causa 2
 
 Compruebe que las reglas de firewall y de red virtual están configuradas correctamente en la cuenta de almacenamiento. Para probar si las reglas de firewall o de red virtual están causando el problema, cambie temporalmente la configuración de la cuenta de almacenamiento para **Permitir el acceso desde todas las redes**. Para más información, consulte [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>No se puede eliminar un archivo o un directorio en un recurso compartido de archivos de Azure
+
+### <a name="cause"></a>Causa
+Este problema suele producirse si el archivo o el directorio tiene un identificador abierto. 
+
+### <a name="solution"></a>Solución
+
+Si los clientes SMB cerraron todos los identificadores abiertos y el problema sigue ocurriendo, realice lo siguiente:
+
+- Use el cmdlet de PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) para ver los identificadores abiertos.
+
+- Use el cmdlet de PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) para cerrar los identificadores abiertos. 
+
+> [!Note]  
+> Los cmdlets Get-AzStorageFileHandle y Close-AzStorageFileHandle se incluyen en la versión 2.4, o posterior, del módulo Az de PowerShell. Para instalar el módulo Az de PowerShell más reciente, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rendimiento lento en un recurso compartido de archivos de Azure montado en una VM de Linux
@@ -191,40 +219,6 @@ Utilice el usuario de la cuenta de almacenamiento para copiar los archivos:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>No se puede conectar a un recurso compartido de archivos de Azure ni montarlo
-
-### <a name="cause"></a>Causa
-
-Las causas comunes de este problema son las siguientes:
-
-- Está usando un cliente de distribución de Linux incompatible. Se recomienda usar las siguientes distribuciones de Linux para conectarse al recurso compartido de archivos de Azure:
-
-    |   | SMB 2.1 <br>(Se monta en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04 (o posterior) |
-    | RHEL | 7 (o posterior) | 7.5 (o posterior) |
-    | CentOS | 7 (o posterior) |  7.5 (o posterior) |
-    | Debian | 8 (o posterior) |   |
-    | openSUSE | 13.2 (o posterior) | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
-
-- Las utilidades de CIFS (cfs-utils) no están instaladas en el cliente.
-- La versión 2.1 mínima de SMB/CIFS no está instalada en el cliente.
-- No se admite el cifrado SMB 3.0 en el cliente. El cifrado SMB 3.0 está disponible en Ubuntu 16.4 y versiones posteriores y en SUSE 12.3 y versiones posteriores. Otras distribuciones requieren kernel 4.11 y versiones posteriores.
-- Está intentando conectarse a una cuenta de almacenamiento a través del puerto TCP 445 que no es compatible.
-- Está intentando conectarse al recurso compartido de archivos de Azure desde una máquina virtual de Azure y la máquina virtual no se encuentra en la misma región que la cuenta de almacenamiento.
-- Si la opción [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada para la cuenta de almacenamiento, Azure Files solo permitirá las conexiones que usen SMB 3.0 con cifrado.
-
-### <a name="solution"></a>Solución
-
-Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files en Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta:
-
-* Le ayuda a validar el cliente que ejecuta el entorno.
-* Detecta la configuración de cliente incompatible que podría provocar un error de acceso para Azure Files.
-* Ofrece instrucciones prescriptivas para la corrección automática.
-* Recopila los seguimientos de diagnóstico.
-
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>Es: No se puede acceder a '&lt;ruta de acceso&gt;': Error de entrada/salida
 

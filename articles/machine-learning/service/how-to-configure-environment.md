@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606415"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297925"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -30,7 +30,7 @@ Este artículo se centra en los siguientes entornos y herramientas:
 
 * [Data Science Virtual Machine (DSVM)](#dsvm): es un entorno de desarrollo o experimentación preconfigurado en Azure Cloud que está diseñado para el trabajo con ciencia de datos y se puede implementar en instancias de máquina virtual solo con CPU o en instancias basadas en GPU. Python 3, Conda, Jupyter Notebooks y el SDK de Azure Machine Learning ya están instalados. La máquina virtual incluye editores, herramientas y marcos de aprendizaje automático o de aprendizaje profundo que son muy populares para desarrollar soluciones de Machine Learning. Es probable que se trate del entorno más completo de desarrollo para Machine Learning en la plataforma de Azure.
 
-* [Jupyter Notebook](#jupyter): si ya usa instancias de Jupyter Notebook, el SDK incluye algunos elementos adicionales que debe instalar.
+* [Jupyter Notebooks](#jupyter): si ya usa instancias de Jupyter Notebook, el SDK incluye algunos elementos adicionales que debe instalar.
 
 * [Visual Studio Code](#vscode): si usa Visual Studio Code, hay algunas extensiones útiles que puede instalar.
 
@@ -193,16 +193,10 @@ Cuando use un equipo local (que también podría ser una máquina virtual remota
     pip install azureml-sdk[notebooks,automl]
     ```
 
-    Use este comando para instalar solo el SDK de preparación de datos de Azure Machine Learning:
-
-    ```shell
-    pip install azureml-dataprep
-    ```
-
    > [!NOTE]
    > Si recibe un mensaje que indica que PyYAML no se puede desinstalar, use el comando siguiente en su lugar:
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
    El SDK tardará varios minutos en instalarse. Vea la [guía de instalación](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obtener más información sobre las opciones de instalación.
 
@@ -231,6 +225,12 @@ Mediante el procedimiento descrito en la sección [Equipo local](#local) se inst
     ```shell
     conda activate myenv
     ```
+    
+1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks) para un conjunto de cuadernos de ejemplo.
+
+    ```CLI
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
 
 1. Inicie el servidor de Jupyter Notebook con el comando siguiente:
 
@@ -251,8 +251,9 @@ Mediante el procedimiento descrito en la sección [Equipo local](#local) se inst
     import sys
     sys.path
     ```
-
+    
 1. Para configurar la instancia de Jupyter Notebook que usará en el área de trabajo de Azure Machine Learning Service, consulte la sección [Crear un archivo de configuración del área de trabajo](#workspace).
+
 
 ### <a id="vscode"></a>Visual Studio Code
 

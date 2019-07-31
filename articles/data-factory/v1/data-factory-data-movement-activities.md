@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486964"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839317"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -138,7 +138,7 @@ Puede crear una canalización con actividad de copia de dos maneras:
 El Asistente para copia de Data Factory lo ayuda a crear una canalización con la actividad de copia. Esta canalización permite copiar datos de orígenes compatibles en destinos *sin escribir definiciones de JSON* para los servicios vinculados, los conjuntos de datos ni las canalizaciones. Consulte [Asistente para copia de Data Factory](data-factory-copy-wizard.md) para obtener más información sobre el asistente.  
 
 ### <a name="by-using-json-scripts"></a>Mediante scripts de JSON
-Puede utilizar el Editor de Data Factory en Azure Portal, Visual Studio o Azure PowerShell para crear una definición de JSON para una canalización (mediante la actividad de copia). Después, puede implementarla para crear la canalización en Data Factory. Vea [Tutorial: Uso de la actividad de copia en una canalización de Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso.    
+Puede utilizar el Editor de Data Factory en Visual Studio o Azure PowerShell para crear una definición de JSON para una canalización (mediante la actividad de copia). Después, puede implementarla para crear la canalización en Data Factory. Vea [Tutorial: Uso de la actividad de copia en una canalización de Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso.    
 
 Las propiedades JSON (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. Las propiedades que están disponibles en la sección `typeProperties` de la actividad varían con cada tipo de actividad.
 

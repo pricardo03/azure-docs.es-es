@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fb999b0cf66cfd8d96e82d23ed43626352a8aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544135"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277920"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Consideraciones específicas de la Plataforma universal de Windows con MSAL.NET
-En Xamarin iOS, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.
+En UWP, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.
 
 ## <a name="the-usecorporatenetwork-property"></a>La propiedad UseCorporateNetwork
-En la plataforma de WinRT, `PublicClientApplication` tiene la siguiente propiedad booleana ``UseCorporateNetwork``. Esta propiedad permite que las aplicaciones de Win8.1 y UWP se beneficien de la autenticación integrada (y, por lo tanto, del inicio de sesión único con el inicio de sesión de usuario con el sistema operativo) si el usuario ha iniciado sesión con una cuenta de un inquilino federado de Azure AD. Esta característica aprovecha el WAB (agente de autenticación web). 
+En la plataforma de WinRT, `PublicClientApplication` tiene la siguiente propiedad booleana ``UseCorporateNetwork``. Esta propiedad permite que las aplicaciones de Win8.1 y UWP se beneficien de la autenticación integrada (y, por lo tanto, del inicio de sesión único con el inicio de sesión de usuario con el sistema operativo) si el usuario ha iniciado sesión con una cuenta de un inquilino federado de Azure AD. Al establecer esta propiedad, MSAL.NET usa WAB (agente de autenticación web).
 
 > [!IMPORTANT]
 > Si establece esta propiedad en true, se da por supuesto que el desarrollador de aplicaciones ha habilitado la autenticación integrada (IWA) en la aplicación. Para esto:
@@ -37,9 +37,32 @@ En la plataforma de WinRT, `PublicClientApplication` tiene la siguiente propieda
 >   - Redes privadas (cliente y servidor)
 >   - Certificado de usuario compartido
 
-La autenticación integrada no está habilitada de manera predeterminada porque las aplicaciones que solicitan las funcionalidades Autenticación empresarial o Certificados de usuario compartidos requieren un mayor nivel de comprobación para que Windows Store las acepte, y no todos los desarrolladores quieren realizar un mayor nivel de comprobación. 
+La autenticación integrada no está habilitada de manera predeterminada porque las aplicaciones que solicitan las funcionalidades Autenticación empresarial o Certificados de usuario compartidos requieren un mayor nivel de comprobación para que Windows Store las acepte, y no todos los desarrolladores quieren realizar un mayor nivel de comprobación.
 
-La implementación subyacente en la plataforma UWP (WAB) no funciona correctamente en escenarios empresariales en los que se ha habilitado el acceso condicional. El síntoma es que el usuario intenta iniciar sesión con Windows Hello y se le propone que elija un certificado pero el certificado para el pin no se encuentra, o bien el usuario lo elige pero no se le solicita el pin. Una solución alternativa es usar un método alternativo (nombre de usuario/contraseña + autenticación por teléfono), pero la experiencia no es buena. 
+La implementación subyacente en la plataforma UWP (WAB) no funciona correctamente en escenarios empresariales en los que se ha habilitado el acceso condicional. El síntoma es que el usuario intenta iniciar sesión con Windows Hello y se le propone que elija un certificado, pero:
+
+- No se encuentra el certificado para el PIN.
+- O el usuario lo elige pero no se le solicita el PIN.
+
+Una solución alternativa es usar un método alternativo (nombre de usuario/contraseña + autenticación por teléfono), pero la experiencia no es buena.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Algunos clientes han comunicado que, en algunos entornos empresariales específicos, se produjo el siguiente error de inicio de sesión:
+
+```Text
+We can't connect to the service you need right now. Check your network connection or try this again later
+```
+
+Sin embargo, saben que tienen una conexión a Internet y que funciona con una red pública.
+
+Una solución alternativa consiste en asegurarse de que WAB (el componente subyacente de Windows) permita la red privada. Puede hacerlo estableciendo una clave del Registro:
+
+```Text
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
+```
+
+Para obtener información, vea [Agente de autenticación web: Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En los ejemplos siguientes se proporcionan más detalles:

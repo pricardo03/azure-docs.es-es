@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f1953535a19be1a6aa3963776515b1f2c0d979c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508947"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835751"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticación
-Azure Active Directory B2C (Azure AD B2C) proporciona identidad como servicio para sus aplicaciones gracias a la compatibilidad con dos protocolos estándar del sector: OpenID Connect y OAuth 2.0. Aunque el servicio cumple con la norma, pueden existir diferencias sutiles entre dos implementaciones cualesquiera de estos protocolos. 
+Azure Active Directory B2C (Azure AD B2C) proporciona identidad como servicio para sus aplicaciones gracias a la compatibilidad con dos protocolos estándar del sector: OpenID Connect y OAuth 2.0. Aunque el servicio cumple con la norma, pueden existir diferencias sutiles entre dos implementaciones cualesquiera de estos protocolos.
 
 La información de esta guía es útil si el código se escribe mediante el envío y el control directo de solicitudes HTTP, en lugar de usar una biblioteca de código abierto. Se recomienda que lea esta página antes de profundizar en los detalles de cada protocolo específico. Pero si ya está familiarizado con Azure AD B2C, puede ir directamente a [las guías de referencia de protocolo](#protocols).
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas en el intercambio:
 
-![Funciones de OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![Diagrama que muestra los cuatro roles de OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * El **servidor de autorización** es el punto de conexión de Azure AD. Controla de manera segura todo lo relacionado con el acceso y la información de usuario. También controla las relaciones de confianza entre las partes de un flujo. Es responsable de garantizar la identidad del usuario, conceder y revocar el acceso a los recursos y emitir tokens. También es conocido como proveedor de identidades.
 
@@ -51,9 +51,9 @@ En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas 
 * El **servidor de recursos** es el lugar en que residen el recurso o los datos. Confía en el servidor de autorizaciones para autenticar y autorizar de forma segura al cliente OAuth. También usa tokens de acceso de portador para asegurarse de que se puede conceder el acceso a un recurso.
 
 ## <a name="policies-and-user-flows"></a>Directivas y flujos de usuario
-Puede decirse que las directivas de Azure AD B2C son las características más importantes del servicio. Azure AD B2C amplía los protocolos estándar de OAuth 2.0 y OpenID Connect mediante la introducción de las directivas. Estas permiten que Azure AD B2C realice tareas que van más allá de la mera autenticación y autorización. 
+Puede decirse que las directivas de Azure AD B2C son las características más importantes del servicio. Azure AD B2C amplía los protocolos estándar de OAuth 2.0 y OpenID Connect mediante la introducción de las directivas. Estas permiten que Azure AD B2C realice tareas que van más allá de la mera autenticación y autorización.
 
-Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**. Los flujos de usuario describen por completo las experiencias de identidad del consumidor, como el registro, el inicio de sesión y la edición de perfiles. Los flujos de usuario se pueden definir en una interfaz de usuario administrativa. Se pueden ejecutar mediante un parámetro de consulta especial en solicitudes de autenticación de HTTP. 
+Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**. Los flujos de usuario describen por completo las experiencias de identidad del consumidor, como el registro, el inicio de sesión y la edición de perfiles. Los flujos de usuario se pueden definir en una interfaz de usuario administrativa. Se pueden ejecutar mediante un parámetro de consulta especial en solicitudes de autenticación de HTTP.
 
 Las directivas y los flujos de usuario no son características estándar de OAuth 2.0 y OpenID Connect, así que debe dedicar tiempo a entenderlas. Para más información, consulte la [guía de referencia de flujos de usuario de Azure AD B2C](active-directory-b2c-reference-policies.md).
 
@@ -62,7 +62,7 @@ La implementación de Azure AD B2C de OAuth 2.0 y OpenID Connect hace un uso gen
 
 El "portador" es cualquier parte que pueda presentar el token. Para que una parte pueda recibir un token de portador, es necesario que Azure AD la autentique previamente. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos.
 
-Algunos tokens de seguridad tienen mecanismos integrados que impiden que partes no autorizadas puedan usarlos, pero los tokens de portador no disponen de este mecanismo. Deberán ser transportados en un canal seguro, como la seguridad de la capa de transporte (HTTPS). 
+Algunos tokens de seguridad tienen mecanismos integrados que impiden que partes no autorizadas puedan usarlos, pero los tokens de portador no disponen de este mecanismo. Deberán ser transportados en un canal seguro, como la seguridad de la capa de transporte (HTTPS).
 
 Si un token de portador se transmite fuera de un canal seguro, un usuario malintencionado puede utilizar un ataque de tipo "man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican cuando los tokens de portador se almacenan o guardan en caché para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura.
 

@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205360"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835410"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -44,7 +44,7 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 > Para las actividades CRUD de objeto de usuario, vea la categoría **Core Directory**.
 
 ## <a name="example-activity"></a>Actividad de ejemplo
-En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Registros de auditoría: ejemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Ejemplo de la página Detalles de la actividad: Registro de auditoría de Azure Portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 El panel de detalles de actividad contiene la siguiente información pertinente:
 
@@ -61,17 +61,17 @@ El panel de detalles de actividad contiene la siguiente información pertinente:
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el directorio B2C.
 2. Abra **Azure Active Directory** en la barra de favoritos del lado izquierdo
-    
-    ![Registros de auditoría - Botón AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Botón Azure Active Directory resaltado en el menú del portal izquierdo](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. En **Actividad**, haga clic en **Registros de auditoría**
 
-    ![Registros de auditoría - Sección Registros](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Botón Registros de auditoría resaltados en la sección Actividad del menú](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. En el cuadro desplegable **Categoría**, seleccione **B2C**
 3. Haga clic en **Aplicar**
 
-    ![Registros de auditoría - Categoría](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Categoría y botón Aplicar resaltados en el filtro de registros de auditoría](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Se ve una lista de actividades registradas durante los últimos siete días.
 - Use la lista desplegable **Tipo de recurso de actividad** para filtrar por los tipos de actividad descritos arriba

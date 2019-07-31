@@ -4,7 +4,7 @@ description: Establezca alta disponibilidad de SAP HANA en máquinas virtuales (
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922133"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709119"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
 
@@ -181,7 +181,7 @@ Para implementar la plantilla, siga estos pasos:
    1. Seleccione **Aceptar**.
    1. Repita estos pasos para los puertos 3**03**41 y 3**03**42.
 
-Para más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
+Para obtener más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
 
 > [!IMPORTANT]
 > No habilite las marcas de tiempo TCP en las VM de Azure a las que se aplicó Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** en **0**. Consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
@@ -730,7 +730,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
+* [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
 * Para información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure (instancias grandes), consulte [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).

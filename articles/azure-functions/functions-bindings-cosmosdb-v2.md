@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 1a505fc5ef09fe9842e72488843155af7c0888cb
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b0f8b5efcf7e22a3f9d98d5c812ba4821a8b2124
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480817"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254768"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -196,7 +196,7 @@ Este es el código de Java:
 ```
 
 
-En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBTrigger` en los parámetros cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>.
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBTrigger` en los parámetros cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos Java, POJO o valores que aceptan valores NULL mediante Optional\<T>.
 
 
 Ejemplos de omisión de desencadenador
@@ -1529,7 +1529,7 @@ public class DocByIdFromQueryString {
 }
  ```
 
-En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBInput` en los parámetros de la función cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>.
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBInput` en los parámetros de la función cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos Java, POJO o valores que aceptan valores NULL mediante Optional\<T>.
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta - Parámetro POJO (Java)
 

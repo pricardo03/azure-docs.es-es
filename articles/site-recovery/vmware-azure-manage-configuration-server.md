@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171675"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250100"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -109,7 +109,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
    ```
 
     >[!NOTE]
-    >Para **extraer los últimos certificados** del servidor de configuración para la escalabilidad horizontal del servidor de procesos, ejecute el comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Para **extraer los últimos certificados** del servidor de configuración y escalar horizontalmente el servidor de procesos, ejecute el comando *"\<Unidad de instalación\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
 8. Por último, reinicie el servicio OBEngine con la ejecución del siguiente comando.
    ```
@@ -183,7 +183,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="parameters"></a>Parámetros
 
-|Nombre de parámetro| Type | DESCRIPCIÓN| Valores|
+|Nombre de parámetro| type | DESCRIPCIÓN| Valores|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|

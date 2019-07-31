@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e7ae7e90642a6adfd35e71765e2753334660c56
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285191"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261862"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -147,20 +147,25 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 |------------|-------------|
 | Hora | Fecha y hora en formato UTC. |
 | ResourceId | Este valor no se ha asignado, y puede ignorar este campo de forma segura.  |
-| nombreOperación | Para inicios de sesión, este valor es siempre *Actividad de inicio de sesión*. |
+| OperationName | Para inicios de sesión, este valor es siempre *Actividad de inicio de sesión*. |
 | OperationVersion | Versión de la API REST solicitada por el cliente. |
 | Categoría | Para inicios de sesión, este valor es siempre *SignIn*. | 
 | TenantId | GUID del inquilino asociado con los registros. |
 | ResultType | El resultado de la operación de inicio de sesión puede ser *Correcto* o *Error*. | 
 | ResultSignature | Contiene el código de error, si existe, de la operación de inicio de sesión. |
 | ResultDescription | Proporciona la descripción del error para la operación de inicio de sesión. |
-| DurationMs |  Este valor no se ha asignado, y puede ignorar este campo de forma segura.|
+| riskDetail | riskDetail | Proporciona la "razón" detrás de un estado específico de un usuario de riesgo, un inicio de sesión o un evento de riesgo. Los valores posibles son: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. El valor `none` significa que no se ha realizado hasta el momento ninguna acción sobre el usuario o el inicio de sesión. <br>**Nota:** Los detalles de esta propiedad requieren una licencia de Azure AD Premium P2. Otras licencias devuelven el valor `hidden`. |
+| riskEventTypes | riskEventTypes | Tipos de eventos de riesgo asociados con el inicio de sesión. Los valores posibles son: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic` y `unknownFutureValue`. |
+| riskLevelAggregated | riskLevel | Nivel de riesgo agregado. Los valores posibles son: `none`, `low`, `medium`, `high`, `hidden` y `unknownFutureValue`. El valor `hidden` significa que el usuario o el inicio de sesión no se habilitaron para Azure AD Identity Protection. **Nota:** Los detalles de esta propiedad solo están disponibles para los clientes de Azure AD Premium P2. Todos los demás clientes se devolverán como `hidden`. |
+| riskLevelDuringSignIn | riskLevel | Nivel de riesgo durante el inicio de sesión. Los valores posibles son: `none`, `low`, `medium`, `high`, `hidden` y `unknownFutureValue`. El valor `hidden` significa que el usuario o el inicio de sesión no se habilitaron para Azure AD Identity Protection. **Nota:** Los detalles de esta propiedad solo están disponibles para los clientes de Azure AD Premium P2. Todos los demás clientes se devolverán como `hidden`. |
+| riskState | riskState | Informa del estado del usuario de riesgo, el inicio de sesión o un evento de riesgo. Los valores posibles son: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
+| DurationMs |  Este valor no se ha asignado, y puede ignorar este campo de forma segura. |
 | CallerIpAddress | Dirección IP del cliente que realizó la solicitud. | 
 | CorrelationId | GUID opcional que el cliente pasa. Este valor puede ayudar a poner en correlación las operaciones de cliente con las operaciones de servidor y es útil al realizar el seguimiento de los registros que se distribuyen entre servicios. |
 | Identidad | Identidad del token que se ha presentado al realizar la solicitud. Puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | Nivel | Proporciona el tipo de mensaje. Para la auditoría, siempre es *informativo*. |
-| Ubicación | Indica la ubicación de la actividad de inicio de sesión. |
-| Properties (Propiedades) | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
+| Location | Indica la ubicación de la actividad de inicio de sesión. |
+| properties (Propiedades) | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

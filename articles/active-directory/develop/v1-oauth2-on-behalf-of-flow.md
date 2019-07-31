@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482410"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261932"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -83,7 +83,7 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. Seleccione **Registrar** para crear la aplicación.
 1. Configure permisos para la aplicación. En **Permisos de API**, seleccione **Agregar un permiso** y, luego **Mis API**.
 1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
-1. Elija **Seleccionar permisos** y, después, seleccione **Acceder a <service name>** .
+1. Elija **Seleccionar permisos** y, luego, seleccione **Acceder a \<nombre del servicio>** .
 
 ### <a name="configure-known-client-applications"></a>Configuración de aplicaciones cliente conocidas
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "65471783"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
@@ -29,7 +29,7 @@ En este artículo se proporciona información para la solución de problemas rel
 Estas son las rutas de acceso a algunos de los registros y artefactos más importantes. Se tendrá en cuenta esta información a lo largo del documento.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Artefacto | Ruta de acceso |
+| Artefacto | Path |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Archivos de registro** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de registro de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-| Artefacto | Ruta de acceso |
+| Artefacto | Path |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Archivos de registro** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |

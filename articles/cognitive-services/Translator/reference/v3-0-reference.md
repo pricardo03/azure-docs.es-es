@@ -3,19 +3,19 @@ title: Referencia de Translator Text API V3.0
 titlesuffix: Azure Cognitive Services
 description: Documentación de referencia para Translator Text API V3.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387514"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868414"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -31,35 +31,35 @@ La versión 3 de Translator Text API proporciona una API web moderna basada en J
 
 ## <a name="base-urls"></a>Direcciones URL base
 
-Microsoft Translator está disponible en varias ubicaciones de centros de datos. En la actualidad, se encuentra en seis [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator está disponible en varias ubicaciones de centros de datos. En la actualidad, se encuentran en diez [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **América**: Oeste de EE. UU. 2 y Centro-oeste de EE. UU. 
-* **Asia Pacífico:** Asia Suroriental y Sur de Corea del Sur
+* **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2 
+* **Asia Pacífico:** Sur de Corea del Sur, Japón Oriental, Sudeste Asiático y Este de Australia
 * **Europa:** Europa del Norte y Europa Occidental
 
-En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator Text API se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la región.
+En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator Text API se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la geografía de Azure.
 
-Para hacer que la solicitud se administre en un centro de datos específico, cambie el punto de conexión Global en la solicitud de API por el punto de conexión regional que desee:
+Para hacer que la solicitud se controle en una geografía de Azure específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión regional que desee:
 
-|DESCRIPCIÓN|Region|URL base|
+|DESCRIPCIÓN|Geografía de Azure|URL base|
 |:--|:--|:--|
-|Azure|Global|  api.cognitive.microsofttranslator.com|
-|Azure|Norteamérica|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (no regional)|   api.cognitive.microsofttranslator.com|
+|Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Authentication
 
-Suscríbase a Translator Text API o [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Microsoft Cognitive Services y usar su suscripción de clave (disponible en el portal de Azure) para autenticar. 
+Suscríbase a Translator Text API o a los [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Microsoft Cognitive Services y use la clave de suscripción (disponible en Azure Portal) para autenticarse. 
 
 Hay tres encabezados que puede usar para autenticar su suscripción. En esta tabla, se explica cómo se utiliza cada uno de ellos:
 
 |encabezados|DESCRIPCIÓN|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Úselo con la suscripción a Cognitive Services si pasa su clave secreta*.<br/>El valor es la clave secreta de Azure para su suscripción a Translator Text API.|
-|Autorización|*Úselo con la suscripción a Cognitive Services si pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Utilizar con suscripciones de varios servicios de Cognitive Services si se pasa una clave secreta de varios servicio.*<br/>El valor es la región de la suscripción de varios servicio. Este valor es opcional cuando no se usa una suscripción de varios servicio.|
+|Authorization|*Úselo con la suscripción a Cognitive Services si pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Úselo con una suscripción a varios servicios de Cognitive Services si pasa una clave secreta de varios servicios*.<br/>El valor es la región de la suscripción a varios servicios. Este valor es opcional cuando no se usa una suscripción de varios servicios.|
 
 ###  <a name="secret-key"></a>Clave secreta
 La primera opción consiste en realizar la autenticación con el encabezado `Ocp-Apim-Subscription-Key`. Basta con agregar el encabezado `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` a la solicitud.
@@ -91,13 +91,13 @@ Un token de autenticación tiene una validez de 10 minutos. El token debe volver
 
 ### <a name="multi-service-subscription"></a>Suscripción a varios servicios
 
-La última opción de autenticación es usar la suscripción de varios servicio cognitivos de un servicio. Esta opción le permite utilizar una única clave secreta para autenticar las solicitudes de varios servicios. 
+La última opción de autenticación consiste en utilizar la suscripción a varios servicios de Cognitive Services. Esta opción le permite utilizar una única clave secreta para autenticar las solicitudes de varios servicios. 
 
-Cuando se usa una clave secreta varios servicio, debe incluir dos encabezados de autenticación con su solicitud. El primero pasa la clave secreta, mientras que el segundo especifica la región asociada con la suscripción. 
+Si usa una clave secreta para varios servicios, debe incluir dos encabezados de autenticación con la solicitud. El primero pasa la clave secreta, mientras que el segundo especifica la región asociada con la suscripción. 
 * `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
 
-Región es obligatoria para la suscripción varios servicio de API de texto. La región seleccionada es la única región en la que puede usar para la traducción de texto cuando se usa la clave de suscripción de varios servicios, y debe ser la misma región que seleccionó al suscribirse a su suscripción de varios servicio a través del portal de Azure.
+La región es obligatoria en la suscripción de varios servicios de Text API. La región seleccionada es la única región que puede usar para la traducción de texto al usar la clave de suscripción de varios servicios, y debe ser la misma región que seleccionó al registrarse en su suscripción de varios servicios a través de Azure Portal.
 
 Las regiones disponibles son `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` y `westus2`.
 
@@ -144,7 +144,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 400036| Falta el lenguaje de destino (campo "To") o no es válido.|
 | 400042| Una de las opciones especificadas (campo "Options") no es válida.|
 | 400043| Falta el id. de seguimiento del cliente (campo ClientTraceId o encabezado X-ClientTranceId) o no es válido.|
-| 400050| El texto de entrada es demasiado largo. Vista [los límites de solicitudes](../request-limits.md).|
+| 400050| El texto de entrada es demasiado largo. Consulte los [límites de solicitud](../request-limits.md).|
 | 400064| Falta un parámetro "translation" o no es válido.|
 | 400070| El número de scripts de destino (parámetro ToScript) no coincide con el número de lenguajes de destino (parámetro To).|
 | 400071| Valor no válido para TextType.|
@@ -152,17 +152,18 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 400073| El parámetro de script no es válido.|
 | 400074| El cuerpo de la solicitud no es un JSON válido.|
 | 400075| La combinación de categoría y par de lenguaje no es válida.|
-| 400077| Se superó el tamaño máximo de solicitud. Vista [los límites de solicitudes](../request-limits.md).|
+| 400077| Se superó el tamaño máximo de solicitud. Consulte los [límites de solicitud](../request-limits.md).|
 | 400079| El sistema personalizado solicitado para la traducción entre, desde y hacia el lenguaje no existe.|
+| 400080| La transliteración no se admite para el idioma o el script.|
 | 401000| La solicitud no está autorizada porque faltan las credenciales o no son válidas.|
 | 401015| "Las credenciales proporcionadas son para Speech API. Esta solicitud requiere credenciales para Text API. Use una suscripción a Translator Text API."|
 | 403000| No se permite la operación.|
 | 403001| No se permite la operación porque la suscripción superó su cuota disponible.|
 | 405000| No se admite el método de solicitud para el recurso solicitado.|
 | 408001| Se está preparando el sistema de traducción solicitado. Vuelva a intentarlo en unos minutos.|
-| 408002| Solicitud superó el tiempo de espera mientras se esperaba en la secuencia entrante. El cliente no ha producido una solicitud en el tiempo que se preparó el servidor debe esperar. El cliente puede repetir la solicitud sin modificaciones en cualquier momento posterior.|
+| 408002| La solicitud superó el tiempo de espera mientras se esperaba la secuencia entrante. El cliente no presentó una solicitud en el tiempo que el servidor estaba preparado para esperar. El cliente puede repetir la solicitud sin modificaciones en cualquier momento posterior.|
 | 415000| Falta el encabezado Content-Type o no es válido.|
-| 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.|
+| 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.|
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 | 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 

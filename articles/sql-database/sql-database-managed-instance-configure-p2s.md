@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 33e1287edbca6b603d103f11636959b6fe13e578
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5fee129e24d38da350589d5bed90123733f148c0
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798093"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296056"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local
 
@@ -35,7 +35,7 @@ En esta guía de inicio rápido:
 
 1. Abra PowerShell en el equipo cliente local.
 
-2. Copie este script de PowerShell. Este script asocia una puerta de enlace VPN Gateway a la red virtual de Instancia administrada que creó en la guía de inicio rápido [Creación de una instancia administrada de Azure SQL](sql-database-managed-instance-get-started.md). El script hace lo siguiente:
+2. Copie este script de PowerShell. Este script asocia una puerta de enlace VPN Gateway a la red virtual de Instancia administrada que creó en la guía de inicio rápido [Creación de una instancia administrada de Azure SQL](sql-database-managed-instance-get-started.md). Este script usa el módulo Az de Azure PowerShell y realizará lo siguiente en los hosts basados en Windows o Linux:
 
    - Crea e instala certificados en la máquina cliente
    - Calcula el intervalo futuro de IP de subred de puerta de enlace VPN Gateway
@@ -54,9 +54,6 @@ En esta guía de inicio rápido:
 
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
-
-     > [!IMPORTANT]
-     > Para usar el módulo de Resource Manager de Azure PowerShell en lugar de el módulo Az, use el cmdlet `attachVPNGateway.ps1` en lugar del cmdlet `attachVPNGatewayAz.ps1`.
 
 3. Pegue el script en la ventana de PowerShell y proporcione los parámetros requeridos. Los valores de `<subscriptionId>`, `<resourceGroup>` y `<virtualNetworkName>` deben coincidir con los que se usan en la guía de inicio rápido [Creación de una Instancia administrada](sql-database-managed-instance-get-started.md). El valor de `<certificateNamePrefix>` puede ser la cadena que prefiera.
 

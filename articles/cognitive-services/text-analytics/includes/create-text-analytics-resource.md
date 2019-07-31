@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con los contenedores
+title: Crear un recurso de Text Analytics de Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo crear un recurso de Text Analytics de Cognitive Services.
 services: cognitive-services
@@ -9,31 +9,32 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 022ffcd806d4d4f89f8a8cf256a541518ea12602
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e8b4480911f00afa8524ef4b81d697bb8ee5bcc
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455086"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877462"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Crear un recurso de Text Analytics de Cognitive Services
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione **+ Create a resource** (+ Crear un recurso), vaya a **AI + Machine Learning > Text Analytics** (IA + Machine Learning > Text Analytics) o haga clic en [Create **Text Analytics**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) (Crear > Text Analytics).
-1. Establezca todas las opciones de configuración necesarias:
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione **Crear un recurso** y vaya a **IA y Machine Learning** > **Text Analytics**.
+   O bien, vaya a [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) (Crear un recurso de Text Analytics).
+1. Establezca todas las configuraciones necesarias:
 
     |Configuración|Valor|
     |--|--|
-    |NOMBRE|Nombre que desee (2-64 caracteres)|
-    |Subscription|Seleccione una suscripción adecuada|
+    |NOMBRE|Escriba un nombre (de 2 a 64 caracteres)|
+    |Subscription|Seleccione la suscripción adecuada|
     |Location|Seleccione una ubicación cercana|
-    |Nivel de precios|`S` - Plan de tarifa estándar|
-    |Grupo de recursos|Seleccione un grupo de recursos disponible|
+    |Plan de tarifa| Escriba **S**, el plan de tarifa estándar|
+    |Resource group|Seleccione un grupo de recursos disponible|
 
-1. Haga clic en **Create** (Crear) y espere a que el recurso que se va a crear. Después de crearlo, el explorador se redirige automáticamente a la página de recursos recién creada.
+1. Seleccione **Crear** y espere a que el recurso se cree. El explorador se redirige automáticamente a la página de recursos recién creada.
 1. Recopile el elemento `endpoint` configurado y una clave de API:
 
-    |Pestaña de recursos en Portal|Configuración|Valor|
+    |Pestaña de recursos en el portal|Configuración|Valor|
     |--|--|--|
-    |**Información general**|Punto de conexión|Copie el punto de conexión. Es similar a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
-    |**Claves**|Clave de API|Copie una de las dos claves. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Información general**|Punto de conexión|Copie el punto de conexión. Tiene un aspecto similar a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |**Claves**|Clave de API|Copie una de las dos claves. Es una cadena alfanumérica de 32 caracteres sin espacios ni guiones: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

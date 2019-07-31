@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799203"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305635"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -64,9 +64,9 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
         |---|---|
         |id|Identificador del vídeo|
         |state|El estado del vídeo|  
-    - Ejemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Ejemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificada en el vídeo:
-  - Properties (Propiedades)
+  - properties (Propiedades)
     
       |NOMBRE|Descripción|
       |---|---|
@@ -75,7 +75,7 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
       |knownPersonId|El identificador de persona que es único dentro de un modelo de cara|
       |personName|El nombre de la persona|
         
-    - Ejemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Ejemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notas
 
@@ -92,7 +92,7 @@ Utilice este parámetro si hay grabaciones sin formato o externas que contengan 
 
 El precio depende de la opción de indexación seleccionada.  
 
-### <a name="priority"></a>prioridad
+### <a name="priority"></a>priority
 
 Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low**, **Normal** (valor predeterminado) y **High**.
 
@@ -284,7 +284,7 @@ public class AccountContractSlim
 
 La operación Upload puede devolver los códigos de estado que aparecen en la siguiente tabla.
 
-|Código de estado|ErrorType (en el cuerpo de la respuesta)|DESCRIPCIÓN|
+|status code|ErrorType (en el cuerpo de la respuesta)|DESCRIPCIÓN|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|El mismo vídeo ya se está procesando en la cuenta especificada.|
 |400|VIDEO_ALREADY_FAILED|El mismo vídeo no se pudo procesar en la cuenta especificada hace menos de 2 horas. Los clientes de API deberán esperar al menos 2 horas antes de volver a cargar un vídeo.|

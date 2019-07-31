@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2468fdd44374343894416c8e39c263cecaa7d5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335341"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839565"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -45,7 +45,7 @@ Puede crear una canalización con una actividad de copia que mueva los datos des
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Para ver un tutorial rápido, consulte [Tutorial: crear una canalización con el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Tanto si usa herramientas como API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -180,7 +180,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Ejemplo JSON: Copia de datos de Amazon S3 a Azure Blob Storage
 En este ejemplo se muestra cómo copiar datos de Amazon S3 a una instancia de Azure Blob Storage. Sin embargo, los datos se pueden copiar directamente en [cualquiera de los receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory.
 
-El ejemplo proporciona definiciones de JSON para las siguientes entidades de Data Factory. Puede utilizar estas definiciones para crear una canalización para copiar datos de Amazon S3 a Azure Blob Storage mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+El ejemplo proporciona definiciones de JSON para las siguientes entidades de Data Factory. Puede utilizar estas definiciones para crear una canalización para copiar datos de Amazon S3 a Blob Storage mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * Un servicio vinculado de tipo [AwsAccessKey](#linked-service-properties).
 * Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)

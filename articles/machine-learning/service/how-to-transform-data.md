@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471833"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297920"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformación de datos con Azure Machine Learning Data Prep SDK
 
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
+||id|Case Number|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
+||id|Case Number|Case Category|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -94,7 +94,7 @@ dflow = dflow.to_number(['Latitude', 'Longitude'])
 dflow.head(3)
 ```
 
-||ID|Arrest|Latitud|Longitud|
+||id|Arrest|Latitud|Longitud|
 |-----|------|-----|------|-----|
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
@@ -137,7 +137,7 @@ dflow_imputed = impute_builder.to_dataflow()
 dflow_imputed.head(3)
 ```
 
-||ID|Arrest|Latitud|Longitud|
+||id|Arrest|Latitud|Longitud|
 |-----|------|-----|------|-----|
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
@@ -275,6 +275,11 @@ df = dflow.to_pandas_dataframe()
 El SDK incluye los métodos [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) y [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) para que pueda filtrar las columnas o filas.
 
 ### <a name="initial-setup"></a>Configuración inicial
+
+> [!Note]
+> La dirección URL de este ejemplo no es una dirección URL completa. En su lugar, hace referencia a la carpeta demo del blob. La dirección URL completa de los datos es https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv.
+
+Lo que hacemos en el tutorial es cargar todos los archivos dentro de la carpeta y agregar el resultado en green_df_raw y yellow_df_raw.
 
 ```python
 import azureml.dataprep as dprep

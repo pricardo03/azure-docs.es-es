@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: aff2dcebdab1ad93b8b1958164764b66eb755d1c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 25be8f166fec8a311fdc2ed1fa3fca6339185e94
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514493"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867530"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Cómo habilitar Azure Monitor para contenedores
 
@@ -45,6 +45,8 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 * Es miembro del rol de **[propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+* Las métricas de Prometheus no se recopilan de forma predeterminada. Antes de [configurar el agente](container-insights-agent-config.md) para recopilarlas, es importante revisar la [documentación](https://prometheus.io/) de Prometheus para comprender lo que se puede definir.
 
 ## <a name="components"></a>Componentes
 

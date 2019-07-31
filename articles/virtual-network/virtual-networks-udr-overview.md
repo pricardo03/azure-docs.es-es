@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop; kumud
-ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: b26f876fbe07b1667a579fc040562f1d6ee8a85e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202852"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871793"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -98,7 +99,7 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
 
 En las rutas definidas por el usuario, no se pueden especificar **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** como tipo de próximo salto. Las rutas con los tipos de próximo salto **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** solo las crea Azure, al configurar un emparejamiento de red virtual o un punto de conexión de servicio.
 
-## <a name="next-hop-types-across-azure-tools"></a>**Tipos de próximo salto en las herramientas de Azure**
+## <a name="next-hop-types-across-azure-tools"></a>Tipos de próximo salto en las herramientas de Azure
 
 El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 

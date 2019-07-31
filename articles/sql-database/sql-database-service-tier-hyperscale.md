@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 4aeda5612b2b3e9e2073a65320b238266c8bb33a
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537861"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974462"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Nivel de servicio Hiperescala para un máximo de 100 TB
 
@@ -232,7 +232,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Instancia administrada | Instancia administrada de Azure SQL Database no es compatible actualmente con las bases de datos Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En este momento, la única forma de migrar una base de datos de hiperescala a otro nivel de servicio es con la exportación e importación mediante un archivo BACPAC.|
-| Migración de bases de datos con objetos en memoria | Los objetos en memoria deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
+| Migración de bases de datos con objetos en memoria persistentes | Hiperescala solo admite objetos en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
 | Cambiar el seguimiento de datos | No podrá usar la opción para cambiar el seguimiento de datos con las bases de datos Hiperescala. |
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala.  Puede realizar restauraciones geográficas (restaurar la base de datos en una ubicación geográfica diferente, para recuperación ante desastres u otros fines). |
 | Integración de TDE/AKV | Cifrado de base de datos transparente con Azure Key Vault (conocido comúnmente como Bring-Your-Own-Key o BYOK) todavía no es compatible con Hiperescalado de Azure SQL Database, pero es totalmente compatible con Claves administradas de servicio. |

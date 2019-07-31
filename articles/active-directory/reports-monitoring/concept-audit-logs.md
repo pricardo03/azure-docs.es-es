@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441142"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827910"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -41,7 +41,7 @@ En este artículo se proporciona información general del informe de auditoría.
  
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
-* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global**.
+* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global**
 * Además, todos los usuarios (no administradores) pueden ver sus propias actividades de auditoría
 
 ## <a name="audit-logs"></a>Registros de auditoría
@@ -112,7 +112,7 @@ El filtro **Category** (Categoría) le permite seleccionar uno de los filtros si
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
-- Autorización
+- Authorization
 - Contacto
 - Dispositivo
 - DeviceConfiguration

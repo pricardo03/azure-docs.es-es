@@ -3,19 +3,19 @@ title: Método de traducción de Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Use el método de traducción de Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389753"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839631"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -41,8 +41,8 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>from</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen.</td>
+    <td>De</td>
+    <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen. <br/><br/>Debe usar el parámetro <code>from</code> en lugar de la detección automática cuando use la característica de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">diccionario dinámico</a>.</td>
   </tr>
   <tr>
     <td>to</td>
@@ -54,7 +54,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con <a href="../customization.md">Custom Translator</a>. Agregar el identificador de categoría desde el traductor personalizado <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalles del proyecto</a> a este parámetro para usar su implementado personalizada del sistema. El valor predeterminado es <code>general</code>.</td>
+    <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con <a href="../customization.md">Custom Translator</a>. Agregue el identificador de categoría de los <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalles del proyecto</a> de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -213,7 +213,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>

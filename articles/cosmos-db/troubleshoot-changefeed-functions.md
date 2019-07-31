@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734514"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250024"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
 
@@ -89,7 +89,7 @@ Además, el escenario se puede validar, si sabe cuántas instancias de la aplica
 
 Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente, o bien probar con un nuevo contenedor de concesión.
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Solo se puede realizar el enlace con IReadOnlyList<Document> o JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Solo se puede realizar el enlace con IReadOnlyList\<Document> o JArray
 
 Este error se produce si el proyecto de Azure Functions (o cualquier proyecto al que se haga referencia) contiene una referencia de NuGet manual al SDK de Azure Cosmos DB con una versión diferente de la proporcionada por la [Extensión Cosmos DB de Azure Functions](./troubleshoot-changefeed-functions.md#dependencies).
 

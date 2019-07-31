@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 6cc530d2680c0410081ad3ad3e573cd59d5583d6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341960"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839232"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -83,7 +83,12 @@ Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:spee
 
 **R.** : La API REST limita las solicitudes a 25 cada 5 segundos. Encontrará los detalles en nuestras páginas de [Speech to Text](speech-to-text.md).
 
-Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
+**P: ¿Cómo se cobra el audio de canal doble?**
+
+**R.** : Si envía cada canal por separado (cada canal en su propio archivo), se le cobrará según la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual.
+
+> [!IMPORTANT]
+> Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
 
 ## <a name="importing-data"></a>Importación de datos
 

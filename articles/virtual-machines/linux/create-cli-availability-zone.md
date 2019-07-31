@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 87263d11828ff5122122ef36850fade87949bcac
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6bdbc566215fb7e68109b523fb2af9bca16c328c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671624"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849694"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI de Azure
 
@@ -198,7 +198,7 @@ El resultado muestra que la dirección IP está en la misma zona de disponibilid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre las [regiones y la disponibilidad](regions-and-availability.md) de las máquinas virtuales de Azure.
+En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre la [disponibilidad](availability.md) de las máquinas virtuales de Azure.
 
 
 

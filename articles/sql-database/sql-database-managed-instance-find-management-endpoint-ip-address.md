@@ -12,27 +12,24 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5304c62b29d842f9beeadb34eba1cb53048d179
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700028"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302290"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinación de la dirección IP del punto de conexión de administración
 
 El clúster virtual de Instancia administrada de Azure SQL Database contiene un punto de conexión de administración que Microsoft utiliza para operaciones de administración. El punto de conexión de administración está protegido con un firewall integrado a nivel de red y con comprobación mutua de certificados a nivel de aplicación. Puede determinar la dirección IP del punto de conexión de administración, pero no puede acceder a él.
 
-## <a name="determine-ip-address"></a>Determinación de la dirección IP
+Para determinar la dirección IP de administración, realice una búsqueda DNS en el FQDN de la instancia administrada: `mi-name.zone_id.database.windows.net`. Esto devolverá una entrada DNS como `trx.region-a.worker.vnet.database.windows.net`. Después, puede hacer una búsqueda DNS en este FQDN con ".vnet" eliminado. Esto devolverá la dirección IP de administración. 
 
-Supongamos que el host de Instancia administrada es `mi-demo.xxxxxx.database.windows.net`. Ejecute `nslookup` mediante el nombre de host.
-
-![Resolución de un nombre de host interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
-
-Ahora use otro `nslookup` para el nombre resaltado eliminando el segmento `.vnet.`. Obtendrá la dirección IP pública cuando ejecute este comando.
-
-![Resolución de la dirección IP pública](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
-## <a name="next-steps"></a>Pasos siguientes
+Esta instancia de PowerShell lo hará automáticamente si reemplaza \<MI FQDN\> con la entrada DNS de la instancia administrada: `mi-name.zone_id.database.windows.net`.
+  
+``` powershell
+  $MIFQDN = "<MI FQDN>"
+  resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
+```
 
 Para más información acerca de Instancias administradas y conectividad, consulte [Arquitectura de conectividad de Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md).

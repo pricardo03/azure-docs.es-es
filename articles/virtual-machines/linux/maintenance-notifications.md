@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 40ae8f0fb9c0c5980c4db1471b2bbad56a57d486
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c82bacfdff1c9d939016b48735f7917e7d34b47f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410488"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849676"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -140,7 +140,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **R:** Las máquinas virtuales implementadas en un conjunto de disponibilidad o en conjuntos de escalado de máquinas virtuales tienen la noción de dominios de actualización (UD). Al realizar mantenimiento, Azure respeta la restricción de UD, por lo que no reiniciará máquinas virtuales de diferentes UD (del mismo conjunto de disponibilidad).  Azure también espera al menos 30 minutos antes de pasar al siguiente grupo de máquinas virtuales. 
 
-Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](regions-and-availability.MD).
+Para más información sobre la alta disponibilidad, consulte [Availability for virtual machines in Azure](availability.MD) (Disponibilidad para máquinas virtuales en Azure).
 
 **P: ¿Cómo recibo notificaciones acerca del mantenimiento planeado?**
 
@@ -160,7 +160,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: ¿Cuál es la experiencia en el caso de los conjuntos de escalado de máquinas virtuales?**
 
-**R:** El mantenimiento planeado está ahora disponible para los conjuntos de escalado de máquinas virtuales. Para obtener instrucciones sobre cómo iniciar el mantenimiento de autoservicio, consulte el documento [mantenimiento planeado de VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
+**R:** El mantenimiento planeado está ahora disponible para los conjuntos de escalado de máquinas virtuales. Para instrucciones sobre cómo iniciar el mantenimiento de autoservicio, consulte el documento [Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **P: ¿Cómo es la experiencia en el caso de Cloud Services (roles de trabajo o web) y Service Fabric?**
 

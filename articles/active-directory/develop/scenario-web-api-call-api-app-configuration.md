@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a5f6189ee000550c4a46d778f571a0272da491d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785054"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276672"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API web que llama a otras API web: configuración de código
 
@@ -94,15 +94,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
+Por último, en lugar de un secreto de cliente o un certificado, las aplicaciones cliente confidenciales también pueden demostrar su identidad mediante aserciones de cliente.
+Este escenario avanzado se detalla en las [aserciones de cliente](msal-net-client-assertions.md).
+
 ### <a name="how-to-call-on-behalf-of"></a>Cómo llamar con derechos delegados
 
 La llamada con derechos delegados (OBO) se realiza llamando al método [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) en la interfaz `IConfidentialClientApplication`.
 
-`ClientAssertion` se compila a partir del token de portador recibido por la API web desde sus propios clientes. Hay [dos constructores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), uno que toma un token de portador JWT y otro que toma cualquier tipo de aserción de usuario (otra clase de token de seguridad, cuyo tipo se especifica posteriormente en un parámetro adicional llamado `assertionType`).
+`UserAssertion` se compila a partir del token de portador recibido por la API web desde sus propios clientes. Hay [dos constructores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), uno que toma un token de portador JWT y otro que toma cualquier tipo de aserción de usuario (otra clase de token de seguridad, cuyo tipo se especifica posteriormente en un parámetro adicional llamado `assertionType`).
 
 ![imagen](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-En la práctica, el flujo OBO a menudo se usa para adquirir un token para una API de nivel inferior y almacenarlo en la caché de tokens de usuario de MSAL.NET para que otras partes de la API web puedan llamar posteriormente en las [invalidaciones](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` para llamar a las API de nivel inferior. Esto tiene el efecto de actualizar los tokens, si es necesario.
+En la práctica, el flujo OBO a menudo se usa para adquirir un token para una API de nivel inferior y almacenarlo en la caché de tokens de usuario de MSAL.NET para que otras partes de la API web puedan llamar posteriormente en las [invalidaciones](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` para llamar a las API de nivel inferior. Esta llamada tiene el efecto de actualizar los tokens, si es necesario.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)

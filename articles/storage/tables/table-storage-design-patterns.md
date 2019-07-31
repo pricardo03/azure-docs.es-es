@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101436"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249574"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 Observe cómo este ejemplo espera que la entidad que recupera sea del tipo **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Recuperar varias entidades con LINQ
-Puede recuperar varias entidades mediante LINQ con la biblioteca de clientes de Storage y especificar una consulta con una cláusula **where** . Para evitar un examen de tabla, debe incluir siempre el valor **PartitionKey** en la cláusula where y, si es posible, el valor **RowKey** para evitar exámenes de tablas y de particiones. Table service admite un conjunto limitado de operadores de comparación (mayor que, mayor o igual que, menor que, menor o igual que, igual y no igual a) para utilizar en la cláusula where. El siguiente fragmento de código de C# busca todos los empleados cuyo apellido empieza por "B" (suponiendo que **RowKey** almacene el apellido) del departamento de ventas (suponiendo que **PartitionKey** almacene el nombre del departamento):  
+Puede usar LINQ para recuperar varias entidades de Table service cuando se trabaja con la biblioteca estándar de Microsoft Azure Cosmos Table. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Para hacer que los siguientes ejemplos funcionen, deberá incluir espacios de nombres:
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+employeeTable es un objeto CloudTable que implementa un método CreateQuery\<ITableEntity>(), que devuelve TableQuery\<ITableEntity>. Los objetos de este tipo implementan un elemento IQueryable y permiten usar expresiones de consulta LINQ y sintaxis de notación de puntos.
+
+La recuperación de varias entidades se puede conseguir al especificar una consulta con una cláusula **where**. Para evitar un examen de tabla, debe incluir siempre el valor **PartitionKey** en la cláusula where y, si es posible, el valor **RowKey** para evitar exámenes de tablas y de particiones. Table service admite un conjunto limitado de operadores de comparación (mayor que, mayor o igual que, menor que, menor o igual que, igual y no igual a) para utilizar en la cláusula where. 
+
+El siguiente fragmento de código de C# busca todos los empleados cuyo apellido empieza por "B" (suponiendo que **RowKey** almacene el apellido) del departamento de ventas (suponiendo que **PartitionKey** almacene el nombre del departamento):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

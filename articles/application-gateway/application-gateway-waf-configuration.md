@@ -4,15 +4,15 @@ description: En este artículo se proporciona información acerca de la configur
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275182"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304302"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web
 
@@ -35,7 +35,7 @@ El WAF también ofrece un botón configurable para activar o desactivar la inspe
 
 Las listas de exclusión del WAF le permiten omitir determinados atributos de solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para campos de contraseña o autenticación. Estos atributos suelen contener caracteres especiales que podrían desencadenar un falso positivo de las reglas de WAF. Una vez que se agrega un atributo a la lista de exclusión del WAF, ninguna regla de WAF configurada y activa lo toma en consideración. Las listas de exclusión tienen un ámbito global.
 
-Los siguientes atributos se pueden agregar a las listas de exclusión: Los valores del campo elegido no se evalúan según las reglas de WAF. Las listas de exclusión quitan la inspección del valor del campo.
+Los siguientes atributos se pueden agregar a las listas de exclusión por su nombre. Los valores del campo elegido no se evalúan con respecto a las reglas de WAF, pero sus nombres sí se usan (vea el ejemplo 1 a continuación, donde el encabezado User-Agent se excluye de la evaluación de WAF). Las listas de exclusión quitan la inspección del valor del campo.
 
 * Encabezados de solicitud
 * Cookies de solicitud
@@ -46,7 +46,7 @@ Los siguientes atributos se pueden agregar a las listas de exclusión: Los valor
    * Entidad JSON
    * Argumentos de cadena de consulta de URL
 
-Puede especificar una coincidencia exacta con un atributo de cadena de consulta, una cookie, el cuerpo o el encabezado de una solicitud.  Si lo desea, también puede especificar coincidencias parciales. La exclusión siempre se aplica al campo del encabezado; nunca a su valor. Las reglas de exclusión tienen un ámbito global y se aplican a todas las páginas y todas las reglas.
+Puede especificar una coincidencia exacta con un atributo de cadena de consulta, una cookie, el cuerpo o el encabezado de una solicitud.  Si lo desea, también puede especificar coincidencias parciales. Las reglas de exclusión tienen un ámbito global y se aplican a todas las páginas y todas las reglas.
 
 Estos son los operadores de criterios de coincidencia admitidos:
 
@@ -57,6 +57,9 @@ Estos son los operadores de criterios de coincidencia admitidos:
 - **Equals any** (es igual a cualquiera): este operador coincide con todos los campos de solicitud. * será el valor del selector.
 
 En todos los casos, la coincidencia distingue mayúsculas de minúsculas y no se permiten expresiones regulares como selectores.
+
+> [!NOTE]
+> Para obtener más información y ayuda para solucionar problemas, vea [Solución de problemas de WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Ejemplos
 

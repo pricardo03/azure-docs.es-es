@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681870"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273222"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
-Aunque Azure Logic Apps ofrece [más de 100 conectores integrados](../connectors/apis-list.md) que puede usar en flujos de trabajo de aplicación lógica, es posible que desee llamar a las API, los sistemas y los servicios que no estén disponibles como conectores. Puede crear sus propias API que proporcionan acciones y desencadenadores para usarlos en aplicaciones lógicas. Estas son otras razones por las que podría interesarle crear sus propias API que puede llamar desde flujos de trabajo de aplicación lógica:
+Aunque Azure Logic Apps ofrece [cientos de conectores integrados](../connectors/apis-list.md) que puede usar en flujos de trabajo de aplicación lógica, es posible que desee llamar a las API, los sistemas y los servicios que no estén disponibles como conectores. Puede crear sus propias API que proporcionan acciones y desencadenadores para usarlos en aplicaciones lógicas. Estas son otras razones por las que podría interesarle crear sus propias API que puede llamar desde flujos de trabajo de aplicación lógica:
 
 * Ampliar los flujos de trabajo actuales de integración de datos e integración de sistemas.
 * Ayudar a los clientes a utilizar su servicio para administrar tareas profesionales o personales.

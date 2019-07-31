@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7b003c588d7b079823bb046676a1226828fcae2
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658724"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249871"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 
@@ -29,7 +29,7 @@ Muchas API admiten [OAuth 2.0](https://oauth.net/2/) para proteger la API y gara
 En esta guía se explica cómo configurar la instancia del servicio Administración de API para que use la autorización OAuth 2.0 con las cuentas de desarrollador, pero no se explica cómo configurar un proveedor de OAuth 2.0. Aunque los proveedores de OAuth 2.0 tienen configuraciones diferentes, los pasos son similares y se precisa la misma información para configurar OAuth 2.0 en la instancia del servicio Administración de API. Este tema muestra ejemplos donde Azure Active Directory actúa como proveedor de OAuth 2.0.
 
 > [!NOTE]
-> Para obtener más información sobre cómo configurar OAuth 2.0 con Azure Active Directory, consulte el ejemplo de [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
+> Para obtener más información sobre cómo configurar OAuth 2.0 con Azure Active Directory, consulte el ejemplo de [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] .
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -55,9 +55,9 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     Active las casillas de los **tipos de concesión de autorización** que desee. **Código de autorización** se especifica de forma predeterminada.
 
-    Escriba la **URL del extremo de autorización**. En Azure Active Directory, esta URL será similar a la siguiente, donde se reemplaza `<client_id>` por el identificador de cliente que identifica la aplicación en el servidor OAuth 2.0.
+    Escriba la **URL del extremo de autorización**. En Azure Active Directory, esta dirección URL será similar a la siguiente, donde `<tenant_id>` se reemplaza por el identificador de su inquilino de Azure AD.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     El **Método de solicitud de autorización** especifica cómo se envía la solicitud de autorización al servidor OAuth 2.0. El valor predeterminado es **GET** .
 

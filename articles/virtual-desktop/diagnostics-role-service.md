@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5869cbb51cf1c968ee8ca1e2286416fd263d647
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234030"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224634"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificación de problemas con la característica de diagnóstico
 
@@ -54,6 +54,14 @@ El parámetro **-ActivityId** devuelve una actividad de diagnóstico concreta (s
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
+```
+
+### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Visualización de los mensajes de error de una actividad errónea por identificador de actividad
+
+Para ver los mensajes de error de una actividad errónea, debe ejecutar el cmdlet con el parámetro **-Detailed**. Puede ver la lista de errores ejecutando el cmdlet **Select-Object**.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
 ### <a name="filter-diagnostic-activities-by-user"></a>Filtrado de actividades de diagnóstico por usuario

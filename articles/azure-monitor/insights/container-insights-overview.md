@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6321564672097fbf901d1d33afac9f606fcb63a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d8fb7bc0e837ba78d86a39524d869c9bb01895d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521832"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867563"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -37,7 +37,12 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión integral 
 * Identificar dónde se encuentra el contenedor en un controlador o un pod. Este conocimiento puede ayudarle a ver el rendimiento general del controlador o del pod.
 * Revisar el uso de recursos de las cargas de trabajo que se ejecutan en el host que no estén relacionadas con los procesos estándar que admite el pod.
 * Conocer el comportamiento del clúster tanto con cargas medias como con las más pesadas. Este conocimiento puede ayudarle a identificar los requisitos de capacidad y determinar la carga máxima que el clúster puede admitir. 
-* Configurar alertas que le avisen de forma proactiva si el uso de CPU y memoria en los nodos o contenedores supera los umbrales o alertas que lo registren.  
+* Configurar alertas que le avisen de forma proactiva si el uso de CPU y memoria en los nodos o contenedores supera los umbrales o alertas que lo registren.
+* Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
+
+>[!NOTE]
+>La compatibilidad con Prometheus es una característica que se encuentra en versión preliminar pública en este momento.
+>
 
 ## <a name="how-do-i-access-this-feature"></a>¿Cómo se obtiene acceso a esta característica?
 Puede acceder a Azure Monitor para contenedores de dos maneras: desde Azure Monitor o directamente desde el clúster de AKS seleccionado. Desde Azure Monitor tiene una perspectiva global de todos los contenedores implementados, cuáles se supervisan y cuáles no. Esto le permite buscar y filtrar a través de las suscripciones y los grupos de recursos y, después, explorar en profundidad Azure Monitor para contenedores desde el contenedor seleccionado.  En caso contrario, puede acceder a la característica directamente desde un contenedor de AKS seleccionado desde la página de AKS.  

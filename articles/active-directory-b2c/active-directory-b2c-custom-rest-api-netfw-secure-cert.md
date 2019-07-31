@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510538"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835606"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 
@@ -47,24 +47,24 @@ Para configurar **Azure App Service** para que solicite certificados de cliente,
 >Para más información acerca de cómo establecer la propiedad [clientCertEnabled](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth), consulte **Configuración de la autenticación mutua de TLS para una aplicación web**.
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Paso 2: Carga del certificado en las claves de directiva de Azure AD B2C
-Después de establecer `clientCertEnabled` en *true*, la comunicación con la API RESTful requiere un certificado de cliente. Para obtener, cargar y almacenar el certificado de cliente en el inquilino de Azure AD B2C, siga estos pasos: 
+Después de establecer `clientCertEnabled` en *true*, la comunicación con la API RESTful requiere un certificado de cliente. Para obtener, cargar y almacenar el certificado de cliente en el inquilino de Azure AD B2C, siga estos pasos:
 1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)**  > **Marco de experiencia de identidad**.
 
 2. Para ver las claves disponibles en el inquilino, seleccione **Policy Keys** (Claves de directiva).
 
-3. Seleccione **Agregar**.  
+3. Seleccione **Agregar**.
     Se abre la ventana **Crear una clave**.
 
 4. En el cuadro **Opciones**, seleccione **Cargar**.
 
-5. En el cuadro **Nombre**, escriba **B2cRestClientCertificate**.  
+5. En el cuadro **Nombre**, escriba **B2cRestClientCertificate**.
     El prefijo *B2C_1A_* se agrega automáticamente.
 
 6. En el cuadro **Carga de archivos**, seleccione el archivo .pfx del certificado con una clave privada.
 
 7. En el cuadro **Contraseña**, escriba la contraseña del certificado.
 
-    ![Carga de la clave de directiva](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Carga de la clave de directiva en la página Crear una clave en Azure Portal](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
 7. Seleccione **Crear**.
 
@@ -85,7 +85,7 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
     <Item Key="AuthenticationType">ClientCertificate</Item>
     ```
 
-5. Agregue el siguiente fragmento de código XML inmediatamente después del elemento `<Metadata>` de cierre: 
+5. Agregue el siguiente fragmento de código XML inmediatamente después del elemento `<Metadata>` de cierre:
 
     ```xml
     <CryptographicKeys>
@@ -119,12 +119,12 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
 
 2. Abra **B2C_1A_signup_signin**, que es la directiva personalizada del usuario de confianza (RP) que ha cargado, y seleccione **Ejecutar ahora**.
 
-3. Pruebe el proceso escribiendo **Test** en el cuadro **Nombre propio**.  
-    Azure AD B2C muestra un mensaje de error en la parte superior de la ventana.    
+3. Pruebe el proceso escribiendo **Test** en el cuadro **Nombre propio**.
+    Azure AD B2C muestra un mensaje de error en la parte superior de la ventana.
 
-    ![Prueba de la API de identidad](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Cuadro de texto Nombre propio resaltado y error de validación de entrada mostrado](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. En el campo **Nombre propio**, escriba un nombre (que no sea "Test").  
+4. En el campo **Nombre propio**, escriba un nombre (que no sea "Test").
     Azure AD B2C registra al usuario y envía un número de fidelidad a la aplicación. Observe el número de este ejemplo de JWT:
 
    ```
@@ -152,7 +152,7 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
    >Si recibe el mensaje de error *The name is not valid, please provide a valid name* (El nombre no es válido, especifique un nombre válido), significa que Azure AD B2C ha llamado correctamente a su servicio REST mientras presentaba el certificado de cliente. El siguiente paso es validar el certificado.
 
 ## <a name="step-6-add-certificate-validation"></a>Paso 6: Incorporación de la validación de certificados
-El certificado de cliente que Azure AD B2C envía al servicio RESTful no pasa por ninguna validación de la plataforma Azure App Service, excepto para comprobar que existe el certificado. La validación del certificado es responsabilidad de la aplicación web. 
+El certificado de cliente que Azure AD B2C envía al servicio RESTful no pasa por ninguna validación de la plataforma Azure App Service, excepto para comprobar que existe el certificado. La validación del certificado es responsabilidad de la aplicación web.
 
 En esta sección se añade código de ASP.NET de ejemplo que valida las propiedades del certificado para la autenticación.
 
@@ -171,7 +171,7 @@ En el proyecto de Visual Studio que ha creado, agregue la siguiente configuraci�
 Reemplace los valores de **Nombre del sujeto**, **Nombre del emisor** y **Huella digital de certificado** por sus valores de certificado.
 
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 Incorporación de la función IsValidClientCertificate
-Abra el archivo *Controllers\IdentityController.cs* y agregue la siguiente función a la clase de controlador `Identity`: 
+Abra el archivo *Controllers\IdentityController.cs* y agregue la siguiente función a la clase de controlador `Identity`:
 
 ```csharp
 private bool IsValidClientCertificate()
@@ -219,7 +219,7 @@ private bool IsValidClientCertificate()
         Trace.TraceError($"Subject name '{clientCertInRequest.Subject}' is not valid");
         return false;
     }
-    
+
     // 3. Check the issuer name of the certificate
     bool foundIssuerCN = false;
     string[] certIssuerData = clientCertInRequest.Issuer.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -273,7 +273,7 @@ En el código de ejemplo anterior, se acepta el certificado como válido solo si
 >En función de la confidencialidad del servicio, quizá deba agregar más validaciones. Por ejemplo, es posible que necesite comprobar si el certificado se encadena a una entidad de certificación raíz de confianza, la validación del nombre de la organización emisora de certificado, etc.
 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 Llamada a la función IsValidClientCertificate
-Abra el archivo *Controllers\IdentityController.cs* y, después, al principio de la función `SignUp()`, agregue el siguiente fragmento de código: 
+Abra el archivo *Controllers\IdentityController.cs* y, después, al principio de la función `SignUp()`, agregue el siguiente fragmento de código:
 
 ```csharp
 if (IsValidClientCertificate() == false)
@@ -299,4 +299,4 @@ Si necesita solucionar problemas de este paso, consulte [Recopilación de regist
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Descargue el código y los archivos de la directiva completos
 * Una vez completado el tutorial [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), le recomendamos que compile su escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert) para que los tenga como referencia.
-* El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API). 
+* El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).

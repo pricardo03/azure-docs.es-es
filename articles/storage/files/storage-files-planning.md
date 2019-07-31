@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540333"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501434"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -183,7 +183,7 @@ GRS replica los datos en otro centro de datos en una región secundaria, pero es
 
 Para una cuenta de almacenamiento con el GRS habilitado, todos los datos se replican primero con el almacenamiento con redundancia local (LRS). Una actualización se confirma primero en la ubicación principal y se replican mediante LRS. La actualización luego se replica de manera asincrónica en la región secundaria con GRS. Cuando los datos se escriben en la ubicación secundaria, también se replican dentro de esa ubicación con LRS.
 
-Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. LRS proporciona la replicación en este nivel. Para más información, consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../common/storage-redundancy-lrs.md).
+Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. LRS proporciona la replicación en este nivel. Para más información, vea [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../common/storage-redundancy-lrs.md).
 
 Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 
@@ -197,8 +197,10 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 
 ### <a name="restrictions"></a>Restricciones
 
+- Los [términos](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de la versión preliminar de Azure se aplican a recursos compartidos de archivos grandes mientras están en versión preliminar, incluso cuando se usan con las implementaciones de Azure File Sync.
 - Requiere que cree una nueva cuenta de almacenamiento de uso general (las cuentas de almacenamiento existentes no se pueden ampliar).
-- La conversión de cuentas de LRS a GRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
+- La conversión de cuentas de LRS/ZRS a GRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
+
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 
@@ -207,13 +209,23 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |Region  |Redundancia admitida  |Admite cuentas de almacenamiento existentes  |
 |---------|---------|---------|
 |Sudeste Asiático     |LRS|Sin         |
-|Europa occidental     |LRS|Sin         |
+|Europa occidental     |LRS, ZRS|Sin         |
 |Oeste de EE. UU. 2     |LRS, ZRS|Sin         |
 
+Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Pasos para la incorporación
 
-Para inscribir su suscripción en la versión preliminar para recursos compartidos de archivos de mayor tamaño, utilice los siguientes comandos de PowerShell:
+Para inscribir su suscripción en la versión preliminar para recursos compartidos de archivos de mayor tamaño, debe usar Azure PowerShell. Puede usar [Azure Cloud Shell](https://shell.azure.com/) o instalar el [módulo de Azure PowerShell localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para ejecutar los siguientes comandos de PowerShell:
+
+En primer lugar, asegúrese de que la suscripción que quiere inscribir en la versión preliminar esté seleccionada:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+A continuación, inscríbala en la versión preliminar con los comandos siguientes:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
@@ -227,7 +239,7 @@ Para comprobar el estado de registro, ejecute el comando siguiente:
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-Su estado puede tardar hasta 15 minutos en actualizarse a "registrado". Sin embargo, a pesar de ello, podrá usar la característica.
+El estado puede tardar hasta 15 minutos en actualizarse a **registrado**. Una vez que el estado aparece como **registrado**, debería poder utilizar la característica.
 
 ### <a name="use-larger-file-shares"></a>Usar recursos compartidos de archivos de mayor tamaño
 

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543115"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827455"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Supervisión del estado del hardware de Azure FXT Edge Filer
 
@@ -58,7 +58,7 @@ El panel de control frontal izquierdo tiene varios indicadores LED de estado (1)
 
 Los indicadores de estado de la izquierda muestran una luz ámbar fija si hay un error en ese sistema. En la tabla siguiente se describen posibles causas y soluciones para los errores. 
 
-Si sigue teniendo el error después de intentar estas soluciones, póngase en contacto con el soporte técnico para obtener ayuda. 
+Si sigue teniendo el error después de intentar estas soluciones, [póngase en contacto con el soporte técnico](fxt-support-ticket.md) para obtener ayuda. 
 
 | Icono | DESCRIPCIÓN | Condición de error | Posibles soluciones |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Presione el botón de identificador o estado del sistema para alternar entre el 
 |-------------------------------------------|-----------------------------------------------|
 | Azul fijo | Funcionamiento normal: el sistema está activado, funciona con normalidad y el modo de identificador del sistema no está activo. <br/>Presione el botón de identificador y estado del sistema si desea cambiar al modo de identificador del sistema. |
 | Azul parpadeante | El modo de identificador del sistema está activo. Presione el botón de identificador y estado del sistema si desea cambiar al modo de estado del sistema. |
-| Ámbar fijo | El sistema está en modo a prueba de errores. Si el problema persiste, póngase en contacto con el Soporte técnico y servicio al cliente de Microsoft. |
+| Ámbar fijo | El sistema está en modo a prueba de errores. Si el problema persiste, [póngase en contacto con el Soporte técnico y servicio al cliente de Microsoft](fxt-support-ticket.md). |
 | Ámbar parpadeante | Error del sistema. Compruebe el registro de eventos del sistema para consultar los mensajes de error específicos. Para obtener información acerca del evento y los mensajes de error generados por el firmware del sistema y los agentes que supervisan los componentes del sistema, consulte la página de búsqueda de códigos de error en qrl.dell.com. |
 
 

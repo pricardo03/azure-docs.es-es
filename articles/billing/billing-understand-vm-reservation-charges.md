@@ -1,23 +1,21 @@
 ---
 title: Información sobre el descuento de Azure Reserved VM Instances | Microsoft Docs
 description: Obtenga información sobre cómo se aplica el descuento de Azure Reserved VM Instance a las máquinas virtuales en ejecución.
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/11/2019
 ms.author: banders
-ms.openlocfilehash: b112dd881d4b2e87e617111d00bc82c6151d7750
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 191160035f516d818d5537c5c47f9604998c46f7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370089"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849985"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aplicación del descuento por reserva de Azure en las máquinas virtuales
 
@@ -68,9 +66,35 @@ Al comprar una instancia reservada de máquina virtual, si selecciona **Optimiza
 
 Se aplica un descuento de reserva solo para el uso de la máquina virtual donde el valor `ServiceType` de `AdditionalInfo` coincide con la reserva que se compra. La aplicación del descuento de reserva omite el medidor que se utiliza para las máquinas virtuales y que solo evalúa `ServiceType`. Sepa para qué tipo de servicio compró la máquina virtual. Puede cambiar una reserva de máquina virtual de almacenamiento no Premium por una reserva de almacenamiento Premium, o de la manera opuesta.
 
-## <a name="classic-vms-and-cloud-services"></a>Servicios en la nube y máquinas virtuales clásicas
+## <a name="services-that-get-vm-reservation-discounts"></a>Servicios que obtienen descuentos de reserva de máquina virtual
 
-Las instancias reservadas de máquinas virtuales se aplican automáticamente tanto a las máquinas virtuales clásicas como a los servicios en la nube cuando la flexibilidad de tamaño de instancia está habilitada. Para Cloud Services, el descuento por la reserva se aplica solo al costo del proceso. Cuando el descuento por la reserva se aplica a Cloud Services, los cargos por uso se dividen en cargos de proceso (medidor de Linux) y cargos de Cloud Services (medidor de administración de Cloud Services). Para más información, consulte [Aplicación del descuento por la reserva a Cloud Services.](billing-reserved-instance-windows-software-costs.md#cloud-services-software-meters-not-included-in-reservation-cost)
+Puede aplicar sus reservas de máquina virtual al uso de máquinas virtuales emitidas desde varios servicios, no solo a sus implementaciones de máquinas virtuales. Los recursos que obtienen descuentos de reserva cambian en función de la configuración de flexibilidad de tamaño de instancia.
+
+### <a name="instance-size-flexibility-setting"></a>Configuración de flexibilidad de tamaño de instancia
+
+La configuración de flexibilidad de tamaño de instancia determina qué servicios obtienen los descuentos de la instancia reservada.
+
+Tanto si la configuración está activada como si no, los descuentos de reserva se aplican automáticamente a cualquier uso de máquina virtual que coincida cuando *ConsumedService* sea `Microsoft.Compute`. Por lo tanto, compruebe los datos de uso del valor *ConsumedService*. Estos son algunos ejemplos:
+
+- Máquinas virtuales
+- Conjuntos de escalado de máquinas virtuales
+- Servicio de contenedor
+- Implementaciones de Azure Batch (en modo de suscripciones de usuario)
+- Azure Kubernetes Service (AKS)
+- Service Fabric
+
+Cuando la configuración está activada, los descuentos de reserva se aplican automáticamente al uso de máquina virtual que coincida cuando *ConsumedService* sea alguno de los elementos siguientes:
+
+- Microsoft.Compute
+- Microsoft.ClassicCompute
+- Microsoft.Batch
+- Microsoft.MachineLearningServices
+- Microsoft.Kusto
+
+Compruebe el valor *ConsumedService* en los datos de uso para determinar si el uso puede optar a los descuentos de reserva.
+
+Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
@@ -83,7 +107,7 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 - [Qué son las reservas de Azure](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Administración de las reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Administración de reservas para Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Información sobre el uso de reservas para suscripciones de CSP](/partner-center/azure-reservations)

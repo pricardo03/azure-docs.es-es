@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26256fe968eff5f7570885278620fded5673b5a0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61315646"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249968"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -77,7 +77,7 @@ Cuando está en tránsito o almacenada en Service Bus, la carga siempre es un bl
 
 A diferencia de las variantes de Java o .NET Standard, la versión de .NET Framework de la API de Service Bus admite la creación de instancias de **BrokeredMessage** pasando los objetos .NET arbitrarios al constructor. 
 
-Cuando se usa el protocolo SBMP heredado, los objetos se serializan con el serializador binario predeterminado, o con un serializador que se proporciona externamente. Cuando se utiliza el protocolo AMQP, el objeto se serializa en un objeto AMQP. El receptor puede recuperar esos objetos con el método [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) mediante el suministro del tipo esperado. Con AMQP, los objetos se serializan en un gráfico de AMQP de objetos **ArrayList** y **IDictionary<string,object>** , y cualquier cliente de AMQP puede descodificarlos. 
+Cuando se usa el protocolo SBMP heredado, los objetos se serializan con el serializador binario predeterminado, o con un serializador que se proporciona externamente. Cuando se utiliza el protocolo AMQP, el objeto se serializa en un objeto AMQP. El receptor puede recuperar esos objetos con el método [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) mediante el suministro del tipo esperado. Con AMQP, los objetos se serializan en un gráfico de AMQP de objetos **ArrayList** y **IDictionary<string,object>** , y cualquier cliente de AMQP puede descodificarlos. 
 
 Aunque esta magia de serialización oculta resulta cómoda, las aplicaciones deben tomar el control explícito de la serialización de objetos y convertir sus grafos de objetos en secuencias antes de incluirlos en un mensaje y realizar el proceso inverso en el receptor. Esto produce resultados interoperables. También debe tenerse en cuenta que mientras AMQP tiene un modelo de codificación binario eficaz, está ligado al ecosistema de mensajería de AMQP y los clientes HTTP tendrán problemas para descodificar tales cargas. 
 

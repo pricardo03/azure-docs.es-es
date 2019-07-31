@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11144b1595370f9eb17afce71e0302a63468a089
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122018"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305697"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes
 
@@ -37,11 +37,11 @@ En este tutorial se emparejan redes virtuales de la misma región. También pued
 
 Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la línea de comandos](#powershell) (CLI) de Azure o la [plantilla de Azure Resource Manager](#template) para crear un emparejamiento de redes virtuales. Seleccione cualquiera de los vínculos anteriores de herramientas para ir directamente a los pasos para crear un emparejamiento de redes virtuales con la herramienta de su preferencia.
 
+Si las redes virtuales están en diferentes suscripciones y las suscripciones están asociadas a diferentes inquilinos de Azure Active Directory, complete los siguientes pasos antes de continuar:
+1. Agregue el usuario de cada inquilino de Active Directory como un [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino de Azure Active Directory opuesto.
+1. Cada usuario debe aceptar la invitación del usuario invitado del inquilino de Azure Active Directory opuesto.
+
 ## <a name="portal"></a>Creación de emparejamiento: Azure Portal
-
-Si las redes virtuales que desea emparejar están en suscripciones que están asociadas a diferentes inquilinos de Azure Active Directory, siga los pasos de la sección de CLI y PowerShell de este artículo. El portal no admite el emparejamiento de redes virtuales que pertenecen a suscripciones de diferentes inquilinos de Active Directory. 
-
-Tenga en cuenta que Cloud Shell presenta limitaciones al conmutar suscripciones e inquilinos. Por eso, no funcionará el emparejamiento de VNet o el emparejamiento de VNet global entre redes virtuales que pertenecen a suscripciones en distintos inquilinos de Azure Active Directory. Use PowerShell o CLI.
 
 Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones puede usar la misma cuenta para todos los pasos, y omitir los pasos para cerrar sesión en el portal y para asignar a otro usuario permisos para las redes virtuales.
 
@@ -99,9 +99,7 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
 
 ## <a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
-En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. Si las redes virtuales están en diferentes suscripciones y las suscripciones están asociadas a diferentes inquilinos de Azure Active Directory, complete los siguientes pasos antes de continuar:
- - Agregue el usuario de cada inquilino de Active Directory como un [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino de Azure Active Directory opuesto.
- - Cada usuario tiene que aceptar la invitación del usuario invitado del inquilino de Azure Active Directory opuesto.
+En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. 
 
 Los scripts siguientes:
 
@@ -182,9 +180,6 @@ Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pue
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB.
-Si las redes virtuales están en diferentes suscripciones y las suscripciones están asociadas a diferentes inquilinos de Azure Active Directory, complete los siguientes pasos antes de continuar:
- - Agregue el usuario de cada inquilino de Active Directory como un [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino de Azure Active Directory opuesto.
- - Cada usuario tiene que aceptar la invitación del usuario invitado del inquilino de Active Directory opuesto.
 
 1. Confirme que tiene Azure PowerShell versión 1.0.0 o superior. Puede hacerlo mediante la ejecución de `Get-Module -Name Az`. Recomendamos instalar la última versión del [módulo Az](/powershell/azure/install-az-ps) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Inicie una sesión de PowerShell.
@@ -249,10 +244,6 @@ Si las redes virtuales están en diferentes suscripciones y las suscripciones es
 14. **Opcional**: para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-powershell) de este artículo.
 
 ## <a name="template"></a>Creación de emparejamiento: plantilla de Resource Manager
-
-Si las redes virtuales están en diferentes suscripciones y las suscripciones están asociadas a diferentes inquilinos de Azure Active Directory, complete los siguientes pasos antes de continuar:
- - Agregue el usuario de cada inquilino de Active Directory como un [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino de Azure Active Directory opuesto.
- - Cada usuario tiene que aceptar la invitación del usuario invitado del inquilino de Active Directory opuesto.
 
 1. Para crear una red virtual y asignar los [permisos](virtual-network-manage-peering.md#permissions) adecuados, complete los pasos que aparecen en las secciones [Portal](#portal), [CLI de Azure](#cli) o [PowerShell](#powershell) de este artículo.
 2. Guarde el texto que sigue a un archivo en el equipo local. Reemplace `<subscription ID>` por el identificador de suscripción de UserA. Puede guardar el archivo como vnetpeeringA.json, por ejemplo.

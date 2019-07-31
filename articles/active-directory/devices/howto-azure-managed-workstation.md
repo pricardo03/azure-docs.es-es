@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d8bbc8b8be9679fbf024d7c51de53c430dc493
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550486"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227266"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementación de una estación de trabajo segura administrada por Azure
 
@@ -168,7 +168,7 @@ En Intune en Azure Portal:
    * Descripción: **Implementación de estaciones de trabajo seguras**.
    * Establezca **Convertir todos los dispositivos de destino a Autopilot** en **Sí**. Esta configuración garantiza que todos los dispositivos de la lista se registren con el servicio de implementación de Autopilot. Espere 48 horas a que se procese el registro.
 1. Seleccione **Next** (Siguiente).
-   * Para el **Modo de implementación**, elija **Implementación automática (versión preliminar)** . Los dispositivos con este perfil se asocian al usuario que inscribe el dispositivo. Se necesitan credenciales de usuario para inscribir el dispositivo.
+   * Para el **Modo de implementación**, elija **Implementación automática (versión preliminar)** . Los dispositivos con este perfil se asocian al usuario que inscribe el dispositivo. Se necesitan credenciales de usuario para inscribir el dispositivo. Es esencial tener en cuenta que la implementación de un dispositivo en el modo **Implementación automática**  le permitirá implementar equipos portátiles en un modelo compartido. No se producirá ninguna asignación de usuario hasta que el dispositivo se asigne a un usuario por primera vez. Por consiguiente, las directivas de usuario como BitLocker no se habilitarán hasta que se complete una asignación de usuario. Para más información sobre cómo iniciar sesión en un dispositivo protegido, consulte la información relacionada con los [perfiles seleccionados](https://docs.microsoft.com/intune/device-profile-assign).
    * En el cuadro **Unirse a Azure AD como** debe aparecer **Unido a Azure AD** atenuado.
    * Seleccione el Idioma (región) y el tipo de cuenta de usuario **Estándar**. 
 1. Seleccione **Next** (Siguiente).
@@ -177,6 +177,8 @@ En Intune en Azure Portal:
 1. Elija **Asignaciones** > **Asignar a** > **Grupos seleccionados**. En **Seleccionar grupos para incluir**, elija **Usuarios de la estación de trabajo segura**.
 1. Seleccione **Next** (Siguiente).
 1. Seleccione **Crear** para crear el perfil. El perfil de implementación de Autopilot ya está disponible para asignarse a dispositivos.
+
+La inscripción de dispositivos en AutoPilot proporciona una experiencia de usuario diferente en función del tipo de dispositivo y el rol. En nuestro ejemplo de implementación, se muestra un modelo en el que los dispositivos protegidos se implementan de forma masiva y se pueden compartir, pero cuando se usan por primera vez, los dispositivos se asignan a un usuario. Para más información, consulte [¿Qué es la inscripción de dispositivos?](https://docs.microsoft.com/intune/device-enrollment).
 
 ### <a name="configure-windows-update"></a>Configuración de Windows Update
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e0f38ed8367f076c9f9c4da77440bb3e9603d514
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474245"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234206"
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD Domain Services
-## <a name="features"></a>Características
+# <a name="features-provided-by-azure-active-directory-domain-services"></a>Características proporcionadas por Azure Active Directory Domain Services
+
 Las siguientes características están disponibles en los dominios administrados de Azure AD Domain Services.
 
 * **Experiencia de implementación sencilla:** puede habilitar Azure AD Domain Services para el directorio de Azure AD mediante unos cuantos clics. El dominio administrado incluye las cuentas de usuario solo en la nube y las cuentas de usuario sincronizadas desde un directorio local.

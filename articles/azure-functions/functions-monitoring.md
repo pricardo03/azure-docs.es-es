@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442290"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304355"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -164,7 +164,7 @@ El registrador de Azure Functions también incluye un *nivel de registro* con ca
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Información | 2 |
+|Information | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
@@ -570,7 +570,7 @@ No establezca `telemetryClient.Context.Operation.Id`. Esta configuración global
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Registrar telemetría personalizada en funciones de JavaScript
 
-El [SDK de Application Insights Node.js](https://www.npmjs.com/package/applicationinsights) está actualmente en versión beta. Presentamos ejemplos de código que envía la telemetría personalizada para Application Insights:
+A continuación, se muestra un fragmento de código de ejemplo que envía telemetría personalizada con el [SDK de Node.js para Application Insights](https://github.com/microsoft/applicationinsights-node.js):
 
 ```javascript
 const appInsights = require("applicationinsights");

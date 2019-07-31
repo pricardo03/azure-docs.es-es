@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274228"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990032"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Visualización de registros y eventos en tiempo real (versión preliminar)
 Azure Monitor para contenedores incluye una característica (actualmente en versión preliminar) que proporciona una vista en vivo de los registros de contenedor (stdout y stderr) y los eventos de Azure Kubernetes Service (AKS) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona cualquiera de las opciones, aparece un nuevo panel debajo de la tabla de datos de rendimiento en la vista **Nodos**, **Controladores** y **Contenedores**. En este panel se muestran el registro y los eventos en vivo generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
@@ -66,7 +66,7 @@ Si ha habilitado la autorización de RBAC de Kubernetes, deberá aplicar el enla
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Si es la primera vez que lo configura, ejecute el comando `kubectl create -f LogReaderRBAC.yaml` para crear el enlace de la regla del clúster. Si habilitó anteriormente la compatibilidad con la versión preliminar de los registros dinámicos antes de que se introdujeran los registros de eventos en directo, ejecute el comando `kubectl apply -f LogReaderRBAC.yml` para actualizar la configuración.
+2. Si es la primera vez que lo configura, ejecute el comando `kubectl create -f LogReaderRBAC.yaml` para aplicar el enlace de la regla del clúster. Si habilitó anteriormente la compatibilidad con la versión preliminar de los registros dinámicos antes de que se introdujeran los registros de eventos en directo, ejecute el comando `kubectl apply -f LogReaderRBAC.yaml` para actualizar la configuración.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configuración de AKS con Azure Active Directory
 
@@ -116,5 +116,7 @@ Para suspender el desplazamiento automático y controlar el comportamiento del p
 Puede ir a los registros de Azure Monitor para ver los registros de contenedor históricos; para ello, seleccione **Ver registros del contenedor** en la lista desplegable **Ver en Analytics**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
+
 - Vea los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.

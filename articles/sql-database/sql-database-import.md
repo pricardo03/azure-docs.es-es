@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 5726a11d37899517674d445711afda31731b901d
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785338"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305811"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Inicio rápido: Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
@@ -32,9 +32,11 @@ Puede importar una base de datos de SQL Server a una base de datos de Azure SQL 
 
 [Azure Portal](https://portal.azure.com) *solo* admite la creación de una base de datos única en Azure SQL Database y *solo* desde un archivo BACPAC almacenado en Azure Blob Storage.
 
-> [!NOTE]
-> [Las instancias administradas](sql-database-managed-instance.md) no admiten actualmente la migración de una base de datos a una base de datos de instancia desde un archivo BACPAC mediante Azure Portal. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
+Actualmente no se admite la migración de una base de datos a una [instancia administrada](sql-database-managed-instance.md) desde un archivo BACPAC mediante Azure PowerShell. Use SQL Server Management Studio o SQLPackage en su lugar.
 
+> [!NOTE]
+> Los equipos que procesan las solicitudes de importación o exportación que se envían a través de Azure Portal o PowerShell deben almacenar el archivo BACPAC, así como los archivos temporales generados por Data-Tier Application Framework (DacFX). El espacio en disco necesario varía considerablemente entre las bases de datos del mismo tamaño y puede requerir un espacio en disco de hasta tres veces el tamaño de la base de datos. Los equipos que ejecutan la solicitud de importación o exportación solo tienen 450 GB de espacio en disco local. Como resultado, puede que es produzca el error `There is not enough space on the disk` en algunas solicitudes. En este caso, la solución alternativa es ejecutar sqlpackage.exe en un equipo con suficiente espacio en disco local. Se recomienda usar [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) para importar o exportar bases de datos superiores a 150 GB para evitar este problema.
+ 
 1. Para importar a partir de un archivo BACPAC en una base de datos única mediante Azure Portal, abra la página del servidor de bases de datos que corresponda y, en la barra de herramientas, seleccione **Importar base de datos**.  
 
    ![Base de datos import1](./media/sql-database-import/import1.png)
@@ -81,6 +83,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > Las [instancias administradas](sql-database-managed-instance.md) no admiten actualmente la migración de una base de datos a una base de datos de instancia desde un archivo BACPAC mediante Azure PowerShell. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
 
+> [!NOTE]
+> Los equipos que procesan las solicitudes de importación o exportación que se envían a través del portal o Powershell deben almacenar el archivo bacpac, así como los archivos temporales generados por Data-Tier Application Framework (DacFX). El espacio en disco necesario varía considerablemente entre las bases de datos del mismo tamaño y puede tardar hasta 3 veces el tamaño de la base de datos. Los equipos que ejecutan la solicitud de importación o exportación solo tienen 450 GB de espacio en disco local. Como resultado, en algunas solicitudes se puede producir el error "No hay suficiente espacio en el disco". En este caso, la solución alternativa es ejecutar sqlpackage.exe en un equipo con suficiente espacio en disco local. Al importar o exportar bases de datos superiores a 150 GB, use [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) para evitar este problema.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

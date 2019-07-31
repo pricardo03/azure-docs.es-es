@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: ec42693fe42f35d728a4a5018776867f07403f81
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341991"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226858"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -171,7 +171,7 @@ Las salidas se pueden expresar como valores devueltos y como parámetros de sali
 
 Para usar el valor devuelto de una función como valor de un enlace de salida, la propiedad `name` del enlace debe establecerse como `$return` en `function.json`.
 
-Si desea generar varias salidas, utilice el método `set()` que la interfaz `azure.functions.Out` ofrece para asignar un valor al enlace. Por ejemplo, la siguiente función puede insertar un mensaje en una cola y también devolver una respuesta HTTP.
+Si desea generar varias salidas, utilice el método `set()` que la interfaz [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) ofrece para asignar un valor al enlace. Por ejemplo, la siguiente función puede insertar un mensaje en una cola y también devolver una respuesta HTTP.
 
 ```json
 {
@@ -259,7 +259,7 @@ def main():
 
 ## <a name="context"></a>Context
 
-Para obtener el contexto de invocación de una función durante la ejecución, incluya el argumento `context` en su firma. 
+Para obtener el contexto de invocación de una función durante la ejecución, incluya el argumento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) en su firma. 
 
 Por ejemplo:
 
@@ -272,7 +272,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-La clase **Context** tiene los métodos siguientes:
+La clase [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) tiene los métodos siguientes:
 
 `function_directory`  
 El directorio en que se ejecuta la función.
@@ -332,32 +332,70 @@ func azure functionapp publish <app name> --build-native-deps
 
 Interiormente, Core Tools usará Docker para ejecutar la imagen [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) como un contenedor en la máquina local. Con este entorno, se compilarán e instalarán los módulos necesarios desde la distribución de origen, antes de empaquetarlos para la implementación final en Azure.
 
-Para crear sus dependencias y publicarlas mediante un sistema de entrega continua (CD), [use Azure DevOps Pipelines](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops). 
+Para crear sus dependencias y publicarlas mediante un sistema de entrega continua (CD), [use Azure DevOps Pipelines](functions-how-to-azure-devops.md). 
 
 ## <a name="unit-testing"></a>Pruebas unitarias
 
-Las funciones escritas en Python se pueden probar como otro código de Python mediante marcos de pruebas. Para la mayoría de los enlaces, es posible crear un objeto de entrada ficticio creando una instancia de una clase adecuada a partir del paquete `azure.functions`.
+Las funciones escritas en Python se pueden probar como otro código de Python mediante marcos de pruebas. Para la mayoría de los enlaces, es posible crear un objeto de entrada ficticio creando una instancia de una clase adecuada a partir del paquete `azure.functions`. Puesto que el paquete [`azure.functions`](https://pypi.org/project/azure-functions/) no está disponible inmediatamente, asegúrese de instalarlo a través del archivo `requirements.txt`, tal como se describe en la sección anterior [La versión de Python y la administración de paquetes](#python-version-and-package-management).
 
 Por ejemplo, a continuación se muestra una prueba ficticia de una función desencadenada por HTTP:
 
-```python
-# myapp/__init__.py
-import azure.functions as func
-import logging
-
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
-    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
+```json
+{
+  "scriptFile": "httpfunc.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
 ```
 
 ```python
-# myapp/test_func.py
+# myapp/httpfunc.py
+import azure.functions as func
+import logging
+
+def my_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+```python
+# myapp/test_httpfunc.py
 import unittest
 
 import azure.functions as func
-from . import my_function
+from httpfunc import my_function
 
 
 class TestFunction(unittest.TestCase):
@@ -366,7 +404,7 @@ class TestFunction(unittest.TestCase):
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function',
+            url='/api/HttpTrigger',
             params={'name': 'Test'})
 
         # Call the function.
@@ -375,7 +413,7 @@ class TestFunction(unittest.TestCase):
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            'Hello, Test!',
+            b'Hello Test',
         )
 ```
 
@@ -422,6 +460,7 @@ Todos los problemas conocidos y las solicitudes de características se siguen me
 
 Para obtener más información, consulte los siguientes recursos:
 
+* [Documentación de la API del paquete de Azure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 * [Enlaces de Blob Storage](functions-bindings-storage-blob.md)

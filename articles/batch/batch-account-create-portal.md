@@ -4,7 +4,7 @@ description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejec
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722635"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324026"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
-Aprenda a crear una cuenta de Azure Batch en [Azure Portal][azure_portal] y seleccione las propiedades de cuenta más adecuadas para su escenario de proceso. Aprenda dónde encontrar importantes propiedades de cuenta, como teclas de acceso y direcciones URL de la cuenta.
+Aprenda a crear una cuenta de Azure Batch en [Azure Portal][azure_portal] y seleccione las propiedades de la cuenta más adecuadas para su escenario de proceso. Aprenda dónde encontrar importantes propiedades de cuenta, como teclas de acceso y direcciones URL de la cuenta.
 
 Para más información acerca de los escenarios y las cuentas de Batch, consulte la [descripción de las características](batch-api-basics.md).
 
@@ -32,7 +32,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Inicie sesión en [Azure Portal][azure_portal].
+1. Inicie sesión en el [Azure Portal][azure_portal].
 
 1. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**.
 
@@ -84,7 +84,7 @@ Si decide crear una cuenta de Batch en el modo de suscripción de usuario, antes
 
 Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene que registrar la suscripción con Batch. (si ya lo ha hecho anteriormente, vaya a la sección siguiente).
 
-1. Inicie sesión en [Azure Portal][azure_portal].
+1. Inicie sesión en el [Azure Portal][azure_portal].
 
 1. Seleccione **Todos los servicios** > **Suscripciones** y seleccione la suscripción que desea usar para la cuenta de Batch.
 
@@ -113,7 +113,11 @@ En el modo de suscripción de usuario, se requiere una instancia de Azure Key Va
 
 1. En la página **Crear Key Vault**, escriba un nombre para el almacén de claves y cree un grupo de recursos en la región que desee para su cuenta de Batch. Deje los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**.
 
-Al crear la cuenta de Batch en el modo de suscripción de usuario, use el grupo de recursos del almacén de claves, especifique **Suscripción de usuario** como modo de asignación de grupos y seleccione el almacén de claves.
+Al crear la cuenta de Batch en modo de suscripción de usuario, use el grupo de recursos del almacén de claves. Especifique **Suscripción de usuario** como el modo de asignación del grupo, seleccione el almacén de claves y active la casilla para conceder acceso a Azure Batch al almacén de claves. 
+
+Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén y seleccione **Microsoft Azure Batch**. Configure los **Permisos de secretos** en el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**.
+
+![Permisos de secretos de Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>Configuración de cuotas de suscripción
 

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246143"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227417"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -71,7 +71,7 @@ Se aplican las siguientes reglas de atributo:
   2. El atributo que se encuentra en una GAL de Exchange (lista global de direcciones) procede del bosque con un buzón de Exchange.
   3. Si no se encuentra ningún buzón, estos atributos pueden provenir de cualquier bosque.
   4. Los atributos relacionados con Exchange (los atributos técnicos no se muestran en la GAL) proceden del bosque en el que `mailNickname ISNOTNULL`.
-  5. Si hay varios bosques que podrían cumplir una de estas reglas, se utilizará el orden de creación (fecha y hora) de los conectores (bosques) para determinar el bosque de origen de los atributos.
+  5. Si hay varios bosques que podrían cumplir una de estas reglas, se utilizará el orden de creación (fecha y hora) de los conectores (bosques) para determinar el bosque de origen de los atributos. El primer bosque conectado será el primero en sincronizarse. 
 
 ### <a name="contact-out-of-box-rules"></a>Reglas integradas de contacto
 Un objeto de contacto debe cumplir los siguientes requisitos para sincronizarse:

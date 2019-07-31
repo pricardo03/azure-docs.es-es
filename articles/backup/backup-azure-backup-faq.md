@@ -1,19 +1,18 @@
 ---
 title: Preguntas más frecuentes de Azure Backup
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.date: 07/07/2019
+ms.author: dacurwin
+ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688729"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466689"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -40,7 +39,7 @@ No. Un almacén de Recovery Services solo puede cambiar las opciones de almacena
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
 - ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md).
-- ILR no se admite para puntos de recuperación en línea de las máquinas virtuales locales respaldada por Azure backup Server o System Center DPM.
+- ILR no se admite para puntos de recuperación en línea de VM locales cuya copia de seguridad se realiza mediante el servidor de Azure Backup o DPM de System Center.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
@@ -50,37 +49,6 @@ No. Un almacén de Recovery Services solo puede cambiar las opciones de almacena
 - Para el agente que se ejecuta en máquinas virtuales de Azure, lea estas [preguntas más frecuentes](backup-azure-vm-backup-faq.md).
 - Para el agente utilizado para realizar copias de seguridad de carpetas de archivos de Azure, lea esta [preguntas más frecuentes sobre](backup-azure-file-folder-backup-faq.md).
 
-
-## <a name="vmware-and-hyper-v-backup"></a>Copia de seguridad de Hyper-V y VMware
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>¿Puedo hacer copias de seguridad de servidores de VMware vCenter en Azure?
-Sí. Se puede usar Azure Backup Server para realizar una copia de seguridad de los hosts de EsXi y VMware vCenter Server en Azure.
-
-- [Obtenga más información](backup-mabs-protection-matrix.md) sobre las versiones compatibles.
-- [Siga estos pasos](backup-azure-backup-server-vmware.md) para realizar una copia de seguridad de un servidor de VMware.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>¿Necesito una licencia independiente para recuperar un clúster de Hyper-V o VMware local completo?
-No necesita licencias independientes para la protección de Hyper-V o VMware.
-
-- Si es cliente de System Center, utilice System Center Data Protection Manager (DPM) para proteger las máquinas virtuales de VMware.
-- Si no es un cliente de System Center, puede usar Azure Backup Server (pago por uso) para proteger las máquinas virtuales de VMware.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>Copia de seguridad en DPM y Azure Backup Server
-
-### <a name="which-dpm-versions-are-supported"></a>¿Qué versiones de DPM son compatibles?
-Las versiones de DPM compatibles se resumen en la [matriz de compatibilidad](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Se recomienda que instale las últimas actualizaciones de DPM y que ejecute la [última versión](https://aka.ms/azurebackup_agent) del agente de Azure Backup en el servidor DPM.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>¿Puedo registrar el servidor en varios almacenes?
-No. Un servidor DPM o de Azure Backup solo se puede registrar en un único almacén.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>¿Puedo usar Azure Backup Server para crear una copia de seguridad de reconstrucción completa (BMR) para un servidor físico? <br/>
-Sí.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>¿Puedo usar DPM para realizar copias de seguridad de aplicaciones en Azure Stack?
-No. Puede usar Azure Backup para proteger Azure Stack; Azure Backup no admite el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si he instalado el agente de Azure Backup para proteger archivos y carpetas, ¿puedo instalar System Center DPM para realizar copias de seguridad de las cargas de trabajo locales en Azure?
-Sí. Pero debe configurar DPM primero y después instalar el agente de Azure Backup.  Instalar los componentes en este orden garantiza que el agente de Azure Backup funcione con DPM. No se recomienda o no se admite la instalación del agente antes que DPM.
 
 ## <a name="general-backup"></a>Copia de seguridad general
 
@@ -101,7 +69,7 @@ Windows 8.1 64 bits | Enterprise, Pro | Las máquinas deben ejecutar las actuali
 Windows 8 64 bits | Enterprise, Pro | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
 Windows 7 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
 Server | |
-Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Con las actualizaciones y los Service Pack más recientes.
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Con las actualizaciones y los Service Pack más recientes.
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Con las actualizaciones y los Service Pack más recientes.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Con las actualizaciones y los Service Pack más recientes.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Con las actualizaciones y los Service Pack más recientes.
@@ -118,12 +86,12 @@ Para las copias de seguridad de VM Linux de Azure, Azure Backup admite [la lista
 Los límites de tamaño son los siguientes:
 
 SO/máquina | Límite de tamaño del origen de datos
---- | --- 
+--- | ---
 Windows 8 o posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o superior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-MV de Azure | 16 discos de datos<br/><br/> Disco de datos de hasta 4095 GB
+Azure VM | 16 discos de datos<br/><br/> Disco de datos de hasta 4095 GB
 
 ### <a name="how-is-the-data-source-size-determined"></a>¿Cómo se determina el tamaño del origen de datos?
 La tabla siguiente explica cómo se determina el tamaño de cada origen de datos.
@@ -185,7 +153,7 @@ Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una inst
 - Obtenga más información sobre [copia de seguridad y retención](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>¿Cuántas veces puedo recuperar datos de los que se ha realizado una copia de seguridad en Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>¿Cuántas veces puedo recuperar datos de los que se ha realizado una copia de seguridad en Azure?
 No hay ningún límite en cuanto al número de recuperaciones de Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Al restaurar los datos, ¿tengo que pagar por el tráfico de salida de Azure?

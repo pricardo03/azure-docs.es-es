@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186328"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68306130"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuciones y controladores admitidos
 
@@ -30,11 +30,11 @@ Los controladores NVIDIA CUDA para máquinas virtuales de las series NC, NCv2, N
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de NVIDIA GRID
 
-Microsoft redistribuye los instaladores del controlador NVIDIA GRID para VM de las series NV y NVv2 que se emplean como estaciones de trabajo virtuales o para aplicaciones virtuales. Instale estos controladores GRID en máquinas virtuales de la serie NV de Azure y solo en los sistemas operativos enumerados en la tabla siguiente. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure. No es necesario configurar un servidor de licencias de software vGPU NVIDIA.
+Microsoft redistribuye los instaladores del controlador NVIDIA GRID para VM de las series NV y NVv3 que se emplean como estaciones de trabajo virtuales o para aplicaciones virtuales. Instale estos controladores GRID en máquinas virtuales de la serie NV de Azure y solo en los sistemas operativos enumerados en la tabla siguiente. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure. No es necesario configurar un servidor de licencias de software vGPU NVIDIA.
 
 | Distribución | Controlador |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5 o 7.6<br/><br/>Basado en CentOS 7.3, 7.4, 7.5 o 7.6 | NVIDIA GRID 8.0, rama de controlador R418|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 a 7.6<br/><br/>Basado en CentOS 7.0 a 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, rama de controlador R430|
 
 > [!WARNING] 
 > La instalación de software de terceros en productos de Red Hat puede afectar a los términos de soporte técnico de Red Hat. Vea el [artículo de Knowledgebase de Red Hat](https://access.redhat.com/articles/1067).

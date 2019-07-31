@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 2ce8c0b369cd59ac61279fe3c7acd2cdecfc007c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d6427db7090b3419fbe67535baeb4a5df6a5d65
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225600"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261308"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Java
 
@@ -138,7 +138,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 
-    Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la propiedad RequestCharge equivalente en [ResourceResponse<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) o [FeedResponse<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) para medir el número de unidades de solicitudes usadas por estas operaciones.
+    Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la propiedad RequestCharge equivalente en [ResourceResponse\<](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) o [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) para medir el número de unidades de solicitudes usadas por estas operaciones.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);

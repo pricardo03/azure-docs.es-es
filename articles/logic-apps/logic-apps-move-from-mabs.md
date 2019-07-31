@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61323105"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273195"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migración desde BizTalk Services a Azure Logic Apps
 
@@ -52,7 +52,7 @@ BizTalk Services tiene varios tipos de artefactos.
 
 ## <a name="connectors"></a>Conectores
 
-Los conectores de BizTalk Services ayudan a los puentes a enviar y recibir datos, incluidos los puentes bidireccionales que habilitan interacciones de solicitud/respuesta basadas en HTTP. Logic Apps usa la misma terminología y tiene más de 180 conectores que sirven al mismo objetivo conectándose a una amplia gama de tecnologías y servicios. Por ejemplo, los conectores están disponibles para servicios SaaS y PaaS en la nube, como OneDrive, Office365, Dynamics CRM y otros, además de sistemas locales a través de la Puerta de enlace de datos local, que reemplaza al Servicio de adaptador de BizTalk de BizTalk Services. Los orígenes de BizTalk Services están limitados a FTP, SFTP y suscripción a Tema o Cola de Service Bus.
+Los conectores de BizTalk Services ayudan a los puentes a enviar y recibir datos, incluidos los puentes bidireccionales que habilitan interacciones de solicitud/respuesta basadas en HTTP. Logic Apps usa la misma terminología y tiene cientos de conectores que sirven al mismo objetivo conectándose a una amplia gama de tecnologías y servicios. Por ejemplo, los conectores están disponibles para servicios SaaS y PaaS en la nube, como OneDrive, Office365, Dynamics CRM y otros, además de sistemas locales a través de la Puerta de enlace de datos local, que reemplaza al Servicio de adaptador de BizTalk de BizTalk Services. Los orígenes de BizTalk Services están limitados a FTP, SFTP y suscripción a Tema o Cola de Service Bus.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 

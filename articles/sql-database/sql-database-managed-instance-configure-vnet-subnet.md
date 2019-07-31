@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 168068094761fd35bf0386f476fbdd1262e9643f
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700486"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228307"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -31,6 +31,8 @@ Si uno de los casos siguientes se aplica a usted, puede validar y modificar la r
 
 > [!Note]
 > Puede crear una Instancia administrada solo en redes virtuales creadas mediante el modelo de implementación de Azure Resource Manager. No se admiten las redes virtuales de Azure creadas mediante el modelo de implementación clásica. Calcule el tamaño de la subred siguiendo las instrucciones del artículo [Determinación del tamaño de subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). No se puede cambiar el tamaño de la subred después de implementar los recursos que contiene.
+>
+> Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Validación y modificación de una red virtual existente
 

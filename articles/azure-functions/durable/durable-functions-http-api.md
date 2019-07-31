@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787284"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812809"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API de HTTP en Durable Functions (Azure Functions)
 
@@ -45,12 +45,13 @@ La clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-du
 Estas funciones de ejemplo generan los siguientes datos de respuesta JSON. El tipo de datos de todos los campos es `string`.
 
 | Campo                   |DESCRIPCIÓN                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |Identificador de la instancia de orquestación. |
-| **`statusQueryGetUri`** |Dirección URL del estado de la instancia de orquestación. |
-| **`sendEventPostUri`**  |Dirección URL de generación del evento de la instancia de orquestación. |
-| **`terminatePostUri`**  |Dirección URL de finalización de la instancia de orquestación. |
-| **`rewindPostUri`**     |Dirección URL de rebobinado de la instancia de orquestación. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |Identificador de la instancia de orquestación. |
+| **`statusQueryGetUri`**     |Dirección URL del estado de la instancia de orquestación. |
+| **`sendEventPostUri`**      |Dirección URL de generación del evento de la instancia de orquestación. |
+| **`terminatePostUri`**      |Dirección URL de finalización de la instancia de orquestación. |
+| **`purgeHistoryDeleteUri`** |La dirección URL del "historial de purga" de la instancia de orquestación. |
+| **`rewindPostUri`**         |(versión preliminar) La dirección URL de "rebobinado" de la instancia de orquestación. |
 
 Este es un ejemplo de respuesta:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 Las respuestas para esta API no tienen contenido.
 
-## <a name="rewind-instance-preview"></a>Rebobinado de instancias (versión preliminar)
+### <a name="rewind-instance-preview"></a>Rebobinado de instancias (versión preliminar)
 
 Restaura una instancia de orquestación errónea a un estado de ejecución mediante la reproducción de las operaciones erróneas más recientes.
 
-### <a name="request"></a>Solicitud
+#### <a name="request"></a>Solicitud
 
 Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
@@ -580,7 +582,7 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 | **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`reason`**      | Cadena de consulta    | Opcional. Motivo para rebobinar la instancia de orquestación. |
 
-### <a name="response"></a>Response
+#### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 Las respuestas para esta API no tienen contenido.
+
+### <a name="signal-entity-preview"></a>Entidad de señal (versión preliminar)
+
+Envía un mensaje de operación unidireccional a una [entidad duradera](durable-functions-types-features-overview.md#entity-functions). Si la entidad no existe, se creará automáticamente.
+
+#### <a name="request"></a>Solicitud
+
+La solicitud HTTP tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
+
+| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | El tipo de la entidad. |
+| **`entityKey`**   | URL             | El nombre único de la entidad. |
+| **`op`**          | Cadena de consulta    | Opcional. El nombre de la operación definida por el usuario que se va a invocar. |
+| **`{content}`**   | Contenido de la solicitud | Carga del evento con formato JSON. |
+
+A continuación se muestra una solicitud de ejemplo que envía un mensaje "Add" definido por el usuario a una entidad `Counter`denominada `steps`. El contenido del mensaje es el valor `5`. Si la entidad todavía no existe, se creará mediante esta solicitud:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Response
+
+Esta operación tiene varias respuestas posibles:
+
+* **HTTP 202 (aceptado)** : la operación de la señal se aceptó para el procesamiento asincrónico.
+* **HTTP 400 (solicitud incorrecta)** : el contenido de la solicitud no era del tipo `application/json`, no tenía un valor JSON válido o no tenía un valor `entityKey` válido.
+* **HTTP 404 (no se encuentra)** : no se encontró el `entityType` especificado.
+
+Una solicitud HTTP correcta no contiene nada en la respuesta. Una solicitud HTTP con error puede contener información de error con formato JSON en el contenido de la respuesta.
+
+### <a name="query-entity-preview"></a>Entidad de consulta (versión preliminar)
+
+Obtiene el estado de la entidad especificada.
+
+#### <a name="request"></a>Solicitud
+
+La solicitud HTTP tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Response
+
+Esta operación tiene dos respuestas posibles:
+
+* **HTTP 200 (correcto)** : la entidad especificada existe.
+* **HTTP 404 (no se encuentra)** : no se encontró la entidad especificada.
+
+Una respuesta correcta contiene el estado serializado de JSON de la entidad como su contenido.
+
+#### <a name="example"></a>Ejemplo
+El siguiente es un ejemplo de una solicitud HTTP que obtiene el estado de una entidad `Counter` existente denominada `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Si la entidad `Counter` simplemente contenía una serie de pasos guardados en un campo `currentValue`, el contenido de la respuesta podría ser similar al siguiente (con formato para facilitar la legibilidad):
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

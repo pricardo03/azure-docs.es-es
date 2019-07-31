@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61258443"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836104"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
@@ -43,7 +43,7 @@ Para habilitar la conectividad a la instancia de SAP HANA, instale los component
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos SAP HANA local mediante el uso de diferentes herramientas o API. 
 
 - La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
-- Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+- Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -62,8 +62,8 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí 
-nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | string | Sí
+username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+password | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | Sí
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin
 
@@ -85,7 +85,7 @@ Si el origen es de tipo **RelationalSource** (que incluye SAP HANA), están disp
 | query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | Sí |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure
-En el siguiente ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP HANA local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
+En el siguiente ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP HANA local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
 
 > [!IMPORTANT]
 > Este ejemplo proporciona fragmentos JSON. No incluye instrucciones paso a paso para crear la factoría de datos. Las instrucciones paso a paso se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .

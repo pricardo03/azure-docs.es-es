@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 048fe0ef88e8a79e21af7bb6e39a1d7ece3ee4ae
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490094"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277453"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen de asignación de Data Flow 
 
@@ -82,7 +82,7 @@ Elija la configuración para administrar archivos en el origen.
 
 ![Nueva configuración de origen](media/data-flow/source2.png "Nueva configuración")
 
-* **Ruta de acceso con carácter comodín**: En la carpeta de origen, elija una serie de archivos que coincidan con un patrón. Esta configuración invalida cualquier archivo en la definición del conjunto de datos.
+* **Ruta de acceso con carácter comodín**: En el contenedor de origen, elija una serie de archivos que coincidan con un patrón. Esta configuración invalida cualquier archivo en la definición del conjunto de datos.
 
 Ejemplos de caracteres comodín:
 

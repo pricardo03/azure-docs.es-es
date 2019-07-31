@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473024"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227400"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -32,7 +32,7 @@ De forma predeterminada, los recursos de Office 365 para los usuarios se encuent
 Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> La replicación geográfica múltiple está disponible actualmente para los clientes con un mínimo de 2500 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
+> La replicación geográfica múltiple está disponible actualmente para los clientes con un mínimo de 500 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
 >
 >
 
@@ -50,6 +50,8 @@ Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeog
 | India | IND |
 | Japón | JPN |
 | Corea | KOR |
+| Sudáfrica | ZAF |
+| Emiratos Árabes Unidos | ARE |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758422"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806338"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Uso de Jupyter Notebook y una extensión de Kqlmagic para analizar datos en Azure Data Explorer
 
@@ -164,6 +164,9 @@ En muchos escenarios de análisis, puede que quiera crear blocs de notas reutili
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> Para recibir información sobre todas las configuraciones disponibles, use `%config KQLmagic`. Para solucionar problemas y capturar errores de Kusto, como problemas de conexión y consultas incorrectas, use `%config Kqlmagic.short_errors=False`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

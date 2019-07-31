@@ -8,21 +8,31 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313239"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297895"
 ---
 # <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Evaluación de la precisión del entrenamiento en ML automatizado con métricas
 
-Hay varias maneras para ver las métricas de precisión del entrenamiento para cada iteración de ejecución.
+En este artículo, obtendrá información sobre las diferentes métricas disponibles para los modelos de aprendizaje automático de Azure Machine Learning. 
 
+Hay varias maneras para ver las métricas de precisión del entrenamiento para cada iteración de ejecución.
 * Usar [un widget de Jupyter](how-to-track-experiments.md#view-run-details)
 * Usar [la función `get_metrics()`](how-to-track-experiments.md#query-run-metrics) en cualquier objeto `Run`
 * Ver [las métricas del experimento en Azure Portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>Requisitos previos
+ 
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+ 
+* Cree un experimento de aprendizaje automático con el SDK o en Azure Portal.
+ 
+    * Use el SDK para crear un [modelo de clasificación](how-to-auto-train-remote.md) o un [modelo de regresión](tutorial-auto-train-models.md).
+    * Use [Azure Portal](how-to-create-portal-experiments.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.
 
 ## <a name="classification-metrics"></a>Métricas de clasificación
 
@@ -68,3 +78,7 @@ root_mean_squared_error|El error cuadrático medio es la raíz cuadrada de la di
 normalized_root_mean_squared_error|El error cuadrático medio normalizado es el error cuadrático medio dividido por el intervalo de los datos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Se divide por el intervalo de los datos|
 root_mean_squared_log_error|El error logarítmico cuadrático medio es la raíz cuadrada del error logarítmico cuadrático esperado.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|El error logarítmico cuadrático medio normalizado es el error logarítmico cuadrático medio dividido por el intervalo de los datos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Se divide por el intervalo de los datos|
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga más información sobre el [aprendizaje automático](concept-automated-ml.md) en Azure Machine Learning.

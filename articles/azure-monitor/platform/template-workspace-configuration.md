@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441630"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827786"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -40,6 +40,7 @@ Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-m
 Este artículo contiene ejemplos de plantilla que ilustran algunas de las funciones que puede realizar con las plantillas.
 
 ## <a name="api-versions"></a>Versiones de API
+
 En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
 
 | Recurso | Tipo de recurso | Versión de API |
@@ -50,16 +51,8 @@ En la tabla siguiente se muestra la versión de API de los recursos usados en es
 | Solución    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
-En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno.  
 
-Los siguientes parámetros establecen un valor predeterminado:
-
-* Ubicación: el valor predeterminado es Este de EE. UU.
-* SKU: el valor predeterminado es el nuevo plan de tarifa Por GB publicado en el modelo de precios de abril de 2018
-
-> [!NOTE]
->Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.  
->Si puede obtener algunas suscripciones en el [modelo de precios anterior a abril de 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), puede especificar el plan de tarifa **independiente** tanto para la suscripción con el modelo de precios anterior a abril de 2018 como para las suscripciones que tengan los precios nuevos. Para las áreas de trabajo en las suscripciones que han adoptado el nuevo modelo de precios, el plan de tarifa se establecerá en **PerGB2018**. 
+En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para requerir solo el nombre y la ubicación del nuevo área de trabajo (con los valores predeterminados para los demás parámetros del área de trabajo, como el plan de tarifa y la retención).  
 
 ### <a name="create-and-deploy-template"></a>Creación e implementación de una plantilla
 
@@ -79,26 +72,35 @@ Los siguientes parámetros establecen un valor predeterminado:
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ Los siguientes parámetros establecen un valor predeterminado:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ Los siguientes parámetros establecen un valor predeterminado:
        ]
     }
     ```
-2. Edite la plantilla para adecuarla a sus requisitos.  Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
+
+2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.
-4. Está listo para implementar esta plantilla. Use PowerShell o la línea de comandos para crear el área de trabajo.
+4. Está listo para implementar esta plantilla. Puede usar PowerShell o la línea de comandos para crear el área de trabajo, especificando el nombre y la ubicación de dicha área como parte del comando.
 
    * En PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * En la línea de comandos, use los siguientes comandos desde la carpeta que contenga la plantilla:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:<br><br> ![Resultado de ejemplo cuando se completa la implementación](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Configuración de un área de trabajo de Log Analytics
+
 El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 
 1. Agregar soluciones al área de trabajo
@@ -161,19 +162,21 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 
 ```
 ### <a name="deploying-the-sample-template"></a>Implementación de la plantilla de ejemplo
+
 Para implementar la plantilla, realice estos pasos:
 
 1. Guarde el ejemplo adjunto en un archivo, por ejemplo, `azuredeploy.json`. 
@@ -510,17 +544,20 @@ Para implementar la plantilla, realice estos pasos:
 3. Use PowerShell o la línea de comandos para implementar la plantilla.
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Línea de comandos
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Plantillas de Azure Resource Manager de ejemplo
+
 La galería de plantillas de inicio rápido de Azure incluye varias plantillas para Log Analytics, entre ellas las siguientes:
 
 * [Implementación de una máquina virtual Windows con la extensión de máquina virtual de Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ La galería de plantillas de inicio rápido de Azure incluye varias plantillas p
 * [Agregar una cuenta de almacenamiento existente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Implemente el agente de Windows en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../../virtual-machines/extensions/oms-windows.md).
+
 * [Implemente el agente de Linux en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../../virtual-machines/extensions/oms-linux.md).

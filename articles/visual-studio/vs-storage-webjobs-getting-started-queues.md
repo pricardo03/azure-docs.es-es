@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391234"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248956"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +190,7 @@ Para obtener más información, consulte [Cierre estable de WebJobs](http://blog
 Para escribir una función que crea un mensaje en cola nuevo, use el atributo **Queue** . Al igual que **QueueTrigger**, pasa el nombre de cola como una cadena o puede [establecer el nombre de la cola dinámicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensajes en cola de cadena
-El siguiente ejemplo de código no asincrónico crea un mensaje en cola nuevo en la cola llamada "outputqueue", con el mismo contenido que el mensaje en cola recibido en la cola llamada "inputqueue". (En el caso de las funciones asincrónicas, use **IAsyncCollector<T>** como se muestra más adelante en esta sección).
+El siguiente ejemplo de código no asincrónico crea un mensaje en cola nuevo en la cola llamada "outputqueue", con el mismo contenido que el mensaje en cola recibido en la cola llamada "inputqueue". (En el caso de las funciones asincrónicas, use **IAsyncCollector\<T>** como se muestra más adelante en esta sección).
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 El SDK serializa automáticamente el objeto a JSON. Siempre se crea un mensaje en cola, incluso si el objeto es null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Crear varios mensajes o en funciones asincrónicas
-Para crear varios mensajes, convierta el tipo de parámetro para la cola de salida **ICollector<T>** o **IAsyncCollector<T>** , como se muestra en el siguiente ejemplo.
+Para crear varios mensajes, convierta el tipo de parámetro de la cola de salida **ICollector\<T>** o **IAsyncCollector\<T>** , como se muestra en el siguiente ejemplo.
 
 ```csharp
 public static void CreateQueueMessages(

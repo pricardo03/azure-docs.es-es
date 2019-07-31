@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435738"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305721"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -31,7 +31,7 @@ Considere un escenario donde los datos tienen acceso frecuente durante las prime
 
 ## <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
 
-La directiva de administración del ciclo de vida está disponible con cuentas de uso general v2 (GPv2) y de Blob Storage. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
+La directiva de administración del ciclo de vida está disponible con cuentas de almacenamiento de uso general v2 (GPv2), de Blob Storage y de Premium Block Blob. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Precios
 
@@ -39,7 +39,7 @@ La característica de administración del ciclo de vida es gratuita. A los clien
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La característica de administración del ciclo de vida está disponible en todas las regiones globales de Azure.
+La característica de administración del ciclo de vida está disponible en todas las regiones globales de Azure y Azure Government.
 
 ## <a name="add-or-remove-a-policy"></a>Incorporación o eliminación de una directiva
 
@@ -57,13 +57,41 @@ En este artículo se muestra cómo administrar la directiva mediante el portal y
 
 ### <a name="azure-portal"></a>Portal de Azure
 
+Hay dos formas de agregar una directiva en Azure Portal. 
+
+* [Vista de lista de Azure Portal](#azure-portal-list-view)
+* [Vista de código de Azure Portal](#azure-portal-code-view)
+
+#### <a name="azure-portal-list-view"></a>Vista de lista de Azure Portal
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
+2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
+
+3. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
+
+4. Seleccione la pestaña **Vista de lista**.
+
+5. Seleccione **Agregar regla** y después rellene los campos del formulario **Conjunto de acciones**. En el siguiente ejemplo, los blobs se mueven al almacenamiento esporádico si no se han modificado durante 30 días.
+
+   ![Página del conjunto de acciones de administración del ciclo de vida en Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+
+6. Seleccione **Conjunto de filtros** para agregar un filtro opcional. A continuación, seleccione **Examinar** para especificar un contenedor y una carpeta por los que filtrar.
+
+   ![Página del conjunto de filtros de administración del ciclo de vida en Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+
+8. Seleccione **Revisar + agregar** para revisar la configuración de la directiva.
+
+9. Seleccione **Agregar** para agregar la nueva directiva.
+
+#### <a name="azure-portal-code-view"></a>Vista de código de Azure Portal
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
 
 3. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
 
-4. El siguiente JSON es un ejemplo de una regla que se puede pegar en la página del portal **Administración del ciclo de vida**.
+4. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista Código**.
 
    ```json
    {
@@ -93,7 +121,9 @@ En este artículo se muestra cómo administrar la directiva mediante el portal y
    }
    ```
 
-5. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
+5. Seleccione **Guardar**.
+
+6. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -397,7 +427,7 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
 La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez que configure una directiva, algunas acciones pueden tardar hasta 24 horas en ejecutarse por primera vez.  
 
 **He rehidratado manualmente un blob archivado, ¿cómo evito que vuelva temporalmente al nivel de archivo?**  
-Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modificación no cambia. Si rehidrata manualmente un blob archivado al nivel de acceso frecuente, el motor de administración del ciclo de vida podría devolverlo al nivel de archivo. Para evitar que pase esto, puede deshabilitar temporalmente la regla que afecta a este blob. Puede copiar el blob en otra ubicación si debe quedarse permanentemente en el nivel de acceso frecuente. Puede volver a habilitar la regla cuando el blob se pueda volver a mover con seguridad al nivel de archivo. 
+Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modificación no cambia. Si rehidrata manualmente un blob archivado al nivel de acceso frecuente, el motor de administración del ciclo de vida podría devolverlo al nivel de archivo. Deshabilite la regla que afecte temporalmente a este blob para impedir que se vuelva a archivar. Copie el blob en otra ubicación si debe quedarse permanentemente en el nivel de almacenamiento de acceso frecuente. Vuelva a habilitar la regla cuando el blob se pueda volver a mover con seguridad al nivel de archivo. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

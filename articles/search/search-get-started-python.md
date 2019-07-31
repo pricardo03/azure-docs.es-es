@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido de Python: Creación, carga y consulta de índices mediante las API de REST de Azure Search - Azure Search'
 description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante Python, instancias de Jupyter Notebook y la API de REST de Azure Search.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c570549514ff5a5e7e598aa54d8e2ac4b5a5341
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485471"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849780"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Crear un índice de Azure Search en Python mediante instancias de Jupyter Notebook
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ ms.locfileid: "67485471"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Compilar un cuaderno de Jupyter Notebook que crea, carga y consulta un índice de Azure Search con Python y las [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). En este artículo se explica cómo crear un cuaderno paso a paso, comenzando desde el principio. Como alternativa, podría ejecutar un cuaderno finalizado. Para descargar una copia, vaya al [repositorio azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Compilar un cuaderno de Jupyter Notebook que crea, carga y consulta un índice de Azure Search con Python y las [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). En este artículo se explica cómo crear un cuaderno paso a paso. Como alternativa, puede [descargar y ejecutar un cuaderno de Jupyter Python finalizado](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este inicio rápido se usan los siguientes servicios y herramientas. 
+Para este inicio rápido, se requieren los siguientes servicios y herramientas. 
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), que proporciona Python 3.x e instancias de Jupyter Notebook.
 
@@ -94,7 +94,7 @@ A menos que esté usando el portal, debe existir un índice en el servicio antes
 
 Los elementos necesarios de un índice incluyen un nombre, una colección de campos y una clave. La colección de campos define la estructura de un *documento*. Cada campo tiene un nombre, un tipo y unos atributos que determinan cómo se usa el campo (por ejemplo, si es texto completo que se puede buscar, filtrar o recuperar en los resultados de búsqueda). Dentro de un índice, se debe designar uno de los campos de tipo `Edm.String` como la *clave* para la identidad del documento.
 
-Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor utilizado en otros tutoriales. Lo hemos acortado en este inicio rápido para mayor brevedad.
+Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros tutoriales. Lo hemos acortado en este inicio rápido para mayor brevedad.
 
 1. En la siguiente celda, pegue el siguiente ejemplo en una celda para proporcionar el esquema. 
 
@@ -295,26 +295,13 @@ Este paso muestra cómo realizar consultas en un índice con la [API de REST de 
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Limpieza 
+## <a name="clean-up"></a>Limpieza
 
-Debería eliminar el índice si ya no lo necesita. Un servicio gratuito está limitado a tres índices. Debería eliminar cualquier índice que no esté usando de forma activa para dejar espacio para otros tutoriales.
+Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 
-La manera más fácil de eliminar objetos es a través del portal, pero puesto que esto es una guía de inicio rápido de Python, la sintaxis siguiente produce el mismo resultado:
+Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-Puede comprobar la eliminación de índices solicitando una lista de los índices existentes. Si hotels-quickstart ha desaparecido, entonces la solicitud se realizó correctamente.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

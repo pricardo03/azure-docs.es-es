@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205457"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68003905"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
 
@@ -84,6 +84,12 @@ El comportamiento de upsert es *insertar o reemplazar*.
 **Niveles anteriores:** los tipos [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) se ajustaban a UTC.
 
 **Nivel 1.2:** DateTimeOffset ya no se ajusta.
+
+### <a name="long-when-writing-to-sql-output"></a>Largo al escribir en la salida de SQL
+
+**Niveles anteriores:** los valores se truncaron en función del tipo de destino.
+
+**Nivel 1.2:** los valores que no encajan en el tipo de destino se controlan conforme a la directiva de error de salida.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Validación estricta de prefijo de funciones
 

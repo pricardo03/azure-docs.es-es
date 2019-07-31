@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389583"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867388"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 
@@ -28,7 +28,7 @@ Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos
 
 ## <a name="template-limits"></a>Límites de plantilla
 
-Limite el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. 
+Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. 
 
 También está limitado a:
 
@@ -40,7 +40,7 @@ También está limitado a:
 
 Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas en la implementación de recursos de Azure](resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Grupos de recursos
+## <a name="resource-group"></a>Resource group
 
 Al implementar recursos en un grupo de recursos, este almacena metadatos sobre los recursos. Estos metadatos se almacenan en la ubicación del grupo de recursos.
 

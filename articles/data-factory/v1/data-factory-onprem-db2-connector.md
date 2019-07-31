@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824021"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839032"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -64,7 +64,7 @@ Este conector de DB2 de Data Factory admite las plataformas y versiones de IBM D
 Puede crear una canalización con actividad de copia para mover datos desde un almacén de datos DB2 local mediante el uso de distintas herramientas o API: 
 
 - La manera más fácil de crear una canalización es usar el Asistente para copia de Azure Data Factory. Para un tutorial rápido sobre cómo crear una canalización con el Asistente para copia, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md). 
-- También puede usar herramientas para crear una canalización, como Azure Portal, Visual Studio, Azure PowerShell, una plantilla de Azure Resource Manager, la API de .NET y la API de REST. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- También puede usar herramientas para crear una canalización, como Visual Studio, Azure PowerShell, una plantilla de Azure Resource Manager, la API de .NET y API REST. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -112,7 +112,7 @@ En el caso de la actividad de copia, si el origen es de tipo **RelationalSource*
 > Los nombres de esquema y tabla distinguen mayúsculas de minúsculas. En la instrucción de consulta, escriba los nombres de propiedades entre "" (comillas dobles).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Ejemplo JSON: Copiar datos de DB2 a Azure Blob Storage
-Este ejemplo proporciona definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En el ejemplo se muestra cómo copiar datos desde una base de datos DB2 a Blob Storage. Sin embargo, es posible copiar los datos a [cualquier tipo de receptor de almacén de datos compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
+Este ejemplo proporciona definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En el ejemplo se muestra cómo copiar datos desde una base de datos DB2 a Blob Storage. Sin embargo, es posible copiar los datos a [cualquier tipo de receptor de almacén de datos compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
 
 El ejemplo consta de las siguientes entidades de Data Factory:
 

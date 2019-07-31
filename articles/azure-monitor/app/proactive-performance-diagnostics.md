@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294090"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867707"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -58,7 +58,7 @@ Las notificaciones incluyen información de diagnóstico. Este es un ejemplo:
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
-Las notificaciones de Detección inteligentes se habilitan de forma predeterminada y se envían a aquellos que tienen [acceso como propietarios, colaboradores y lectores a los recursos de Application Insights](../../azure-monitor/app/resources-roles-access-control.md). Para cambiar esta configuración, haga clic en la opción **Configurar** de la notificación por correo electrónico, o bien abra la configuración de Detección inteligente en Application Insights. 
+Las notificaciones de Detección inteligente se habilitan de forma predeterminada y se envían a aquellos que tienen el acceso [Lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [Colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) a la suscripción en la que reside el recurso de Application Insights. Para cambiar esta configuración, haga clic en la opción **Configurar** de la notificación por correo electrónico, o bien abra la configuración de Detección inteligente en Application Insights. 
   
   ![Configuración de Detección inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   

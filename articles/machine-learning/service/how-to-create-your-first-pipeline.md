@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 9602af9e4fe25bbed33cff3fff753a8f5460966a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466916"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305554"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -58,7 +58,7 @@ Cree los recursos necesarios para ejecutar una canalización:
 ### <a name="set-up-a-datastore"></a>Configurar un almacén de datos
 Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
 
-Cuando cree su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada. Azure Blob Storage es el "almacén de datos predeterminado" de un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Cuando cree su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada. Azure File Storage es el almacén de datos predeterminado para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -188,6 +188,9 @@ except ComputeTargetException:
     
     databricks_compute.wait_for_completion(True)
 ```
+
+Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://aka.ms/pl-databricks) en GitHub.
+
 ### <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
@@ -232,6 +235,8 @@ except ComputeTargetException:
     
     adla_compute.wait_for_completion(True)
 ```
+
+Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://aka.ms/pl-adla) en GitHub.
 
 > [!TIP]
 > Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar los datos antes del entrenamiento.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: f1353165954021cd949d6e46357d10514ee26b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c00f23570c3f8d80e39f3fe3901f866e40dc2ea
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560944"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305679"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -124,7 +124,7 @@ Existe un límite para la cantidad de reglas por grupo de seguridad de red que s
     |Intervalos de puertos de origen     | Especifique un único puerto (por ejemplo, 80), un intervalo de puertos (como 1024-65535) o una lista de puertos únicos y/o intervalos de puertos separados por comas (como 80, 1024-65535). Escriba un asterisco para permitir el tráfico en cualquier puerto. | Los puertos e intervalos especifican qué tráfico de puertos permitirá o denegará la regla. Se aplican límites al número de puertos que puede especificar. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).  |
     |Destino     | Seleccione **Cualquiera**, **Grupo de seguridad de aplicaciones**, **Direcciones IP** o **Red virtual** como reglas de seguridad de salida. Si va a crear una regla de seguridad de entrada, las opciones son las mismas que las indicadas para **Origen**.        | Si selecciona **Grupo de seguridad de aplicaciones**, debe seleccionar después uno o varios grupos de seguridad de aplicaciones existentes en la misma región que la interfaz de red. Obtenga información sobre cómo [crear un grupo de seguridad de aplicaciones](#create-an-application-security-group). Si selecciona **Grupo de seguridad de aplicaciones**, seleccione después un grupo de seguridad de aplicaciones que exista en la misma región que la interfaz de red. Si selecciona **Direcciones IP**, especifique después **Intervalos de direcciones IP de destino y CIDR**. De manera similar a **Origen** e **Intervalos de direcciones IP de origen y CIDR**, puede especificar uno o varios intervalos o direcciones y se aplican límites a la cantidad que puede especificar. Si se selecciona **Red virtual**, que es una etiqueta de servicio, significa que se permite el tráfico a todas las direcciones IP dentro del espacio de direcciones de la red virtual. Si la dirección IP que especifica está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de puertos de destino     | Especifique un valor único o una lista de varios valores separados por comas. | De manera similar a **Intervalos de puertos de origen**, puede especificar uno o varios intervalos o puertos y se aplican límites a la cantidad que puede especificar. |
-    |Protocolo     | Seleccione **Cualquiera**, **TCP** o **UDP**.        |         |
+    |Protocolo     | Seleccione **Cualquiera**, **TCP**, **UDP** o **ICMP**.        |         |
     |.     | Seleccione **Permitir** o **Denegar**.        |         |
     |Prioridad     | Escriba un valor de 100-4096 que sea único para todas las reglas de seguridad del grupo de seguridad de red. |Las reglas se procesan en el orden de prioridad. Cuanto menor sea el número, mayor será la prioridad. Se recomienda dejar un espacio entre los números de prioridad al crear reglas, como 100, 200, 300. Dejar espacios facilita la adición de reglas en el futuro que pueda necesitar por encima o debajo de las reglas existentes.         |
     |NOMBRE     | Nombre único para la regla en el grupo de seguridad de red.        |  Puede tener hasta 80 caracteres. Debe empezar con una letra o un número y acabar con una letra, un número o un guion bajo, y solo debe contener letras, números, guiones bajos, puntos o guiones.       |
@@ -196,8 +196,8 @@ Un grupo de seguridad de aplicaciones contiene una interfaz de red, varias o nin
     | ---            | ---                                                     |
     | NOMBRE           | El nombre debe ser único dentro de un grupo de recursos.        |
     | Subscription   | Seleccione su suscripción.                               |
-    | Grupos de recursos | Seleccione un grupo de recursos existente, o bien cree uno. |
-    | Ubicación       | Seleccionar una ubicación                                       |
+    | Resource group | Seleccione un grupo de recursos existente, o bien cree uno. |
+    | Location       | Seleccionar una ubicación                                       |
 
 **Comandos**
 

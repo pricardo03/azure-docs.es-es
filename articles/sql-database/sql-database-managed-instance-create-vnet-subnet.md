@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e205c23545eb4a01ce58a8bc2b63c58200e32a
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700501"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228291"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creación de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -34,6 +34,9 @@ La Instancia administrada de Azure SQL Database debe implementarse dentro de una
 > Debería [determinar el tamaño de la subred para la Instancia administrada](sql-database-managed-instance-determine-size-vnet-subnet.md) antes de implementar la primera instancia. No se puede cambiar el tamaño de la subred después de colocar los recursos en su interior.
 >
 > Si piensa usar una red virtual existente, tiene que modificar la configuración de red para dar cabida a Instancia administrada. Para más información, consulte [Modificación de una red virtual existente para Instancia administrada](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
+
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 

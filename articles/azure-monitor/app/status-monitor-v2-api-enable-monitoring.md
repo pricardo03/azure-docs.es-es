@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479642"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807097"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>API del Monitor de estado v2: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>API del Monitor de estado v2: Enable-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -93,9 +93,9 @@ Puede crear un solo script de instalación para varios equipos si establece `Mac
 - **MachineFilter** es una expresión regular de C# requerida del nombre de la máquina virtual o del equipo.
     - ".*" coincidirá con todos
     - "ComputerName" coincidirá solo son aquellos equipos que tengan el nombre exacto especificado.
-- **AppFilter** es una expresión regular de C# requerida del nombre de la máquina virtual o del equipo.
+- **AppFilter** es una expresión regular de C# requerida del nombre del sitio de IIS. Para obtener una lista de sitios en el servidor, ejecute el comando [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - ".*" coincidirá con todos
-    - "ApplicationName" coincidirá solo son aquellas aplicaciones IIS que tengan el nombre especificado.
+    - "SiteName" coincidirá solo son el sitio de IIS que tenga el nombre exacto especificado.
 - **InstrumentationKey** se requiere para habilitar la supervisión de las aplicaciones que coincidan con los dos filtros anteriores.
     - Deje este valor como null si desea definir reglas para excluir la supervisión.
 

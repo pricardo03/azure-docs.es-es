@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 03/13/2019
+ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3875106e8c6301c95bc8d0fbce6a1c0400d07f78
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075342"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278125"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
@@ -25,7 +25,7 @@ Use programación de mantenimiento para elegir un período de tiempo en el que s
 
 Todos las instancias de Azure SQL Data Warehouse recién creadas tendrán una programación de mantenimiento definida por el sistema aplicada durante la implementación. La programación se podrá editar tan pronto como se complete la implementación.
 
-Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede producirse en cualquier momento dentro de la ventana. Experimentará una breve pérdida de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos.
+Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede producirse en cualquier momento dentro de la ventana. Cuando se inicie el mantenimiento, se cancelarán todas las sesiones activas y se revertirán las transacciones no confirmadas. Experimentará varias pérdidas breves de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. Se le notificará inmediatamente después de que se haya completado el mantenimiento en el almacenamiento de datos.
 
 Para utilizar esta característica, deberá identificar una ventana principal y una secundaria dentro de intervalos de días separados. Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación.  
 
@@ -33,7 +33,10 @@ Para utilizar esta característica, deberá identificar una ventana principal y 
 
 Una integración con las notificaciones de Service Health y el monitor de comprobación de Resource Health permite a los clientes mantenerse informados de la actividad de mantenimiento inminente. La automatización nueva aprovecha las ventajas de Azure Monitor. Puede decidir cómo recibir notificaciones de eventos de mantenimiento inminentes. Asimismo, puede decidir qué flujos automatizados pueden ayudarle a administrar el tiempo de inactividad y minimizar el impacto en sus operaciones.
 
-A todos los eventos de mantenimiento les precede una notificación con 24 horas de adelanto, con la excepción actual de DW400c y los niveles más bajos. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado. Cuando se inicie el mantenimiento, se cancelarán todas las sesiones activas. Las transacciones no confirmadas se revertirán y el almacenamiento de datos experimentará una breve pérdida de conectividad. Se le notificará inmediatamente después de que se haya completado el mantenimiento en el almacenamiento de datos.
+A todos los eventos de mantenimiento les precede una notificación con 24 horas de adelanto, con la excepción actual de DW400c y los niveles más bajos. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado.
+
+> [!NOTE]
+> En caso de que sea necesario implementar una actualización donde el tiempo es fundamental, los tiempos de las notificaciones avanzadas pueden reducirse significativamente.
 
 Si recibió una notificación anticipada indicándole que se llevará a cabo el mantenimiento, pero SQL Data Warehouse no puede realizarlo en ese momento, recibirá una notificación de cancelación. Después se reanudará el mantenimiento durante el siguiente período de mantenimiento programado.
 

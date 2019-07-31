@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296146"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848903"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming 
 
@@ -55,19 +55,17 @@ Para obtener información del contrato de nivel de servicio, consulte [Precios y
 
 Característica|Estándar|Premium
 ---|---|---
-Gratis los primeros 15 días <sup>1</sup>| Sí |Sin
 Throughput |Hasta 600 Mbps y puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.|200 Mbps por unidad de streaming. Puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
 La facturación se prorratea| Diario|Diario
 Cifrado dinámico|Sí|Sí
 Empaquetado dinámico|Sí|Sí
 Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
-Filtrado de IP/G20/Host personalizado <sup>2</sup>|Sí|Sí
+Filtrado de direcciones IP/G20/Custom host  <sup>1</sup>|Sí|Sí
 Descarga progresiva|Sí|Sí
 Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.
 
-<sup>1</sup> La prueba gratuita solo se aplica a las cuentas de Media Services recién creadas y el punto de conexión de streaming predeterminado.<br/>
-<sup>2</sup> Solo se usa directamente en el punto de conexión de streaming cuando la red CDN no está habilitada en el punto de conexión.<br/>
+<sup>1</sup> Solo se usa directamente en el punto de conexión de streaming cuando la red CDN no está habilitada en el punto de conexión.<br/>
 
 ## <a name="properties"></a>properties (Propiedades) 
 

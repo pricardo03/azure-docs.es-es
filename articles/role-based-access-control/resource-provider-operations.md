@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6ac3ef296509c6613a2a30821392c91648cc104
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868625"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501405"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -3233,19 +3233,6 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.MachineLearning/Workspaces/read | Lee todas las áreas de trabajo de Machine Learning |
 > | . | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Vuelve a sincronizar las claves de la cuenta de almacenamiento configurada para un área de trabajo de Machine Learning |
 > | . | Microsoft.MachineLearning/Workspaces/write | Crea o actualiza todas las áreas de trabajo de Machine Learning |
-
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Tipo de acción | Operación | DESCRIPCIÓN |
-> | --- | --- | --- |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Comprueba si existen actualizaciones para los servicios del sistema para el clúster de puesta en marcha. |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Elimina cualquier cuenta de hospedaje. |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | Enumera las claves asociadas con el clúster de puesta en marcha. |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/read | Lee cualquier cuenta de hospedaje. |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | Actualiza los servicios del sistema en un clúster de puesta en marcha. |
-> | . | Microsoft.MachineLearningCompute/operationalizationClusters/write | Crea o actualiza cualquier cuenta de hospedaje. |
-> | . | Microsoft.MachineLearningCompute/register/action | Registra el id. de la suscripción del proveedor de recursos y habilita la creación de los recursos de cálculo de Machine Learning. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 

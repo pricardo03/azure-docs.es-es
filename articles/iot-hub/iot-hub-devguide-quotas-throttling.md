@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
-ms.openlocfilehash: ea9bea8b314d00db87ad7addacc49a976e0da08e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4e1634c7180c7099f23915026d807a1e380a091
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550467"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277352"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -81,10 +81,10 @@ IoT Hub exige otros límites operativos:
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |
 | Mensajería de un dispositivo a la nube | Tamaño máximo del mensaje 256 KB |
-| Mensajería de la nube a un dispositivo<sup>1</sup> | Tamaño máximo del mensaje 64 KB. El número máximo de mensajes pendientes para la entrega es 50. |
+| Mensajería de la nube a un dispositivo<sup>1</sup> | Tamaño máximo del mensaje 64 KB. El número máximo de mensajes pendientes para la entrega es 50 por dispositivo. |
 | Método directo<sup>1</sup> | El tamaño de carga máximo del método directo es de 128 KB. |
 | Configuraciones automáticas de dispositivos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
-| Implementaciones automáticas de Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones por centro de SKU de pago. 20 implementaciones por centro de SKU gratis. |
+| Implementaciones automáticas de IoT Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
 | Gemelos<sup>1</sup> | El tamaño máximo por sección de gemelos (etiquetas, propiedades deseadas y propiedades notificadas) es de 8 KB. |
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md).

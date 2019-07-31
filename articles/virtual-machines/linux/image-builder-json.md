@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501883"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248147"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -402,7 +402,7 @@ El resultado de la imagen será un recurso de imagen administrada.
  
 Propiedades de la distribución:
 - **type**: managedImage 
-- **imageId**: id. de recurso de la imagen de destino; el formato previsto es: /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
+- **imageId**: identificador de recurso de la imagen de destino, formato esperado: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location**: ubicación de la imagen administrada.  
 - **runOutputName**: nombre único para identificar la distribución.  
 - **artifactTags**: etiquetas de par clave-valor opcionales especificadas por el usuario.
@@ -441,7 +441,7 @@ Antes de poder distribuir a la Galería de imágenes, debe crear una galería y 
 Propiedades de la distribución para las galerías de imágenes compartidas:
 
 - **tipo**: sharedImage  
-- **galleryImageId**: id. de la galería de imágenes compartidas. El formato es: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+- **galleryImageId**: id. de la galería de imágenes compartidas. El formato es: /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
 - **runOutputName**: nombre único para identificar la distribución.  
 - **artifactTags**: etiquetas de par clave-valor opcionales especificadas por el usuario.
 - **replicationRegions**: matriz de regiones para la replicación. Una de las regiones debe ser la región en la que está implementada la galería.
