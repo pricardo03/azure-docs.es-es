@@ -22,6 +22,12 @@
     - name: Planificación de capacidad
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Solución de problemas
+      items:
+        - name: Excepción OutOfMemoryError
+          items:
+            - name: Límite de sobrecarga de recolección de elementos no utilizados superado
+              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
 - name: Procedimientos
   items:
     - name: Migración de cargas de trabajo de Hive en HDInsight 4.0

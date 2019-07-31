@@ -43,6 +43,8 @@
         - name: Evaluación sin conexión
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: Evaluación de características
+          href: concept-feature-evaluation.md
     - name: Escalabilidad y rendimiento
       href: concepts-scalability-performance.md
 - name: Guías de procedimientos

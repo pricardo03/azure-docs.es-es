@@ -105,8 +105,14 @@
           href: container-registry-tasks-multi-step.md
         - name: Creación de imágenes con Buildpacks (versión preliminar)
           href: container-registry-tasks-pack-build.md
-        - name: Uso con identidad administrada
-          href: container-registry-tasks-authentication-managed-identity.md
+        - name: Acceso a recursos protegidos con identidades administradas
+          items:
+            - name: Habilitar una identidad administrada en una tarea
+              href: container-registry-tasks-authentication-managed-identity.md
+            - name: Autenticación entre registros desde una tarea
+              href: container-registry-tasks-cross-registry-authentication.md
+            - name: Autenticación externa mediante un almacén de claves
+              href: container-registry-tasks-authentication-key-vault.md
     - name: Registros y otros servicios de Azure
       items:
         - name: Azure Container Instances

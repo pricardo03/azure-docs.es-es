@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: Alta disponibilidad y recuperación ante desastres
       href: iot-hub-ha-dr.md
+    - name: Descripción de la dirección IP de IoT Hub
+      href: iot-hub-understand-ip-address.md
     - name: Compatibilidad con otros protocolos
       href: iot-hub-protocol-gateway.md
     - name: Comparación entre el enrutamiento de mensajes y el de eventos

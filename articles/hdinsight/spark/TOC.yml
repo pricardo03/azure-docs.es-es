@@ -56,12 +56,18 @@
           items:
             - name: Memoria de montón insuficiente
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Espacio de montón de Java
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: 'Trabajos de Apache Spark lentos: contenedor de almacenamiento'
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Excepción IllegalArgumentException
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Detenciones de aplicaciones de streaming de Apache Spark
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: Excepción RpcTimeoutException
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blocking Cross Origin API
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster

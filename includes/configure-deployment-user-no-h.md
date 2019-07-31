@@ -19,7 +19,7 @@ Se puede implementar FTP y Git local en una aplicación web de Azure mediante un
 
 Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) en Azure Cloud Shell. Reemplace \<username> y \<password> por su nombre de usuario y contraseña. 
 
-- El nombre de usuario debe ser único dentro de Azure y no debe contener el símbolo "@" para las inserciones de Git local. 
+- El nombre de usuario debe ser único dentro de Azure y no debe contener el símbolo "\@" para las inserciones de Git local. 
 - La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos. 
 
 ```azurecli-interactive
