@@ -7,6 +7,8 @@
       href: overview.md
     - name: Ejemplos de escenarios de usuario
       href: text-analytics-user-scenarios.md
+    - name: Novedades
+      href: whats-new.md
 - name: Guías de inicio rápido
   expanded: true
   items:

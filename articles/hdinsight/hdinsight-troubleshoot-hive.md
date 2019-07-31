@@ -103,7 +103,7 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 - [Propiedades de configuración de Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path">¿Cómo se analizan datos de Apache Tez DAG en una ruta crítica de clúster?</a>
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>¿Cómo se analizan datos de Apache Tez DAG en una ruta crítica de clúster?
 
 
 ### <a name="resolution-steps"></a>Pasos de la solución
