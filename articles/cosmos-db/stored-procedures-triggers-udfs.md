@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165575"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672585"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -37,7 +37,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 * **Encapsulación:** los procedimientos almacenados se pueden utilizar para agrupar la lógica en un lugar. La encapsulación agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual le permite desarrollar sus aplicaciones de forma independiente de los datos. Esta capa de abstracción es útil cuando los datos no tienen esquema y no tiene que administrar la adición de lógica adicional directamente en la aplicación. Esta abstracción le permite mantener seguros sus datos simplificando el acceso desde los scripts.
 
 > [!TIP]
-> Los procedimientos almacenados son más adecuados para las operaciones con mucha actividad de escritura. Al decidir dónde se deben utilizar procedimientos almacenados, se optimiza mediante la encapsulación de la cantidad máxima de posibles operaciones de escritura. Por lo general, los procedimientos almacenados no son el medio más eficaz para realizar una gran cantidad de operaciones de lectura, por lo que su uso para procesar por lotes un gran número de lecturas para devolver al cliente no dará como resultado el beneficio deseado.
+> Los procedimientos almacenados son más adecuados para las operaciones con un gran número de escrituras y que requieren una transacción en un valor de clave de partición. Al decidir si se deben usar procedimientos almacenados, se optimiza mediante la encapsulación de la cantidad máxima de operaciones de escritura posibles. Por lo general, los procedimientos almacenados no son el medio más eficaz para realizar una gran cantidad de operaciones de lectura o consulta, por lo que su uso para procesar por lotes un gran número de lecturas que devolver al cliente no dará como resultado el beneficio deseado. Para obtener el mejor rendimiento, estas operaciones con un gran número de lecturas deben realizarse en el lado cliente, mediante el SDK de Cosmos. 
 
 ## <a name="transactions"></a>Transacciones
 

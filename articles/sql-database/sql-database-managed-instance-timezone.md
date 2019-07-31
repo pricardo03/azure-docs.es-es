@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016391"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657987"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Zonas horarias en la Instancia administrada de Azure SQL Database
 
@@ -30,7 +30,9 @@ Si necesita interpretar la información de fecha y hora en una zona horaria dist
 
 ## <a name="supported-time-zones"></a>Zonas horarias admitidas
 
-Un conjunto de zonas horarias admitidas se hereda del sistema operativo subyacente de la instancia administrada. Se actualiza periódicamente para obtener nuevas definiciones de zona horaria y reflejar los cambios en las existentes. 
+Un conjunto de zonas horarias admitidas se hereda del sistema operativo subyacente de la instancia administrada. Se actualiza periódicamente para obtener nuevas definiciones de zona horaria y reflejar los cambios en las existentes.
+
+[La directiva de cambios de horario de verano y zona horaria](https://aka.ms/time) garantiza una precisión histórica de 2010 en adelante.
 
 Una lista con los nombres de las zonas horarias admitidas se expone a través de la vista [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) del sistema.
 
@@ -43,7 +45,7 @@ La zona horaria de una instancia administrada se puede configurar solo durante l
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Establezca la zona horaria a través de Azure Portal
 
-Al especificar parámetros para una nueva instancia, seleccione una zona horaria de la lista de zonas horarias admitidas. 
+Al especificar parámetros para una nueva instancia, seleccione una zona horaria de la lista de zonas horarias admitidas.
   
 ![Configuración de una zona horaria durante la creación de la instancia](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Puede restaurar un archivo de copia de seguridad o importar datos en una instanc
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Al realizar una restauración de un punto determinado, la hora a la que realizar la restauración se interpreta como hora UTC. Esta configuración evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.
+<del>Al realizar una restauración a un momento dado, la hora a la que realizar la restauración se interpreta como hora UTC. Esta configuración evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.<del>
+
+ >[!WARNING]
+  > El comportamiento actual no coincide con la instrucción anterior y la hora a la que se va a restaurar se interpreta según la zona horaria de la instancia administrada de origen de la que se toman las copias de seguridad automáticas de la base de datos. Estamos trabajando para corregir este comportamiento con el fin de interpretar el momento dado en el tiempo como hora UTC. Consulte [Problemas conocidos](sql-database-managed-instance-timezone.md#known-issues) para obtener más detalles.
 
 ### <a name="auto-failover-groups"></a>Grupos de conmutación por error automática
 
@@ -95,6 +100,21 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 
 - La zona horaria de una instancia administrada existente no se puede cambiar.
 - Los procesos externos que se inician desde los trabajos del Agente SQL Server no observan la zona horaria de la instancia.
+
+## <a name="known-issues"></a>Problemas conocidos
+
+Cuando se realiza una operación de restauración a un momento dado (PITR), la hora a la que se va a restaurar se interpreta según la zona horaria establecida en la instancia administrada de la que se toman las copias de seguridad automáticas de la base de datos, aunque la página del portal de PITR sugiera que la hora se interpreta como UTC.
+
+Ejemplo:
+
+Imagínese que la instancia de la que se toman las copias de seguridad automáticas tiene establecida la zona horaria Hora estándar del Este (UTC-5).
+La página del portal de la restauración a un momento dado sugiere que la hora a la que elige restaurar es la hora UTC:
+
+![PITR con la hora local mediante el portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+En cambio, la hora a la que se va a restaurar se interpreta realmente como hora estándar del Este y, en este ejemplo específico, la base de datos se restaurará al estado en que estaba a las 9 (hora estándar del Este) y no a la hora UTC.
+
+Si quiere realizar una restauración a un momento dado a un momento específico en la hora UTC, primero calcule la hora equivalente en la zona horaria de la instancia de origen y use esa hora en el portal o en el script de PowerShell o la CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de zonas horarias admitidas
 

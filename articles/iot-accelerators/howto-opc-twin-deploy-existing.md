@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fc70d140479be100e6aa52cf8105d3e466342cd7
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080501"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302656"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementación de OPC Twin en un proyecto existente
 
@@ -23,14 +23,14 @@ El microservicio OPC Twin facilita la comunicación entre los operadores de fáb
 
 El microservicio de registro de dispositivos de OPC UA proporciona acceso a las aplicaciones registradas de OPC UA y sus puntos de conexión. Los operadores y administradores pueden registrar y anular el registro de nuevas aplicaciones de OPC UA y examinar los existentes, incluidos sus puntos de conexión. Además de la administración de aplicaciones y puntos de conexión, el servicio de registro también cataloga los módulos registrados de IoT Edge de OPC Twin. La API del servicio le ofrece el control de la funcionalidad del módulo perimetral; por ejemplo, iniciar o detener la detección de servidores (servicios de análisis) o activar nuevos gemelos de punto de conexión a los que se puede acceder mediante el microservicio de OPC Twin.
 
-El núcleo del módulo es la identidad de supervisor. El supervisor administra el gemelo del punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante la API de registro de OPC UA correspondiente. Este gemelo de punto de conexión traduce el código JSON de OPC UA recibido del microservicio de OPC Twin que se ejecuta en la nube en mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivos OPC UA para su procesamiento y estos eventos generan actualizaciones del registro de OPC UA.  En este artículo se muestra cómo implementar el módulo de OPC Twin en un proyecto existente.
+El núcleo del módulo es la identidad de supervisor. El supervisor administra el gemelo del punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante la API de registro de OPC UA correspondiente. Este gemelo de punto de conexión traduce el código JSON de OPC UA recibido del microservicio de OPC Twin que se ejecuta en la nube a mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivos OPC UA para su procesamiento y estos eventos generan actualizaciones del registro de OPC UA.  En este artículo se muestra cómo implementar el módulo de OPC Twin en un proyecto existente.
 
 > [!NOTE]
 > Para obtener más información sobre las instrucciones y los detalles de la implementación, vea el [repositorio](https://github.com/Azure/azure-iiot-opc-twin-module) de GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que tiene las extensiones de PowerShell y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instaladas. Si aún no lo ha hecho, clone este repositorio de GitHub. Ejecute los siguientes comandos en PowerShell:
+Asegúrese de que tiene las extensiones de PowerShell y [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas. Si aún no lo ha hecho, clone este repositorio de GitHub. Ejecute los siguientes comandos en PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git
@@ -46,13 +46,13 @@ cd azure-iiot-components
     .\deploy.cmd
     ```
 
-2. Siga las indicaciones para asignar un nombre al grupo de recursos de la implementación y un nombre al sitio web.   El script implementa los microservicios y sus dependencias de la plataforma de Azure en el grupo de recursos de la suscripción de Azure.  El script también registra una aplicación en el inquilino de Azure Active Directory (AAD) para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.  Un ejemplo de lo que vería una vez implementada correctamente la solución:
+2. Siga las indicaciones para asignar un nombre al grupo de recursos de la implementación y un nombre al sitio web.   El script implementa los microservicios y sus dependencias de la plataforma de Azure en el grupo de recursos de la suscripción a Azure.  El script también registra una aplicación en el inquilino de Azure Active Directory (AAD) para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.  Un ejemplo de lo que vería una vez implementada correctamente la solución:
 
    ![Implementación de OPC Twin de IoT en un proyecto existente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
    La salida incluye la dirección URL del punto de conexión público. 
 
-3. Una vez que el script se complete correctamente, seleccione si quiere guardar el archivo .env.  Necesita el archivo de entorno .env si quiere conectarse al punto de conexión en la nube con herramientas como la consola o implementar módulos para el desarrollo y la depuración.
+3. Una vez que el script se complete correctamente, seleccione si quiere guardar el archivo `.env`.  Necesita el archivo de entorno `.env` si quiere conectarse al punto de conexión en la nube con herramientas como la consola o implementar módulos para el desarrollo y la depuración.
 
 ## <a name="troubleshooting-deployment-failures"></a>Solución de problemas con errores de implementación
 

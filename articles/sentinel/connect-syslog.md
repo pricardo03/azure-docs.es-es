@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee7b31a57bc9627776b9ca5445132a4662506134
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611329"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881067"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar su solución externa mediante Syslog
 
@@ -35,20 +35,31 @@ Puede conectar a Azure Sentinel cualquier dispositivo local que admita Syslog. E
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-La conexión de Syslog se logra mediante un Agente para Linux. El Agente para Linux recibe eventos del demonio de Syslog a través de UDP; pero en los casos en los que se espera que una máquina Linux recopile un gran volumen de eventos Syslog, como cuando un Agente para Linux recibe eventos de otros dispositivos, la configuración se modifica para que use el transporte TCP entre el demonio de Syslog y el Agente.
+Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.
+
+Para obtener más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+
+> [!NOTE]
+> El agente puede recopilar registros de varios orígenes, pero debe estar instalado en el equipo proxy dedicado.
 
 ## <a name="connect-your-syslog-appliance"></a>Conectar el dispositivo de Syslog
 
-1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y elija el icono de **Syslog**.
-2. Si la máquina Linux no está en Azure, descargue e instale el **Agente para Linux** de Azure Sentinel en el dispositivo. 
-1. Si está trabajando en Azure, seleccione o cree una máquina virtual en el área de trabajo de Azure Sentinel que esté dedicada a recibir mensajes de Syslog. Seleccione la máquina virtual en las áreas de trabajo de Azure Sentinel y haga clic en **Connect** (Conectar) en la parte superior del panel izquierdo.
-3. Haga clic en la opción **Configure the logs to be connected** (Configurar los registros que se van a conectar) de la configuración del conector de Syslog. 
-4. Haga clic en **Press here to open the configuration blade** (Presione aquí para abrir la hoja de configuración).
+1. En el portal de Azure Sentinel, haga clic en **Data connectors** (Conectores de datos), seleccione la línea **Syslog** en la tabla y, en el panel de Syslog situado a la derecha, haga clic en **Open connector page** (Abrir la página del conector).
+2. Si la máquina Linux se encuentra en Azure, seleccione **Download and install agent on Azure Linux virtual machine** (Descargar e instalar el agente en una máquina virtual Linux de Azure). En la ventana Máquinas virtuales, seleccione las máquinas en las que quiere instalar el agente y haga clic en **Conectar** en la parte superior.
+1. Si la máquina Linux no se encuentra en Azure, seleccione **Download and install agent on Linux non-Azure machine** (Descargar e instalar el agente en una máquina Linux que no es de Azure). En la ventana **Agente Directo**, copie el comando situado bajo **Descargar e incorporar Agent para Linux** y ejecútelo en el equipo. 
+1. En **Configure the logs to be connected** (Configurar los registros que se van a conectar), en la ventana de configuración del conector de Syslog, siga las instrucciones:
+    1. Haga clic en el vínculo **Open your workspace advanced settings configuration** (Abrir la configuración de las opciones avanzadas del área de trabajo). 
+    1. Seleccione **Datos**, seguido de **Syslog**.
+    1. Después, configure en la tabla los recursos que quiere que recopile Syslog. Debe agregar o seleccionar los recursos que su dispositivo de Syslog incluye en sus encabezados de registro. Puede ver esta configuración en el dispositivo de Syslog en Syslog-d en la carpeta /etc/rsyslog.d/security-config-omsagent.conf y en r-Syslog en /etc/syslog-ng/security-config-omsagent.conf. 
+       > [!NOTE]
+       > Si activa la casilla **Aplicar la configuración siguiente a mis máquinas**, esta configuración se aplicará a todas las máquinas Linux conectadas a esta área de trabajo. Puede ver esta configuración en la máquina de Syslog en 
+1. Haga clic en **Press here to open the configuration blade** (Presione aquí para abrir la hoja de configuración).
 1. Seleccione **Data** (Datos) y, después, **Syslog**.
    - Asegúrese de que cada recurso que se va a enviar mediante Syslog figura en la tabla. Establezca un nivel de gravedad en cada recurso que vaya a supervisar. Haga clic en **Aplicar**.
 1. En la máquina Syslog, asegúrese de que va a enviar esas instalaciones. 
 
-3. Para usar el esquema correspondiente en Log Analytics para encontrar registros de Syslog, busque **Syslog**.
+1. Para usar el esquema correspondiente en Log Analytics para encontrar registros de Syslog, busque **Syslog**.
+1. Puede usar la función de Kusto que se describe en [Uso de funciones en consultas de registros de Azure Monitor](../azure-monitor/log-query/functions.md) para analizar los mensajes de Syslog y guardarlos como una nueva función de Log Analytics y, luego, usar la función como un nuevo tipo de datos.
 
 
 

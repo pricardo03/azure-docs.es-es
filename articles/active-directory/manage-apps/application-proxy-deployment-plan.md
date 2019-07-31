@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108479"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625543"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -70,7 +70,8 @@ Deben cumplirse los siguientes requisitos principales para configurar e implemen
 
 * **Certificado público**: Si usa nombres de dominio personalizados, debe obtener un certificado público emitido por una entidad de certificación de confianza que no sea de Microsoft. Según los requisitos de la organización, obtener un certificado puede llevar algún tiempo y se recomienda comenzar el proceso lo antes posible. Azure Application Proxy admite certificados estándar, [comodín](application-proxy-wildcard.md) o basados en SAN.
 
-* **Requisitos de dominio**: Para usar el inicio de sesión único en las aplicaciones publicadas mediante la delegación restringida de Kerberos, se requiere que un host del conector esté unido al mismo dominio de AD que las aplicaciones que se están publicando. Para obtener más información sobre el tema, consulte [KCD para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) con Application Proxy. El servicio de conectores se ejecuta en el contexto del sistema local y no debe configurarse para usar una identidad personalizada.
+* **Requisitos de dominio**: El inicio de sesión único en las aplicaciones publicadas con la delegación restringida de Kerberos (KCD) requiere que el servidor que ejecuta el conector y el servidor que ejecuta la aplicación estén unidos a un dominio y formen parte del mismo dominio o los mismos dominios de confianza.
+Para obtener más información sobre el tema, consulte [KCD para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) con Application Proxy. El servicio de conectores se ejecuta en el contexto del sistema local y no debe configurarse para usar una identidad personalizada.
 
 * **Registros de DNS para direcciones URL**
 

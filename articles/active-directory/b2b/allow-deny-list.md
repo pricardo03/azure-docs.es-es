@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113222"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233875"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones
 
@@ -27,6 +27,7 @@ Puede usar una lista de permitidos o de denegación para permitir o bloquear las
 
 - Puede crear una lista de permitidos o una lista de denegación. No se pueden configurar ambos tipos de listas. De forma predeterminada, los dominios que no están en la lista de permitidos están en la de denegación y viceversa. 
 - Solo puede crear una directiva por organización. Puede actualizar la directiva para incluir más dominios, o puede eliminar la directiva para crear una nueva. 
+- El número de dominios que puede agregar a una lista de permitidos o de denegación solo se ve limitado por el tamaño de la directiva. El tamaño máximo de toda la directiva es de 25 KB (25 000 caracteres), que incluye la lista de permitidos o la lista de denegación y cualquier otro parámetro configurado para otras características.
 - Esta lista funciona con independencia de las listas de permitidos o bloqueados de OneDrive para la Empresa y SharePoint Online. Si quiere restringir el uso compartido individual de archivos en SharePoint Online, debe configurar una lista de permitidos o bloqueados para OneDrive para la Empresa y SharePoint Online. Para más información, consulte [Uso compartido de dominios restringidos en SharePoint Online y OneDrive para la Empresa](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - Esta lista no se aplica a usuarios externos que ya han canjeado la invitación. La lista se aplicará después de configurarla. Si una invitación de usuario está en estado pendiente y se define una directiva que bloquea su dominio, el intento del usuario para canjear la invitación producirá error.
 

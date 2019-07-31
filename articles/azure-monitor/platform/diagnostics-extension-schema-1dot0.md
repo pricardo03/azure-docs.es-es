@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237854"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.0
@@ -101,7 +101,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
 Atributos:
 
-|Atributo  |Type   |Obligatorio| Valor predeterminado | DESCRIPCIÓN|  
+|Atributo  |type   |Obligatorio| Valor predeterminado | DESCRIPCIÓN|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica el intervalo en el que el monitor de diagnóstico sondea los cambios de configuración de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Si proporciona un valor, no debe superar esta cantidad. |La cantidad total de almacenamiento del sistema de archivos asignada para todos los búferes de registro.|  
@@ -113,7 +113,7 @@ Elemento principal: Elemento DiagnosticMonitorConfiguration.
 
 Atributos:
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
@@ -126,7 +126,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
@@ -140,7 +140,7 @@ Elemento principal: Elemento DiagnosticMonitorConfiguration.
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
@@ -152,7 +152,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
@@ -164,7 +164,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
@@ -176,7 +176,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
@@ -193,7 +193,7 @@ Atributos:
 
 Atributos:
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
@@ -205,7 +205,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**path**|string|Necesario. La ruta de acceso absoluta al directorio que se va a supervisar.|  
 |**expandEnvironment**|boolean|Necesario. Si establece en **true**, las variables de entorno de la ruta de acceso se expanden.|  
@@ -217,7 +217,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**name**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
 |**relativePath**|string|Necesario. La ruta de acceso relativa al recurso local que se va a supervisar.|  
@@ -230,7 +230,7 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
@@ -242,7 +242,7 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Necesario. La ruta de acceso al contador de rendimiento que se va a recopilar.|  
 |**sampleRate**|duration|Necesario. La velocidad a la que se debe recopilar el contador de rendimiento.|  
@@ -254,7 +254,7 @@ Atributos:
 
   Atributos:
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
@@ -267,7 +267,7 @@ Atributos:
 
  Atributos:
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**name**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
 

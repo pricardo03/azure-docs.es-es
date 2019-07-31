@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61b5b96636ea12b5c63da657e006bd3121c34756
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244978"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852607"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
 ## <a name="overview"></a>Información general
-Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta. Son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad. Para obtener más información sobre el uso, consulte la sección [Creación y administración de alertas del registro de actividades](alerts-activity-log.md).
+Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](activity-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
 
 > [!NOTE]
 > **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
@@ -43,8 +43,7 @@ Las alertas del registro de actividad tienen algunas opciones en común:
     - Nivel de suscripción: por ejemplo, todas las máquinas virtuales de una suscripción (o) todos los recursos de una suscripción
 - **Grupo de recursos**: de forma predeterminada, la regla de alertas se guarda en el grupo de recursos que tiene el destino definido en el ámbito. El usuario también puede definir el grupo de recursos donde se debe almacenar la regla de alertas.
 - **Tipo de recurso**: Resource Manager ha definido el espacio de nombres para el destino de la alerta.
-
-- **Nombre de la operación**: el nombre de la operación de control de acceso basado en rol de Resource Manager.
+- **Nombre de la operación**: Nombre de la [operación de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado por el control de acceso basado en rol. No se pueden usar operaciones no registradas con Azure Resource Manager en una regla de alerta de registro de actividad.
 - **Nivel**: el nivel de gravedad del evento (Detallado, Informativo, Advertencia, Error o Crítico).
 - **Estado**: el estado del evento, normalmente Iniciado, Error o Correcto.
 - **Evento iniciado por**: También se denomina "llamador". La dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.
@@ -61,9 +60,8 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Obtener una [Introducción a las alertas](alerts-overview.md).
 - Obtenga información sobre la [creación y modificación de las alertas del registro de actividad](alerts-activity-log.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md).
 - Más información acerca de las [Notificaciones del estado del servicio](service-notifications.md).
-
-

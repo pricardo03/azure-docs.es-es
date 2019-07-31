@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476803"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253180"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway
 
@@ -79,7 +79,7 @@ No necesita conceder permisos de acceso en el nivel de suscripción para que los
 
 Antes de que intente crear cualquier recurso, asegúrese de que el proveedor de recursos está registrado en la suscripción. Si el proveedor de recursos no está registrado, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar al proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho, verá el siguiente error:
 
-*La suscripción <Subscription name> no tiene permisos para registrar a los siguientes proveedores de recursos: Microsoft.DataBoxEdge.*
+*La suscripción \<nombre de suscripción> no tiene permisos para registrar el proveedor de recursos: Microsoft.DataBoxEdge.*
 
 
 Para obtener una lista de los proveedores de recursos registrados en la suscripción actual, ejecute el siguiente comando:

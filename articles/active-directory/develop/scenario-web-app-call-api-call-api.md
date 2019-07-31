@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074641"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785456"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Aplicación web que llama a las API web: llamada a una API web
 
@@ -28,7 +28,18 @@ Ahora que dispone de un token, puede llamar a una API web protegida.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Este es un código simplificado de la acción de `HomeController`. Este código obtiene un token para llamar a Microsoft Graph. Se agregó este código de tiempo, que muestra cómo llamar a Microsoft Graph como API de REST.
+Este es un código simplificado de la acción de `HomeController`. Este código obtiene un token para llamar a Microsoft Graph. Se agregó este código de tiempo, que muestra cómo llamar a Microsoft Graph como API de REST. La URL de Graph API se proporciona en el archivo `appsettings.json` y se lee en una variable denominada `webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

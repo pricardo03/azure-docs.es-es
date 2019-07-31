@@ -1,6 +1,6 @@
 ---
 title: Actualización de imágenes del sistema con conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Aprenda a actualizar automáticamente la imagen del sistema operativo en instancias de máquinas virtuales con un conjunto de escalado.
+description: Aprenda a actualizar automáticamente la imagen del sistema operativo en instancias de máquina virtual de un conjunto de escalado
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: 007f2801efed8da4964808056563418dec7f64d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eeb689f90197830dad98c213849b2e82ba43bbf1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328823"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296350"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -35,6 +35,7 @@ La actualización automática del sistema operativo tiene las siguientes caracte
 - Puede rechazar las actualizaciones automáticas en cualquier momento (las actualizaciones de sistema operativo también se pueden iniciar manualmente).
 - El disco del sistema operativo de una máquina virtual se reemplaza por el nuevo disco de sistema operativo creado con la versión más reciente de la imagen. Las extensiones configuradas y los scripts de datos personalizados se ejecutan, mientras se conservan los discos de datos persistentes.
 - Se admite la [secuenciación de extensiones](virtual-machine-scale-sets-extension-sequencing.md).
+- La actualización automática de la imagen del sistema operativo se puede habilitar en un conjunto de escalado de cualquier tamaño.
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>¿Cómo funciona la actualización automática de imágenes del sistema operativo?
 
@@ -42,9 +43,9 @@ En una actualización se reemplaza el disco del sistema operativo de una máquin
 
 El proceso de actualización funciona de la manera siguiente:
 1. Antes de comenzar el proceso de actualización, el orquestador se asegurará de que no haya más del 20 % de las instancias de todo el conjunto de escalado en mal estado.
-2. El orquestador de actualización identifica el lote de instancias de máquina virtual para actualizar, donde un lote puede tener como máximo el 20 % del recuento total de instancias.
-3. El disco del sistema operativo del lote seleccionado de instancias de máquina virtual se sustituye por un nuevo disco del sistema operativo creado a partir de la última imagen, y todas las extensiones y configuraciones especificadas en el modelo del conjunto de escalado se aplican a la instancia actualizada.
-4. En conjuntos de escalado que tienen configurados sondeos de estado de la aplicación o la extensión Estado de la aplicación, la actualización espera hasta 5 minutos a que la instancia tenga un estado correcto antes de pasar a actualizar el siguiente lote.
+2. El orquestador de actualización identifica el lote de instancias de máquina virtual para actualizar, donde un lote puede tener como máximo el 20 % del recuento total de instancias. Para los conjuntos de escalado menores, con 5 o menos instancias, el tamaño del lote de actualización es una máquina virtual.
+3. El disco del sistema operativo del lote de máquinas virtuales seleccionado se sustituye por uno nuevo creado a partir de la imagen más reciente. Todas las extensiones y configuraciones especificadas en el modelo de conjunto de escalado se aplican a la instancia actualizada.
+4. En conjuntos de escalado que tienen configurados sondeos de estado de la aplicación o la extensión Estado de la aplicación, la actualización espera hasta 5 minutos a que la instancia tenga un estado correcto antes de pasar a actualizar el siguiente lote. Si una instancia no recupera su estado en 5 minutos después de la actualización, se restaura su disco del sistema operativo anterior de forma predeterminada.
 5. El orquestador de actualización también realiza un seguimiento del porcentaje de instancias que tienen un estado incorrecto después de una actualización. La actualización se detendrá si más del 20 % de las instancias actualizadas pasan a tener un estado incorrecto durante el proceso de actualización.
 6. El proceso anterior continúa hasta que se han actualizado todas las instancias del conjunto de escalado.
 
@@ -74,7 +75,18 @@ Las siguientes SKU se admiten actualmente (y periódicamente se agregan más):
 
 - La propiedad *versión* de la imagen de plataforma debe establecerse en *más reciente*.
 - Use sondeos de estado de la aplicación o la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md) con conjuntos de escalado que no sean de Service Fabric.
+- Use la versión 2018-10-01 o una posterior de Compute API.
 - Asegúrese de que los recursos externos especificados en el modelo del conjunto de escalado están disponibles y actualizados. Por ejemplo, el URI de SAS para arrancar la carga en las propiedades de extensión de máquina virtual, la carga de la cuenta de almacenamiento, la referencia a los secretos del modelo, etc.
+- Para los conjuntos de escalado de máquinas virtuales Windows, a partir de la versión 2019-03-01 de Compute API, la propiedad *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* debe establecerse en *false* en la definición del modelo de conjunto de escalado. La propiedad anterior habilita las actualizaciones en la máquina virtual, donde "Windows Update" aplica las revisiones del sistema operativo sin reemplazar el disco de este. Con las actualizaciones automáticas de la imagen del sistema operativo habilitadas en el conjunto de escalado, no se requieren actualizaciones adicionales de "Windows Update".
+
+### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
+
+Si utiliza Service Fabric, asegúrese de que se cumplen las condiciones siguientes:
+-   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
+-   La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
+-   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
+
+Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configuración de la actualización automática de imágenes del sistema operativo
 Para configurar la actualización automática de las imágenes del sistema operativo, asegúrese de que la propiedad *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* está establecida en *true* en la definición del modelo del conjunto de escalado.
@@ -99,22 +111,22 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myVMSS* en el grupo de recursos llamado *myResourceGroup*:
+Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myVMSS* en el grupo de recursos llamado *myResourceGroup*:
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
-az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
 
 ## <a name="using-application-health-probes"></a>Uso de sondeos de estado de aplicaciones
 
-Durante una actualización del sistema operativo, las instancias de máquina virtual de un conjunto de escalado se actualizan en lote de uno en uno. La actualización debe continuar solo si la aplicación cliente se encuentra en buen estado en las instancias de máquina virtual actualizadas. Se recomienda que la aplicación proporcione señales de mantenimiento al motor de actualización de sistema operativo del conjunto de escalado. De forma predeterminada, durante las actualizaciones del sistema operativo, la plataforma se fija en el estado de energía de la máquina virtual y el estado de aprovisionamiento de la extensión para determinar si una instancia de máquina virtual está en buen estado después de una actualización. Durante la actualización del sistema operativo de una instancia de máquina virtual, se reemplaza el disco del sistema operativo en una instancia de máquina virtual por un nuevo disco basado en la versión más reciente de la imagen. Una vez finalizada la actualización del sistema operativo, las extensiones configuradas se ejecutan en estas máquinas virtuales. Se considera que el estado de la aplicación es correcto solo cuando todas las extensiones de la instancia se han aprovisionado correctamente.
+Durante una actualización del sistema operativo, las instancias de máquina virtual de un conjunto de escalado se actualizan en lote de uno en uno. La actualización debe continuar solo si la aplicación cliente se encuentra en buen estado en las instancias de máquina virtual actualizadas. Se recomienda que la aplicación proporcione señales de estado al motor de actualización de sistema operativo del conjunto de escalado. De forma predeterminada, durante las actualizaciones del sistema operativo, la plataforma se fija en el estado de energía de la máquina virtual y el estado de aprovisionamiento de la extensión para determinar si una instancia de máquina virtual está en buen estado después de una actualización. Durante la actualización del sistema operativo de una instancia de máquina virtual, se reemplaza el disco del sistema operativo en una instancia de máquina virtual por un nuevo disco basado en la versión más reciente de la imagen. Una vez finalizada la actualización del sistema operativo, las extensiones configuradas se ejecutan en estas máquinas virtuales. Se considera que el estado de la aplicación es correcto solo cuando todas las extensiones de la instancia se han aprovisionado correctamente.
 
 Un conjunto de escalado puede configurarse opcionalmente con sondeos de estado de aplicación para proporcionar a la plataforma información precisa sobre el estado actual de la aplicación. Los sondeos de estado de aplicación son sondeos de Load Balancer personalizados que se usan como una señal de estado. La aplicación que se ejecuta en una instancia de máquina virtual del conjunto de escalado puede responder a solicitudes HTTP o TCP externas para indicar si el mantenimiento es correcto. Para obtener más información sobre cómo funcionan los sondeos de Load Balancer personalizados, consulte [Descripción de los sondeos del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Aunque no es necesario un sondeo de estado de la aplicación en conjuntos de escalado de Service Fabric, sí es recomendable. Los conjuntos de escalado que no son de Service Fabric requieren sondeos de estado de la aplicación de Load Balancer o la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md).
 
@@ -159,7 +171,7 @@ Hay varias maneras de implementar la extensión Estado de la aplicación en los 
 Puede comprobar el historial de la actualización más reciente del sistema operativo realizada en el conjunto de escalado con Azure PowerShell, la CLI de Azure 2.0 o las API REST. Puede obtener el historial de los últimos cinco intentos de actualización del sistema operativo realizados en los últimos dos meses.
 
 ### <a name="rest-api"></a>API DE REST
-En el ejemplo siguiente se usa la [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para comprobar el estado del conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
+En el ejemplo siguiente se usa la [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para comprobar el estado del conjunto de escalado denominado *ScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
@@ -203,22 +215,22 @@ La llamada GET devuelve propiedades similares a la salida del ejemplo siguiente:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
+Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -OSUpgradeHistory
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
-az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
 ```
 
 ## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>¿Cómo obtener la versión más reciente de una imagen del sistema operativo de una plataforma?
 
-Puede obtener las versiones de las imágenes para la actualización automática del sistema operativo compatibles con las SKU utilizando los ejemplos siguientes:
+Puede obtener las versiones de las imágenes disponibles para la actualización automática del sistema operativo compatibles con las SKU utilizando los ejemplos siguientes:
 
 ### <a name="rest-api"></a>API DE REST
 ```
@@ -233,6 +245,35 @@ Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 ```azurecli-interactive
 az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
+```
+
+## <a name="manually-trigger-os-image-upgrades"></a>Desencadenamiento manual de las actualizaciones de imagen del sistema operativo
+Con la actualización automática de la imagen del sistema operativo habilitada en el conjunto de escalado, no es necesario desencadenarlas manualmente. El orquestador de actualización del sistema operativo aplicará automáticamente la última versión disponible de la imagen a las instancias del conjunto de escalado sin intervención manual.
+
+En casos concretos en los que no desee esperar a que el orquestador aplique la imagen más reciente, puede desencadenar manualmente una actualización de la imagen del sistema operativo mediante los siguientes ejemplos.
+
+> [!NOTE]
+> El desencadenador manual de la actualización de la imagen del sistema operativo no proporciona funciones de reversión automática. Si una instancia no recupera su estado después de una actualización, no se puede restaurar el disco del sistema operativo anterior.
+
+### <a name="rest-api"></a>API DE REST
+Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen de la plataforma. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+
+```
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Use el cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+
+```azurepowershell-interactive
+Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para comprobar el historial de actualizaciones del sistema operativo del conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+
+```azurecli-interactive
+az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
 
 ## <a name="deploy-with-a-template"></a>Implementación con una plantilla

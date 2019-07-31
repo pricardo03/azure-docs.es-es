@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388849"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666256"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -31,10 +31,6 @@ Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante 
 
 ## <a name="devicetable"></a>Dispositivos VPN validados y guías de configuración de dispositivos
 
-> [!NOTE]
-> Al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.
->
-
 En colaboración con proveedores de dispositivos, hemos validado un conjunto de dispositivos VPN estándar. Todos los dispositivos de las familias de dispositivos en la lista siguiente deben trabajar con puertas de enlace de VPN. Consulte la información [acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para entender el tipo de VPN utilizado (PolicyBased o RouteBased) para la solución VPN Gateway que desea configurar.
 
 Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada. Los vínculos a las instrucciones de configuración se proporcionan dentro de lo posible. Para obtener soporte para los dispositivos VPN, póngase en contacto con el fabricante.
@@ -48,6 +44,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Punto de comprobación |Puerta de enlace de seguridad |R80.10 |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Compatible |[Guía de configuración*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Compatible |Compatible |
+| Cisco | CSR | RouteBased: IOS-XE 16.10 | | [Script de configuración](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Compatible |Compatible |
 | Cisco |Meraki |N/D |No compatible |No compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Guía de configuración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |

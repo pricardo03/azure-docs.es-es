@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60238062"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
@@ -610,12 +610,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define la configuración del búfer para los registros básicos de Azure.  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
-|**scheduledTransferLogLevelFilter**|**cadena**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
-|**sinks** |**cadena**| Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Application Insights o Event Hubs.|  
+|**sinks** |**string**| Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Application Insights o Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -642,11 +642,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributo|Type|DESCRIPCIÓN|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**name**|string|Cadena que identifica el nombre de receptor.|  
 
-|Elemento|Type|DESCRIPCIÓN|  
+|Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Se usa solo al enviar datos a Application Insights. Contiene la clave de instrumentación para una cuenta activa de Application Insights a la que tiene acceso.|  
 |**Channels**|string|Uno para cada filtrado adicional transmitido|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define los filtros para los flujos de datos de registro que se pasan a través de un receptor.  
 
-|Elemento|Type|DESCRIPCIÓN|  
+|Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
 |**Channel**|string|Consulte la descripción en cualquier parte de esta página.|  
 
@@ -669,10 +669,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributos|Type|DESCRIPCIÓN|  
+|Atributos|type|DESCRIPCIÓN|  
 |----------------|----------|-----------------|  
-|**logLevel**|**cadena**|Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
-|**name**|**cadena**|Un nombre único del canal al que se hace referencia|  
+|**logLevel**|**string**|Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**name**|**string**|Un nombre único del canal al que se hace referencia|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

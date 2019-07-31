@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235802"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797720"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -31,7 +31,8 @@ Consulte [estas plantillas de Microsoft Flow](https://aka.ms/iotcentralflowtempl
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una aplicación de pago por uso
-- Una cuenta personal, profesional o educativa de Microsoft para iniciar sesión en Flow ([más información sobre los planes de Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Una cuenta personal, profesional o educativa de Microsoft para usar Microsoft Flow ([más información sobre los planes de Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Una cuenta profesional o educativa para usar el conector de Azure IoT Central
 
 ## <a name="trigger-a-workflow"></a>Desencadenamiento de un flujo de trabajo
 
@@ -45,7 +46,12 @@ En esta sección se muestra cómo desencadenar una notificación móvil en la ap
 
     ![Plantillas de Microsoft Flow disponibles](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Se le pedirá que inicie sesión en los conectores en la plantilla elegida. Una vez que los conectores hayan iniciado sesión, se abrirá el diseñador para que pueda crear el flujo de trabajo. El flujo de trabajo tiene un desencadenador de IoT Central que ya tiene rellenados su Aplicación y Regla.
+1. Se le pedirá que inicie sesión en los conectores en la plantilla elegida. 
+
+    > [!NOTE]
+    > Para usar el conector de Azure IoT Central, debe iniciar sesión con una cuenta de Azure Active Directory (cuenta profesional o educativa). El conector de Azure IoT Central no admite las cuentas personales (por ejemplo, abc@outlook.com o abc@live.com).
+
+    Una vez que haya iniciado sesión en los conectores, se abrirá el diseñador para que pueda compilar el flujo de trabajo. El flujo de trabajo tiene un desencadenador de IoT Central que ya tiene rellenados su Aplicación y Regla.
 
 1. Para personalizar el flujo de trabajo, personalice la información que se pasa a la acción y agregue nuevas acciones. En este ejemplo, la acción es **Notifications - Send me a mobile notification** (Notificaciones: enviarme una notificación móvil). Puede incluir *Contenido dinámico* de su regla de IoT Central, difundiendo información importante como el nombre de dispositivo y la marca de tiempo en su notificación.
 

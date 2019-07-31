@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952887"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812920"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -43,6 +43,12 @@ Para un comportamiento determinista, establezca el tiempo que estará activo el 
 
 De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
 
+## <a name="delayed-delivery"></a>Entrega retrasada
+
+Cuando un punto de conexión experimenta errores de entrega, Event Grid comienza a retrasar la entrega y a reintentar los eventos a ese punto de conexión. Por ejemplo, si se produce un error en los diez primeros eventos publicados en un punto de conexión, Event Grid asumirá que el punto de conexión está experimentando problemas y retrasará todos los reintentos posteriores y las *nuevas entregas* durante algún tiempo; en algunos casos, hasta varias horas.
+
+El propósito funcional de la entrega retrasada es proteger los puntos de conexión incorrectos, así como el sistema Event Grid. Sin los mecanismos de retroceso y el retraso de la entrega a puntos de conexión incorrectos, la directiva de reintentos de Event Grid y las funcionalidades del volumen pueden sobrecargar fácilmente un sistema.
+
 ## <a name="dead-letter-events"></a>Eventos fallidos
 
 Si Event Grid no puede entregar un evento, puede enviar el evento no entregado a una cuenta de almacenamiento. Este proceso se conoce como colas de eventos fallidos. De forma predeterminada, Event Grid no tiene activada esta opción. Para habilitarla, debe especificar una cuenta de almacenamiento para contener los eventos no entregados al crear la suscripción a eventos. Puede extraer eventos de esta cuenta de almacenamiento para resolver las entregas.
@@ -63,25 +69,29 @@ Event Grid usa códigos de respuesta HTTP para acusar recibo de eventos.
 
 ### <a name="success-codes"></a>Códigos de éxito
 
-Los siguientes códigos de respuesta HTTP response indican que un evento se ha entregado correctamente en el webhook. Event Grid considera la entrega finalizada.
+Event Grid **solo** considera entregas correctas los siguientes códigos de respuesta HTTP. El resto de los códigos de estado se consideran entregas con errores y se reintentarán o procesarán como entregas devueltas. Al recibir un código de estado correcto, Event Grid considera que la entrega ha finalizado.
 
 - 200 OK
+- 201 Creado
 - 202 - Aceptado
+- 203 Información no autoritativa
+- 204 No Content
 
 ### <a name="failure-codes"></a>Códigos de error
 
-Los siguientes códigos de respuesta HTTP indican que el intento de entrega de un evento no se ha realizado.
+Todos los demás códigos que no están en el conjunto anterior (200-204) se consideran errores y se reintentarán. Algunos tienen directivas de reintento específicas, que se describen a continuación y todos las demás siguen el modelo de interrupción exponencial estándar. Es importante recordar que, debido a la naturaleza altamente paralela de la arquitectura de Event Grid, el comportamiento de reintento no es determinista. 
 
-- 400 - Solicitud incorrecta
-- 401 No autorizado
-- 404 No encontrado
-- 408 - Tiempo de espera de solicitud
-- 413 Entidad de solicitud demasiado larga
-- 414 - URI de solicitud demasiado largo
-- 429 Demasiadas solicitudes
-- Error de servidor interno 500
-- Servicio no disponible 503
-- Tiempo de espera de puerta de enlace 504
+| status code | Comportamiento de reintento |
+| ------------|----------------|
+| 400 - Solicitud incorrecta | Reintentar después de 5 minutos o más (procesar inmediatamente como entrega devuelta si está configurada) |
+| 401 No autorizado | Reintentar después de 5 minutos o más |
+| 403 Prohibido | Reintentar después de 5 minutos o más |
+| 404 No encontrado | Reintentar después de 5 minutos o más |
+| Tiempo de espera de solicitud 408 | Reintentar después de 2 minutos o más |
+| 413 Entidad de solicitud demasiado larga | Reintentar después de 10 segundos o más (procesar inmediatamente como entrega devuelta si está configurada) |
+| Servicio no disponible 503 | Reintentar después de 30 segundos o más |
+| Todos los demás | Reintentar después de 10 segundos o más |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

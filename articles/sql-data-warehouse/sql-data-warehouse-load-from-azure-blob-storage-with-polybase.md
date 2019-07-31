@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244478"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595516"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carga de datos de Contoso Retail en Azure SQL Data Warehouse
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá lo siguiente:
 3. Realización de optimizaciones una vez finalizada la carga
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una instancia de SQL Data Warehouse. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Create a SQL Data Warehouse and set server-level firewall rule][Create a SQL Data Warehouse] (Creación de una instancia de SQL Data Warehouse y establecimiento de regla de firewall a nivel de servidor).
+Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una instancia de SQL Data Warehouse. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de una instancia de SQL Data Warehouse y establecimiento de una regla de firewall a nivel de servidor][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Configuración del origen de datos
 PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objeto externo se almacenan en SQL Data Warehouse. Los datos se almacenan externamente.
@@ -213,11 +213,11 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Carga de los datos en nuevas tablas
-Para cargar datos de Azure Blob Storage y en la tabla del almacenamiento de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. La carga con CTAS aprovecha las tablas externas de tipos rigurosos que ha creado. Para cargar los datos en nuevas tablas, utilice una instrucción [CTAS][CTAS] por tabla. 
+Para cargar datos de Azure Blob Storage en la tabla del almacenamiento de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] por tabla. CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. 
  
-CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
+Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa. En este ejemplo, creamos la tabla de dimensiones y la de hechos como tablas hash distribuidas. 4.3. Seguimiento del progreso de carga
 
-En este ejemplo, creamos la tabla de dimensiones y la de hechos como tablas hash distribuidas. 
+Puede seguir el progreso de la carga con las vistas de administración dinámica (DMV). 
 
 ```sql
 SELECT GETDATE();
@@ -227,8 +227,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3. Seguimiento del progreso de carga
-Puede seguir el progreso de la carga con las vistas de administración dinámica (DMV). 
+### <a name="43-track-the-load-progress"></a>5. Optimización de compresión de almacén de columnas
+De forma predeterminada, SQL Data Warehouse almacena la tabla como índice de almacén de columnas agrupado. 
 
 ```sql
 -- To see all requests
@@ -263,10 +263,10 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. Optimización de compresión de almacén de columnas
-De forma predeterminada, SQL Data Warehouse almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
+## <a name="5-optimize-columnstore-compression"></a>Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.
+Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].  Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas. Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte la sección sobre [administración de índices de almacén de columnas][manage columnstore indexes] .
 
-Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas. 
+6. Optimización de estadísticas 
 
 ```sql
 SELECT GETDATE();
@@ -276,14 +276,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
+Es mejor crear estadísticas de columna única inmediatamente después de una carga.
 
-## <a name="6-optimize-statistics"></a>6. Optimización de estadísticas
-Es mejor crear estadísticas de columna única inmediatamente después de una carga. Si sabe que algunas columnas no van a estar en predicados de consulta, puede omitir la creación de estadísticas en dichas columnas. Si crea estadísticas de columna única en cada columna, la recopilación de todas las estadísticas puede llevar mucho tiempo. 
+## <a name="6-optimize-statistics"></a>Si sabe que algunas columnas no van a estar en predicados de consulta, puede omitir la creación de estadísticas en dichas columnas.
+Si crea estadísticas de columna única en cada columna, la recopilación de todas las estadísticas puede llevar mucho tiempo. Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` del artículo sobre [estadísticas][statistics]. El ejemplo siguiente es un buen punto de partida para la creación de estadísticas. 
 
-Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` en el artículo sobre [estadísticas][statistics].
+Crea estadísticas de columna única en cada una de las columnas de la tabla de dimensiones y en cada una de las columnas de combinación de las tablas de hechos.
 
-El ejemplo siguiente es un buen punto de partida para la creación de estadísticas. Crea estadísticas de columna única en cada una de las columnas de la tabla de dimensiones y en cada una de las columnas de combinación de las tablas de hechos. Siempre puede agregar estadísticas de columna única o de varias columnas a otras columnas de la tabla de hechos más adelante.
+Siempre puede agregar estadísticas de columna única o de varias columnas a otras columnas de la tabla de hechos más adelante. Logro conseguido. Ha cargado correctamente datos públicos en Azure SQL Data Warehouse.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -327,10 +327,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a>Logro conseguido.
-Ha cargado correctamente datos públicos en Azure SQL Data Warehouse. Buen trabajo.
-
+## <a name="achievement-unlocked"></a>Buen trabajo.
 Ya puede empezar a consultar las tablas para explorar los datos. Ejecute la consulta siguiente para averiguar las ventas totales por marca:
+
+Pasos siguientes Para cargar el conjunto de datos completo, ejecute la [carga del esquema Contoso Retail Data Warehouse completo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) de ejemplo del repositorio de ejemplos de Microsoft SQL Server.
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -340,10 +340,10 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-Para cargar el conjunto de datos completo, ejecute la [carga del esquema Contoso Retail Data Warehouse completo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) de ejemplo del repositorio de ejemplos de Microsoft SQL Server.
+## <a name="next-steps"></a>Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][SQL Data Warehouse development overview].
+To load the full data set, run the example <bpt id="p1">[</bpt>load the full Contoso Retail Data Warehouse<ept id="p1">](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md)</ept> from the Microsoft SQL Server Samples repository.
 
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][SQL Data Warehouse development overview].
+For more development tips, see <bpt id="p1">[</bpt>SQL Data Warehouse development overview<ept id="p1">][SQL Data Warehouse development overview]</ept>.
 
 <!--Image references-->
 

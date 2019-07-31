@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417699"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798695"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de la versión de Azure SQL Data Warehouse
 
@@ -25,9 +25,20 @@ En este artículo se resumen las nuevas características y mejoras de las versio
 
 Puesto que se están implementando nuevas características en todas las regiones, compruebe la versión implementada en su instancia y las notas de la versión más recientes de Azure SQL DW para ver la disponibilidad de las características. Para comprobar la versión de Azure SQL DW, conéctese a su almacenamiento de datos a través de SQL Server Management Studio (SSMS) y ejecute `SELECT @@VERSION AS 'SQL Data Warehouse';` para devolver la versión actual de Azure SQL DW.
 
-Salida de ejemplo: ![Versión de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Salida de ejemplo:
+
+![Versión de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Use la fecha identificada para confirmar qué versión se ha aplicado a su instancia de Azure SQL DW.
+
+## <a name="july-2019"></a>Julio de 2019
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|**Vista materializada (versión preliminar)**|Una vista materializada conserva los datos que ha devuelto la consulta de visualización de definición y se actualiza automáticamente a medida que cambian los datos en las tablas subyacentes. Mejora el rendimiento de las consultas complejas (por lo general, consultas con combinaciones y agregaciones), a la vez que ofrece operaciones de mantenimiento simples. Para más información, consulte: </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Instrucciones de T-SQL compatibles con Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**Compatibilidad con T-SQL adicional**|El área expuesta del lenguaje T-SQL para SQL Data Warehouse se ha ampliado para incluir la compatibilidad con: </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Almacenamiento en caché del conjunto de resultados (versión preliminar)**|Comandos DBCC agregados para administrar la caché del conjunto de resultados anunciada previamente. Para más información, consulte: </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Vea también la nueva columna result_set_cache en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest), en la que se muestra cuándo una consulta ejecutada ha usado la caché del conjunto de resultados.|
+|**Índice de almacén de columnas agrupado ordenado (vista previa)**|Se ha agregado una nueva columna, column_store_order_ordinal, a [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) para identificar el orden de las columnas en un índice de almacén de columnas en clúster ordenado.|
 
 ## <a name="may-2019"></a>Mayo de 2019
 

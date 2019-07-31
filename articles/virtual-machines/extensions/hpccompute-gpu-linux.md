@@ -4,7 +4,7 @@ description: Extensión de Microsoft Azure para instalar controladores de GPU de
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683168"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706711"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683168"
 
 Esta extensión instala los controladores de GPU de NVIDIA en VMs de serie N de Linux. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
+Puede consultar [aquí](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 También se dispone de una extensión para instalar controladores de GPU de NVIDIA en [MVs de la serie N para Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -69,13 +71,13 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| Tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Configuración
@@ -85,7 +87,7 @@ Todos los parámetros son opcionales. El comportamiento predeterminado consiste 
 | NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Actualice el kernel, incluso si no es necesario para la instalación del controlador | false | true, false | boolean |
-| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | más reciente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | más reciente | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale el kit de herramientas CUDA. Pertinente solo para las máquinas virtuales de la serie NC/ND. | true | true, false | boolean |
 
 
@@ -135,7 +137,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 El siguiente ejemplo refleja los ejemplos anteriores de PowerShell y Azure Resource Manager y también agrega una configuración personalizada de ejemplo para la instalación del controlador no predeterminado. En concreto, actualiza el kernel del sistema operativo e instala un controlador específico para la versión del kit de herramientas CUDA.
 

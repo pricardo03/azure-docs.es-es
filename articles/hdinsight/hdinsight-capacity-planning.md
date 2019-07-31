@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237153"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786511"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -82,7 +82,7 @@ La cantidad de nodos de una máquina virtual determina la escala de un clúster.
 
 Dependiendo del tipo de clúster, aumentar el número de nodos de trabajo agrega capacidad de cálculo adicional (por ejemplo, más núcleos), pero también puede agregar la cantidad total de memoria necesaria para que todo el clúster admita el almacenamiento en memoria de los datos procesados. Al igual que sucede con la elección del tamaño y el tipo de máquina virtual, la selección de la escala correcta del clúster suele realizarse de forma empírica con la utilización de cargas de trabajo simuladas o consultas de valores controlados.
 
-Puede escalar horizontalmente el clúster para satisfacer los picos de demandas de carga y, después, volver a reducir verticalmente cuando dichos nodos adicionales ya no sean necesarios. Para más información, consulte [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
+Puede escalar horizontalmente el clúster para satisfacer los picos de demandas de carga y, después, volver a reducir verticalmente cuando dichos nodos adicionales ya no sean necesarios. La [característica de escalabilidad automática](hdinsight-autoscale-clusters.md) le permite escalar automáticamente el clúster en función de las métricas y los intervalos predeterminados. Para obtener más información sobre cómo escalar los clústeres de forma manual, consulte [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida del clúster
 

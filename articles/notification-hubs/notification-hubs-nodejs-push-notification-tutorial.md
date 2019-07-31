@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061599"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706225"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 
@@ -46,7 +46,7 @@ Azure Notification Hubs proporciona una infraestructura multiplataforma escalabl
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 
-El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, vea [Creación de una aplicación web de Node.js en Azure][nodejswebsite], [Servicio en la nube de Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix][webmatrix].
+El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si quiere instrucciones sobre cómo crear una aplicación Node.js, vea [Creación de una aplicación web de Node.js en Azure][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service] mediante Windows PowerShell o [Sitio web con WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configuración de la aplicación para usar Notification Hubs
 
@@ -106,7 +106,7 @@ El objeto `GcmService` proporciona un método `send` que se puede usar para envi
 - **Payload** : el código JSON del mensaje o la carga útil de la cadena sin formato.
 - **Callback** : función de devolución de llamada.
 
-Para más información sobre el formato de carga útil, consulte la sección dedicada a la **carga útil** del documento sobre [implementación del servidor de GCM](https://developers.google.com/cloud-messaging/) .
+Para obtener más información sobre el formato de carga, consulte la [documentación de Payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 El código siguiente usa la instancia `GcmService` expuesta por `NotificationHubService` para enviar una notificación push a todos los clientes registrados.
 

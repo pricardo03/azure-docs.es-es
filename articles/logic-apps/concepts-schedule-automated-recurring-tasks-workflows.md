@@ -9,18 +9,23 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 7f15dc5b28a44dc8405e2f0524913e6012ebe380
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7716c477cea2200e6fee901f7b5f63cd4b833bd7
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356045"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232682"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
-Logic Apps le ayuda a crear y ejecutar tareas y procesos periódicos y automatizados según una programación. Al crear un flujo de trabajo de la aplicación lógica que comienza con un desencadenador integrado de periodicidad o de ventana deslizante, que son disparadores de tipo programación, puede ejecutar tareas inmediatamente, en un momento posterior o en un intervalo periódico. Puede llamar a servicios dentro y fuera de Azure, como los puntos de conexión HTTP o HTTPS, publicar mensajes en servicios de Azure, como Azure Storage y Azure Service Bus, u obtener archivos cargados en un recurso compartido de archivos. Con el desencadenador de periodicidad, también puede configurar programaciones complejas y periodicidades avanzadas para ejecutar tareas. Para obtener más información sobre los desencadenadores y las acciones de programación integrados, consulte [Programar y ejecutar tareas y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Logic Apps le ayuda a crear y ejecutar tareas y procesos periódicos y automatizados según una programación. Al crear un flujo de trabajo de aplicación lógica que comienza con un desencadenador de periodicidad o un integrador de ventana deslizante integrado, que son desencadenadores del tipo programación, puede ejecutar tareas inmediatamente, en un momento posterior o en un intervalo periódico. Puede llamar a servicios dentro y fuera de Azure, como los puntos de conexión HTTP o HTTPS, publicar mensajes en servicios de Azure, como Azure Storage y Azure Service Bus, u obtener archivos cargados en un recurso compartido de archivos. Con el desencadenador de periodicidad, también puede configurar programaciones complejas y periodicidades avanzadas para ejecutar tareas. Para más información acerca de los desencadenadores y las acciones de programación integrados, consulte [Desencadenadores de programación](#schedule-triggers) y [Acciones de programación](#schedule-actions). 
 
-A continuación, le proporcionamos algunos ejemplos que muestran los tipos de tareas que puede ejecutar:
+> [!TIP]
+> Puede programar y ejecutar cargas de trabajo periódicas sin necesidad de crear una aplicación lógica independiente para cada trabajo programado y ejecutarla en el [límite de flujos de trabajo por región y suscripción](../logic-apps/logic-apps-limits-and-config.md#definition-limits). En su lugar, puede usar el patrón de la aplicación lógica que se crea mediante [la plantilla de inicio rápido de Azure: programador de trabajos de Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+>
+> La plantilla del programador de trabajos de Logic Apps crea una aplicación lógica CreateTimerJob que llama a una aplicación lógica TimerJob. Luego, puede llamar a la aplicación lógica CreateTimerJob como una API, para lo que debe realizar una solicitud HTTP y usar una programación como entrada de dicha solicitud. En cada llamada a la aplicación lógica CreateTimerJob se llama también a la aplicación lógica TimerJob, que crea una instancia de TimerJob que se ejecuta continuamente según la programación especificada, o hasta que se alcance un límite especificado. De ese modo, puede ejecutar tantas instancias de TimerJob como desee sin preocuparse por los límites del flujo de trabajo, ya que las instancias no son definiciones o recursos individuales del flujo de trabajo de la aplicación lógica.
+
+En esta lista se muestran varias tareas de ejemplo que se pueden ejecutar con los desencadenadores de programación integrados:
 
 * Obtenga datos internos, por ejemplo, mediante la ejecución de un procedimiento almacenado de SQL todos los días.
 
@@ -42,15 +47,19 @@ También puede usar las acciones integradas de programación para pausar el fluj
 
 En este artículo se describen las funcionalidades de los desencadenadores y las acciones de programación integrados.
 
+<a name="schedule-triggers"></a>
+
 ## <a name="schedule-triggers"></a>Programación de desencadenadores
 
-Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o de ventana deslizante, que no están asociados con ningún servicio o sistema específicos, por ejemplo, Office 365 Outlook o SQL Server. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos y horas para ambos desencadenadores, o el número de días, semanas o meses para el desencadenador de periodicidad. También puede establecer la fecha de inicio y la hora, así como la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea y ejecuta una instancia de flujo de trabajo nueva para la aplicación lógica.
+Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o el de ventana deslizante, que no están asociados con ningún servicio o sistema específicos, por ejemplo, Office 365 Outlook o SQL Server. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos y horas para ambos desencadenadores, o el número de días, semanas o meses para el desencadenador de periodicidad. También puede establecer la fecha de inicio y la hora, así como la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea una instancia de flujo de trabajo para la aplicación lógica y la ejecuta.
 
 Las diferencias entre estos desencadenadores son las siguientes:
 
 * **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si se pierden las periodicidades, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado. También puede establecer una fecha de inicio y una hora, así como la zona horaria. Si selecciona "Día", puede especificar horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona "Semana", también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
 
 * **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no tiene opciones para especificar los días, las semanas y los meses, ñas horas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
+
+<a name="schedule-actions"></a>
 
 ## <a name="schedule-actions"></a>Programación de acciones
 
@@ -64,7 +73,7 @@ Después de realizar cualquier acción en el flujo de trabajo de la aplicación 
 
 <a name="start-time"></a>
 
-A continuación, se presentan algunos patrones que muestran cómo puede controlar la periodicidad con la fecha y hora de inicio, además de cómo los servicios de Logic Apps ejecutan estas periodicidades:
+Estos son algunos patrones que muestran no solo cómo se puede controlar la periodicidad con la fecha y hora de inicio, sino también la forma en que el servicio Logic Apps ejecuta estas periodicidades:
 
 | Hora de inicio | Periodicidad sin programación | Periodicidad con programación (desencadenador de periodicidad solo) |
 |------------|-----------------------------|----------------------------------------------------|
@@ -75,11 +84,11 @@ A continuación, se presentan algunos patrones que muestran cómo puede controla
 
 *Ejemplo de una hora de inicio anterior con periodicidad, pero sin programación*
 
-Imagine que la fecha y hora actuales son 8 de septiembre de 2017 y la 1:00 p. m. Especifique la fecha de inicio y la hora como 7 de septiembre de 2017 a las 2:00 p. m., que se encuentra en el pasado, y una periodicidad de ejecución cada 2 días.
+Imagine que la fecha y hora actuales son 8 de septiembre de 2017 y la 1:00 p. m. Especifique la fecha y hora de inicio 7 de septiembre de 2017 a las 2:00 p. m., que se encuentra en el pasado, y una periodicidad de ejecución cada dos días.
 
 | Hora de inicio | Hora actual | Periodicidad | Schedule |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(**07**-09-2017a las 2:00 p. m) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 a la 1:00 p. m.) | Cada 2 días | {none} |
+| 2017-09-**07**T14:00:00Z <br>(**07**-09-2017a las 2:00 p. m) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 a la 1:00 p. m.) | Cada dos días | {none} |
 |||||
 
 En el caso del desencadenador de periodicidad, el motor de Logic Apps calcula las horas de ejecución en función de la hora de inicio, descarta las horas de ejecución anteriores, usa la siguiente hora de inicio futura para la primera ejecución y calcula las ejecuciones futuras en función de la última hora de ejecución.

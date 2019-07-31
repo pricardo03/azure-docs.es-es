@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255695"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875283"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -66,6 +66,7 @@ ms.locfileid: "66255695"
                                                     <div class="cardText">
                                                         <h3>Novedades</h3>
                                                         <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Supervisión sin código de aplicaciones de máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure</a><br>
                                                             <a href="./app/kubernetes.md">Supervisión de aplicaciones de Kubernetes</a><br>
                                                             <a href="./app/status-monitor-v2-overview.md">Monitor de estado v2 para aplicaciones de IIS</a><br>
                                                         </p>
@@ -146,6 +147,7 @@ ms.locfileid: "66255695"
                                                             <a href="./app/asp-net.md">Configuración de supervisión detallada</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Monitor de estado</a><br>
                                                             <a href="./app/azure-web-apps.md">Supervisión de App Service</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Supervisión de aplicaciones de máquinas virtuales y conjuntos de escalado de máquinas virtuales</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Eventos y métricas personalizados</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Abrir el repositorio de GitHub del SDK de Java de origen</a>
                                                         </p>

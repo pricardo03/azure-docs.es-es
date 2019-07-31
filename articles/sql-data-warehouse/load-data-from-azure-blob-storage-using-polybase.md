@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839676"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -603,7 +603,7 @@ La carga con PolyBase y la autenticación mediante identidades administradas es 
         
    1. Realice una consulta normal con las [tablas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Si quiere configurar los puntos de conexión de servicio de red virtual para SQL Data Warehouse, consulte la siguiente [documentación] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ). 
+Si quiere configurar los puntos de conexión de servicio de red virtual para SQL Data Warehouse, consulte la siguiente [documentación](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

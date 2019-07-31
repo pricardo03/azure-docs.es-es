@@ -5,69 +5,87 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 42b7cd8a60e70ab75afc30910c46eb49f1f6d62a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342059"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000948"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
 
-La [biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md) le ayuda a distribuir el procesamiento de eventos entre varios consumidores. Esta biblioteca simplifica la lectura de los cambios a través de las particiones y varios subprocesos que trabajan en paralelo.
+El procesador de fuente de cambios es parte del [SDK V3 de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica el proceso de lectura de la fuente de cambios y distribuye el procesamiento de eventos entre varios consumidores de manera eficaz.
 
-La ventaja principal de la biblioteca de procesadores de fuente de cambios es que no tiene que administrar cada partición y token de continuación, ni que sondear manualmente cada contenedor.
+La principal ventaja de la biblioteca de procesador de fuente de cambios es su comportamiento tolerante a errores que garantiza una entrega "al menos una vez" de todos los eventos de la fuente de cambios.
 
-La biblioteca de procesadores de fuente de cambios simplifica la lectura de los cambios a través de las particiones y varios subprocesos que trabajan en paralelo. Administra automáticamente la lectura de los cambios a través de las particiones que usan un mecanismo de concesión. Como puede ver en la imagen siguiente, si inicia dos clientes que usan la biblioteca de procesadores de fuente de cambios, dividen el trabajo entre ellos. A medida que continúe aumentando el número de clientes, siguen dividiéndose el trabajo entre ellos.
+## <a name="components-of-the-change-feed-processor"></a>Componentes del procesador de fuente de cambios
 
-![Uso de la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](./media/change-feed-processor/change-feed-output.png)
+Hay cuatro componentes principales en la implementación del procesador de fuente de cambios: 
 
-El cliente de la izquierda se inició en primer lugar y comenzó la supervisión de todas las particiones; a continuación, se inició el segundo cliente y el primero dejó ir a algunas de las concesiones para el segundo cliente. Se trata de una manera eficaz de distribuir el trabajo entre distintas máquinas y clientes.
+1. **El contenedor supervisado:** el contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y actualizaciones realizadas en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
 
-Si tiene dos funciones de Azure sin servidor que supervisan el mismo contenedor y usan la misma concesión, las dos funciones pueden obtener documentos diferentes, según el modo en que la biblioteca de procesadores decida procesar las particiones.
+1. **El contenedor de concesión**: El contenedor de concesión actúa como un almacenamiento de estado y coordina el procesamiento de la fuente de cambios entre varios trabajadores. El contenedor de concesión se puede almacenar en la misma cuenta que el contenedor supervisado o en una cuenta independiente. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Implementación de la biblioteca de procesadores de fuente de cambios
+1. **El host:** Un host es una instancia de aplicación que usa el procesador de fuente de cambios para escuchar los cambios. Se pueden ejecutar varias instancias con la misma configuración de concesión en paralelo, pero cada instancia debe tener **un nombre de instancia** diferente. 
 
-Hay cuatro componentes principales de la implementación de la biblioteca de procesadores de fuente de cambios: 
+1. **El delegado:** El delegado es el código que define lo que usted, el desarrollador, desea hacer con cada lote de cambios que el procesador de la fuente de cambios lea. 
 
-1. **El contenedor supervisado:** el contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y cambios realizados en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
-
-1. **El contenedor de concesión**: el contenedor de concesión coordina el procesamiento de la fuente de cambios entre varios trabajadores. Se usa un contenedor independiente para almacenar las concesiones con una concesión por partición. Resulta ventajoso almacenar este contenedor de concesión en una cuenta diferente con la región de escritura más cerca de donde se está ejecutando el procesador de fuente de cambios. Un objeto de concesión contiene los siguientes atributos:
-
-   * Propietario: especifica el host que posee la concesión.
-
-   * Continuación: especifica la posición (token de continuación) en la fuente de cambios para una partición determinada.
-
-   * Marca de tiempo: última vez que se actualizó la concesión; la marca de tiempo se puede usar para comprobar si la concesión se considera expirada.
-
-1. **El host del procesador:** cada host determina cuántas particiones se van a procesar según la cantidad de otras instancias de host que tienen concesiones activas.
-
-   * Cuando se inicia un host, adquiere concesiones para equilibrar la carga de trabajo en todos los hosts. Un host renueva periódicamente concesiones, por lo que las concesiones permanecen activas.
-
-   * Un host establece puntos de control en el último token de continuación para su concesión para cada lectura. Para garantizar la seguridad de simultaneidad, un host comprueba ETag para cada actualización de concesión. También se admiten otras estrategias de puntos de control.
-
-   * Tras el cierre, un host libera todas las concesiones pero mantiene la información de continuación, por lo que puede reanudar la lectura más adelante desde el punto de control almacenado.
-
-   Actualmente, el número de hosts no puede ser mayor que el número de particiones (concesiones).
-
-1. **Los consumidores:** los consumidores, o trabajadores, son subprocesos que realizan el procesamiento de fuentes de cambios iniciado por cada host. Cada host de procesador puede tener varios consumidores. Cada consumidor lee la fuente de cambios de la partición a la que se ha asignado y notifica a su host los cambios y las concesiones expiradas.
-
-Para comprender mejor cómo funcionan estos cuatro elementos del procesador de fuente de cambios juntos, echemos un vistazo a un ejemplo en el diagrama siguiente. La colección supervisada almacena documentos y usa "City" como clave de partición. Vemos que la partición azul contiene documentos con el campo "City" de "A-E", etc. Hay dos hosts, cada uno con dos consumidores, que leen las cuatro particiones en paralelo. Las flechas muestran a los consumidores leyendo un punto específico de la fuente de cambios. En la primera partición, el azul más oscuro representa los cambios no leídos, mientras que el azul claro representa los cambios ya leídos de la fuente de cambios. Los hosts utilizan la colección de concesión para almacenar un valor de "continuación" para realizar un seguimiento de la posición de lectura actual para cada consumidor.
+Para comprender mejor cómo funcionan estos cuatro elementos del procesador de fuente de cambios juntos, echemos un vistazo a un ejemplo en el diagrama siguiente. El contenedor supervisado almacena documentos y usa "City" como clave de partición. Vemos que los valores de la clave de partición se distribuyen en intervalos que contienen elementos. Hay dos instancias de host y el procesador de fuente de cambios está asignando distintos intervalos de valores de clave de partición a cada instancia para maximizar la distribución de proceso. Cada intervalo se lee en paralelo y su progreso se mantiene por separado de otros intervalos en el contenedor de concesión.
 
 ![Ejemplo de procesador de fuente de cambios](./media/change-feed-processor/changefeedprocessor.png)
 
-### <a name="change-feed-and-provisioned-throughput"></a>Fuente de cambios y rendimiento aprovisionado
+## <a name="implementing-the-change-feed-processor"></a>Implementación del procesador de fuente de cambios
+
+El punto de entrada es siempre el contenedor supervisado, desde una instancia de `Container` se llama a `GetChangeFeedProcessorBuilder`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+El primer parámetro es un nombre distintivo que describe el objetivo de este procesador y el segundo nombre es la implementación de delegado que controlará los cambios. 
+
+Un ejemplo de un delegado sería:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Por último, se define un nombre para esta instancia del procesador con `WithInstanceName`, que es el contenedor con el que se mantiene el estado de concesión con `WithLeaseContainer`.
+
+La llamada a `Build` le proporcionará la instancia del procesador que puede iniciar mediante una llamada a `StartAsync`.
+
+## <a name="processing-life-cycle"></a>Ciclo de vida de procesamiento
+
+El ciclo de vida normal de una instancia de host es:
+
+1. Leer la fuente de cambios.
+1. Si no hay ningún cambio, mantenerse suspendida durante un periodo de tiempo predefinido (personalizable con `WithPollInterval` en el generador) e ir a #1.
+1. Si hay cambios, enviarlos al **delegado.**
+1. Cuando el delegado termina de procesar los cambios **correctamente**, actualizar el almacén de concesión con el último punto en el tiempo e ir al nº 1.
+
+## <a name="error-handling"></a>Control de errores
+
+El procesador de fuente de cambios es resistente a los errores de código de usuario. Esto significa que si la implementación del delegado tiene una excepción no controlada (paso nº 4), el subproceso que está procesando ese lote específico de cambios se detendrá y se creará un nuevo subproceso. El nuevo subproceso comprobará cuál fue el último punto en el tiempo que el almacén de concesiones tiene para ese intervalo de valores de clave de partición, y se reiniciará desde allí, enviando de forma eficaz el mismo lote de cambios al delegado. Este comportamiento continuará hasta que el delegado procese los cambios correctamente, y es el motivo por el que el procesador de fuente de cambios tiene una garantía de "al menos una vez", ya que, si se produce un error en el código de delegado, ese lote se volverá a intentar.
+
+## <a name="dynamic-scaling"></a>Escalado dinámico
+
+Como se mencionó en la introducción, el procesador de fuente de cambios puede distribuir el proceso entre varias instancias de forma automática. Puede implementar varias instancias de la aplicación mediante el procesador de fuente de cambios y sacar provecho de ello, los únicos requisitos clave son los siguientes:
+
+1. Todas las instancias deben tener la misma configuración de contenedor de concesión.
+1. Todas las instancias deben tener el mismo nombre de flujo de trabajo.
+1. Cada instancia tiene que tener un nombre de instancia diferente (`WithInstanceName`).
+
+Si estas tres condiciones son aplicables, el procesador de fuente de cambios, mediante el uso de un algoritmo de distribución equitativa, distribuye todas las concesiones en el contenedor de concesión en todas las instancias en ejecución y paraleliza el proceso. Una concesión solo puede ser propiedad de una instancia en un momento dado, por lo que el número máximo de instancias es igual al número de concesiones.
+
+Las instancias pueden aumentarse y reducirse, y el procesador de fuente de cambios ajustará dinámicamente la carga redistribuyéndola en consecuencia.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Fuente de cambios y rendimiento aprovisionado
 
 Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de contenedores de Cosmos siempre consumen RU. Se le cobrarán las RU consumidas por el contenedor de concesión.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md)
-* [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Ejemplos adicionales en GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Ejemplos adicionales en GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados del operador: identidad en Azure Kubernetes Service (AKS)'
 description: Obtenga información sobre los procedimientos recomendados del operador de clústeres para saber cómo administrar la autenticación y autorización de los clústeres en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: iainfou
-ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074157"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614777"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -42,13 +42,13 @@ Con los clústeres integrados de Azure AD en AKS, el usuario crea *Roles* o *Clu
 1. Se aplican las directivas del clúster y el control de acceso basado en rol (RBAC) de Kubernetes.
 1. La solicitud del desarrollador es correcta o no en función de la validación anterior de pertenencia a grupos de Azure AD y las directivas y RBAC de Kubernetes.
 
-Para crear un clúster de AKS que usa Azure AD, consulte [Integración de Azure Active Directory con Azure Kubernetes Service][aks-aad].
+Para crear un clúster de AKS que use Azure AD, consulte [Integración de Azure Active Directory con AKS][aks-aad].
 
 ## <a name="use-role-based-access-controls-rbac"></a>Uso de los controles de acceso basado en rol (RBAC)
 
 **Guía de procedimientos recomendados**: uso de RBAC de Kubernetes para definir los permisos que los usuarios o grupos tienen en relación con los recursos del clúster. Cree roles y enlaces que asignen la mínima cantidad de permisos necesarios. Realice la integración con Azure AD, para que cualquier cambio en el estado del usuario o la pertenencia al grupo se actualice automáticamente y que el acceso a los recursos del clúster sea como el actual.
 
-En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos pueden definirse en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a los usuarios o grupos con un enlace. Para obtener más información acerca de los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
+En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos pueden definirse en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a los usuarios o grupos con un enlace. Para obtener más información sobre los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Por ejemplo, puede crear un rol que conceda acceso completo a los recursos en el espacio de nombres denominado *finance-app*, tal y como se muestra en el siguiente ejemplo de manifiesto de YAML:
 
@@ -84,7 +84,7 @@ roleRef:
 
 Cuando *developer1\@contoso.com* se autentica en el clúster de AKS, se tienen los permisos completos sobre los recursos en el espacio de nombres *finance-app*. De esta forma, separa y controla el acceso a los recursos de forma lógica. RBAC de Kubernetes debe usarse junto con la integración de Azure AD, como se describe en la sección anterior.
 
-Para ver cómo los grupos de Azure AD controlan el acceso a los recursos de Kubernetes mediante RBAC, consulte [Controlar el acceso a recursos de clúster mediante el control de acceso basado en roles y las identidades de Azure Active Directory en AKS][azure-ad-rbac].
+Para ver cómo usar los grupos de Azure AD para controlar el acceso a los recursos de Kubernetes mediante RBAC, consulte [Controlar el acceso a recursos de clúster mediante el control de acceso basado en roles y las identidades de Azure Active Directory en AKS][azure-ad-rbac].
 
 ## <a name="use-pod-identities"></a>Uso de identidades de pod
 
@@ -117,14 +117,14 @@ Para usar las identidades de pod, consulte [Identidades de Azure Active Director
 
 Este artículo de procedimientos recomendados se centra en la autenticación y autorización para el clúster y los recursos. Para implementar algunos de estos procedimientos recomendados, consulte los artículos siguientes:
 
-* [Integración de Azure Active Directory con Azure Kubernetes Service][aks-aad]
+* [Integración de Azure Active Directory con AKS][aks-aad]
 * [Uso de identidades administradas para recursos de Azure con AKS][aad-pod-identity]
 
 Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler] (Aislamiento multiempresa y de clúster)
-* [Basic Kubernetes scheduler features][aks-best-practices-scheduler] (Características básicas de programadores de Kubernetes)
-* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler] (Características avanzadas de programadores de Kubernetes)
+* [Aislamiento de clúster y de multiinquilinato][aks-best-practices-scheduler]
+* [Características básicas del programador de Kubernetes][aks-best-practices-scheduler]
+* [Características avanzadas del programador de Kubernetes][aks-best-practices-advanced-scheduler]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity

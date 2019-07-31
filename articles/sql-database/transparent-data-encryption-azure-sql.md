@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061391"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723276"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -33,7 +33,7 @@ Las instancias de SQL Server que se ejecutan en una máquina virtual de Azure ta
 
 ## <a name="service-managed-transparent-data-encryption"></a>Cifrado de datos transparente administrado por el servicio
 
-En Azure, la configuración predeterminada para el cifrado de datos transparente es aquella por la que la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor. Si una base de datos está en una relación de replicación geográfica, la base de datos principal y secundaria con replicación geográfica están protegidas por la clave de servidor principal de la base de datos principal. Si hay dos bases de datos conectadas al mismo servidor, también comparten el mismo certificado integrado. Microsoft rota automáticamente estos certificados en cumplimiento de la directiva de seguridad interna y se protege la clave raíz mediante un almacén secreto interno de Microsoft.  Los clientes pueden verificar el cumplimiento de SQL Database con las directivas de seguridad internas en los informes de auditoría de terceros independientes disponibles en el [Centro de confianza de Microsoft](https://servicetrust.microsoft.com/).
+En Azure, la configuración predeterminada para el cifrado de datos transparente es aquella por la que la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor y el algoritmo de cifrado que se usa es AES 256. Si una base de datos está en una relación de replicación geográfica, la base de datos principal y secundaria con replicación geográfica están protegidas por la clave de servidor principal de la base de datos principal. Si hay dos bases de datos conectadas al mismo servidor, también comparten el mismo certificado integrado.  Microsoft rota automáticamente estos certificados en cumplimiento de la directiva de seguridad interna y se protege la clave raíz mediante un almacén secreto interno de Microsoft.  Los clientes pueden verificar el cumplimiento de SQL Database con las directivas de seguridad internas en los informes de auditoría de terceros independientes disponibles en el [Centro de confianza de Microsoft](https://servicetrust.microsoft.com/).
 
 Microsoft también mueve y administra con total fluidez las claves según sea necesario para la replicación geográfica y las restauraciones.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a298584b2444d52f84c0e599462bc26c63a898
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061316"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302618"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -42,7 +42,7 @@ Servicios como Azure Databricks suelen usar entidades de servicio de Azure Activ
 
 Data Lake Storage Gen2 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataques externos. El firewall se puede habilitar en la cuenta de almacenamiento en Azure Portal con las opciones **Firewall** > **Habilitar firewall (ON)**  > **Allow access to Azure services** (Permitir acceso a servicios de Azure).
 
-La adición de clústeres de Azure Databricks a una red virtual que puede tener acceso a través del firewall de almacenamiento requiere el uso de una característica en vista previa de Databricks. Para habilitar esta característica, realice una solicitud de soporte técnico.
+Para acceder a la cuenta de almacenamiento desde Azure Databricks, implemente Azure Databricks en la red virtual y, a continuación, agregue esa red virtual al firewall. Consulte [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## <a name="resiliency-considerations"></a>Consideraciones de resistencia
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241621"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277444"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB
 
@@ -48,6 +48,10 @@ Las métricas pueden revisarse en la página Cuenta, en la nueva página Métric
 4. La página **Métrica** muestra los detalles sobre el total de solicitudes. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configuración de alertas en el portal
+
+> [!NOTE]
+> Las alertas clásicas en Azure Monitor se retirarán el 31 de agosto de 2019. Azure Portal ofrece una [herramienta de migración](../azure-monitor/platform/alerts-using-migration-tool.md) para migrar las reglas de alertas clásicas. Sin embargo, no se pueden migrar todas las alertas clásicas de métricas de Azure Cosmos DB; hay algunas excepciones. Consulte el artículo de [Azure Monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) para obtener una lista de las alertas clásicas que no se pueden migrar. 
+
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, **Azure Cosmos DB** y en el nombre de la cuenta de Azure Cosmos DB para la que quiere configurar las alertas de las métricas de rendimiento.
 2. En el menú de recursos, haga clic en **Reglas de alerta** para abrir la página Reglas de alerta.  
    ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/monitor-accounts/madocdb10.5.png)

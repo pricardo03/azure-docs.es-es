@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3c547fbc09aeb034df5b7ed579639e1ff4bc0b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069430"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705798"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service #
 
@@ -32,7 +32,7 @@ Cuando se realiza una solicitud a la aplicación, la dirección de origen se eva
 
 La funcionalidad de restricciones de acceso se implementa en los roles front-end de App Service, que son de nivel superior de los hosts de trabajo donde el código se ejecuta. Por lo tanto, las restricciones de acceso son listas de control de acceso de red de facto.
 
-La capacidad para restringir el acceso a la aplicación web de Azure Virtual Network (red virtual) se denomina [puntos de servicio del servicio][serviceendpoints]. Los puntos de conexión de servicio permiten restringir el acceso de un servicio multiinquilino de las subredes seleccionadas. Se debe habilitar tanto en el lado de la red como en el servicio con el que se está habilitando. No funciona para restringir el tráfico a aplicaciones hospedadas en un App Service Environment.  Si está en un App Service Environment, puede controlar el acceso a la aplicación con reglas de direcciones IP.
+La capacidad de restringir el acceso a la aplicación web desde una instancia de Azure Virtual Network (red virtual) se denomina [puntos de conexión de servicio][serviceendpoints]. Los puntos de conexión de servicio permiten restringir el acceso de un servicio multiinquilino de las subredes seleccionadas. Se debe habilitar tanto en el lado de la red como en el servicio con el que se está habilitando. No funciona para restringir el tráfico a aplicaciones hospedadas en un App Service Environment.  Si está en un App Service Environment, puede controlar el acceso a la aplicación con reglas de direcciones IP.
 
 ![Flujo de restricciones de acceso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -98,7 +98,7 @@ Aparte de controlar el acceso a la aplicación, también puede restringir el acc
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulación mediante programación de reglas de restricción de acceso ##
 
-Actualmente no hay ninguna CLI ni PowerShell para la nueva funcionalidad de restricciones de acceso, pero los valores pueden establecerse manualmente con una operación PUT en la configuración de la aplicación en Resource Manager. Por ejemplo, puede usar resources.azure.com y editar el bloque ipSecurityRestrictions para agregar el código JSON requerido.
+Actualmente no hay ninguna CLI ni PowerShell para la nueva funcionalidad de restricciones de acceso, pero los valores pueden establecerse manualmente con una operación PUT de la [API REST de Azure](https://docs.microsoft.com/rest/api/azure/) en la configuración de la aplicación en Resource Manager. Por ejemplo, puede usar resources.azure.com y editar el bloque ipSecurityRestrictions para agregar el código JSON requerido.
 
 La ubicación de esta información en Resource Manager es:
 
@@ -106,15 +106,19 @@ management.azure.com/subscriptions/**Id. de suscripción**/resourceGroups/**reso
 
 La sintaxis JSON para el ejemplo anterior es:
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>Restricciones de IP de Function Apps
 

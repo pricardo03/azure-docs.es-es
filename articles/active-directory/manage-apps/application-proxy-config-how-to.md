@@ -16,18 +16,18 @@ ms.date: 05/18/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825931"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807854"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Configuración de una aplicación de proxy de aplicación
 
 Este artículo lo ayuda a entender cómo configurar una aplicación de proxy de aplicación en Azure AD para exponer las aplicaciones locales a la nube.
 
-## <a name="recommended-documents"></a>Documentos recomendados 
+## <a name="recommended-documents"></a>Documentos recomendados
 
 Para aprender sobre las configuraciones iniciales y la creación de una aplicación de proxy de aplicación mediante el portal de administración, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md).
 
@@ -39,19 +39,15 @@ Para información sobre cómo cargar certificados y usar dominios personalizados
 
 Si está siguiendo los pasos de la documentación [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md) y obtiene un error al crear la aplicación, consulte los detalles del error para ver información y sugerencias para corregir la aplicación. La mayoría de los mensajes de error incluyen una sugerencia de corrección. Para evitar errores habituales, compruebe que:
 
--   Sea un administrador con permiso para crear una aplicación de proxy de aplicación;
-
--   La dirección URL interna sea única;
-
--   La dirección URL externa sea única;
-
--   Las direcciones URL empiecen por http o https y terminen en "/";
-
--   La dirección URL debe ser un nombre de dominio y no una dirección IP.
+- Sea un administrador con permiso para crear una aplicación de proxy de aplicación;
+- La dirección URL interna sea única;
+- La dirección URL externa sea única;
+- Las direcciones URL empiecen por http o https y terminen en "/";
+- La dirección URL debe ser un nombre de dominio y no una dirección IP.
 
 El mensaje de error debería aparecer en la esquina superior derecha cuando cree la aplicación. También puede seleccionar el icono de notificación para ver los mensajes de error.
 
-   ![Mensaje de notificación](./media/application-proxy-config-how-to/error-message.png)
+![Muestra dónde encontrar el mensaje de notificación en Azure Portal](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Configuración de conectores y grupos de conectores
 
@@ -61,19 +57,16 @@ Si los conectores están inactivos, esto significa que no pueden alcanzar el ser
 
 ## <a name="upload-certificates-for-custom-domains"></a>Carga de certificados para dominios personalizados
 
-Los dominios personalizados le permiten especificar el dominio de las direcciones URL externas. Para usar dominios personalizados, debe cargar el certificado para ese dominio. Para información sobre cómo usar certificados y dominios personalizados, consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](application-proxy-configure-custom-domain.md). 
+Los dominios personalizados le permiten especificar el dominio de las direcciones URL externas. Para usar dominios personalizados, debe cargar el certificado para ese dominio. Para información sobre cómo usar certificados y dominios personalizados, consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](application-proxy-configure-custom-domain.md).
 
 Si se están produciendo problemas al cargar el certificado, busque los mensajes de error en el portal para más información sobre el problema con el certificado. Algunos problemas habituales con los certificados son:
 
--   Certificado expirado
-
--   Certificado autofirmado
-
--   Certificado que carece de clave privada
+- Certificado expirado
+- Certificado autofirmado
+- Certificado que carece de clave privada
 
 El mensaje de error se muestra en la esquina superior derecha cuando se intenta cargar el certificado. También puede seleccionar el icono de notificación para ver los mensajes de error.
 
-   ![Mensaje de notificación](./media/application-proxy-config-how-to/error-message2.png)
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md)

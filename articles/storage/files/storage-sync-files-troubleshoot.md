@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e35ef9eab841878ecc147d7b22a82860f27e7d9
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555942"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297694"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -244,18 +244,19 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 
 | HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Un cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. |
-| 0x7b | 123 | ERROR_INVALID_NAME | El nombre de directorio o archivo no es válido. | Cambie el nombre del archivo o directorio en cuestión. Consulte [Tratamiento de caracteres no admitidos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para más información. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | El nombre de directorio o archivo no es válido. | Cambie el nombre del archivo o directorio en cuestión. Consulte [Tratamiento de caracteres no admitidos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para más información. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | El nombre de directorio o archivo no es válido. | Cambie el nombre del archivo o directorio en cuestión. Consulte [Tratamiento de caracteres no admitidos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para más información. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | No se puede sincronizar un archivo porque está en uso. El archivo se sincronizará cuando ya no esté en uso. | No es necesaria ninguna acción. Azure File Sync crea una instantánea VSS temporal una vez al día en el servidor para sincronizar archivos que tienen identificadores abiertos. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un archivo ha cambiado, pero el cambio aún no lo ha detectado la sincronización. La sincronización se recuperará después de detectar este cambio. | No es necesaria ninguna acción. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | El archivo no se puede sincronizar porque se ha alcanzado el límite de recursos compartidos de archivos de Azure. | Para resolver este problema, consulte la sección [Se ha alcanzado el límite de almacenamiento del recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) en la Guía de solución de problemas. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Este error puede producirse por las razones siguientes: el archivo está cifrado por una solución no admitida (por ejemplo, EFS de NTFS), el archivo tiene un estado pendiente de eliminación o el archivo se encuentra en una carpeta de replicación de solo lectura DFS-R. | Si el archivo está cifrado por una solución no admitida, descifre el archivo y use una solución de cifrado compatible. Para obtener una lista de soluciones de soporte técnico, consulte la sección [Soluciones de cifrado](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) en la Guía de planeamiento. Si el archivo se encuentra en un estado de eliminación pendiente, el archivo se eliminará una vez que se hayan cerrado todos identificadores de archivos abiertos. Si el archivo se encuentra en una carpeta de replicación DFS-R de solo lectura, Azure File Sync no admite los puntos de conexión de servidor en las carpetas de replicación DFS-R de solo lectura. Vea la [guía de planeamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para más información.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | No se puede sincronizar un archivo porque está en uso. El archivo se sincronizará cuando ya no esté en uso. | No es necesaria ninguna acción. |
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | No se puede sincronizar un archivo porque está en uso. El archivo se sincronizará cuando ya no esté en uso. | No es necesaria ninguna acción. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Se modificó un archivo durante la sincronización, por lo que debe sincronizarse de nuevo. | No es necesaria ninguna acción. |
 
+
 #### <a name="handling-unsupported-characters"></a>Tratamiento de caracteres no admitidos
-Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores debido a caracteres no admitidos (códigos de error 0x7b y 0x8007007b), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-tool) para identificar los caracteres que no son compatibles.
+Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores debido a caracteres no admitidos (código de error 0x8007007b), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-cmdlet) para identificar los caracteres que no son compatibles.
 
 La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aún no admite.
 
@@ -798,14 +799,14 @@ Hay dos clases principales de errores que pueden producirse de alguno de esos mo
 
 En las secciones siguientes se indica cómo solucionar problemas de los niveles en la nube y determinar si se trata de un problema de almacenamiento en la nube o del servidor.
 
-<a id="monitor-tiering-activity"></a>**Supervisión de la actividad de organización en niveles en un servidor**  
+### <a name="how-to-monitor-tiering-activity-on-a-server"></a>Supervisión de la actividad de organización en niveles en un servidor  
 Para supervisar la actividad de organización en niveles en un servidor, use el identificador de eventos 9003, 9016 y 9029 en el registro de eventos de telemetría (ubicados en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos).
 
 - El identificador de evento 9003 proporciona una distribución de errores para un punto de conexión de servidor. Por ejemplo, el recuento total de errores, el código de error, entre otros. Tenga en cuenta que se registra un evento por código de error.
 - El identificador de evento 9016 proporciona resultados de conversión en fantasma para un volumen. Por ejemplo, el porcentaje de espacio libre, el número de archivos convertidos en fantasma en la sesión, el número de archivos no convertidos en fantasma, etc.
 - El id. de evento 9029 proporciona información de la sesión de conversión en fantasma para el punto de conexión de un servidor. Por ejemplo, el número de archivos que se han intentado en la sesión, el número de archivos organizados en niveles de la sesión, el número de archivos ya organizados en niveles, entre otros.
 
-<a id="monitor-recall-activity"></a>**Supervisión de la actividad de recuperación en un servidor**  
+### <a name="how-to-monitor-recall-activity-on-a-server"></a>Supervisión de la actividad de recuperación en un servidor
 Para supervisar la actividad de recuperación en un servidor, use los id. de evento 9005, 9006, 9009 y 9059 en el registro de eventos de telemetría (ubicado en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos).
 
 - El identificador de evento 9005 proporciona confiabilidad de recuperación a un punto de conexión de servidor. Por ejemplo, el total de archivos únicos a los que se puede acceder, el total de archivos único con acceso erróneo, entre otros.
@@ -813,7 +814,7 @@ Para supervisar la actividad de recuperación en un servidor, use los id. de eve
 - El id. de evento 9009 proporciona información de la sesión de recuperación para un punto de conexión de servidor. Por ejemplo, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
 - El id. de evento 9059 proporciona una distribución de recuperación de aplicación para un punto de conexión de servidor. Por ejemplo, ShareId, Application Name y TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Solución de problemas de archivos que no se apilan**  
+### <a name="how-to-troubleshoot-files-that-fail-to-tier"></a>Solución de problemas de archivos que no se apilan
 Si no se pueden apilar archivos en Azure Files:
 
 1. En el Visor de eventos, revise los registros de eventos de telemetría, operativos y de diagnósticos, ubicados en Applications and Services\Microsoft\FileSync\Agent. 
@@ -829,7 +830,7 @@ Si no se pueden apilar archivos en Azure Files:
 > [!NOTE]
 > El identificador de evento 9003 se registra una vez por hora en el registro de eventos de telemetría si el archivo no se clasifica en niveles (se registra un evento por cada código de error). Se deben utilizar los registros de eventos operativos y de diagnóstico si se necesita información adicional para diagnosticar un problema.
 
-<a id="files-fail-recall"></a>**Solución de problemas de archivos que no se pueden recuperar**  
+### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Solución de problemas de archivos que no se pueden recuperar  
 Si no se pueden recuperar archivos:
 1. En el Visor de eventos, revise los registros de eventos de telemetría, operativos y de diagnósticos, ubicados en Applications and Services\Microsoft\FileSync\Agent.
     1. Compruebe que los archivos existen en el recurso compartido de archivos de Azure.
@@ -841,7 +842,88 @@ Si no se pueden recuperar archivos:
 > [!NOTE]
 > El identificador de evento 9006 se registra una vez cada hora en el registro de eventos de telemetría si el archivo no puede recuperarse (se registra un evento por cada código de error). Se deben utilizar los registros de eventos operativos y de diagnóstico si se necesita información adicional para diagnosticar un problema.
 
-<a id="files-unexpectedly-recalled"></a>**Solución de problemas de archivos que se recuperan de manera inesperada en un servidor**  
+### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor
+Los archivos en niveles se volverán inaccesibles si no se recuperan antes de eliminar el punto de conexión de servidor.
+
+Errores registrados si no se puede acceder a los archivos en niveles
+- Al sincronizar un archivo, se registra el código de error -2147942467 (0x80070043 - ERROR_BAD_NET_NAME) en el registro de eventos ItemResults
+- Al recuperar un archivo, se registra el código de error -2134376393 (0x80c80037 - ECS_E_SYNC_SHARE_NOT_FOUND) en el registro de eventos RecallResults
+
+Se puede restaurar el acceso a los archivos en niveles si se cumplen las siguientes condiciones:
+- Que el punto de conexión de servidor se eliminara en los últimos 30 días
+- Que no se eliminara el punto de conexión en la nube 
+- Que no se eliminara el recurso compartido de archivos
+- Que no se eliminara el grupo de sincronización
+
+Si se cumplen las condiciones anteriores, puede restaurar el acceso a los archivos en el servidor; para ello, debe volver a crear el punto de conexión de servidor en la misma ruta de acceso del servidor del mismo grupo de sincronización en un plazo de 30 días. 
+
+Si no se cumplen las condiciones anteriores, la restauración del acceso no es posible, ya que estos archivos en niveles están huérfanos en el servidor. Siga las instrucciones que se indican a continuación para quitar los archivos huérfanos en niveles.
+
+**Notas**
+- Cuando no se puede acceder a los archivos en niveles en el servidor, puede que el archivo completo siga siendo accesible si accede directamente al recurso compartido de archivos de Azure.
+- Para evitar archivos huérfanos en niveles en el futuro, siga los pasos descritos en [Eliminación de un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) para eliminar un punto de conexión de servidor.
+
+<a id="get-orphaned"></a>**Obtención de la lista de archivos huérfanos en niveles** 
+
+1. Compruebe si se ha instalado la versión 5.1 o posterior del agente de Azure File Sync.
+2. Ejecute los siguientes comandos de PowerShell para enumerar los archivos huérfanos en niveles:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Guarde el archivo de salida OrphanTieredFiles.txt por si fuera necesario restaurar los archivos de la copia de seguridad una vez eliminados.
+
+<a id="remove-orphaned"></a>**Eliminación de archivos huérfanos en niveles** 
+
+*Opción 1: Eliminación de archivos huérfanos en niveles*
+
+Esta opción elimina los archivos huérfanos en niveles del servidor de Windows, pero requiere la eliminación del punto de conexión de servidor (si existe), ya que se creará de nuevo a los 30 días o que está conectado a otro grupo de sincronización. Se producirán conflictos entre archivos si estos se actualizan en el servidor de Windows o en el recurso compartido de archivos de Azure antes de que se vuelva a crear el punto de conexión del servidor.
+
+1. Compruebe si se ha instalado la versión 5.1 o posterior del agente de Azure File Sync.
+2. Realice una copia de seguridad del recurso compartido de archivos de Azure y de la ubicación del punto de conexión del servidor.
+3. Quite el punto de conexión del servidor del grupo de sincronización (si existe) siguiendo los pasos descritos en [Eliminación de un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
+
+> [!Warning]  
+> Si el punto de conexión de servidor no se quita antes de usar el cmdlet Remove-StorageSyncOrphanedTieredFiles, al eliminar el archivo huérfano en niveles del servidor, se eliminará el archivo completo en el recurso compartido de archivos de Azure. 
+
+4. Ejecute los siguientes comandos de PowerShell para enumerar los archivos huérfanos en niveles:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. Guarde el archivo de salida OrphanTieredFiles.txt por si fuera necesario restaurar los archivos de la copia de seguridad una vez eliminados.
+6. Ejecute los siguientes comandos de PowerShell para eliminar los archivos huérfanos en niveles:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**Notas** 
+- Se eliminarán los archivos en niveles modificados en el servidor que no se hayan sincronizado con el recurso compartido de archivos de Azure.
+- Los archivos en niveles que sean accesibles (no huérfanos) no se eliminarán.
+- Los archivos sin niveles permanecerán en el servidor.
+
+7. Opcional: Vuelva a crear el punto de conexión de servidor si se eliminó en el paso 3.
+
+*Opción 2: Montaje del recurso compartido de archivos de Azure y copia local de los archivos huérfanos en el servidor*
+
+Esta opción no requiere la eliminación del punto de conexión de servidor, pero sí espacio suficiente en disco para copiar en local los archivos completos.
+
+1. [Monte](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) el recurso compartido de archivos de Azure en el servidor de Windows con archivos huérfanos en niveles.
+2. Ejecute los siguientes comandos de PowerShell para enumerar los archivos huérfanos en niveles:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Use el archivo de salida OrphanTieredFiles.txt para identificar los archivos huérfanos en niveles en el servidor.
+4. Sobrescriba los archivos huérfanos en niveles mediante la copia del archivo completo del recurso compartido de archivos de Azure en el servidor de Windows.
+
+### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>Solución de problemas de archivos que se recuperan de manera inesperada en un servidor  
 Las aplicaciones antivirus, de backup y de otro tipo que leen gran cantidad de archivos provocan recuperaciones no previstas salvo que respeten la omisión del atributo sin conexión y pasen por alto la lectura del contenido de esos archivos. Omitir archivos sin conexión para los productos que admiten esta opción ayuda a evitar recuperaciones imprevistas durante las operaciones, como análisis antivirus o trabajos de backup.
 
 Consulte con el proveedor de software para aprender cómo configurar su solución para omitir la lectura de archivos sin conexión.
@@ -863,6 +945,8 @@ Si tiene problemas con Azure File Sync en un servidor, empiece por los pasos sig
 
 Si no se resuelve el problema, ejecute la herramienta AFSDiag:
 1. Cree un directorio donde se guardará la salida de AFSDiag (por ejemplo, C:\Output).
+    > [!NOTE]
+    >AFSDiag eliminará todo el contenido del directorio de salida antes de la recopilación de registros. Especifique una ubicación de salida que no contenga datos.
 2. Abra una ventana de PowerShell con privilegios elevados y ejecute los comandos siguientes (presione Entrar después de cada comando):
 
     ```powershell

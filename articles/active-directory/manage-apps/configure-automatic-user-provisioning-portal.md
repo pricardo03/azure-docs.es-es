@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963577"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807631"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -31,14 +31,11 @@ En este artículo se describe cómo usar [Azure Portal](https://portal.azure.com
 Use el portal de Azure Active Directory para ver y administrar todas las aplicaciones que están configuradas para el inicio de sesión único en un directorio. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización. Siga estos pasos para ver y administrar las aplicaciones empresariales:
 
 1. Abra el [portal de Azure Active Directory](https://aad.portal.azure.com).
-
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Se muestra una lista de las aplicaciones configuradas, incluidas aquellas que se han agregado desde la galería.
-
 1. Seleccione cualquier aplicación para cargar el panel de recursos, donde puede ver los informes y administrar la configuración de la aplicación.
-
 1. Seleccione **Aprovisionamiento** para administrar la configuración de aprovisionamiento de cuentas de usuario de la aplicación seleccionada.
 
-   ![Panel Recurso de aplicación](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Pantalla Aprovisionamiento para administrar la configuración del aprovisionamiento de cuentas de usuario](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de aprovisionamiento
 
@@ -68,17 +65,17 @@ Expanda **Asignaciones** para ver y modificar los atributos de usuario que fluye
 
 Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. Seleccione una asignación de la tabla para abrir el editor de asignaciones a la derecha, donde puede verlas y personalizarlas.
 
-![Panel Recurso de aplicación](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Muestra la pantalla Asignación de atributos](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Las personalizaciones compatibles incluyen:
 
 * Habilitar y deshabilitar asignaciones para objetos específicos, como el objeto de usuario de Azure AD en el objeto de usuario de la aplicación SaaS.
 * Editar los atributos que fluyen desde el objeto de usuario de Azure AD al objeto de usuario de la aplicación. Para más información sobre la asignación de atributos, consulte la sección [Información sobre los tipos de asignaciones de atributos](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtrar las acciones de aprovisionamiento que ejecuta Azure AD en la aplicación de destino. En lugar de que Azure AD sincronice totalmente los objetos, puede limitar las acciones ejecutadas. 
+* Filtrar las acciones de aprovisionamiento que ejecuta Azure AD en la aplicación de destino. En lugar de que Azure AD sincronice totalmente los objetos, puede limitar las acciones ejecutadas.
 
   Por ejemplo, si solo selecciona **Actualizar**, Azure AD únicamente actualiza las cuentas de usuario existentes en una aplicación, pero no crea otras nuevas. Si solo selecciona **Crear**, Azure únicamente crea nuevas cuentas de usuario, pero no actualiza las existentes. Esta característica permite a los administradores crear asignaciones diferentes para la creación de cuentas y la actualización de los flujos de trabajo.
 
-* Adición de una nueva asignación de atributo. Seleccione **Agregar nueva asignación** en la parte inferior del panel **Asignación de atributos**. Rellene el formulario **Editar atributo** y seleccione **Aceptar** para agregar la nueva asignación a la lista. 
+* Adición de una nueva asignación de atributo. Seleccione **Agregar nueva asignación** en la parte inferior del panel **Asignación de atributos**. Rellene el formulario **Editar atributo** y seleccione **Aceptar** para agregar la nueva asignación a la lista.
 
 ### <a name="settings"></a>Configuración
 

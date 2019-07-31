@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147706"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696186"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 
@@ -50,7 +50,7 @@ El **distribuidor** es una instancia o un servidor que recopila los cambios en l
 
 El **suscriptor** es una instancia o un servidor que recibe los cambios realizados en el publicador. Los suscriptores pueden ser bases de datos únicas, agrupadas o de instancia en bases de datos de Azure SQL Database o SQL Server. Un suscriptor en una base de datos única o agrupada debe configurarse como suscriptor de inserción. 
 
-| Rol | Bases de datos únicas y agrupadas | Bases de datos de instancia |
+| Role | Bases de datos únicas y agrupadas | Bases de datos de instancia |
 | :----| :------------- | :--------------- |
 | **Publicador** | Sin | Sí | 
 | **Distribuidor** | Sin | Sí|
@@ -139,7 +139,7 @@ En esta configuración, el suscriptor es una base de datos de Azure SQL (base de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-1. [Configure la replicación transaccional para una instancia administrada](replication-with-sql-database-managed-instance.md). 
+1. [Configure la replicación entre dos instancias administradas](replication-with-sql-database-managed-instance.md). 
 1. [Cree una publicación](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Cree una suscripción de inserción](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks**. )
 

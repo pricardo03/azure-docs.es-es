@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados de operador: características básicas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas para utilizar características básicas del programador, como las cuotas de recursos y los presupuestos de interrupciones de pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074124"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614617"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Este artículo de procedimientos recomendados se centra en las características 
 
 **Orientación con procedimientos recomendados.** : planeación y aplicación de cuotas de recursos a nivel de espacio de nombres. Si los pods no definen solicitudes y límites de recursos, rechace la implementación. Supervise el uso de recursos y ajuste las cuotas según sea necesario.
 
-Las solicitudes y límites de recursos se colocan en la especificación de pod. Estos límites se usan por el programador de Kubernetes en el momento de la implementación para buscar un nodo disponible en el clúster. Estos límites y las solicitudes funcionan en el nivel de pod individual. Para obtener más información sobre cómo definir estos valores, vea [Define pod resource requests and limits][resource-limits] (Definición de los límites y solicitudes de recursos del pod).
+Las solicitudes y límites de recursos se colocan en la especificación de pod. Estos límites se usan por el programador de Kubernetes en el momento de la implementación para buscar un nodo disponible en el clúster. Estos límites y las solicitudes funcionan en el nivel de pod individual. Para obtener más información sobre cómo definir estos valores, vea [Definición de los límites y solicitudes de recursos del pod][resource-limits].
 
 Para proporcionar una manera de reservar y limitar los recursos a través de un proyecto o equipo de desarrollo, debe usar *las cuotas de recursos*. Estas cuotas se definen en un espacio de nombres y se pueden usar para establecer cuotas de la siguiente manera:
 
@@ -63,7 +63,7 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 
 Trabaje con los desarrolladores y propietarios de su aplicación para conocer sus necesidades y aplicar las cuotas de recursos adecuadas.
 
-Para obtener más información acerca de los objetos de recursos, ámbitos y prioridades disponibles, consulte [Resource quotas in Kubernetes][k8s-resource-quotas] (Cuotas de recursos en Kubernetes).
+Para obtener más información sobre los objetos de recursos, los ámbitos y las prioridades disponibles, consulte [Resource quotas][k8s-resource-quotas] (Cuotas de recursos) en Kubernetes.
 
 ## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Planeación de disponibilidad mediante presupuestos de interrupciones de pods
 
@@ -118,13 +118,13 @@ kubectl apply -f nginx-pdb.yaml
 
 Trabaje con los desarrolladores y propietarios de su aplicación para conocer sus necesidades y aplicar los presupuestos de interrupciones de pods adecuados.
 
-Para obtener más información sobre el uso de los presupuestos de interrupciones de pods, vea [Specify a disruption budget for your application][k8s-pdbs] (Especificación de un presupuesto de interrupciones para su aplicación).
+Para obtener más información sobre el uso de los presupuestos de interrupciones de pods, vea [Especificando un presupuesto de disrupción para tu aplicación][k8s-pdbs].
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de clúster con kube-advisor
 
 **Orientación con procedimientos recomendados**: Ejecute de forma periódica la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
 
-La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que explora un clúster de Kubernetes e informa acerca de los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
+La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que explora un clúster de Kubernetes e informa sobre los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
 
 La herramienta kube-advisor puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones de Windows, así como las aplicaciones de Linux, pero la propia herramienta kube-advisor debe programarse en un pod de Linux. Puede programar un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
 
@@ -134,9 +134,9 @@ En un clúster de AKS que hospeda varios equipos y aplicaciones de desarrollo, p
 
 Este artículo se ha centrado en características básicas del programador de Kubernetes. Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-cluster-isolation] (Aislamiento multiempresa y de clúster)
-* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler] (Características avanzadas del programador de Kubernetes)
-* [Authentication and authorization][aks-best-practices-identity] (Autenticación y autorización)
+* [Aislamiento de clúster y de multiinquilinato][aks-best-practices-cluster-isolation]
+* [Características avanzadas del programador de Kubernetes][aks-best-practices-advanced-scheduler]
+* [Autenticación y autorización][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/

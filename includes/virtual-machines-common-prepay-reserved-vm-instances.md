@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/01/2019
-ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/11/2019
+ms.openlocfilehash: 766856438b22661b961bfbadc0b63376031622f6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67489928"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850770"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -36,16 +36,39 @@ Puede consultar las recomendaciones de reserva para averiguar las reservas que d
 - Puede usar las API para obtener recomendaciones de compra relativas tanto a los ámbitos de suscripción tanto compartida como única. Para más información, vea [Recommendations API de compra de instancia reservada para clientes empresariales](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - En el caso de los clientes de EA, las recomendaciones de compra de los ámbitos de suscripción tanto única como compartida solo están disponibles con el [paquete de contenido de Power BI de Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
-### <a name="classic-vms-and-cloud-services"></a>Servicios en la nube y máquinas virtuales clásicas
+### <a name="services-that-get-vm-reservation-discounts"></a>Servicios que obtienen descuentos de reserva de VM
 
-Las instancias reservadas de máquinas virtuales se aplican automáticamente tanto a las máquinas virtuales clásicas como a los servicios en la nube cuando la flexibilidad de tamaño de instancia está habilitada. No existen SKU especiales para las máquinas virtuales clásicas o servicios en la nube. Se les aplica la misma SKU de máquina virtual.
+Puede aplicar sus reservas de VM al uso de máquinas virtuales emitidas desde varios servicios, no solo a sus implementaciones de máquinas virtuales. Los recursos que obtienen descuentos de reserva cambian en función de la configuración de flexibilidad de tamaño de instancia.
 
-Por ejemplo, podría convertir sus máquinas virtuales clásicas o servicios en la nube en máquinas virtuales basadas en Azure Resource Manager. En este ejemplo, el descuento por reserva se aplica automáticamente a las máquinas virtuales coincidentes. No hay necesidad de *intercambiar* una instancia reservada existente: se aplica automáticamente.
+#### <a name="instance-size-flexibility-setting"></a>Configuración de flexibilidad de tamaño de instancia
+
+La configuración de flexibilidad de tamaño de instancia determina qué servicios obtienen los descuentos de la instancia reservada.
+
+Tanto si la configuración está activada como si no, los descuentos de reserva se aplican automáticamente a cualquier uso de máquina virtual que coincida cuando *ConsumedService* sea `Microsoft.Compute`. Por lo tanto, compruebe los datos de uso del valor *ConsumedService*. Estos son algunos ejemplos:
+
+- Máquinas virtuales
+- Conjuntos de escalado de máquinas virtuales
+- Servicio de contenedor
+- Implementaciones de Azure Batch (en modo de suscripciones de usuario)
+- Azure Kubernetes Service (AKS)
+- Service Fabric
+
+Cuando la configuración está activada, los descuentos de reserva se aplican automáticamente al uso de máquina virtual que coincida cuando *ConsumedService* sea alguno de los elementos siguientes:
+
+- Microsoft.Compute
+- Microsoft.ClassicCompute
+- Microsoft.Batch
+- Microsoft.MachineLearningServices
+- Microsoft.Kusto
+
+Compruebe el valor *ConsumedService* en los datos de uso para determinar si el uso puede optar a los descuentos de reserva.
+
+Para obtener más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-your-usage-information"></a>Analizar la información de uso
-Debe analizar su información de uso para averiguar qué reservas debe adquirir.
+Analice su información de uso para averiguar qué reservas debe adquirir.
 
-Los datos de uso están disponibles en el archivo de uso y en las API. Úselos de manera conjunta para determinar qué reserva adquirir. Para determinar la cantidad de reservas que necesita adquirir, debe comprobar si hay instancias de máquina virtual que tengan un uso elevado diario.
+Los datos de uso están disponibles en el archivo de uso y en las API. Úselos de manera conjunta para determinar qué reserva adquirir. Para determinar la cantidad de reservas que necesita adquirir, compruebe si hay instancias de máquina virtual que tengan un uso elevado diario.
 
 No tenga en cuenta la subcategoría `Meter` ni los campos `Product` de los datos de uso, ya que no distinguen los distintos tamaños de máquina virtual que usan Premium Storage. Si usa estos campos para determinar el tamaño de máquina virtual al adquirir la reserva, puede correr el riesgo de adquirir un tamaño equivocado, y no obtendrá el descuento de reserva que espera. En su lugar, consulte el campo `AdditionalInfo` del archivo o la API de uso para determinar el tamaño apropiado de la máquina virtual.
 
@@ -66,20 +89,19 @@ Las instancias reservadas de máquinas virtuales están disponibles para la mayo
 ## <a name="buy-a-reserved-vm-instance"></a>Compra de una instancia reservada de máquina virtual
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios** > **Reservations**.
-3. Haga clic en **Agregar** para comprar una nueva reserva.
-4. Rellene los campos obligatorios. Las instancias de máquina virtual en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de la reserva. El número real de las instancias de máquina virtual que obtienen el descuento depende el ámbito y la cantidad seleccionada.
+1. Seleccione **Todos los servicios** > **Reservations**.
+1. Seleccione **Agregar** para comprar una nueva reserva y, luego, haga clic en **Máquina virtual**.
+1. Rellene los campos obligatorios. Las instancias de máquina virtual en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de la reserva. El número real de las instancias de máquina virtual que obtienen el descuento depende el ámbito y la cantidad seleccionada.
 
-    | Campo      | DESCRIPCIÓN|
-    |------------|--------------|
-    |NOMBRE        |Nombre de esta reserva.|
-    |Subscription|Suscripción que se usa para pagar la reserva. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción.|    
-    |Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento de la reserva se aplica a las máquinas virtuales de esta suscripción. </li><li>Compartido: el descuento de la reserva se aplica a las máquinas virtuales en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. En el caso de los clientes que tienen suscripciones con tarifas de pago por uso, el ámbito compartido abarca todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.</li></ul>|
-    |Region    |Región de Azure que está cubierta por la reserva.|    
-    |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
-    |Optimizar para     |La opción de flexibilidad del tamaño de instancia de máquina virtual aplicará el descuento por la reserva a otras máquinas virtuales del mismo [grupo](https://aka.ms/RIVMGroups). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
-    |Término        |Un año o tres años.|
-    |Cantidad    |Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias de máquina virtual en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si tiene 10 máquinas virtuales Standard_D2 en la región Este de EE. UU., debería especificar 10 como cantidad para maximizar el beneficio de todas las máquinas en ejecución. |
+| Campo      | DESCRIPCIÓN|
+|------------|--------------|
+|Subscription|Suscripción que se usa para pagar la reserva. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción.|    
+|Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de cuenta.</li></ul>|
+|Region    |Región de Azure que está cubierta por la reserva.|    
+|Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
+|Optimizar para     |La flexibilidad de tamaño de instancia de máquina virtual está seleccionada de forma predeterminada. Haga clic en **Configuración avanzada** para cambiar el valor de flexibilidad de tamaño de instancia, con el fin de aplicar el descuento de reserva a otras VM del mismo [grupo de tamaño de VM](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
+|Término        |Un año o tres años.|
+|Cantidad    |Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias de máquina virtual en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si ejecuta 10 máquinas virtuales Standard_D2 en la región Este de EE. UU., debería especificar 10 como cantidad para maximizar el beneficio de todas las máquinas virtuales en ejecución. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
@@ -104,9 +126,9 @@ Pero sí se puede *intercambiar* una reserva si quiere realizar cambios.
 
 ## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
 
-Si necesita cancelar la reserva, podría aplicarse una tasa de terminación anticipada del 12 %. Los reembolsos se calculan conforme al precio de compra o el precio actual de la reserva, el que sea más bajo. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la hoja Reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
+Si necesita cancelar la reserva, podría aplicarse una tasa de terminación anticipada del 12 %. Los reembolsos se calculan conforme al precio de compra o el precio actual de la reserva, el que sea más bajo. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
 
-Si necesita cambiar la reserva de las instancias de máquinas virtuales reservadas a otra región, otro grupo de tamaños de máquina virtual u otro plazo, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
+Si necesita cambiar la reserva de Reserved VM Instances a otra región, otro grupo de tamaños de máquina virtual u otro plazo, puede hacerlo sin problema. El cambio debe realizarse a otra reserva que tenga un valor igual o superior. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva, empieza el período de uno o tres años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
 
 Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 

@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados para el operador: conectividad de red en Azure Kubernetes Service (AKS)'
 description: Procedimientos recomendados con los recursos de red virtual y la conectividad para el operador del clúster en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65192232"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614750"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -32,8 +32,8 @@ Este artículo de procedimientos recomendados se centra en la conectividad de re
 
 Las redes virtuales proporcionan conectividad básica para que los nodos de AKS y los clientes accedan a las aplicaciones. Hay dos maneras diferentes de implementar los clústeres de AKS en redes virtuales:
 
-* **Redes de kubernet**: Cuando el clúster se implementa y este utiliza el complemento [kubenet][kubenet] de Kubernetes, Azure administra los recursos de red virtual.
-* **Redes de Azure CNI**: Se implementan en una red virtual existente y usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes. Los pods reciben direcciones IP individuales que se pueden enrutar a otros servicios de red o recursos locales.
+* **Redes de kubenet**: cuando el clúster se implementa y usa el complemento [kubenet][kubenet] de Kubernetes, Azure administra los recursos de red virtual.
+* **Redes de Azure CNI**: se implementan en una red virtual existente y usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes. Los pods reciben direcciones IP individuales que se pueden enrutar a otros servicios de red o recursos locales.
 
 Container Networking Interface (CNI) es un protocolo independiente del proveedor que permite que el entorno de ejecución del contenedor realice solicitudes a un proveedor de red. Azure CNI asigna direcciones IP a los nodos y los pods, y proporciona características de administración de direcciones IP(IPAM) cuando se conecta a redes virtuales de Azure existentes. Cada recurso de nodo y pod recibe una dirección IP en la red virtual de Azure y no se necesita más enrutamiento para la comunicación con otros servicios o recursos.
 
@@ -45,9 +45,9 @@ Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo d
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para más información acerca de la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation].
+Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation].
 
-Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado o las actualizaciones de clúster, también necesita direcciones IP adicionales disponibles para la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para más información sobre los nodos de Windows Server, consulte el artículo de [actualización de un grupo de nodos en AKS][nodepool-upgrade].
+Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado o las actualizaciones de clúster, también necesita direcciones IP adicionales disponibles para la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 Para calcular la dirección IP necesaria, consulte [Configuración de redes de Azure CNI en AKS][advanced-networking].
 
@@ -58,7 +58,7 @@ Aunque las redes de kubenet no requieren configuración de las redes virtuales a
 * Los nodos y los pods se colocan en subredes IP diferentes. El enrutamiento definido por el usuario (UDR) y el reenvío de IP se usan para enrutar el tráfico entre los pods y los nodos. Este enrutamiento adicional puede reducir el rendimiento de las redes.
 * Las conexiones a redes locales existentes o el emparejamiento con otras redes virtuales de Azure pueden ser complejos.
 
-Kubenet es adecuado para implementaciones pequeñas o cargas de trabajo de prueba, ya que no es necesario crear la red virtual y las subredes independientemente del clúster de AKS. Los sitios web sencillos con poco tráfico o que sirven para levantar y desplazar cargas de trabajo en contenedores también se pueden beneficiar de la sencillez de los clústeres de AKS que se implementan con redes de kubenet. Para la mayoría de las implementaciones de producción, debe planificar y usar redes de Azure CNI. También puede [configurar sus propios rangos de direcciones IP y redes virtuales con kubenet][aks-configure-kubenet-networking].
+Kubenet es adecuado para implementaciones pequeñas o cargas de trabajo de prueba, ya que no es necesario crear la red virtual y las subredes independientemente del clúster de AKS. Los sitios web sencillos con poco tráfico o que sirven para levantar y desplazar cargas de trabajo en contenedores también se pueden beneficiar de la sencillez de los clústeres de AKS que se implementan con redes de kubenet. Para la mayoría de las implementaciones de producción, debe planificar y usar redes de Azure CNI. También puede [configurar sus propios intervalos de direcciones IP y redes virtuales con kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribución del tráfico de entrada
 
@@ -99,20 +99,20 @@ spec:
          servicePort: 80
 ```
 
-Un controlador de entrada es un demonio que se ejecuta en un nodo de AKS y supervisa las solicitudes entrantes. A continuación, el tráfico se distribuye según las reglas definidas en el recurso de entrada. El controlador de entrada más común se basa en [NGINX]. AKS no restringe al usuario a un controlador específico, por lo que puede usar otros, como [Contour][contour], [HAProxy][haproxy] o [ Traefik][traefik].
+Un controlador de entrada es un demonio que se ejecuta en un nodo de AKS y supervisa las solicitudes entrantes. A continuación, el tráfico se distribuye según las reglas definidas en el recurso de entrada. El controlador de entrada más común se basa en [NGINX]. AKS no restringe al usuario a un controlador específico, por lo que puede usar otros, como [Contour][contour], [HAProxy][haproxy] o [Traefik][traefik].
 
 El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server (actualmente en versión preliminar en AKS) no deben ejecutar el controlador de entrada. Use un selector de nodo en el manifiesto YAML o implementación de gráfico de Helm para indicar que el recurso debe ejecutarse en un nodo basado en Linux. Para obtener más información, consulte [Uso de selectores de nodo para controlar dónde se programan los pods en AKS][concepts-node-selectors].
 
 Hay muchos escenarios de entrada, incluidas las siguientes guías paso a paso:
 
-* [Crear un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
-* [Crear un controlador de entrada que usa una red privada interna y una dirección IP][aks-ingress-internal]
+* [Creación de un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
+* [Creación de un controlador de entrada que use una red privada interna y una dirección IP][aks-ingress-internal]
 * [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
-* Crear un controlador de entrada que use Let's Encrypt para generar certificados TLS de forma automática [con una dirección IP pública dinámica][aks-ingress-tls] o [con una dirección IP pública estática][aks-ingress-static-tls]
+* Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS [con una dirección IP pública dinámica][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Protección del tráfico con un firewall de aplicaciones web (WAF)
 
-**Guía de procedimiento recomendado**: para analizar el tráfico entrante en busca de posibles ataques, utilice un firewall de aplicaciones web (WAF) como [Barracuda WAF para Azure][barracuda-waf] o Azure Application Gateway. Estos recursos de red más avanzados también pueden enrutar el tráfico más allá de las conexiones HTTP y HTTPS sencillas o la terminación SSL básica.
+**Guía de procedimientos recomendados**: para analizar el tráfico entrante en busca de posibles ataques, use un firewall de aplicaciones web (WAF) como [Barracuda WAF para Azure][barracuda-waf] o Azure Application Gateway. Estos recursos de red más avanzados también pueden enrutar el tráfico más allá de las conexiones HTTP y HTTPS sencillas o la terminación SSL básica.
 
 Un controlador de entrada que distribuye el tráfico a servicios y aplicaciones suele ser un recurso de Kubernetes en el clúster de AKS. El controlador se ejecuta como demonio en un nodo de AKS y consume algunos de los recursos del nodo, como la CPU, la memoria y el ancho de banda de red. En entornos mayores, con frecuencia se prefiere descargar algo de tráfico mediante el enrutamiento o la terminación TLS a un recurso de red externo al clúster de AKS. También puede analizar el tráfico entrante en busca de posibles ataques.
 
@@ -158,11 +158,11 @@ La mayoría de las operaciones en AKS puede realizarse con las herramientas de a
 
 ![Conexión a los nodos de AKS mediante una pasarela de aplicaciones o host de salto](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-La red de administración para la pasarela de aplicaciones también debe protegerse. Use [Azure ExpressRoute][expressroute] o [VPN Gateway][vpn-gateway] para conectarse a una red local y controlar el acceso con grupos de seguridad de red.
+La red de administración para la pasarela de aplicaciones también debe protegerse. Use [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] para conectarse a una red local y controlar el acceso con grupos de seguridad de red.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo se centra en la conectividad de red y la seguridad. Para más información sobre los conceptos básicos de red en Kubernetes, consulte [Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)][aks-concepts-network]
+Este artículo se centra en la conectividad de red y la seguridad. Para obtener más información sobre los conceptos básicos de red en Kubernetes, consulte [Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)][aks-concepts-network].
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

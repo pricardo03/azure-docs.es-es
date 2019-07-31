@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430810"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304728"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
 
@@ -38,10 +38,10 @@ En el código, se inicializa una nueva aplicación cliente pública o confidenci
 ## <a name="authority"></a>Autoridad
 La autoridad es una dirección URL que indica un directorio desde el que MSAL puede solicitar tokens. Las autoridades comunes son:
 
-- https://login.microsoftonline.com/&lt ;tenant&gt; /, donde &lt; tenant&gt; es el Id. de inquilino del inquilino de Azure Active Directory (Azure AD) o un dominio asociado a este inquilino de Azure AD. Se usa solo para iniciar sesión en los usuarios de una organización específica.
-- https://login.microsoftonline.com/common/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas o cuentas personales de Microsoft.
-- https://login.microsoftonline.com/organizations/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas.
-- https://login.microsoftonline.com/consumers/. Se usa para el inicio de sesión de los usuarios que solo tienen cuentas personales de Microsoft (anteriormente conocidas como cuentas de Windows Live ID).
+- https\://login.microsoftonline.com/\<inquilino\>/, donde &lt;inquilino&gt; es el identificador del inquilino de Azure Active Directory (Azure AD) o un dominio asociado a este inquilino de Azure AD. Se usa solo para iniciar sesión en los usuarios de una organización específica.
+- https\://login.microsoftonline.com/common/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas o cuentas personales de Microsoft.
+- https\://login.microsoftonline.com/organizations/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas.
+- https\://login.microsoftonline.com/consumers/. Se usa para el inicio de sesión de los usuarios que solo tienen cuentas personales de Microsoft (anteriormente conocidas como cuentas de Windows Live ID).
 
 La configuración de la entidad debe ser coherente con lo que se declare en el portal de registro de aplicaciones.
 
@@ -50,7 +50,7 @@ La dirección URL de la autoridad se compone de la instancia y la audiencia.
 La autoridad puede ser:
 - Una autoridad de Azure AD Cloud.
 - Una autoridad de Azure AD B2C. Consulte [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics) (Especificaciones de B2C).
-- Una autoridad de Servicios de federación de Active Directory (ADFS). Consulte [ADFS support](https://aka.ms/msal-net-adfs-support) (Compatibilidad con ADFS).
+- Una autoridad de Servicios de federación de Active Directory (AD FS). Consulte [AD FS Support](https://aka.ms/msal-net-adfs-support) (Compatibilidad con AD FS).
 
 Las autoridades de Azure AD Cloud tienen dos partes:
 - La *instancia* del proveedor de identidades.
@@ -103,11 +103,17 @@ El URI de redirección es el URI al que el proveedor de identidades enviará los
 
 ### <a name="redirect-uri-for-public-client-apps"></a>URI de redirección para aplicaciones cliente públicas
 Si es desarrollador de aplicaciones cliente públicas que usa MSAL:
-- No es necesario pasar `RedirectUri` porque MSAL lo calcula automáticamente. Este URI de redirección se establece en uno de estos valores, según la plataforma:
-   - `urn:ietf:wg:oauth:2.0:oob` para todas las plataformas de Windows.
-   - `msal{ClientId}://auth` para Xamarin Android e iOS.
+- Puede usar `.WithDefaultRedirectUri()` en aplicaciones de escritorio o UWP (MSAL.net 4.1+). Este método establecerá la propiedad de URI de redireccionamiento de la aplicación cliente pública en el URI de redireccionamiento predeterminado recomendado para las aplicaciones cliente públicas. 
 
-- Debe configurar el URI de redirección en [Registros de aplicaciones](https://aka.ms/appregistrations):
+  Plataforma  | URI de redireccionamiento  
+  ---------  | --------------
+  Aplicación de escritorio (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  UWP | Valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Esto permite realizar el inicio de sesión único con el explorador, al establecer el valor en el resultado de WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), que debe registrar.
+  .NET Core | `https://localhost`. Esto permite que el usuario use el explorador del sistema para la autenticación interactiva, ya que .NET Core no tiene una interfaz de usuario para la vista web insertada en este momento.
+
+- No es necesario agregar un identificador URI de redireccionamiento si se compila una aplicación Xamarin Android e iOS que no admite agente (el URI de redireccionamiento se establece automáticamente en `msal{ClientId}://auth` para Xamarin Android e iOS).
+
+- Debe configurar el URI de redireccionamiento en [Registros de aplicaciones](https://aka.ms/appregistrations):
 
    ![URI de redirección en Registros de aplicaciones](media/msal-client-application-configuration/redirect-uri.png)
 

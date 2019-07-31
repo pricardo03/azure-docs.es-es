@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/01/2019
+ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 30d71ed54e490be8c3a4b36cedbc0eda634323a1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: a57335eccfce1e81fe0cc85ae6fa7b12aa27e1c3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626476"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805862"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
@@ -32,7 +32,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 
 |                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Límite de tamaño del disco del sistema operativo      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2TiB, el que sea menor: [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) y [GS](../articles/virtual-machines/linux/sizes-memory.md).              |
+| Límite de tamaño del disco del sistema operativo      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) y [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series).              |
 | Tamaños de máquina virtual admitidos          | Todo                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Compatibilidad con los tipos de discos           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
 | Regiones admitidas              | Todas las regiones                                                                                  | Todas las regiones                              |

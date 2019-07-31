@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850762"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724080"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Cambiar la información de perfil de la cuenta de Azure
 
@@ -87,10 +87,16 @@ Para optar por no recibir correos electrónicos de marketing:
 1. Vaya al [formulario de solicitud](https://account.microsoft.com/profile/permissions-link-request) para enviar una solicitud utilizando su dirección de correo electrónico de perfil. Recibirá un vínculo por correo electrónico para actualizar sus preferencias.
 2. Seleccione el vínculo para abrir la página **Administrar permisos de comunicación**. Esta página le muestra los tipos de comunicaciones de marketing en las que está habilitada la dirección de correo electrónico. Borre todos los temas que quiera excluir y luego seleccione **Guardar**.
 
-
 ![Ejemplo de la página para administrar los permisos de comunicación](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Cuando opta por no recibir comunicaciones de marketing, seguirá recibiendo notificaciones del servicio, en función de su cuenta.
+
+## <a name="change-the-subscription-name"></a>Cambio del nombre de la suscripción
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com), seleccione **Suscripción** en el panel izquierdo y después seleccione la suscripción cuyo nombre quiera cambiar.
+1. Seleccione **Introducción** y después **Cambiar nombre** en la barra de comandos.
+    ![Ejemplo de cambio de nombre de una suscripción de Azure](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Después de cambiar el nombre, seleccione **Guardar**.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

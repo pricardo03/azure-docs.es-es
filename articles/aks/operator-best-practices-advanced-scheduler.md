@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados de operador: características avanzadas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas de operador de clúster para usar características avanzadas de programador como taints y tolerations, los selectores de nodo y la afinidad o falta de afinidad entre pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055624"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614872"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -73,9 +73,9 @@ Cuando se implemente este pod, como el uso de `kubectl apply -f gpu-toleration.y
 
 Al aplicar valores taint, el trabajo con los desarrolladores y propietarios de su aplicación les permite definir las tolerancias necesarias en sus implementaciones.
 
-Para obtener más información acerca de taints y tolerations, consulte [applying taints and tolerations][k8s-taints-tolerations] (aplicación de taints y tolerations).
+Para obtener más información sobre los valores taint y toleration, consulte [Applying taints and tolerations][k8s-taints-tolerations] (Aplicación de valores taint y toleration).
 
-Para obtener más información sobre cómo usar varios grupos de nodos en AKS, vea [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
+Para obtener más información sobre cómo usar varios grupos de nodos en AKS, consulte [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamiento de taints y tolerations en AKS
 
@@ -179,15 +179,15 @@ Un buen ejemplo es una aplicación web que también usa una instancia de Azure C
 | aplicación web-1   | aplicación web-2   | aplicación web-3   |
 | caché-1    | caché-2    | caché-3    |
 
-Este ejemplo es una implementación más compleja que el uso de selectores de nodo o afinidad de nodo. La implementación le permite controlar cómo programa Kubernetes los pods en los nodos y puede aislar los recursos de forma lógica. Para obtener un ejemplo completo de esta aplicación web con el ejemplo de la instancia de Azure Cache for Redis, consulte [Colocate pods on the same node][k8s-pod-affinity] (Colocación de pods en el mismo nodo).
+Este ejemplo es una implementación más compleja que el uso de selectores de nodo o afinidad de nodo. La implementación le permite controlar cómo programa Kubernetes los pods en los nodos y puede aislar los recursos de forma lógica. Para obtener un ejemplo completo de esta aplicación web con el ejemplo de la instancia de Azure Redis Cache, consulte [Colocate pods on the same node][k8s-pod-affinity] (Colocación de pods en el mismo nodo).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este artículo se ha centrado en las características avanzadas del programador de Kubernetes. Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler] (Aislamiento multiempresa y de clúster)
-* [Basic Kubernetes scheduler features][aks-best-practices-scheduler] (Características básicas de programadores de Kubernetes)
-* [Authentication and authorization][aks-best-practices-identity] (Autenticación y autorización)
+* [Aislamiento de clúster y de multiinquilinato][aks-best-practices-scheduler]
+* [Características básicas del programador de Kubernetes][aks-best-practices-scheduler]
+* [Autenticación y autorización][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
