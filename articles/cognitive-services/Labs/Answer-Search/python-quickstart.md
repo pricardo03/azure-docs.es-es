@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0da596e84ac827b55affd5545c516e7623980f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860310"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698060"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guía de inicio rápido de Project Answer Search con Python
 
@@ -23,7 +23,7 @@ El siguiente ejemplo de Python crea y envía una solicitud de información sobre
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
+Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://labs.cognitive.microsoft.com/en-us/project-answer-search).
 
 Este ejemplo utiliza Python 3.6.4.
 

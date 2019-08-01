@@ -1,5 +1,6 @@
 ---
 title: 'Guía de inicio rápido: Creación de una base conocimiento: REST y Node.js en QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se explica de forma detallada cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker que aparecerá en el panel de Azure de su cuenta de API de Cognitive Services.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 02ef954ba19b7d750f1b76c2e4f8643ed74cc82b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4d9766a0147dfc88f440bf5f44e94405aab018f3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254125"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563027"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Node.js
 

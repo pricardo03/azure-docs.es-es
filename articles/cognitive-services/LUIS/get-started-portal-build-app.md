@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una aplicación en el portal de LUIS'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, creará una aplicación en el portal de LUIS. Cree las partes básicas de una aplicación, las intenciones y entidades. Pruebe la aplicación proporcionando una expresión de usuario de ejemplo en el panel de prueba interactiva para obtener la intención de predicción. La creación de una aplicación es gratuita; no requiere una suscripción de Azure.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146506"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560873"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 

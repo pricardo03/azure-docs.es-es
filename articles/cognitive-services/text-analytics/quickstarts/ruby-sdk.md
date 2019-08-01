@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297768"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697265"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Inicio rápido: Llamada al servicio Text Analytics con el SDK de Ruby
 
@@ -32,8 +32,6 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
 * El [SDK para Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) de Text Analytics
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro. 
 
 <a name="RubyProject"></a>
 
@@ -132,7 +130,7 @@ Mediante el SDK de Text Analytics o Text Analytics API, puede realizar el aná
     SentimentAnalysisExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 ===== SENTIMENT ANALYSIS =====
@@ -197,7 +195,7 @@ El servicio Text Analytics puede detectar el idioma de un documento de texto co
     DetectLanguageExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -265,7 +263,7 @@ El servicio Text Analytics puede distinguir y extraer las distintas entidades (
     RecognizeEntitiesExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 ===== ENTITY RECOGNITION =====
@@ -371,7 +369,7 @@ El servicio Text Analytics puede extraer las frases clave de las oraciones. En 
     KeyPhraseExtractionExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1

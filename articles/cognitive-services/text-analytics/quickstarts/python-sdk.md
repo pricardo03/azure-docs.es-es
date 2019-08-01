@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c24979d9aef74b6cc840427a010b9ce70f2c0b8a
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 82f0313a237358fcaa1ae52e92821abef2b52af7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356956"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697311"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Inicio rápido: Llamada al servicio Text Analytics mediante el SDK de Python 
 <a name="HOLTop"></a>
@@ -31,8 +31,6 @@ Use este inicio rápido para empezar a analizar el lenguaje con el SDK de Text A
     `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-También debe tener [el punto de conexión y la clave de acceso](../How-tos/text-analytics-how-to-access-key.md) que se generaron durante el registro.
 
 ## <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 

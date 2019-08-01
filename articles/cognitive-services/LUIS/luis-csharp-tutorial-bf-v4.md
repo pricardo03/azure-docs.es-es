@@ -1,6 +1,6 @@
 ---
 title: Bot de Language Understanding C# v4
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS). El bot se compila con la versión 4 de Bot Framework y el servicio de bot de aplicación web de Azure.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438452"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560660"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: usar un bot de aplicación web habilitado con Language Understanding en C#
 
@@ -72,7 +72,7 @@ Use C# para crear un bot de chat que se integre con Language Understanding (LUIS
 
     Antes de continuar, espere hasta que se crea el servicio bot.
 
-## <a name="the-bot-has-a-language-understanding-model"></a>El bot tiene un modelo de Language Understanding
+## <a name="the-bot-has-a-language-understanding-model"></a>El bot tiene un modelo de Language Understanding.
 
 El proceso de creación del servicio de bot también crea una nueva aplicación LUIS con intenciones y expresiones de ejemplo. El bot proporciona asignación de intenciones a la nueva aplicación de LUIS para las intenciones siguientes: 
 
@@ -87,11 +87,11 @@ El proceso de creación del servicio de bot también crea una nueva aplicación 
 1. Mientras sigue en Azure Portal para el nuevo bot, seleccione **Test in Web Chat** (Probar en chat web). 
 1. En el cuadro de texto **Type your message** (Escriba su mensaje), escriba el texto `hello`. El bot responde con información sobre el marco del bot, así como consultas de ejemplo para el modelo LUIS específico, como la reserva de un vuelo a París. 
 
-    ![Captura de pantalla de Azure Portal, escriba el texto "hello".](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
+    ![Captura de pantalla de Azure Portal, escribir el texto "hello".](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
 
     Puede usar la funcionalidad de prueba para probar rápidamente su bot. Para pruebas más completas, como la depuración, descargue el código de bot y use Visual Studio. 
 
-## <a name="download-the-web-app-bot-source-code"></a>Descargar el código fuente del bot de aplicación web
+## <a name="download-the-web-app-bot-source-code"></a>Descarga del código fuente del bot de aplicación web
 Con el fin de desarrollar el código del bot de aplicación web, descargue el código y úselo en el equipo local. 
 
 1. En Azure Portal, seleccione **Compilar** en la sección **Bot Management** (Administración del bot). 
@@ -104,7 +104,7 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
 
 1. Cuando el código fuente se haya comprimido, un mensaje proporcionará un vínculo para descargar el código. Seleccione el vínculo. 
 
-1. Guarde el archivo ZIP en el equipo local y extraiga los ficheros. Abra el proyecto con Visual Studio. 
+1. Guarde el archivo ZIP en el equipo local y extraiga los ficheros. Abra el proyecto con Visual Studio. 
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revise el código para enviar la expresión a LUIS y obtener respuesta
 
@@ -365,4 +365,4 @@ En Visual Studio, inicie el bot. Se abre una ventana del explorador con el sitio
 Consulte más [ejemplos](https://github.com/microsoft/botframework-solutions) con bots de conversación. 
 
 > [!div class="nextstepaction"]
-> [Compilar una aplicación Language Understanding con un dominio de sujeto personalizado](luis-quickstart-intents-only.md)
+> [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md) (Compilación de una aplicación Language Understanding con un dominio de sujeto personalizado)

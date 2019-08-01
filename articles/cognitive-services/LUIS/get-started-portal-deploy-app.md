@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Implementación de una aplicación con el portal de LUIS'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Para obtener información sobre cómo implementar la aplicación de LUIS en el punto de conexión de la predicción una vez que la aplicación está lista para devolver predicciones de expresiones a una aplicación cliente, como un bot de chat. En este tutorial de inicio rápido se ofrece orientación sobre cómo implementar una aplicación mediante la creación de un recurso del punto de conexión de la predicción, la asignación de dicho recurso a la aplicación, el entrenamiento de la aplicación y la publicación de la aplicación.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154523"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564066"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -42,9 +42,9 @@ Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho rec
    |--|--|--|
    |NOMBRE|`my-cognitive-service-resource`|El nombre del recurso de Azure. Este nombre será necesario al asignar el recurso a la aplicación en el portal de LUIS.|
    |Subscription|Su suscripción|Seleccione una de las suscripciones asociadas a su cuenta.|
-   |Ubicación|**Oeste de EE. UU.**|La región de Azure de este recurso.|
+   |Location|**Oeste de EE. UU.**|La región de Azure de este recurso.|
    |Plan de tarifa|**S0**|El plan de tarifa predeterminado de este recurso.|
-   |Grupos de recursos|`my-cognitive-service-resource-group`|Cree un grupo de recursos para todos los recursos de Cognitive Services. Cuando haya terminado con los recursos, puede eliminar el grupo de recursos para limpiar la suscripción. |
+   |Resource group|`my-cognitive-service-resource-group`|Cree un grupo de recursos para todos los recursos de Cognitive Services. Cuando haya terminado con los recursos, puede eliminar el grupo de recursos para limpiar la suscripción. |
    | | | |
 
    ![Elección de la API de Azure](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
@@ -61,7 +61,7 @@ Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicac
 
 1. Seleccione **Manage** (Administrar) en el menú superior derecho y, después, seleccione **Keys and endpoints** (Claves y puntos de conexión).
 
-1. Para agregar LUIS, seleccione **Asignar recurso +**.
+1. Para agregar LUIS, seleccione **Asignar recurso +** .
 
    [![Asignar un recurso a la aplicación](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 2d3c5873c03023ceaf5b2cafa266ea627ea7df13
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 62dd04b6df465b82bb1b39e23afce410325c4248
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002438"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697336"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de PHP para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro. 
 
 <a name="Detect"></a>
 

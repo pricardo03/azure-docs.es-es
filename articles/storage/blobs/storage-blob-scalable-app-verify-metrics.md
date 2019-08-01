@@ -1,21 +1,18 @@
 ---
 title: Comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento en Azure Portal | Microsoft Docs
 description: Descubra cómo puede comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento en el portal.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 2fde9b2b88b4c758065ba4b38da48724bfbfcd75
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250102"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698988"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento
 

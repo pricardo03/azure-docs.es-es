@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de la base de conocimiento en QnA Maker con REST y Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido basada en REST para Java le lleva por la creación de una base de conocimiento de QnA Maker de ejemplo mediante programación, que aparecerá en el panel de Azure de su cuenta de la API de Cognitive Services.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 298f7e90bb6848d7b0af032bdaff8724a69c227f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249665"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559869"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Java
 

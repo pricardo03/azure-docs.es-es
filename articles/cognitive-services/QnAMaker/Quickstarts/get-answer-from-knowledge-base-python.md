@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido basada en REST de Python le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/24/2019
 ms.author: diberry
-ms.openlocfilehash: 0f40ed3d0b77662e23e4042f568b8241cef130c6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 71f2cc3ef028d66be7049cf85003d51e6b4baef3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256605"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559807"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Obtención de respuestas a una pregunta desde una base de conocimiento con Python
 

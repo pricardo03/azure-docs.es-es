@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 92124a53c871be7a83d7b276e31f000d7c674358
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884297"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698007"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Inicio rápido: URL Preview con Node.js 
 
@@ -23,7 +23,7 @@ En el ejemplo de Node siguiente se crea una vista previa de la dirección URL de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
+Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://labs.cognitive.microsoft.com/en-us/project-answer-search).
 
 ## <a name="code-scenario"></a>Escenario de código 
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657936"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594923"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -48,7 +48,7 @@ En esta lista se incluyen los servicios Cognitive Services utilizados en este tu
 
 Antes de continuar, necesitará lo siguiente:
 
-* Una suscripción a Azure Cognitive Services. [Obtenga una clave de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* Una suscripción a Azure Cognitive Services. [Obtenga una clave de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * Un equipo Windows
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/): Community o Enterprise
 

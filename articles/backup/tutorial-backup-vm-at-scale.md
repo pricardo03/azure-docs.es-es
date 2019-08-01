@@ -2,18 +2,19 @@
 title: Copia de seguridad de máquinas virtuales de Azure a escala
 description: Copia de seguridad simultánea de varias máquinas virtuales en Azure
 keywords: copia de seguridad de máquinas virtuales; copia de seguridad de máquina virtual; copia de seguridad de VM; copia de seguridad de VM de Azure; copia de seguridad y recuperación ante desastres
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+manager: carmonm
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467133"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688434"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 

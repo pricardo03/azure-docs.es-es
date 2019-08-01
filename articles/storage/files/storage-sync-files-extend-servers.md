@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Ampliación de servidores de archivos Windows con Azure File Sync | Microsoft Docs'
 description: Aprenda a ampliar servidores de archivos Windows con Azure File Sync, desde el principio del proceso al final.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705069"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699500"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -100,7 +99,7 @@ Ya ha creado una cuenta de almacenamiento y un recurso compartido de archivos co
    1. En la pestaña **Discos**, en **Opciones de disco**, deje los valores predeterminados.
    1. En **DISCOS DE DATOS**, seleccione **Crear y adjuntar un nuevo disco**.
 
-   1. Use la configuración predeterminada, salvo en **Tamaño (GiB)**, que se puede cambiar a **1 GB** para este tutorial.
+   1. Use la configuración predeterminada, salvo en **Tamaño (GiB)** , que se puede cambiar a **1 GB** para este tutorial.
 
       ![Detalles del disco de datos](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -223,7 +222,7 @@ Para implementar Azure File Sync, en primer lugar coloque un recurso del **servi
    | **Nombre** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use _afssyncservice02_ para este tutorial. |
    | **Suscripción** | La suscripción de Azure que utiliza para este tutorial. |
    | **Grupos de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento.<br><br>Use _afsresgroup101918_ para este tutorial. |
-   | **Ubicación** | Este de EE. UU |
+   | **Ubicación** | East US |
 
 1. Cuando haya terminado, seleccione **Crear** para implementar el **servicio de sincronización de almacenamiento**.
 1. Seleccione la pestaña **Notificaciones** > **Ir al recurso**.

@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Llamar a la API de imagen Analyze - Computer Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo llamar a Computer Vision API mediante REST en Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011263"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564528"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Ejemplo: Cómo llamar a Computer Vision API
 
@@ -164,7 +164,7 @@ Este es un ejemplo:
 }
 ```
 
-Campo | Type | Contenido
+Campo | type | Contenido
 ------|------|------|
 Etiquetas  | `object` | Objeto de nivel superior de la matriz de etiquetas
 tags[].Name | `string`  | Palabra clave del clasificador de etiquetas
@@ -226,9 +226,9 @@ Para modelos específicos del dominio con la opción dos (análisis mejorado), e
 
 El campo de categorías es una lista de una o varias de las [86 categorías](../Category-Taxonomy.md) de la taxonomía original. Tenga en cuenta también que las categorías que terminan con un guión bajo coincidirán con esa categoría y sus elementos secundarios (por ejemplo, people_ así como people_group, para el modelo de celebridades).
 
-Campo   | Type  | Contenido
+Campo   | type  | Contenido
 ------|------|------|
-Categorías | `object`   | Objeto de nivel superior
+categories | `object`   | Objeto de nivel superior
 categories[].name    | `string` | Nombre de la taxonomía de 86 categorías
 categories[].score  | `number`  | Puntuación de confianza, entre 0 y 1
 categories[].detail  | `object?`      | Objeto de detalle opcional

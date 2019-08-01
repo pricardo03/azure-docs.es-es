@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479887"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697340"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 - Microsoft Power BI Desktop. [Descarga gratuita](https://powerbi.microsoft.com/get-started/).
 - Una cuenta de Microsoft Azure. [Inicie una evaluación gratuita](https://azure.microsoft.com/free/) o [inicie sesión](https://portal.azure.com/).
 - Una cuenta de Cognitive Services API con Text Analytics API. Si no tiene una, puede [registrarse](../../cognitive-services-apis-create-account.md) y usar el nivel gratis para 5000 transacciones al mes (vea los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para completar este tutorial).
-- La [clave de acceso a Text Analytics](../how-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro.
+- La [clave de acceso a Text Analytics](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que se generó automáticamente durante el registro.
 - Comentarios de clientes. Puede usar [nuestros datos de ejemplo](https://aka.ms/cogsvc/ta) o sus propios datos. En este tutorial se supone que está utilizando los datos de ejemplo.
 
 ## <a name="load-customer-data"></a>Carga de datos del cliente

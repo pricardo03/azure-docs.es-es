@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595702"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677722"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
@@ -30,9 +30,9 @@ En este tutorial, aprenderá:
 > * El código fuente de este tutorial se encuentra en [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * La [aplicación cliente de ejemplo](https://insights.timeseries.azure.com/clientsample) de Time Series Insights se hospeda para mostrar la aplicación completa que se usa en este tutorial.
 
-## <a name="prerequisites"></a>Requisitos previos
+Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 
-* Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una copia gratuita de Visual Studio. Descargue las [versiones 2017 o 2019 Community](https://www.visualstudio.com/downloads/) para empezar.
 
@@ -57,7 +57,7 @@ En este tutorial también se usan datos del entorno de Time Series Insights de
 1. Cree un directorio para almacenar los archivos de proyecto de la aplicación. Luego, vaya a cada una de las direcciones URL siguientes. Haga clic con el botón derecho del vínculo **Raw** (Sin formato) en la esquina superior derecha de la página y, luego, seleccione **Guardar como** para guardar los archivos en el directorio del proyecto.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): el código HTML y JavaScript de la página.
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): la hoja de estilos de CSS.
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): la hoja de estilos de CSS.
 
    > [!NOTE]
    > Según el explorador, es posible que tenga que cambiar las extensiones de archivo a .html o .css antes de guardarlo.

@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/23/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 44def29292bc882fdaa08ff76667742756f178b8
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d3644022e1877369368953b9f147c64aaae2d459
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299453"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697642"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Inicio rápido: Llamada al servicio Text Analytics con el SDK de Go 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Use esta guía de inicio rápido para empezar a analizar el lenguaje con el SDK 
 * El [SDK para Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) de Text Analytics
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro.
 
 ## <a name="set-up-a-new-project"></a>Configuración de un proyecto nuevo
 
@@ -132,7 +130,7 @@ for _,error := range *batchResult.Errors {
 
 En la función principal del proyecto, llame a `SentimentAnalysis()`.
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -192,7 +190,7 @@ for _,error := range *result.Errors {
 
 En la función principal del proyecto, llame a `LanguageDetection()`.
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0 Detected Languages with Score: English 1.000000,
@@ -256,7 +254,7 @@ En la misma función, `call textAnalyticsclient.Entities()` y obtenga el resulta
 
 En la función principal del proyecto, llame a `ExtractEntities()`.
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
@@ -349,7 +347,7 @@ En la misma función, llame a textAnalyticsclient.KeyPhrases() y obtenga el resu
 
 En la función principal del proyecto, llame a `ExtractKeyPhrases()`.
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
