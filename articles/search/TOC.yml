@@ -344,7 +344,7 @@
           href: cognitive-search-skill-textsplit.md
         - name: Opinión
           href: cognitive-search-skill-sentiment.md
-        - name: Traducción de texto (versión preliminar)
+        - name: Traducción del texto
           href: cognitive-search-skill-text-translation.md
         - name: Análisis de imágenes
           href: cognitive-search-skill-image-analysis.md
