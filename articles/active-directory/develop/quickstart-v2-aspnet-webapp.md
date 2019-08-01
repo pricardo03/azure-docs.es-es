@@ -8,6 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d813cea28d968ae7f14d55d47855b361141d6089
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: edda3b6d669bf78fc4febbe993bc30c244abeeeb
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565424"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334166"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -84,7 +85,7 @@ Seleccione el menú **Autenticación**, establezca los **Tokens de identificador
     ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este inicio rápido es compatible con Enter_the_Supported_Account_Info_Here. 
+> > Este inicio rápido admite Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
 > Donde:
@@ -199,3 +200,8 @@ Visite el tutorial de ASP.NET para acceder a una guía completa paso a paso sobr
 > [Tutorial de inicio de sesión](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Ayúdenos a mejorar la Plataforma de identidad de Microsoft. Rellene una breve encuesta de dos preguntas y háganos saber su opinión.
+
+> [!div class="nextstepaction"]
+> [Encuesta sobre la Plataforma de identidad de Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

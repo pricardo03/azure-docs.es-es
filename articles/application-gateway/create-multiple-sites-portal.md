@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 4/18/2019
+ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999032"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498448"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
@@ -38,136 +38,184 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
+1. Seleccione **Crear un recurso** en el menú de la izquierda de Azure Portal. Aparece la ventana **Nuevo**.
 
-1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
-3. Especifique estos valores para la puerta de enlace de aplicaciones:
+2. Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
 
-   - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
-   - *myResourceGroupAG*: como nuevo grupo de recursos.
+### <a name="basics-tab"></a>Pestaña Aspectos básicos
 
-     ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-multiple-sites-portal/application-gateway-create.png)
+1. En la pestaña **Aspectos básicos**, especifique estos valores para la siguiente configuración de puerta de enlace de aplicaciones:
 
-4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
+   - **Grupo de recursos**: Seleccione **myResourceGroupAG** como grupo de recursos. Si no existe, seleccione **Crear nuevo** para crearlo.
+   - **Nombre de la puerta de enlace de aplicaciones**: Escriba *myAppGateway* como nombre de la puerta de enlace de aplicaciones.
 
-   - *myVNet*: como nombre de la red virtual.
-   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-   - *myAGSubnet*: como nombre de subred.
-   - *10.0.0.0/24*: como espacio de direcciones de la subred.
+     ![Crear una nueva puerta de enlace de aplicaciones: Aspectos básicos](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-     ![Creación de una red virtual](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+2.  Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, creará una nueva red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
 
-6. Haga clic en **Aceptar** para crear la red virtual y la subred.
-7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-8. Acepte los valores predeterminados para la configuración del agente de escucha, deje el firewall de aplicaciones web deshabilitado y haga clic en **Aceptar**.
-9. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
+    En **Configurar la red virtual**, seleccione **Crear nuevo** para crear una nueva red virtual. En la ventana **Crear red virtual** que se abre, escriba los valores siguientes para crear la red virtual y dos subredes:
 
-### <a name="add-a-subnet"></a>Incorporación de una subred
+    - **Nombre**: Escriba *myVnet* como nombre de la red virtual.
 
-1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
-2. Haga clic en **Subredes** y en **Subred**.
+    - **Nombre de subred** (subred de Application Gateway): La cuadrícula **Subredes** mostrará una subred llamada *Predeterminada*. Cambie el nombre de esta subred a *myAGSubnet*.<br>La subred de la puerta de enlace de aplicaciones solo puede contener puertas de enlace de aplicaciones. No se permite ningún otro recurso.
 
-    ![Creación de una subred](./media/create-multiple-sites-portal/application-gateway-subnet.png)
+    - **Nombre de subred** (subred de servidor de back-end): En la segunda fila de la cuadrícula **Subredes**, escriba *myBackendSubnet* en la columna **Nombre de subred**.
 
-3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
+    - **Intervalo de direcciones** (subred de servidor de back-end): En la segunda fila de la cuadrícula **Subredes**, escriba un intervalo de direcciones que no se superponga al intervalo de direcciones de *myAGSubnet*. Por ejemplo, si el intervalo de direcciones de *myAGSubnet* es 10.0.0.0/24, escriba *10.0.1.0/24* para el intervalo de direcciones de *myBackendSubnet*.
 
-## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
+    Seleccione **Aceptar** para cerrar la ventana **Crear red virtual** y guarde la configuración de la red virtual.
 
-En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También va a instalar IIS en las máquinas virtuales para comprobar que el tráfico se enruta correctamente.
+     ![Crear una nueva puerta de enlace de aplicaciones: red virtual](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    
+3. En la pestaña **Aspectos básicos**, acepte los valores predeterminados para las demás opciones y seleccione **Siguiente: Front-end**.
 
-1. Haga clic en **Nuevo**.
-2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
-3. Especifique estos valores para la máquina virtual:
+### <a name="frontends-tab"></a>Pestaña Front-end
 
-    - *contosoVM*: como nombre de la máquina virtual.
-    - *azureuser*: como nombre del usuario administrador.
-    - *Azure123456!* como contraseña.
-    - Seleccione **Usar existente** y *myResourceGroupAG*.
+1. En la pestaña **Front-end**, compruebe que **Tipo de dirección IP de front-end** esté establecido en **Pública**. <br>Puede configurar la dirección IP de front-end para que sea pública o privada, según el caso de uso. En este ejemplo, elegimos una IP de front-end pública.
+   > [!NOTE]
+   > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. La configuración de IP de front-end privada no está habilitada actualmente para este SKU v2.
 
-4. Haga clic en **OK**.
-5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
-6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
-7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
-8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
+2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
 
-### <a name="install-iis"></a>Instalación de IIS
+     ![Crear una nueva puerta de enlace de aplicaciones: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+3. Seleccione **Siguiente: Back-end**.
 
-1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
+### <a name="backends-tab"></a>Pestaña Back-end
 
-    ![Instalación de la extensión personalizada](./media/create-multiple-sites-portal/application-gateway-extension.png)
+El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end, que atienden la solicitud. Los grupos de back-end pueden ser NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino, como Azure App Service. En este ejemplo, creará un grupo de back-end vacío con la puerta de enlace de aplicaciones y, luego, agregará destinos de back-end al grupo de back-end.
+
+1. En la pestaña **Back-end**, seleccione **+Agregar un grupo de back-end**.
+
+2. En la ventana **Agregar un grupo de back-end**, escriba los valores siguientes para crear un grupo de back-end vacío:
+
+    - **Nombre**: Escriba *contosoPool* como nombre del grupo back-end.
+    - **Agregar grupo de back-end sin destinos**: Seleccione **Sí** para crear un grupo de back-end sin destinos. Agregará destinos de back-end después de crear la puerta de enlace de aplicaciones.
+
+3. En la ventana **Agregar un grupo de back-end**, seleccione **Agregar** para guardar la configuración del grupo de back-end y vuelva a la pestaña **Back-end**.
+4. Ahora, agregue otro grupo de back-end denominado *fabrikamPool*.
+
+     ![Crear una nueva puerta de enlace de aplicaciones: back-end](./media/create-multiple-sites-portal/backend-pools.png)
+
+4. En la pestaña **Back-end**, seleccione **Siguiente: Configuración**.
+
+### <a name="configuration-tab"></a>Pestaña Configuración
+
+En la pestaña **Configuración**, conecte el grupo de front-end y back-end que ha creado con una regla de enrutamiento.
+
+1. Seleccione **Agregar una regla** en la columna **Reglas de enrutamiento**.
+
+2. En la ventana **Agregar una regla de enrutamiento** que se abre, escriba *contosoRule* para **Nombre de regla**.
+
+3. Una regla de enrutamiento necesita un cliente de escucha. En la pestaña **Cliente de escucha** de la ventana **Agregar una regla de enrutamiento**, escriba los valores siguientes para el cliente de escucha:
+
+    - **Nombre del cliente de escucha**: Escriba *contosoListener* como nombre del cliente de escucha.
+    - **Dirección IP de front-end**: Seleccione **Pública** para elegir la dirección IP pública que ha creado para el front-end.
+
+   En **Configuración adicional**:
+   - **Tipo de cliente de escucha**: Varios sitios
+   - **Nombre de host**: **www.contoso.com**
+
+   Acepte los valores predeterminados para las demás opciones de la pestaña **Cliente de escucha** y, a continuación, seleccione la pestaña **Destinos de back-end** para configurar el resto de opciones de la regla de enrutamiento.
+
+   ![Crear una nueva puerta de enlace de aplicaciones: cliente de escucha](./media/create-multiple-sites-portal/routing-rule.png)
+
+4. En la pestaña **Destinos de back-end**, seleccione **contosoPool** para el **Destino de back-end**.
+
+5. Para la **Configuración de HTTP**, seleccione **Crear nueva** para crear una nueva configuración de HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración de HTTP** que se abre, escriba *contosoHTTPSetting* en **Nombre de la configuración HTTP**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
+
+6. En la ventana **Agregar una regla de enrutamiento**, seleccione **Agregar** para guardar la regla de enrutamiento y volver a la pestaña **Configuración**.
+7. Seleccione **Agregar una regla** y agregue una regla, un cliente de escucha, un destino de back-end y una configuración de HTTP similares para Fabrikam.
+
+     ![Crear una nueva puerta de enlace de aplicaciones: regla de enrutamiento](./media/create-multiple-sites-portal/fabrikamRule.png)
+
+7. Seleccione **Siguiente: Etiquetas** y, a continuación, **Siguiente: Review + create** (Revisar y crear).
+
+### <a name="review--create-tab"></a>Pestaña Revisar y crear
+
+Revise la configuración en la pestaña **Revisar y crear** y seleccione **Crear** para crear la red virtual, la dirección IP pública y la puerta de enlace de aplicaciones. Azure puede tardar varios minutos en crear la puerta de enlace de aplicaciones.
+
+Espere hasta que finalice la implementación correctamente antes de continuar con la siguiente sección.
+
+## <a name="add-backend-targets"></a>Agregar destinos de back-end
+
+En este ejemplo, se usan máquinas virtuales como back-end de destino. Pueden usarse máquinas virtuales existentes o crear otras nuevas. En este ejemplo, se crean dos máquinas virtuales que Azure usa como servidores back-end para la puerta de enlace de aplicaciones.
+
+Para agregar destinos de back-end, puede:
+
+1. Crear dos nuevas máquinas virtuales, *contosoVM* y *fabrikamVM*, que se usarán como servidores back-end.
+2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
+3. Agregar los servidores back-end a los grupos de back-end.
+
+### <a name="create-a-virtual-machine"></a>de una máquina virtual
+
+1. En Azure Portal, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
+2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
+3. Especifique estos valores en la pestaña **Datos básicos** de la siguiente configuración de máquina virtual:
+
+    - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
+    - **Nombre de la máquina virtual**: Escriba *contosoVM* como nombre de la máquina virtual.
+    - **Nombre de usuario**: Escriba *azureuser* como nombre del usuario administrador.
+    - **Contraseña**: Escriba *Azure123456!* como la contraseña de administrador.
+4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
+5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
+6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
+7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
+8. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
+9. Espere a que se complete la creación de la máquina virtual antes de continuar.
+
+### <a name="install-iis-for-testing"></a>Instalación de IIS para pruebas
+
+En este ejemplo se instala IIS en las máquinas virtuales con el fin de comprobar que Azure creó correctamente la puerta de enlace de aplicaciones.
+
+1. Abra [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para ello, seleccione **Cloud Shell** en la barra de navegación superior de Azure Portal y, a continuación, seleccione **PowerShell** en la lista desplegable. 
+
+    ![Instalación de la extensión personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
-      -Location eastus `
       -ExtensionName IIS `
       -VMName contosoVM `
       -Publisher Microsoft.Compute `
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
-      -Settings $publicSettings
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
     ```
 
-3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* como nombre y valor de VMName en Set-AzVMExtension.
+3. Cree una segunda máquina virtual e instale IIS con los pasos que acaba de finalizar. Use *fabrikamVM* como nombre de la máquina virtual y como valor de **VMName** para el cmdlet **Set-AzVMExtension**.
 
-## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
+### <a name="add-backend-servers-to-backend-pools"></a>Adición de servidores back-end a grupos de back-end
 
-1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAppGateway**.
-2. Haga clic en **Grupos de back-end** y en **Agregar**.
-3. Escriba el nombre *contosoPool* y agregue *contosoVM* utilizando **Agregar destino**.
+1. Seleccione **Todos los recursos** y, después, seleccione **myAppGateway**.
 
-    ![Incorporación de servidores back-end](./media/create-multiple-sites-portal/application-gateway-multisite-backendpool.png)
+2. Seleccione los **grupos back-end** en el menú de la izquierda.
 
-4. Haga clic en **OK**.
-5. Haga clic en **Grupos de back-end** y, a continuación, haga clic en **Agregar**.
-6. Cree el grupo *fabrikamPool* con *fabrikamVM* siguiendo los pasos que acaba de finalizar.
+3. Seleccione **contosoPool**.
 
-## <a name="create-backend-listeners"></a>Crear un agente de escucha de back-end
+4. En **Destinos**, seleccione **Máquina virtual** de la lista desplegable.
 
-1. Haga clic en **Agentes de escucha** y en **Multisitio**.
-2. Especifique estos valores para el agente de escucha:
-    
-   - *contosoListener*: como nombre del agente de escucha.
-   - *www.contoso.com*: sustituya este nombre de host de ejemplo por el nombre del dominio.
+5. En **MÁQUINA VIRTUAL** e **INTERFACES DE RED**, seleccione la máquina virtual **contosoVM** y su interfaz de red asociada de las listas desplegables.
 
-3. Haga clic en **OK**.
-4. Cree otro agente de escucha con el nombre *fabrikamListener* y utilice el segundo nombre de dominio. En este ejemplo, vamos a utilizar *www.fabrikam.com*.
+    ![Incorporación de servidores back-end](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
-![agentes de escucha de varios sitios](media/create-multiple-sites-portal/be-listeners.png)
+6. Seleccione **Guardar**.
+7. Repita el procedimiento para agregar *fabrikamVM* y la interfaz a *fabrikamPool*.
 
-## <a name="create-routing-rules"></a>Crear reglas de enrutamiento
+Espere a que la implementación se complete antes de continuar con el paso siguiente.
 
-Las reglas se procesan en el orden en que aparecen y el tráfico se dirige utilizando la primera regla que dé una coincidencia, sin tener en cuenta su especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
+## <a name="create-a-www-a-record-in-your-domains"></a>Creación de un registro de www A en los dominios
 
-En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada creada junto con la puerta de enlace de aplicaciones.
-
-1. Haga clic en **Reglas** y en **Básica**.
-2. Escriba *contosoRule* como nombre.
-3. Seleccione *contosoListener* como agente de escucha.
-4. Seleccione *contosoPool* como grupo de back-end.
-
-    ![Creación de una regla basada en ruta de acceso](./media/create-multiple-sites-portal/application-gateway-multisite-rule.png)
-
-5. Haga clic en **OK**.
-6. Cree una segunda regla usando los nombres *fabrikamRule*, *fabrikamListener* y *fabrikamPool*.
-7. Elimine la regla predeterminada *rule1*; para ello, selecciónela y haga clic después en **Eliminar**.
-
-## <a name="create-a-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
-
-Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección IP y usarla para crear un registro A en los dominios. 
 
 1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
 
-    ![Registro de la dirección DNS de la puerta de enlace de aplicaciones](./media/create-multiple-sites-portal/application-gateway-multisite-dns.png)
+    ![Registro de la dirección DNS de la puerta de enlace de aplicaciones](./media/create-multiple-sites-portal/public-ip.png)
 
-2. Copie la dirección DNS y utilícela como valor en un nuevo registro CNAME del dominio.
+2. Copie la dirección IP y utilícela como valor en un nuevo registro *www* A del dominio.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
@@ -181,7 +229,7 @@ Después de crear la puerta de enlace de aplicaciones con la dirección IP públ
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Mediante la eliminación del grupo de recursos también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados.
+Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Cuando quite el grupo de recursos, también quita la puerta de enlace de aplicaciones y todos sus recursos relacionados.
 
 Para eliminar el grupo de recursos:
 
@@ -193,4 +241,4 @@ Para eliminar el grupo de recursos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre lo que se puede hacer con Azure Application Gateway](application-gateway-introduction.md)
+> [Más información sobre lo que se puede hacer con Azure Application Gateway](application-gateway-introduction.md)

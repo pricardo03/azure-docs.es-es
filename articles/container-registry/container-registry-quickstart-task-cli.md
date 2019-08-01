@@ -3,33 +3,34 @@ title: 'Inicio rápido: compilación y ejecución de una imagen de contenedor en
 description: Ejecute las tareas rápidamente con Azure Container Registry para compilar y ejecutar una imagen de contenedor a petición, en la nube.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701566"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310626"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Inicio rápido: Compilación y ejecución de una imagen de contenedor en Azure Container Registry Tasks
 
-En este tutorial, se usan comandos de Azure Container Registry Tasks para crear, insertar y ejecutar rápidamente una imagen de un contenedor de Docker de forma nativa en Azure, lo que muestra cómo descargar el ciclo de desarrollo de "bucle interno" en la nube. [ACR Tasks][container-registry-tasks-overview] es un conjunto de características de Azure Container Registry que le ayudan a administrar y modificar imágenes de contenedor a los largo del ciclo de vida de este. 
+En este tutorial, se usan comandos de Azure Container Registry Tasks para crear, insertar y ejecutar rápidamente una imagen de un contenedor de Docker de forma nativa en Azure, lo que muestra cómo descargar el ciclo de desarrollo de "bucle interno" en la nube. [ACR Tasks][container-registry-tasks-overview] es un conjunto de características de Azure Container Registry que le ayudan a administrar y modificar imágenes de contenedor durante el ciclo de vida de este. 
 
 Después de este inicio rápido, explore las características más avanzadas de ACR Tasks. ACR Tasks puede automatizar las compilaciones de imágenes basadas en actualizaciones de la imagen base o de confirmaciones de código, o probar varios contenedores, en paralelo, entre otros escenarios. 
 
-Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si desea usarlo de forma local, se recomienda la versión 2.0.58, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si desea usarlo de forma local, se recomienda la versión 2.0.58, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Si aún no tiene un registro de contenedor, crear un grupo de recursos con el comando [az group create][az-group-create]. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Si aún no tiene un registro de contenedor, cree un grupo de recursos con el comando [az group create][az-group-create]. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -117,7 +118,7 @@ Run ID: ca8 was successful after 10s
 
 Ahora, ejecute rápidamente la imagen que ha compilado e insertado en el registro. En el flujo de trabajo de desarrollo de contenedor, esto podría ser un paso de validación antes de implementar la imagen.
 
-Cree un archivo *quickrun.yaml* en un directorio de trabajo local con el siguiente contenido para un solo paso. Sustituya el nombre del servidor de inicio de sesión del registro para *\<acrLoginServer\>*. El nombre del servidor de inicio de sesión tiene el formato *\<nombre-registro\>.azurecr.io* (todo en minúscula), por ejemplo, *mycontainerregistry008.azurecr.io*. En este ejemplo se da por supuesto que ha compilado e insertado la imagen `sample/hello-world:v1` en la sección anterior:
+Cree un archivo *quickrun.yaml* en un directorio de trabajo local con el siguiente contenido para un solo paso. Sustituya el nombre del servidor de inicio de sesión del registro para *\<acrLoginServer\>* . El nombre del servidor de inicio de sesión tiene el formato *\<nombre-registro\>.azurecr.io* (todo en minúscula), por ejemplo, *mycontainerregistry008.azurecr.io*. En este ejemplo se da por supuesto que ha compilado e insertado la imagen `sample/hello-world:v1` en la sección anterior:
 
 ```yml
 steps:

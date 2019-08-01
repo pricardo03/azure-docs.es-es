@@ -13,22 +13,22 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4fbe3a5d308559a4ac9e1a781f3a4f385c767f90
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605451"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348192"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions  
-Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Simplemente, puede escribir el código que necesita para el problema en cuestión, sin preocuparse de toda la aplicación o la infraestructura para ejecutarlo. Functions puede hacer que el desarrollo sea aún más productivo y, además, le permite utilizar el lenguaje de desarrollo que prefiera, como C#, F#, Node.js, Java o PHP. Pague solo el tiempo durante el que se ejecuta el código y confíe en Azure para escalar según sea necesario. Azure Functions permite desarrollar aplicaciones [sin servidor](https://azure.microsoft.com/solutions/serverless/) en Microsoft Azure.
+Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Simplemente, puede escribir el código que necesita para el problema en cuestión, sin preocuparse de toda la aplicación o la infraestructura para ejecutarlo. Functions puede hacer que el desarrollo sea aún más productivo y, además, le permite utilizar el lenguaje de desarrollo que prefiera, como C#, Java, JavaScript, Python o PHP. Pague solo el tiempo durante el que se ejecuta el código y confíe en Azure para escalar según sea necesario. Azure Functions permite desarrollar aplicaciones [sin servidor](https://azure.microsoft.com/solutions/serverless/) en Microsoft Azure.
 
 Este tema proporciona información general de alto nivel de Azure Functions. Si desea comenzar de inmediato y empezar a trabajar con Functions, comience con el artículo [Creación de su primera función de Azure](functions-create-first-azure-function.md). Si busca información más técnica acerca de las Funciones, consulte [Referencia para desarrolladores de Funciones de Azure](functions-reference.md).
 
 ## <a name="features"></a>Características
 Estas son algunas características clave de Functions:
 
-* **Opción de lenguaje**: escriba funciones usando el lenguaje C#, F# o Javascript de su elección. Consulte [Lenguajes admitidos](supported-languages.md) para ver otras opciones.
+* **Opción de lenguaje**: escriba funciones usando el lenguaje C#, Java, Javascript, Python u otro de su elección. Consulte [Lenguajes admitidos](supported-languages.md) para ver la lista completa.
 * **Modelo de precios de pago por uso** : pague solo el tiempo que haya empleado ejecutando el código. Consulte la opción del plan de hospedaje de Consumo en la [sección de precios](#pricing).  
 * **Traiga sus propias dependencias** : Funciones de Azure admite NuGet y NPM, para que pueda usar sus bibliotecas favoritas.  
 * **Seguridad integrada** : proteja las funciones desencadenadas por HTTP con los proveedores de OAuth como Azure Active Directory, Facebook, Google, Twitter y cuenta Microsoft.  
@@ -79,7 +79,7 @@ Para más información sobre planes de hospedaje, vea [Comparación de los plane
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
   Proporciona información técnica sobre el tiempo de ejecución de Azure Functions y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.
+  describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Azure App Service?](../app-service/overview.md)  

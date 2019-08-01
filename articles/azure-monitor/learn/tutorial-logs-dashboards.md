@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296385"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414175"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -75,7 +75,7 @@ Para guardar la consulta, seleccione el botón **Guardar** en la parte superior 
 
 ![Guardar consulta](media/tutorial-logs-dashboards/save-query.png)
 
-En el panel de control **Guardar consulta**, escriba un nombre como *Máquinas virtuales de Azure: uso del procesador* y una categoría como *Paneles* y, luego, haga clic en **Guardar**.  De este modo, puede crear una biblioteca con las consultas comunes que puede usar y modificar.  Por último, ánclela al panel compartido que se creó anteriormente. Para ello, seleccione el botón **Anclar** en la esquina superior derecha de la página y seleccione el nombre del panel.
+En el panel de control **Guardar consulta**, escriba un nombre como *Máquinas virtuales de Azure: uso del procesador* y una categoría como *Paneles* y, luego, haga clic en **Guardar**.  De este modo, puede crear una biblioteca con las consultas comunes que puede usar y modificar.  Por último, ánclela al panel compartido que se creó anteriormente. Para ello, seleccione el botón **Anclar al panel** en la esquina superior derecha de la página y seleccione el nombre del panel.
 
 Ahora que tenemos una consulta anclada al panel, podrá observar que tiene un título genérico y un comentario debajo de él.
 

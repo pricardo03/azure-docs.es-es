@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860472"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478472"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conexión al servicio Text Analytics con Servicios conectados en Visual Studio
 
@@ -32,7 +32,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Adición de compatibilidad al proyecto para el servicio Text Analytics
 
-1. Cree un nuevo proyecto de web ASP.NET Core denominado TextAnalyticsDemo. Utilice la plantilla de proyecto de aplicación web (Model-View-Controller) con todos los valores predeterminados. Es importante ponerle un nombre al proyecto MyWebApplication, para que el espacio de nombres coincida cuando copie código en el proyecto.  El ejemplo de este artículo utiliza MVC, pero puede utilizar el servicio conectado de Text Analytics con cualquier tipo de proyecto ASP.NET.
+1. Cree un nuevo proyecto de web ASP.NET Core denominado TextAnalyticsDemo. Utilice la plantilla de proyecto de aplicación web (Model-View-Controller) con todos los valores predeterminados. Es importante ponerle un nombre al proyecto MyWebApplication, para que el espacio de nombres coincida cuando copie código en el proyecto.  En el ejemplo de este artículo se usa MVC, pero puede emplear el servicio conectado de Text Analytics con cualquier tipo de proyecto ASP.NET.
 
 1. En el **Explorador de soluciones**, haga doble clic en elemento **Servicio conectado**.
    Aparece la página del servicio conectado con los servicios que puede agregar al proyecto.
@@ -54,7 +54,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
    Siga el vínculo para obtener más información sobre los planes de tarifa.
 
 1. Elija **Agregar** para agregar compatibilidad con el servicio conectado.
-   Visual Studio modifica su proyecto para agregar paquetes NuGet, las entradas del archivo de configuración y otros cambios para admitir una conexión con el servicio Text Analytics. La **ventana de salida** muestra el registro de lo que sucede en el proyecto. Debe ver algo parecido a lo siguiente:
+   Visual Studio modifica su proyecto para agregar paquetes NuGet, las entradas del archivo de configuración y otros cambios para admitir una conexión con el servicio Text Analytics. La **ventana de salida** muestra el registro de lo que sucede en el proyecto. La salida debe parecerse a la que aparece a continuación:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
       }
    ```
 
-1. Agregue un archivo de clase en la carpeta Controllers denominado DemoTextAnalyzeController y reemplace su contenido por el código siguiente:
+1. Agregue un archivo de clase en la carpeta *Controllers* denominado `DemoTextAnalyzeController` y reemplace su contenido por el código siguiente:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
     }
     ```
     
-    El código incluye GetTextAnalyzeClient para obtener el objeto cliente que puede usar para llamar a Text Analytics API y un controlador de peticiones que llama a DetectLanguage en un texto dado.
+    El código incluye `GetTextAnalyzeClient` para obtener el objeto de cliente para realizar llamadas a Text Analytics API y un controlador de solicitudes que llama a DetectLanguage en un texto determinado.
 
 1. Agregue la clase auxiliar MyHandler que se utiliza por el código anterior.
 
@@ -171,7 +171,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
         }
     ```
 
-1. En la carpeta Models, agregue una clase para el modelo.
+1. En la carpeta *Models*, agregue una clase para el modelo.
 
     ```csharp
     using System;

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592332"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325270"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Uso de Azure Data Box Heavy para migrar el contenido del recurso compartido de archivos a SharePoint Online
 
@@ -66,8 +66,8 @@ Siga estos pasos para copiar datos a Data Box Heavy.
 2. Después de recibir Data Box Heavy, [configúrelo](data-box-heavy-deploy-set-up.md). Deberá conectar los cables y configurar los nodos en el dispositivo.
 3. [Copie los datos a Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). Al copiar, asegúrese de que:
 
-    - Use solo la carpeta *AzureFile* en Data Box Heavy para copiar los datos. Esto se debe a que quiere que los datos terminen en un recurso compartido de archivos de Azure, no en blobs en bloques o en páginas.
-    - Copie los archivos en una subcarpeta de la carpeta *AzureFile*. Una subcarpeta dentro de *AzureFile* crea un recurso compartido de archivos. Los archivos que se copien directamente en la carpeta *AzureFile* presentan errores y se cargan como blobs en bloques. Este es el archivo compartido que montará en la máquina virtual en el siguiente paso.
+    - Usa solo la carpeta *StorageAccountName_AzFile* de Data Box Heavy para copiar los datos. Esto se debe a que quiere que los datos terminen en un recurso compartido de archivos de Azure, no en blobs en bloques o en páginas.
+    - Copia los archivos en una carpeta dentro de la carpeta *StorageAccountName_AzFile*. Una subcarpeta dentro de la carpeta *StorageAccountName_AzFile* crea un recurso compartido de archivos. Los archivos que se copian directamente en la carpeta *StorageAccountName_AzFile* presentan errores y se cargan como blobs en bloques. Este es el archivo compartido que montará en la máquina virtual en el siguiente paso.
     - Copie los datos en ambos nodos de la instancia de Data Box Heavy.
 3. Ejecute [Preparación para el envío](data-box-heavy-deploy-picked-up.md#prepare-to-ship) en el dispositivo. Una correcta preparación para el envío garantiza la carga correcta de los archivos en Azure.
 4. [Devuelva el dispositivo](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).
@@ -75,7 +75,7 @@ Siga estos pasos para copiar datos a Data Box Heavy.
 
 ## <a name="use-spmt-to-migrate-data"></a>Uso de SPMT para migrar datos
 
-Después de recibir la confirmación del equipo de datos de Azure de que la copia de datos se ha completado, ahora puede proceder a migrar los datos a SharePoint Online.
+Después de recibir la confirmación del equipo de datos de Azure de que la copia de datos se ha completado, continúe con la migración de los datos a SharePoint Online.
 
 Para optimizar el rendimiento y la conectividad, se recomienda crear una máquina virtual de Azure.
 

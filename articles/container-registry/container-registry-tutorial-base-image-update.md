@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/30/2019
 ms.locfileid: "68310511"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry 
@@ -62,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Imágenes base
 
-Los archivos de Docker que definen la mayoría de las imágenes de contenedor especifican una imagen primaria en la que se basan y que se denomina su *imagen base*. Las imágenes base normalmente contienen el sistema operativo, por ejemplo [Alpine Linux][base-alpine]or [Windows Nano Server][base-windows], sobre el que se aplican el resto de las capas del contenedor. También pueden incluir marcos de trabajo de la aplicación como [Node.js][base-node] o [.NET Core][base-dotnet].
+Los archivos de Docker que definen la mayoría de las imágenes de contenedor especifican una imagen primaria en la que se basan y que se denomina su *imagen base*. Las imágenes base normalmente contienen el sistema operativo, por ejemplo [Alpine Linux][base-alpine] o [Windows Nano Server][base-windows], sobre el que se aplica el resto de capas del contenedor. También pueden incluir marcos de trabajo de la aplicación, como [Node.js][base-node] o [.NET Core][base-dotnet].
 
 ### <a name="base-image-updates"></a>Actualizaciones de imagen base
 

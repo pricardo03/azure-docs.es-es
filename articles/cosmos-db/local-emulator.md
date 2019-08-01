@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/16/2019
-ms.openlocfilehash: 3a03829c39deb954a8baa908de63b9ff6f31238e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 07/26/2019
+ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297850"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619838"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -97,7 +97,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > La clave maestra admitida por el emulador de Azure Cosmos está destinada a su uso exclusivo con el emulador. No puede usar su clave y cuenta de producción de Azure Cosmos DB con el emulador de Azure Cosmos.
 
 > [!NOTE]
-> Si ha iniciado el emulador con la opción /Key, use la clave generada en lugar de `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. Para más información sobre la opción /Key, consulte la [referencia de la herramienta de la línea de comandos](#command-line-syntax).
+> Si ha iniciado el emulador con la opción /Key, use la clave generada en lugar de `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. Para más información sobre la opción /Key, consulte la [referencia de la herramienta de la línea de comandos](#command-line).
 
 Al igual que Azure Cosmos DB, el emulador de Azure Cosmos solo admite la comunicación segura a través de SSL.
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
 
-Si va a utilizar [API de Azure Cosmos DB para MongoDB](mongodb-introduction.md), use la siguiente cadena de conexión:
+Cuando tenga el emulador de Azure Cosmos funcionando en su escritorio, puede usar la [API de Azure Cosmos DB para MongoDB](mongodb-introduction.md) para interactuar con el emulador. Inicie el emulador desde el símbolo del sistema como administrador con "/EnableMongoDbEndpoint". Luego, use la siguiente cadena de conexión para conectarse a la cuenta de la API de MongoDB:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true

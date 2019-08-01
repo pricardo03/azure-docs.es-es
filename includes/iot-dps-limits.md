@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455153"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360298"
 ---
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de Azure IoT Hub Device Provisioning Service.
 
@@ -20,7 +20,9 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Número máximo de registros | 1 000 000 |
 | Número máximo de grupos de inscripciones | 100 |
 | Número máximo de CA | 25 |
+| Número máximo de centros de IoT vinculados | 10 |
 | Tamaño máximo de mensaje | 96 KB|
+
 
 > [!NOTE]
 > Para aumentar el número de instancias de la suscripción, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).

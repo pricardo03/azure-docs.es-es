@@ -3,17 +3,18 @@ title: 'Inicio rápido: Implementación de contenedor de Docker en Azure Contain
 description: En este inicio rápido, usará la CLI de Azure para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4a1c24211e644a796b4e60537978c327501383
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65908094"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325779"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante la CLI de Azure
 
@@ -23,17 +24,17 @@ En esta guía de inicio rápido, va a usar la CLI de Azure para implementar un c
 
 ![Aplicación implementada en Azure Container Instances vista en el explorador][aci-app-browser]
 
-Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si desea usarlos de forma local, se recomienda la versión 2.0.55 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si desea usarlos de forma local, se recomienda la versión 2.0.55 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Las instancias de contenedores de Azure, al igual que otros recursos de Azure, se deben implementar en un grupo de recursos. Los grupos de recursos le permiten organizar y administrar los recursos relacionados de Azure.
 
-Primero, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el siguiente comando [az group create][az-group-create]:
+En primer lugar, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create][az-group-create] siguiente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -41,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Ahora que tiene un grupo de recursos, puede ejecutar un contenedor en Azure. Para crear una instancia de contenedor con la CLI de Azure, proporcione un nombre de grupo de recursos, un nombre de instancia de contenedor y una imagen de contenedor de Docker para el comando [az container create][az-container-create]. En este inicio rápido, usará la imagen `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
+Ahora que tiene un grupo de recursos, puede ejecutar un contenedor en Azure. Para crear una instancia de contenedor con la CLI de Azure, proporcione un nombre de grupo de recursos, un nombre de instancia de contenedor y una imagen de contenedor de Docker al comando [az container create][az-container-create]. En este inicio rápido, usará la imagen `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
 
 Puede exponer los contenedores en Internet mediante la especificación para que se abran uno o varios puertos, o la especificación de una etiqueta de nombre DNS o ambas. En este inicio rápido, se implementa un contenedor con una etiqueta de nombre DNS para que la aplicación web sea públicamente accesible.
 
@@ -151,7 +152,7 @@ En este inicio rápido, ha creado una instancia de contenedor de Azure a partir 
 > [!div class="nextstepaction"]
 > [Tutorial de Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Para probar opciones para ejecutar contenedores en un sistema de orquestación en Azure, consulte los inicios rápidos de [Azure Kubernetes Service (AKS)][container-service].
+Para probar opciones de ejecución de contenedores en un sistema de orquestación en Azure, consulte los inicios rápidos de [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

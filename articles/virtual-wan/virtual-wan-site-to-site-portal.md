@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689507"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515162"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -63,7 +63,12 @@ Cree tantos sitios como necesite que se correspondan con sus ubicaciones física
    * **Suscripción**: compruebe la suscripción.
    * **Grupo de recursos:** : el grupo de recursos que desea utilizar.
    * **Ubicación**
-4. Haga clic en **Mostrar opciones avanzadas** para ver opciones adicionales. Puede seleccionar **BGP** para habilitar BGP, que habilitará la funcionalidad de BGP en todas las conexiones creadas para este sitio en Azure. También puede incluir **Información del dispositivo** (campos opcionales). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
+4. Haga clic en **Mostrar opciones avanzadas** para ver opciones adicionales. 
+
+   Puede seleccionar **BGP** para habilitar BGP, que habilitará la funcionalidad de BGP en todas las conexiones creadas para este sitio en Azure. La configuración de BGP en Virtual WAN es equivalente a la configuración de BGP en Azure VPN Gateway. Su dirección del par BGP local *no debe* ser la misma que la dirección IP pública del dispositivo VPN ni que el espacio de direcciones de red virtual del sitio VPN. Use otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Sin embargo, *no puede* ser una dirección APIPA (169.254.*x*.*x*). Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación. Para conocer los requisitos previos de BGP, consulte [Acerca de BGP con Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+
+   También puede incluir **Información del dispositivo** (campos opcionales). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
+   
 5. Haga clic en **Confirmar**.
 6. Tras hacer clic en **Confirmar**, vea el estado en la página de sitios de VPN. El sitio pasará de **Aprovisionando** a **Aprovisionado**.
 

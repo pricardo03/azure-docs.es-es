@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798653"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414445"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux
 
@@ -66,7 +66,7 @@ Dispositivo de IoT Edge:
 
    Cuando cree una nueva máquina virtual, tome nota del valor de **publicIpAddress**, que se proporciona como parte de la salida del comando create. Utilice esta dirección IP pública para conectarse a la máquina virtual más adelante en la guía de inicio rápido.
 
-* Si prefiere ejecutar el entorno de ejecución de Azure IoT Edge en su propio dispositivo, siga las instrucciones de [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md) o de [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+* Si prefiere ejecutar el entorno de ejecución de Azure IoT Edge en su propio dispositivo, siga las instrucciones en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](how-to-install-iot-edge-linux.md).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -130,7 +130,7 @@ Si usa Azure IoT Edge en la máquina virtual Ubuntu según se describió en los 
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-Si ejecuta IoT Edge en un equipo local o en un dispositivo ARM32, necesita instalar el entorno de ejecución de Azure IoT Edge y sus requisitos previos en el dispositivo. Siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md) o [Instalar el entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) y vuelva a este inicio rápido.
+Si ejecuta IoT Edge en una máquina local o en un dispositivo ARM32 o ARM64, tiene que instalar el entorno de ejecución de Azure IoT Edge y sus requisitos previos en el dispositivo. Siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux](how-to-install-iot-edge-linux.md) y vuelva a este inicio rápido.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visualización del estado del entorno de ejecución de Azure IoT Edge
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d6abf266d4af5c79333819f5077009124fa28247
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895654"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348229"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
 
@@ -89,10 +89,10 @@ Azure Functions se basa en el SDK de WebJobs, por lo que comparte muchos desenca
 |[Precio de pago por uso](functions-scale.md#consumption-plan)|✔||
 |[Integración con Logic Apps](functions-twitter-email.md)|✔||
 | Desencadenar eventos |[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de archivos](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Idiomas admitidos  |C#<br>F#<br>JavaScript<br>Java (versión preliminar) |C#<sup>1</sup>|
+| Idiomas admitidos  |C#<br>F#<br>JavaScript<br>Java (versión preliminar)<br>Python (versión preliminar) |C#<sup>1</sup>|
 |Administradores de paquetes|NPM y NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> WebJobs (sin el SDK de WebJobs) admite C#, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python y muchos más. Esta lista no es completa. Un WebJob puede ejecutar cualquier programa o script que se pueda ejecutar en el espacio aislado de App Service.
+<sup>1</sup> WebJobs (sin el SDK de WebJobs) admite C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python y muchos más. Esta lista no es completa. Un WebJob puede ejecutar cualquier programa o script que se pueda ejecutar en el espacio aislado de App Service.
 
 <sup>2</sup> WebJobs (sin el SDK de WebJobs) admite NPM y NuGet.
 
@@ -119,8 +119,8 @@ La integración entre Microsoft Flow, Logic Apps y Functions sigue mejorando con
 
 Puede obtener más información acerca de los servicios de integración mediante los siguientes vínculos:
 
-* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Aprovechamiento de Azure Functions y Azure App Service para escenarios de integración) por Christopher Anderson
-* [Integrations Made Simple](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Aprovechamiento de Azure Functions y Azure App Service para escenarios de integración) por Christopher Anderson
+* [Integrations Made Simple](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast en directo sobre Logic Apps](https://aka.ms/logicappslive)
 * [Preguntas frecuentes sobre Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

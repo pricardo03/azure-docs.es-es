@@ -3,17 +3,18 @@ title: 'Tutorial: Tareas de contenedor de varios pasos (Azure Container Registry
 description: En este tutorial, aprenderá a configurar una tarea de Azure Container Registry que desencadena automáticamente un flujo de trabajo de varios pasos para compilar, ejecutar e insertar imágenes de contenedor en la nube cuando confirma el código fuente en un repositorio de Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 09b8e5d31bc6a4ec24633889920e2768bb7ce538
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546559"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310409"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente
 
@@ -35,7 +36,7 @@ En este tutorial se da por hecho que ya ha realizado los pasos de los [tutoriale
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.62** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.62** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 

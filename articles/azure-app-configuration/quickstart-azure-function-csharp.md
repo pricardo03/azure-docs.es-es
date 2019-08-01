@@ -14,26 +14,22 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798424"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326576"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Inicio rápido: Creación de una función de Azure con App Configuration
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Inicio rápido: Creación de una función de Azure con Azure App Configuration
 
-Azure App Configuration es un servicio de configuración administrado de Azure. Puede usarlo para almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que esté separado del código. En este inicio rápido se muestra cómo incorporar el servicio a una función de Azure. 
-
-Para realizar los pasos de este inicio rápido, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
-
-![Inicio rápido completo local](./media/quickstarts/dotnet-core-function-launch-local.png)
+En este inicio rápido incorporará el servicio Azure App Configuration en una función de Azure para centralizar el almacenamiento y la administración de toda la configuración de la aplicación de forma independiente del código.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este inicio rápido, instale [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Asegúrese de que la carga de trabajo de **Desarrollo de Azure** también está instalada. Instale también las [herramientas de Azure Functions más recientes](../azure-functions/functions-develop-vs.md#check-your-tools-version).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con la carga de trabajo de **desarrollo de Azure**.
+- [Herramientas de Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 

@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121968"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421193"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferencias entre MSAL JS y ADAL JS
 
@@ -59,9 +59,9 @@ En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/co
 
     El protocolo de la versión v2.0 usa ámbitos en lugar de recursos en las solicitudes. Es decir, cuando la aplicación tenga que solicitar tokens con permisos para un recurso como MS Graph, la diferencia en los valores pasados a los métodos de biblioteca son los siguientes:
 
-    v1.0: recurso =https://graph.microsoft.com
+    v1.0: resource = https\://graph.microsoft.com
 
-    v2.0: ámbito = https://graph.microsoft.com/User.Read
+    v2.0: scope = https\://graph.microsoft.com/User.Read
 
     Puede solicitar ámbitos para cualquier API de recurso con el URI de la API con este formato: appidURI/scope, por ejemplo: https:\//mi-inquilino.onmicrosoft.com/myapi/api.read
 

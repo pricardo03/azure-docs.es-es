@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e98b159443cec868040298d76e87a8de6b507ae
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158093"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385097"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -72,7 +72,7 @@ Descargue los siguientes archivos de plantilla de Azure Resource Manager:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres tipos de nodo en una red virtual y un grupo de seguridad de red.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). El archivo [azuredeploy.json][template] permite implementar varios recursos, como los siguientes.
+Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres tipos de nodo en una red virtual y un grupo de seguridad de red.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). El archivo [azuredeploy.json][template] permite implementar varios recursos, incluidos los siguientes.
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
@@ -183,7 +183,7 @@ Para simplificar los pasos necesarios para configurar Azure AD con un clúster 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creación de aplicaciones de Azure AD y asignación de usuarios a roles
 Cree dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa. Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los [roles compatibles con Service Fabric](service-fabric-cluster-security-roles.md): solo lectura y administrador.
 
-Ejecute `SetupApplications.ps1` y proporcione el identificador de inquilino, el nombre del clúster y la dirección URL de respuesta de la aplicación web como parámetros. Especifique los nombres de usuario y las contraseñas para los usuarios. Por ejemplo: 
+Ejecute `SetupApplications.ps1` y proporcione el identificador de inquilino, el nombre del clúster y la dirección URL de respuesta de la aplicación web como parámetros. Especifique los nombres de usuario y las contraseñas para los usuarios. Por ejemplo:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -218,7 +218,7 @@ El script imprimirá el código JSON que necesita la plantilla de Azure Resource
 ```
 
 ### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adición de la configuración de Azure AD para usar Azure AD para el acceso de cliente
-En [azuredeploy.json][template], configure Azure AD en la sección **Microsoft.ServiceFabric/clusters**. Agregue parámetros para el identificador de inquilino, el identificador de la aplicación del clúster y el identificador de la aplicación cliente.  
+En [azuredeploy.json][template], configure Azure AD en la sección **Microsoft.ServiceFabric/clusters**. Agregue parámetros para el identificador de inquilino, el identificador de la aplicación del clúster y el identificador de la aplicación cliente.  
 
 ```json
 {
@@ -260,7 +260,7 @@ En [azuredeploy.json][template], configure Azure AD en la sección **Microsoft.S
 }
 ```
 
-Agregue los valores de los parámetros en el archivo de parámetros [azuredeploy.parameters.json][parameters]. Por ejemplo: 
+Agregue los valores de los parámetros en el archivo de parámetros [azuredeploy.parameters.json][parameters]. Por ejemplo:
 
 ```json
 "aadTenantId": {

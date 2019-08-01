@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c8c5de469439f7ada294215682a1919022bcc1d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7bc4a2251fa07f201d35e385806d2eb49cd8851e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672067"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562522"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Creación y localización de anclajes mediante Azure Spatial Anchors en Java
 
@@ -39,7 +39,7 @@ Para completar esta guía, asegúrese de que cumple los siguientes requisitos pr
 - Ha leído completamente [Introducción a Azure Spatial Anchors](../overview.md).
 - Ha completado uno de los [inicios rápidos en 5 minutos](../index.yml).
 - Conocimiento básico de Java.
-- Conocimiento básico de <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
+- Conocimiento básico de <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

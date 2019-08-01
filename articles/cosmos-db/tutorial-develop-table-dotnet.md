@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 75f1554f7522723d71666633a03761d07e797e33
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953626"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443500"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -110,9 +110,19 @@ Para obtener el paquete NuGet, siga estos pasos:
 
 1. Defina un método `CreateStorageAccountFromConnectionString` tal como se muestra a continuación. Este método analizará los detalles de la cadena de conexión y comprobará que el nombre de la cuenta y los detalles de la clave de cuenta proporcionados en el archivo "Settings.json" son válidos. 
 
-   ```csharp
-   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+ ```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Microsoft.Azure.Documents;
+
+    public class Common
     {
+        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+        {
             CloudStorageAccount storageAccount;
             try
             {
@@ -132,6 +142,8 @@ Para obtener el paquete NuGet, siga estos pasos:
 
             return storageAccount;
         }
+    }
+}
    ```
 
 
@@ -378,6 +390,29 @@ El código anterior crea una tabla que empieza por "demo" y el GUID generado se 
 En este tutorial, ha compilado código para realizar operaciones CRUD básicas en los datos almacenados en la cuenta de Table API. También puede realizar operaciones avanzadas, como insertar datos por lotes, consultar todos los datos de una partición, consultar un intervalo de datos de una partición y enumerar tablas en la cuenta cuyos nombres comiencen por el prefijo especificado. Puede descargar el ejemplo completo del repositorio de GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La clase [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) tiene más operaciones que puede realizar en los datos.  
 
 ## <a name="run-the-project"></a>Ejecución del proyecto
+
+En el proyecto **CosmosTableSamples**. Abra la clase denominada **Program.CS** y agréguele el siguiente código para llamar a BasicSamples cuando se ejecute el proyecto.
+
+```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Azure Cosmos Table Samples");
+            BasicSamples basicSamples = new BasicSamples();
+            basicSamples.RunSamples().Wait();
+           
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            Console.Read();
+        }
+    }
+}
+```
 
 Ahora, compile la solución y presione F5 para ejecutar el proyecto. Cuando se ejecute el proyecto, verá la siguiente salida en el símbolo del sistema:
 

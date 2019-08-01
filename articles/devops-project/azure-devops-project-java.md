@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una canalización de CI/CD para Java con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para Java: Azure DevOps Projects'
 description: Con DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093572"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489507"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para Java con Azure DevOps Projects
 
@@ -55,7 +55,7 @@ Los ejemplos de Java incluyen una opción de varios marcos de trabajo de la apli
 
 1. Cree una organización de Azure DevOps nueva o elija una existente. 
 
-     a. Elija un nombre para el proyecto. 
+    a. Elija un nombre para el proyecto. 
 
     b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
     En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.

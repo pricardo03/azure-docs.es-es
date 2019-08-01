@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: Cuotas de vCPU
           href: quotas.md
+    - name: Hosts dedicados
+      href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
       href: maintenance-and-updates.md
     - name: Almacenamiento en disco
@@ -144,8 +146,14 @@
       href: virtual-machines-windows-security-attributes.md
 - name: Guías de procedimientos
   items:
-    - name: Crear máquinas virtuales
+    - name: Creación de máquinas virtuales
       items:
+        - name: Uso de hosts dedicados
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
         - name: 'Uso de C#'
           href: csharp.md
         - name: Uso de un disco especializado

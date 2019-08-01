@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 336cc7dae00d06e38e4be8671f1cb11ed73e5edc
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147530"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414644"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
 Este tutorial describe cómo copiar datos desde el equipo host y, a continuación, generar sumas de comprobación para comprobar su integridad.
@@ -287,3 +289,43 @@ Pase al siguiente tutorial para obtener información sobre cómo devolver Data B
 
 > [!div class="nextstepaction"]
 > [Devolución de Azure Data Box Disk a Microsoft](./data-box-disk-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-disks"></a>Copia de datos a discos
+
+Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Data Box Disk.
+
+1. Vea el contenido de la unidad desbloqueada. La lista de las carpetas y subcarpetas creadas previamente en la unidad difiere según las opciones seleccionadas al realizar el pedido de Data Box Disk.
+2. Copie los datos en carpetas que se correspondan con el formato de datos adecuado. Por ejemplo, copie los datos no estructurados en la carpeta para *BlockBlob*, los datos VHD o VHDX en la carpeta *PageBlob* y los archivos en *AzureFile*. Si el formato de los datos no coincide con la carpeta apropiada (tipo de almacenamiento), más adelante, en un paso posterior, la carga de datos en Azure produce un error.
+
+    - Se crea un contenedor en la cuenta de almacenamiento de Azure para cada subcarpeta bajo las carpetas BlockBlob y PageBlob. Todos los archivos en las carpetas *BlockBlob* y *PageBlob* se copian en un contenedor predeterminado $root en la cuenta de Azure Storage. 
+    - Todos los archivos del contenedor $root siempre se cargan como blobs en bloques.
+    - Copie los archivos en una subcarpeta de la carpeta *AzureFile*. Una subcarpeta dentro de *AzureFile* crea un recurso compartido de archivos. Los archivos que se copien directamente en la carpeta *AzureFile* presentan errores y se cargan como blobs en bloques.
+    - Si existen archivos y carpetas en el directorio raíz, debe pasarlos a una carpeta diferente antes de comenzar la copia de los datos.
+    - Si el pedido tiene Managed Disks como uno de los destinos de almacenamiento, consulte las convenciones de nomenclatura de [discos administrados](data-box-disk-limits.md#managed-disk-naming-conventions).
+
+    > [!IMPORTANT]
+    > Todos los contenedores, blobs y archivos deben cumplir las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) y los [límites de tamaño de objeto de Azure](data-box-disk-limits.md#azure-object-size-limits). Si no se siguen estas reglas o límites, se producirá un error en la carga de datos en Azure.
+
+3. Puede arrastrar y colocar con el Explorador de archivos o utilizar cualquier herramienta de copia de archivos compatible con SMB, como Robocopy, para copiar los datos. Con el siguiente comando, se pueden iniciar varios trabajos de copia:
+
+    ```
+    Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
+    ```
+4. Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de registro para solucionar problemas. Los archivos de registro se ubican tal como se especifica en el comando robocopy.
+
+Use el procedimiento opcional de [división y copia](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) cuando se esté utilizando varios discos y tenga un conjunto de datos grande que tiene dividir y copiar en todos los discos.
+
+## <a name="validate-data"></a>Validación de datos
+
+Siga estos pasos para comprobar los datos.
+
+1. Ejecute `DataBoxDiskValidation.cmd` para la validación de la suma de comprobación en la carpeta *DataBoxDiskImport* de la unidad.
+2. Use la opción 2 para validar los archivos y generar sumas de comprobación. Según el tamaño de los datos, este paso puede tardar un rato. Si se produce algún error durante la validación y la generación de la suma de comprobación, se le notificará y también se le proporcionará un vínculo a los registros de errores.
+
+    Si ve errores durante la validación, consulte la [resolución de los errores de validación](data-box-disk-troubleshoot.md).
+
+::: zone-end

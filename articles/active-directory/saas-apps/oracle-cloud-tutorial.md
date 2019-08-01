@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164153"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596425"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integración de Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -165,7 +165,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
       ![Configuración](./media/oracle-cloud-tutorial/config09.png)
 
-   1. Para los campos de **IDENTITY PROVIDER GROUP** (GRUPO DE PROVEEDOR DE IDENTIDADES), escriba el nombre del grupo y el identificador del grupo que están configurados en Azure Portal. El grupo se debe asignar al grupo correspondiente en el campo **OCI GROUP** (GRUPO OCI).
+   1. **IDENTITY PROVIDER GROUP** (Grupo de proveedores de identidades) debe seleccionarse como Grupo personalizado. El ID DE GRUPO debe ser el GUID del grupo de Azure Active Directory. El grupo se debe asignar al grupo correspondiente en el campo **OCI GROUP** (GRUPO OCI).
 
    1. Puede asignar varios grupos según su configuración en Azure Portal y las necesidades de su organización. Haga clic en **+ Add mapping** (+ Agregar asignación) para agregar los grupos que necesite.
 
@@ -217,4 +217,4 @@ Cuando seleccione el icono de Oracle Cloud Infrastructure Console en el panel de
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

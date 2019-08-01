@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24d3da81fabf55bc0c3944f0c03829dee4fcce46
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083924"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304408"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
 Con Azure Active Directory (Azure AD), puede designar administradores limitados que administren tareas de identidad en roles con menos privilegios. Los administradores se pueden asignar para realizar tareas como agregar usuarios o cambiarlos, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario y administrar nombres de dominio. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
 
 El administrador global tiene acceso a todas las características administrativas. De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de administrador global para el directorio. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol solo a unas pocas personas de su empresa.
-
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 
@@ -42,7 +41,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Desarrollador de aplicaciones](#application-developer)** : los usuarios con este rol pueden crear registros de aplicaciones cuando la opción "Los usuarios pueden registrar aplicaciones" está establecida en No. Esta función también concede permiso para dar consentimiento en nombre propio cuando la opción "Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre" está establecida en No. Los usuarios asignados a este rol se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-* **[Administrador de autenticación](#authentication-administrator)** : Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña. Los administradores de autenticación pueden requerir que los usuarios vuelvan a registrase con una credencial existente distinta de contraseña (por ejemplo, MFA o FIDO) y revocar **recordar MFA en el dispositivo**, por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios que no sean administradores o que estén asignados a los siguientes roles:
+* **[Administrador de autenticación](#authentication-administrator)** : los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña y pueden actualizar contraseñas para todos los usuarios. Los administradores de autenticación pueden requerir que los usuarios vuelvan a registrase con una credencial existente distinta de contraseña (por ejemplo, MFA o FIDO) y revocar **recordar MFA en el dispositivo**, por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios que no sean administradores o que estén asignados a los siguientes roles:
   * Administrador de autenticación
   * Lectores de directorios
   * Invitador de usuarios
@@ -183,7 +182,7 @@ Además, el usuario puede acceder a informes relacionados con la adopción y el 
   > [!NOTE]
   > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Power BI". En [Azure Portal](https://portal.azure.com) es "Administrador de Power BI".
 
-* **[Administrador de autenticación con privilegios](#privileged-authentication-administrator)** : los usuarios con este rol pueden establecer o restablecer credenciales distintas a contraseñas para todos los usuarios, incluidos los administradores globales. Los administradores de autenticación con privilegios pueden forzar a los usuarios a que vuelvan a registrarse con una credencial existente distinta a una contraseña (por ejemplo, MFA, FIDO) y revocar "recordar MFA en el dispositivo", por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios. Los administradores de autenticación con privilegios pueden:
+* **[Administrador de autenticación con privilegios](#privileged-authentication-administrator)** : los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña para todos los usuarios, incluidos los administradores globales, y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación con privilegios pueden forzar a los usuarios a que vuelvan a registrarse con una credencial existente distinta a una contraseña (por ejemplo, MFA, FIDO) y revocar "recordar MFA en el dispositivo", por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios. Los administradores de autenticación con privilegios pueden:
   * Obligar a los usuarios a volver a registrarse con una credencial distinta a una contraseña (por ejemplo, MFA, FIDO)
   * Revocar "Recordar MFA en el dispositivo", solicitando la autenticación multifactor en el siguiente inicio de sesión
 
@@ -346,6 +345,7 @@ Puede ver, configurar y restablecer la información de los métodos de autentica
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+| microsoft.aad.directory/users/password/update | Actualice las contraseñas de todos los usuarios de la organización de Office 365. Para obtener más información, consulte la documentación en línea. |
 
 ### <a name="azure-information-protection-administrator"></a>Administrador de Azure Information Protection
 Puede administrar todos los aspectos del servicio Azure Information Protection.
@@ -1013,7 +1013,7 @@ Puede ver, configurar y restablecer la información de los métodos de autentica
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
-
+| microsoft.aad.directory/users/password/update | Actualice las contraseñas de todos los usuarios de la organización de Office 365. Para obtener más información, consulte la documentación en línea. |
 ### <a name="privileged-role-administrator"></a>Administrador de roles con privilegios
 Puede administrar las asignaciones de roles en Azure AD y todos los aspectos de Privileged Identity Management.
 
@@ -1044,7 +1044,6 @@ Puede leer los informes de inicio de sesión y auditoría.
 | microsoft.aad.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Lee los informes de uso de Office 365. |
 
 ### <a name="search-administrator"></a>Administrador de búsqueda

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149311"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467630"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
@@ -91,7 +91,7 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 1. Agregue dos roles (`Origin` y `Destination`). 
 
     ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
+1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta que los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
 1. En el primer expresión de la lista, seleccione la ubicación de origen. Aparecerá un menú desplegable. Seleccione **geographyV2** en la lista y, a continuación, desplácese por el menú para seleccionar **Origen**.
 1. Use el método del paso anterior para marcar todos los roles de las ubicaciones en todas las expresiones. 
 

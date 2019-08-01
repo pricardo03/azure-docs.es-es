@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0094364ed2e5d6c024f75a88db90eb703792f9f3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682804"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405831"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -43,15 +43,14 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
     ![API en blanco](media/add-api-manually/blank-api.png)
 4. Escriba la configuración de la API.
 
-    ![Configuración](media/add-api-manually/settings.png)
-
     |**Nombre**|**Valor**|**Descripción**|
     |---|---|---|
-    |**Nombre para mostrar**|"*API en blanco*" |El nombre se muestra en el Portal para desarrolladores.|
-    |**Dirección URL de servicio web** (opcional)| "*https://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [https://httpbin.org](https://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
-    |**Esquema URL**|"*HTTPS*"|En este caso, aunque el back-end tenga acceso HTTP no seguro, especifique un acceso HTTPS de APIM seguro al back-end. <br/>Este tipo de escenario (HTTPS a HTTP) se denomina "terminación HTTPS". Podría hacerlo si su API se encuentra dentro de una red virtual (donde sabe que el acceso está protegido aunque no se utilice HTTPS). <br/>Puede usar la terminación HTTPS para ahorrar algunos ciclos de CPU.|
-    |**Sufijo de dirección URL**|"*hbin*"| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.|
-    |**Productos**|"*Sin límite*" |Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 
+    |**Nombre para mostrar**|*API en blanco*|El nombre se muestra en el Portal para desarrolladores.|
+    |**Nombre**|*blank-api*|Proporciona un nombre único para la API.|
+    |**Dirección URL de servicio web** (opcional)|*https://httpbin.org*| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [https://httpbin.org](https://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
+    |**Esquema URL**|*HTTPS*|En este caso, aunque el back-end tenga acceso HTTP no seguro, especifique un acceso HTTPS de APIM seguro al back-end. <br/>Este tipo de escenario (HTTPS a HTTP) se denomina "terminación HTTPS". Podría hacerlo si su API se encuentra dentro de una red virtual (donde sabe que el acceso está protegido aunque no se utilice HTTPS). <br/>Puede usar la terminación HTTPS para ahorrar algunos ciclos de CPU.|
+    |**Sufijo de dirección URL**|*hbin*| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.|
+    |**Productos**|*Sin límite*|Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 
 5. Seleccione **Crear**.
 
 En este momento, no tiene ninguna operación en APIM que se asigne a las operaciones en la API de back-end. Si se llama a una operación que se expone a través del back-end, pero no a través de la APIM, obtendrá una respuesta **404**.
@@ -67,7 +66,7 @@ En esta sección se muestra cómo agregar una operación "/get" para asignarla a
 
 1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
-3. En la **URL**, seleccione **GET** y escriba "*/get*" en el recurso.
+3. En la **URL**, seleccione **GET** y escriba " */get*" en el recurso.
 4. Escriba "*FetchData*" en **Nombre para mostrar**.
 5. Seleccione **Guardar**.
 
@@ -89,7 +88,7 @@ En esta sección se explica cómo agregar una operación que toma un parámetro.
 
 1. Seleccione API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
-3. En la **URL**, seleccione **GET** y escriba "*/status/{code}*" en el recurso. Si lo desea, puede proporcionar cierta información asociada a este parámetro. Por ejemplo, escriba "*Número*" en **TYPE** y "*200*" (valor predeterminado) en **VALUES**.
+3. En la **URL**, seleccione **GET** y escriba " */status/{code}* " en el recurso. Si lo desea, puede proporcionar cierta información asociada a este parámetro. Por ejemplo, escriba "*Número*" en **TYPE** y "*200*" (valor predeterminado) en **VALUES**.
 4. Escriba "GetStatus" en **Nombre para mostrar**.
 5. Seleccione **Guardar**.
 

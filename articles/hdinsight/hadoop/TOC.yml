@@ -54,6 +54,14 @@
     - name: Descripción de identidades administradas
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: Solución de problemas
+      items:
+        - name: No se pueden agregar nodos al clúster de HDInsight
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: 'InvalidNetworkSecurityGroupSecurityRules: error de creación del clúster'
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Conversión del certificado de entidad de servicio
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: Procedimientos
   items:
     - name: Uso del espacio aislado de Apache Hadoop

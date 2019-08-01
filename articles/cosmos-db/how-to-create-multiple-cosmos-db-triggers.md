@@ -1,33 +1,33 @@
 ---
-title: Cómo crear varios desencadenadores independientes de Azure Cosmos DB
-description: Obtenga información sobre cómo configurar varios desencadenadores independientes de Azure Cosmos DB para crear arquitecturas de Azure Functions controladas por eventos.
+title: Cómo crear varios desencadenadores independientes de Azure Functions para Cosmos DB
+description: Obtenga información sobre cómo configurar varios desencadenadores independientes de Azure Functions para Cosmos DB para crear arquitecturas controladas por eventos.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241947"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335679"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>Creación de varios desencadenadores de Azure Cosmos DB
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
 
-En este artículo se describe cómo puede configurar varios desencadenadores de Cosmos DB para trabajar en paralelo y reaccionar de forma independiente a los cambios.
+En este artículo se describe cómo puede configurar varios desencadenadores de Azure Functions para Cosmos DB para trabajar en paralelo y reaccionar de forma independiente a los cambios.
 
-![Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Cosmos DB y comparten un contenedor de concesiones](./media/change-feed-functions/multi-trigger.png)
+![Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Functions para Cosmos DB y comparten un contenedor de concesiones](./media/change-feed-functions/multi-trigger.png)
 
 ## <a name="event-based-architecture-requirements"></a>Requisitos de la arquitectura basada en eventos
 
 Al compilar arquitecturas sin servidor con [Azure Functions](../azure-functions/functions-overview.md), se [recomienda](../azure-functions/functions-best-practices.md#avoid-long-running-functions) crear pequeños conjuntos de funciones que trabajen conjuntamente, en lugar de grandes funciones de larga duración.
 
-Al compilar flujos sin servidor basados en eventos mediante el [desencadenador de Azure Cosmos DB](./change-feed-functions.md), se producirá un escenario en el que querrá realizar varias acciones siempre que haya un nuevo evento en un determinado [contenedor de Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers). Si las acciones que quiere desencadenar son independientes entre sí, la solución ideal consiste en **crear un desencadenador de Cosmos DB por cada acción** que quiera realizar y que todas escuchen los cambios en el mismo contenedor de Azure Cosmos.
+Al compilar flujos sin servidor basados en eventos mediante el [desencadenador de Azure Functions para Cosmos DB](./change-feed-functions.md), se producirá un escenario en el que querrá realizar varias acciones siempre que haya un nuevo evento en un determinado [contenedor de Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers). Si las acciones que quiere desencadenar son independientes entre sí, la solución ideal consiste en **crear un desencadenador de Azure Functions para Cosmos DB por cada acción** que quiera realizar y que todas escuchen los cambios en el mismo contenedor de Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimización de contenedores para varios desencadenadores
 
-Dados los *requisitos* del desencadenador de Cosmos DB, necesitamos un segundo contenedor para almacenar el estado, también denominado *contenedor de concesiones*. ¿Esto significa que necesita un contenedor de concesiones independiente para cada función de Azure?
+Dados los *requisitos* del desencadenador de Azure Functions para Cosmos DB, necesitamos un segundo contenedor para almacenar el estado, también denominado *contenedor de concesiones*. ¿Esto significa que necesita un contenedor de concesiones independiente para cada función de Azure?
 
 Dispone de dos opciones:
 
@@ -108,6 +108,6 @@ Para JavaScript, puede aplicar la configuración en el archivo `function.json` c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la configuración completa del [desencadenador de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* Consulte la configuración completa del [desencadenador de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
 * Compruebe la [lista de ejemplos](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) extendida para todos los idiomas.
 * Visite las recetas sin servidor con el [repositorio de GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) de Azure Functions y Azure Cosmos DB para obtener más ejemplos.

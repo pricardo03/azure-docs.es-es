@@ -3,16 +3,17 @@ title: Confianza en el contenido en Azure Container Registry
 description: Obtenga información sobre cómo habilitar la confianza en el contenido para Azure Container Registry y cómo insertar y extraer imágenes firmadas.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069219"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356536"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -173,13 +174,13 @@ Como se indica en la salida de `docker push` cuando se inserta la primera imagen
 ~/.docker/trust/private
 ```
 
-Puede hacer una copia de seguridad de las claves de raíz y del repositorio mediante su compresión en un archivo y su almacenamiento de forma segura sin conexión (por ejemplo, en un dispositivo de almacenamiento USB). Por ejemplo, en Bash:
+Puede hacer una copia de seguridad de las claves de raíz y del repositorio mediante su compresión en un archivo y su almacenamiento en una ubicación segura. Por ejemplo, en Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Junto con las claves de raíz y del repositorio que se generan localmente, Azure Container Registry genera y almacena otras claves cuando se inserta una imagen de confianza. Para obtener una explicación detallada de las diversas claves en la implementación de la confianza en el contenido de Docker, incluida guía de administración adicional, consulte [Administración de claves para la confianza en el contenido][docker-manage-keys] en la documentación de Docker.
+Junto con las claves de raíz y del repositorio que se generan localmente, Azure Container Registry genera y almacena otras claves cuando se inserta una imagen de confianza. Para una explicación detallada de las diversas claves en la implementación de la confianza en el contenido de Docker, incluida guía de administración adicional, consulte [Administración de claves para la confianza en el contenido][docker-manage-keys] en la documentación de Docker.
 
 ### <a name="lost-root-key"></a>Pérdida de la clave de raíz
 
@@ -194,7 +195,9 @@ Para deshabilitar la confianza en el contenido para el registro, vaya al registr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de la confianza del contenido, consulte [Content trust in Docker][docker-content-trust] (Confianza del contenido en Docker). Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
+* Para más información acerca de la confianza del contenido, consulte [Content trust in Docker][docker-content-trust] (Confianza en el contenido de Docker). Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
+
+* Consulte la documentación de [Azure Pipelines](/azure/devops/pipelines/build/content-trust) para un ejemplo de uso de la confianza en contenido al compilar una imagen de Docker e insertarla.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

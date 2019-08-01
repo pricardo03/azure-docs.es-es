@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835682"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369574"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Antes de continuar con los pasos en este tutorial, necesita tener los siguientes
 También necesita los siguientes elementos en su entorno de desarrollo:
 
 * Editor de código; por ejemplo, [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
+* [SDK de .NET Core 2.2](https://dotnet.microsoft.com/download) o versiones posteriores
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Actualizar la aplicación
@@ -58,7 +58,7 @@ En el segundo tutorial que completó como parte de los requisitos previos, regis
 
 ## <a name="get-the-sample-code"></a>Obtención del código de ejemplo
 
-En este tutorial, va a configurar un ejemplo de código que puede descargar desde GitHub. Este ejemplo muestra cómo una aplicación de página única puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida.
+En este tutorial, va a configurar un ejemplo de código que puede descargar desde GitHub. Este ejemplo muestra cómo una aplicación de página única puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida.
 
 [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone el ejemplo de GitHub.
 
@@ -115,7 +115,7 @@ El ejemplo admite el registro, inicio de sesión, edición de un perfil y restab
 
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
-1. Haga clic en **Iniciar sesión** para iniciar sesión como usuario de la aplicación. Aquí se utiliza el flujo de usuario **B2C_1_signupsignin1** que ha definido en un paso anterior.
+1. Haga clic en **Iniciar sesión** para iniciar el flujo de usuario *B2C_1_signupsignin1* que especificó en un paso anterior.
 1. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, haga clic en el vínculo **Registrarse ahora**.
 1. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en el flujo de usuario.
 
@@ -133,11 +133,15 @@ Ahora puede usar su dirección de correo electrónico y contraseña para iniciar
 
 Tras iniciar sesión, la aplicación muestra el error "permisos insuficientes". Este es el comportamiento **previsto**.
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-Recibirá este error porque está intentando acceder a un recurso desde el directorio de demostración, pero el token de acceso solo es válido para el directorio de Azure AD. Por lo tanto, la llamada API no está autorizada.
+Recibirá este error porque la aplicación web está intentando acceder a una API web protegida por el directorio de demostración *fabrikamb2c*. Como el token de acceso solamente es válido para su directorio de Azure AD, la llamada API no tiene autorización.
 
-Continúe en el siguiente tutorial de la serie (consulte [Siguientes pasos](#next-steps)) para crear una API web protegida para el directorio.
+Para corregir este error, continúe en el siguiente tutorial de la serie (consulte [Siguientes pasos](#next-steps)) para crear una API web protegida para el directorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -151,4 +155,4 @@ En este artículo, ha aprendido cómo:
 Pase al siguiente tutorial de la serie para conceder acceso a una API web protegida desde la SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de una sola página mediante Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C >](active-directory-b2c-tutorials-spa-webapi.md)

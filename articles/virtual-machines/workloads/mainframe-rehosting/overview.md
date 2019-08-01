@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487483"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305846"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehospedaje del sistema central en Azure Virtual Machines
 
@@ -86,7 +86,7 @@ Aprenda a [mover el proceso del sistema central a Azure](./concepts/mainframe-co
 
 Azure ofrece contratos de nivel de servicio (SLA) basados en compromisos. La disponibilidad de varios nueves es el valor predeterminado, y los SLA se pueden optimizar con replicación local o basada en la ubicación de los servicios. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
-Con IaaS de Azure como una VM, funciones del sistema específicas proporcionan compatibilidad con la conmutación por error, por ejemplo, instancias de clústeres de conmutación por error y [conjuntos de disponibilidad](/azure/virtual-machines/windows/regions-and-availability#availability-sets). Cuando se usan recursos de la plataforma como servicio (PaaS) de Azure, la plataforma controla automáticamente la conmutación por error. Algunos ejemplos son [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) y [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Con IaaS de Azure como una VM, funciones del sistema específicas proporcionan compatibilidad con la conmutación por error; por ejemplo, instancias de clústeres de conmutación por error y conjuntos de disponibilidad. Cuando se usan recursos de la plataforma como servicio (PaaS) de Azure, la plataforma controla automáticamente la conmutación por error. Algunos ejemplos son [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) y [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ### <a name="scalability"></a>Escalabilidad
 

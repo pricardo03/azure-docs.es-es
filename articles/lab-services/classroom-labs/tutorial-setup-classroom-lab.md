@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123267"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385675"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -113,14 +113,14 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 Puede establecer cuotas por usuario mediante los pasos siguientes: 
 
 1. Seleccione **Usuarios** en el menú de la izquierda si la página todavía no está activa. 
-2. Seleccione **Cuota por usuario:** en la barra de herramientas. 
+2. Seleccione **Quota per user: (Cuota por usuario:) 10 horas** en la barra de herramientas. 
 3. En la página **Cuota por usuario**, especifique el número de horas que quiere dar a cada usuario (alumno): 
+    1. **Número total de horas de laboratorio por usuario**. Los usuarios pueden usar sus máquinas virtuales para el número establecido de horas (que se especifica para este campo) **además del tiempo programado**. Si selecciona esta opción, escriba el **número de horas** en el cuadro de texto. 
+
+        ![Número de horas por usuario](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
     1. **0 horas (solo programación)** . Los usuarios pueden usar sus máquinas virtuales durante el tiempo programado o cuando usted, como el propietario del laboratorio, les enciende las máquinas virtuales.
 
         ![Cero horas: solo el tiempo programado](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Número total de horas de laboratorio por usuario**. Los usuarios pueden usar sus máquinas virtuales para el número establecido de horas (que se especifica para este campo) **además del tiempo programado**. Si selecciona esta opción, escriba el **número de horas** en el cuadro de texto. 
-
-        ![Número de horas por usuario](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Seleccione **Guardar**. 
 5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;** . 
 

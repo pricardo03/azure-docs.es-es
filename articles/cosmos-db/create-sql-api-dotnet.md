@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: 1687a81952418c0b751fe0b9ec0ec560ae0b2b2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297608"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371010"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Inicio rápido: Compilar una aplicación de consola .NET para administrar recursos de API de SQL de Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 * Consulta de los datos 
 * Eliminación de la base de datos
 
-[Documentación de referencia de la API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentación de referencia de la API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -126,9 +126,25 @@ La aplicación de ejemplo debe autenticarse para la cuenta de Azure Cosmos. Para
 
 Una vez que haya copiado el **URI** y la **CLAVE PRINCIPAL** de la cuenta, guárdelos en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana de consola y ejecute el siguiente comando. Asegúrese de reemplazar los valores `<Your_Azure_Cosmos_account_URI>` y `<Your_Azure_Cosmos_account_PRIMARY_KEY>`.
 
+**Windows**
+
 ```console
-setx EndpointUrl <Your_Azure_Cosmos_account_URI>
-setx PrimaryKey <Your_Azure_Cosmos_account_PRIMARY_KEY>
+setx EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**Linux**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**macOS**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>Modelo de objetos
@@ -142,16 +158,17 @@ Antes de empezar a compilar la aplicación, consulte la jerarquía de recursos d
 
 Para obtener más información acerca de la jerarquía de diferentes entidades, consulte el artículo sobre cómo [trabajar con bases de datos, contenedores y elementos en Azure Cosmos DB](databases-containers-items.md). Usará las siguientes clases de .NET para interactuar con estos recursos:
 
-* [CosmosClient](): esta clase proporciona una representación lógica del lado cliente para el servicio Azure Cosmos DB. El objeto de cliente se usa para configurar y ejecutar solicitudes en el servicio.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet): esta clase proporciona una representación lógica del lado cliente para el servicio Azure Cosmos DB. El objeto de cliente se usa para configurar y ejecutar solicitudes en el servicio.
 
-* [CreateDatabaseIfNotExistsAsync](): este método crea (si no existe) u obtiene (si ya existe) un recurso de base de datos como operación asincrónica. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet): este método crea (si no existe) u obtiene (si ya existe) un recurso de base de datos como operación asincrónica. 
 
-* [CreateContainerIfNotExistsAsync](): este método crea (si no existe) u obtiene (si ya existe) un contenedor como operación asincrónica. Puede comprobar el código de estado de la respuesta para determinar si el contenedor se creó recientemente (201) o si se devolvió un contenedor existente (200). 
-* [CreateItemAsync](): este método crea un elemento en el contenedor. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet): este método crea (si no existe) u obtiene (si ya existe) un contenedor como operación asincrónica. Puede comprobar el código de estado de la respuesta para determinar si el contenedor se creó recientemente (201) o si se devolvió un contenedor existente (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet): este método crea un elemento en el contenedor. 
 
-* [QueryItemsAsync](): ejecuta una consulta para obtener los elementos necesarios. Se pasa una consulta SQL dentro de este método. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
+): este método crea una consulta para los elementos de un contenedor en una base de datos de Azure Cosmos mediante una instrucción SQL con valores con parámetros. 
 
-* [DeleteAsync](): elimina la base de datos especificada de la cuenta de Azure Cosmos. El método `DeleteAsync` solo elimina la base de datos. La eliminación de la instancia `Cosmosclient` debe producirse por separado (lo que ocurre en el método DeleteDatabaseAndCleanupAsync). 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet): elimina la base de datos especificada de la cuenta de Azure Cosmos. El método `DeleteAsync` solo elimina la base de datos. La eliminación de la instancia `Cosmosclient` debe producirse por separado (lo que ocurre en el método DeleteDatabaseAndCleanupAsync). 
 
  ## <a id="code-examples"></a>Ejemplos de código
 

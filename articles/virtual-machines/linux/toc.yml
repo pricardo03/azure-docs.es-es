@@ -105,10 +105,14 @@
           href: sizes-previous-gen.md
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
+        - name: Cuotas de vCPU
+          href: quotas.md
         - name: Puntuaciones de pruebas comparativas
           href: compute-benchmark-scores.md
     - name: Distribuciones aprobadas
       href: endorsed-distros.md
+    - name: Hosts dedicados
+      href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
       href: maintenance-and-updates.md
     - name: Almacenamiento en disco
@@ -139,12 +143,8 @@
       href: monitor.md
     - name: Copia de seguridad y recuperación
       href: backup-recovery.md
-    - name: Consideraciones de la implementación
-      items:
-        - name: Directrices de infraestructura
-          href: infrastructure-example.md
-        - name: Cuotas de vCPU
-          href: quotas.md
+    - name: Directrices de infraestructura
+      href: infrastructure-example.md
     - name: Atributos de seguridad
       href: virtual-machines-linux-security-attributes.md
 - name: Guías de procedimientos
@@ -160,6 +160,12 @@
           href: create-vm-rest-api.md
         - name: Copia o clonación de una máquina virtual
           href: copy-vm.md
+        - name: Uso de hosts dedicados
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
     - name: Seguridad de máquinas virtuales
       items:
         - name: Acceso Just-In-Time

@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: Usar reglas de salida para definir traducciones de direcciones de red de salida
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698445"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305580"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -208,7 +208,7 @@ Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está
 - El intervalo de tiempo de espera de inactividad de salida que puede configurar oscila entre 4 y 120 minutos (de 240 a 7200 segundos).
 - Load Balancer no es compatible con ICMP para NAT de salida.
 - El portal no se puede usar para configurar ni para ver reglas de salida.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
-- Las reglas de salida solo se pueden aplicar a la NIC principal y a la configuración de IP principal.
+- Las reglas de salida solo se pueden aplicar a la configuración de IP principal de una NIC.  Se admiten varias NIC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

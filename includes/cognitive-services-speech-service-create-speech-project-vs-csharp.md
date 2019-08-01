@@ -2,49 +2,59 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 308ee2ef121648cb45152948926c5fd7fb934744
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186608"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362616"
 ---
-1. Inicie Visual Studio 2017.
+1. Abra Visual Studio 2019.
 
-1. En la barra de menús de Visual Studio, seleccione **Herramientas > Obtener herramientas** y asegúrese de que la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si aún no se ha instalado la carga de trabajo, active la casilla y haga clic en **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
+1. En la ventana Inicio, seleccione **Crear un proyecto**. 
+
+1. Seleccione **Aplicación de consola (.NET Framework)** y **Siguiente**.
+
+1. En el **nombre del proyecto**, escriba `helloworld` y, a continuación, seleccione **Crear**.
+
+1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Get Tools and Features** (Obtener herramientas y características) y asegúrese de que la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si aún no se ha instalado la carga de trabajo, active la casilla y seleccione **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
 
    Si la casilla que está junto a **Desarrollo de escritorio de .NET** está seleccionada, puede cerrar el cuadro de diálogo ahora.
 
-   ![Habilitación del desarrollo de escritorio .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   ![Habilitación del desarrollo de escritorio .NET](../articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. A continuación, vamos a crear un proyecto. En la barra de menús, seleccione **Archivo > Nuevo > Proyecto**. Cuando aparezca el cuadro de diálogo, en el panel izquierdo expanda las secciones **Instalado > Visual C# > Escritorio de Windows** y seleccione **Aplicación de consola (.NET Framework)** . Asigne el nombre *helloworld* a este proyecto.
+El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) para que pueda hacer referencia a él en el código.
 
-    ![Creación de aplicación de consola de Visual C# (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Creación de aplicación de consola de Visual C# (.NET Framework)")
+1. En el explorador de soluciones, haga clic con el botón derecho en `helloworld` y seleccione **Manage NuGet Packages** (Administrar paquetes NuGet) para mostrar el administrador de paquetes NuGet.
 
-1. Ahora que el proyecto está configurado, es necesario instalar el [paquete NuGet de Speech SDK](https://aka.ms/csspeech/nuget) y hacer referencia a él en nuestro código. Busque el Explorador de soluciones y haga clic con el botón derecho en helloworld. En el menú, seleccione **Administrar paquetes de NuGet...** .
+   ![Administrador de paquetes NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
-   ![Hacer clic con el botón derecho en Manage NuGet Packages for Solution (Administrar paquetes NuGet para la solución)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
+1. En la esquina superior derecha, busque el cuadro desplegable **Origen del paquete** y asegúrese de que **nuget.org** está seleccionado.
 
-1. En la esquina superior derecha del Administrador de paquetes NuGet, busque la lista desplegable **Origen del paquete** y asegúrese de que **nuget.org** está seleccionado. A continuación, seleccione **Examinar**, busque el paquete `Microsoft.CognitiveServices.Speech` e instale la última versión estable.
+1. En la esquina superior izquierda, seleccione **Examinar**.
 
-   ![Instalación del paquete NuGet Microsoft.CognitiveServices.Speech](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png "Instalación del paquete Nuget")
+1. En el cuadro de búsqueda, escriba `Microsoft.CognitiveServices.Speech` y presione Entrar.
+
+1. Seleccione `Microsoft.CognitiveServices.Speech` e **Instalar** para instalar la versión estable más reciente.
+
+   ![Instalación del paquete NuGet Microsoft.CognitiveServices.Speech](../articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Acepte todos los contratos y licencias para iniciar la instalación.
 
-   ![Aceptación de licencia](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
+   Después de instalar el paquete aparecerá una confirmación en la ventana **Consola del administrador de paquetes**.
 
-    Después de instalar el paquete, aparecerá una confirmación en la consola del Administrador de paquetes.
+Ahora, para compilar y ejecutar la aplicación de consola, cree una configuración de plataforma que coincida con la arquitectura del equipo.
 
-1. El siguiente paso es crear una configuración de plataforma que coincida con la arquitectura del equipo que se usa para compilar y ejecutar la aplicación de consola. En la barra de menús, seleccione **Compilar** > **Administrador de configuración...** .
+1. En la barra de menús, seleccione **Compilar** > **Administrador de configuración**. Aparecerá el cuadro de diálogo **Administrador de configuración**.
 
-    ![Inicio del Administrador de configuración](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Launch the configuration manager")
+   ![Cuadro de diálogo Administrador de configuración](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
-1. En el cuadro de diálogo **Administrador de configuración**, busque la lista desplegable **Plataforma de la solución activa** y seleccione **Nuevo**.
+1. En el cuadro desplegable **Active solution platform** (Plataforma de soluciones activas), seleccione **Nuevo**. Aparecerá el cuadro de diálogo **Nueva plataforma de solución**.
 
-    ![Incorporación de una nueva plataforma en la ventana del Administrador de configuración](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-06-cfg-manager-new.png "Add a new platform under the configuration manager window")
+1. En el cuadro desplegable **escriba o seleccione la nueva plataforma**:
+   - Si está ejecutando Windows de 64 bits, seleccione **x64**.
+   - Si está ejecutando Windows de 32 bits, seleccione **x86**.
 
-1. Si está ejecutando Windows de 64 bits, cuando se le indique **Escriba o seleccione la nueva plataforma**, seleccione `x64`. Si está ejecutando Windows de 32 bits, seleccione `x86`. Cuando haya terminado, haga clic en **Aceptar**.
-
-    ![En Windows de 64 bits, incorporación de una nueva plataforma denominada "x64"](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Add x64 platform")
+1. Seleccione **Aceptar** y, después, **Cerrar**.

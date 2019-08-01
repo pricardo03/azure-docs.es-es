@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af9c072c428c486cab89288db4c9ee1c26513185
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681950"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250143"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -141,7 +141,7 @@ Estas son las descripciones de los campos que los usuarios necesitan para conect
 * **\<nombre de tabla\>** : nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *\<nombre de tabla\>* sin \<nombre de base de datos\>.
 * **\<separador de campos\>** : separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
 * **\<separador de líneas\>** : separador que delimita las líneas del archivo de datos.
-* **\<ubicación de almacenamiento\>** : la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION \<ubicación de almacenamiento\>* , la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///<directorio 1>/'* o *'wasb:///<directorio 1>/<directorio 2>/'* , etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
+* **\<ubicación de almacenamiento\>** : la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION \<ubicación de almacenamiento\>* , la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///\<directorio 1>/'* o *'wasb:///\<directorio 1>/\<directorio 2>/'* , etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
 
 ## <a name="load-data"></a>Carga de datos en tablas de Hive

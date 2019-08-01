@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
 ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67985836"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desarrollar una aplicación web ASP.NET Core MVC con Azure Cosmos DB mediante el SDK de .NET 
@@ -132,7 +132,7 @@ Ahora vamos a agregar los modelos, las vistas y los controladores a esta aplicac
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
 
-   El atributo **ValidateAntiForgeryToken** se usa aquí para ayudar a proteger esta aplicación frente a los ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas funcionarán también con este token antifalsificación. Para más información sobre el tema y ver ejemplos de cómo implementar correctamente este atributo, consulte [Prevención contra la falsificación de solicitud entre sitios][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] para ver la implementación completa en contexto.
+   El atributo **ValidateAntiForgeryToken** se usa aquí para ayudar a proteger esta aplicación frente a los ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas funcionarán también con este token antifalsificación. Para más información sobre el tema y ver ejemplos de cómo implementar correctamente este atributo, consulte [Prevención contra la falsificación de solicitud entre sitios][Preventing Cross-Site Request Forgery]. El código de origen proporcionado en [GitHub][GitHub] tiene la implementación completa en su lugar.
 
    También se usa el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para más información, consulte [Operaciones básicas CRUD en ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 

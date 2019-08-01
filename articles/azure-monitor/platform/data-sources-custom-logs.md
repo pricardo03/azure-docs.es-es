@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/26/2019
 ms.author: bwren
-ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273067"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68555335"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 El origen de datos de registros personalizados de Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
@@ -76,9 +76,6 @@ Debe definir una o más rutas de acceso en el agente para colocar el registro pe
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
 
->[!NOTE]
-> Si la aplicación crea un nuevo archivo de registro cada día o cuando alcanza un tamaño determinado, el agente de Log Analytics para Linux no lo detecta hasta que se reinicia. Esto se debe a que el agente solo enumera y comienza a supervisar patrones con los registros especificados al iniciar el sistema, y por ello es necesario pensar en evitarlo mediante la automatización del reinicio del agente.  Esta limitación no existe con el agente de Log Analytics para Windows.  
->
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 

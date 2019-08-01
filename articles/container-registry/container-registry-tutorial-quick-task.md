@@ -3,17 +3,18 @@ title: 'Tutorial: Compilación de imágenes de contenedor en la nube: Azure Cont
 description: En este tutorial, aprenderá a compilar una imagen de contenedor de Docker en Azure con Azure Container Registry Tasks (ACR Tasks) para, después, implementarla en Azure Container Instances.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152135"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310452"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -34,7 +35,7 @@ En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** de la CLI de Azure u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -191,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Ahora debe crear una entidad de servicio y almacenar sus credenciales en el almacén de claves.
 
-Use el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para crear la entidad de servicio y [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén:
+Use el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -229,7 +230,7 @@ Ahora puede hacer referencia a estos secretos por nombre cuando usted o sus apli
 
 Ahora que las credenciales de la entidad de servicio están almacenadas como secretos de Azure Key Vault, las aplicaciones y servicios pueden utilizarlas para acceder a su registro privado.
 
-Ejecute el comando [az container create][az-container-create] siguiente para implementar una instancia del contenedor. El comando usa las credenciales de la entidad de servicio almacenadas en Azure Key Vault para autenticarse en el registro de contenedor.
+Ejecute el comando [az container create][az-container-create] siguiente para implementar una instancia de contenedor. El comando usa las credenciales de la entidad de servicio almacenadas en Azure Key Vault para autenticarse en el registro de contenedor.
 
 ```azurecli-interactive
 az container create \
@@ -294,7 +295,7 @@ Para desasociar la consola del contenedor, pulse `Control+C`.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Detenga la instancia del contenedor con el comando [az container delete][az-container-delete]:
+Detenga la instancia de contenedor con el comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group $RES_GROUP --name acr-tasks

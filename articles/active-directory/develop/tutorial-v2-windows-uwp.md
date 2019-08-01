@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276640"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334058"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -385,7 +385,7 @@ También verá información básica sobre el token adquirido a través de `Acqui
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
 |**Nombre de usuario** |<span>user@domain.com</span> |El nombre de usuario que identifica al usuario.|
-|**Expiración del token** |Datetime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
+|**Expiración del token** |DateTime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 
@@ -419,3 +419,8 @@ Habilite la [autenticación integrada en dominios federados](#enable-integrated-
 **Solución alternativa**: seleccione **Iniciar sesión con otras opciones**. A continuación, seleccione **Iniciar sesión con un nombre de usuario y contraseña**. Seleccione **Proporcionar la contraseña**. A continuación, pase por el proceso de autenticación telefónica.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Ayúdenos a mejorar la Plataforma de identidad de Microsoft. Rellene una breve encuesta de dos preguntas y háganos saber su opinión.
+
+> [!div class="nextstepaction"]
+> [Encuesta sobre la Plataforma de identidad de Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

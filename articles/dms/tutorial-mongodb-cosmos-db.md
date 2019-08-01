@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 07/04/2019
-ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565546"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501018"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB sin conexión mediante DMS
 
@@ -128,6 +128,8 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
      https://blobnameurl/container?SASKEY
      ```
 
+     Esta cadena de conexión de SAS del contenedor de blobs se puede encontrar en el Explorador de Azure Storage. La creación de SAS para el contenedor implicado le proporcionará la dirección URL con el formato solicitado anterior.
+     
      Además, según la información del tipo de volcado de memoria de Azure Storage, tenga en cuenta el siguiente detalle.
 
      * En el caso de los volcados de BSON, los datos del contenedor de blobs deben estar en formato bsondump, con el fin de que dichos archivos se coloquen en carpetas que se llamen igual que las bases de datos que contienen en el formato colección.bson. A los archivos de metadatos (si hubiera) se les deben asignar el nombre con el formato *colección*.metadata.json.

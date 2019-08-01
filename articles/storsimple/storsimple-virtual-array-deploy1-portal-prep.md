@@ -12,20 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127147"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517097"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## <a name="overview"></a>Información general
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Este es el primer artículo de la serie de tutoriales de implementación requeridos para implementar completamente una matriz virtual como un servidor de archivos o un servidor iSCSI mediante el modelo con Resource Manager. En este artículo se describe la preparación necesaria para crear y configurar el servicio de StorSimple Device Manager antes de aprovisionar una matriz virtual. Este artículo también incluye vínculos a una lista de comprobación de la configuración de la implementación, así como a los requisitos previos de configuración.
 
@@ -33,7 +37,7 @@ Para completar el proceso de instalación y configuración se necesitan privileg
 
 La información publicada en este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
 
-### <a name="get-started"></a>Introducción
+### <a name="get-started"></a>Primeros pasos
 El flujo de trabajo de implementación consta de preparar el portal, aprovisionar una matriz virtual en su entorno virtualizado y completar la instalación. Para comenzar con la implementación de StorSimple Virtual Array como servidor de archivos o servidor iSCSI, es preciso que haga referencia a los siguientes recursos tabulados.
 
 #### <a name="deployment-articles"></a>Artículos de implementación

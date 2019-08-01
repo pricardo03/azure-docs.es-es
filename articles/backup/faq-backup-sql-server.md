@@ -1,18 +1,19 @@
 ---
 title: Preguntas frecuentes sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup
 description: Busque las respuestas a preguntas habituales sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup.
-author: sachdevaswati
-manager: vijayts
+ms.reviewer: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: vijayts
-ms.openlocfilehash: 082817899adc6ab9b4d57f7e0d4bc4e7c2f0a2ab
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 23dda22a8350591d5cf87cefc1a2f15fd90f17c7
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464820"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688849"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 

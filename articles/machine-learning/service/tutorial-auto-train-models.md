@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622378"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371035"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -147,7 +147,7 @@ dflow_prepared.get_profile()
       <th>type</th>
       <th>Min</th>
       <th>max</th>
-      <th>Recuento</th>
+      <th>Count</th>
       <th>Falta el recuento</th>
       <th>No falta el recuento</th>
       <th>Falta el porcentaje</th>
@@ -618,7 +618,8 @@ dflow_prepared.get_profile()
 Puede preparar los datos para el experimento agregando columnas a `dflow_x` para que sean características para la creación del modelo. Puede definir `dflow_y` para que sea nuestro valor de predicción **costo**:
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_X = dflow_prepared.keep_columns(
+    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -632,7 +633,8 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -663,11 +665,11 @@ Defina los parámetros del experimento y la configuración de los modelos para l
 
 ```python
 automl_settings = {
-    "iteration_timeout_minutes" : 10,
-    "iterations" : 30,
-    "primary_metric" : 'spearman_correlation',
-    "preprocess" : True,
-    "verbosity" : logging.INFO,
+    "iteration_timeout_minutes": 10,
+    "iterations": 30,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
@@ -678,12 +680,12 @@ Use la configuración de entrenamiento definida como parámetro en un objeto `Au
 from azureml.train.automl import AutoMLConfig
 
 # local compute
-automated_ml_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automated_ml_errors.log',
-                             path = project_folder,
-                             X = x_train.values,
-                             y = y_train.values.flatten(),
-                             **automl_settings)
+automated_ml_config = AutoMLConfig(task='regression',
+                                   debug_log='automated_ml_errors.log',
+                                   path=project_folder,
+                                   X=x_train.values,
+                                   y=y_train.values.flatten(),
+                                   **automl_settings)
 ```
 
 ### <a name="train-the-automatic-regression-model"></a>Entrenamiento del modelo de regresión automática
@@ -693,7 +695,7 @@ Inicie el experimento para ejecutarlo localmente. Pase el objeto `automated_ml_c
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, experiment_name)
+experiment = Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
@@ -746,7 +748,7 @@ Explore los resultados del entrenamiento automático con un widget de Jupyter o 
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opción 1: Agregar un widget de Jupyter para ver los resultados
 
-Si va a usar una instancia de Jupyter Notebook, use el widget de este para ver un grafo y una tabla de todos los resultados:
+Si va a usar una instancia de Jupyter Notebook, use este [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) para ver un grafo y una tabla de todos los resultados:
 
 
 ```python
@@ -757,6 +759,13 @@ RunDetails(local_run).show()
 ![Detalles de la ejecución del widget de Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Trazado del widget de Jupyter](./media/tutorial-auto-train-models/automl-chart-output.png)
 
+Los mismos resultados se almacenan en el área de trabajo.  Puede obtener un vínculo a los resultados de la ejecución:
+
+```
+local_run.get_portal_url()
+```
+  
+
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opción 2: Obtener y examinar todas las iteraciones de ejecución de Python
 
 También puede recuperar el historial de cada experimento y explorar las métricas individuales de cada ejecución de iteración. Al examinar el valor RMSE (root_mean_squared_error) de cada ejecución de modelo individual, verá que la mayoría de iteraciones predicen el costo justo del taxi con un margen razonable (3-4 USD).
@@ -766,7 +775,8 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
+    metrics = {k: v for k, v in run.get_metrics().items()
+               if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -1137,8 +1147,10 @@ ax1 = fig.add_subplot(111)
 distance_vals = [x[4] for x in x_test.values]
 y_actual = y_test.values.flatten().tolist()
 
-ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+ax1.scatter(distance_vals[:100], y_predict[:100],
+            s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100],
+            s=18, c='r', marker="o", label='Actual')
 
 ax1.set_xlabel('distance (mi)')
 ax1.set_title('Predicted and Actual Cost/Distance')

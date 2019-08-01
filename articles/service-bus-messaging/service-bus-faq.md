@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707145"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278336"
 ---
 # <a name="service-bus-faq"></a>Preguntas más frecuentes sobre Service Bus
 
@@ -86,7 +86,7 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados de Azure Service Bus?
-Vea [Procedimientos recomendados para mejorar el rendimiento mediante Service Bus][Best practices for performance improvements using Service Bus]: en este artículo se describe cómo optimizar el rendimiento al intercambiar mensajes.
+Consulte los [procedimientos recomendados para mejorar el rendimiento mediante Service Bus][Best practices for performance improvements using Service Bus]: en este artículo se describe cómo optimizar el rendimiento al intercambiar mensajes.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>¿Qué debo saber antes de crear entidades?
 Las siguientes propiedades de una cola y un tema son inmutables. Tenga en cuenta esta limitación al aprovisionar las entidades, ya que estas no se pueden modificar sin crear una entidad de sustitución.
@@ -104,7 +104,7 @@ En el artículo [Precios y facturación de Service Bus](https://azure.microsoft.
 También puede consultar las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios de Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra Service Bus?
-Para obtener más información sobre los precios de Service Bus, vea [Precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+Para obtener más información sobre los precios de Service Bus, consulte [Precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>¿Qué uso de Service Bus está sujeto a la transferencia de datos? ¿Cuál no lo está?
 Cualquier transferencia de datos dentro de una determinada región de Azure se proporciona sin cargo alguno, así como las transferencias de datos entrantes. La transferencia de datos fuera de una región está sujeta a cargos por concepto de salida; consulte [esta página](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -114,7 +114,7 @@ No, Service Bus no cobra por almacenamiento. Sin embargo, hay una cuota que limi
 
 ## <a name="quotas"></a>Cuotas
 
-Para obtener una lista de las cuotas y los límites de Service Bus, consulte [Información general sobre cuotas de Service Bus][Quotas overview].
+Para obtener una lista de las cuotas y los límites de Service Bus, consulte la [información general sobre cuotas de Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>¿Service Bus tiene alguna cuota de uso?
 De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Si estos límites no son suficientes, puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. En lo que respecta a Service Bus, las cuotas de uso agregado ascienden a 5000 millones de mensajes al mes.
@@ -134,7 +134,7 @@ Cuando elimine un espacio de nombres de una suscripción, espere 4 horas antes d
 Para obtener una lista de posibles excepciones de Service Bus, consulte [Información general sobre excepciones][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes admiten la generación de una firma?
-Firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para más información acerca de cómo generar sus propias firmas en Node.js, PHP, Java y C\#, consulte el artículo sobre las [firmas de acceso compartido][Shared Access Signatures].
+Firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para obtener más información acerca de cómo generar sus propias firmas en Node.js, PHP, Java, Python y C#, consulte el artículo sobre las [firmas de acceso compartido][Shared Access Signatures].
 
 ## <a name="subscription-and-namespace-management"></a>Administración de suscripción y espacio de nombres
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>¿Cómo se migra un espacio de nombres a otra suscripción de Azure?
@@ -143,7 +143,7 @@ Puede mover un espacio de nombres de una suscripción de Azure a otra, a través
 
 #### <a name="portal"></a>Portal
 
-Para usar Azure Portal para migrar espacios de nombres de Service Bus a otra suscripción, siga las instrucciones indicadas [aquí](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para usar Azure Portal para migrar espacios de nombres de Service Bus a otra suscripción, siga las instrucciones indicadas [aquí](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

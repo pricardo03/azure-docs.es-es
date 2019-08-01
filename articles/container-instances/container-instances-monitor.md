@@ -3,25 +3,26 @@ title: Supervisión de contenedores en Azure Container Instances
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570912"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325849"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 
-[Azure Monitor][azure-monitoring] proporciona información acerca de los recursos de computación que utilizan las instancias de contenedor. Esta información sobre el uso de los recursos le ayuda a determinar cuál es la mejor configuración de recursos para los grupos de contenedores. Azure Monitor también proporciona métricas que realizan un seguimiento de la actividad en la red en sus instancias de contenedor.
+[Azure Monitor][azure-monitoring] proporciona información acerca de los recursos de proceso que utilizan las instancias de contenedor. Esta información sobre el uso de los recursos le ayuda a determinar cuál es la mejor configuración de recursos para los grupos de contenedores. Azure Monitor también proporciona métricas que realizan un seguimiento de la actividad en la red en sus instancias de contenedor.
 
 En este documento, se explica cómo se recopilan las métricas de Azure Monitor para instancias de contenedor mediante Azure Portal y la CLI de Azure.
 
 > [!IMPORTANT]
-> Las métricas de Azure Monitor de Azure Container Instances están actualmente en versión preliminar y [se aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Las métricas de Azure Monitor de Azure Container Instances están actualmente en versión preliminar y [se aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
@@ -136,7 +137,7 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de la supervisión en Azure, consulte esta [introducción a la supervisión de Azure][azure-monitoring].
+Para más información sobre la supervisión en Azure, consulte esta [introducción a la supervisión de Azure][azure-monitoring].
 
 Aprenda a crear [alertas de métricas][metric-alert] para recibir notificaciones cuando una métrica de Azure Container Instances traspase un umbral.
 

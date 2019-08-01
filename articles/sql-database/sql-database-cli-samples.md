@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150236"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443330"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Ejemplos de la CLI de Azure para Azure SQL Database
 
@@ -41,6 +41,8 @@ En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Az
 |**Escalado de una base de datos única y un grupo elástico**||
 | [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala una sola base de datos de Azure SQL a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos. |
 | [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala un grupo elástico de SQL a un tamaño de proceso distinto.  |
+|**Grupos de conmutación por error**||
+| [Incorporación de una base de datos única a un grupo de conmutación por error](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Este script de la CLI crea una base de datos y un grupo de conmutación por error, agrega la base de datos al grupo de conmutación por error y prueba la conmutación por error en el servidor secundario.|
 |||
 
 Obtenga más información sobre la [API de la CLI de Azure de la base de datos única](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

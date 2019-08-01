@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Extracción de texto escrito a mano (REST, Python)'
+title: 'Inicio rápido: Extracción de texto impreso y manuscrito (REST, Python)'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, extraerá texto manuscrito de una imagen mediante Computer Vision API con Python.
+description: En este inicio rápido extraerá texto manuscrito de una imagen mediante la API Computer Vision con Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ec58617556ff54bd2273160bb4af80e473ac1693
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 729228b224bdf708fbcf9caf4742f9bb7ad5cff3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603558"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311976"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Inicio rápido: Extracción de texto manuscrito mediante la API REST Computer Vision y Python
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision y Python
 
-En esta guía de inicio rápido, extraerá texto manuscrito de una imagen mediante la API de REST Computer Vision. Con [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API y [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, puede detectar texto escrito a mano en una imagen y extraer después los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+En este inicio rápido extraerá texto impreso y manuscrito de una imagen mediante la API REST Computer Vision. Los métodos [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres de lectura mecánica. La API determinará qué modelo de reconocimiento se usará para cada línea de texto, ya que admite imágenes tanto con texto impreso como manuscrito.
 
 > [!IMPORTANT]
 > A diferencia del método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), el método [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Content`. A continuación, puede llamar a este identificador URI, que representa a [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, para comprobar el estado y devolver los resultados de la llamada al método Batch Read.
@@ -44,10 +44,10 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 1. Realice los siguientes cambios en el código donde sea necesario:
     1. Reemplace el valor de `subscription_key` por la clave de suscripción.
     1. Reemplace el valor de `vision_base_url` por la dirección URL del punto de conexión del recurso de Computer Vision en la región de Azure donde obtuvo las claves de suscripción, si es necesario.
-    1. También puede reemplazar el valor de `image_url` por la dirección URL de una imagen diferente desde la que desea extraer el texto manuscrito.
-1. Guarde el código como un archivo con la extensión `.py`. Por ejemplo, `get-handwritten-text.py`.
+    1. También puede reemplazar el valor de `image_url` por la dirección URL de una imagen diferente desde la que desea extraer el texto.
+1. Guarde el código como un archivo con la extensión `.py`. Por ejemplo, `get-text.py`.
 1. Abra una ventana de símbolo del sistema.
-1. En el símbolo del sistema, utilice el comando `python` para ejecutar el ejemplo. Por ejemplo, `python get-handwritten-text.py`.
+1. En el símbolo del sistema, utilice el comando `python` para ejecutar el ejemplo. Por ejemplo, `python get-text.py`.
 
 ```python
 import requests
@@ -83,7 +83,7 @@ response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
-# Extracting handwritten text requires two API calls: One call to submit the
+# Extracting text requires two API calls: One call to submit the
 # image for processing, the other to retrieve the text found in the image.
 
 # Holds the URI used to retrieve the recognized text.

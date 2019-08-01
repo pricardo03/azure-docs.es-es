@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f733db97f79282bfc255e3ac4b9991a3b6abc18
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477546"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564852"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solución de problemas de Change Tracking e Inventario
 
@@ -51,7 +51,7 @@ Si estas soluciones no resuelven el problema y desea ponerse en contacto con el 
 En la máquina del agente, vaya a `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` y ejecute los siguientes comandos:
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice

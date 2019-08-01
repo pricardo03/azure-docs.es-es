@@ -1,23 +1,23 @@
 ---
 title: 'Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure | Microsoft Docs'
-description: Obtenga información acerca de cómo utilizar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
+description: Aprenda a usar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 56b655b07314d5ebc2d0cb47389988f1a89e6a56
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: dd68f4a565c28f1dbac7e94442a8f8231af01328
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304346"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314907"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
-En este artículo de inicio rápido se muestra cómo usar la CLI de Azure para crear una puerta de enlace de aplicaciones.  Después de crear la puerta de enlace de aplicaciones, pruébela para asegurarse de que funciona correctamente. Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, un agente de escucha básico para hospedar un único sitio en esta puerta de enlace de aplicaciones, dos máquinas virtuales que se usan con el grupo de back-end y una regla de enrutamiento de solicitudes básica.
+En este artículo de inicio rápido se muestra cómo usar la CLI de Azure para crear una puerta de enlace de aplicaciones.  Después de crear la puerta de enlace de aplicaciones, pruébela para asegurarse de que funciona correctamente. Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo de back-end. En este artículo se usa una configuración sencilla con una dirección IP de front-end pública, un cliente de escucha básico para hospedar un único sitio en esta puerta de enlace de aplicaciones, dos máquinas virtuales que se usan con el grupo de back-end y una regla de enrutamiento de solicitudes básica.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -67,7 +67,7 @@ az network public-ip create \
 
 ### <a name="backend-servers"></a>Servidores back-end
 
-Los servidores back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. En este ejemplo, se crean dos máquinas virtuales que usará Azure como servidores back-end para la puerta de enlace de aplicaciones. También se instala IIS en las máquinas virtuales para comprobar que Azure ha instalado correctamente la puerta de enlace de aplicaciones.
+Un servidor back-end puede constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino, como Azure App Service. En este ejemplo, se crearán dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También puede instalar IIS en las máquinas virtuales para probar la puerta de enlace de aplicaciones.
 
 #### <a name="create-two-virtual-machines"></a>Creación de dos máquinas virtuales
 
@@ -181,7 +181,7 @@ Copie la dirección IP pública y péguela en la barra de direcciones del explor
     
 ![Prueba de la puerta de enlace de aplicaciones](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Al actualizar el explorador, verá aparecer el nombre de la segunda máquina virtual. Una respuesta válida corrobora que la puerta de enlace de aplicaciones se ha creado correctamente y puede conectarse correctamente con el back-end.
+Al actualizar el explorador, verá aparecer el nombre de la segunda máquina virtual. Esto indica que la puerta de enlace de aplicaciones se ha creado correctamente y se puede conectar con el servidor back-end.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

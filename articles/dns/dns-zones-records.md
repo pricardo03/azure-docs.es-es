@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712226"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004470"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -87,6 +87,8 @@ Esto solo se aplica al conjunto de registros NS en el vértice de zona. Otros co
 Un conjunto de registros SOA se crea automáticamente en el vértice de cada zona (nombre = "\@") y se elimina automáticamente cuando se elimina la zona.  Los registros SOA no pueden crearse ni eliminarse por separado.
 
 Puede modificar todas las propiedades del registro SOA excepto la propiedad 'host', que está preconfigurada para hacer referencia al nombre del servidor de nombres principal proporcionado por DNS de Azure.
+
+El número de serie de la zona en el registro SOA no se actualiza automáticamente cuando se realizan cambios en los registros de la zona. Se puede actualizar manualmente editando el registro SOA, si es necesario.
 
 ### <a name="spf-records"></a>Registros SPF
 

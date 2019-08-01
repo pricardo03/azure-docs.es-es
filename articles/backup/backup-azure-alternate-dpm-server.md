@@ -1,18 +1,19 @@
 ---
 title: Recuperación de datos de una instancia de Azure Backup Server
 description: Recupere los datos que protegió en un almacén de Recovery Services desde cualquier Azure Backup Server registrado en dicho almacén.
-author: kasinh
-manager: vijayts
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: kasinh
-ms.openlocfilehash: aaa2efa706822bee85dc867ad35bc312f4c700a1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466912"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688818"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
 Puede usar Azure Backup Server para recuperar los datos de los que creó una copia de seguridad en un almacén de Recovery Services. El proceso para hacerlo está integrado en la consola de administración de Azure Backup Server y es similar al flujo de trabajo de recuperación de otros componentes de Azure Backup.

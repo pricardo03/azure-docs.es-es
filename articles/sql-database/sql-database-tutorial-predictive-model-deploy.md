@@ -12,31 +12,31 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978706"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596775"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
-En la tercera parte de este tutorial de tres partes, implementará un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la tercera parte de este tutorial de tres partes, implementará un modelo predictivo, desarrollado en R, en una base de datos SQL con Azure SQL Database Machine Learning Services (versión preliminar).
 
 Creará un procedimiento almacenado con un script de R insertado que realiza predicciones mediante el modelo. Como el modelo se ejecuta en la base de datos de Azure SQL, se puede entrenar fácilmente con los datos almacenados en la base de datos.
 
-En este artículo, aprenderá a:
+En este artículo, con los scripts de R que desarrolló en las partes uno y dos, aprenderá a:
 
 > [!div class="checklist"]
-> * Almacenar el modelo predictivo en una tabla de base de datos
-> * Crear un procedimiento almacenado que genera el modelo
+> * Crear un procedimiento almacenado que genere el modelo de Machine Learning
+> * Almacenamiento del modelo en una tabla de base de datos
 > * Crear un procedimiento almacenado que hace predicciones mediante el modelo
-> * Ejecución del modelo con nuevos datos
+> * Ejecutar el modelo con nuevos datos
 
-En la [primera parte](sql-database-tutorial-predictive-model-prepare-data.md), ha aprendido a importar una base de datos de ejemplo en una base de datos de Azure SQL y, luego, a preparar los datos para su uso en el entrenamiento de un modelo predictivo en R.
+En la [primera parte](sql-database-tutorial-predictive-model-prepare-data.md), aprendió a importar una base de datos de ejemplo y, luego, a preparar los datos para su uso en el entrenamiento de un modelo predictivo en R.
 
-En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), ha aprendido a crear y entrenar varios modelos para después elegir el más preciso.
+En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), aprendió a crear y entrenar varios modelos de Machine Learning en R y, luego, elegir el más preciso.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -46,7 +46,7 @@ En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), 
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creación de un procedimiento almacenado que genera el modelo
 
-En la segunda parte de esta serie de tutoriales, decidió que un modelo de árbol de decisión (dtree) era el más preciso. Ahora cree un procedimiento almacenado (`generate_rental_rx_model`) que entrene y genere el modelo dtree mediante rxDTree desde el paquete RevoScaleR.
+En la segunda parte de esta serie de tutoriales, decidió que un modelo de árbol de decisión (dtree) era el más preciso. Ahora, con los scripts de R desarrollados, cree un procedimiento almacenado (`generate_rental_rx_model`) que entrene y genere el modelo dtree mediante rxDTree desde el paquete RevoScaleR.
 
 Ejecute los comandos siguientes en Azure Data Studio o SSMS.
 
@@ -214,8 +214,8 @@ En Azure Portal, haga lo siguiente:
 
 En la tercera parte de esta serie de tutoriales, ha hecho lo siguiente:
 
-* Almacenar el modelo predictivo en una tabla de base de datos
-* Crear un procedimiento almacenado que genera el modelo
+* Crear un procedimiento almacenado que genere el modelo de Machine Learning
+* Almacenamiento del modelo en una tabla de base de datos
 * Crear un procedimiento almacenado que hace predicciones mediante el modelo
 * Ejecutar el modelo con nuevos datos
 

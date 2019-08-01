@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399321"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806403"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualización de datos mediante una consulta importada en Power BI
 
@@ -82,4 +82,4 @@ Si ya no necesita el informe que ha creado para este artículo, elimine el archi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Visualización de datos mediante una consulta importada en Power BI](power-bi-sql-query.md)
+[Visualización de datos mediante el conector de Azure Data Explorer para Power BI](power-bi-connector.md)

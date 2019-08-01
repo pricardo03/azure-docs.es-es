@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417826"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602143"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
@@ -88,6 +88,6 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP/SSH después de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas virtuales de VMware](vmware-azure-tutorial-failover-failback.md).
-> [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas virtuales de Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
-> [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas físicas](physical-to-azure-failover-failback.md)
+> [Ejecutar una conmutación por error y una conmutación por recuperación para VM de VMware](vmware-azure-tutorial-failover-failback.md)
+> [Ejecutar una conmutación por error y una conmutación por recuperación para VM de Hyper-V](hyper-v-azure-failover-failback-tutorial.md)
+> [Ejecutar una conmutación por error y una conmutación por recuperación para máquinas físicas](physical-to-azure-failover-failback.md)

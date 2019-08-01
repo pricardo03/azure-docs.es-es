@@ -4,7 +4,7 @@ description: Conozca los términos de SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/20/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8131bc953c2aba3c8d33f866cbbe9b1e232e168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2564e0d34383f7c1daff5b02a871778fb90546cc
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481044"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869006"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -41,7 +41,10 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
 - **Categoría de SKU**: para HANA (instancias grandes), se ofrecen las siguientes dos categorías de SKU:
     - **Clase de tipo I**: S72, S72m, S96, S144, S144m, S192, S192m y S192xm
     - **Clase de tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m
-
+- **Demarcación**: Define el tamaño de la implementación interna de Microsoft de instancias grandes de HANA. Para poder implementar unidades de instancias grandes de HANA, se debe implementar una demarcación de instancias grandes de HANA que conste de bastidores de proceso, red y almacenamiento en una ubicación del centro de datos. Este tipo de implementación se denomina demarcación de instancia grande de Hana o, en la revisión 4 (ver a continuación), usamos el término alternativo **fila de instancia grande**.
+- **Revisión**: Hay dos revisiones de demarcación diferentes para las demarcaciones de instancias grandes de HANA. Estas difieren en la arquitectura y la proximidad de los hosts de Azure Virtual Machine.
+    - "Revisión 3" (Rev 3): es el diseño original implementado a mediados del año 2016.
+    - "Revisión 4" (Rev 4): es un nuevo diseño que puede proporcionar una mayor proximidad a los hosts de Azure Virtual Machine y con menor latencia de red entre las VM de Azure y las unidades de instancia grande de HANA. 
 
 Hay una serie de recursos adicionales sobre cómo implementar una carga de trabajo SAP en la nube. Si planea ejecutar una implementación de SAP HANA en Azure, debe poseer conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. Antes de continuar, consulte [Uso de soluciones de SAP enAzure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información. 
 

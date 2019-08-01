@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807540"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421389"
 ---
 # <a name="what-is-azure-data-share-preview"></a>¿Qué es Azure Data Share (versión preliminar)?
 
@@ -25,6 +25,8 @@ Los proveedores de datos pueden seguir manteniendo el control de sus datos. Para
 
 Azure Data Share le ayuda a mejorar las conclusiones, ya que facilita la combinación de datos de terceros, con el fin de enriquecer los escenarios de inteligencia artificial y análisis. Use fácilmente las eficacia de las herramientas de análisis de Azure para preparar, procesar y analizar los datos compartidos mediante Azure Data Share. 
 
+Tanto el proveedor de datos como el consumidor de datos tienen que tener una suscripción de Azure para compartir y recibir datos. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
+
 ## <a name="scenarios-for-azure-data-share"></a>Escenarios de Azure Data Share
 
 Azure Data Share puede usarse en varios sectores diferentes. Por ejemplo, un minorista puede compartir datos recientes de un punto de ventas con sus proveedores. Mediante Azure Data Share, un minorista puede configure un recurso compartido de datos que contenga los datos de un punto de ventas para todos sus proveedores y compartir las ventas por hora o diariamente. 
@@ -37,7 +39,7 @@ Otro caso de uso de Azure Data Share consiste en establecer un consorcio de dato
 
 Azure Data Share usa un enfoque de uso compartido basado en instantáneas donde los datos parten de la suscripción de Azure del proveedor de datos y llegan a la suscripción de Azure del consumidor de datos. Los proveedores de datos aprovisionan recursos compartidos de datos e invitan a ellos a los destinatarios. Los consumidores de datos reciben una invitación a su recurso compartido de datos a través de correo electrónico. Una vez que un consumidor de datos acepta la invitación, pueden desencadenar una instantánea completa de los datos que ha compartido con él. Estos datos se reciben en la cuenta de almacenamiento de los consumidores de los datos. Los consumidores de los datos pueden recibir actualizaciones regulares e incrementales de los datos compartidos con ellos, con el fin de que siempre tengan la versión más reciente de los datos. 
 
-Los proveedores de datos pueden ofrecer a sus consumidores de datos actualizaciones incrementales de los datos compartidos con ellos a través de una programación de instantáneas. Las programaciones de instantáneas se ofrecen cada hora o diariamente. Cuando un consumidor de datos acepta y configura su recurso compartido de datos, puede suscribirse a una programación de instantáneas. Esto es útil en aquellos escenarios en los que los datos compartidos se actualizan de forma periódica y el consumidor de datos necesita los datos más actualizados. 
+Los proveedores de datos pueden ofrecer a sus consumidores de datos actualizaciones incrementales de los datos compartidos con ellos mediante de una programación de instantáneas. Las programaciones de instantáneas se ofrecen cada hora o diariamente. Cuando un consumidor de datos acepta y configura su recurso compartido de datos, puede suscribirse a una programación de instantáneas. Esto es útil en aquellos escenarios en los que los datos compartidos se actualizan de forma periódica y el consumidor de datos necesita los datos más actualizados. 
 
 ![flujo de recurso compartido de datos](media/data-share-flow.png)
 
@@ -78,6 +80,7 @@ Azure Data Share aprovecha la seguridad subyacente que ofrece Azure para protege
 Se pueden establecer controles de acceso en el nivel de recursos de Azure Data Share para asegurarse de que solo acceden los que tienen autorización. 
 
 Azure Data Share aprovecha las identidades administradas para recursos de Azure (que antes se conocían como archivos MSI) para la administración automática de identidades en Azure Active Directory. Las identidades administradas para recursos de Azure se aprovechan para acceder a las cuentas de almacenamiento que se utilizan para el uso compartido de datos. No hay intercambio de credenciales entre un proveedor de datos y un consumidor de datos. Para más información, consulte la [página de identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) (Identidades administradas para los recursos de Azure). 
+
 
 ## <a name="supported-regions"></a>Regiones admitidas
 

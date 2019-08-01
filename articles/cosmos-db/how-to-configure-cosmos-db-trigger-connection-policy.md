@@ -1,29 +1,29 @@
 ---
-title: Directiva de conexión del desencadenador de Azure Cosmos DB
-description: Aprenda a configurar la directiva de conexión que utiliza Azure Cosmos DB Trigger
+title: Desencadenador de Azure Functions para la directiva de conexión de Cosmos DB
+description: Aprenda a configurar la directiva de conexión que utiliza el desencadenador de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/05/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 584d59884b70d2ee8243216e6f907fc9ec2d8ad4
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 359b6a905e64046aad62b70ae53b993c86884ad2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755463"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335630"
 ---
-# <a name="how-to-configure-the-connection-policy-used-by-azure-cosmos-db-trigger"></a>Cómo configurar la directiva de conexión que utiliza Azure Cosmos DB Azure Cosmos DB Trigger
+# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Configuración de la directiva de conexión que utiliza el desencadenador de Azure Functions para Cosmos DB
 
-En este artículo se describe cómo se puede configurar la directiva de conexión cuando se usa Azure Cosmos DB Azure Cosmos DB Trigger para conectarse a una cuenta de Azure Cosmos.
+En este artículo se describe cómo se puede configurar la directiva de conexión cuando se usa el desencadenador de Azure Functions para Cosmos DB para conectarse a la cuenta de Azure Cosmos.
 
 ## <a name="why-is-the-connection-policy-important"></a>¿Por qué es importante la directiva de conexión?
 
-Existen dos modos de conexión: modo directo y modo de puerta de enlace. Para más información acerca de estos modos de conexión, consulte el artículo acerca de las [sugerencias para obtener mayor rendimiento](./performance-tips.md#networking). De forma predeterminada, el modo de **puerta de enlace** se utiliza para establecer todas las conexiones en Azure Cosmos DB Trigger. Sin embargo, es posible que no sea la mejor opción para escenarios en los que prime el rendimiento.
+Existen dos modos de conexión: modo directo y modo de puerta de enlace. Para más información acerca de estos modos de conexión, consulte el artículo acerca de las [sugerencias para obtener mayor rendimiento](./performance-tips.md#networking). De forma predeterminada, el modo de **puerta de enlace** se utiliza para establecer todas las conexiones en el desencadenador de Azure Functions para Cosmos DB. Sin embargo, es posible que no sea la mejor opción para escenarios en los que prime el rendimiento.
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>Cambio del modo y protocolo de conexión
 
-Hay dos valores de configuración clave disponibles para configurar la directiva de conexión de cliente: el **modo de conexión** y el **protocolo de conexión**. Tanto el modo de conexión como el protocolo predeterminados que usa Azure Cosmos DB Trigger se pueden cambiar, al igual que todos los [enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#output). Para cambiar la configuración predeterminada, es preciso localizar el archivo `host.json` en el proyecto de Azure Functions o en la aplicación de Azure Functions y agregar el siguiente [valor extra](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+Hay dos valores de configuración clave disponibles para configurar la directiva de conexión de cliente: el **modo de conexión** y el **protocolo de conexión**. Tanto el modo de conexión como el protocolo predeterminados que usa el desencadenador de Azure Functions para Cosmos DB se pueden cambiar, al igual que todos los [enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#output). Para cambiar la configuración predeterminada, es preciso localizar el archivo `host.json` en el proyecto de Azure Functions o en la aplicación de Azure Functions y agregar el siguiente [valor extra](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
 
 ```js
 {

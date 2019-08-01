@@ -12,30 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978726"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596670"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para entrenar un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
-En la primera parte de esta serie de tutoriales de tres partes, preparará los datos de una base de datos de Azure SQL para entrenar un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la primera parte de esta serie de tutoriales de tres partes, importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie, usará estos datos para entrenar e implementar un modelo de Machine Learning predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar).
 
 En esta serie de tutoriales, imagine que posee una empresa de alquiler de esquís y quiere predecir el número de alquileres que tendrá en una fecha futura. Esta información lo ayudará a preparar las existencias, el personal y las instalaciones.
+
+En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos SQL mediante procedimientos almacenados.
 
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Importar una base de datos de ejemplo en una base de datos de Azure SQL
-> * Cargar los datos de las bases de datos de Azure SQL en una trama de datos mediante R
-> * Preparar los datos mediante la identificación de algunas columnas como de categoría
+> * Importar una base de datos de ejemplo en una base de datos de Azure SQL mediante R
+> * Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
+> * Preparar los datos en R mediante la identificación de algunas columnas como de categoría
 
-En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), aprenderá a crear y entrenar varios modelos para después elegir el más preciso.
+En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), aprenderá a crear y entrenar varios modelos de Machine Learning en R y, luego, elegir el más preciso.
 
-En la [tercera parte](sql-database-tutorial-predictive-model-deploy.md), sabrá cómo almacenar el modelo en una base de datos y, luego, creará un procedimiento almacenado que puede realizar predicciones basadas en nuevos datos.
+En la [tercera parte](sql-database-tutorial-predictive-model-deploy.md), aprenderá a almacenar el modelo en una base de datos y, luego, a crear procedimientos almacenados a partir de los scripts de R desarrollados en las partes uno y dos. Los procedimientos almacenados se ejecutarán en una base de datos SQL para hacer predicciones basadas en nuevos datos.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -158,9 +160,9 @@ En Azure Portal, haga lo siguiente:
 
 En la primera parte de esta serie de tutoriales, realizó estos pasos:
 
-* Importar un archivo de copia de seguridad de base de datos en una base de datos de Azure SQL
-* Cargar los datos de las bases de datos de Azure SQL en una trama de datos mediante R
-* Preparar los datos mediante la identificación de algunas columnas como categorías
+* Importar una base de datos de ejemplo en una base de datos de Azure SQL mediante R
+* Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
+* Preparar los datos en R mediante la identificación de algunas columnas como de categoría
 
 Para crear un modelo de aprendizaje automático que use datos de la base de datos TutorialDB, siga la segunda parte de esta serie de tutoriales:
 

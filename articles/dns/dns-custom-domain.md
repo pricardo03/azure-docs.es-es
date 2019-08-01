@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096247"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854153"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
@@ -41,7 +41,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | myfunctionapp        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | CNAME        | Use un registro CNAME que use un alias.        |
+|type     | CNAME        | Use un registro CNAME que use un alias.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | adatumfunction.azurewebsites.net        | El nombre DNS para el que va a crear el alias, en este ejemplo es el nombre DNS adatumfunction.azurewebsites.net proporcionado de forma predeterminada para la aplicación de función.        |
@@ -66,7 +66,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | mywebserver        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | Una        | Use un registro A como recurso en una dirección IP.        |
+|type     | Una        | Use un registro A como recurso en una dirección IP.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Dirección IP     | `<your ip address>`       | La dirección IP pública.|
@@ -93,7 +93,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | mywebserver        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | CNAME        | Use un registro CNAME que use un alias. Si el recurso usa una dirección IP, se usará un registro A.        |
+|type     | CNAME        | Use un registro CNAME que use un alias. Si el recurso usa una dirección IP, se usará un registro A.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | webserver.azurewebsites.net        | El nombre DNS para el que va a crear el alias. En este ejemplo es el nombre DNS webserver.azurewebsites.net proporcionado de forma predeterminada para la aplicación web.        |
@@ -111,6 +111,8 @@ Una vez completado el proceso, ejecute **nslookup** para comprobar que la resolu
 
 Para más información acerca de cómo asignar un dominio personalizado a App Service, visite [Asignar un nombre DNS personalizado a Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
+Para información sobre cómo migrar un nombre de DNS activo, consulte [Migración de un nombre de DNS activo a Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+
 Si necesita adquirir un dominio personalizado, visite [Comprar un nombre de dominio personalizado para Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) para más información sobre dominios de App Service.
 
 ## <a name="blob-storage"></a>Almacenamiento de blobs
@@ -127,7 +129,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | asverify.mystorageaccount        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | CNAME        | Use un registro CNAME que use un alias.        |
+|type     | CNAME        | Use un registro CNAME que use un alias.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | El nombre DNS para el que va a crear el alias. En este ejemplo es el nombre DNS asverify.adatumfunctiona9ed.blob.core.windows.net proporcionado de forma predeterminada para la cuenta de almacenamiento.        |
@@ -155,7 +157,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | cdnverify.mycdnendpoint        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | CNAME        | Use un registro CNAME que use un alias.        |
+|type     | CNAME        | Use un registro CNAME que use un alias.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | El nombre DNS para el que va a crear el alias. En este ejemplo es el nombre DNS cdnverify.adatumcdnendpoint.azureedge.net proporcionado de forma predeterminada para la cuenta de almacenamiento.        |

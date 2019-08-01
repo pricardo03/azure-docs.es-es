@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174051"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382130"
 ---
 # <a name="two-step-verification-overview"></a>Introducción a la verificación en dos pasos
 
@@ -30,9 +30,9 @@ La verificación en dos pasos es más segura que solo una contraseña, porque se
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|
-|[Experiencia de instalación](multi-factor-authentication-end-user-first-time.md) |Describe cómo configurar una verificación en dos pasos por primera vez.|
-|[Introducción a la verificación en dos pasos](multi-factor-authentication-end-user.md)|Describe qué significa la verificación en dos pasos en su caso.| 
-|[Procedimientos para iniciar sesión](user-help-sign-in.md)|Describe cómo iniciar sesión con su método de comprobación especificado.|
-|[Cambio de la configuración](multi-factor-authentication-end-user-manage-settings.md) |Describe cómo se puede cambiar la configuración, como el número de teléfono o el método de inscripción preferido.|
-|[Ayuda con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) |Describe cómo solucionar problemas comunes con la verificación en dos pasos.|
-|[Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) |Describe cómo crear y usar contraseñas de aplicación.|
+| [Experiencia de instalación](multi-factor-authentication-end-user-first-time.md) |Describe cómo configurar una verificación en dos pasos por primera vez.|
+| [Introducción a la verificación en dos pasos](multi-factor-authentication-end-user.md) ]Describe lo que significa la verificación en dos pasos.| 
+| [Cómo iniciar sesión](user-help-sign-in.md) ]Describe cómo iniciar sesión con su método de comprobación especificado.|
+| [Cambio de la configuración](multi-factor-authentication-end-user-manage-settings.md) |Describe cómo se puede cambiar la configuración, como el número de teléfono o el método de inscripción preferido.|
+| [Ayuda con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) |Describe cómo solucionar problemas comunes con la verificación en dos pasos.|
+| [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) |Describe cómo crear y usar contraseñas de aplicación.|

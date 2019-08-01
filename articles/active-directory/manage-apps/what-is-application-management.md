@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcd0338f9195afae0e326155dbc4e10dd4fc1f91
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723891"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421208"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 
-Azure Active Directory (Azure AD) simplifica la manera de administrar las aplicaciones al proporcionar un único sistema de identidad para las aplicaciones en la nube y en el entorno local. Puede agregar a Azure AD las aplicaciones de software como servicio (SaaS), aplicaciones locales y aplicaciones de línea de negocio (LOB). Después, los usuarios inician sesión una vez para acceder de forma segura y sin problemas a estas aplicaciones, junto con Office 365 y otras aplicaciones empresariales de Microsoft. Puede reducir los costos administrativos gracias a la automatización del aprovisionamiento de usuarios. También puede utilizar la autenticación multifactor y las directivas de acceso condicional para proporcionar un acceso seguro a las aplicaciones.
+Azure Active Directory (Azure AD) simplifica la manera de administrar las aplicaciones al proporcionar un único sistema de identidad para las aplicaciones en la nube y en el entorno local. Puede agregar a Azure AD las aplicaciones de software como servicio (SaaS), aplicaciones locales y aplicaciones de línea de negocio (LOB). Después, los usuarios inician sesión una vez para acceder de forma segura y sin problemas a estas aplicaciones, junto con Office 365 y otras aplicaciones empresariales de Microsoft. Puede reducir los costos administrativos gracias a la [automatización del aprovisionamiento de usuarios](user-provisioning.md). También puede utilizar la autenticación multifactor y las directivas de acceso condicional para proporcionar un acceso seguro a las aplicaciones.
 
 ![Diagrama que muestra las aplicaciones federadas mediante Azure AD](media/what-is-application-management/app-management-overview.png)
 

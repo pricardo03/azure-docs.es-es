@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204612"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357032"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -134,7 +134,7 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows d
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar los valores de la intranet local para el registro de dispositivos
 
-Para completar con éxito la unión a Azure AD híbrido de los dispositivos de Windows de nivel inferior y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
+Para completar con éxito la unión de Azure AD híbrido de los dispositivos de Windows de nivel inferior y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
@@ -143,7 +143,7 @@ También tiene que habilitar **Permitir actualizaciones en la barra de estado a 
 
 ### <a name="configure-seamless-sso"></a>Configurar SSO de conexión directa
 
-Para completar correctamente la unión a Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que usa [PHS]../hybrid/whatis-phs.md o [autenticación de paso a través (PTA)](../hybrid/how-to-connect-pta.md) como su método de autenticación en la nube de Azure AD, también debe [configurar SSO de conexión directa](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+Para completar correctamente la unión a Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que usa [PHS](../hybrid/whatis-phs.md) o [PTA](../hybrid/how-to-connect-pta.md) como método de autenticación en la nube de Azure AD, también debe [configurar SSO de conexión directa](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Instalar Microsoft Workplace Join for Windows en equipos de nivel inferior
 

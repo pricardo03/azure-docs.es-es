@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445524"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406002"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -58,7 +58,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
 > 
 > Para su comodidad, este documento está vinculado con una plantilla que puede crear todos los recursos de Azure necesarios. 
 >
-> Para más información sobre cómo usar HDInsight en una red virtual, consulte el documento [Extensión de HDInsight con redes virtuales de Azure](hdinsight-extend-hadoop-virtual-network.md).
+> Para más información sobre cómo usar HDInsight en una red virtual, consulte el documento [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md) (Planeación de una red virtual para HDInsight).
 
 ## <a name="storm-and-kafka"></a>Storm y Kafka
 
@@ -409,7 +409,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
       | Configuración | Valor |
       | --- | --- |
       | Subscription | Su suscripción de Azure |
-      | Grupos de recursos | El grupo de recursos que contiene los recursos. |
+      | Resource group | El grupo de recursos que contiene los recursos. |
       | Location | La región de Azure en que se crean los recursos. |
       | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. |
       | Nombre del clúster de Storm | El nombre del clúster de Storm. |

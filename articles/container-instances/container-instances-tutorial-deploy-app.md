@@ -3,17 +3,18 @@ title: 'Tutorial: Implementación de una aplicación de contenedor en Azure Cont
 description: 'Tutorial de Azure Container Instances, parte 3 de 3: implementación de una aplicación de contenedor en Azure Container Instances'
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326746"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325625"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
@@ -46,7 +47,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Implementación de un contenedor
 
-Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` por el valor obtenido con el comando anterior. Reemplace `<service-principal-ID>` y `<service-principal-password>` por el identificador de la entidad de servicio y la contraseña que creó para acceder al registro. Reemplace `<aciDnsLabel>` por el nombre de DNS que desee.
+Ahora, utilice el comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` por el valor obtenido con el comando anterior. Reemplace `<service-principal-ID>` y `<service-principal-password>` por el identificador de la entidad de servicio y la contraseña que creó para acceder al registro. Reemplace `<aciDnsLabel>` por el nombre de DNS que desee.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
@@ -62,17 +63,17 @@ Para ver el estado de la implementación, use [az container show][az-container-s
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Repita el comando [az container show][az-container-show] hasta que el estado cambie de *Pendiente* a *En ejecución*, que debe tardar menos de un minuto. Cuando el contenedor esté en *En ejecución*, continúe con el paso siguiente.
+Repita el comando [az container show][az-container-show] hasta que el estado cambie de *Pendiente* a *En ejecución*, lo que debe tardar menos de un minuto. Cuando el contenedor esté en *En ejecución*, continúe con el paso siguiente.
 
 ## <a name="view-the-application-and-container-logs"></a>Visualización de los registros de contenedor y aplicación
 
-Cuando se complete correctamente la implementación, se mostrará el nombre de dominio completo (FQDN) del contenedor con el comando [az container show][az-container-show]:
+Cuando se complete correctamente la implementación, utilice el comando [az container show][az-container-show] para mostrar el nombre de dominio completo (FQDN) del contenedor con el comando:
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Por ejemplo: 
+Por ejemplo:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

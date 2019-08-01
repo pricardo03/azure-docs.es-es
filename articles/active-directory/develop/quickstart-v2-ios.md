@@ -3,7 +3,7 @@ title: Inicio rápido de la Plataforma de identidad de Microsoft para iOS | Azur
 description: Aprenda a iniciar sesión por los usuarios y a consultar Microsoft Graph en una aplicación de iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: brandwe
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962592"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335598"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Inicio rápido: Hacer que los usuarios inicien sesión y llamar a Microsoft Graph API desde una aplicación de iOS
 
@@ -77,7 +77,7 @@ En esta guía de inicio rápido se incluye un código de ejemplo que muestra có
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Paso 2: Descarga del servidor web o proyecto
 
-- [Descargar el código de ejemplo](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Descarga del código de ejemplo](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Paso 3: Configuración del proyecto
 
@@ -90,8 +90,7 @@ En esta guía de inicio rápido se incluye un código de ejemplo que muestra có
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. Haga clic con el botón derecho en **Info.plist** y seleccione **Abrir como** > **Código fuente**.
 > 1. En el nodo raíz dict, reemplace por su ***identificador de agrupación***:
 >
@@ -108,6 +107,10 @@ En esta guía de inicio rápido se incluye un código de ejemplo que muestra có
 > 
 >    ```
 > 1. Compile y ejecute la aplicación. 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Este inicio rápido admite Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
@@ -253,3 +256,8 @@ Pruebe el tutorial de iOS para ver una guía completa paso a paso sobre cómo co
 > [Tutorial de iOS de Graph API de llamada](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Ayúdenos a mejorar la Plataforma de identidad de Microsoft. Rellene una breve encuesta de dos preguntas y háganos saber su opinión.
+
+> [!div class="nextstepaction"]
+> [Encuesta sobre la Plataforma de identidad de Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

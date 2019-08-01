@@ -3,16 +3,16 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo se proporcionan detalles acerca de cómo proteger los recursos compartidos de archivos de Azure.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466308"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601769"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Sí. La protección de recursos compartidos de archivos de Azure conectados a gr
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Al intentar realizar la copia de seguridad de recursos compartidos de archivos, hice clic en una cuenta de almacenamiento para detectar los recursos compartidos de archivos de ella. Sin embargo, no los he protegido. ¿Cómo puedo proteger estos recursos compartidos de archivos con cualquier otro almacén?
 Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacenamiento para detectar los recursos compartidos que hay en ella, se registra la cuenta de almacenamiento con el almacén desde el que se realiza esto. Si elige proteger los recursos compartidos de archivos con un almacén diferente, [anule el registro](troubleshoot-azure-files.md#configuring-backup) de la cuenta de almacenamiento seleccionada de este almacén.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>¿Puedo cambiar el almacén en el que realizo la copia de seguridad de mis recursos compartidos de archivos?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>¿Puedo cambiar el almacén en el que hago la copia de seguridad de mis recursos compartidos de archivos?
 Sí. Sin embargo, deberá [detener la protección](backup-azure-files.md#stop-protecting-an-azure-file-share) desde el almacén conectado, y [anular el registro](troubleshoot-azure-files.md#configuring-backup) de esta cuenta de almacenamiento y, a continuación, protegerla desde un almacén distinto.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>¿En qué zonas geográficas se puede realizar una copia de seguridad de los recursos compartidos de archivos de Azure? <br/>
@@ -76,6 +76,9 @@ Durante la versión preliminar, puede proteger los recursos compartidos de archi
 No. Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén.
 
 ## <a name="backup"></a>Copia de seguridad
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>¿Cuántas copias de seguridad programadas puedo configurar por recurso compartido de archivos?
+Actualmente, Azure Backup admite la configuración de copias de seguridad programadas una vez al día para los recursos compartidos de archivos de Azure. 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>¿Cuántas copias de seguridad a petición se pueden realizar por recurso compartido de archivos? <br/>
 En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso compartido de archivos. El límite incluye las instantáneas que toma Azure Backup como se define en la directiva. Si las copias de seguridad empiezan a generar errores después de alcanzar el límite, elimine los puntos de restauración a petición para que las próximas copias de seguridad sean correctas.

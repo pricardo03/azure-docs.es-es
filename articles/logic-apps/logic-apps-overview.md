@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f25ade0e984c98b9cbc8c4efa93f300c3ed93b14
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273143"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385487"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
@@ -96,7 +96,7 @@ Por otro lado, BizTalk Server puede establecer conexión y comunicación con Log
 
 ### <a name="write-once-reuse-often"></a>Escriba una vez y úselo tanto como quiera
 
-Cree aplicaciones lógicas como plantillas para poder [implementar y volver a configurar las aplicaciones](../logic-apps/logic-apps-create-deploy-template.md) en varias regiones y entornos.
+Cree aplicaciones lógicas como plantillas de Azure Resource Manager para que pueda [automatizar la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) en varios entornos y regiones.
 
 ### <a name="built-in-extensibility"></a>Extensibilidad integrada
 

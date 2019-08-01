@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: cee93538706b8a886e2468e8ef9bf0d9b504e2c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1f7ccd41cdbcdb4f3670c4a62d373ae550f2065e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696175"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444284"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
 
@@ -40,6 +40,8 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 |**Configuración de la replicación geográfica y de la conmutación por error**||
 | [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una base de datos de Azure SQL única y la conmuta por error a la réplica secundaria. |
 | [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una base de datos de Azure SQL en un grupo elástico de SQL y la conmuta por error a la réplica secundaria. |
+|**Configuración de un grupo de conmutación por error**||
+| [Configuración de un grupo de conmutación por error para una sola base de datos](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea una base de datos y un grupo de conmutación por error, agrega la base de datos al grupo de conmutación por error y prueba la conmutación por error en el servidor secundario. | 
 |**Escalado de una base de datos única y un grupo elástico**||
 | [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de una base de datos de Azure SQL Database, la escala a un tamaño de proceso superior y crea una regla de alerta en una de las métricas de rendimiento. |
 | [Escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de grupo elástico de Azure SQL Database, lo escala a un tamaño de proceso superior y crea una regla de alerta en una de las métricas de rendimiento. |

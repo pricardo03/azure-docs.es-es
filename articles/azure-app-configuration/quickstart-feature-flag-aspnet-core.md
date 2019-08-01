@@ -14,26 +14,23 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798400"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347917"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
-La administración de características en ASP.NET Core se puede habilitar mediante la conexión de la aplicación a Azure App Configuration. Puede usar este servicio administrado para almacenar todas las marcas de características y controlar de forma centralizada sus estados. En este inicio rápido se muestra cómo incorporar App Configuration en una aplicación web de ASP.NET Core para crear una implementación de un extremo a otro de administración de características.
+En este inicio rápido se incorpora Azure App Configuration en una aplicación web de ASP.NET Core para crear una implementación de un extremo a otro de administración de características. Puede usar el servicio App Configuration para almacenar en una ubicación central todas las marcas de características y controlar sus estados. 
 
 Las bibliotecas de administración de características de .NET Core amplían la plataforma con una compatibilidad completa con las marcas de características. Estas bibliotecas se compilan sobre el sistema de configuración de .NET Core. Se integran sin problemas con App Configuration a través de su proveedor de configuración de .NET Core.
 
-Para realizar los pasos de este inicio rápido, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este inicio rápido, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
@@ -135,7 +132,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 1. Abra *Startup.cs* y agregue referencias al administrador de características de .NET Core.
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Actualice el método `ConfigureServices` para agregar compatibilidad con la marca de características mediante una llamada al método `services.AddFeatureManagement()`. También tiene la opción de incluir cualquier filtro para usar con las marcas de características mediante la llamada a `services.AddFeatureFilter<FilterType>()`:

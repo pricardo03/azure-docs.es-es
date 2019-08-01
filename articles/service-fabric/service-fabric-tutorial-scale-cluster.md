@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e34984dde4ae09540ff73a8ddd1a90c11d5bef4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157977"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385196"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
@@ -65,7 +65,7 @@ Las cargas de trabajo de la aplicación cambian con el tiempo, ¿los servicios e
 Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices siguientes:
 
 * Un único conjunto de escalado o tipo de nodo de Service Fabric no puede contener más de 100 nodos o máquinas virtuales.  Para escalar un clúster más allá de 100 nodos, agregue tipos de nodo adicionales.
-* Los tipos de nodo principales que ejecutan cargas de trabajo de producción siempre deben tener un [nivel de durabilidad] [durability]de Gold o Silver y siempre el menos cinco nodos.
+* Los tipos de nodo principal que ejecutan cargas de trabajo de producción siempre deben tener un [nivel de durabilidad][durability] de Gold o Silver, y siempre cinco nodos como mínimo.
 * Los tipos de nodo no principales que ejecutan cargas de trabajo de producción con estado siempre deben tener cinco o más nodos.
 * Los tipos de nodo no principales que ejecutan cargas de trabajo de producción sin estado siempre deben tener dos o más nodos.
 * Cualquier tipo de nodo del [nivel de durabilidad][durability] Gold o Silver siempre debe tener cinco o más nodos.
@@ -91,11 +91,11 @@ El escalado vertical u horizontal cambia el número de nodos del clúster. Al es
 
 ### <a name="update-the-template"></a>Actualización de la plantilla
 
-[Exporte un archivo de plantilla y parámetros](#export-the-template-for-the-resource-group) del grupo de recursos para la implementación más reciente.  Abra el archivo *parameters.json*.  Si ha implementado el clúster con la [plantilla de muestra][template] en este tutorial, hay tres tipos de nodos del clúster y tres parámetros que establecen el número de nodos para cada tipo de nodo: *nt0InstanceCount*, *nt1InstanceCount* y *nt2InstanceCount*.  El parámetro *nt1InstanceCount*, por ejemplo, establece el recuento de instancias para el segundo tipo de nodo y el número de máquinas virtuales en el conjunto de escalado de máquinas virtuales asociado.
+[Exporte un archivo de plantilla y parámetros](#export-the-template-for-the-resource-group) del grupo de recursos para la implementación más reciente.  Abra el archivo *parameters.json*.  Si ha implementado el clúster con la [plantilla de muestra][template] en este tutorial, hay tres tipos de nodos en el clúster y tres parámetros que establecen el número de nodos para cada tipo de nodo: *nt0InstanceCount*, *nt1InstanceCount* y *nt2InstanceCount*.  El parámetro *nt1InstanceCount*, por ejemplo, establece el recuento de instancias para el segundo tipo de nodo y el número de máquinas virtuales en el conjunto de escalado de máquinas virtuales asociado.
 
 Por ello, si actualiza el valor de *nt1InstanceCount*, se cambia el número de nodos en el segundo tipo de nodo.  Recuerde que no se puede escalar horizontalmente un tipo de nodo a más de 100 nodos.  Los tipos de nodo no principales que ejecutan cargas de trabajo de producción con estado siempre deben tener cinco o más nodos. Los tipos de nodo no principales que ejecutan cargas de trabajo de producción sin estado siempre deben tener dos o más nodos.
 
-Si va a escalar verticalmente, al quitar nodos de un tipo de nodo de [nivel de durabilidad][durability] Bronze, debe [quitar manualmente el estado de esos nodos](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para el nivel de durabilidad Silver y Gold, la plataforma realiza automáticamente estos pasos.
+Si va a escalar verticalmente, al quitar nodos de un tipo de nodo de [nivel de durabilidad][durability] Bronze, tiene que [quitar manualmente el estado de esos nodos](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para el nivel de durabilidad Silver y Gold, la plataforma realiza automáticamente estos pasos.
 
 ### <a name="deploy-the-updated-template"></a>Implementar la plantilla actualizada
 Guarde los cambios realizados en los archivos *template.json* y *parameters.json*.  Para implementar la plantilla actualizada, ejecute el comando siguiente:
@@ -116,7 +116,7 @@ Cada tipo de nodo definido en un clúster de Service Fabric que se ejecuta en Az
 
 [Exporte un archivo de plantilla y parámetros](#export-the-template-for-the-resource-group) del grupo de recursos para la implementación más reciente.  Abra el archivo *parameters.json*.  Si ha implementado el clúster con la [plantilla de muestra][template] en este tutorial, hay tres tipos de nodo en el clúster.  En esta sección, se agregará un cuarto tipo de nodo; para ello, se actualiza e implementa una plantilla de Resource Manager. 
 
-Además del nuevo tipo de nodo, también agregará el conjunto de escalado de máquinas virtuales asociado (que se ejecuta en una subred independiente de la red virtual) y el grupo de seguridad de red.  Puede agregar la dirección IP pública nueva o existente, y los recursos del equilibrador de carga de Azure para el nuevo conjunto de escalado.  El nuevo tipo de nodo tiene un [nivel de durabilidad][durability] de Silver y el tamaño "Standard_D2_V2".
+Además del nuevo tipo de nodo, también agregará el conjunto de escalado de máquinas virtuales asociado (que se ejecuta en una subred independiente de la red virtual) y el grupo de seguridad de red.  Puede agregar la dirección IP pública nueva o existente, y los recursos del equilibrador de carga de Azure para el nuevo conjunto de escalado.  El nuevo tipo de nodo tiene un [nivel de durabilidad][durability] Silver y el tamaño "Standard_D2_V2".
 
 En el archivo *template.json*, agregue los siguientes parámetros nuevos:
 ```json
@@ -820,7 +820,7 @@ Después de crear un clúster de Service Fabric, para escalarlo horizontalmente 
 > [!WARNING]
 > No es aconsejable usar Remove-AzServiceFabricNodeType para quitar un tipo de nodo de un clúster de producción de forma frecuente. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
 
-Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El tipo de nodo debe ser de [nivel de durabilidad] Silver o Gold [durability] El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
+Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El tipo de nodo tiene que ser de [nivel de durabilidad][durability] Silver o Gold. El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

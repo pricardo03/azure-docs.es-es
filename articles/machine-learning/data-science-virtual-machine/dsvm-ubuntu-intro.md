@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: Configure y cree una instancia de Data Science Virtual Machine para Linux (Ubuntu) en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
-ms.author: gokuma
+author: vijetajo
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -14,14 +14,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236488"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591919"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Puede tener acceso a la DSVM Ubuntu mediante tres métodos:
 1. X2Go para sesiones de gráficas
 1. JupyterHub y JupyterLab para instancias de Jupyter Notebook
 
-También puede conectar una Data Science VM a Azure Notebooks y ejecutar cuadernos de Jupyter en la VM y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks - Nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+También puede conectar una Data Science VM a Azure Notebooks y ejecutar cuadernos de Jupyter en la VM y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks - Nivel de proceso](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

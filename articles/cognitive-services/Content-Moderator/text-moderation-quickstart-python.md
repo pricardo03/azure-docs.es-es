@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606990"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333610"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Guía de inicio rápido: Análisis de contenido de textos para detectar material inapropiado en Python
 
@@ -38,41 +38,34 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="import-modules"></a>Importación de módulos
 
-Cree un script de Python denominado _ContentModeratorQS.py_ y agregue el código siguiente para importar los elementos necesarios del SDK.
+Cree un script de Python denominado _ContentModeratorQS.py_ y agregue el código siguiente para importar los elementos necesarios del SDK. Se incluye el módulo de impresión con sangría para facilitar la lectura de la respuesta JSON.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-También importe la función "impresión con sangría" para controlar la salida final.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## <a name="initialize-variables"></a>Inicialización de variables
 
-A continuación, agregue las variables para la dirección URL del punto de conexión y la clave de suscripción de Content Moderator. Tendrá que reemplazar `<your subscription key>` por el valor de la clave. También es posible que tenga que cambiar el valor de `endpoint_url` para usar el identificador de región que corresponde a la clave de suscripción. Las claves de suscripción de la evaluación gratuita se generan en la región **westus**.
+A continuación, agregue las variables para la dirección URL del punto de conexión y la clave de suscripción de Content Moderator. Agregue el nombre `CONTENT_MODERATOR_SUBSCRIPTION_KEY` a las variables de entorno con su clave de suscripción como valor. Para la dirección URL del punto de conexión base, agregue `CONTENT_MODERATOR_ENDPOINT` a las variables de entorno con la dirección URL específica de la región como valor, por ejemplo `https://westus.api.cognitive.microsoft.com`. Las claves de suscripción de la evaluación gratuita se generan en la región **westus**.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+Se moderará una cadena de texto de varias líneas de un archivo. Incluya el archivo [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) en la carpeta raíz local y agregue su nombre de archivo a las variables:
 
-Para simplificar, analizará el texto directamente desde el script. Defina una cadena nueva de contenido de texto para moderar:
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## <a name="query-the-moderator-service"></a>Consulta del servicio Moderator
 
-Cree una instancia de **ContentModeratorClient** con la dirección URL del punto de conexión y la clave de suscripción. Luego, use la instancia de **TextModerationOperations** del miembro para llamar a la API de moderación. Consulte la documentación de referencia de **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** para más información sobre cómo llamarla.
+Cree una instancia de **ContentModeratorClient** con la dirección URL del punto de conexión y la clave de suscripción. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## <a name="print-the-response"></a>Impresión de la respuesta
+A continuación, use el cliente con la instancia de **TextModerationOperations** de su miembro para llamar a la API de moderación con la función `screen_text`. Consulte la documentación de referencia de **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** para más información sobre cómo llamarla.
 
-Por último, compruebe que la llamada se completó correctamente y que se devolvió una instancia de **Screen**. Imprima los datos devueltos en la consola.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## <a name="check-the-printed-response"></a>Comprobación de la respuesta impresa
 
-
-El texto de ejemplo usado en esta guía de inicio rápido genera la siguiente salida:
+Ejecute el ejemplo y confirme la respuesta. Tras la finalización correcta, se devuelve una instancia de **Screen**. A continuación se muestra un resultado correcto:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

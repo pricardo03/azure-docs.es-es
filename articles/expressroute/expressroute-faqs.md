@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854341"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592059"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -139,7 +139,7 @@ Se puede lograr la alta disponibilidad mediante la conexión de circuitos de Exp
 
 Debe implementar el atributo *Preferencia local* en los enrutadores para asegurarse de que la ruta local a Azure siempre se prefiere en los circuitos de ExpressRoute.
 
-Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
+Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
 
 ### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 

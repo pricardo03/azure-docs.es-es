@@ -3,17 +3,18 @@ title: 'Tutorial: Preparación de una imagen de contenedor para Azure Container 
 description: 'Tutorial de Azure Container Instances, parte 1 de 3: preparación de una aplicación en una imagen de contenedor para su implementación en Azure Container Instances'
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990638"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325582"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Creación de una imagen de contenedor para su implementación en Azure Container Instances
 
@@ -48,7 +49,7 @@ También puede [descargar el archivo ZIP][aci-helloworld-zip] directamente de Gi
 
 ## <a name="build-the-container-image"></a>Compilación de la imagen del contenedor
 
-El archivo Dockerfile de la aplicación de ejemplo muestra cómo se compila el contenedor. Comienza con una [imagen oficial de Node.js][docker-hub-nodeimage] basada en [Alpine Linux][alpine-linux], una pequeña distribución muy apropiada para usarla con contenedores. Luego copia los archivos de aplicación en el contenedor, instala las dependencias mediante Node Package Manager y, por último, inicia la aplicación.
+El archivo Dockerfile de la aplicación de ejemplo muestra cómo se compila el contenedor. Comienza con una [imagen oficial de Node.js][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], una pequeña distribución muy apropiada para usarla con contenedores. Luego copia los archivos de aplicación en el contenedor, instala las dependencias mediante Node Package Manager y, por último, inicia la aplicación.
 
 ```Dockerfile
 FROM node:8.9.3-alpine

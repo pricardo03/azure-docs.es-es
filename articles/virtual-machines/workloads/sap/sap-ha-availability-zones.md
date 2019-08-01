@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ead1dfdce4bf3a803eee46a536dc7062626640d9
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125319"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234239"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
 Una de las características de alta disponibilidad que Azure ofrece es [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). El uso de Availability Zones mejora la disponibilidad general de las cargas de trabajo de SAP en Azure. Esta característica ya está disponible en algunas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/). En el futuro, estará disponible en más regiones.
@@ -58,8 +58,8 @@ Hay algunas restricciones al implementar máquinas virtuales de Azure entre zona
 
 - Debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) al implementar en Azure Availability Zones. 
 - Se ha corregido la asignación de las enumeraciones de zona para las zonas físicas en cada suscripción de Azure. Si utiliza suscripciones diferentes para implementar los sistemas SAP, debe definir las zonas ideales para cada suscripción.
-- No se pueden implementar conjuntos de disponibilidad de Azure en una zona de disponibilidad de Azure Availability Zones. Elija una de ellas como marco de implementación para las máquinas virtuales.
-- No puede usar [Azure Load Balancer Básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para crear soluciones de clúster de conmutación por error basadas en los clústeres de conmutación por error de Windows Server o en Linux Pacemaker. En su lugar, deberá usar el [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- No se pueden implementar conjuntos de disponibilidad de Azure en una zona de disponibilidad de Azure Availability Zones a menos que use un [grupo de selección de ubicación de proximidad de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). La forma de implementar la capa de DBMS de SAP y los servicios centrales en todas las zonas y, al mismo tiempo, implementar el nivel de aplicación de SAP con conjuntos de disponibilidad y, además, lograr una proximidad en las máquinas virtuales está documentada en el artículo [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md). Si no aprovecha los grupos de selección de ubicación de proximidad de Azure, tiene que elegir uno u otro como marco de implementación para las máquinas virtuales.
+- No puede usar [Azure Load Balancer básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para crear soluciones de clúster de conmutación por error basadas en los clústeres de conmutación por error de Windows Server o en Linux Pacemaker. En su lugar, deberá usar el [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 
@@ -103,7 +103,8 @@ Un esquema simplificado de una implementación activa/activa entre dos zonas pod
 
 Las siguientes consideraciones se aplican a esta configuración:
 
-- Debe tratar las zonas de Availability Zones como dominios de error y actualización para todas las máquinas virtuales, ya que los conjuntos de disponibilidad no se pueden implementar en zonas de disponibilidad de Azure.
+- Si no usa ningún [grupo de selección de ubicación de proximidad de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), trate las zonas de Azure Availability Zones como dominios de error y actualización para todas las máquinas virtuales, ya que los conjuntos de disponibilidad no se pueden implementar en Azure Availability Zones.
+- Si quiere combinar implementaciones de zonas para la capa de DBMS y los servicios centrales, pero quiere usar conjuntos de disponibilidad de Azure para el nivel de aplicación, tiene que usar los grupos de proximidad de Azure, tal como se describe en el artículo [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 - Para los equilibradores de carga de los clústeres de conmutación por error de los servicios centrales de SAP y la capa de DBMS, necesita instancias de [Azure Load Balancer de SKU estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). La instancia básica de Load Balancer no funcionará entre zonas.
 - La red virtual de Azure implementada para hospedar el sistema SAP, junto con sus subredes, se extienden entre zonas. No necesita separar las redes virtuales para cada zona.
 - Para todas las máquinas virtuales implementadas, debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Los discos no administrados no se admiten para implementaciones zonales.
@@ -114,7 +115,7 @@ Las siguientes consideraciones se aplican a esta configuración:
     
     Actualmente, la solución que usa el servidor de archivos de escalabilidad horizontal de Microsoft, documentada en [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), no se admite entre zonas.
 - La tercera zona se usa para hospedar el dispositivo SBD en caso de que compile un [clúster de Pacemaker en SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) o instancias de aplicación adicionales.
-- Para lograr la coherencia del tiempo de ejecución para algunos trabajos o transacciones empresariales críticos, puede intentar dirigir determinados trabajos por lotes y usuarios directamente a instancias de aplicación específicas que se encuentran en la zona con la instancia de DBMS activa con el uso de grupos de servidor por lotes de SAP, grupos de inicio de sesión o grupos de RFC. Sin embargo, en el caso de una conmutación por error zonal, debe mover manualmente estos grupos a instancias que se ejecutan en VM en zona con la VM de la base de datos activa.  
+- Para lograr la coherencia del tiempo de ejecución para algunos trabajos o transacciones empresariales críticos, puede intentar dirigir determinados trabajos por lotes y usuarios directamente a instancias de aplicación específicas que se encuentran en la zona con la instancia de DBMS activa con el uso de grupos de servidor por lotes de SAP, grupos de inicio de sesión SAP o grupos de RFC. Sin embargo, en el caso de una conmutación por error zonal, debe mover manualmente estos grupos a instancias que se ejecutan en VM en zona con la VM de la base de datos activa.  
 - Es posible que desee implementar instancias de diálogo inactivas en cada una de las zonas. Esto sirve para habilitar una devolución inmediata a la capacidad de recursos anterior si una zona que se usa por parte de las instancias de la aplicación se queda fuera de servicio.
 
 
@@ -127,7 +128,7 @@ El diseño básico de este tipo de arquitectura tiene el siguiente aspecto:
 
 Las siguientes consideraciones se aplican a esta configuración:
 
-- Los conjuntos de disponibilidad no se pueden implementar en Azure Availability Zones. Por tanto, en este caso, tendrá un dominio de actualización y error para su nivel de aplicación. Eso es porque solo se implementa en una zona. Esta configuración es ligeramente menos conveniente que la arquitectura de referencia, que prevé que se implemente el nivel de aplicación en un conjunto de disponibilidad de Azure.
+- Los conjuntos de disponibilidad no se pueden implementar en Azure Availability Zones. Como compensación, puede usar grupos de ubicación de proximidad de Azure, tal como se documenta en el artículo [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 - Al utilizar esta arquitectura, debe realizar una estrecha supervisión del estado y tratar de mantener las instancias de servicios centrales de SAP y DBMS activas en la misma zona en la que implementó el nivel de aplicación. En el caso de una conmutación por error de la instancia de DBMS o del servicio central de SAP, desea asegurarse de que puede realizar una conmutación por recuperación manual en la zona con el nivel de aplicación de SAP implementado lo antes posible.
 - Para los equilibradores de carga de los clústeres de conmutación por error de los servicios centrales de SAP y la capa de DBMS, necesita instancias de [Azure Load Balancer de SKU estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). La instancia básica de Load Balancer no funcionará entre zonas.
 - La red virtual de Azure implementada para hospedar el sistema SAP, junto con sus subredes, se extienden entre zonas. No necesita separar las redes virtuales para cada zona.
@@ -155,7 +156,7 @@ Este es un ejemplo del aspecto que podría tener este tipo de configuración:
 
 Las siguientes consideraciones se aplican a esta configuración:
 
-- Se supone que hay una distancia significativa entre las instalaciones que hospedan una zona de Availability Zones o se le obliga a permanecer dentro de una región determinada de Azure. Los conjuntos de disponibilidad no se pueden implementar en Azure Availability Zones. Por tanto, en este caso, tendrá un dominio de actualización y error para su nivel de aplicación. Eso es porque solo se implementa en una zona. Esta configuración es ligeramente menos conveniente que la arquitectura de referencia, que prevé que se implemente el nivel de aplicación en un conjunto de disponibilidad de Azure.
+- Se supone que hay una distancia significativa entre las instalaciones que hospedan una zona de Availability Zones o se le obliga a permanecer dentro de una región determinada de Azure. Los conjuntos de disponibilidad no se pueden implementar en Azure Availability Zones. Como compensación, puede usar grupos de ubicación de proximidad de Azure, tal como se documenta en el artículo [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 - Al utilizar esta arquitectura, debe realizar una estrecha supervisión del estado y tratar de mantener las instancias de servicios centrales de SAP y DBMS activas en la misma zona en la que implementó el nivel de aplicación. En el caso de una conmutación por error de la instancia de DBMS o del servicio central de SAP, desea asegurarse de que puede realizar una conmutación por recuperación manual en la zona con el nivel de aplicación de SAP implementado lo antes posible.
 - Debería tener instancias de aplicación de producción preinstaladas en las máquinas virtuales que ejecutan las instancias de aplicación activas de control de calidad.
 - En caso de error zonal, apague las instancias de aplicación de control de calidad e inicia las instancias de producción en su lugar. Tenga en cuenta que necesita utilizar los nombres virtuales de las instancias de aplicación para hacer esta tarea.

@@ -3,22 +3,26 @@ title: 'Tutorial: Predicción del precio de un automóvil con la interfaz visual
 titleSuffix: Azure Machine Learning service
 description: Aprenda a entrenar, puntuar e implementar un modelo de Machine Learning mediante una interfaz visual de arrastrar y colocar. Este tutorial es la primera de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 21f5a2d93b708e93f124bd44177bb7852dfbd86a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.date: 07/21/2019
+ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720536"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371723"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Predicción del precio de un automóvil con la interfaz visual
 
-En este tutorial, se amplía el examen de cómo desarrollar una solución predictiva en la interfaz visual de Azure Machine Learning Service. Cuando acabe este tutorial, tendrá una solución que puede predecir el precio de cualquier coche a partir de las especificaciones técnicas que le envíe.
+En este tutorial de dos partes aprenderá a usar la interfaz visual de Azure Machine Learning Service para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
+
+En la parte uno estableceremos el entorno, arrastraremos y colocaremos conjuntos de datos y módulos de análisis en un lienzo interactivo y los conectaremos todos para crear un experimento. 
 
 En la primera parte del tutorial, aprenderá a:
 
@@ -27,9 +31,7 @@ En la primera parte del tutorial, aprenderá a:
 > * Entrenar un modelo de Machine Learning
 > * Puntuar y evaluar un modelo
 
-En la [parte dos](ui-tutorial-automobile-price-deploy.md) del tutorial, aprenderá a implementar el modelo predictivo como un servicio web de Azure.
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
+En la [segunda parte](ui-tutorial-automobile-price-deploy.md) aprenderá a implementar el modelo predictivo como servicio web de Azure para que pueda usarlo con el fin de predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
 
 Una versión completa de este tutorial está disponible como experimento de ejemplo.
 
@@ -37,11 +39,11 @@ Para encontrarlo, en la **página Experimentos**, seleccione **Agregar nuevo** y
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#open-the-visual-interface-webpage).
+Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la siguiente sección.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="open-the-visual-interface-webpage"></a>Apertura de la página web de la interfaz visual
+## <a name="create-new-experiment"></a>Creación de un experimento
 
 1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com/).
 
@@ -49,21 +51,15 @@ Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [sigui
 
     ![Captura de pantalla de Azure Portal que muestra cómo acceder a la interfaz visual de un área de trabajo de Machine Learning Service](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-## <a name="create-your-first-experiment"></a>Creación de su primer experimento
-
-La herramienta de interfaz visual le proporciona un área de trabajo visual e interactiva para generar modelos de análisis predictivo. Arrastre y coloque conjuntos de datos y módulos de análisis en un lienzo interactivo y conéctelos todos para crear un *experimento*.
-
 1. Para crear un experimento, seleccione **+New** (+Nuevo) en la parte inferior de la ventana de la interfaz visual.
-
-    ![Agregar nuevo experimento](./media/ui-tutorial-automobile-price-train-score/add-new.png)
 
 1. Seleccione **Experimento en blanco**.
 
-1. Seleccione el nombre de experimento predeterminado **"Experimented Created on ...** "(Experimento creado el...) en la parte superior del lienzo y cámbielo por otro que sea significativo. Por ejemplo, **Automobile price prediction** (Predicción del precio de automóviles). No es necesario que el nombre sea único.
+1. Seleccione el nombre de experimento predeterminado **"Experiment created on ...** "(Experimento creado el...) en la parte superior del lienzo y cámbielo por otro que sea significativo. Por ejemplo, **"Automobile price prediction"** (Predicción del precio de automóviles). No es necesario que el nombre sea único.
 
-## <a name="add-data"></a>Agregar datos
+## <a name="specify-data"></a>Especificación de los datos
 
-Lo primero que necesita en el aprendizaje automático son datos. Hay varios conjuntos de datos de ejemplo en esta interfaz que puede usar. También puede importar los datos de los orígenes ya existentes. En este tutorial, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** (Datos de precios de automóviles, sin procesar). 
+El aprendizaje automático depende de los datos. Afortunadamente, hay disponibles varios conjuntos de datos de ejemplo en esta interfaz para que experimente con ellos. En este tutorial, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** (Datos de precios de automóviles, sin procesar). 
 
 1. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Seleccione **Conjuntos de datos guardados** y, a continuación, seleccione **Ejemplos** para ver los conjuntos de datos de ejemplo disponibles.
 
@@ -71,22 +67,14 @@ Lo primero que necesita en el aprendizaje automático son datos. Hay varios conj
 
    ![Arrastrar datos al lienzo](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-## <a name="select-columns"></a>Select columns
+1. Seleccione las columnas de datos con las que va a trabajar. Escriba **Select** (Seleccionar) en el cuadro de búsqueda de la parte superior de la paleta y busque el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
-Seleccione las columnas de datos con las que va a trabajar. Para empezar, configure el módulo para que muestre todas las columnas disponibles.
+1. Haga clic y arrastre el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) al lienzo. Coloque el módulo bajo el módulo del conjunto de datos.
 
-> [!TIP]
-> Si conoce el nombre de los datos o el módulo que desea, utilice la barra de búsqueda de la parte superior de la paleta para encontrarlo rápidamente. Durante el resto del tutorial usará este acceso directo.
-
-
-1. Escriba **Select** (Seleccionar) en el cuadro de búsqueda para buscar el módulo **Select Columns in Dataset** (Seleccionar columnas en el conjunto de datos).
-
-1. Haga clic y arrastre el módulo **Select Columns in Dataset** al lienzo. Coloque el módulo bajo el conjunto de datos que agregó anteriormente.
-
-1. Conecte el conjunto de datos al módulo **Select Columns in Dataset**: haga clic en el puerto de salida del conjunto de datos, arrastre al puerto de entrada de **Select Columns in Dataset** y, finalmente, suelte el botón del mouse. El conjunto de datos y el módulo permanecen conectados aunque se desplace por el lienzo.
+1. Conecte el conjunto de datos que agregó anteriormente al módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) haciendo clic sobre él y arrastrándolo. Arrastre desde el puerto de salida del conjunto de datos, que es el círculo pequeño situado en la parte inferior del conjunto de datos en el lienzo hasta el puerto de entrada de **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos), que es el círculo pequeño de la parte superior del módulo.
 
     > [!TIP]
-    > Los conjuntos de datos y los módulos tienen puertos de entrada y de salida representados por pequeños círculos: los puertos de entrada arriba y los puertos de salida abajo. Puede crear un flujo de datos a través del experimento si conecta un puerto de salida de un módulo a un puerto de entrada de otro.
+    > Puede crear un flujo de datos a través del experimento si conecta un puerto de salida de un módulo a un puerto de entrada de otro.
     >
 
     ![Conectar módulos](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
@@ -114,9 +102,9 @@ Un experimento se ejecuta en un destino de proceso que es un recurso de proceso 
 Cuando el destino de proceso está disponible, se ejecuta el experimento. Una vez completada la ejecución, aparece una marca de verificación verde en cada módulo.
 
 
-## <a name="preview-the-data"></a>Vista previa de los datos
+## <a name="visualize-the-data"></a>Visualización de los datos
 
-Ahora que ha ejecutado el experimento inicial, puede visualizar los datos para conocer mejor el conjunto de datos con el que debe trabajar.
+Ahora que ha ejecutado el experimento inicial, puede visualizar los datos para conocer mejor el conjunto de datos del que dispone.
 
 1. Seleccione el puerto de salida en la parte inferior del módulo **Select Columns in Dataset** y, a continuación, seleccione **Visualizar**.
 
@@ -132,7 +120,7 @@ Ahora que ha ejecutado el experimento inicial, puede visualizar los datos para c
 
 ## <a name="prepare-data"></a>Preparación de los datos
 
-Normalmente, un conjunto de datos requiere algún procesamiento previo antes de que se pueda analizar. Puede que haya observado que faltan algunos valores al visualizar el conjunto de datos. Estos valores que faltan se deben limpiar para que el modelo pueda analizar los datos de manera adecuada. Va a quitar todas las filas que tengan valores que faltan. Además, la columna **normalized-losses** tiene una gran proporción de valores que faltan, por lo que excluiremos esa columna del modelo por completo.
+Normalmente, los conjuntos de datos requieren procesamiento previo para el análisis. Puede que haya observado que faltan algunos valores al visualizar el conjunto de datos. Estos valores que faltan se deben limpiar para que el modelo pueda analizar los datos de manera adecuada. Va a quitar todas las filas que tengan valores que faltan. Además, la columna **normalized-losses** tiene una gran proporción de valores que faltan, por lo que excluiremos esa columna del modelo por completo.
 
 > [!TIP]
 > Limpiar los valores que faltan de los datos de entrada es un requisito previo para usar la mayoría de los módulos.
@@ -181,8 +169,6 @@ Cuando entrena un modelo, tiene que hacer algo sobre los datos que faltan. En es
 
 1. En el panel Propiedades, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza).
 
-    Estas opciones indican a **Clean Missing Data** (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan.
-
 1. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
  
     ![Quitar filas](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
@@ -190,30 +176,6 @@ Cuando entrena un modelo, tiene que hacer algo sobre los datos que faltan. En es
     El experimento debería tener ahora un aspecto similar al siguiente:
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
-
-## <a name="visualize-the-results"></a>Visualización de los resultados
-
-Como ha realizado cambios en los módulos del experimento, el estado ha cambiado a "Borrador".  Para visualizar los nuevos datos limpios, primero debe ejecutar de nuevo el experimento.
-
-1. Seleccione **Ejecutar** en la parte inferior para ejecutar el experimento.
-
-    Esta vez se puede reutilizar el destino de proceso que creó anteriormente.
-
-1. Seleccione **Ejecutar** en el cuadro de diálogo.
-
-   ![Ejecutar experimento](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
-
-1. Cuando se complete la ejecución, haga clic con el botón derecho en el módulo **Clean Missing Data** para visualizar los nuevos datos limpios.
-
-    ![Visualizar datos limpios](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
-
-1. Haga clic en diferentes columnas de la ventana de datos limpios para ver cómo han cambiado los datos.
-
-    ![Visualizar datos limpios](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
-
-    Ahora hay 193 filas y 25 columnas.
-
-    Si hace clic en **num-of-doors** (número de puertas) verá que aún tiene dos valores únicos pero ahora ya no tiene ningún valor que falte. Haga clic en el resto de las columnas para ver que no hayan quedado valores que faltan en el conjunto de datos. 
 
 ## <a name="train-the-model"></a>Entrenamiento del modelo
 
@@ -223,13 +185,13 @@ Ahora que los datos están listos puede construir un modelo predictivo. Usará l
 
 Como lo que se desea es predecir un precio, que es un número, se puede usar un algoritmo de regresión. En este ejemplo, va a usar un modelo de regresión lineal.
 
-Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El modelo examina los datos y busca correlaciones entre las características de un automóvil y su precio. Después, pruebe el modelo, para lo que debe proporcionarle un conjunto de características de los automóviles con el que esté familiarizado y vea si la predicción del modelo se acerca al precio conocido.
+Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El modelo examina los datos y busca correlaciones entre las características de un automóvil y su precio.
 
 Use sus datos tanto para entrenar el modelo como para probarlo, para lo que los dividirá en conjuntos de datos distintos, de entrenamiento y de prueba.
 
 1. Escriba **split data** (dividir datos) en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos) y conéctelo al puerto izquierdo del módulo **Clean Missing Data** (Limpiar datos que faltan).
 
-1. Seleccione el módulo **Split Data** (Dividir datos) que acaba de conectar para seleccionarlo. En el panel Properties (Propiedades), establezca el valor de Fraction of rows (Fracción de filas) del primer conjunto de datos de salida en 0,7. De esta forma, usaremos el 70 % de los datos para entrenar el modelo y retendremos el 30 % para la realización de pruebas.
+1. Seleccione el módulo **Split Data** (Dividir datos). En el panel Properties (Propiedades), establezca el valor de Fraction of rows (Fracción de filas) del primer conjunto de datos de salida en 0,7. De esta forma, usaremos el 70 % de los datos para entrenar el modelo y retendremos el 30 % para la realización de pruebas.
 
     ![Captura de pantalla que muestra la configuración correcta del panel Properties (Propiedades). Los valores de "Split Data" (Dividir datos) debe ser "Split Rows" (Dividir filas); 0,7; división aleatoria; 0; False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
@@ -255,11 +217,7 @@ Use sus datos tanto para entrenar el modelo como para probarlo, para lo que los 
 
     ![Captura de pantalla que muestra la configuración correcta del experimento después de agregar el módulo Train Model (Entrenar modelo).](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-### <a name="run-the-training-experiment"></a>Ejecución del experimento de entrenamiento
-
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
-
-## <a name="score-and-evaluate-the-model"></a>Puntuación y evaluación del modelo
+## <a name="score-and-evaluate-the-model"></a>Puntuar y evaluar el modelo
 
 Ahora que ha entrenado el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si funciona bien.
 
@@ -269,13 +227,13 @@ Ahora que ha entrenado el modelo con el 70 % de los datos, puede usarlo para pun
 
     ![Captura de pantalla que muestra la configuración correcta final del experimento.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
-1. Ejecute el experimento con el mismo destino de proceso que ha usado antes.
+1. Ejecute el experimento con el recurso de proceso que creó anteriormente.
 
 1. Vea la salida del módulo **Score Model** (Puntuar modelo) y seleccione el puerto de salida de **Score Model** (Puntuar modelo) y seleccione **Visualize** (Visualizar). La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.
 
     ![Captura de pantalla de la visualización de salida en que aparece la columna "Scored Label" (Etiqueta puntuada)](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
-1. Para ver la salida del módulo Evaluate Model (Evaluar modelo), seleccione el puerto de salida y después seleccione Visualize (Visualizar).
+1. Para ver la salida del módulo **Evaluate Model** (Evaluar modelo), seleccione el puerto de salida y **Visualize** (Visualizar).
 
     ![Captura de pantalla que muestra los resultados de la evaluación del experimento final.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
@@ -307,7 +265,7 @@ Los experimentos que cree en la interfaz visual se pueden administrar desde el �
 
     ![Captura de pantalla de informe de ejecución detallado](./media/ui-tutorial-automobile-price-train-score/run-details.png)
 
-    El informe de ejecución se actualiza en tiempo real. Si ha usado un módulo **Execute Python Script** (Ejecutar script Python) en el experimento, puede especificar que la salida de los registros de los scripts se genere en la pestaña **Logs** (Registros).
+    El informe de ejecución se actualiza en tiempo real. Si ha usado un módulo **Execute Python Script** (Ejecutar script de Python) o **Execute R Script** (Ejecutar script de R) en el experimento, puede especificar que la salida de los registros de los scripts se genere en la pestaña **Logs** (Registros).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519035"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325475"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK Java y Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si le interesa aprender cómo el código crea los recursos de base de datos, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). Estos fragmentos de código se toman todos del archivo `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java`.  
+Este paso es opcional. Si le interesa aprender cómo el código crea los recursos de base de datos, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). Estos fragmentos de código se han tomado del archivo *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java*.  
 
 * Se establecen las opciones de Cassandra de host, puerto, nombre de usuario, contraseña y SSL. La información de la cadena de conexión procede de la página de cadena de conexión de Azure Portal.
 
@@ -85,7 +85,7 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
     return cluster.connect();
     ```
 
-Los fragmentos de código siguientes son del archivo `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java`.
+Los fragmentos de código siguientes son del archivo *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java*.
 
 * Cree un nuevo espacio de claves.
 

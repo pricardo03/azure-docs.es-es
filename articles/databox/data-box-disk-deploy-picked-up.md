@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448210"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424237"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
 Este es el último tutorial de la serie: Implementación de Azure Data Box Disk. En este tutorial, aprenderá a:
@@ -28,6 +30,7 @@ Este es el último tutorial de la serie: Implementación de Azure Data Box Disk.
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos](data-box-disk-deploy-copy-data.md).
+
 
 ## <a name="ship-data-box-disk-back"></a>Devolución de Data Box Disk
 
@@ -229,5 +232,41 @@ Avance hasta el siguiente procedimiento para obtener información sobre cómo ad
 
 > [!div class="nextstepaction"]
 > [Uso de Azure Portal para administrar Azure Data Box Disk](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>Devolución del disco y comprobación de la carga en Azure
+
+## <a name="ship-to-azure"></a>Envío a Azure
+
+1. Una vez completada la validación de datos, desconecte los discos. Quite los cables de conexión.
+2. Envuelva todos los discos y los cables de conexión en un envoltorio de burbujas y colóquelos en la caja de envío. La falta de accesorios puede acarrear un costo.
+    - Utilice el empaquetado que se usó en el envío inicial.  
+    - Es aconsejable usar un envoltorio de burbujas bien protegido para empaquetar los discos.
+    - Asegúrese de que todo encaja perfectamente para reducir los movimientos dentro de la caja.
+3. Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo.
+    - [Si devuelve el dispositivo en Estados Unidos o Canadá, programe una recogida con UPS](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [En Europa, programe una recogida con DHL](data-box-disk-deploy-picked-up.md#pick-up-in-europe); para ello, visite su sitio web y especifique el número de factura de porte aéreo.
+    - [En el caso de países de la región de Australia-Pacífico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region), como Australia, Japón, Corea y Singapur, programe una recogida.
+4. Una vez que el transportista recoge los discos, el estado del pedido en el portal se actualiza y se muestra un identificador de seguimiento.
+
+## <a name="verify-upload-to-azure"></a>Comprobación de la carga en Azure
+
+Tras cargar los datos en Azure, compruebe que los datos están en las cuentas de almacenamiento antes de eliminarlos del origen. Los datos pueden estar en:
+
+- Sus cuentas de Azure Storage. Al copiar los datos en Data Box, dependiendo del tipo, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage.
+
+    - **Para blobs en bloques y blobs en páginas**: https://<nombre_de_la_cuenta_de_almacenamiento>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Para Azure Files**: https://<nombre_de_la_cuenta_de_almacenamiento>.file.core.windows.net/<sharename>/files/a.txt
+
+    Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
+
+- Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido.
+
+::: zone-end
 
 

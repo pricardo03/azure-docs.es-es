@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702531"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477320"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 
@@ -137,9 +137,8 @@ Para usar un logotipo personalizado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a agregar una aplicación de la galería a su inquilino de Azure AD. Ha aprendido a modificar las propiedades de una aplicación.
+Ahora que ha agregado la aplicación a la organización de Azure AD, [elija el método de inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que quiera usar y consulte a continuación el artículo adecuado:
 
-Ahora, está preparado para configurar la aplicación para el inicio de sesión único.
-
-> [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](configure-single-sign-on-portal.md)
+- [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configuración del inicio de sesión único con contraseña](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configuración del inicio de sesión vinculado](configure-linked-sign-on.md)

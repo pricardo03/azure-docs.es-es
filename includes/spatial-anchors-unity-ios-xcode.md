@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186002"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562487"
 ---
 Seleccione **Build** (Compilar). En el cuadro de diálogo que aparece, seleccione la carpeta a la que va a exportar el proyecto Xcode.
 
@@ -18,7 +18,7 @@ Cuando se complete la exportación, aparecerá una carpeta que contiene el proye
 > [!NOTE]
 > Si aparece una ventana en la que se le pregunta si desea reemplazar o anexar, es aconsejable que seleccione **Append** (Anexar), porque es más rápido. Solo sería necesario seleccionar **Reemplazar** si va a cambiar los recursos de la escena. (Por ejemplo, si va a agregar, quitar, o cambiar las relaciones de elementos primarios y secundarios, o si va a agregar, quitar o cambiar las propiedades.) Si solo va a realizar cambios en el código fuente, **Anexar** debería ser suficiente.
 
-### <a name="open-the-xcode-project"></a>Apertura del proyecto de Xcode
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Conversión del proyecto de Xcode a xcworkspace con referencias de Azure Spatial Anchors
 
 En la carpeta del proyecto Xcode exportado, ejecute este comando en el Terminal para instalar las instancias de CocoaPods necesarias para el proyecto:
 

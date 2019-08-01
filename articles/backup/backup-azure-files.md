@@ -1,18 +1,18 @@
 ---
 title: Copia de seguridad de recursos compartidos de archivos de Azure
 description: En este artículo se explican no solo cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure y cómo restaurarlos, sino también las tareas de administración.
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7233db1e685c3edcdbd6a97bc2ae23706ad6f767
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466541"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602017"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
@@ -34,6 +34,7 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 - La compatibilidad con la copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está limitada actualmente a [estas regiones](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - No puede proteger los recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen las redes virtuales o el firewall habilitados.
 - Ni PowerShell ni la CLI están disponibles para proteger Azure Files mediante Azure Backup.
+- Actualmente, Azure Backup admite la configuración de copias de seguridad programadas una vez al día para los recursos compartidos de archivos de Azure.
 - El número máximo de copias de seguridad programadas al día es una.
 - El número máximo de copias de seguridad a petición al día es cuatro.
 - Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
@@ -192,6 +193,6 @@ Puede eliminar la copia de seguridad de un recurso compartido de archivos durant
 En el siguiente procedimiento se da por sentado que se ha detenido el trabajo de copia de seguridad de la máquina virtual. Una vez que se detiene el trabajo de copia de seguridad, están disponibles las opciones Resume backup (Reanudar copia de seguridad) y Delete Backup Data (Eliminar datos de copia de seguridad) en el panel de elementos de copia de seguridad. Haga clic en Delete Backup Data (Eliminar datos de copia de seguridad) y escriba el nombre del recurso compartido de archivos para confirmar la eliminación. Opcionalmente, añada una razón para eliminar o un comentario.
 
 ## <a name="see-also"></a>Otras referencias
-Para más información acerca de los recursos compartidos de archivos de Azure, consulte
+Para más información sobre los recursos compartidos de archivos de Azure, consulte
 - [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)
 - [Solución de problemas en la copia de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)

@@ -15,27 +15,21 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513446"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324071"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Inicio rápido: Uso de Azure Redis Cache con Python
 
-
-## <a name="introduction"></a>Introducción
-
-En este tutorial se explica cómo conectarse a Azure Redis Cache con Python para leer una memoria caché y escribir en ella. 
-
-![Prueba completada con Python](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+En este inicio rápido incorporará Azure Redis Cache en una aplicación Python para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Entorno de Python 2 o Python 3 ](https://www.python.org/downloads/) instalado con [pip](https://pypi.org/project/pip/). 
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- [Python 2 o 3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-on-azure"></a>Creación de una instancia de Azure Redis Cache en Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -127,13 +121,10 @@ Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nom
 
 Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Creación de una aplicación web ASP.NET sencilla que use Azure Redis Cache.](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

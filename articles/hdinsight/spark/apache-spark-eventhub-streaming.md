@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295352"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489802"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Procesamiento de tweets con Azure Event Hubs y Apache Spark en HDInsight
 
@@ -48,7 +48,7 @@ Para recibir un flujo de tweets, cree una aplicación en Twitter. Siga las instr
     |---|---|
     |NOMBRE|Proporcione el nombre de la aplicación. El valor utilizado para este tutorial es **HDISparkStreamApp0423**. Este nombre debe ser único.|
     |DESCRIPCIÓN|Proporcione una descripción breve de la aplicación. El valor utilizado para este tutorial es **una aplicación de streaming sencilla de HDInsight Spark**.|
-    |Website|Indique el sitio web de la aplicación. No es necesario que sea un sitio web válido.  El valor utilizado para este tutorial es **http://www.contoso.com** .|
+    |Website|Indique el sitio web de la aplicación. No es necesario que sea un sitio web válido.  El valor utilizado para este tutorial es `http://www.contoso.com`.|
     |Dirección URL de devolución de llamadas|Puede dejarlo en blanco.|
 
 1. Seleccione **Yes, I have read and agree to the Twitter Developer Agreement** (Sí, he leído y acepto el acuerdo para desarrolladores de Twitter) y luego seleccione **Create your Twitter application** (Crear la aplicación de Twitter).
@@ -85,7 +85,7 @@ Use este centro de eventos para almacenar tweets.
     |NOMBRE|especifique un nombre para el centro de eventos.  El valor utilizado para este tutorial es **myeventhubns20180403**.|
     |Plan de tarifa|Seleccione **Estándar**.|
     |Subscription|Seleccione una suscripción adecuada.|
-    |Grupos de recursos|Seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** para crear un nuevo grupo de recursos.|
+    |Resource group|Seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** para crear un nuevo grupo de recursos.|
     |Location|para reducir la latencia y los costos, debe seleccionar la misma **ubicación** que la del clúster Apache Spark en HDInsight.|
     |Habilitación del inflado automático (Opcional) |El inflado automático permite escalar el número de unidades de procesamiento asignado a su espacio de nombres de Event Hubs cuando el tráfico supera la capacidad asignada de las unidades de procesamiento.  |
     |Inflado automático del máximo de unidades de procesamiento (opcional)|Este control deslizante solo aparecerá si marca **Habilitar el inflado automático**.  |

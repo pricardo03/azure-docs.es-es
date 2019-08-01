@@ -28,6 +28,8 @@
           items:
             - name: Límite de sobrecarga de recolección de elementos no utilizados superado
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Rendimiento de las consultas de Apache Hive LLAP
+          href: ./interactive-query-troubleshoot-query-performance.md
 - name: Procedimientos
   items:
     - name: Migración de cargas de trabajo de Hive en HDInsight 4.0

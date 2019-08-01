@@ -12,19 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6ad2ab00060528557f618eb684ccfa710c3f09b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074176"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876435"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Monitor de estado de Application Insights
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
 Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Necesita una suscripción a [Microsoft Azure](https://azure.com) .
 
 Monitor de estado se usa para instrumentar una aplicación .NET hospedada en IIS, ya sea en el entorno local o en una máquina virtual.
 
+- Si la aplicación se implementa en una máquina virtual de Azure o en un conjunto de escalado de máquinas virtuales de Azure, siga [estas instrucciones](azure-vm-vmss-apps.md).
 - Si la aplicación se implementa en Azure App Services, siga [estas instrucciones](azure-web-apps.md).
 - Si la aplicación se implementa en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure.
 - (También hay artículos independientes sobre cómo instrumentar [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)).
@@ -34,7 +35,7 @@ Monitor de estado se usa para instrumentar una aplicación .NET hospedada en IIS
 
 Puede optar entre dos vías de aplicar Application Insights a sus aplicaciones web .NET:
 
-* **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
+* **Tiempo de compilación:** [Agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
 * **Tiempo de ejecución:** instrumenta la aplicación web en el servidor, como se describe a continuación, sin volver a generar e implementar el código.
 
 > [!NOTE]
@@ -63,7 +64,7 @@ Si la aplicación se hospeda en un servidor IIS, habilite Application Insights c
 2. Si el Monitor de estado de Application Insights todavía no está instalado, [descargue y ejecute el instalador](#download).
 3. En el Monitor de estado, seleccione la aplicación web instalada o el sitio web que desea supervisar. Inicie sesión con sus credenciales de Azure.
 
-    Configure el recurso donde desee ver los resultados en el portal de Application Insights. (Normalmente, es mejor crear un nuevo recurso. Seleccione un recurso existente si ya tiene [pruebas web][availability] o la [supervisión de cliente][client] para esta aplicación). 
+    Configure el recurso donde desee ver los resultados en el portal de Application Insights. (Normalmente, es mejor crear un nuevo recurso. Seleccione un recurso existente si ya tiene [pruebas web][availability] or [client monitoring][client] para esta aplicación). 
 
     ![Elija una aplicación y un recurso.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -311,6 +312,7 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
 
 ## <a name="download"></a>Descarga del Monitor de estado
 
+- Use el nuevo [Módulo de PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - Descargue y ejecute el [instalador del Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648)
 - O ejecute el [Instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx) y busque ahí el Monitor de estado de Application Insights.
 
@@ -319,7 +321,7 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
 Vea la telemetría:
 
 * [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
-* [Busque eventos y registros][diagnostic] para diagnosticar problemas.
+* [Busque en los eventos y los registros][diagnostic] para diagnosticar problemas.
 * [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
 
 Agregue más telemetría:

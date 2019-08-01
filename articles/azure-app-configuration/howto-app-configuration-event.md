@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735814"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326595"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure
 
-Los usuarios de Azure App Configuration pueden suscribirse a eventos que se emiten cada vez que se modifican los pares clave-valor. Estos eventos pueden desencadenar webhooks, instancias de Azure Functions, colas de Azure Storage o cualquier otro controlador de eventos que sea compatible con [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers). En este artículo aprenderá a usar la CLI de Azure para suscribirse a eventos de Azure App Configuration.
+En este inicio rápido aprenderá a configurar las suscripciones a eventos de Azure App Configuration para que envíen eventos de modificación de pares clave-valor a un punto de conexión web. Los usuarios de Azure App Configuration pueden suscribirse a eventos que se emiten cada vez que se modifican los pares clave-valor. Estos eventos pueden desencadenar webhooks, instancias de Azure Functions, colas de Azure Storage o cualquier otro controlador de eventos que sea compatible con Azure Event Grid. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
-Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+## <a name="prerequisites"></a>Requisitos previos
 
-Al completar los pasos descritos en este artículo, verá que los datos del evento se han enviado a la aplicación web.
-
-![Visualización del evento de suscripción](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/). También puede usar Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más informa
 
 - [Reacción ante eventos de pares clave-valor](concept-app-configuration-event.md)
 - [Una introducción a Azure Event Grid](../event-grid/overview.md)
+- [Controladores de Azure Event Grid](../event-grid/event-handlers.md)

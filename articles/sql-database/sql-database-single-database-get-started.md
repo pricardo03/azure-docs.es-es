@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: Creación de una base de datos única en Azure SQL Database | Microsoft Docs'
-description: Crea y consulta una base de datos única en Azure SQL Database con Azure Portal.
+title: Creación de una base de datos única en Azure SQL Database | Microsoft Docs
+description: Cree y consulte una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,14 +12,14 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070170"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444465"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure
 
 La creación de una [base de datos única](sql-database-single-database.md) es la opción de implementación más rápida y sencilla para crear una base de datos en Azure SQL Database. En esta guía de inicio rápido se muestra cómo crear, para su posterior consulta, una base de datos única mediante Azure Portal.
 
@@ -41,59 +41,7 @@ Cuando se crea una base de datos única, también se define un [servidor de SQL 
 
 Para crear una base de datos única que contenga los datos de ejemplo de AdventureWorksLT:
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Bases de datos** y, a continuación, seleccione **SQL Database** para abrir la página **Crear SQL Database**.
-
-   ![Creación de una base de datos única](./media/sql-database-get-started-portal/create-database-1.png)
-
-3. En la pestaña **Conceptos básicos**, en la sección **Detalles del proyecto**, escriba o seleccione los siguientes valores:
-
-   - **Suscripción**: Abra la lista desplegable y seleccione la suscripción correcta, en caso de que no aparezca.
-   - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba `myResourceGroup` y seleccione **Aceptar**.
-
-     ![Nueva base de datos SQL (pestaña básica)](media/sql-database-get-started-portal/new-sql-database-basics.png)
-
-4. En la sección **Detalles de la base de datos**, escriba o seleccione los siguientes valores:
-
-   - **Nombre de base de datos**: Escriba `mySampleDatabase`.
-   - **Servidor**: En la página **Crear nuevo**, escriba los valores siguientes y elija **Seleccionar**:
-       - **Nombre del servidor**: Escriba `mysqlserver`, junto con algunos números con fines de unicidad.
-       - **Inicio de sesión del administrador del servidor**: Escriba `azureuser`.
-       - **Contraseña**: Escriba una contraseña compleja que cumpla los requisitos de contraseña.
-       - **Ubicación**: Elija una ubicación en la lista desplegable, como `West US 2`.
-
-         ![Nuevo servidor](media/sql-database-get-started-portal/new-server.png)
-
-      > [!IMPORTANT]
-      > No olvide registrar el inicio de sesión y la contraseña del administrador del servidor, con el fin de poder iniciar sesión en el servidor y las bases de datos en este y otros inicios rápidos. Si olvida la contraseña o el inicio de sesión, puede obtener el nombre de inicio de sesión o restablecer la contraseña en la página de **SQL server**. Para abrir la página de **SQL server**, seleccione el nombre del servidor en la página de **información general** de la base de datos después de la creación de esta.
-
-        ![Detalles de la instancia de SQL Database](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **¿Quiere usar un grupo elástico de SQL?** Seleccione la opción **No**.
-   - **Proceso y almacenamiento**: Seleccione **Configurar base de datos** y, para este inicio rápido, seleccione**Opciones de compra basadas en núcleos virtuales**.
-
-     ![Opciones de compra basadas en núcleos virtuales](media/sql-database-get-started-portal/create-database-vcore.png)
-
-   - Seleccione **Sin servidor**.
-
-     ![nivel de proceso sin servidor](media/sql-database-get-started-portal/create-database-serverless.png)
-
-   - Revise los valores de **Max vCores** (Máximo de núcleos virtuales), **Min vCores** (Mínimo de núcleos virtuales), **Auto-pause delay** (Retraso de pausa automática) y **Data max size** (Tamaño máximo de datos). Cámbielos según sea necesario.
-   - Acepte los términos de la versión preliminar y haga clic en **Aceptar**.
-   - Seleccione **Aplicar**.
-
-5. Seleccione la pestaña **Configuración adicional**. 
-6. En la sección **Origen de datos**, en **Usar datos existentes**, seleccione `Sample`. 
-
-   ![Configuración adicional de la base de datos SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
-
-   > [!IMPORTANT]
-   > Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir fácilmente este y otros inicios rápidos de Azure SQL Database que usan estos datos.
-
-7. Deje el resto de los valores como predeterminados y seleccione **Revisar y crear** en la parte inferior del formulario.
-8. Revise la configuración final y seleccione **Crear**.
-
-9. En el formulario **SQL Database**, seleccione **Crear** para implementar y aprovisionar el grupo de recursos, el servidor y la base de datos.
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Consulta de la base de datos
 

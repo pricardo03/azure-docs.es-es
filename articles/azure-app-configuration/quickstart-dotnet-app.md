@@ -14,24 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872987"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326528"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de .NET Framework con Azure App Configuration
 
-Azure App Configuration es un servicio de configuración administrado de Azure. Puede usarlo para almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que esté separado del código. En este artículo de inicio rápido se muestra cómo incorporar el servicio en una aplicación de consola de escritorio de Windows basada en .NET Framework.
-
-![Inicio rápido completo local](./media/quickstarts/dotnet-fx-app-run.png)
+En este inicio rápido incorporará Azure App Configuration a una aplicación de consola basada en .NET Framework para centralizar el almacenamiento y la administración de la configuración de la aplicación de forma independiente del código.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este artículo de inicio rápido, instale [Visual Studio 2019](https://visualstudio.microsoft.com/vs) y [.NET Framework 4.7.1](https://dotnet.microsoft.com/download), o cualquier versión posterior, si no lo ha hecho aún.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
+- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 

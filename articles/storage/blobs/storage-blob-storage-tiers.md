@@ -9,12 +9,12 @@ ms.date: 03/23/2019
 ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
-ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcfec25cd2bf01d59a7c0b3f72d8b1a618a9f699
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148511"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565992"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -35,6 +35,8 @@ Las siguientes consideraciones se aplican a los distintos niveles de acceso:
 Los datos almacenados en la nube están creciendo a un ritmo exponencial. Para administrar los costos de las crecientes necesidades de almacenamiento, resulta útil organizar los datos en función de atributos como frecuencia de acceso y el período de retención planeado para optimizar costos. Los datos almacenados en la nube pueden ser diferentes en cuanto a la forma en que se generan, se procesan y se accede a ellos a lo largo de su duración. A algunos datos se accede y se modifican activamente a lo largo de su duración. A algunos datos se accede con frecuencia al principio de su duración, mientras que el acceso cae drásticamente a medida que envejecen los datos. Algunos datos permanecen inactivos en la nube y, después de que se almacenan, no se accede a ellos prácticamente nunca.
 
 Cada uno de los escenarios de acceso a los datos se beneficia de un distinto nivel de acceso que está optimizado para un patrón de acceso concreto. Con los niveles de acceso frecuente, esporádico y de archivo, Azure Blob Storage satisface esta necesidad de que haya niveles de acceso diferenciados con modelos de precios independientes.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>Cuentas de almacenamiento que admiten niveles
 

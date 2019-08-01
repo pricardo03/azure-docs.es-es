@@ -3,17 +3,18 @@ title: 'Guía de inicio rápido: Creación de un registro privado de Docker en A
 description: Aprenda rápidamente a crear un registro de contenedor privado de Docker en Azure con PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152160"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309493"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guía de inicio rápido: Creación de un registro de contenedor privado con Azure PowerShell
 
@@ -25,7 +26,7 @@ Azure Container Registry es un servicio privado y administrado de registro de co
 
 Este inicio rápido requiere el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para determinar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
-También debe tener instalado Docker localmente. Docker ofrece paquetes para los sistemas [macOS][docker-mac], [Windows][docker-windows] y [Linux][docker-linux].
+También debe tener instalado Docker localmente. Docker ofrece paquetes para los sistemas [macOS][docker-mac], [Windows][docker-windows] y [Linux] ([docker-linux]).
 
 Dado que Azure Cloud Shell no incluye todos los componentes necesarios de Docker (como por ejemplo el demonio `dockerd`), no se puede usar Cloud Shell en este tutorial de inicio rápido.
 
@@ -59,13 +60,13 @@ En este inicio rápido se crea un registro *Básico*, que es una opción rentabl
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. En escenarios de producción se debe usar una entidad individual o entidad de servicio para acceder al registro de contenedores, pero para abreviar en este inicio rápido, habilite al usuario administrador en el registro con el comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. En escenarios de producción se debe usar una identidad o entidad de servicio individual para acceder al registro de contenedores, pero para abreviar en este inicio rápido, habilite al usuario administrador en el registro con el comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-A continuación, ejecute el [inicio de sesión de Docker][docker-login] para iniciar sesión:
+A continuación, ejecute el comando [docker login][docker-login] para iniciar sesión:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -79,7 +80,7 @@ El comando devolverá `Login Succeeded` una vez completado.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado de trabajar con los recursos que creó gracias a este tutorial, use el comando [Remove-AzResourceGroup][Remove-AzResourceGroup] para quitar el grupo de recursos, el registro de contenedor y las imágenes de contenedor almacenadas aquí:
+Cuando haya terminado de trabajar con los recursos que creó en este inicio rápido, use el comando [Remove-AzResourceGroup][Remove-AzResourceGroup] para quitar el grupo de recursos, el registro de contenedor y las imágenes de contenedor almacenadas allí:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422905"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360265"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio de Azure DevTest Labs
 En este tutorial, va a utilizar el laboratorio personalizado que se creó en el [Tutorial: Creación de un laboratorio en Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -58,8 +58,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     ![Conexión a la máquina virtual](./media/tutorial-use-custom-lab/connect-button.png)
 2. Guarde el archivo **RDP** descargado en el disco duro y utilícelo para conectarse a la máquina virtual. Especifique el nombre de usuario y la contraseña que mencionó cuando se creó la máquina virtual en la sección anterior. 
 
-    > [!NOTE] 
-    > Para conectarse a una máquina virtual Linux, el acceso RDP o SSH debe estar habilitado para la máquina virtual. Para conocer el procedimiento de conexión a una máquina virtual Linux a través de RDP, consulte [Instalación y configuración de Escritorio remoto para conectarse a una máquina virtual Linux en Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    Para conectarse a una máquina virtual Linux, el acceso RDP o SSH debe estar habilitado para la máquina virtual. Para conocer el procedimiento de conexión a una máquina virtual Linux a través de RDP, consulte [Instalación y configuración de Escritorio remoto para conectarse a una máquina virtual Linux en Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > Hay otras maneras de llegar a la página de la máquina virtual. Esta información incluye lo siguiente: 
+    > 
+    > 1. Busque todas las máquinas virtuales de la suscripción. Seleccione la máquina virtual en la lista de máquinas virtuales para llegar a la página **Máquina virtual**.
+    > 2. Vaya a la página **Grupo de recursos** para el grupo de recursos. A continuación, seleccione la máquina virtual de la lista de recursos del grupo de recursos para llegar a la página **Máquina virtual**. 
+    >
+    > No use el botón **Conectar** de la barra de herramientas de la página **Máquina virtual** a la que llega con estas opciones. En su lugar, vaya a la página **Máquina virtual** desde la página **DevTest Labs** como se muestra en este artículo y use el botón **Conectar** de la barra de herramientas.
 
 
 ## <a name="unclaim-the-vm"></a>Anulación de la reclamación de la máquina virtual
