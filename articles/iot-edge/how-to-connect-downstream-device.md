@@ -1,24 +1,30 @@
 ---
 title: 'Conexión de dispositivos de bajada: Azure IoT Edge | Microsoft Docs'
-description: Cómo configurar dispositivos de bajada o dispositivos hoja para su conexión mediante dispositivos de puerta de enlace Azure IoT Edge.
+description: Se describe cómo configurar dispositivos de bajada o dispositivos hoja para su conexión con dispositivos de puerta de enlace Azure IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 7a66355ca1a0c9c2c144f04cd944efe22467d3ae
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058511"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
-Azure IoT Edge permite escenarios de puerta de enlace transparente, en los que uno o varios dispositivos pueden pasar sus mensajes a través de un dispositivo de puerta de enlace único que mantiene la conexión con IoT Hub. Una vez que el dispositivo de puerta de enlace está configurado, deberá saber cómo conectar de forma segura los dispositivos de bajada. 
+En este artículo se proporcionan instrucciones para establecer una conexión de confianza entre dispositivos de bajada y puertas de enlace transparentes IoT Edge. En un escenario de puerta de enlace transparente, uno o varios dispositivos pueden pasar sus mensajes a través de un dispositivo de puerta de enlace único que mantiene la conexión con IoT Hub. Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
+
+Hay tres pasos generales para configurar una conexión de puerta de enlace transparente correcta. En este artículo se trata el tercer paso:
+
+1. El dispositivo de puerta de enlace debe conectarse a dispositivos de bajada de forma segura, recibir comunicaciones de dispositivos de bajada y enrutar mensajes al destino adecuado. Para más información, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
+2. El dispositivo de bajada debe tener una identidad de dispositivo para poder autenticarse con IoT Hub y saber comunicarse a través de su dispositivo de puerta de enlace. Para más información, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. **El dispositivo de bajada se debe poder conectar de forma segura a su dispositivo de puerta de enlace**.
 
 Este artículo identifica problemas comunes con las conexiones de los dispositivos de bajada y le guía en la configuración de los dispositivos de bajada, lo que incluye: 
 
@@ -28,62 +34,47 @@ Este artículo identifica problemas comunes con las conexiones de los dispositiv
 
 En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge* hacen referencia a un dispositivo IoT Edge configurado como una puerta de enlace transparente. 
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Antes de seguir los pasos descritos en este artículo, debe tener dos dispositivos listos para su uso:
-
-1. Un dispositivo IoT Edge configurado como puerta de enlace transparente. 
-    [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md)
-
-    Una vez que el dispositivo de puerta de enlace está configurado, copie el certificado **azure-iot-test-only.root.ca.cert.pem** de la puerta de enlace y asegúrese de que está disponible en algún lugar en el dispositivo de bajada. 
-
-2. Un dispositivo de bajada que tenga una identidad de dispositivo de IoT Hub. 
-    No se puede usar un dispositivo IoT Edge como el dispositivo de bajada. En su lugar, use un dispositivo registrado como un dispositivo IoT normal en IoT Hub. En el portal, puede registrar un nuevo dispositivo en la sección **Dispositivos IoT**. O bien puede usar la CLI de Azure para [registrar un dispositivo](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copie la cadena de conexión para su uso en secciones posteriores. 
-
-    Actualmente, solo pueden conectarse mediante puertas de enlace IoT Edge los dispositivos de bajada con autenticación de clave simétrica. Las entidades de certificación X.509 y los certificados autofirmados X.509 no se admiten actualmente.
-    
-> [!NOTE]
-> El "nombre de puerta de enlace" utilizado en este artículo debe ser el mismo nombre cuando se usa como nombre de host en el archivo config.yaml de IoT Edge. El nombre de la puerta de enlace debe poderse resolver con una dirección IP, ya sea mediante DNS o una entrada de archivo host. La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge. Si existe un firewall entre ellos, es necesario abrir el puerto correspondiente.
-
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
-Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). En la práctica, un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
+Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
 
 Para conectar un dispositivo de bajada a una puerta de enlace IoT Edge, necesita dos cosas:
 
-1. Un dispositivo o aplicación que esté configurada con una cadena de conexión de dispositivo de IoT Hub anexada con información para conectarse a la puerta de enlace. 
+* Un dispositivo o aplicación que esté configurada con una cadena de conexión de dispositivo de IoT Hub anexada con información para conectarse a la puerta de enlace. 
 
-    La cadena de conexión tiene un formato similar a: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Anexe la propiedad **GatewayHostName** con el nombre de host del dispositivo de puerta de enlace al final de la cadena de conexión. El valor de **GatewayHostName** debe coincidir con el valor de **hostname** en el archivo config.yaml del dispositivo de la puerta de enlace. 
+    Este paso se explica en [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-    La cadena final es similar a: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
+* El dispositivo o la aplicación tienen que confiar en el certificado de la **entidad de certificación raíz** de la puerta de enlace para validar las conexiones TLS con el dispositivo de puerta de enlace. 
 
-2. El dispositivo o la aplicación tienen que confiar en el certificado de la **entidad de certificación raíz** o la **entidad de certificación del propietario** de la puerta de enlace para validar las conexiones TLS con el dispositivo de puerta de enlace. 
-
-    Este paso más complicado se explica con detalle en el resto de este artículo. Este paso se puede ser realizar de dos maneras: mediante la instalación del certificado de entidad de certificación en el almacén de certificados del sistema operativo o (para determinados lenguajes) haciendo referencia al certificado dentro de las aplicaciones mediante los SDK de Azure IoT.
+    Este paso se explica con detalle en el resto de este artículo. Este paso se puede ser realizar de dos maneras: mediante la instalación del certificado de entidad de certificación en el almacén de certificados del sistema operativo o (para determinados lenguajes) haciendo referencia al certificado dentro de las aplicaciones mediante los SDK de Azure IoT.
 
 ## <a name="tls-and-certificate-fundamentals"></a>Aspectos básicos de TLS y los certificados
 
-El desafío de una conexión segura de los dispositivos de bajada a IoT Edge es igual que en cualquier otra comunicación cliente/servidor segura que se produce en Internet. Un cliente y un servidor se comunican de forma segura en Internet mediante la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se ha creado mediante construcciones de [Infraestructura de clave pública (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) estándar llamadas certificados. TLS es una especificación bastante compleja y aborda una amplia gama de temas relacionados con la protección de dos puntos de conexión, pero la siguiente sección describe de forma concisa lo que se necesita para conectar dispositivos de forma segura a una puerta de enlace IoT Edge.
+El desafío de una conexión segura de los dispositivos de bajada a IoT Edge es igual que en cualquier otra comunicación cliente/servidor segura que se produce en Internet. Un cliente y un servidor se comunican de forma segura en Internet mediante la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se ha creado mediante construcciones de [Infraestructura de clave pública (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) estándar llamadas certificados. TLS es una especificación bastante compleja que aborda una amplia gama de temas relacionados con la protección de dos puntos de conexión. En esta sección se resumen los conceptos relevantes para que pueda conectar de forma segura los dispositivos a una puerta de enlace IoT Edge.
 
-Cuando un cliente se conecta a un servidor, el servidor presenta una cadena de certificados llamada *cadena de certificados de servidor*. Una cadena de certificados normalmente consta de un certificado de entidad de certificación (CA) raíz, uno o varios certificados de entidad de certificación intermedios y, finalmente, el propio certificado del servidor. Un cliente establece la confianza con un servidor mediante la comprobación criptográfica de la cadena de certificados de servidor completa. Esta validación del cliente de la cadena de certificados de servidor se llama *autenticación de servidor*. Para validar una cadena de certificados de servidor, un cliente necesita una copia del certificado de la entidad de certificación raíz que se usó para crear (o emitir) el certificado del servidor. Normalmente, al conectarse a sitios web, un explorador viene preconfigurado con certificados de entidad de certificación usados habitualmente para que el cliente tenga un proceso de conexión directo. 
+Cuando un cliente se conecta a un servidor, el servidor presenta una cadena de certificados llamada *cadena de certificados de servidor*. Una cadena de certificados normalmente consta de un certificado de entidad de certificación (CA) raíz, uno o varios certificados de entidad de certificación intermedios y, finalmente, el propio certificado del servidor. Un cliente establece la confianza con un servidor mediante la comprobación criptográfica de la cadena de certificados de servidor completa. Esta validación del cliente de la cadena de certificados de servidor se llama *validación de la cadena del servidor*. El cliente desafía criptográficamente al servicio para demostrar la posesión de la clave privada asociada al certificado de servidor en un proceso denominado *prueba de posesión*. La combinación de la validación de la cadena del servidor y la prueba de posesión se denomina *autenticación de servidor*. Para validar una cadena de certificados de servidor, un cliente necesita una copia del certificado de la entidad de certificación raíz que se usó para crear (o emitir) el certificado del servidor. Normalmente, al conectarse a sitios web, un explorador viene preconfigurado con certificados de entidad de certificación usados habitualmente para que el cliente tenga un proceso de conexión directo. 
 
 Cuando un dispositivo se conecta a Azure IoT Hub, el dispositivo es el cliente y el servicio en la nube de IoT Hub es el servidor. El servicio en la nube de IoT Hub está respaldado por un certificado de entidad de certificación raíz llamado **Baltimore CyberTrust Root**, que es ampliamente utilizado y está disponible públicamente. Puesto que el certificado de entidad de certificación de IoT Hub ya está instalado en la mayoría de los dispositivos, muchas implementaciones de TLS (OpenSSL, Schannel, LibreSSL) lo utilizan automáticamente durante la validación de certificados de servidor. Un dispositivo que puede conectarse correctamente a IoT Hub puede tener problemas al intentar conectarse a una puerta de enlace IoT Edge.
 
-Cuando un dispositivo se conecta a una puerta de enlace IoT Edge, el dispositivo de bajada es el cliente y el dispositivo de puerta de enlace es el servidor. Azure IoT Edge permite a los operadores (o usuarios) crear cadenas de certificados de puerta de enlace como consideren oportuno. El operador puede usar un certificado de entidad de certificación pública, como Baltimore o usar un certificado de entidad de certificación de raíz autofirmado (o interno). Los certificados de entidad de certificación pública a menudo tienen un costo asociado, por lo que se utilizan normalmente en escenarios de producción. Los certificados de entidad de certificación autofirmados se prefieren para desarrollo y pruebas. Los artículos de configuración de la puerta de enlace transparente enumerados en la sección de requisitos previos usan certificados de entidad de certificación raíz autofirmados. 
+Cuando un dispositivo se conecta a una puerta de enlace IoT Edge, el dispositivo de bajada es el cliente y el dispositivo de puerta de enlace es el servidor. Azure IoT Edge permite a los operadores (o usuarios) crear cadenas de certificados de puerta de enlace como consideren oportuno. El operador puede usar un certificado de entidad de certificación pública, como Baltimore o usar un certificado de entidad de certificación de raíz autofirmado (o interno). Los certificados de entidad de certificación pública a menudo tienen un costo asociado, por lo que se utilizan normalmente en escenarios de producción. Los certificados de entidad de certificación autofirmados se prefieren para desarrollo y pruebas. Los artículos de configuración de la puerta de enlace transparente indicados en la introducción usan certificados de entidad de certificación raíz autofirmados. 
 
 Cuando se usa un certificado de entidad de certificación raíz autofirmado para una puerta de enlace IoT Edge, este se debe instalar o proporcionar a todos los dispositivos de bajada que intentan conectarse a la puerta de enlace. 
 
+![Configuración del certificado de puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
+
 Para más información acerca de los certificados de IoT Edge y algunas implicaciones de producción, consulte [Detalles de uso de los certificados de IoT Edge](iot-edge-certs.md).
 
-## <a name="install-certificates-using-the-os"></a>Instalación de certificados mediante el sistema operativo
+## <a name="provide-the-root-ca-certificate"></a>Inclusión del certificado de entidad de certificación raíz
 
-En este artículo se usa *entidad de certificación del propietario* para hacer referencia al certificado de entidad de certificación raíz, ya que es el término utilizado por los scripts en el artículo de requisitos previos de la puerta de enlace. 
+Para comprobar los certificados del dispositivo de puerta de enlace, el dispositivo de bajada necesita su propia copia del certificado de entidad de certificación raíz. Si ha usado los scripts proporcionados en el repositorio de Git de IoT Edge para crear certificados de prueba, el certificado de entidad de certificación raíz se denomina **azure-iot-test-only.root.ca.cert.pem**. Si no lo ha hecho ya como parte de los otros pasos de preparación del dispositivo de bajada, mueva este archivo de certificado a cualquier directorio de este dispositivo. Para ello, puede usar un servicio como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/).
 
-La instalación del certificado de entidad de certificación del propietario en el almacén de certificados del sistema operativo generalmente permite que la mayoría de las aplicaciones lo usen. Hay algunas excepciones, como las aplicaciones de NodeJS, que no utilizan el almacén de certificados del sistema operativo y utilizan en su lugar el almacén de certificados interno del entorno de ejecución de Node. Si no se puede instalar el certificado en el nivel de sistema operativo, consulte los ejemplos específicos de cada lenguaje más adelante en este artículo para usar el certificado con los SDK de Azure IoT en las aplicaciones. 
+## <a name="install-certificates-in-the-os"></a>Instalación de certificados en el sistema operativo
+
+La instalación del certificado de entidad de certificación raíz en el almacén de certificados del sistema operativo generalmente permite que la mayoría de las aplicaciones lo usen. Hay algunas excepciones, como las aplicaciones de NodeJS, que no utilizan el almacén de certificados del sistema operativo y utilizan en su lugar el almacén de certificados interno del entorno de ejecución de Node. Si no puede instalar el certificado en el nivel de sistema operativo, continúe en [Uso de certificados con los SDK de Azure IoT](#use-certificates-with-azure-iot-sdks). 
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Los siguientes comandos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Ubuntu. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación en el dispositivo de bajada.  
+Los siguientes comandos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Ubuntu. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación del dispositivo de bajada.
 
 ```bash
 sudo cp <path>/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
@@ -92,9 +83,9 @@ sudo update-ca-certificates
 
 Verá un mensaje que dice "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done." (Actualizando certificados en /etc/ssl/certs...1 agregado, 0 quitados, listo)
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
-Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Windows. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación en el dispositivo de bajada.  
+Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Windows. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación del dispositivo de bajada.
 
 1. En el menú Inicio, busque y seleccione **Administrar certificados de equipo**. Se abre una utilidad llamada **certlm**.
 2. Vaya a **Certificados: equipo local** > **Entidades de certificación raíz de confianza**.
@@ -107,27 +98,19 @@ Normalmente, las aplicaciones utilizan la pila TLS proporcionada por Windows lla
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Uso de certificados con los SDK de Azure IoT
 
-En este artículo hace referencia al certificado de entidad de certificación raíz como la *entidad de certificación del propietario*, ya que es el término utilizado por los scripts que generan el certificado autofirmado de los artículos de requisitos previos. 
-
 Esta sección describe cómo conectar los SDK de Azure IoT a un dispositivo IoT Edge con aplicaciones de ejemplo simples. El objetivo de todos los ejemplos es conectar el cliente de dispositivo y enviar mensajes de telemetría a la puerta de enlace, cerrar la conexión y salir. 
-
-### <a name="common-concepts-across-all-azure-iot-sdks"></a>Conceptos comunes en todos los SDK de Azure IoT
 
 Debe tener dos cosas listas antes de usar los ejemplos de nivel de aplicación:
 
-1. La cadena de conexión de IoT Hub del dispositivo de bajada modificada para que apunte al dispositivo de puerta de enlace.
+* La cadena de conexión de IoT Hub del dispositivo de bajada modificada para que apunte al dispositivo de puerta de enlace y los certificados necesarios para autenticar el dispositivo de bajada en IoT Hub. Para más información, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-    La cadena de conexión tiene un formato similar a: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Anexe la propiedad **GatewayHostName** con el nombre de host del dispositivo de puerta de enlace al final de la cadena de conexión. El valor de **GatewayHostName** debe coincidir con el valor de **hostname** en el archivo config.yaml del dispositivo de la puerta de enlace. 
-
-    La cadena final es similar a: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
-
-2. La ruta de acceso completa del certificado de entidad de certificación raíz que ha copiado y guardado en algún lugar del dispositivo de bajada.
+* La ruta de acceso completa del certificado de entidad de certificación raíz que ha copiado y guardado en algún lugar del dispositivo de bajada.
 
     Por ejemplo, `<path>/azure-iot-test-only.root.ca.cert.pem`. 
 
 ### <a name="nodejs"></a>NodeJS
 
-Esta sección proporciona una aplicación de ejemplo para conectar un cliente de dispositivo de NodeJS de Azure IoT a una puerta de enlace IoT Edge. Para los hosts con Windows y Linux, debe instalar el certificado de entidad de certificación raíz en el nivel de aplicación como se muestra aquí, ya que las aplicaciones de NodeJS no utilizan el almacén de certificados del sistema. 
+Esta sección proporciona una aplicación de ejemplo para conectar un cliente de dispositivo de NodeJS de Azure IoT a una puerta de enlace IoT Edge. En el caso de las aplicaciones de NodeJS, debe instalar el certificado de entidad de certificación raíz en el nivel de aplicación, tal como se muestra aquí. Las aplicaciones de NodeJS no usan el almacén de certificados del sistema. 
 
 1. Puede obtener el ejemplo para **edge_downstream_device.js** desde el [repositorio de ejemplos del SDK de dispositivo IoT de Azure para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples). 
 2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**. 
@@ -200,11 +183,11 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 
 ## <a name="troubleshoot-the-gateway-connection"></a>Solución de problemas de la conexión de puerta de enlace
 
-Si el dispositivo de hoja tiene conexión intermitente con su dispositivo de puerta de enlace, intente los siguientes pasos para la resolución. 
+Si el dispositivo de hoja tiene una conexión intermitente con su dispositivo de puerta de enlace, intente seguir estos pasos para resolverlo. 
 
-1. ¿Es el nombre de la puerta de enlace anexado a la conexión de cadena igual que el nombre de host en el archivo config.yaml de IoT Edge en el dispositivo de puerta de enlace?
-2. ¿Es el nombre de la puerta de enlace puede resolver en una dirección IP? Puede resolver intenmittent conexiones mediante el uso de DNS o mediante la adición de una entrada de archivo de host en el dispositivo de hoja.
-3. ¿Son los puertos de comunicación abierto en el firewall? La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge.
+1. ¿El nombre de host de la puerta de enlace en la cadena de conexión es el mismo que el valor de nombre de host en el archivo config.yaml de IoT Edge del dispositivo de puerta de enlace?
+2. ¿Se puede resolver el nombre de host de la puerta de enlace en una dirección IP? Puede resolver conexiones intermitentes mediante el uso de DNS o bien mediante la incorporación de una entrada de archivo de host en el dispositivo de hoja.
+3. ¿Están abiertos los puertos de comunicación en el firewall? Debe ser posible la comunicación basada en el protocolo usado (MQTTS:8883/AMQPS:5671/HTTPS:433) entre el dispositivo de bajada y el dispositivo IoT Edge transparente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: eb933e8085ec956be713a18602b8baff9c87084b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912192"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Mayo de 2018 
@@ -26,7 +26,7 @@ Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo s
 Consulte el anuncio de blog [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) (Optimización del análisis de datos en la nube con Azure SQL Data Warehouse) de Rohan Kumar, vicepresidente ejecutivo de Azure Data.
 
 ## <a name="auto-statistics"></a>Estadísticas automáticas
-Las estadísticas son fundamentales para optimizar la generación de planes de consulta en optimizadores modernos basados en costos, como el motor de SQL Data Warehouse. Cuando se conocen todas las consultas de antemano, determinar qué objetos de estadísticas se deben crear es una tarea factible. Sin embargo, cuando el sistema se enfrenta a ad hoc y consultas aleatorias que es típico para las cargas de trabajo de almacenamiento de datos, los administradores del sistema pueden tener dificultades para predecir qué estadísticas deben crearse iniciales a los planes de ejecución de consulta poco óptimo potencialmente y más tiempos de respuesta de consulta. Un método para reducir este problema es crear objetos de estadísticas en todas las columnas de tablas de antemano. Sin embargo, ese proceso tiene sus inconvenientes, ya que los objetos de estadísticas necesitan mantenerse durante el proceso de carga de la tabla, lo que conlleva tiempos de carga mayores.
+Las estadísticas son fundamentales para optimizar la generación de planes de consulta en optimizadores modernos basados en costos, como el motor de SQL Data Warehouse. Cuando se conocen todas las consultas de antemano, determinar qué objetos de estadísticas se deben crear es una tarea factible. Sin embargo, cuando el sistema se tiene que enfrentar a consultas ad hoc y aleatorias, algo típico de las cargas de trabajo de almacenamiento de datos, es posible que los administradores del sistema se vean en un compromiso para predecir qué estadísticas deben crearse, lo que puede ocasionar planes de ejecución de consultas no óptimos y tiempos de respuesta de consultas más largos. Un método para reducir este problema es crear objetos de estadísticas en todas las columnas de tablas de antemano. Sin embargo, ese proceso tiene sus inconvenientes, ya que los objetos de estadísticas necesitan mantenerse durante el proceso de carga de la tabla, lo que conlleva tiempos de carga mayores.
 
 SQL Data Warehouse ya admite la creación automática de objetos de estadísticas, lo que proporciona una mayor flexibilidad, productividad y facilidad de uso para administradores de sistema y desarrolladores. Además, garantiza que el sistema ofrece planes de ejecución de calidad y los mejores tiempos de respuesta.
 

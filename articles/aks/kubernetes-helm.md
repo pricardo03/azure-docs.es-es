@@ -1,6 +1,6 @@
 ---
 title: Implementación de contenedores con Helm en Kubernetes en Azure
-description: Obtenga información sobre cómo usar la herramienta de empaquetado de Helm para implementar contenedores en un clúster de Azure Kubernetes Service (AKS)
+description: Aprenda a usar la herramienta de empaquetado de Helm para implementar contenedores en un clúster de Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.service: container-service
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
 ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392139"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)
@@ -24,10 +24,10 @@ En este artículo se muestra cómo configurar y usar Helm en un clúster de Kube
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita la CLI de Helm instalado, que es el cliente que se ejecuta en el sistema de desarrollo. Permite iniciar, detener y administrar aplicaciones con Helm. Si usa Azure Cloud Shell, la CLI de Helm ya está instalada. Para obtener las instrucciones de instalación en su plataforma local, consulte [Installing Helm][helm-install] (Instalación de Helm).
+También necesita tener instalada la CLI de Helm, que es el cliente que se ejecuta en el sistema de desarrollo. Permite iniciar, detener y administrar las aplicaciones con Helm. Si usa Azure Cloud Shell, la CLI de Helm ya está instalada. Para obtener las instrucciones de instalación en su plataforma local, consulte [Installing Helm][helm-install] (Instalación de Helm).
 
 > [!IMPORTANT]
-> Helm está diseñada para ejecutarse en nodos de Linux. Si tiene nodos de Windows Server en el clúster, debe asegurarse de que los pods de Helm solo se programan para ejecutarse en nodos de Linux. También deberá asegurarse de que todos los gráficos de Helm que instala también están programados para ejecutarse en los nodos correctos. Los comandos en este artículo utilizan [nodo selectores] [ k8s-node-selector] para asegurarse de que los pods están programados para los nodos correctos, pero no todos los gráficos de Helm pueden exponer un selector de nodo. También puede usar otras opciones en el clúster, como [taints][taints].
+> Helm está diseñada para ejecutarse en nodos de Linux. Si tiene nodos de Windows Server en el clúster, debe asegurarse de que los pods de Helm solo se programan para ejecutarse en nodos de Linux. También deberá asegurarse de que todos los gráficos de Helm que instale están programados también para ejecutarse en los nodos correctos. Los comandos de este artículo utilizan [selectores de nodo][k8s-node-selector] para asegurarse de que los pods están programados para los nodos correctos, pero no todos los gráficos de Helm pueden exponer un selector de nodo. También puede considerar otras opciones en el clúster, como los valores [taints][taints].
 
 ## <a name="create-a-service-account"></a>Creación de una cuenta de servicio
 
@@ -145,7 +145,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Ejecución de gráficos de Helm
 
-Para instalar los gráficos con Helm, use el comando [helm install][helm-install] y especifique el nombre del gráfico que se instalará. Para ver la instalación de un gráfico de Helm en acción, vamos a instalar una implementación de nginx básico mediante un gráfico de Helm. Si ha configurado SSL/TLS, agregue el parámetro `--tls` para usar el certificado de cliente de Helm.
+Para instalar los gráficos con Helm, use el comando [helm install][helm-install] y especifique el nombre del gráfico que se instalará. Para ver cómo funciona la instalación de un gráfico de Helm, vamos a instalar una implementación básica de nginx mediante un gráfico de Helm. Si ha configurado SSL/TLS, agregue el parámetro `--tls` para usar el certificado de cliente de Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -180,11 +180,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-Tarda un minuto o dos para el *EXTERNAL-IP* dirección del servicio de controlador de entrada nginx para rellenar y permitirle acceder a ella con un explorador web.
+Se tarda entre un minuto y dos en que la dirección *EXTERNAL-IP* del servicio nginx-ingress-controller se llene y se le permita acceder a este servicio con un explorador web.
 
 ## <a name="list-helm-releases"></a>Lista de versiones de Helm
 
-Para ver una lista de las versiones instaladas en el clúster, use el comando [helm list][helm-list]. El ejemplo siguiente muestra la versión de ingress de nginx implementada en el paso anterior. Si ha configurado SSL/TLS, agregue el parámetro `--tls` para usar el certificado de cliente de Helm.
+Para ver una lista de las versiones instaladas en el clúster, use el comando [helm list][helm-list]. En el ejemplo siguiente se muestra la versión de nginx-ingress implementada en el paso anterior. Si ha configurado SSL/TLS, agregue el parámetro `--tls` para usar el certificado de cliente de Helm.
 
 ```console
 $ helm list
@@ -195,7 +195,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para limpiar estos recursos, use el comando `helm delete` y especifique el nombre de la versión, tal como hemos visto en el comando `helm list` anterior. En el ejemplo siguiente se elimina la versión denominada *alpaca flailing*:
+Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para limpiar estos recursos, use el comando `helm delete` y especifique el nombre de la versión, tal como hemos visto en el comando `helm list` anterior. En el ejemplo siguiente se elimina la versión denominada *flailing-alpaca*:
 
 ```console
 $ helm delete flailing-alpaca

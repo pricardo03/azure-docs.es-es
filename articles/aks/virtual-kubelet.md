@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475429"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Uso de Virtual Kubelet con Azure Kubernetes Service (AKS)
@@ -30,13 +30,13 @@ Al usar el proveedor de Virtual Kubelet para Azure Container Instances, los cont
 
 En este documento se supone que tiene un clúster de AKS. Si necesita un clúster de AKS, consulte la [guía de inicio rápido de Azure Kubernetes Service (AKS)][aks-quick-start].
 
-También necesitará la versión de CLI de Azure **2.0.65** o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+También es necesaria la versión **2.0.65** de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Para instalar Virtual Kubelet, instalar y configurar [Helm] [ aks-helm] en el clúster de AKS. Asegúrese de que es su Tiller [configurado para su uso con Kubernetes RBAC](#for-rbac-enabled-clusters), si es necesario.
+Para instalar Virtual Kubelet, instale y configure [Helm][aks-helm] en el clúster de AKS. Asegúrese de que su Tiller está [configurado para usarse con Kubernetes RBAC](#for-rbac-enabled-clusters), si es necesario.
 
-### <a name="register-container-instances-feature-provider"></a>Registrar proveedor de características de Container Instances
+### <a name="register-container-instances-feature-provider"></a>Registro del proveedor de características de Container Instances
 
-Si no ha usado anteriormente el servicio de instancia de contenedor de Azure (ACI), registrar el proveedor de servicios con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando de [lista de proveedores de az][az-provider-list], tal como se muestra en el ejemplo siguiente:
+Si no ha utilizado antes el servicio Azure Container Instances, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando de [lista de proveedores de az][az-provider-list], tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -109,7 +109,7 @@ az aks install-connector \
     --os-type Both
 ```
 
-Estos argumentos están disponibles para el [az aks install-connector] [ aks-install-connector] comando.
+Estos argumentos están disponibles para el comando [az aks install-connector][aks-install-connector].
 
 | Argumento: | DESCRIPCIÓN | Obligatorio |
 |---|---|:---:|
@@ -118,15 +118,15 @@ Estos argumentos están disponibles para el [az aks install-connector] [ aks-ins
 | `--resource-group``-g` | Nombre del grupo de recursos. | Sí |
 | `--os-type` | Tipo de sistema operativo de Container Instances. Valores permitidos: Ambos, Linux, Windows. Valor predeterminado: Linux. | Sin |
 | `--aci-resource-group` | Grupo de recursos en el que se crearán los grupos de contenedores de ACI. | Sin |
-| `--location``-l` | Ubicación donde se crearán los grupos de contenedores de ACI. | No |
+| `--location``-l` | Ubicación donde se crearán los grupos de contenedores de ACI. | Sin |
 | `--service-principal` | Entidad de servicio utilizada para la autenticación en las API de Azure. | Sin |
 | `--client-secret` | Secreto asociado a la entidad de servicio. | Sin |
-| `--chart-url` | Dirección URL de un gráfico de Helm que instala ACI Connector. | No |
+| `--chart-url` | Dirección URL de un gráfico de Helm que instala ACI Connector. | Sin |
 | `--image-tag` | Etiqueta de imagen de la imagen de contenedor de Virtual Kubelet. | Sin |
 
 ## <a name="validate-virtual-kubelet"></a>Validación de Virtual Kubelet
 
-Para validar que se ha instalado Virtual Kubelet, devolver una lista de los nodos de Kubernetes mediante la [kubectl obtener nodos] [ kubectl-get] comando:
+Para comprobar que Virtual Kubelet está instalado, devuelva una lista de nodos de Kubernetes con el comando [kubectl get nodes][kubectl-get]:
 
 ```console
 $ kubectl get nodes

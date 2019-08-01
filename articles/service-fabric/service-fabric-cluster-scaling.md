@@ -3,9 +3,8 @@ title: Escalado de un clúster de Azure Service Fabric | Microsoft Docs
 description: Obtenga información acerca de cómo escalar horizontal y verticalmente clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: cb9cb3998ed8208ff7b19aee8a984e4c057408ae
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: c4d7027438f19cd16fd87d629364cdf725e91607
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302263"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599849"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Escalado de clústeres de Azure Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -47,7 +46,7 @@ Dado que los tipos de nodo de Service Fabric del clúster están formados por co
 ### <a name="programmatic-scaling"></a>Escalado mediante programación
 En muchos escenarios, el [escalado de un clúster de forma manual o mediante reglas de escalado automático](service-fabric-cluster-scale-up-down.md) son buenas soluciones. En escenarios más avanzados, pueden no ser la mejor opción. Entre las desventajas potenciales de estos métodos se incluyen:
 
-- Escalado manual requiere que inicie sesión y solicitar explícitamente las operaciones de escalado. Si las operaciones de escalado se requieren con frecuencia o en momentos imprevisibles, este enfoque puede no ser una buena solución.
+- El escalado manual requiere que inicie sesión y solicite de forma explícita las operaciones de escalado. Si las operaciones de escalado se requieren con frecuencia o en momentos imprevisibles, este enfoque puede no ser una buena solución.
 - Cuando las reglas de escalado automático quitan una instancia de un conjunto de escalado de máquinas virtuales, no quitan automáticamente el conocimiento de ese nodo desde el clúster de Service Fabric asociado, a menos que el tipo de nodo tenga un nivel de durabilidad Silver o Gold. Dado que las reglas de escalado automático funcionan a nivel de conjunto de escalado (en lugar de al nivel de Service Fabric), las reglas de escalado automático pueden quitar nodos de Service Fabric sin cerrarlos correctamente. Esta eliminación forzada de un nodo dejará un estado de nodo de Service Fabric "fantasma" después de operaciones de escalado. Es necesario que una persona (o un servicio) limpie periódicamente el estado de los nodos eliminados en el clúster de Service Fabric.
 - Un tipo de nodo con un nivel de durabilidad Gold o Silver limpia automáticamente los nodos eliminados, por lo que no se requiere una limpieza adicional.
 - Aunque hay [muchas métricas](../azure-monitor/platform/autoscale-common-metrics.md) compatibles con las reglas de escalado automático, se trata aún de un conjunto limitado. Si su escenario requiere un escalado automático basado en alguna métrica que no se trata en ese conjunto, es posible que las reglas de escalado automático no sean una buena opción.
@@ -81,7 +80,7 @@ Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices si
 El proceso de escalado vertical de un tipo de nodo es diferente dependiendo de si es un tipo de nodo principal o no principal.
 
 ### <a name="scaling-non-primary-node-types"></a>Escalado de tipos de nodo no principales
-Cree un nuevo tipo de nodo con los recursos que necesita.  Actualice las restricciones de posición de los servicios en ejecución para que incluyan el nuevo tipo de nodo.  Gradualmente (de uno en uno), reduzca hasta cero el número de instancias de la instancia del tipo de nodo anterior para que no se vea afectada la confiabilidad del clúster.  Servicios se migrarán gradualmente al nuevo tipo de nodo como tipo de nodo anterior está dado de baja.
+Cree un nuevo tipo de nodo con los recursos que necesita.  Actualice las restricciones de posición de los servicios en ejecución para que incluyan el nuevo tipo de nodo.  Gradualmente (de uno en uno), reduzca hasta cero el número de instancias de la instancia del tipo de nodo anterior para que no se vea afectada la confiabilidad del clúster.  Los servicios se migrarán gradualmente al nuevo tipo de nodo con la cancelación de las asignaciones del tipo de nodo anterior.
 
 ### <a name="scaling-the-primary-node-type"></a>Escalado del tipo de nodo principal
 Se recomienda que no cambie la SKU de las máquinas virtuales del tipo de nodo principal. Si necesita más capacidad en el clúster, se recomienda agregar más instancias. 

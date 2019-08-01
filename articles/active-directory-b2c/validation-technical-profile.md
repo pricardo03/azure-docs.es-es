@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511905"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
@@ -52,7 +52,7 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
-|ContinueOnError|No| Que indica si la validación de los perfiles técnicos de validación posterior debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
+|ContinueOnError|Sin| Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
 |ContinueOnSuccess | Sin | Indica si la validación de los perfiles de validación posteriores debe continuar si este perfil técnico de validación es correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
 
 El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:

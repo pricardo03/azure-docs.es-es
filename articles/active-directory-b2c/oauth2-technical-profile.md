@@ -1,6 +1,6 @@
 ---
-title: Definir un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
-description: Definir un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C.
+title: Definición de un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
+description: Defina un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,19 +11,19 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512947"
 ---
-# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OAuth2 de una directiva personalizada de Azure Active Directory B2C
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades de protocolo OAuth2. OAuth2 es el protocolo principal para la autorización y autenticación delegada. Para obtener más información, consulte el artículo [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) (RFC 6749 Plataforma de autorización de OAuth 2.0). Con un perfil técnico de OAuth2, puede federar con un proveedor de identidades basado en OAuth2, como Facebook. Federación con un proveedor de identidades permite a los usuarios iniciar sesión con sus actuales social o identidades de empresa.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades de protocolo OAuth2. OAuth2 es el protocolo principal para la autorización y la autenticación delegada. Para obtener más información, consulte el artículo [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) (RFC 6749 Plataforma de autorización de OAuth 2.0). Con un perfil técnico de OAuth2, puede realizar la federación con un proveedor de identidades basado en OAuth2, como Facebook. Esta federación permite a los usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `OAuth2`. Por ejemplo, el protocolo para el perfil técnico **Facebook-OAUTH** es `OAuth2`:
 
@@ -54,7 +54,7 @@ El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de id
 
 - La notificación **first_name** se asigna a la notificación **givenName**.
 - La notificación **last_name** se asigna a la notificación **surname**.
-- El **displayName** sin asignación de nombre de notificación.
+- La notificación **displayName** sin asignación de nombre.
 - La notificación **email** sin asignación de nombre.
 
 El perfil técnico también devuelve notificaciones, que no son devueltas por el proveedor de identidades: 
@@ -90,7 +90,7 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | ClaimsEndpointFormat | Sin | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | Sin | Nombre del proveedor de identidades. |
 | response_mode | Sin | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
-| scope | Sin | El ámbito de la solicitud que se define según la especificación de proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |
+| scope | Sin | El ámbito de la solicitud que se define según la especificación del proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |
 | HttpBinding | Sin | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | Sin | El nombre del parámetro que contiene el mensaje de error devuelto a través de HTTP 200 (OK). |
 | ExtraParamsInAccessTokenEndpointResponse | Sin | Contiene los parámetros adicionales que pueden devolverse en la respuesta de **AccessTokenEndpoint** por algunos proveedores de identidades. Por ejemplo, la respuesta de **AccessTokenEndpoint** contiene un parámetro adicional, como `openid`, que es un parámetro obligatorio además del elemento access_token en una cadena de consulta de solicitud **ClaimsEndpoint**. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |

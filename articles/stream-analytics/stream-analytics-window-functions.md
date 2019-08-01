@@ -2,24 +2,24 @@
 title: Introducción a las funciones de ventana de Azure Stream Analytics
 description: En este artículo se describen cuatro funciones de ventana (saltos de tamaño constante, salto, deslizante y sesión) que se usan en los trabajos de Azure Stream Analytics.
 services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: jseb225
+ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/11/2019
+ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066762"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
+
 En los escenarios de streaming en tiempo real, realizar operaciones en los datos contenidos en ventanas temporales es un patrón común. Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo.
 
-Hay cuatro tipos de ventanas temporales para elegir: ventanas de [**saltos de tamaño constante**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), de [**salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) y de [**sesión**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics.
+Hay cuatro tipos de ventanas temporales para elegir: ventanas de [**saltos de tamaño constante**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), de [**salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) y de [**sesión**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics. También puede agregar eventos a través de varias ventanas mediante la función [ **Windows()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Todas las operaciones de [ventana](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
 
@@ -51,6 +51,7 @@ Si se siguen produciendo eventos en el tiempo de espera especificado, la ventana
 
 Cuando se proporciona una clave de partición, los eventos se agrupan por clave, y la ventana de sesión se aplica independientemente a cada grupo. Esta creación de particiones es útil para los casos donde son necesarias distintas ventanas de sesión para distintos usuarios o dispositivos.
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -58,4 +59,3 @@ Cuando se proporciona una clave de partición, los eventos se agrupan por clave,
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->

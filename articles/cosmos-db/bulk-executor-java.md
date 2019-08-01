@@ -10,10 +10,10 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257208"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
@@ -118,7 +118,7 @@ El repositorio clonado contiene dos ejemplos "bulkimport" y "bulkupdate" relacio
    |int getNumberOfDocumentsImported()  |   El número total de documentos importados correctamente aparte de los documentos proporcionados a la llamada API de importación en bloque.      |
    |double getTotalRequestUnitsConsumed()   |  Total de unidades de solicitud (RU) consumidas por la llamada API de importación en bloque.       |
    |Duration getTotalTimeTaken()   |    El tiempo total que tarda la llamada API de importación en bloque en completar la ejecución.     |
-   |Lista\<excepción > getErrors() |  Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de importación en bloque no se pudieron insertar.       |
+   |List\<Exception> getErrors() |  Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de importación en bloque no se pudieron insertar.       |
    |List\<Object> getBadInputDocuments()  |    La lista de documentos con formato incorrecto no importados correctamente en la llamada API de importación en bloque. El usuario debe corregir los documentos devueltos y reintentar la importación. Los documentos con formato incorrecto incluyen documentos cuyo valor de identificador no es una cadena (null o cualquier otro tipo de datos se consideran no válidos).     |
 
 5. Una vez que la aplicación de importación en bloque está lista, compile la herramienta de línea de comandos desde el origen con el comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
@@ -182,7 +182,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    |int getNumberOfDocumentsUpdated()  |   El número total de documentos actualizados correctamente aparte de los documentos proporcionados a la llamada API de actualización en masa.      |
    |double getTotalRequestUnitsConsumed() |  Total de unidades de solicitud (RU) consumidas por la llamada API de actualización en masa.       |
    |Duration getTotalTimeTaken()  |   El tiempo total que tarda la llamada API de actualización en masa en completar la ejecución.      |
-   |Lista\<excepción > getErrors()   |    Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de actualización en masa no se pudieron insertar.      |
+   |List\<Exception> getErrors()   |    Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de actualización en masa no se pudieron insertar.      |
 
 3. Una vez que la aplicación de actualización masiva está lista, compile la herramienta de línea de comandos desde el origen con el comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
 

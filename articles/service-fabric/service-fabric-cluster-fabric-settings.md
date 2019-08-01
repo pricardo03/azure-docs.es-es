@@ -3,7 +3,7 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric | Micr
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
@@ -13,13 +13,13 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
-ms.author: aljo
-ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.author: atsenthi
+ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144389"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599885"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -75,6 +75,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|AllowCustomUpgradeSortPolicies | Bool, el valor predeterminado es false. |Dinámica|Indica si se permiten o no directivas de ordenación de actualización personalizadas. Se utiliza para realizar una actualización de dos fases mediante la habilitación de esta característica. Service Fabric 6.5 agrega compatibilidad para especificar la directiva de ordenación para dominios de actualización durante las actualizaciones del clúster o de la aplicación. Las directivas admitidas son Numeric, Lexicographical, ReverseNumeric y ReverseLexicographical. El valor predeterminado es Numeric. Para poder usar esta característica, la configuración del manifiesto del clúster ClusterManager/ AllowCustomUpgradeSortPolicies debe establecerse en True como segundo paso de la actualización de la configuración después de que se haya completado la actualización del código de SF 6.5. Es importante que esto se realice en dos fases; de lo contrario, la actualización del código puede resultar confusa con relación al orden de actualización durante la primera actualización.|
 |EnableDefaultServicesUpgrade | Bool, el valor predeterminado es false. |Dinámica|Habilita la actualización de servicios predeterminados durante la actualización de aplicaciones. Las descripciones de servicios predeterminados se deben sobrescribir después de la actualización. |
 |FabricUpgradeHealthCheckInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Se comprueba la frecuencia del estado de mantenimiento durante una actualización de Fabric supervisada. |
 |FabricUpgradeStatusPollInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|La frecuencia de sondeo del estado de Service Fabric. Este valor determina la frecuencia de actualización de cualquier llamada a GetFabricUpgradeProgress. |
@@ -92,10 +93,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MinReplicaSetSize |Int, el valor predeterminado es 3. |No permitida|MinReplicaSetSize para ClusterManager. |
 |PlacementConstraints | string, el valor predeterminado es "". |No permitida|PlacementConstraints para ClusterManager. |
 |QuorumLossWaitDuration |Tiempo en segundos, el valor predeterminado es MaxValue. |No permitida| Especifique el intervalo de tiempo en segundos. QuorumLossWaitDuration para ClusterManager. |
-|ReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es (60.0 * 30).|No permitida|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ClusterManager. |
+|ReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es (60.0 \* 30).|No permitida|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ClusterManager. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tiempo en segundos, el valor predeterminado es 1200. |Dinámica| Especifique el intervalo de tiempo en segundos. Si ReplicaSetCheckTimeout se establece en el valor máximo de DWORD, entonces se reemplaza por el valor de esta configuración de cara a la reversión. El valor usado para la puesta al día nunca se reemplaza. |
 |SkipRollbackUpdateDefaultService | Bool, el valor predeterminado es false. |Dinámica|El CM omitirá la reversión de los servicios predeterminados actualizados durante la reversión de la actualización de aplicaciones. |
-|StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es (3600.0 * 2).|No permitida|Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para ClusterManager. |
+|StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es (3600.0 \* 2).|No permitida|Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para ClusterManager. |
 |TargetReplicaSetSize |Int, el valor predeterminado es 7. |No permitida|TargetReplicaSetSize para ClusterManager. |
 |UpgradeHealthCheckInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Se comprueba la frecuencia del estado de mantenimiento durante las actualizaciones de una aplicación supervisada. |
 |UpgradeStatusPollInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|La frecuencia de sondeo del estado de actualización de la aplicación. Este valor determina la frecuencia de actualización de cualquier llamada a GetApplicationUpgradeProgress. |
@@ -119,7 +120,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|PropertyGroup|KeyDoubleValueMap, el valor predeterminado es None|Dinámica|Determina el número de nodos libres que se necesitan para considerar desfragmentado el clúster al especificar el porcentaje en rango [0.0 - 1.0] o el número de nodos vacíos como número >= 1.0 |
+|PropertyGroup|KeyDoubleValueMap, el valor predeterminado es None|Dinámica|Determina el número de nodos libres que se necesitan para considerar desfragmentado el clúster al especificar el porcentaje en rango [0.0 - 1.0] o el número de nodos vacíos como número >= 1.0. |
 
 ## <a name="diagnostics"></a>Diagnóstico
 
@@ -135,6 +136,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ConsumerInstances |Cadena | Dinámica |La lista de instancias de consumidor de DCA. |
 |DiskFullSafetySpaceInMB |Int, el valor predeterminado es 1024. | Dinámica |Espacio en disco restante en MB para proteger contra el uso por DCA. |
 |EnableCircularTraceSession |Bool, el valor predeterminado es false. | estática |La marca indica si se deben usar sesiones de seguimiento circulares. |
+|EnablePlatformEventsFileSink |Bool, el valor predeterminado es false. | estática |Habilita o deshabilita eventos de la plataforma que se escriben en el disco. |
 |EnableTelemetry |Bool, el valor predeterminado es true. | Dinámica |Indica si se habilitará o deshabilitará la telemetría. |
 |FailuresOnlyHttpTelemetry | Bool, el valor predeterminado es true. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo las solicitudes con errores, así el número de eventos generados para la telemetría será menor. |
 |HttpTelemetryCapturePercentage | int, el valor predeterminado es 50. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo un porcentaje de solicitudes aleatorio, así el número de eventos generados para la telemetría será menor. |
@@ -214,25 +216,26 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|AllowNodeStateRemovedForSeedNode|Bool, el valor predeterminado es FALSE |Dinámica|Marca para indicar si se permite quitar el estado del nodo de un nodo raíz. |
 |BuildReplicaTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para crear una réplica con estado. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
 |ClusterPauseThreshold|int, el valor predeterminado es 1|Dinámica|Si el número de nodos del sistema está por debajo de este valor, la ubicación, el equilibrio de carga y la conmutación por error se detendrán. |
 |CreateInstanceTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para crear una instancia sin estado. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
 |ExpectedClusterSize|int, el valor predeterminado es 1|Dinámica|Cuando el clúster se inicie por primera vez, el FM esperará a que estos nodos informen de su estado para empezar a colocar otros servicios, incluidos los servicios del sistema, como la nomenclatura. Al aumentar este valor, también aumenta el tiempo que tarda un clúster en iniciarse; pero se impide que los nodos anticipados se sobrecarguen, así como los movimientos adicionales necesarios a medida que haya más nodos conectados. Generalmente, este valor debe establecerse en una pequeña fracción del tamaño inicial del clúster. |
-|ExpectedNodeDeactivationDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 30)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarde un nodo en completar la desactivación. |
-|ExpectedNodeFabricUpgradeDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 30)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarde un nodo en actualizarse durante la actualización de Windows Fabric. |
-|ExpectedReplicaUpgradeDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 30)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarden todas las réplicas en actualizarse en un nodo durante la actualización de la aplicación. |
+|ExpectedNodeDeactivationDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 \* 30).|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarde un nodo en completar la desactivación. |
+|ExpectedNodeFabricUpgradeDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 \* 30).|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarde un nodo en actualizarse durante la actualización de Windows Fabric. |
+|ExpectedReplicaUpgradeDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 \* 30).|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarden todas las réplicas en actualizarse en un nodo durante la actualización de la aplicación. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, el valor predeterminado es TRUE|Dinámica|Si se establece en true, se permitirá mover las réplicas con un tamaño de conjunto de réplicas de destino de 1 durante la actualización. |
 |MinReplicaSetSize|int, el valor predeterminado es 3|No permitida|Este es el tamaño del conjunto de réplicas mínimo para FM. Si el número de réplicas activas de FM cae por debajo de este valor, el FM rechazará los cambios en el clúster hasta que se recupere al menos el número mínimo de réplicas. |
 |PlacementConstraints|string, el valor predeterminado es "".|No permitida|Cualquier restricción de ubicación para las réplicas del Administrador de conmutación por error. |
 |PlacementTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(600)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para alcanzar el número de réplicas de destino. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
 |QuorumLossWaitDuration |Tiempo en segundos, el valor predeterminado es MaxValue. |Dinámica|Especifique el intervalo de tiempo en segundos. Es la duración máxima que se permite que una partición esté en estado de pérdida de cuórum. Si después de esta duración la partición sigue en pérdida de cuórum, se recupera de dicha pérdida considerando perdidas las réplicas inactivas. Tenga en cuenta que esto puede provocar una pérdida de datos. |
 |ReconfigurationTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para volver a configurar. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
-|ReplicaRestartWaitDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 30)|No permitida|Especifique el intervalo de tiempo en segundos. Valor de ReplicaRestartWaitDuration para FMService. |
-|StandByReplicaKeepDuration|Timespan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|No permitida|Especifique el intervalo de tiempo en segundos. Valor StandByReplicaKeepDuration para FMService. |
+|ReplicaRestartWaitDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 \* 30).|No permitida|Especifique el intervalo de tiempo en segundos. Valor de ReplicaRestartWaitDuration para FMService. |
+|StandByReplicaKeepDuration|Timespan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600.0 \* 24 \* 7).|No permitida|Especifique el intervalo de tiempo en segundos. Valor StandByReplicaKeepDuration para FMService. |
 |TargetReplicaSetSize|int, el valor predeterminado es 7|No permitida|Este es el número de réplicas de FM de destino que mantendrá Windows Fabric. Un número mayor da como resultado una mayor confiabilidad de los datos de FM, pero un menor equilibrio de rendimiento. |
 |UserMaxStandByReplicaCount |Int, el valor predeterminado es 1. |Dinámica|El número máximo predeterminado de réplicas en espera que mantiene el sistema para los servicios de usuario. |
-|UserReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es 60.0 * 30. |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente deja de funcionar, Windows Fabric espera esta cantidad de tiempo a que la réplica vuelva antes de crear nuevas réplicas de reemplazo (lo que requeriría una copia del estado). |
-|UserStandByReplicaKeepDuration |Tiempo en segundos, el valor predeterminado es 3600,0 * 24 * 7 |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente vuelve de un estado inactivo, puede que ya se haya reemplazado. Este temporizador determina cuánto tiempo el FM mantendrá la réplica en espera antes de descartarla. |
+|UserReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es 60.0 \* 30. |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente deja de funcionar, Windows Fabric espera esta cantidad de tiempo a que la réplica vuelva antes de crear nuevas réplicas de reemplazo (lo que requeriría una copia del estado). |
+|UserStandByReplicaKeepDuration |Tiempo en segundos, el valor predeterminado es 3600.0 \* 24 \* 7. |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente vuelve de un estado inactivo, puede que ya se haya reemplazado. Este temporizador determina cuánto tiempo el FM mantendrá la réplica en espera antes de descartarla. |
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -271,6 +274,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CommonName2Ntlmx509StoreLocation|string, el valor predeterminado es "LocalMachine".| estática|Ubicación del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
 |CommonName2Ntlmx509StoreName|string, el valor predeterminado es "MY".|estática| Nombre del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
 |CommonNameNtlmPasswordSecret|SecureString, el valor predeterminado es Common::SecureString("").| estática|Secreto de contraseña que se usa como valor de inicialización para generar la misma contraseña cuando se usa la autenticación NTLM. |
+|DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(5)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo entre la comprobación de espacio en disco para notificar eventos de estado cuando el disco está casi sin espacio. |
+|DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(15)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo entre la comprobación de espacio en disco para notificar eventos de estado cuando hay suficiente espacio en disco. |
+|EnableImageStoreHealthReporting |bool, el valor predeterminado es TRUE |estática|Configuración para determinar si el servicio de almacenamiento de archivos debe notificar su estado. |
+|FreeDiskSpaceNotificationSizeInKB|int64, el valor predeterminado es 25\*1024. |Dinámica|Tamaño del espacio libre en disco por debajo del cual se puede producir la advertencia de estado. El valor mínimo de esta configuración y de la configuración de FreeDiskSpaceNotificationThresholdPercentage se usa para determinar el envío de la advertencia de estado. |
+|FreeDiskSpaceNotificationThresholdPercentage|double, el valor predeterminado es 0.02. |Dinámica|Porcentaje de espacio libre en disco por debajo del cual se puede producir la advertencia de estado. El valor mínimo de esta configuración y de la configuración de FreeDiskSpaceNotificationInMB se usa para determinar el envío de la advertencia de estado. |
 |GenerateV1CommonNameAccount| bool, el valor predeterminado es TRUE|estática|Especifica si generar una cuenta con el algoritmo de generación de nombre de usuario V1. A partir de la versión 6.1 de Service Fabric, siempre se crea una cuenta con la generación V2. La cuenta V1 es necesaria para las actualizaciones desde y hacia las versiones que no admiten la generación V2 (anteriores a 6.1).|
 |MaxCopyOperationThreads | Uint, el valor predeterminado es 0. |Dinámica| El número máximo de archivos paralelos que el replicador secundario puede copiar del principal. "0" == número de núcleos. |
 |MaxFileOperationThreads | Uint, el valor predeterminado es 100. |estática| El número máximo de subprocesos paralelos que pueden realizar operaciones de archivos (copiar o mover) en el replicador principal. "0" == número de núcleos. |
@@ -327,7 +335,6 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ActivationRetryBackoffInterval |Tiempo en segundos, el valor predeterminado es 5. |Dinámica|Intervalo de retroceso en cada error de activación; con cada error de activación continuo, el sistema vuelve a intentar la activación hasta el valor de MaxActivationFailureCount. El intervalo de reintento en cada intento es un producto del error de activación continua y el intervalo de retroceso de activación. |
 |ActivationTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(180)|Dinámica| Especifique el intervalo de tiempo en segundos. El tiempo de espera para la activación, desactivación y actualización de la aplicación. |
 |ApplicationHostCloseTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Cuando se detecta el cierre de Fabric en procesos autoactivados, FabricRuntime cierra todas las réplicas en el proceso de host (applicationhost) del usuario. Se trata del tiempo de espera para la operación de cierre. |
-|ApplicationUpgradeTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(360)|Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo de espera de la actualización de la aplicación. Si el tiempo de espera es menor que el tiempo de "ActivationTimeout", se producirá un error en el implementador. |
 |ContainerServiceArguments|string, el valor predeterminado es "-H localhost:2375 -H npipe://".|estática|Service Fabric (SF) administra el demonio de Docker (excepto en las máquinas de cliente Windows como Win10). Esta configuración permite al usuario especificar argumentos personalizados que deben pasarse al demonio de Docker al iniciarlo. Cuando se especifican argumentos personalizados, Service Fabric no pasa ningún otro argumento al motor de Docker excepto el argumento "--pidfile". Por lo tanto, los usuarios no deben especificar el argumento "--pidfile" como parte de sus argumentos personalizados. Además, los argumentos personalizados deberán asegurarse de que el demonio de Docker escuche en la canalización de nombres predeterminada en Windows (o en el socket de dominio Unix en Linux) para que Service Fabric pueda comunicarse con él.|
 |ContainerServiceLogFileMaxSizeInKb|int, el valor predeterminado es 32768|estática|Tamaño máximo del archivo de registro generado por los contenedores de Docker.  Solo Windows.|
 |ContainerImageDownloadTimeout|int, número de segundos, el valor predeterminado es 1200 (20 minutos)|Dinámica|Número de segundos antes de que expire el tiempo de espera de descarga de la imagen.|
@@ -387,8 +394,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MinReplicaSetSize | Int, el valor predeterminado es 3. |estática|MinReplicaSetSize para ImageStoreService. |
 |PlacementConstraints | string, el valor predeterminado es "". |estática| PlacementConstraints para ImageStoreService. |
 |QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. |estática| Especifique el intervalo de tiempo en segundos. QuorumLossWaitDuration para ImageStoreService. |
-|ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es 60.0 * 30. |estática|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ImageStoreService. |
-|StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 3600.0 * 2. |estática| Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para ImageStoreService. |
+|ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es 60.0 \* 30. |estática|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ImageStoreService. |
+|StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 3600.0 \* 2. |estática| Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para ImageStoreService. |
 |TargetReplicaSetSize | Int, el valor predeterminado es 7. |estática|TargetReplicaSetSize para ImageStoreService. |
 
 ## <a name="ktllogger"></a>KtlLogger
@@ -431,6 +438,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, el valor predeterminado es None|Dinámica|Determina el conjunto de MetricBalancingThresholds para las métricas del clúster. El equilibrio funcionará si maxNodeLoad/minNodeLoad es mayor que MetricBalancingThresholds. La desfragmentación funcionará si maxNodeLoad/minNodeLoad en al menos un FD o UD es menor que MetricBalancingThresholds. |
+
+## <a name="metricloadstickinessforswap"></a>MetricLoadStickinessForSwap
+| **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyDoubleValueMap, el valor predeterminado es None|Dinámica|Determina la parte de la carga que se adhiere a la réplica cuando se intercambia. Toma el valor entre 0 (la carga no se adhiere a la réplica) y 1 (la carga se adhiere a la réplica: valor predeterminado). |
 
 ## <a name="namingservice"></a>NamingService
 
@@ -514,6 +526,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DetailedNodeListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de nodos por restricción que se incluirán antes del truncamiento en los informes de réplicas sin colocar. |
 |DetailedPartitionListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de particiones por entrada de diagnóstico que se incluirán para una restricción antes del truncamiento en Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, el valor predeterminado es 200. | Dinámica|Define el número de veces que una réplica sin colocar tiene que estar sin colocar de forma persistente antes de que se emitan informes de mantenimiento detallados. |
+|EnforceUserServiceMetricCapacities|bool, el valor predeterminado es FALSE | estática |Habilita la protección de servicios de tejido. Todos los servicios de usuario están bajo un grupo u objeto de trabajo y se limitan a la cantidad especificada de recursos. Debe ser estático (requiere el reinicio de FabricHost), ya que la creación o eliminación de objetos de trabajo del usuario y el establecimiento de límites ser realiza en el momento de la apertura de FabricHost. |
 |FaultDomainConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción del dominio de error: 0: máxima; 1: mínima; negativo: omitir |
 |GlobalMovementThrottleCountingInterval | Tiempo en segundos, el valor predeterminado es 600. |estática| Especifique el intervalo de tiempo en segundos. Indique la longitud del intervalo pasado para rastrear movimientos de réplicas por dominio (se usa en combinación con GlobalMovementThrottleThreshold). Puede establecerse en 0 para omitir por completo la limitación global. |
 |GlobalMovementThrottleThreshold | Uint, el valor predeterminado es 1000. |Dinámica| Número máximo de movimientos permitidos en la fase de equilibrio en el intervalo pasado indicado por GlobalMovementThrottleCountingInterval. |
@@ -550,6 +563,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |UseMoveCostReports | Bool, el valor predeterminado es false. | Dinámica|Indica a LB que ignore el elemento de coste de la función de puntuación. Esto da lugar a un número posiblemente grande de movimientos para una ubicación mejor equilibrada. |
 |UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se deben usar cargas secundarias diferentes. |
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
+|ValidatePrimaryPlacementConstraintOnPromote| Bool, el valor predeterminado es TRUE. |Dinámica|Especifica si la expresión PlacementConstraint de un servicio se evalúa o no para la preferencia principal en la conmutación por error. |
 |VerboseHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces que una réplica tiene que ir sin colocar antes de que se notifique una advertencia de mantenimiento para ella (si está habilitado el informe de mantenimiento detallado). |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
@@ -699,6 +713,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |GetClusterConfiguration | string, el valor predeterminado es "Admin\|\|User" | Dinámica|Produce GetClusterConfiguration en una partición. |
 |GetClusterConfigurationUpgradeStatus | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Produce GetClusterConfigurationUpgradeStatus en una partición. |
 |GetFabricUpgradeStatus |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización del clúster. |
+|GetFolderSize |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para obtener el tamaño de la carpeta de FileStoreService. |
 |GetNodeDeactivationStatus |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para comprobar el estado de desactivación. |
 |GetNodeTransitionProgress | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para obtener el progreso en un comando de transición de nodo. |
 |GetPartitionDataLossProgress | string, el valor predeterminado es "Admin\|\|User" | Dinámica|Captura el progreso de una llamada de API para invocar la pérdida de datos. |
@@ -715,7 +730,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |InvokeContainerApi|string, el valor predeterminado es "Admin".|Dinámica|API de invocación de contenedores |
 |InvokeInfrastructureCommand |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para comandos de administración de tareas de infraestructura. |
 |InvokeInfrastructureQuery |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para consultar tareas de infraestructura. |
-|Enumerar |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
+|List |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
 |MoveNextFabricUpgradeDomain |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para reanudar actualizaciones del clúster con un dominio de actualización explícito. |
 |MoveNextUpgradeDomain |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para reanudar actualizaciones de aplicaciones con un dominio de actualización explícito. |
 |MoveReplicaControl |string, el valor predeterminado es "Admin". | Dinámica|Mueva la réplica. |
@@ -883,6 +898,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |X509SecondaryFindValue | string, el valor predeterminado es "". |Dinámica| X509SecondaryFindValue para UpgradeService. |
 |X509StoreLocation | string, el valor predeterminado es "". |Dinámica| X509StoreLocation para UpgradeService. |
 |X509StoreName | string, el valor predeterminado es "My".|Dinámica|X509StoreName para UpgradeService. |
+
+## <a name="userservicemetriccapacities"></a>UserServiceMetricCapacities
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|PropertyGroup| UserServiceMetricCapacitiesMap, el valor predeterminado es None. | estática | Colección de límites de regulación de recursos de servicios del usuario. Debe ser estática, ya que afecta a la lógica de detección automática. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md) y sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).

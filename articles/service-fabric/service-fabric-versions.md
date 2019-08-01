@@ -1,6 +1,6 @@
 ---
-title: Admite las versiones de clúster en Azure Service Fabric | Microsoft Docs
-description: Obtenga información sobre las versiones de clúster en Azure Service Fabric.
+title: Versiones de clúster admitidas en Azure Service Fabric | Microsoft Docs
+description: Información sobre las versiones de clúster de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,31 +12,31 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 606b14fba093b6ec8039c646a49bc3bf7d24eb51
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: 8a548bce6da8b3bae004b0be4f6e8f09c9894025
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060349"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
-Asegúrese de que el clúster siempre ejecuta una versión compatible de Azure Service Fabric. Finaliza un mínimo de 60 días después de que anunciamos el lanzamiento de una nueva versión de Service Fabric, compatibilidad con la versión anterior. Encontrará los anuncios de nuevas versiones en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Asegúrese de que el clúster siempre ejecute una versión admitida de Azure Service Fabric. El soporte técnico para la versión anterior de Service Fabric finaliza al menos 60 días después del lanzamiento de la nueva versión. Las versiones nuevas se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
-Consulte los siguientes documentos para obtener más información sobre cómo mantener el clúster que ejecuta una versión compatible de Service Fabric:
+Consulte los documentos siguientes para ver detalles sobre cómo hacer que el clúster ejecute una versión compatible de Service Fabric:
 
 - [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md)
-- [Actualizar la versión de Service Fabric que se ejecuta en el clúster de Windows Server independiente](service-fabric-cluster-upgrade-windows-server.md)
+- [Actualización de la versión de Service Fabric que se ejecuta en el clúster](service-fabric-cluster-upgrade-windows-server.md)
 
 ## <a name="supported-versions"></a>Versiones compatibles
 
-En la tabla siguiente se enumera las versiones de Service Fabric y sus fechas de finalización del soporte técnico.
+En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de finalización de soporte.
 
-| En tiempo de ejecución de Service Fabric del clúster | Puede actualizar directamente desde la versión del clúster |Versión compatible del paquete SDK o NuGet | Finalización del soporte técnico |
+| Entorno de tiempo de ejecución de Service Fabric en el clúster | Se puede actualizar directamente desde la versión del clúster |Versiones del SDK o paquete de NuGet compatibles | Finalización del soporte técnico |
 | --- | --- |--- | --- |
-| Todas las versiones de clúster anteriores a 5.3.121 | 5.1.158.* |Versión 2.3 o anterior |20 de enero de 2017 |
+| Todas las versiones de clústeres anteriores a 5.3.121 | 5.1.158.* |Versión 2.3 o anterior |20 de enero de 2017 |
 | 5.3* | 5.1.158.* |Versión 2.3 o anterior |24 de febrero de 2017 |
 | 5.4.* | 5.1.158.* |Versión 2.4 o anterior |10 de mayo de 2017       |
 | 5.5.* | 5.4.164.* |Versión 2.5 o anterior |10 de agosto de 2017    |
@@ -46,27 +46,28 @@ En la tabla siguiente se enumera las versiones de Service Fabric y sus fechas de
 | 6.1.* | 5.7.221.* |Versión 3.0 o anterior |15 de julio de 2018      |
 | 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018   |
 | 6.3.* | 6.1.480.* |Versión 3.2 o anterior |31 de marzo de 2019  |
-| 6.4.* | 6.2.301.* |Versión 3.3 o anterior |La versión actual, por lo tanto, sin fecha de finalización |
+| 6.4.* | 6.2.301.* |Versión 3.3 o anterior |15 de septiembre de 2019 |
+| 6.5.* | 6.4.617.* |Versión 3.4 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
-En la tabla siguiente se enumera los sistemas operativos compatibles para las versiones compatibles de Service Fabric.
+En la tabla siguiente se indican los sistemas operativos compatibles para las versiones de Service Fabric admitidas.
 
-| Sistema operativo | Primera versión compatible de Service Fabric |
+| Sistema operativo | Versión más antigua admitida de Service Fabric |
 | --- | --- |
 | Windows Server 2012 R2 | Todas las versiones |
 | Windows Server 2016 | Todas las versiones |
 | Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 1803 | 6.4. |
+| Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
-## <a name="supported-version-names"></a>Nombres de la versión compatible
+## <a name="supported-version-names"></a>Nombres de versiones admitidas
 
-En la tabla siguiente se enumera los nombres de versión de Service Fabric y sus números de versión correspondientes.
+En la tabla siguiente se indican los nombres de versión de Service Fabric y sus números de versión correspondientes.
 
-| Nombre de la versión | Número de versión de Windows | Número de versión de Linux |
+| Nombre de versión | Número de versión de Windows | Número de versión de Linux |
 | --- | --- | --- |
 | 5.3 RTO | 5.3.121.9494 | N/D |
 | 5.3 CU1 | 5.3.204.9494 | N/D |
@@ -103,3 +104,4 @@ En la tabla siguiente se enumera los nombres de versión de Service Fabric y sus
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | N/D |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |

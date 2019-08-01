@@ -2,20 +2,21 @@
 title: Configuración del método de enrutamiento de tráfico geográfico con Azure Traffic Manager
 description: En este artículo se explica cómo configurar el método de enrutamiento de tráfico geográfico con Azure Traffic Manager
 services: traffic-manager
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: 47cc56aac7d3e0147ef8577aac19776c6cacf7a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: bd01849e33d4c061b25c27a5391701876861b76b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051064"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 
@@ -26,7 +27,7 @@ El método de enrutamiento de tráfico geográfico le permite dirigir el tráfic
 1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/).
 2. Haga clic en **Crear un recurso** > **Redes** > **Perfil del Traffic Manager** > **Crear**.
 4. En **Crear perfil de Traffic Manager**:
-    1. Proporcione un nombre para el perfil. Este nombre debe ser único dentro de la zona trafficmanager.net. Para obtener acceso a su perfil de Traffic Manager, utiliza el nombre DNS `<profilename>.trafficmanager.net`.
+    1. Proporcione un nombre para el perfil. Este nombre debe ser único dentro de la zona trafficmanager.net. Para acceder a su perfil de Traffic Manager, use el nombre DNS `<profilename>.trafficmanager.net`.
     2. Seleccione el método de enrutamiento **geográfico**.
     3. Seleccione la suscripción en la que desea crear este perfil.
     4. Use un grupo de recursos existente o cree un grupo de recursos nuevo en el cual colocar este perfil. Si decide crear un nuevo grupo de recursos, use la lista desplegable **Ubicación del grupo de recursos** para especificar la ubicación del grupo de recursos. Esta configuración hace referencia a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.

@@ -1,6 +1,6 @@
 ---
 title: Ingesta de datos de Logstash en Azure Data Explorer
-description: En este artículo, obtendrá información sobre cómo introducir (cargar) datos en el Explorador de datos de Azure desde Logstash
+description: En este artículo obtendrá información sobre cómo ingerir (cargar) datos en Azure Data Explorer desde Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66494538"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Ingesta de datos de Logstash en Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) es una canalización de procesamiento de datos del servidor de código abierto que ingiere datos de varios orígenes al mismo tiempo, los transforma y, después, los envía a su "lugar de almacenamiento provisional" preferido. En este artículo, enviaremos esos datos al explorador de datos de Azure, que es un servicio de exploración de datos rápida y muy escalable para los datos de telemetría y registros. Inicialmente creará una tabla y una asignación de datos en un clúster de prueba y, después, hará que Logstash envíe los datos a la tabla y valide los resultados.
+[Logstash](https://www.elastic.co/products/logstash) es una canalización de procesamiento de datos del servidor de código abierto que ingiere datos de varios orígenes al mismo tiempo, los transforma y, después, los envía a su "lugar de almacenamiento provisional" preferido. En este artículo, enviará dichos datos a Azure Data Explorer, que es un servicio de exploración de datos rápido y muy escalable para datos de telemetría y registro. Inicialmente creará una tabla y una asignación de datos en un clúster de prueba y, después, hará que Logstash envíe los datos a la tabla y valide los resultados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

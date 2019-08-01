@@ -7,21 +7,21 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5db2a1eebd5b2184ceff8793cb51f4e95b9dea38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067587"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Inicio rápido: Conversión de texto a voz con .NET Core
 
 En este tutorial, obtendrá información sobre cómo convertir texto a voz con .NET Core y la API REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md), que permite elegir la voz y el idioma de la respuesta.
 
-Esta guía, se requiere un [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
+En este inicio rápido se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Esta guía de inicio rápido requiere C# 7.1 o posterior. Hay algunas maneras de
 
 Abra el proyecto y, después, abra `tts-sample.csproj`. Asegúrese de que `LangVersion` está establecido en 7.1 o posterior. Si no hay un grupo de propiedades para la versión del lenguaje, añada estas líneas:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Creación de una clase para el intercambio de tokens
 
-La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia su clave de suscripción de servicios de voz para obtener un token de acceso usa el `issueToken` punto de conexión.
+La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de Servicios de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
 
-En este ejemplo se da por supuesto que la suscripción de servicios de voz está en la región Oeste de Estados Unidos. Si usa una región diferente, actualice el valor de `FetchTokenUri`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+En este ejemplo se da por supuesto que su suscripción de Servicios de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `FetchTokenUri`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -234,7 +234,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 > [!div class="nextstepaction"]
 > [Exploración de ejemplos de .NET en GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Crear fuentes de voz personalizada](how-to-customize-voice-font.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
 ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387191"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
@@ -26,7 +26,7 @@ Haga lo siguiente para configurar un servidor de Grafana y confeccionar paneles 
 ## <a name="set-up-a-grafana-server"></a>Configuración de un servidor de Grafana
 
 ### <a name="set-up-grafana-locally"></a>Configuración de Grafana localmente
-Para configurar un servidor local de Grafana, [descargue e instale Grafana en su entorno local](https://grafana.com/grafana/download). Para usar la integración de Azure Monitor del complemento, instale Grafana versión 5.3 o posterior.
+Para configurar un servidor local de Grafana, [descargue e instale Grafana en su entorno local](https://grafana.com/grafana/download). Para usar la integración de Azure Monitor del complemento, instale Grafana versión 5.3 o posterior.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configuración de Grafana en Azure a través de Azure Marketplace
 1. Vaya a Azure Marketplace y seleccione Grafana de Grafana Labs.
@@ -47,7 +47,7 @@ Para configurar un servidor local de Grafana, [descargue e instale Grafana en su
 
 7. Obtenga la dirección IP pública del servidor de Grafana; vuelva a la lista de recursos y seleccione **Dirección IP pública**.
 
-## <a name="sign-in-to-grafana"></a>Inicie sesión en Grafana
+## <a name="sign-in-to-grafana"></a>Inicio de sesión en Grafana
 
 1. Con la dirección IP del servidor, abra la página de inicio de sesión en *http://\<dirección IP\>:3000* o *\<DNSName>\:3000* en el explorador. Aunque 3000 es el puerto predeterminado, tenga en cuenta que es posible que haya seleccionado un puerto diferente durante la instalación. Debería aparecer una página de inicio de sesión del servidor de Grafana que creó.
 
@@ -71,7 +71,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
     La API de Log Analytics requiere el [rol Lector de Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que incluye los permisos del rol Lector y se agrega a él.
 
 4. Proporcione los detalles de conexión a las API que le gustaría usar. Puede conectarse a todas o a algunas de ellas. 
-    * Si se conecta a las métricas y registros en Azure Monitor, puede reutilizar las mismas credenciales seleccionando **mismos detalles como la API de Azure Monitor**.
+    * Si se conecta tanto a las métricas como a los registros de Azure Monitor, puede volver a usar las mismas credenciales; para ello, seleccione **Same details as Azure Monitor API** (Mismos detalles que la API de Azure Monitor).
     * Al configurar el complemento, puede indicar qué nube de Azure (pública, Azure Gobierno de EE. UU., Azure Alemania o Azure China) quiere que supervise el complemento.
     * Si usa Application Insights, también puede incluir la API de Application Insights y el identificador de la aplicación para recopilar métricas basadas en Application Insights. Para más información, vea [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Obtener la clave de API y el identificador de aplicación).
 
@@ -98,7 +98,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
 4. Seleccione el origen de datos de Azure Monitor que ha configurado.
    * Recopilación de métricas de Azure Monitor: seleccione **Azure Monitor** en la lista desplegable de servicio. Aparece una lista de selectores, donde puede seleccionar los recursos y las métricas que quiere supervisar en este gráfico. Para recopilar métricas de una VM, use el espacio de nombres **Microsoft.Compute/VirtualMachines**. Cuando haya seleccionado las VM y las métricas, puede empezar a ver los datos en el panel.
      ![Configuración del gráfico de Grafana para Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Azure Monitor de recopilar datos de registro: seleccione **Azure Log Analytics** en la lista desplegable de servicio. Seleccione el área de trabajo que le gustaría consultar y establezca el texto de consulta. Puede copiar aquí cualquier consulta de registro ya tiene o crear uno nuevo. A medida que escribe la consulta, aparecerá IntelliSense y sugerirá las opciones de Autocompletar. Seleccione el tipo de visualización, **Serie temporal** **Tabla**, y ejecute la consulta.
+   * Recopilación de datos de registro de Azure Monitor: seleccione **Azure Log Analytics** en la lista desplegable de servicio. Seleccione el área de trabajo que le gustaría consultar y establezca el texto de consulta. Puede copiar aquí cualquier consulta de registro que ya tenga o puede crear una. A medida que escribe la consulta, aparecerá IntelliSense y sugerirá las opciones de Autocompletar. Seleccione el tipo de visualización, **Serie temporal** **Tabla**, y ejecute la consulta.
     
      > [!NOTE]
      >

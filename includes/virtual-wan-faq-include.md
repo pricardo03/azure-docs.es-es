@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9cad403e39239ea92aa432ef3234c5388bfa95c7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673509"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444570"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
-Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. ExpressRoute y la funcionalidad de conectividad de punto a sitio están actualmente en versión preliminar. Los dispositivos de la rama CPE realizan un aprovisionamiento automático y se conectan en Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN. Consulte la [lista de asociados preferidos](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. ExpressRoute para la conectividad de Virtual WAN está actualmente en versión preliminar. Los dispositivos de la rama CPE realizan un aprovisionamiento automático y se conectan en Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN. Consulte la [lista de asociados preferidos](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>¿Qué es una conexión de rama a Azure Virtual WAN?
 
@@ -101,7 +101,7 @@ Se puede crear una configuración simple de una instancia de Virtual WAN con un 
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>¿Se permite la conectividad de rama a rama en Virtual WAN?
 
-Sí, este tipo de conectividad está disponible en Virtual WAN para conexiones VPN y VPN a ExpressRoute. Aunque las de VPN de sitio a sitio están disponibles, las de ExpressRoute o de punto a sitio están actualmente en versión preliminar.
+Sí, este tipo de conectividad está disponible en Virtual WAN para conexiones VPN y VPN a ExpressRoute. Mientras que VPN de sitio a sitio está disponible con carácter general, ExpressRoute se encuentra actualmente en versión preliminar.
 
 ### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>¿Atraviesa el tráfico de rama a rama Azure Virtual WAN?
 
@@ -121,7 +121,7 @@ No. Usa la conectividad de sitio a sitio IPsec estándar a través de vínculos 
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento de la red al utilizar Azure Virtual WAN?
 
-El número de ramas se limita a 1000 conexiones por cada región o concentrador y a un total de 2 GB en el concentrador. La excepción es la región Centro-oeste de EE. UU., que dispone de un total de 20 Gbps. Ampliaremos los 20 Gbps a más regiones próximamente.
+El número de ramas se limita a 1000 conexiones por cada región o concentrador y a un total de 20 Gbps en el concentrador.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>¿Cuántas conexiones VPN admite un concentrador de Virtual WAN?
 

@@ -1,21 +1,21 @@
 ---
-title: Configuración y acceso a los registros de servidor de Azure Database for MariaDB en Azure Portal
+title: Configuración de los registros de servidor y acceso a ellos en Azure Database for MariaDB en Azure Portal
 description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for MariaDB, y acceder a ellos, mediante Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040692"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065636"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
-Los [registros de servidor de Azure Database for MariaDB](concepts-server-logs.md) se pueden configurar, enumerar y descargar desde Azure Portal.
+Se pueden configurar, enumerar y descargar [registros de consulta lentos de Azure Database for MariaDB](concepts-server-logs.md) desde Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
@@ -42,7 +42,7 @@ Configure el acceso al registro de consultas lentas.
 6. Para volver a la lista de registros, haga clic en el **botón Cerrar** (icono de X) de la página **Parámetros de servidor**.
 
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
-Una vez que comience el registro, puede ver una lista de registros disponibles y descargar archivos de registro individuales en el panel Registros de servidor. 
+Una vez que comience el registro, puede ver una lista de registros de consultas lentas disponibles y descargar archivos de registro individuales en el panel Registros de servidor. 
 
 1. Abra Azure Portal.
 
@@ -62,7 +62,7 @@ Una vez que comience el registro, puede ver una lista de registros disponibles y
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre los [registros del servidor](concepts-server-logs.md) en Azure Database for MariaDB.
+- Más información sobre los [registros de consultas lentas](concepts-server-logs.md) en Azure Database for MariaDB.
 - Para obtener más información sobre las definiciones de parámetros y el registro, consulte la documentación de MariaDB sobre [registros](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

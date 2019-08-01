@@ -6,15 +6,15 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550050"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297735"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de streaming en vivo recomendados
 
@@ -24,7 +24,7 @@ En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/
 
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
-
+ 
 * Un codificador en directo local envía una secuencia de velocidad de bits única al Evento en directo que está habilitado para realizar la codificación en vivo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Después, el Evento en directo codifica en vivo la secuencia entrante de velocidad de bits única en una secuencia de vídeo de velocidad de bits múltiple (adaptable).
 
 Para obtener información detallada sobre la codificación en vivo con Media Services, vea [Streaming en vivo con Azure Media Services v3](live-streaming-overview.md).
@@ -61,7 +61,7 @@ Media Services recomienda usar uno de los codificadores en directo siguientes qu
 - Media Excel Hero Live y Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  Si está realizando streaming de eventos en directo en varios idiomas (por ejemplo, una pista de audio inglés y una pista de audio español), puede hacerlo con el codificador en directo de Media Excel configurado para enviar la fuente directa a un evento en directo paso a través.
+>  Si está transmitiendo eventos en directo en varios idiomas (por ejemplo, una pista de audio en inglés y una en español), puede hacerlo con el codificador en directo de elementos multimedia de Excel configurado para enviar la fuente en directo a un evento en directo de paso a través.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuración de los valores del codificador en directo local
 
@@ -97,7 +97,7 @@ Como asociado de codificador local de Azure Media Services, Media Services promu
 10. Combine la dirección URL del paso 8 con el nombre de host del paso 9 para obtener la dirección URL completa.
 11. Ejecute el codificador en directo durante aproximadamente diez minutos.
 12. Detenga el objeto LiveEvent. 
-13. Use un reproductor, como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), para ver el recurso archivado y asegurarse de que la reproducción no tenga problemas visibles. También, puede ver el recurso y validarlo utilizando la dirección URL de vista previa durante la sesión activa.
+13. Use un reproductor, como [Azure Media Player](https://aka.ms/azuremediaplayer), para ver el recurso archivado y asegurarse de que la reproducción no tenga problemas visibles. También, puede ver el recurso y validarlo utilizando la dirección URL de vista previa durante la sesión activa.
 14. Registre el identificador del recurso, la dirección URL de streaming publicada en el archivo dinámico y la configuración y la versión que utilizó en el codificador en directo.
 15. Restablezca el estado del Evento en directo después de crear cada ejemplo.
 16. Repita los pasos 5 a 15 con todas las configuraciones admitidas por el codificador (con y sin señalización, subtítulos o velocidades de codificación diferentes).
@@ -116,18 +116,18 @@ Como asociado de codificador local de Azure Media Services, Media Services promu
 10. Combine la dirección URL del paso 8 con el nombre de host del paso 9 para obtener la dirección URL completa.
 11. Ejecute el codificador en directo durante aproximadamente diez minutos.
 12. Detenga el objeto LiveEvent.
-13. Use un reproductor, como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), para ver el recurso archivado y asegurarse de que la reproducción no tenga problemas visibles en todos los niveles de calidad. También, puede ver el recurso y validarlo utilizando la dirección URL de vista previa durante la sesión activa.
+13. Use un reproductor, como [Azure Media Player](https://aka.ms/azuremediaplayer), para ver el recurso archivado y asegurarse de que la reproducción no tenga problemas visibles en todos los niveles de calidad. También, puede ver el recurso y validarlo utilizando la dirección URL de vista previa durante la sesión activa.
 14. Registre el identificador del recurso, la dirección URL de streaming publicada en el archivo dinámico y la configuración y la versión que utilizó en el codificador en directo.
 15. Restablezca el estado del Evento en directo después de crear cada ejemplo.
 16. Repita los pasos 5 a 15 con todas las configuraciones admitidas por el codificador (con y sin señalización, subtítulos o velocidades de codificación diferentes).
 
 ### <a name="longevity-verification"></a>Comprobación de duración
 
-Siga los mismos pasos que se indican en [Verificación del evento en directo con paso a través](#pass-through-live-event-verification), salvo el paso 11. <br/>En lugar de 10 minutos, ejecute el codificador en directo durante una semana o más. Use un reproductor, como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), para ver el streaming en vivo cada cierto tiempo (o un recurso archivado) y asegurarse de que la reproducción no tenga problemas visibles.
+Siga los mismos pasos que se indican en [Verificación del evento en directo con paso a través](#pass-through-live-event-verification), salvo el paso 11. <br/>En lugar de 10 minutos, ejecute el codificador en directo durante una semana o más. Use un reproductor, como [Azure Media Player](https://aka.ms/azuremediaplayer), para ver el streaming en vivo cada cierto tiempo (o un recurso archivado) y asegurarse de que la reproducción no tenga problemas visibles.
 
 ### <a name="email-your-recorded-settings"></a>Envío de la configuración anotada por correo electrónico
 
-Por último, envíe la configuración registrada y los parámetros archivados por correo electrónico a Azure Media Services (amsstreaming@microsoft.com) para notificar que se han superado todos los pasos de la comprobación automática. Incluya también sus datos de contacto para que pueda recibir las actualizaciones que haya. Puede ponerse en contacto con el equipo de Azure Media Services si tiene alguna pregunta sobre este proceso.
+Por último, envíe la configuración registrada y los parámetros archivados por correo electrónico a Azure Media Services (amshelp@microsoft.com) para notificar que se han superado todos los pasos de la comprobación automática. Incluya también sus datos de contacto para que pueda recibir las actualizaciones que haya. Puede ponerse en contacto con el equipo de Azure Media Services si tiene alguna pregunta sobre este proceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

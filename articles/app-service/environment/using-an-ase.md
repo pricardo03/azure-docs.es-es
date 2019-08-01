@@ -15,10 +15,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496518"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
@@ -132,7 +132,7 @@ Con un entorno ASE externo, todas estas opciones de publicación se comportan de
 
 La gran diferencia con la publicación tiene que ver con un ASE con un ILB. Con un ASE con un ILB, los puntos de conexión de publicación solo están disponibles a través de ILB. El ILB está en una dirección IP privada en la subred de ASE en la red virtual. Si no tiene acceso de red al ILB, no puede publicar ninguna aplicación en ese entorno ASE. Tal como se indica en [Creación y uso de un ASE con un ILB][MakeILBASE], debe configurar DNS para las aplicaciones del sistema. Eso incluye el punto de conexión de SCM. Si no se han definido correctamente, no puede llevar a cabo la publicación. Los IDE también deben tener acceso de red al ILB para publicar directamente en él.
 
-De fábrica, sistemas de CI basados en Internet, como GitHub y DevOps de Azure, no funcionan con un ASE de ILB porque el extremo de publicación no es accesible desde Internet. Para DevOps de Azure, puede solucionar esto instalando un agente de la versión autohospedado en su red interna, donde puede alcanzar el ILB. Como alternativa, también puede usar un sistema de CI que usa un modelo de extracción, como Dropbox.
+Los sistemas de CI basados en Internet listos para usar, como GitHub y Azure DevOps, no funcionan con un ASE con un ILB, ya que el punto de conexión de publicación no es accesible desde Internet. Para Azure DevOps, puede solucionar esto instalando un agente de versión autohospedado en su red interna, donde puede conectar con el ILB. También puede utilizar un sistema de CI que use un modelo de extracción, como Dropbox.
 
 Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Puede verlo en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). 
 

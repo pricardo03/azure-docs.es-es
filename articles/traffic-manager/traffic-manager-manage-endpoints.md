@@ -3,20 +3,20 @@ title: Administración de extremos en el Azure Traffic Manager | Microsoft Docs
 description: Este artículo le ayudará a agregar, quitar, habilitar y deshabilitar extremos del Administrador de tráfico de Azure.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kumud
-ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 573a8f7ede29b045053d77194d15707df9e23641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071080"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
@@ -71,7 +71,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea eliminar.
-5. En el **extremo** hoja, haga clic en **eliminar**
+5. En la hoja **Punto de conexión**, haga clic en **Eliminar**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

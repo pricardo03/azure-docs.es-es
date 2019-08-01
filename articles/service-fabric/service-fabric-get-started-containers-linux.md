@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
 ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302270"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* asigna un nombre al contenedor en ejecución (en lugar del identificador del contenedor).
 
-Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta en el puerto 4000; por ejemplo "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
+Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP que se devuelve en el puerto 4000; por ejemplo, "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 !["¡Hola mundo!"][hello-world]
 
@@ -141,9 +141,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Inserción de la imagen en el registro de contenedor
 Después de comprobar que la aplicación se ejecuta en Docker, inserte la imagen en el registro de Azure Container Registry.
 
-Ejecute `docker login` para iniciar sesión en el registro de contenedor con su [las credenciales del registro](../container-registry/container-registry-authentication.md).
+Ejecute `docker login` para iniciar sesión en el registro de contenedor con sus [credenciales de registro](../container-registry/container-registry-authentication.md).
 
-En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, podría iniciar sesión con su nombre de usuario del registro y la contraseña.
+En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, puede iniciar sesión con su nombre de usuario y contraseña del registro.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -215,7 +215,7 @@ Con la versión 6.3 de tiempo de ejecución, se admite el aislamiento de la máq
 
 
 ## <a name="configure-resource-governance"></a>Configuración de la gobernanza de recursos
-La [regulación de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Es posible establecer límites para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
+La [gobernanza de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Es posible establecer límites para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
 
 ```xml
 <ServiceManifestImport>
@@ -234,7 +234,7 @@ La [regulación de recursos](service-fabric-resource-governance.md) restringe lo
 
 A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. 
 
-A partir de la última versión de actualización de v6.4, tiene la opción para especificar que las evaluaciones de HEALTHCHECK de docker deben notificarse como un error. Si esta opción está habilitada, una **Aceptar** informe de mantenimiento se mostrará cuando *health_status* es *correcto* y **ERROR** aparecerá cuando *health_status* es *en mal estado*.
+A partir de la última versión de actualización, v6.4, tiene la opción de especificar que las evaluaciones de HEALTHCHECK de Docker deben notificarse como un error. Si se habilita esta opción, aparecerá un informe de mantenimiento **OK** cuando *health_status* sea *healthy* y aparecerá **ERROR** cuando *health_status* sea *unhealthy*.
 
 La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el archivo de Docker que se usa al generar la imagen de contenedor.
 
@@ -258,11 +258,11 @@ Puede configurar el comportamiento **HEALTHCHECK** en cada contenedor mediante l
     </Policies>
 </ServiceManifestImport>
 ```
-De forma predeterminada *IncludeDockerHealthStatusInSystemHealthReport* está establecido en **true**, *RestartContainerOnUnhealthyDockerHealthStatus* está establecido en  **false**, y *TreatContainerUnhealthyStatusAsError* está establecido en **false**. 
+De forma predeterminada, se establece *IncludeDockerHealthStatusInSystemHealthReport* en **true**, *RestartContainerOnUnhealthyDockerHealthStatus* en **false** y *TreatContainerUnhealthyStatusAsError* en **false**. 
 
 Si se establece *RestartContainerOnUnhealthyDockerHealthStatus* en **true**, se reiniciará un contenedor que constantemente informa de un error de mantenimiento (posiblemente en otros nodos).
 
-Si *TreatContainerUnhealthyStatusAsError* está establecido en **true**, **ERROR** informes de mantenimiento se mostrará cuando el contenedor *health_status*es *en mal estado*.
+Si *TreatContainerUnhealthyStatusAsError* se establece en **true**, el informe de mantenimiento con **ERROR** aparecerá cuando el elemento *health_status* del contenedor sea *unhealthy*.
 
 Si quiere deshabilitar la integración de la instrucción **HEALTHCHECK** para todo el clúster de Service Fabric, deberá establecer [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) en **false**.
 
@@ -282,9 +282,9 @@ Use el script de instalación proporcionado en la plantilla en https://github.co
 ./install.sh
 ```
 
-Abra un explorador y navegue hasta Service Fabric Explorer en http:\//localhost:19080 / Explorer (reemplace localhost por la dirección IP privada de la máquina virtual si usa Vagrant en Mac OS X). Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
+Abra un explorador y vaya a Service Fabric Explorer en http:\//localhost:19080/Explorer (reemplace localhost por la dirección IP privada de la máquina virtual si usa Vagrant en Mac OS X). Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
 
-Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta en el puerto 4000; por ejemplo "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
+Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP que se devuelve en el puerto 4000; por ejemplo, "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 !["¡Hola mundo!"][hello-world]
 

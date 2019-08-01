@@ -1,16 +1,16 @@
 ---
 title: Implementación de recursos con la plantilla y PowerShell | Microsoft Docs
-description: Use Azure Resource Manager y Azure PowerShell para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
+description: Use Azure Resource Manager y Azure PowerShell para implementar recursos para Azure. Los recursos se definen en una plantilla de Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476982"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
@@ -19,38 +19,38 @@ Aprenda a utilizar Azure PowerShell con plantillas de Resource Manager para impl
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment-scope"></a>Ámbito de implementación
+## <a name="deployment-scope"></a>Ámbito de la implementación
 
-Puede tener como destino la implementación de una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, serán las objetivo implementación en un grupo de recursos. Use las implementaciones de suscripción para aplicar directivas y las asignaciones de roles a través de la suscripción. También se pueden usar implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en ella. Según el ámbito de la implementación, use comandos diferentes.
+La implementación puede tener como destino una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Use las implementaciones de la suscripción para aplicar directivas y asignaciones de roles en la suscripción. También puede usar las implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en él. Según el ámbito de la implementación, usará comandos diferentes.
 
-Para implementar en un **grupo de recursos**, utilice [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+Para implementar en un **grupo de recursos**, utilice [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-Para implementar en un **suscripción**, utilice [New AzDeployment](/powershell/module/az.resources/new-azdeployment):
+Para implementar en una **suscripción**, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
 
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-Actualmente, solo se admiten las implementaciones de grupo de administración a través de la API de REST. Consulte [implementación de recursos con plantillas de Resource Manager y API de REST de Resource Manager](resource-group-template-deploy-rest.md).
+Actualmente, solo se admiten las implementaciones del grupo de administración mediante la API REST. Consulte [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](resource-group-template-deploy-rest.md).
 
-Los ejemplos en este artículo usan las implementaciones de grupo de recursos. Para obtener más información acerca de las implementaciones de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](deploy-to-subscription.md).
+Los ejemplos de este artículo usan las implementaciones del grupo de recursos. Para más información sobre las implementaciones de suscripciones, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una plantilla para implementar. Si aún no tiene uno, descargue y guarde un [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) desde el repositorio de plantillas de inicio rápido de Azure. El nombre de archivo local que se utiliza en este artículo es **c:\MyTemplates\azuredeploy.json**.
+Necesita una plantilla para implementar. Si aún no tiene ninguna, descargue una [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) desde el repositorio Azure Quickstart Templates y guárdela. El nombre de archivo local que se utiliza en este artículo es **c:\MyTemplates\azuredeploy.json**.
 
-A menos que use Azure Cloud shell para implementar plantillas, es preciso instalar Azure PowerShell y conéctese a Azure:
+A menos que use Azure Cloud Shell para implementar las plantillas, deberá instalar Azure PowerShell y conectarse a Azure:
 
 - **Instale los cmdlets de Azure PowerShell en el equipo local.** Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
 
 ## <a name="deploy-local-template"></a>Implementar una plantilla local
 
-El ejemplo siguiente crea un grupo de recursos e implementa una plantilla desde el equipo local. El nombre del grupo de recursos solo puede incluir caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. Puede tener hasta 90 caracteres. No puede terminar en punto.
+En el ejemplo siguiente se crea un grupo de recursos y se implementa una plantilla desde la máquina local. El nombre del grupo de recursos solo puede incluir caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. Puede tener hasta 90 caracteres. No puede terminar en punto.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 La implementación puede demorar unos minutos en completarse.
 
-## <a name="deploy-remote-template"></a>Implementar plantilla remoto
+## <a name="deploy-remote-template"></a>Implementación de una plantilla remota
 
 En lugar de almacenar las plantillas de Resource Manager en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
@@ -80,7 +80,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si no desea que la plantilla sea accesible públicamente, puede almacenarla en un contenedor de almacenamiento privado para protegerla. Para más información sobre la implementación de una plantilla que requiere un token de Firma de acceso compartido (SAS), consulte [Implementación de una plantilla privada con el token de SAS](resource-manager-powershell-sas-token.md). Para realizar un tutorial, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md).
 
-## <a name="deploy-from-azure-cloud-shell"></a>Implementar desde Azure Cloud shell
+## <a name="deploy-from-azure-cloud-shell"></a>Implementación desde Azure Cloud Shell
 
 Puede usar [Azure Cloud Shell](https://shell.azure.com) para implementar la plantilla. Para implementar una plantilla externa, use el identificador URI de la plantilla. Para implementar una plantilla local, primero debe cargar la plantilla en la cuenta de almacenamiento de Cloud Shell. Para cargar archivos en el shell, seleccione el icono de menú **Cargar/Descargar archivos** en la ventana del shell.
 
@@ -99,12 +99,12 @@ Para pegar el código en el shell, haga clic dentro del shell y seleccione **Peg
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar la nueva implementación, utilice el parámetro `-RollbackToLastDeployment` o `-RollBackDeploymentName` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea volver a este estado. Hay una serie de advertencias y restricciones:
+Esta característica también es conocida como *Reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar la nueva implementación, utilice el parámetro `-RollbackToLastDeployment` o `-RollBackDeploymentName` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de la infraestructura y quiere revertir a ese estado. Hay una serie de advertencias y restricciones:
 
-- La nueva implementación se ejecuta exactamente como se ha ejecutado anteriormente con los mismos parámetros. No se puede cambiar los parámetros.
-- La implementación anterior se ejecuta con la [modo completo](./deployment-modes.md#complete-mode). Se eliminan todos los recursos que no se incluyen en la implementación anterior y se establecen las configuraciones de recursos a su estado anterior. Asegúrese de que comprende perfectamente el [modos de implementación](./deployment-modes.md).
-- La reimplementación solo afecta a los recursos, no se ven afectados los cambios de datos.
-- Esta característica solo se admite en las implementaciones de grupo de recursos, no implementaciones de nivel de suscripción. Para obtener más información acerca de la implementación de nivel de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](./deploy-to-subscription.md).
+- La reimplementación se ejecuta exactamente como se ejecutó antes y con los mismos parámetros. Los parámetros no se pueden cambiar.
+- La implementación anterior se ejecuta con el [modo completo](./deployment-modes.md#complete-mode). Los recursos no incluidos en la implementación anterior se eliminan y las configuraciones del recurso se establecen en su estado anterior. Asegúrese de que comprende perfectamente los [modos de implementación](./deployment-modes.md).
+- La reimplementación solo afecta a los recursos; los cambios en los datos no se ven afectados.
+- Esta característica solo se admite en implementaciones del grupo de recursos, no en implementaciones en el nivel de suscripción. Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
 
@@ -156,7 +156,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 Obtener un valor de parámetro de un archivo es útil cuando se necesita proporcionar valores de configuración. Por ejemplo, puede proporcionar [valores de cloud-init para una máquina virtual Linux](../virtual-machines/linux/using-cloud-init.md).
 
-Si necesita pasar una matriz de objetos, crear las tablas hash en PowerShell y agregarlos a una matriz. Pasar esa matriz como un parámetro durante la implementación.
+Si necesita pasar una matriz de objetos, cree las tablas hash en PowerShell y agréguelas a una matriz. Pase esa matriz como un parámetro durante la implementación.
 
 ```powershell
 $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}

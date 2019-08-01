@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393412"
 ---
 # <a name="monitor-cluster-performance"></a>Supervisión del rendimiento de un clúster
@@ -30,7 +30,7 @@ Para obtener una visión de alto nivel de los nodos de un clúster y su carga, i
 | Color | DESCRIPCIÓN |
 | --- | --- |
 | Rojo | Al menos un componente maestro del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
-| Naranja | Al menos un componente secundario en el host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
+| Naranja | Al menos un componente subordinado del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
 | Amarillo | El servidor de Ambari no recibió ningún latido del host durante más de 3 minutos. |
 | Verde | Estado de funcionamiento normal. |
 

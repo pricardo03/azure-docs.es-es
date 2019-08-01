@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061139"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
@@ -117,9 +117,9 @@ También puede indicar al registrador que lo envíe a un archivo:
 </SDKLogger>
 ```
 
-### <a name="spring-boot-starter"></a>Iniciador de Spring Boot
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
-Para habilitar el registro de SDK con aplicaciones de Spring Boot con Spring Boot Starter de Application Insights, agregue lo siguiente a la `application.properties` archivo.:
+Para habilitar el registro del SDK con aplicaciones de Spring Boot con Spring Boot Starter de Application Insights, agregue lo siguiente al archivo `application.properties`:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,9 +127,9 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
-### <a name="java-agent"></a>Java Agent
+### <a name="java-agent"></a>Agente de Java
 
-Para habilitar la actualización de registro del agente de JVM el [archivo AI-Agent.xml](java-agent.md).
+Para habilitar la actualización del registro del agente de JVM, actualice el [archivo AI-Agent.xml](java-agent.md).
 
 ```xml
 <AgentLogger type="FILE">

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: c87979760730cbe8f57d8f65463c94d08888aa2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762754"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
@@ -28,7 +28,7 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 - Para que una exportación sea transaccionalmente coherente, debe asegurarse de que no haya ninguna actividad de escritura durante la exportación, o bien de exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de su base de datos de Azure SQL.
 - Si va a exportar a Blob Storage, el tamaño máximo de un archivo BACPAC es 200 GB. Para archivar un archivo BACPAC de mayor tamaño, exporte al almacenamiento local.
 - No se admite la exportación de un archivo BACPAC en Azure Premium Storage con los métodos que se describen en este artículo.
-- Almacenamiento detrás de un firewall no se admite actualmente.
+- El almacenamiento detrás de un firewall actualmente no se admite.
 - Si la operación de exportación desde Azure SQL Database demora más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
 
   - Aumentar temporalmente el tamaño de proceso.
@@ -78,7 +78,7 @@ Las versiones más recientes de SQL Server Management Studio proporcionan un asi
 > [!NOTE]
 > [Una instancia administrada](sql-database-managed-instance.md) no admite actualmente la exportación de una base de datos a un archivo BACPAC mediante Azure PowerShell. Para exportar una instancia administrada a un archivo BACPAC, utilice SQL Server Management Studio o SQLPackage.
 
-Use la [New AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet para enviar una solicitud de base de datos de exportación para el servicio de Azure SQL Database. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
+Use el cmdlet [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) para enviar una solicitud de exportación base de datos al servicio Azure SQL Database. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
 ```powershell
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -86,7 +86,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Para comprobar el estado de la solicitud de exportación, use el [Get AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet. Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Estado: En curso**. Cuando vea **Estado: Correcto**, la exportación se ha terminado.
+Para comprobar el estado de la solicitud de exportación, utilice el cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus). Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Estado: En curso**. Cuando vea **Estado: Correcto**, la exportación se ha terminado.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

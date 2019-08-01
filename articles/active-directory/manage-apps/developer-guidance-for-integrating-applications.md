@@ -13,18 +13,18 @@ ms.date: 10/30/2018
 ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd51bfd377aed2a7edd8c64d2f3dc99c3388e45a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108279"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desarrollo de aplicaciones de línea de negocio para Azure Active Directory
 Esta guía proporciona información general sobre el desarrollo de aplicaciones de línea de negocio (LoB) para Azure Active Directory (AD) y se ha diseñado expresamente para administradores globales de Active Directory y Office 365.
 
 ## <a name="overview"></a>Información general
-La creación de aplicaciones integradas con Azure AD proporciona a los usuarios de la organización inicio de sesión único con Office 365. Si tiene la aplicación en Azure AD, podrá controlar la directiva de autenticación de dicha aplicación. Para obtener más información sobre el acceso condicional y cómo proteger las aplicaciones con Multi-Factor Authentication (MFA), consulte [Configuración de las reglas de acceso](../conditional-access/app-based-mfa.md).
+La creación de aplicaciones integradas con Azure AD proporciona a los usuarios de la organización inicio de sesión único con Office 365. Si tiene la aplicación en Azure AD, podrá controlar la directiva de autenticación de dicha aplicación. Para más información sobre el acceso condicional y cómo proteger las aplicaciones con Multi-Factor Authentication (MFA), consulte [Configuración de las reglas de acceso](../conditional-access/app-based-mfa.md).
 
 Registro de la aplicación para utilizar Azure Active Directory Registrar la aplicación significa que los programadores pueden usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios; por ejemplo, correo electrónico, calendario y documentos.
 
@@ -41,8 +41,8 @@ El registro de una aplicación permite a cualquier usuario hacer lo siguiente:
   * Azure Active Directory como servidor de autorización de OAuth (proteger una API expuesta por la aplicación)
 * Indicar los permisos necesarios para que la aplicación funcione según lo previsto, como:
 
-     - Permisos de la aplicación (solo administradores globales). Por ejemplo: pertenencia a roles en otra aplicación de Azure AD o respecto a una suscripción, un grupo de recursos o un recurso de Azure.
-     - Permisos delegados (cualquier usuario) Por ejemplo: Azure AD, inicio de sesión y perfil de lectura
+     - Permisos de la aplicación (solo administradores globales). Por ejemplo:  pertenencia a roles en otra aplicación de Azure AD o respecto a una suscripción, un grupo de recursos o un recurso de Azure.
+     - Permisos delegados (cualquier usuario) Por ejemplo:  Azure AD, inicio de sesión y perfil de lectura
 
 > [!NOTE]
 > De forma predeterminada, cualquier miembro puede registrar una aplicación. Para obtener información sobre cómo restringir permisos de registro de aplicaciones a miembros específicos, consulte [Cómo se agregan aplicaciones a Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

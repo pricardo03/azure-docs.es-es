@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065699"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Registros de servidor en Azure Database for MariaDB
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registros de consultas lentas en Azure Database for MariaDB
 En Azure Database for MariaDB, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
 
 Para más información acerca del registro de consultas lentas, consulte la [documentación de MariaDB](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Acceso a registros de servidor
-Puede enumerar y descargar los registros de servidor de Azure Database for MariaDB mediante Azure Portal y la CLI de Azure.
+## <a name="access-slow-query-logs"></a>Acceso a registros de consultas lentas
+Puede enumerar y descargar los registros de consultas lentas de Azure Database for MariaDB mediante Azure Portal y la CLI de Azure.
 
 En Azure Portal, seleccione el servidor de Azure Database for MariaDB. En el encabezado **Supervisión**, seleccione la página **Registros de servidor**.
 
@@ -30,7 +30,7 @@ Los registros están disponibles hasta siete días después de su creación. Si 
 
 Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
 
-## <a name="configure-logging"></a>registro
+## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas
 De forma predeterminada, el registro de consultas lentas está deshabilitado. Para habilitarlo, establezca low_query_log en ON.
 
 Otros parámetros que se pueden ajustar son los siguientes:
@@ -43,10 +43,10 @@ Otros parámetros que se pueden ajustar son los siguientes:
 Consulte la [documentación del registro de consultas lentas](https://mariadb.com/kb/en/library/slow-query-log-overview/) de MariaDB para obtener una descripción completa de los parámetros de registro de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for MariaDB está integrado con registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor de MariaDB, puede elegir que estén emitidos para los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MariaDB se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MariaDB, puede optar por hacer que se emitan a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 > [!IMPORTANT]
-> Esta característica de diagnóstico para registros de servidor solo está disponible en el uso General y memoria optimizada [planes de tarifa](concepts-pricing-tiers.md).
+> Esta característica de diagnóstico para registros de servidor solo está disponible en los [planes de tarifa](concepts-pricing-tiers.md) de uso general y optimizados para memoria.
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 
@@ -72,10 +72,10 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | `rows_sent_s` | Número de filas enviadas |
 | `rows_examined_s` | Número de filas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
-| `insert_id_s` | Insertar el Id. |
+| `insert_id_s` | Id. de inserción |
 | `sql_text_s` | Consulta completa |
 | `server_id_s` | Id. de servidor |
-| `thread_id_s` | Id. de conversación |
+| `thread_id_s` | Id. de subproceso |
 | `\_ResourceId` | URI de recurso |
 
 ## <a name="next-steps"></a>Pasos siguientes

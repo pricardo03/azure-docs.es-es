@@ -1,25 +1,25 @@
 ---
-title: 'Agregar invitados de B2B sin un vínculo de invitación o de correo electrónico: Azure Active Directory | Microsoft Docs'
+title: 'Incorporación de invitados de B2B enlace ni correo electrónico de invitación: Azure Active Directory | Microsoft Docs'
 description: Puede permitir que un usuario invitado agregue otros usuarios invitados a Azure AD sin canjear una invitación en Colaboración de Azure Active Directory B2B.
 services: active-directory
 documentationcenter: ''
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: sasubram
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056068"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Agregar usuarios invitados de colaboración B2B sin un correo electrónico o un vínculo de invitación
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Incorporación de usuarios invitados de colaboración B2B sin enlace ni correo electrónico de invitación
 
 Ahora puede invitar a usuarios mediante el envío de un vínculo directo a una aplicación compartida. Con este método, los usuarios invitados ya no necesitan usar el correo electrónico de invitación, excepto en algunos casos especiales. Un usuario invitado hace clic en el vínculo de la aplicación, revisa y acepta los términos de privacidad y, después, accede sin problemas a la aplicación. Para más información, consulte [Canje de invitación de colaboración B2B](redemption-experience.md).   
 
@@ -29,7 +29,7 @@ Antes de que este nuevo método estuviera disponible, podía invitar a los usuar
 2. El administrador de la organización anfitriona [configura directivas](delegate-invitations.md) que permiten a Sam identificar y agregar otros usuarios de la organización asociada (Litware). (Debe agregarse a Sam al rol **Invitador de usuarios**).
 3. Ahora, Sam puede agregar otros usuarios de Litware al directorio, los grupos o las aplicaciones de WoodGrove sin necesidad de canjear invitaciones. Si Sam tiene los privilegios de enumeración adecuados en Litware, se hará automáticamente.
  
-Este método original sigue funcionando, pero hay una pequeña diferencia en el comportamiento. Si usa PowerShell, observará que una cuenta invitada ahora tiene un estado **PendingAcceptance** en lugar de mostrar inmediatamente como **Accepted**. Aunque el estado sea pendiente, el usuario invitado todavía puede iniciar sesión y acceder a la aplicación sin hacer clic en un vínculo de invitación por correo electrónico. El estado pendiente significa que el usuario aún no ha pasado la [experiencia de consentimiento](redemption-experience.md#privacy-policy-agreement), donde se aceptan los términos de privacidad de la organización que invita. El usuario invitado ve esta pantalla de consentimiento cuando inicia sesión por primera vez. 
+Este método original sigue funcionando, pero hay una pequeña diferencia en el comportamiento. Si usa PowerShell, observará que una cuenta invitada ahora tiene un estado **PendingAcceptance** en lugar de mostrar inmediatamente como **Accepted**. Aunque el estado sea pendiente, el usuario invitado todavía puede iniciar sesión y acceder a la aplicación sin hacer clic en un vínculo de invitación por correo electrónico. El estado pendiente significa que el usuario aún no ha pasado la [experiencia de consentimiento](redemption-experience.md#consent-experience-for-the-guest), donde se aceptan los términos de privacidad de la organización que invita. El usuario invitado ve esta pantalla de consentimiento cuando inicia sesión por primera vez. 
 
 Si invita a un usuario al directorio, el usuario invitado debe acceder directamente a la URL de Azure Portal específica de su inquilino de recursos (como https://portal.azure.com/*inquilinoderecursos*.onmicrosoft.com) para ver y aceptar los términos de privacidad.
 

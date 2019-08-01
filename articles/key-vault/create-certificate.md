@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427823"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
@@ -31,7 +31,7 @@ Las siguientes descripciones se corresponden con los pasos indicados con letras 
 1. En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.
 2. Key Vault devuelve una solicitud de firma de certificado (CSR) a la aplicación.
 3. La aplicación pasa la CSR a la entidad de certificación seleccionada.
-4. La entidad de certificación seleccionada responde con un X509 certificado.
+4. La entidad de certificación elegida responde con un certificado X.509.
 5. La aplicación termina de crear el certificado con una combinación del certificado X.509 de la entidad de certificación.
 
 -   **Crear un certificado con un emisor conocido:** este método requiere una tarea de creación de un objeto de emisor solo una vez. Cuando el objeto de emisor se haya creado en el almacén de claves, se puede hacer referencia a su nombre en la directiva del certificado KV. Una solicitud para crear este tipo de certificado KV creará un par de claves en el almacén y se comunicará con el emisor con la información del objeto de emisor a la que se hace referencia para obtener un certificado X.509. El certificado X.509 se recupera del servicio emisor y se combina con el par de claves para terminar la creación del certificado KV.  
@@ -82,7 +82,7 @@ La creación de certificados puede completarse manualmente o con un emisor "Self
 |Proveedor|Tipo de certificado|  
 |--------------|----------------------|  
 |DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert|
-|GlobalCert|Key Vault ofrece certificados EV SSL o de OV con Globaltrust |
+|GlobalCert|Key Vault ofrece certificados SSL OV o EV con Globaltrust |
 
  Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
 
@@ -90,6 +90,6 @@ Tenga en cuenta que cuando se realiza un pedido al emisor, puede respetar o reem
 
  Autorización: se requiere el permiso certificates/create.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
  - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)
  - [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)

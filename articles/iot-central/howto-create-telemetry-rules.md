@@ -3,17 +3,17 @@ title: Creación y administración de reglas de telemetría en una aplicación d
 description: Las reglas de telemetría de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 8684301b83e01989c745b63848995142cb766188
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052973"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -27,15 +27,15 @@ Los dispositivos pueden usar la medición de telemetría para enviar datos numé
 
 Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este ejemplo se utiliza un dispositivo de máquina expendedora refrigerada que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 80 grados.
 
-1. Mediante el **las plantillas de dispositivo** página, vaya a la plantilla de dispositivo para el que va a agregar la regla para.
+1. Desde la página **Plantillas de dispositivo**, vaya a la plantilla de dispositivo para la que va a agregar la regla.
 
 1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
     ![No hay ninguna regla todavía](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
-1. En el **reglas** ficha, seleccione **+ nueva regla** para ver los tipos de reglas que puede crear.
+1. En la pestaña **Reglas**, seleccione **+ Nueva regla** para ver los tipos de reglas que puede crear.
 
-1. Seleccione **telemetría** para crear una regla para supervisar la telemetría del dispositivo.
+1. Seleccione **Telemetría** para crear una regla para supervisar los datos de telemetría del dispositivo.
 
     ![Tipos de regla](media/howto-create-telemetry-rules/rule_types1.png)
 
@@ -51,12 +51,12 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 La condición define los criterios que la regla supervisa.
 
-1. Seleccione **+** junto a **condiciones** para agregar una condición nueva.
+1. Seleccione **+** junto a **Condiciones** para agregar una condición nueva.
 
 1. Seleccione los datos de telemetría que desee supervisar en la lista desplegable **Medida**.
 
 1. A continuación, elija **Agregación**, **Operador** y proporcione un valor de **Umbral**.
-   - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si se configura la regla se activa cuando la temperatura es superior a 80, a continuación, la regla genera casi al instante cuando el dispositivo notifica temperatura > 80.
+   - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadena casi al instante cuando el dispositivo informe una temperatura >80.
    - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
      ![Condición](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
@@ -112,5 +112,5 @@ Ahora que ha aprendido a crear reglas en una aplicación de Azure IoT Central, a
 
 - [Incorporación de una acción de Microsoft Flow a las reglas](howto-add-microsoft-flow.md)
 - [Incorporación de una acción de Webhook a las reglas](howto-create-webhooks.md)
-- [Agrupar varias acciones para ejecutar desde una o varias reglas](howto-use-action-groups.md)
+- [Agrupación de varias acciones para ejecutar desde una o varias reglas](howto-use-action-groups.md)
 - [Administración de los dispositivos](howto-manage-devices.md)

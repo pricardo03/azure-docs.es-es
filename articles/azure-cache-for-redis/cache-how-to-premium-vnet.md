@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074208"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Premium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -106,11 +106,11 @@ Cuando Azure Cache for Redis se hospeda en una red virtual, se usan los puertos 
 
 Existen siete requisitos de puerto de salida.
 
-- Todas las conexiones salientes a internet pueden realizarse a través de un cliente del dispositivo de auditoría de un entorno local.
+- Se pueden realizar todas las conexiones de salida a Internet a través de un dispositivo de auditoría local de un cliente.
 - Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
 - Los intervalos de puertos restantes y para las comunicaciones internas de la subred de Redis. No es necesaria ninguna regla de NSG para las comunicaciones internas de la subred de Redis.
 
-| Puertos | Direction | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
+| Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Salida |TCP |Dependencias de Redis en Azure Storage/PKI (Internet) | (Subred de Redis) |* |
 | 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) | (Subred de Redis) | 168.63.129.16 y 169.254.169.254 <sup>1</sup> y cualquier servidor DNS personalizado para la subred <sup>3</sup> |
@@ -121,17 +121,17 @@ Existen siete requisitos de puerto de salida.
 | 15000-15999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 6379-6380 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
-<sup>1</sup> se usan estas direcciones IP que pertenecen a Microsoft para abordar la máquina virtual de Host que actúa de DNS de Azure.
+<sup>1</sup> Estas direcciones IP que pertenecen a Microsoft se usan para dirigir la máquina virtual del host que trabaja con Azure DNS.
 
-<sup>3</sup> no es necesario para las subredes con ningún servidor DNS personalizado, o una más reciente redis memorias caché que pasan por alto DNS personalizado.
+<sup>3</sup> No es necesario para aquellas subredes sin ningún servidor DNS personalizado o cachés en Redis que ignoran los DNS personalizados.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de puerto de entrada
 
 Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entrantes de estos intervalos provienen de otros servicios hospedados en la misma red virtual o son comunicaciones internas de la subred de Redis.
 
-| Puertos | Direction | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
+| Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer <sup>2</sup> |
 | 8443 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer |
@@ -139,6 +139,8 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 | 15000-15999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | (Subred de Redis) |Virtual Network, Azure Load Balancer |
 | 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
+
+<sup>2</sup> Puede usar la etiqueta de servicio "AzureLoadBalancer" (Resource Manager) (o "AZURE_LOADBALANCER" para el modelo clásico) para crear las reglas del grupo de seguridad de red.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Requisitos adicionales de conectividad de red virtual
 

@@ -4,15 +4,15 @@ description: Cómo solucionar problemas de PowerShell al configurar un entorno d
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41c3c25962d5cb0d608a226ed77408460446bfa5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927513"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248197"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell para Windows Virtual Desktop
 
@@ -58,7 +58,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Causa:** Parámetro TenantName
 
-**Corrección:** Emita Get-RdsDiagnosticActivities con -TenantName <TenantName>.
+**Corrección:** Emita Get-RdsDiagnosticActivities con -TenantName \<TenantName>.
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error: Get-RdsDiagnosticActivities: User isn't authorized to query the management service (El usuario no está autorizado para consultar el servicio de administración)
 
@@ -68,7 +68,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Causa:** Uso del conmutador -Deployment.
 
-**Corrección:** Solo los administradores de implementación pueden usar el conmutador Deployment. Estos administradores suelen ser miembros del equipo de Servicios de Escritorio remoto/Windows Virtual Desktop. Reemplace el conmutador -Deployment por -TenantName <TenantName>.
+**Corrección:** Solo los administradores de implementación pueden usar el conmutador Deployment. Estos administradores suelen ser miembros del equipo de Servicios de Escritorio remoto/Windows Virtual Desktop. Reemplace el conmutador -Deployment por -TenantName \<TenantName>.
 
 ### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Error: New-RdsRoleAssignment: The user isn't authorized to query the management service (El usuario no está autorizado para consultar el servicio de administración)
 

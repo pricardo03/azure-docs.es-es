@@ -11,10 +11,10 @@ ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476062"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST para Azure SQL Data Warehouse
@@ -53,22 +53,22 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>Comprobar el estado de la base de datos
 
 > [!NOTE]
-> Actualmente, comprobar el estado de base de datos podría devolver en línea mientras se está completando el flujo de trabajo en línea, lo que produce errores de conexión de la base de datos. Es posible que deba agregar un retraso de 2 a 3 minutos en el código de aplicación si utiliza esta llamada de API para desencadenar los intentos de conexión.
+> Actualmente, la comprobación del estado de la base de datos podría devolver ONLINE mientras se está completando el flujo de trabajo en línea, lo que produce errores de conexión. Es posible que deba agregar un retraso de 2 a 3 minutos en el código de aplicación si utiliza esta llamada de API para desencadenar los intentos de conexión.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Obtener programación de mantenimiento
-Compruebe la programación de mantenimiento que se ha establecido para un almacén de datos. 
+## <a name="get-maintenance-schedule"></a>Obtención de la programación de mantenimiento
+Se comprueba la programación de mantenimiento que se ha establecido para un almacén de datos. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Programación de mantenimiento de conjunto
-Para establecer y actualizar una programación maintnenance en un almacén de datos existente.
+## <a name="set-maintenance-schedule"></a>Establecimiento de la programación de mantenimiento
+Se establece y actualiza una programación de mantenimiento en un almacén de datos existente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

@@ -11,10 +11,10 @@ ms.date: 11/14/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514680"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Límites de capacidad de SQL Data Warehouse
@@ -25,7 +25,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 |:--- |:--- |:--- |
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máximo de DWU para una sola instancia de SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW6000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) y la selección de *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,0 por el total de cDWU necesarias. Por ejemplo:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
-| Conexión de base de datos |Máximo simultáneas sesiones abiertas |1024<br/><br/>El número de sesiones abiertas simultáneas variará en función de la unidad seleccionada. DWU600c y versiones posteriores admiten un máximo de 1024 sesiones abiertas. DWU500c y a continuación, admitir un límite máximo de la sesión abierta simultáneas de 512. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
+| Conexión de base de datos |Número máximo de sesiones abiertas simultáneas |1024<br/><br/>El número de sesiones abiertas simultáneas variará en función de la DWU seleccionada. DWU600c y versiones posteriores admiten 1024 sesiones abiertas como máximo. DWU500c y versiones anteriores admiten un límite máximo de 512 sesiones abiertas simultáneas. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |
 | [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |N.º máximo de consultas simultáneas |128<br/><br/> SQL Data Warehouse puede ejecutar 128 consultas simultáneas como máximo y pone en cola las restantes.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando SQL Data Warehouse tiene una configuración de [unidad de almacenamiento de datos](memory-and-concurrency-limits.md) inferior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximos: |399 GB por DW100. Por lo tanto, en DWU1000 el tamaño de tempdb es de 3,99 TB. |
@@ -54,7 +54,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 ## <a name="loads"></a>Cargas
 | Categoría | DESCRIPCIÓN | Máxima |
 |:--- |:--- |:--- |
-| Cargas de PolyBase |MB por fila |1<br/><br/>Polybase carga las filas que son menores que 1 MB. No se admite la carga de tipos de datos LOB en tablas con un índice de almacén de columnas en clúster (CCI).<br/><br/> |
+| Cargas de PolyBase |MB por fila |1<br/><br/>Polybase carga las filas que son inferiores a 1 MB. No se admite la carga de tipos de datos LOB en tablas con un índice de almacén de columnas en clúster (CCI).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
 | Categoría | DESCRIPCIÓN | Máxima |

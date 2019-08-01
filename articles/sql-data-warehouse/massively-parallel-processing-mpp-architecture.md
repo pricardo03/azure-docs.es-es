@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515807"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse: Arquitectura de procesamiento paralelo masivo (MPP)
@@ -84,7 +84,7 @@ Una tabla distribuida con el método round robin distribuye los datos uniformeme
 ## <a name="replicated-tables"></a>Tablas replicadas
 Una tabla replicada proporciona el rendimiento de consultas más rápido para tablas pequeñas.
 
-Una tabla que se replica tiene una copia completa de la tabla almacenada en la caché de cada nodo de proceso. Por lo tanto, al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Las tablas replicadas se usan mejor con tablas pequeñas. Se requiere almacenamiento adicional y hay una sobrecarga adicional que se incurre al escribir datos que hacen que las tablas grandes que no sea práctico.  
+Una tabla que se replica tiene una copia completa de la tabla almacenada en la caché de cada nodo de proceso. Por lo tanto, al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Las tablas replicadas se usan mejor con tablas pequeñas. Se requiere almacenamiento adicional y hay sobrecargas adicionales que se producen al escribir datos que hacen que las tablas grandes sean poco prácticas.  
 
 En el diagrama siguiente se muestra una tabla replicada. Para SQL Data Warehouse, se guarda una copia de la tabla replicada en la caché en la primera distribución en cada nodo de ejecución.  
 

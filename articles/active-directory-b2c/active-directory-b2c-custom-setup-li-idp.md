@@ -1,6 +1,6 @@
 ---
-title: 'Configurar inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
-description: Configurar el inicio de sesión con una cuenta de LinkedIn en Azure Active Directory B2C mediante directivas personalizadas.
+title: 'Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
+description: Configuración del inicio de sesión con una cuenta de LinkedIn en Azure Active Directory B2C mediante directivas personalizadas
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,10 +11,10 @@ ms.date: 04/23/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510416"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas en Azure Active Directory B2C
@@ -51,7 +51,7 @@ Para usar LinkedIn como proveedor de identidades en Azure AD B2C, tiene que crea
 Debe almacenar el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripciones** del menú superior y elija el directorio que contiene la suscripción.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
@@ -117,11 +117,11 @@ Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello
 4. Reemplace el valor de **client_id** con el identificador de cliente que haya registrado previamente.
 5. Guarde el archivo.
 
-### <a name="add-the-claims-transformations"></a>Agregar las transformaciones de notificaciones
+### <a name="add-the-claims-transformations"></a>Adición de transformaciones de notificaciones
 
-El perfil técnico de LinkedIn requiere la **ExtractGivenNameFromLinkedInResponse** y **ExtractSurNameFromLinkedInResponse** notificaciones transformaciones para agregarse a la lista de ClaimsTransformations. Si no tienes un **ClaimsTransformations** elemento definido en el archivo, agregue los elementos XML primario tal como se muestra a continuación. Las transformaciones de notificaciones también se denomina necesidad de un nuevo tipo de notificación definido **nullStringClaim**. 
+El perfil técnico de LinkedIn requiere agregar las transformaciones de notificaciones **ExtractGivenNameFromLinkedInResponse** y **ExtractSurNameFromLinkedInResponse** a la lista de ClaimsTransformations. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**. 
 
-El **BuildingBlocks** se debe agregar el elemento en la parte superior del archivo. Consulte la *TrustframeworkBase.xml* como ejemplo.
+El elemento **BuildingBlocks** se debe agregar cerca de la parte superior del archivo. Consulte *TrustframeworkBase.xml* como ejemplo.
 
 ```XML
 <BuildingBlocks>
@@ -207,7 +207,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
 La comunicación con Azure AD B2C se produce mediante una aplicación que se crea en el inquilino. En esta sección se enumeran los pasos opcionales que puede llevar a cabo para crear una aplicación de prueba, si aún no lo ha hecho.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripciones** del menú superior y elija el directorio que contiene la suscripción.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Aplicaciones** y **Agregar**.
 5. Escriba un nombre para la aplicación; por ejemplo, *testapp1*.
@@ -225,13 +225,13 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
 6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y pruébela; para ello, haga clic en **Ejecutar ahora**.
 
-## <a name="migration-from-v10-to-v20"></a>Migración desde v1.0, v2.0
+## <a name="migration-from-v10-to-v20"></a>Migración desde la versión 1.0 a la 2.0
 
-LinkedIn recientemente [actualizan sus API desde v1.0 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar la configuración existente a la nueva configuración, use la información en las secciones siguientes para actualizar los elementos en el perfil técnico.
+LinkedIn [ha actualizado recientemente sus API de la versión 1.0 a la 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar la configuración existente a la nueva configuración, use la información de las secciones siguientes para actualizar los elementos del perfil técnico.
 
-### <a name="replace-items-in-the-metadata"></a>Reemplace los elementos en los metadatos
+### <a name="replace-items-in-the-metadata"></a>Sustitución de los elementos en los metadatos
 
-Existente **metadatos** elemento de la **TechnicalProfile**, actualice la siguiente **elemento** elementos desde:
+En el elemento **Metadata** existente de **TechnicalProfile**, actualice los siguientes elementos **Item** de:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
@@ -245,9 +245,9 @@ Por:
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
 
-### <a name="add-items-to-the-metadata"></a>Agregar elementos a los metadatos
+### <a name="add-items-to-the-metadata"></a>Adición de elementos a los metadatos
 
-En el **metadatos** de la **TechnicalProfile**, agregue la siguiente **elemento** elementos:
+En el elemento **Metadata** de **TechnicalProfile**, agregue los siguientes elementos **Item**:
 
 ```XML
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -255,9 +255,9 @@ En el **metadatos** de la **TechnicalProfile**, agregue la siguiente **elemento*
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
 ```
 
-### <a name="update-the-outputclaims"></a>Actualizar el OutputClaims
+### <a name="update-the-outputclaims"></a>Actualización de OutputClaims
 
-Existente **OutputClaims** de la **TechnicalProfile**, actualice la siguiente **OutputClaim** elementos desde:
+En el elemento **Metadata** existente de **TechnicalProfile**, actualice los siguientes elementos **OutputClaim** de:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -271,20 +271,20 @@ Por:
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
 
-### <a name="add-new-outputclaimstransformation-elements"></a>Agregar nuevos elementos OutputClaimsTransformation
+### <a name="add-new-outputclaimstransformation-elements"></a>Adición de nuevos elementos OutputClaimsTransformation
 
-En el **OutputClaimsTransformations** de la **TechnicalProfile**, agregue la siguiente **OutputClaimsTransformation** elementos:
+En el elemento **OutputClaimsTransformations** de **TechnicalProfile**, agregue los siguientes elementos **OutputClaimsTransformation**:
 
 ```XML
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
 
-### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definir las transformaciones de notificaciones nuevo y el tipo de notificación
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definición de las nuevas transformaciones de notificaciones y del tipo de notificación
 
-En el último paso, ha agregado nuevas transformaciones de notificaciones que se deben deben. Para definir las transformaciones de notificaciones, debe agregarlos a la lista de **ClaimsTransformations**. Si no tienes un **ClaimsTransformations** elemento definido en el archivo, agregue los elementos XML primario tal como se muestra a continuación. Las transformaciones de notificaciones también se denomina necesidad de un nuevo tipo de notificación definido **nullStringClaim**. 
+En el último paso, ha agregado nuevas transformaciones de notificaciones que se deben definir. Para definir las transformaciones de notificaciones, debe agregarlas a la lista de **ClaimsTransformations**. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**. 
 
-El **BuildingBlocks** se debe agregar el elemento en la parte superior del archivo. Consulte la *TrustframeworkBase.xml* como ejemplo.
+El elemento **BuildingBlocks** se debe agregar cerca de la parte superior del archivo. Consulte *TrustframeworkBase.xml* como ejemplo.
 
 ```XML
 <BuildingBlocks>
@@ -322,13 +322,13 @@ El **BuildingBlocks** se debe agregar el elemento en la parte superior del archi
 </BuildingBlocks>
 ```
 
-### <a name="obtain-an-email-address"></a>Obtener una dirección de correo electrónico
+### <a name="obtain-an-email-address"></a>Obtención de una dirección de correo electrónico
 
-Como parte de la migración de LinkedIn desde v1.0, v2.0, se requiere una llamada adicional a otra API para obtener la dirección de correo electrónico. Si tiene que obtener la dirección de correo electrónico durante el registro, realice lo siguiente:
+Como parte de la migración de LinkedIn desde la versión 1.0 a la 2.0, se requiere una llamada adicional a otra API para obtener la dirección de correo electrónico. Si necesita obtener la dirección de correo electrónico durante el registro, realice lo siguiente:
 
-1. Complete los pasos anteriores para permitir que Azure AD B2C federar con LinkedIn para permitir al usuario iniciar sesión. Como parte de la federación, Azure AD B2C recibe el token de acceso de LinkedIn.
-2. Guarde el token de acceso de LinkedIn en una notificación. [Consulte las instrucciones aquí](idp-pass-through-custom.md).
-3. Agregue el siguiente proveedor de notificaciones que realiza la solicitud a la de LinkedIn `/emailAddress` API. Para autorizar a esta solicitud, necesita el token de acceso de LinkedIn.
+1. Complete los pasos anteriores para permitir que Azure AD B2C se federe con LinkedIn para permitir al usuario iniciar sesión. Como parte de la federación, Azure AD B2C recibe el token de acceso de LinkedIn.
+2. Guarde el token de acceso de LinkedIn en una notificación. [Vea las instrucciones aquí](idp-pass-through-custom.md).
+3. Agregue el siguiente proveedor de notificaciones que realiza la solicitud a la API `/emailAddress` de LinkedIn. Para autorizar esta solicitud, necesita el token de acceso de LinkedIn.
 
     ```XML
     <ClaimsProvider> 
@@ -356,7 +356,7 @@ Como parte de la migración de LinkedIn desde v1.0, v2.0, se requiere una llamad
     </ClaimsProvider>
     ```
 
-4. Agregue el siguiente paso de orquestación en el recorrido del usuario, para que el proveedor de notificaciones de API se desencadena cuando un usuario inicia sesión con LinkedIn. No olvide actualizar el `Order` número adecuadamente. Agregar este paso inmediatamente después del paso de orquestación que desencadena el perfil técnico de LinkedIn.
+4. Agregue el siguiente paso de orquestación en el recorrido del usuario, para que el proveedor de notificaciones de API se desencadene cuando un usuario inicie sesión con LinkedIn. Recuerde actualizar el número `Order` según corresponda. Agregue este paso inmediatamente después del paso de orquestación que desencadena el perfil técnico de LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
@@ -378,6 +378,6 @@ Como parte de la migración de LinkedIn desde v1.0, v2.0, se requiere una llamad
     </OrchestrationStep>
     ```
 
-Obtener la dirección de correo electrónico de LinkedIn durante el registro es opcional. Si decide no obtener el correo electrónico de LinkedIn, pero requieren durante el inicio de sesión de, el usuario es necesario para manualmente, escriba la dirección de correo electrónico y validarlo.
+La obtención de la dirección de correo electrónico de LinkedIn durante el registro es opcional. Si decide no obtener la dirección de correo electrónico de LinkedIn, pero si requiere una durante el registro, el usuario deberá escribir manualmente la dirección de correo electrónico y validarla.
 
-Para obtener un ejemplo completo de una directiva que usa el proveedor de identidades de LinkedIn, consulte el [paquete de inicio de directiva personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+Para ver un ejemplo completo de una directiva que usa el proveedor de identidades de LinkedIn, consulte el [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).

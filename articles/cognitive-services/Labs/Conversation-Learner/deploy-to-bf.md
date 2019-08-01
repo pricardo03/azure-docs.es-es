@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385319"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Implementación de un bot de Conversation Learner
@@ -94,7 +94,7 @@ El bot se ejecuta localmente.  Puede acceder a él con el emulador de Bot Framew
 
 Publique el bot de Conversation Learner de forma similar a como publicaría cualquier otro bot. En un nivel alto, cargue el código en un sitio web hospedado, establezca los valores de configuración adecuados y registre el bot en varios canales. Encontrará instrucciones detalladas en este vídeo, en el que se muestra cómo publicar un bot mediante Azure Bot Service.
 
-Una vez que se implementa el bot y que se ejecutan, puede conectar distintos canales a él, como Facebook, Teams, Skype etcetera. uso de un registro de canales de Bot de Azure. Para obtener documentación acerca de dicho proceso, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Una vez que el bot se implementa y está en ejecución es posible conectarle distintos canales como Facebook, Teams, Skype, etc. con un registro de canales de bot de Azure. Para obtener documentación acerca de dicho proceso, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 A continuación encontrará instrucciones detalladas para implementar un bot de Conversation Learner en Azure.  En estas instrucciones se da por hecho que el origen del bot está disponible desde un origen en la nube, como Azure DevOps Services, GitHub, BitBucket o OneDrive, y que configurará el bot para una implementación continua.
 

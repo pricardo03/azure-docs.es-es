@@ -11,10 +11,10 @@ ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507775"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
@@ -196,7 +196,7 @@ La plantilla HTML5 está lista para usarse. Sin embargo, no está disponible en 
     >Para comprobar que el sitio donde va a albergar el contenido ha habilitado CORS y puede probar las solicitudes CORS, vaya al sitio web [test-cors.org](https://test-cors.org/). 
 
 * El contenido servido es seguro sobre **HTTPS**.
-* Usa *las direcciones URL absolutas*, tales como `https://yourdomain/content`, para todos los vínculos, contenido de CSS e imágenes.
+* Está usando *direcciones URL absolutas* como `https://yourdomain/content`, para todos los vínculos, el contenido de CSS y las imágenes.
 
 ## <a name="step-5-configure-your-content-definition"></a>Paso 5: Configuración de la definición de contenido
 Para configurar `ContentDefinition` haga lo siguiente:

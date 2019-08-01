@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304955"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure
@@ -18,7 +18,7 @@ ms.locfileid: "66304955"
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en la misma región de Azure que el servidor maestro del servicio Azure Database for MySQL mediante la CLI de Azure.
 
 > [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure de su elección. La replicación entre regiones está actualmente en versión preliminar pública.
+> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. La replicación entre regiones se encuentra actualmente en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +44,7 @@ El comando `az mysql server replica create` requiere los siguientes parámetros:
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 | source-server | mydemoserver | Nombre o identificador del servidor principal existente desde el que replicar. |
 
-Para crear una cruz región lee réplica, use el `--location` parámetro. El ejemplo CLI siguiente crea la réplica en el oeste de Estados Unidos.
+Para crear una réplica de lectura entre regiones, use el parámetro `--location`. El siguiente ejemplo de la CLI crea la réplica en Oeste de EE. UU.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus

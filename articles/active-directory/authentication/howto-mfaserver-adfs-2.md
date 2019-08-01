@@ -1,5 +1,5 @@
 ---
-title: 'Uso del servidor Azure MFA con AD FS 2.0: Azure Active Directory'
+title: 'Uso del servidor Azure MFA con AD FS 2.0: Azure Active Directory'
 description: En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 231375c94163f098cce86bdbbf285a58957a9927
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056115"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuración de Servidor Azure Multi-Factor Authentication para trabajar con AD FS 2.0
 
 Este artículo es para organizaciones que están federadas con Azure Active Directory y desean proteger los recursos almacenados de forma local o en la nube. Proteja los recursos mediante Servidor Azure Multi-Factor Authentication y su configuración para que funcione con AD FS para que se desencadene la verificación en dos pasos para puntos de conexión de gran valor.
 
 Esta documentación trata del uso de Servidor Azure Multi-Factor Authentication con AD FS 2.0. Para información sobre AD FS, consulte [Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
 
 ## <a name="secure-ad-fs-20-with-a-proxy"></a>Protección de AD FS 2.0 con un proxy
 
@@ -39,12 +42,12 @@ Para proteger AD FS 2.0 con un proxy, instale Servidor Azure Multi-Factor Authen
 4. Para detectar automáticamente el nombre de usuario, la contraseña y las variables de dominio, escriba la dirección URL de inicio de sesión (como https://sso.contoso.com/adfs/ls) en el cuadro de diálogo Configuración automática de sitio web basado en formularios y haga clic en **Aceptar**.
 5. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al servidor y están sujetos a la verificación en dos pasos. Si aún no se importó al servidor un número significativo de usuarios o se van a excluir de la verificación en dos pasos, deje la casilla desactivada.
 6. Si no se pueden detectar automáticamente las variables de página, haga clic en el botón **Especificar manualmente...** en el cuadro de diálogo Configuración automática de sitio web basado en formularios.
-7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL de la página de inicio de sesión de AD FS en el campo URL de envío (como https://sso.contoso.com/adfs/ls)) y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
+7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL de la página de inicio de sesión de AD FS en el campo URL de envío (como https://sso.contoso.com/adfs/ls) ) y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 8. Establezca el formato de solicitud en **POST o GET**.
 9. Especifique Variable de nombre de usuario (ctl00$ContentPlaceHolder1$UsernameTextBox) y Variable de contraseña (ctl00$ContentPlaceHolder1$PasswordTextBox). Si la página de inicio de sesión basada en formularios muestra un cuadro de texto de dominio, especifique también Variable de dominio. Para buscar los nombres de los cuadros de entrada de la página de inicio de sesión, vaya a la página de inicio de sesión en un explorador web, haga clic con el botón derecho en la página y seleccione **Ver código fuente**.
 10. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al servidor y están sujetos a la verificación en dos pasos. Si aún no se importó al servidor un número significativo de usuarios o se van a excluir de la verificación en dos pasos, deje la casilla desactivada.
 
-    ![Agregar sitio Web basado en formularios al servidor MFA](./media/howto-mfaserver-adfs-2/manual.png)
+    ![Incorporación de un sitio web basado en formulario al servidor MFA](./media/howto-mfaserver-adfs-2/manual.png)
 
 11. Haga clic en **Avanzadas…** para revisar la configuración avanzada. Entre los valores que puede configurar, se incluyen:
 
@@ -68,13 +71,13 @@ Ya habilitó la autenticación de IIS, pero debe configurar la conexión LDAP co
 1. Haga clic en el icono **Integración de directorios**.
 2. En la pestaña Configuración, seleccione el botón de radio **Usar la configuración LDAP específica**.
 
-   ![Configuración de LDAP para la configuración LDAP específica](./media/howto-mfaserver-adfs-2/ldap1.png)
+   ![Configuración de LDAP específica](./media/howto-mfaserver-adfs-2/ldap1.png)
 
 3. Haga clic en **Editar**.
 4. En el cuadro de diálogo Editar configuración de LDAP, rellene los campos con la información necesaria para conectarse al controlador de dominio de AD. Las descripciones de los campos se incluyen en el archivo de ayuda del Servidor Azure Multi-Factor Authentication.
 5. Pruebe la conexión LDAP haciendo clic en el botón **Probar**.
 
-   ![Probar configuración de LDAP en el servidor MFA](./media/howto-mfaserver-adfs-2/ldap2.png)
+   ![Prueba de la configuración de LDAP en el servidor MFA](./media/howto-mfaserver-adfs-2/ldap2.png)
 
 6. Si la prueba de conexión LDAP se realizó correctamente, haga clic en **Aceptar**.
 
@@ -85,9 +88,9 @@ Ya habilitó la autenticación de IIS, pero debe configurar la conexión LDAP co
 3. Si los usuarios escriben su nombre de usuario en formato "dominio\nombreDeUsuario", el servidor debe ser capaz de eliminar el dominio del nombre de usuario cuando crea la consulta LDAP. Esto puede hacerse mediante un valor del Registro.
 4. Abra el editor del Registro y vaya a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor en un servidor de 64 bits. Si está en un servidor de 32 bits, saque "Wow6432Node" fuera de la ruta de acceso. Cree una clave de Registro DWORD denominada "UsernameCxz_stripPrefixDomain" y establezca el valor en 1. Azure Multi-Factor Authentication protege ahora el proxy AD FS.
 
-Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la [sección IP de confianza](#trusted-ips) si desea permitir interna de direcciones IP para que no se requiere la verificación en dos pasos al iniciar sesión en el sitio Web desde esas ubicaciones.
+Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección [IP de confianza](#trusted-ips) si desea permitir direcciones IP internas de manera que no sea necesaria la verificación en dos pasos al iniciar sesión en el sitio web desde esas ubicaciones.
 
-![Editor del registro para configurar la configuración de la empresa](./media/howto-mfaserver-adfs-2/reg.png)
+![Editor del registro para realizar la configuración de la empresa](./media/howto-mfaserver-adfs-2/reg.png)
 
 ## <a name="ad-fs-20-direct-without-a-proxy"></a>AD FS 2.0 Direct sin proxy
 
@@ -96,7 +99,7 @@ Puede proteger AD FS cuando no se utiliza el proxy de AD FS. Instale el servidor
 1. En el servidor Azure Multi-Factor Authentication, haga clic en el icono **Autenticación de IIS** en el menú izquierdo.
 2. Haga clic en la pestaña **HTTP**.
 3. Haga clic en **Agregar**.
-4. En el cuadro de diálogo Agregar URL base, escriba la dirección URL para el sitio web de AD FS donde se realiza la autenticación HTTP (por ejemplo, https://sso.domain.com/adfs/ls/auth/integrated)) en el campo URL base. A continuación, escriba un nombre de la aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
+4. En el cuadro de diálogo Agregar URL base, escriba la dirección URL para el sitio web de AD FS donde se realiza la autenticación HTTP (por ejemplo, https://sso.domain.com/adfs/ls/auth/integrated) ) en el campo URL base. A continuación, escriba un nombre de la aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 5. Si lo desea, ajuste los tiempos Tiempo de espera de inactividad y Sesión máxima.
 6. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al servidor y están sujetos a la verificación en dos pasos. Si aún no se importó al servidor un número significativo de usuarios o se van a excluir de la verificación en dos pasos, deje la casilla desactivada.
 7. Active la casilla de la caché de cookies si lo desea.
@@ -109,7 +112,7 @@ Puede proteger AD FS cuando no se utiliza el proxy de AD FS. Instale el servidor
 
 Azure Multi-Factor Authentication protege ahora AD FS.
 
-Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección de direcciones IP de confianza si desea permitir las direcciones IP internas para que no se requiere la verificación en dos pasos al iniciar sesión en el sitio Web desde esas ubicaciones.
+Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección IP de confianza si desea permitir direcciones IP internas de manera que no sea necesaria la verificación en dos pasos al iniciar sesión en el sitio web desde esas ubicaciones.
 
 ## <a name="trusted-ips"></a>IP de confianza
 
@@ -120,6 +123,6 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 1. En la sección Autenticación de IIS, haga clic en la pestaña **IP de confianza**.
 2. Haga clic en **Agregar…** .
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio **IP única**, **Intervalo IP** o **Subred**.
-4. Escriba la dirección IP, intervalo de direcciones IP o subred que se debe permitir. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en el botón **Aceptar**.
+4. Escriba la dirección IP, el intervalo de direcciones IP o la subred que deban permitirse. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en el botón **Aceptar**.
 
-![Configurar IP de confianza al servidor de MFA](./media/howto-mfaserver-adfs-2/trusted.png)
+![Configuración de direcciones IP de confianza en el servidor MFA](./media/howto-mfaserver-adfs-2/trusted.png)

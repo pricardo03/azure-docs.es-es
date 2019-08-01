@@ -1,6 +1,6 @@
 ---
-title: 'Actualizar tu información de perfil y cuenta desde el portal mis aplicaciones: Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre cómo actualizar su perfil y su trabajo o información de cuenta, incluidos al cambiar la contraseña, activar el restablecimiento de contraseña, actualizar los métodos de comprobación de seguridad, ver los términos de su organización de la instrucción use y de firma de la escuela en todas partes ha iniciado sesión con su cuenta profesional o educativa.
+title: 'Actualización del perfil y la información de cuenta en el portal Aplicaciones: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo actualizar el perfil y la información de la cuenta profesional o educativa, incluidos el cambio de contraseña, activar el restablecimiento de contraseña, actualizar los métodos de comprobación de seguridad, ver el extracto de las condiciones de uso de la organización y cerrar todas las sesiones en las que ha iniciado sesión con la cuenta profesional o educativa.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,13 +14,13 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305413"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Actualizar tu información de perfil y cuenta desde el portal mis aplicaciones
+# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Actualización del perfil y la información de cuenta en el portal Aplicaciones
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -28,103 +28,103 @@ Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basa
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="view-your-organization-related-profile-information"></a>Ver la información de perfil relacionados con la organización
-Dependiendo de la organización que haya elegido incluir en su **perfil** página de la **mis aplicaciones** portal, es posible que vea los detalles específicos relacionados con el trabajo, junto con los dispositivos y la actividad y cualquier organizaciones adicionales al que pertenece.
+## <a name="view-your-organization-related-profile-information"></a>Visualización de la información de perfil relacionada con la organización
+En función de lo que la organización haya elegido incluir en la página **Perfil** del portal **Aplicaciones**, es posible que vea detalles específicos relacionados con el trabajo, junto con los dispositivos y la actividad y cualquier otra organización adicional a la que pertenezca.
 
 ### <a name="to-view-your-profile-information"></a>Para ver la información de perfil
-1.  Inicie sesión su cuenta profesional o educativa, [vaya a la **mis aplicaciones** portal](my-apps-portal-end-user-access.md).
+1.  Inicie sesión en su cuenta profesional o educativa y [vaya al portal **Aplicaciones**](my-apps-portal-end-user-access.md).
 
-2. Desde el **aplicaciones** , seleccione la imagen del perfil en la esquina superior derecha, donde dice su nombre y su organización, y, a continuación, seleccione **perfil**.
+2. En la página **Aplicaciones**, seleccione la imagen de perfil en la esquina superior derecha, donde aparece su nombre y su organización y, a continuación, seleccione **Perfil**.
 
-    El **perfil** aparece en la página y muestra la información del perfil.
+    Aparece la página **Perfil**, que muestra la información del perfil.
 
-    ![Página de perfil, que muestra toda la información disponible](media/my-apps-portal/my-apps-portal-profile-page.png)
+    ![Página Perfil con toda la información disponible](media/my-apps-portal/my-apps-portal-profile-page.png)
 
-3. Desde el **perfil** página, puede:
+3. Desde la página **Perfil**, puede:
 
-    - **Revise los detalles relacionados con la organización.** Ver sus fotos, nombre, título, las direcciones de correo electrónico asociada e información de la oficina. Esta información se administra por su organización y no podrá cambiarlo. Si ve un error, póngase en contacto con su departamento de soporte técnico.
+    - **Revisar los detalles relacionados con la organización.** Ver su foto, nombre, puesto, las direcciones de correo electrónico asociadas e información de la oficina. La organización administra esta información y no podrá modificarla. Si ve un error, póngase en contacto con su departamento de soporte técnico.
 
-    - **Revise los dispositivos y la actividad**. Asegúrese de que cada dispositivo es conocido y conectados correctamente a su organización. Si no reconoce un dispositivo, seleccione **deshabilitar dispositivo** para quitar la asociación con su cuenta. Después de deshabilitar un dispositivo, quitarlo de esta página.
+    - **Revisar los dispositivos y la actividad**. Asegúrese de que cada dispositivo es conocido y está conectado correctamente a su organización. Si no reconoce un dispositivo, seleccione **Deshabilitar dispositivo** para eliminar la asociación con la cuenta. Después de deshabilitar un dispositivo, este se elimina de esta página.
 
-    - **Revise sus organizaciones.** Asegúrese de que todavía funcione con cada una de las organizaciones especificadas. Si ya no trabaja con una organización, recomendamos encarecidamente que seleccione **inicie sesión para salir de la organización**. Después de salir de la organización, se quita de esta página.
+    - **Revisar sus organizaciones.** Asegúrese de que todavía colabora con cada una de las organizaciones especificadas. Si ya no colabora con una organización, se recomienda que seleccione **Iniciar sesión para salir de la organización**. Después de salir de la organización, esta será eliminada de esta página.
 
-## <a name="manage-your-work-or-school-account-information"></a>Administrar el trabajo o escuela información de cuenta
-Actualizar y administrar el trabajo o escuela información de la cuenta de la **perfil** página de la **mis aplicaciones** portal. Esta página le ayuda a:
+## <a name="manage-your-work-or-school-account-information"></a>Administración de la información de la cuenta profesional o educativa
+Puede actualizar y administrar la información de la cuenta profesional o educativa en la página **Perfil** del portal **Aplicaciones**. Esta página le ayuda a:
 
-- Cambiar el trabajo o educativa de contraseña de la cuenta.
+- Cambiar la contraseña de la cuenta profesional o educativa.
 
-- Activar (si su administrador ha activado esta característica) de restablecimiento de contraseña.
+- Activar el restablecimiento de contraseña (si el administrador ha activado esta característica).
 
 - Proporcionar información de comprobación de seguridad adicional.
 
-- Revise los términos de uso de su organización.
+- Revisar las condiciones de uso de la organización.
 
-- Cerrar sesión en todas partes.
+- Cerrar todas las sesiones.
 
-## <a name="change-your-password"></a>Cambiar la contraseña
-Si desea cambiar la contraseña de su cuenta profesional o educativa, puede seleccionar **cambiar contraseña** desde el **administrar cuenta** área de la **perfil** página.
+## <a name="change-your-password"></a>Cambio de la contraseña
+Si desea cambiar la contraseña de la cuenta profesional o educativa, puede seleccionar **Cambiar contraseña** en el área **Administrar cuenta** de la página **Perfil**.
 
 ### <a name="to-change-your-password"></a>Para cambiar la contraseña
-1. Desde el **administrar cuenta** área de la **perfil** página, seleccione **cambiar contraseña**.
+1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Cambiar contraseña**.
 
-2. En el **cambiar contraseña** página, asegúrese de que el identificador de usuario es correcto y, a continuación, escriba la contraseña anterior y la nueva contraseña en los cuadros.
+2. En la página **Cambiar contraseña**, asegúrese de que el identificador de usuario es correcto y, a continuación, escriba la contraseña anterior y la nueva contraseña en los cuadros de texto.
 
     ![Página Cambiar contraseña](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
 3. Seleccione **Submit** (Enviar).
 
-    Cambiar la contraseña. Se le pedirá que inicie sesión en las aplicaciones que anteriormente ha iniciado sesión usando su trabajo o educativa.
+    Se ha cambiado la contraseña. Se le pedirá que inicie sesión en las aplicaciones en las que haya iniciado sesión anteriormente con la cuenta profesional o educativa.
 
-## <a name="set-up-and-use-password-reset"></a>Configurar y usar el restablecimiento de contraseña
-Si nunca ha olvidado la contraseña recibió uno del soporte técnico de su empresa o está bloqueado en su cuenta, puede restablecer su contraseña.
+## <a name="set-up-and-use-password-reset"></a>Configuración y uso del restablecimiento de contraseña
+Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado de su cuenta, puede restablecer su propia contraseña.
 
 >[!Important]
->El administrador debe activar esta característica y debe registrar para participar. Para obtener más información sobre cómo registrar y cómo restablecer la contraseña, consulte [registrarme para restablecer la contraseña de autoservicio](active-directory-passwords-reset-register.md) y [restablecer su contraseña profesional o educativa](user-help-reset-password.md).
+>El administrador debe activar esta característica y usted debe registrarse para participar. Para más información sobre cómo registrarse y cómo restablecer la contraseña, consulte [Registro en el autoservicio de restablecimiento de contraseña](active-directory-passwords-reset-register.md) y [Restablecimiento de la contraseña profesional o educativa](user-help-reset-password.md).
 
-## <a name="change-your-security-verification-information"></a>Cambiar la información de comprobación de seguridad
-Si su organización requiere que utilizar la comprobación de dos fases, puede agregar, actualizar y eliminar la información de seguridad asociada desde la **comprobación de seguridad adicional** página.
+## <a name="change-your-security-verification-information"></a>Cambio de la información de comprobación de seguridad
+Si la organización requiere el uso de la comprobación en dos fases, puede agregar, actualizar y eliminar la información de seguridad asociada en la página **Comprobación de seguridad adicional**.
 
-Verificación de dos factores requiere que use dos piezas de información de comprobación, como una contraseña y un PIN, antes de que puedan llegar a su cuenta o a la información de su organización. Para obtener más información acerca de la comprobación de dos fases, vea [configurar mi cuenta para la verificación](multi-factor-authentication-end-user-first-time.md).
+La comprobación en dos fases requiere que use dos piezas de información de comprobación, como una contraseña y un PIN, antes de poder llegar a la cuenta o a la información de la organización. Para más información sobre la verificación en dos fases, consulte [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="to-change-your-security-information"></a>Para cambiar la información de seguridad
-1. Desde el **administrar cuenta** área de la **perfil** página, seleccione **comprobación de seguridad adicional**.
+1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Comprobación de seguridad adicional**.
 
-    ![Página comprobación de seguridad adicionales](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
+    ![Página Comprobación de seguridad adicional](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
 
-2. En el **comprobación de seguridad adicional** página, puede agregar, cambiar o eliminar la siguiente información:
+2. En la página **Comprobación de seguridad adicional**, puede agregar, cambiar o eliminar la siguiente información:
 
-    - **Opción de comprobación de forma predeterminada.** Seleccione el método secundario predeterminado que se usará para la verificación de dos factores. Este método se usa automáticamente cuando se requiere la verificación de dos fases después de escribir su nombre de usuario y contraseña.
+    - **Opción de comprobación predeterminada.** Seleccione el método secundario predeterminado que se usará para la comprobación en dos fases. Este método se usa automáticamente cuando se requiere la comprobación en dos fases después de escribir el nombre de usuario y la contraseña.
 
-    - **Agregar, actualizar o quitar métodos de verificación.** Se puede agregar nuevos, actualizar las existentes o eliminar información antigua que ya no es aplicable.
+    - **Agregar, actualizar o eliminar métodos de comprobación.** Puede agregar nueva información, actualizar la existente o eliminar información antigua que ya no es aplicable.
 
-    - **Configurar la aplicación Microsoft Authenticator.** Puede configurar la aplicación Microsoft Authenticator para trabajar como método de verificación. Para obtener más información acerca de la aplicación Microsoft Authenticator, consulte [¿qué es la aplicación Microsoft Authenticator?](user-help-auth-app-overview.md)
+    - **Configurar la aplicación Microsoft Authenticator.** Puede elegir configurar la aplicación Microsoft Authenticator para que funcione como su método de comprobación. Para más información sobre la aplicación Microsoft Authenticator, consulte [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md).
 
 3. Haga clic en **Guardar** para guardar los cambios.
 
-## <a name="review-your-organizations-terms-of-use-statement"></a>Revise los términos de su organización de la instrucción use
-Puede elegir revisar los términos de su organización de la instrucción use, si está disponible.
+## <a name="review-your-organizations-terms-of-use-statement"></a>Revisión del extracto de las condiciones de uso de la organización
+Puede elegir revisar el extracto de los términos de uso de la organización, si está disponible.
 
-1. Desde el **administrar cuenta** área de la **perfil** página, seleccione **revisar los términos de uso**.
+1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Revisar condiciones de uso**.
 
-2. Revise los términos de su organización y seleccione **Accept** para confirmar que ha leído y comprendido los términos de uso para su organización.
+2. Revise las condiciones de uso de la organización y seleccione **Aceptar** para confirmar que ha leído y comprendido las condiciones de uso de la organización.
 
-    ![Página términos de uso desde el portal mis aplicaciones](media/my-apps-portal/my-apps-portal-tou-page.png)
+    ![Página Condiciones de uso del portal Aplicaciones](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Si su organización no tiene una condición de uso, puede seleccionar **realiza** para volver a la **perfil** página.
+    Si la organización no tiene condiciones de uso, puede seleccionar **Listo** para volver a la página **Perfil**.
 
-## <a name="sign-out-of-everywhere"></a>Cierre la sesión de todas partes
-Puede cerrar la sesión de todas partes que actualmente ha iniciado sesión el uso de su trabajo o educativa. Esto incluye todas las aplicaciones y dispositivos.
+## <a name="sign-out-of-everywhere"></a>Cerrar todas las sesiones
+Puede elegir cerrar todas las sesiones en las que actualmente ha iniciado sesión con la cuenta profesional o educativa. Esto incluye todas las aplicaciones y dispositivos.
 
-### <a name="to-sign-out-of-everywhere"></a>Para cerrar la sesión de todas partes
-1. Desde el **administrar cuenta** área de la **perfil** página, seleccione **cerrar todas las sesiones**.
+### <a name="to-sign-out-of-everywhere"></a>Para cerrar todas las sesiones
+1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Cerrar todas las sesiones**.
 
-2. En el **cerrar todas las sesiones** cuadro de confirmación, seleccione **Sí** para confirmar que desea cerrar la sesión de todas las sesiones y los dispositivos. Seleccione **n** si cambia de opinión.
+2. En el cuadro de confirmación **Cerrar todas las sesiones**, seleccione **Sí** para confirmar que desea cerrar la sesión de todas las sesiones y los dispositivos. Seleccione **No** si cambia de opinión.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de terminar las actualizaciones en el **perfil** página, puede:
+Después de terminar las actualizaciones en la página **Perfil**, puede:
 
-- [Obtener acceso y usar aplicaciones en el portal mis aplicaciones](my-apps-portal-end-user-access.md).
+- [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 
-- [Ver y actualizar la información de grupos](my-apps-portal-end-user-groups.md).
+- [Ver y actualizar la información relacionada con grupos](my-apps-portal-end-user-groups.md).
 
-- [Realizar revisiones de acceso de su propio](my-apps-portal-end-user-access-reviews.md).
+- [Realizar sus propias revisiones de acceso](my-apps-portal-end-user-access-reviews.md).

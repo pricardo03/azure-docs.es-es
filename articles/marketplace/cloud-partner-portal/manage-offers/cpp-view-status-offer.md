@@ -1,5 +1,5 @@
 ---
-title: Ver el estado de las ofertas de marketplace | Azure Marketplace
+title: Visualización del estado de las ofertas de Marketplace | Azure Marketplace
 description: Visualización del estado de las ofertas de los Marketplaces de Azure y AppSource mediante Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064318"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visualización del estado de publicación de las ofertas de Azure Marketplace y AppSource
 
@@ -39,7 +39,7 @@ En la siguiente pestaña de **Estado** de ejemplo para un servicio de consultor�
 
 ![Pestaña de estado que muestra un error del servicio de consultoría](./media/consulting-service-error.png)
 
-En el último estado de ejemplo de una aplicación de Azure se muestra un problema crítico de revisión de Microsoft.  Contiene un vínculo activo al elemento VSTS que contiene información detallada sobre este problema de revisión.  Para obtener más información, consulte [Publicación de la ofertas de una aplicación de Azure](cpp-publish-offer.md).
+En el último estado de ejemplo de una aplicación de Azure se muestra un problema crítico de revisión de Microsoft.  Contiene un vínculo activo al elemento Azure DevOps que incluye información detallada sobre este problema de revisión.  Para obtener más información, consulte [Publicación de la ofertas de una aplicación de Azure](cpp-publish-offer.md).
 
 ![Pestaña de estado de una aplicación de Azure que muestra el problema de revisión](../azure-applications/media/status-tab-ms-review.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Sesión y solo inicio de sesión en configuración - Azure Active Directory B2C | Microsoft Docs
-description: Sesión y configuración de inicio de sesión único en Azure Active Directory B2C.
+title: 'Configuración de sesiones e inicio de sesión único: Azure Active Directory B2C | Microsoft Docs'
+description: Configuración de sesiones e inicio de sesión único en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,13 +11,13 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508116"
 ---
-# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sesión y la configuración de inicio de sesión único en Azure Active Directory B2C
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuración de sesiones e inicio de sesión único en Azure Active Directory B2C
 
 Esta característica ofrece un control más preciso, [por directivas](active-directory-b2c-reference-policies.md), de lo siguiente:
 

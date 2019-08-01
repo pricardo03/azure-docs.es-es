@@ -1,6 +1,6 @@
 ---
-title: 'GRANT B2B a los usuarios tener acceso a las aplicaciones locales: Azure Active Directory | Microsoft Docs'
-description: Muestra cómo proporcionar a los usuarios B2B acceso a en las aplicaciones del entorno local con la colaboración B2B de Azure AD en la nube.
+title: 'Concesión de acceso a los usuarios B2B a las aplicaciones locales: Azure Active Directory | Microsoft Docs'
+description: Se muestra cómo proporcionar a los usuarios B2B de la nube acceso a aplicaciones locales con la colaboración B2B de Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2447aac825874779a543d25b0a70c339dcbf1473
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113032"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -63,7 +63,7 @@ En el siguiente diagrama se proporciona información general de alto nivel de c�
 
 Puede administrar los objetos de usuario B2B locales mediante directivas de administración del ciclo de vida. Por ejemplo:
 
-- Puede configurar directivas de autenticación multifactor (MFA) para el usuario invitado para usar MFA durante la autenticación de Application Proxy. Puede encontrar información en [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).
+- Puede configurar directivas de autenticación multifactor (MFA) para el usuario invitado para usar MFA durante la autenticación de Application Proxy. Para más información, consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).
 - Cualquier patrocinio, revisión de acceso, verificación de cuenta, etc. que se realice sobre el usuario B2B en la nube se aplica a los usuarios locales. Por ejemplo, si se elimina el usuario en la nube mediante las directivas de administración del ciclo de vida, también se elimina el usuario local mediante la sincronización MIM o la sincronización de Azure AD Connect. Para más información, consulte [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Creación de objetos de usuario invitado B2B mediante MIM

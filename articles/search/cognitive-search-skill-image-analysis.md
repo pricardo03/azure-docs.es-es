@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388410"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
@@ -38,15 +38,15 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
 | defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *zh*: chino simplificado|
-|visualFeatures |   Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li> *Categorías*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li><li>*Descripción* -describe la imagen de contenido con una frase completa de inglés.</li><li>*Caras* -detecta si están presentes las caras. Si hay caras, indica las coordenadas, el sexo y la edad.</li><li> *ImageType* -detecta si la imagen es imágenes prediseñadas o dibujo lineal.</li><li>  *Color* -determina el color de énfasis, el color dominante, y si una imagen es negra y blanco.</li><li>*Para adultos* -detecta si la imagen pornográfico por naturaleza (muestra desnudos o un acto de sexo). También se detecta contenido provocativo.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
-| detalles   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*Celebridades* -identifica celebridades si detecta en la imagen.</li><li>*Puntos de referencia* -identifica los puntos de referencia si detecta en la imagen.</li></ul>
+|visualFeatures |   Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li> *Categorías*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li><li>*description*: describe el contenido de la imagen con una oración completa en inglés.</li><li>*faces*: detecta si hay caras presentes. Si hay caras, indica las coordenadas, el sexo y la edad.</li><li> *ImageType*: detecta si la imagen está prediseñada o si es un dibujo lineal.</li><li>  *color*: determina el color de énfasis, el color dominante y si la imagen está en blanco y negro.</li><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual). También se detecta contenido provocativo.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
+| details   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | DESCRIPCIÓN                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
+| imagen         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 
 
 
@@ -85,7 +85,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Índice de ejemplo (para solo los campos categorías, descripción, etiquetas y caras)
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Índice de ejemplo (solo para los campos de categorías, descripción, etiquetas y caras)
 ```json
 {
     "fields": [
@@ -494,7 +494,7 @@ En los siguientes casos de error, no se extrae ningún elemento.
 | NotSupportedImage | La imagen no se admite como, por ejemplo, pornografía infantil. |
 | InvalidDetails | El modelo específico del dominio no se admite. |
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

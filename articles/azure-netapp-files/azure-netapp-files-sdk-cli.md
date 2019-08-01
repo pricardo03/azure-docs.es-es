@@ -1,6 +1,6 @@
 ---
-title: Archivos de NetApp Azure SDK | Microsoft Docs
-description: Enumera los SDK compatibles con Azure Files de NetApp.
+title: SDK de Azure NetApp Files | Microsoft Docs
+description: Enumera los SDK admitidos por Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: b-juche
 ms.openlocfilehash: 44cacc388b8cb9977bdf36d4d1a86f8d15211608
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957886"
 ---
 # <a name="azure-netapp-files-sdks"></a>SDK de Azure NetApp Files
 
-En este artículo se enumera los SDK compatibles con Azure Files de NetApp.
+En este artículo se enumeran los SDK admitidos por Azure NetApp Files.
 
 ## <a name="supported-sdks"></a>SDK admitidos 
 
-En la tabla siguiente se enumera los SDK admitidos.  Puede encontrar detalles sobre los SDK admitidos en sus ubicaciones publicados en GitHub.  
+En la tabla siguiente se muestran los SDK admitidos.  Puede encontrar detalles sobre los SDK admitidos en sus ubicaciones publicadas en GitHub.  
 
-|    Idioma    |    Ubicación de publicación de SDK    |
+|    Idioma    |    Ubicación publicada de SDK    |
 |------------------|--------------------------------------------------------------------------------------------|
 |    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/NetApp`    |
 |    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp`    |
@@ -40,4 +40,4 @@ En la tabla siguiente se enumera los SDK admitidos.  Puede encontrar detalles so
 <!-- ## Command-line tools -->
 
 ## <a name="next-steps"></a>Pasos siguientes   
- [Descargar los SDK de Azure](https://azure.microsoft.com/downloads/)
+ [Descargas de SDK de Azure](https://azure.microsoft.com/downloads/)

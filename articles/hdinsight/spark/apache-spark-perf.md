@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476104"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimización de trabajos de Apache Spark
@@ -23,7 +23,7 @@ En las siguientes secciones se describen las recomendaciones y optimizaciones co
 
 ## <a name="choose-the-data-abstraction"></a>Selección de la abstracción de datos
 
-Las versiones anteriores de Spark usan RDD para Spark 1.3, la información abstracta y 1.6 se introdujeron DataFrames y conjuntos de datos, respectivamente. Tenga en cuenta las siguientes ventajas relativas:
+Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.6 introdujeron DataFrames y DataSets, respectivamente. Tenga en cuenta las siguientes ventajas relativas:
 
 * **DataFrames**
     * La mejor opción en la mayoría de los casos.
@@ -60,9 +60,9 @@ Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //url/ | **Estándar** | Sí | Clúster transitorio |
-| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Más rápido** | Sí | Clúster transitorio |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Más rápido** | Sí | Clúster transitorio |
-| HDFS local | **hdfs:** //url/ | **El más rápido** | No | Clúster 24/7 interactivo |
+| Azure Data Lake Storage Gen 2| **abfs [s]:** //url/ | **Más rápido** | Sí | Clúster transitorio |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Más rápido** | Sí | Clúster transitorio |
+| HDFS local | **hdfs:** //url/ | **El más rápido** | Sin | Clúster 24/7 interactivo |
 
 ## <a name="use-the-cache"></a>Uso de la caché
 

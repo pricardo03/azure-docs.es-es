@@ -7,24 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061102"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
 Un volumen persistente representa un fragmento de almacenamiento aprovisionado para su uso con pods de Kubernetes. Un volumen persistente puede usarse en uno o varios pods y puede aprovisionarse de forma dinámica o estática. Si varios pods necesitan acceso simultáneo al mismo volumen de almacenamiento, puede usar Azure Files para conectarse mediante el [protocolo Bloque de mensajes del servidor (SMB)][smb-overview]. Este artículo muestra cómo crear dinámicamente un recurso compartido de Azure Files para ser usado por varios pods en un clúster de Azure Kubernetes Service (AKS).
 
-Para obtener más información sobre los volúmenes de Kubernetes, consulte [opciones de almacenamiento para las aplicaciones en AKS][concepts-storage].
+Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento de aplicaciones en AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Creación de una clase de almacenamiento
 
@@ -35,7 +35,7 @@ Una clase de almacenamiento se utiliza para definir cómo se crea un recurso com
 * *Standard_RAGRS*: almacenamiento estándar con redundancia geográfica con acceso de lectura (RA-GRS)
 
 > [!NOTE]
-> Azure Files actualmente solo funcionan con almacenamiento estándar. Si usa almacenamiento Premium, el volumen no se aprovisiona.
+> Azure Files admite el almacenamiento premium en clústeres de AKS que ejecutan Kubernetes 1.13 o superior.
 
 Para más información sobre las clases de almacenamiento de Kubernetes para Azure Files, vea las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
 
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure*. Para Windows Server containers (actualmente en versión preliminar de AKS), especifique un *mountPath* con la convención de ruta de acceso de Windows, como *'D:'* .
+El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure*. Para los contenedores de Windows Server (actualmente en versión preliminar en AKS), especifique un elemento *mountPath* con la convención de ruta de acceso de Windows, como *"D:"* .
 
 Cree un archivo denominado `azure-pvc-files.yaml` y cópielo en el siguiente código YAML. Asegúrese de que *claimName* coincide con la clase PVC creada en el último paso.
 
@@ -227,7 +227,7 @@ Si se usa un clúster con las versiones 1.8.0 a 1.8.4, se puede especificar un c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para las prácticas recomendadas asociadas, consulte [procedimientos recomendados para el almacenamiento y copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
 
 Obtenga más información sobre los volúmenes persistentes de Kubernetes con Azure Files.
 

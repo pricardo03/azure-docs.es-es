@@ -3,21 +3,22 @@ title: Real User Measurements de Azure Traffic Manager con Visual Studio Mobile 
 description: Configuración de la aplicación móvil desarrollada mediante Visual Studio Mobile Center para enviar medidas de usuarios reales a Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 95207cea5988a22b0b3caa23be39b481f9fd687b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071250"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Envío de medidas de usuarios reales a Traffic Manager con Visual Studio Mobile Center
 
@@ -28,7 +29,7 @@ Puede configurar su aplicación móvil desarrollada mediante Visual Studio Mobil
 
 Para configurar Real User Measurements, debe obtener una clave e instrumentar la aplicación con el paquete RUM.
 
-## <a name="step-1-obtain-a-key"></a>Paso 1: Obtener una clave
+## <a name="step-1-obtain-a-key"></a>Paso 1: Obtención de una clave
     
 El servicio identifica las medidas que se realizan y envían a Traffic Manager desde la aplicación cliente mediante una cadena única, llamada clave de Real User Measurements (RUM). Puede obtener una clave RUM mediante Azure Portal, una API de REST o a través de las interfaces de PowerShell o de la CLI.
 
@@ -40,7 +41,7 @@ Para obtener la clave RUM mediante Azure Portal, use el procedimiento siguiente:
         
    ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generación de claves real User Measurements**
+   **Figura 1: Generación de la clave de Mediciones de usuario reales**
 
 5. La página muestra la clave RUM que se genera y un fragmento de código de JavaScript que debe insertarse en la página HTML.
  
@@ -50,7 +51,7 @@ Para obtener la clave RUM mediante Azure Portal, use el procedimiento siguiente:
  
 6. Haga clic en el botón **Copiar** para copiar la clave RUM. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Paso 2: Instrumentar la aplicación con el paquete RUM del SDK de Mobile Center
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Paso 2: Instrumentación de la aplicación con el paquete RUM del SDK de Mobile Center
 
 Si no está familiarizado con Visual Studio Mobile Center, visite su [sitio web](https://mobile.azure.com). Para obtener instrucciones detalladas sobre la integración con el SDK, consulte [Getting Started with the Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android) (Introducción al SDK de Android).
 

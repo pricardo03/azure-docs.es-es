@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f992aed6eba775052483b1657d04dead18b2b2ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059178"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -48,23 +48,23 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
     - Azure Storage
     - Recurso compartido de archivos (local)
 - Enumeración de las copias de seguridad
-- Desencadenar una copia de seguridad ad hoc de una partición
+- Desencadenamiento de una copia de seguridad ad hoc de una partición
 - Restauración de una partición mediante la copia de seguridad anterior
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
+* Clúster de Service Fabric con la versión 6.4 de Fabric y versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-windows-cluster-x509-security.md) para saber cómo adquirir o crear un certificado X.509 autofirmado.
 
 * Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .Net Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
-* Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [preliminar] para realizar llamadas de la configuración.
+* Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Asegúrese de que el clúster está conectado mediante el `Connect-SFCluster` comando antes de realizar cualquier solicitud de configuración mediante el módulo Microsoft.ServiceFabric.Powershell.Http.
+* Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -136,7 +136,7 @@ Para el almacenamiento de copia de seguridad, cree un recurso compartido de arch
 New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para crear la nueva directiva.
 
@@ -180,7 +180,7 @@ Después de definir la directiva para satisfacer los requisitos de protección d
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para asociar la directiva de copia de seguridad con el nombre `BackupPolicy1` que se ha creado en el paso anterior con la aplicación `SampleApp`.
 
 ```powershell
@@ -210,7 +210,7 @@ Las copias de seguridad asociadas a todas las particiones que pertenecen a los s
     Get-SFApplicationBackupList -ApplicationId WordCount     
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute el siguiente script de PowerShell para invocar la API de HTTP a fin de enumerar las copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`.
 
@@ -264,7 +264,7 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
-- Cmdlets de PowerShell de Service Fabric están en modo de vista previa.
+- Los cmdlets de PowerShell para Service Fabric están en modo de versión preliminar.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,8 +2,8 @@
 title: Entrenamiento de modelos de aprendizaje automático con estimadores
 titleSuffix: Azure Machine Learning service
 description: Aprenda a realizar un entrenamiento de nodo único y distribuido de modelos de aprendizaje automático tradicional y modelos de aprendizaje profundo con la clase Estimator de Azure Machine Learning Service
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93b26b2861c5603770a954943174d6436296ad07
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075026"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668375"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
@@ -59,7 +59,7 @@ Este fragmento de código especifica los parámetros siguientes para el construc
 Parámetro | DESCRIPCIÓN
 --|--
 `source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto 
-`script_params`| Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares <argumento de línea de comandos, valor>. Para especificar una marca detallada en `script_params`, use `<command-line argument, "">`.
+`script_params`| Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares `<command-line argument, value>`. Para especificar una marca detallada en `script_params`, use `<command-line argument, "">`.
 `compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
 `entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  
@@ -102,14 +102,14 @@ estimator = Estimator(source_directory='./my-keras-proj',
                       process_count_per_node=1,
                       distributed_backend='mpi',     
                       conda_packages=['tensorflow', 'keras'],
-                      custom_docker_base_image='continuumio/miniconda')
+                      custom_docker_image='continuumio/miniconda')
 ```
 
 El código anterior expone los siguientes parámetros nuevos para el constructor `Estimator`:
 
 Parámetro | DESCRIPCIÓN | Valor predeterminado
 --|--|--
-`custom_docker_base_image`| Nombre de la imagen que desea usar. Solo puede proporcionar imágenes disponibles en repositorios de Docker públicos (en este caso, Docker Hub). Para usar una imagen desde un repositorio de Docker privado, utilice el parámetro `environment_definition` del constructor en su lugar. [Vea el ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nombre de la imagen que desea usar. Solo puede proporcionar imágenes disponibles en repositorios de Docker públicos (en este caso, Docker Hub). Para usar una imagen desde un repositorio de Docker privado, utilice el parámetro `environment_definition` del constructor en su lugar. [Vea el ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Número de nodos que se usará para el trabajo de aprendizaje. | `1`
 `process_count_per_node`| Número de procesos (o "trabajos") que se ejecutarán en cada nodo. En este caso, usa las GPU `2` disponibles en cada nodo.| `1`
 `distributed_backend`| Back-end para iniciar el entrenamiento distribuido, que ofrece el estimador mediante MPI.  Para llevar a cabo entrenamiento paralelo o distribuido (por ejemplo, `node_count` > 1 o `process_count_per_node` > 1 o ambos), establezca `distributed_backend='mpi'`. La implementación de MPI usada por AML es [MPI abierto](https://www.open-mpi.org/).| `None`
@@ -122,7 +122,7 @@ print(run.get_portal_url())
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="examples"></a>Ejemplos
 Para obtener un cuaderno que muestre los aspectos básicos de un patrón del objeto Estimator, vea:

@@ -14,17 +14,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399233"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database
 
 En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica de Azure SQL Database para la base de datos SSISDB. Cuando se produce una conmutación por error, puede asegurarse de que Azure-SSIS IR sigue funcionando con la base de datos secundaria.
 
-Para obtener más información acerca de la replicación geográfica y conmutación por error de SQL Database, consulte [información general: Grupos de conmutación por error automática y replicación geográfica activos](../sql-database/sql-database-geo-replication-overview.md).
+Para más información acerca de la replicación geográfica y la conmutación por error para SQL Database, consulte [Información general: Grupos de conmutación por error automática](../sql-database/sql-database-geo-replication-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -101,9 +101,9 @@ Siga estos pasos para detener el entorno de ejecución de integración de SSIS e
 
 3. Vuelva a iniciar el entorno de ejecución de integración.
 
-## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Escenario 3: asociar una existente SSISDB (catálogo de SSIS) a una nueva integración de SSIS en Azure
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Escenario 3: asociar una SSISDB existente (catálogo de SSIS) a una nueva integración de Azure-SSIS IR
 
-Cuando se produce un desastre ADF o Azure-SSIS IR en la región actual, puede hacer que los mantiene SSISDB trabajar con una nueva Azure-SSIS IR en una región nueva.
+Cuando se produce un desastre de Azure-SSIS IR o de ADF en la región actual, puede hacer que su SSISDB siga trabajando con un nuevo Azure-SSIS IR en una región nueva.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -115,22 +115,22 @@ Cuando se produce un desastre ADF o Azure-SSIS IR en la región actual, puede ha
 
 Siga estos pasos para detener el entorno de ejecución de integración de SSIS en Azure, cambie el entorno de ejecución de integración a otra región y vuelva a iniciarlo.
 
-1. El procedimiento almacenado para realizar SSISDB adjunta a **\<new_data_factory_name\>** o  **\<new_integration_runtime_name\>** .
+1. Ejecute el procedimiento almacenado para hacer que SSISDB se adjunte a  **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>** .
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
    ```
 
-2. Crear una factoría de datos nueva denominada **\<new_data_factory_name\>** en la nueva región. Para obtener más información, vea Crear una factoría de datos.
+2. Cree una factoría de datos nueva denominada **\<new_data_factory_name\>** en la nueva región. Para más información, consulte Creación de una factoría de datos.
 
      ```powershell
      Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
                          -Location "new region"`
                          -Name "<new_data_factory_name>"
      ```
-    Para obtener más información sobre este comando de PowerShell, consulte [crear una factoría de datos de Azure mediante PowerShell](quickstart-create-data-factory-powershell.md)
+    Para más información sobre este comando de PowerShell, consulte [Inicio rápido: Creación de una factoría de datos de Azure con PowerShell](quickstart-create-data-factory-powershell.md)
 
-3. Crear una nueva Azure-SSIS IR denominado **\<new_integration_runtime_name\>** en la nueva región con Azure PowerShell.
+3. Cree un nuevo Azure-SSIS IR denominado **\<new_integration_runtime_name\>** en la nueva región con Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

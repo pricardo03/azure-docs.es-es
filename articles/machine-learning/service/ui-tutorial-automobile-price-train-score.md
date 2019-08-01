@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371723"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668407"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Predicción del precio de un automóvil con la interfaz visual
 
@@ -94,8 +94,6 @@ El aprendizaje automático depende de los datos. Afortunadamente, hay disponible
 ## <a name="run-the-experiment"></a>Ejecución del experimento
 
 En cualquier momento, puede hacer clic en el puerto de salida de un conjunto de datos o de un módulo para ver el aspecto de los datos en ese punto del flujo de datos. Si la opción **Visualizar** está deshabilitada, primero debe ejecutar el experimento.
-
-Un experimento se ejecuta en un destino de proceso que es un recurso de proceso que está asociado al área de trabajo. Una vez creado un destino de proceso, puede volver a utilizarlo para futuras ejecuciones.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 

@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/05/2019
-ms.openlocfilehash: a93492b8ea97500fe3c761f3ac0c49f8c1342d09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/12/2019
+ms.openlocfilehash: a33ed7e5584e216fac07c5ad6b38d3754b9bca0f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074958"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868842"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -41,7 +41,7 @@ Necesitará los siguientes elementos:
 
     Para comprobar su versión del SDK de Azure Machine Learning, use el siguiente código:
 
-    ```Python
+    ```python
     print(azureml.core.VERSION)
     ```
 
@@ -53,7 +53,7 @@ Necesitará los siguientes elementos:
 
 Para configurar el experimento, importe las clases [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) y [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) del paquete [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py).
 
-```Python
+```python
 import azureml.core
 from azureml.core import Workspace, Experiment, Run
 from azureml.core import ScriptRunConfig
@@ -64,9 +64,8 @@ exp = Experiment(workspace=ws, name="explore-runs")
 
 Inicie una ejecución y su proceso de registro con el método [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-).
 
-```Python
+```python
 notebook_run = exp.start_logging()
-
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
@@ -97,7 +96,7 @@ Para iniciar una ejecución del experimento, use los pasos siguientes:
     ```
 
     > [!TIP]
-    > El comando `az ml folder attach` ha creado un subdirectorio `.azureml`, que contiene dos archivos runconfig de ejemplo. 
+    > El comando `az ml folder attach` ha creado un subdirectorio `.azureml`, que contiene dos archivos runconfig de ejemplo.
     >
     > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
     >
@@ -111,31 +110,31 @@ Para iniciar una ejecución del experimento, use los pasos siguientes:
 
 Obtenga el estado de una ejecución con el método [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--).
 
-```Python
+```python
 print(notebook_run.get_status())
 ```
 
-Para obtener detalles adicionales sobre la ejecución, use el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--).
+Para obtener el identificador de ejecución, el tiempo de ejecución y los detalles adicionales sobre la ejecución, use el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--).
 
-```Python
-notebook_run.get_details()
+```python
+print(notebook_run.get_details())
 ```
 
 Cuando la ejecución finalice correctamente, use el método [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) para marcarla como completada.
 
-```Python
+```python
 notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-Si usa el patrón `with...as` de Python, la ejecución se marcará automáticamente como completada cuando esta quede fuera del ámbito. No tiene que marcar la ejecución como completada de forma manual.
+Si usa el modelo de diseño `with...as` de Python, la ejecución se marcará automáticamente como completada cuando esta quede fuera del ámbito. No tiene que marcar la ejecución como completada de forma manual.
 
-```Python
+```python
 with exp.start_logging() as notebook_run:
     notebook_run.log(name="message", value="Hello from run!")
-    print("Is it still running?",notebook_run.get_status())
+    print(notebook_run.get_status())
 
-print("Has it completed?",notebook_run.get_status())
+print(notebook_run.get_status())
 ```
 
 ### <a name="using-the-cli"></a>Uso de la CLI
@@ -168,22 +167,20 @@ Si detecta un error o si la ejecución tarda demasiado en finalizar, puede cance
 
 Para cancelar una ejecución mediante el SDK, use el método [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--):
 
-```Python
+```python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
-
 local_script_run = exp.submit(run_config)
-print("Did the run start?",local_script_run.get_status())
+print(local_script_run.get_status())
 
 local_script_run.cancel()
-print("Did the run cancel?",local_script_run.get_status())
+print(local_script_run.get_status())
 ```
 
-Si la ejecución finaliza, pero contiene un error (por ejemplo, se ha usado el script de entrenamiento incorrecto), puede usar el método [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) para marcarla como errónea.
+Si la ejecución finaliza, pero contiene un error (por ejemplo, se ha usado el script de entrenamiento incorrecto), puede usar el método [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) para marcarla como errónea.
 
-```Python
+```python
 local_script_run = exp.submit(run_config)
 local_script_run.fail()
-
 print(local_script_run.get_status())
 ```
 
@@ -206,7 +203,7 @@ Cree ejecuciones secundarias para agrupar ejecuciones relacionadas (por ejemplo,
 
 En este ejemplo de código se usa el script `hello_with_children.py` para crear un lote de cinco ejecuciones secundarias desde una ejecución enviada mediante el método [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-):
 
-```Python
+```python
 !more hello_with_children.py
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
 
@@ -227,8 +224,8 @@ También puede iniciar las ejecuciones secundarias de una en una, pero, dado que
 
 Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-).
 
-```Python
-list(parent_run.get_children())
+```python
+print(parent_run.get_children())
 ```
 
 ## <a name="tag-and-find-runs"></a>Etiquetado y búsqueda de ejecuciones
@@ -255,7 +252,7 @@ except Exception as e:
     print(e)
 ```
 
-A diferencia de las propiedades, las etiquetas se pueden cambiar. Para agregar información que permite realizar búsquedas y que es significativa para los consumidores del experimento, use el método [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-).
+A diferencia de las propiedades, las etiquetas son mutables. Para agregar información que permite realizar búsquedas y que es significativa para los consumidores del experimento, use el método [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-).
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -265,7 +262,7 @@ local_script_run.tag("quality", "fantastic run")
 print(local_script_run.get_tags())
 ```
 
-También puede agregar etiquetas de cadena simples. Cuando estas etiquetas aparecen en el diccionario de etiquetas, tienen un valor de `None`.
+También puede agregar etiquetas de cadena simples. Cuando estas etiquetas aparecen en el diccionario de etiquetas como claves, tienen un valor de `None`.
 
 ```Python
 local_script_run.tag("worth another look")

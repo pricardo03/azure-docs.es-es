@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859657"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441990"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
 Los clústeres de Azure HDInsight proporcionan Apache Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure. En la mayoría de los casos, debiera funcionar exactamente como cualquier otra instalación de Hadoop en Linux. Este documento detalla las diferencias específicas que debe tener en cuenta.
-
-> [!IMPORTANT]  
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,31 +30,31 @@ Muchos de los pasos de este documento utilizan las siguientes utilidades, que pu
 
 ## <a name="users"></a>Usuarios
 
-A menos que esté [unido a un dominio](./domain-joined/apache-domain-joined-introduction.md), HDInsight debe considerarse un sistema de **un solo usuario**. Se crea una sola cuenta de usuario SSH con el clúster, con permisos de nivel de administrador. Se pueden crear cuentas adicionales de SSH, pero también tienen acceso de administrador al clúster.
+A menos que esté [unido a un dominio](./domain-joined/hdinsight-security-overview.md), HDInsight debe considerarse un sistema de **un solo usuario**. Se crea una sola cuenta de usuario SSH con el clúster, con permisos de nivel de administrador. Se pueden crear cuentas adicionales de SSH, pero también tienen acceso de administrador al clúster.
 
 HDInsight unido a un dominio admite varios usuarios y una configuración más granular de los permisos y roles. Para más información, consulte [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a dominio).
 
 ## <a name="domain-names"></a>Nombres de dominio
 
-Es el nombre de dominio completo (FQDN) que se usará al conectarse al clúster desde internet `CLUSTERNAME.azurehdinsight.net` o `CLUSTERNAME-ssh.azurehdinsight.net` (solo para SSH).
+El nombre de dominio completo (FQDN) que se usa al conectarse al clúster desde Internet es `CLUSTERNAME.azurehdinsight.net` o `CLUSTERNAME-ssh.azurehdinsight.net` (solo para SSH).
 
 De forma interna, cada nodo del clúster tiene un nombre que se asigna durante la configuración del clúster. Para buscar los nombres de clúster, consulte la página **Hosts** en la interfaz de usuario web de Ambari. También puede usar lo siguiente para devolver una lista de hosts desde la API de REST de Ambari:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Reemplace `CLUSTERNAME` por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de administrador. Este comando devuelve un documento JSON que contiene una lista de los hosts del clúster. [jq](https://stedolan.github.io/jq/) se usa para extraer el `host_name` valor del elemento para cada host.
+Reemplace `CLUSTERNAME` por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de administrador. Este comando devuelve un documento JSON que contiene una lista de los hosts del clúster. [jq](https://stedolan.github.io/jq/) se usa para extraer el valor del elemento `host_name` de cada host.
 
 Si necesita encontrar el nombre del nodo de un servicio específico, puede consultar a Ambari por ese componente. Por ejemplo, para encontrar los hosts del nodo de nombres HDFS, use el siguiente comando:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-Este comando devuelve un documento JSON que describe el servicio y, a continuación, [jq](https://stedolan.github.io/jq/) extrae solo la `host_name` valor para los hosts.
+Este comando devuelve un documento JSON que describe el servicio y, luego, [jq](https://stedolan.github.io/jq/) extrae solo el valor `host_name` para los hosts.
 
 ## <a name="remote-access-to-services"></a>Acceso remoto a los servicios
 
-* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
 
-    Autenticar con el usuario del Administrador de clúster y la contraseña y, a continuación, inicie sesión en Ambari.
+    Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari.
 
     La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
@@ -66,33 +63,33 @@ Este comando devuelve un documento JSON que describe el servicio y, a continuaci
     >
     > Para usar la funcionalidad completa de la interfaz de usuario de la web Ambari, usa un túnel SSH para delegar el tráfico web al nodo principal del clúster. Consulte [Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.
     >
     > La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.
     >
     > La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH** -CLUSTERNAME-ssh.azurehdinsight.net en los puertos 22 o 23. El puerto 22 se usa para conectarse al nodo principal primario, mientras que el 23 se usa para conectarse al secundario. Para más información acerca de los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Apache Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+* **SSH**: CLUSTERNAME-ssh.azurehdinsight.net en los puertos 22 o 23. El puerto 22 se usa para conectarse al nodo principal primario, mientras que el 23 se usa para conectarse al secundario. Para más información acerca de los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Apache Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]  
     > Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede acceder a los nodos de trabajo usando SSH desde un nodo principal.
 
 Para más información, consulte el documento [Puertos utilizados por los servicios Apache Hadoop en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="file-locations"></a>Ubicaciones de los archivos
+## <a name="file-locations"></a>Ubicaciones de archivo
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
 * **2.6.5.3006-29**: el nombre de directorio es la versión de Hortonworks Data Platform que usa HDInsight. El número del clúster puede ser diferente al que aparece aquí.
-* **current**: Este directorio contiene vínculos a subdirectorios bajo la **2.6.5.3006-29** directory. Este directorio existe para que no tenga que recordar el número de versión.
+* **current**: este directorio contiene vínculos a los subdirectorios del directorio **2.6.5.3006-29**. Este directorio existe para que no tenga que recordar el número de versión.
 
 Se pueden encontrar datos de ejemplo y archivos JAR en el sistema de archivos distribuido de Hadoop en `/example` y `/HdiSamples`.
 
@@ -216,7 +213,7 @@ Si usa __Azure Data Lake Storage__, consulte los siguientes vínculos para ver l
 
 ## <a name="scaling"></a>Escalar el clúster
 
-La característica de escalado de clúster permite cambiar de forma dinámica la cantidad de nodos de datos que usa un clúster. Puedes realizar operaciones de escala mientras se están ejecutando otros trabajos o procesos en un clúster.  Consulte también, [de clústeres de HDInsight de escala](./hdinsight-scaling-best-practices.md)
+La característica de escalado de clúster permite cambiar de forma dinámica la cantidad de nodos de datos que usa un clúster. Puedes realizar operaciones de escala mientras se están ejecutando otros trabajos o procesos en un clúster.  Consulte también [Escalabilidad de clústeres de HDInsight](./hdinsight-scaling-best-practices.md).
 
 Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
@@ -251,7 +248,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
 
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Administrar clústeres de Apache Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Administración de clústeres de Apache Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>¿Cómo puedo instalar Hue (u otro componente de Hadoop)?
 
@@ -288,8 +285,7 @@ Para usar otra versión de un componente, cargue la versión que necesita y úse
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Migrate from Windows-based HDInsight to Linux-based (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)](hdinsight-migrate-from-windows-to-linux.md)
-* [Administrar clústeres de HDInsight mediante la API de REST de Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Administración de clústeres de HDInsight mediante la API REST de Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
 * [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)

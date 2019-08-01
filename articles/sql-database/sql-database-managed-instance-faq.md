@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 07/08/2019
-ms.openlocfilehash: c3a070eb7e1435055b47b39985cf8cb0b182a514
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/16/2019
+ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798077"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567460"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
 En este artículo encontrará muchas de las preguntas más frecuentes acerca de [Instancia administrada de SQL Database](sql-database-managed-instance.md).
 
-## <a name="where-can-i-find-a-list-of-features-that-are-supported-on-managed-instance"></a>¿Dónde puedo encontrar una lista de las características que se admiten en una instancia administrada?
+## <a name="where-can-i-find-a-list-of-features-supported-on-managed-instance"></a>¿Dónde puedo encontrar una lista de las características que se admiten en una instancia administrada?
 
 Para obtener una lista de las características admitidas en una instancia administrada, consulte [Azure SQL Database frente a SQL Server](sql-database-features.md).
 
@@ -43,13 +42,13 @@ Para conocer cuáles son los errores y problemas conocidos, consulte los apartad
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>¿Se pueden llamar igual una instancia administrada y SQL Server en un entorno local?
 
 El nombre de la instancia administrada debe terminar en *database.windows.net*. Para usar otra zona DNS en lugar de la predeterminada, por ejemplo, **mi otro nombre**.contoso.com: 
-- Use CliConfig para definir un alias (la herramienta no es más que un contenedor de los valores del registro, por lo que también se puede hacer mediante una directiva de grupo o un script).
+- Use CliConfig para definir un alias. La herramienta no es más que un contenedor de la configuración del registro, por lo que también se puede hacer mediante una directiva de grupo o un script.
 - Use *CNAME* con la opción *TrustServerCertificate = true*.
 
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>¿Cómo puedo devolver una base de datos de una instancia administrada a SQL Server o Azure SQL Database?
 
-Puede [exportar la base de datos a bacpac](sql-database-export.md) y, después, [importar el archivo bacpac]( sql-database-import.md). Este enfoque es aconsejable si la base de datos tiene menos de 100 GB.
+Puede [exportar la base de datos a BACPAC](sql-database-export.md) y, a continuación, [importar el archivo BACPAC]( sql-database-import.md). Este enfoque es aconsejable si la base de datos tiene menos de 100 GB.
 
 La replicación transaccional se puede utilizar si todas las tablas de la base de datos tienen claves principales.
 
@@ -57,7 +56,7 @@ Las copias de seguridad nativas `COPY_ONLY` realizadas de una instancia administ
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>¿Cómo puedo migrar mi base de datos de instancia a una instancia individual de Azure SQL Database?
 
-Una opción es [exportar la base de datos a un archivo bacpac](sql-database-export.md) y, después, [importar dicho archivo]( sql-database-import.md). 
+Una opción es [exportar la base de datos a un archivo BACPAC](sql-database-export.md) y, a continuación, [importar dicho archivo]( sql-database-import.md). 
 
 Este enfoque es aconsejable si la base de datos tiene menos de 100 GB. La replicación transaccional se puede utilizar si todas las tablas de la base de datos tienen claves principales.
 
@@ -67,20 +66,20 @@ Depende de la carga de trabajo, ya que una generación de hardware es mejor para
 - Gen 4 proporciona mejor compatibilidad de proceso, ya que se basa en procesadores físicos, frente a Gen 5, que se basa en los procesadores de núcleo virtual. Esta generación puede que sea más útil para cargas de trabajo en las que hay muchos procesos.
 - Gen 5 admite una red acelerada, lo que mejora el ancho de banda de E/S en el almacenamiento remoto. Esto puede suponer una ventaja para cargas de trabajo con mucha E/S de los niveles de servicio de uso general. Gen 5 utiliza discos locales SSD más rápidos que Gen 4. Esto puede suponer una ventaja en las cargas de trabajo con mucha E/S de los niveles de servicio críticos de la empresa.
 
-Se recomienda a los clientes que prueben el rendimiento de las cargas de trabajo reales destinadas a producción antes de activarlas para determinar qué generación de hardware funcionará mejor en su caso.
+Se recomienda encarecidamente que pruebe el rendimiento de las cargas de trabajo reales destinadas a producción antes de activarlas para determinar qué generación de hardware funcionará mejor en su caso.
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>¿Puedo cambiar la generación de hardware de mi instancia administrada entre Gen 4 y Gen 5 en línea? 
 
 La conmutación en línea automatizada entre dos generaciones de hardware es posible si ambas están disponibles en la misma región en la que está aprovisionada la instancia administrada. En este caso, tiene una opción en la sección del plan de tarifa de Azure Portal para conmutar entre las generaciones de hardware.
 
-Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en el back-end y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva. Este proceso será transparente para los clientes.
+Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en segundo plano y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva, con una conmutación por error rápida al final del proceso. 
 
-Si las dos generaciones de hardware no se admiten en la misma región, es posible cambiar una de ellas, pero se debe hacer manualmente. Esto requiere que se aprovisione una nueva instancia en la región en que esté disponible la generación de hardware que se desee y que se realice una copia de seguridad y una restauración de los datos entre las instancias antigua y nueva.
+Si las dos generaciones de hardware no se admiten en la misma región, es posible cambiar una de ellas, pero se debe hacer manualmente. Esto requiere que se aprovisione una nueva instancia en la región en que esté disponible la generación de hardware que se quiera llevar a cabo, y que se realice una copia de seguridad manual y una restauración de los datos entre las instancias antigua y nueva.
 
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>¿Cómo se optimiza el rendimiento de una instancia administrada? 
 
-Una instancia administrada de uso general utiliza el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para optimizar el rendimiento del nivel de servicio de uso general, siga las instrucciones de esta entrada de blog.
+Una instancia administrada de uso general usa el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para optimizar el rendimiento del nivel de servicio de uso general, siga las instrucciones de esta entrada de blog.
 
 En el caso de cargas de trabajo con un uso intensivo de E/S, considere la posibilidad de uso de hardware de Gen 5, mientras que se recomienda usar Gen 4 en las que haya un uso elevado de procesos. Para más información, consulte en la sección de preguntas frecuentes cómo elegir la generación de hardware.
 
@@ -92,7 +91,7 @@ El tamaño de almacenamiento de una instancia administrada depende del nivel de 
 
 ## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>¿Se deduce el almacenamiento de copia de seguridad del almacenamiento de mi instancia administrada? 
 
-No, el almacenamiento de copia de seguridad no se deduce del espacio de almacenamiento de su instancia administrada. El almacenamiento de copia de seguridad es independiente del espacio de almacenamiento de la instancia y su tamaño no está limitado. El almacenamiento de copia de seguridad está limitado por el tiempo durante el que se conserva la copia de seguridad de las bases de datos de su instancia, que se puede configurar entre 7 y 35 días. Para más información, consulte [Copias de seguridad automatizadas](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+No, el almacenamiento de copia de seguridad no se deduce del espacio de almacenamiento de su instancia administrada. El almacenamiento de copia de seguridad es independiente del espacio de almacenamiento de la instancia y su tamaño no está limitado. El almacenamiento de copia de seguridad está limitado por el período de tiempo durante el que se conserva la copia de seguridad de las bases de datos de la instancia; se puede configurar entre 7 y 35 días. Para más información, consulte [Copias de seguridad automatizadas](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
   
 ## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>¿Cómo se pueden establecer reglas de grupos de seguridad de red de entrada en los puertos de administración?
 
@@ -113,13 +112,13 @@ Para más información acerca del firewall integrado y acerca de cómo verificar
 
 Para mitigar los riesgos de la red, es aconsejable que los clientes apliquen un conjunto de valores y controles de seguridad:
 
-- Activar el cifrado de datos transparente (TDE) en todas las bases de datos.
+- Activar el [cifrado de datos transparente (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) en todas las bases de datos.
 - Desactivar Common Language Runtime (CLR). Se recomienda hacerlo también en el entorno local.
-- Usar solo cuentas de Azure AD.
-- Acceder a Instancia administrada de SQL con una cuenta de DBA con pocos privilegios.
+- Usar solo la autenticación de Azure Active Directory (AAD).
+- Acceder a la instancia con una cuenta de DBA con pocos privilegios.
 - Configurar el acceso del jumpbox de JiT a la cuenta sysadmin.
-- Activar la auditoría de SQL e integrarla en los mecanismos de alerta.
-- Activar la detección de amenazas de conjunto ATS.
+- Activar la [auditoría de SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integrarla en los mecanismos de alerta.
+- Activar la [detección de amenazas](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) del conjunto de pruebas de [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-managed-instance"></a>¿Dónde puedo encontrar casos de uso y los ahorros de costos resultantes con una instancia administrada?
@@ -150,6 +149,9 @@ En situaciones poco frecuentes pero necesarias, es posible que tengamos que real
 
 Por este motivo se desaconseja confiar en la inmutabilidad de la dirección IP, ya que podría provocar un tiempo de inactividad innecesario.
 
+## <a name="can-i-move-a-managed-instance-or-its-vnet-to-another-resource-group"></a>¿Puedo llevar una instancia administrada o su red virtual a otro grupo de recursos?
+
+No, esto es una limitación actual de la plataforma. Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
 
 ## <a name="can-i-change-the-time-zone-for-an-existing-managed-instance"></a>¿Puedo cambiar la zona horaria de una instancia administrada existente?
 
@@ -160,17 +162,17 @@ Las soluciones alternativas incluyen la creación de una nueva instancia adminis
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>Cómo resuelvo los problemas de rendimiento de mi instancia administrada
 
-Para obtener una comparación del rendimiento entre una instancia administrada y SQL Server, un buen punto de partida es leer los [procedimientos recomendados para la comparación de rendimiento entre Instancia administrada de Azure SQL y SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+Para obtener una comparación del rendimiento entre una instancia administrada y SQL Server, un buen punto de partida es leer los [procedimientos recomendados para la comparación de rendimiento entre la Instancia administrada de Azure SQL y SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 
 Las cargas de datos suelen ser más lentas en una instancia administrada que en SQL Server debido al modelo de recuperación completa obligatorio y a los [límites](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) en el rendimiento de la escritura en el registro de transacciones. En ocasiones, esto se puede solucionar mediante la carga de datos transitorios en tempdb, en lugar de en la base de datos de usuario, o bien mediante el uso de un almacén de columnas agrupado o tablas optimizadas para memoria.
 
 
 ## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>¿Puedo restaurar mi base de datos cifrada en una instancia administrada?
 
-Sí, no es preciso descifrar la base de datos para poder restaurarla en una instancia administrada. Debe especificar la clave o el certificado utilizados como un protector de clave de cifrado en el sistema de origen a la instancia administrada para poder leer los datos desde el archivo de copia de seguridad cifrado. Hay dos formas posibles de hacerlo:
+Sí, no es preciso descifrar la base de datos para poder restaurarla en una instancia administrada. Debe especificar la clave o el certificado utilizados como un protector de clave de cifrado en el sistema de origen a la instancia administrada para poder leer los datos desde el archivo de copia de seguridad cifrado. Existen dos formas posibles de hacerlo:
 
-- Cargar un protector de certificado en la instancia administrada. Solo se puede mediante PowerShell. El script de ejemplo describe todo el proceso.
-- Cargar el protector de clave asimétrica a Azure Key Vault (AKV) y apuntar la instancia administrada hacia él. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Azure Key Vault para almacenar la clave de cifrado. Si desea que la clave que se ha cargado en Azure Key Vault esté disponible en la instancia administrada para restaurar las bases de datos cifradas sin usar la clave como un protector de la clave de cifrado, siga las instrucciones para configurar el cifrado de datos transparente de Bring Your Own Key y no active la casilla Hacer que la clave seleccionada sea el protector de TDE predeterminado.
+- *Cargar un protector de certificado en la instancia administrada*. Solo se puede hacer mediante PowerShell. El [script de ejemplo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) describe todo el proceso.
+- *Cargar el protector de clave asimétrica a Azure Key Vault (AKV) y apuntar la instancia administrada hacia él*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Azure Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como un protector de clave de cifrado y solo quiere que esté disponible para la instancia administrada y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), y no seleccione la casilla *Hacer que la clave seleccionada sea el protector de TDE predeterminado*.
 
 Una vez que el protector de cifrado está disponible para una instancia administrada, puede continuar con el procedimiento de restauración de base de datos estándar.
 

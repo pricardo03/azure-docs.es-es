@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052094"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -59,17 +59,17 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Comience a crear las pruebas para supervisar la conectividad de red con los puntos de conexión de servicio.
 
 1. Seleccione la pestaña **Monitor de conectividad de servicio**.
-2. Seleccione **Agregar prueba** y escriba el nombre y la descripción de la prueba. Puede crear pruebas de 450 máximas por área de trabajo. 
+2. Seleccione **Agregar prueba** y escriba el nombre y la descripción de la prueba. Puede crear un máximo de 450 pruebas por área de trabajo. 
 3. Seleccione el tipo de prueba:<br>
 
     * Seleccione **Web** para supervisar la conectividad con un servicio que responde a las solicitudes HTTP/S, como outlook.office365.com o bing.com.<br>
     * Seleccione **Red** para supervisar la conectividad con un servicio que responde a solicitudes TCP pero no a solicitudes HTTP/S, como SQL Server, servidor FTP o puerto SSH. 
-    * Por ejemplo: Para crear una prueba web a una cuenta de almacenamiento de blobs, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para otros table storage, almacenamiento de colas y archivos de Azure mediante [este vínculo.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Por ejemplo:  Para crear una prueba web con una cuenta de Blob Storage, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para Table Storage, Queue Storage y Azure Files mediante [este vínculo](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints).
 4. Si no desea realizar mediciones de red, como la latencia de la red, la pérdida de paquetes y la detección de topología, desactive la casilla **Realizar mediciones de red**. Manténgala activada para aprovechar al máximo la funcionalidad. 
 5. En **Destino**, escriba la dirección IP, el FQDN o la dirección URL en que desea supervisar la conectividad de red.
 6. En **Número de puerto**, escriba el número de puerto del servicio de destino. 
 7. En **Frecuencia de prueba**, escriba un valor para la frecuencia con la que desea que se ejecute la prueba. 
-8. Seleccione los nodos desde los cuales quiere supervisar la conectividad de red con el servicio. Asegúrese de que el número de agentes agregadas por prueba es inferior a 150. Cualquier agente puede probar el número máximo de puntos de conexión de 150/agentes.
+8. Seleccione los nodos desde los cuales quiere supervisar la conectividad de red con el servicio. Asegúrese de que el número de agentes agregados por prueba es menor que 150. Los agentes solo pueden probar 150 puntos de conexión/agentes como máximo.
 
     >[!NOTE]
     > En el caso de los nodos basados en Windows Server, la funcionalidad usa solicitudes basadas en TCP para hacer las medidas en la red. En el caso de los nodos basados en el cliente Windows, la funcionalidad usa solicitudes basadas en ICMP para hacer las medidas en la red. En algunos casos, la aplicación de destino bloquea las solicitudes basadas en ICMP entrantes cuando los nodos se basan en clientes de Windows. La solución no puede realizar mediciones de red. Recomendamos usar los nodos basados en Windows Server en esos casos. 
@@ -128,16 +128,16 @@ Si observa un comportamiento anormal, siga estos pasos:
 
 * Si la aplicación se ejecuta demasiado lento, determine si el rendimiento de una aplicación es deficiente debido a la red o a un problema en el extremo del proveedor de la aplicación.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>GCC direcciones URL de Office para los clientes del gobierno de Estados Unidos
-Región de gobierno Virginia, solo direcciones URL de DOD son NPM integrado. Los clientes que usan las direcciones URL de GCC deben crear pruebas personalizadas y agregue cada inidividually de dirección URL.
+## <a name="gcc-office-urls-for-us-government-customers"></a>Direcciones URL de Office para GCC para los clientes del gobierno de Estados Unidos
+En la región de Virginia del gobierno de Estados Unidos, solo las direcciones de DOD están incorporadas en el NPM. Los clientes que usen las direcciones URL de GCC deben crear pruebas personalizadas y agregar individualmente cada dirección URL.
 
 | Campo | GCC |
 |:---   |:--- |
-| Portal de Office 365 y compartidos | portal.apps.mil |
-| Identidad y autenticación de office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Portal de Office 365 y recursos compartidos | portal.apps.mil |
+| Identidad y autenticación de Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office en línea | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www.office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
-| MS Teams | gov.teams.microsoft.us | 
+| Equipos de MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Buscar registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.

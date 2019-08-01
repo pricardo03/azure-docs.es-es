@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076991"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 
@@ -42,7 +42,7 @@ En las secciones siguientes se proporcionan sugerencias relacionadas con estos p
 
 ## <a name="secure-connections"></a>Conexiones seguras
 
-Cuando se crea una máquina virtual de SQL Server con una imagen de la galería, la opción **Conectividad de SQL Server** le permite elegir entre **Local (dentro de la máquina virtual)**, **Privada (dentro de la red virtual)** o **Pública (Internet)**.
+Cuando se crea una máquina virtual de SQL Server con una imagen de la galería, la opción **Conectividad de SQL Server** le permite elegir entre **Local (dentro de la máquina virtual)** , **Privada (dentro de la red virtual)** o **Pública (Internet)** .
 
 ![Conectividad de SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -62,9 +62,11 @@ Por último, considere la posibilidad de habilitar conexiones cifradas para la i
 
 De forma predeterminada, SQL Server escucha en un puerto conocido, 1433. Para aumentar la seguridad, configure SQL Server para que escuche en un puerto no predeterminado, como 1401. Si se aprovisiona una imagen de la galería de SQL Server en Azure Portal, puede especificar este puerto en la hoja **Configuración de SQL Server**.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Para configurar esto después del aprovisionamiento, tiene dos opciones:
 
-- Para máquinas virtuales de Resource Manager puede seleccionar **Configuración de SQL Server** en la hoja de información general de la máquina virtual. Esto proporciona una opción para cambiar el puerto.
+- Para las máquinas virtuales de Resource Manager, puede seleccionar **Seguridad** en el [recurso máquinas virtuales SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource). Esto proporciona una opción para cambiar el puerto.
 
   ![Cambiar el puerto TCP en el portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

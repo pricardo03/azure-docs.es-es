@@ -12,17 +12,17 @@ ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
 ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66692861"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
 La implementación de un modelo de Azure Machine Learning como un servicio web crea una API REST. Puede enviar datos a esta API y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
 
-Crear un servicio web al implementar una imagen en Azure Container Instances, Azure Kubernetes Service o matrices de puertas programable de campo (FPGA). Creará imágenes a partir de modelos registrados y archivos de puntuación. Recuperará el URI que se usa para obtener acceso a un servicio web gracias al [SDK de Azure Machine Learning](https://aka.ms/aml-sdk). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
+Al implementar una imagen en una instancia de Azure Container, en Azure Kubernetes Service o en matrices de puertas programables (FPGA) creará un servicio web. Creará imágenes a partir de modelos registrados y archivos de puntuación. Recuperará el URI que se usa para obtener acceso a un servicio web gracias al [SDK de Azure Machine Learning](https://aka.ms/aml-sdk). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
 
 El flujo de trabajo general al crear un cliente que usa un servicio web de Machine Learning es:
 
@@ -128,7 +128,7 @@ El servicio web puede aceptar varios conjuntos de datos en una solicitud. Devuel
 
 ### <a name="binary-data"></a>Datos binarios
 
-Si el modelo acepta datos binarios, como una imagen, debe modificar el archivo `score.py` usado para la implementación para aceptar solicitudes HTTP sin procesar. Este es un ejemplo de un `score.py` que acepta datos binarios:
+Si el modelo acepta datos binarios, como una imagen, debe modificar el archivo `score.py` usado para la implementación para aceptar solicitudes HTTP sin procesar. Este es un ejemplo de `score.py` que acepta datos binarios:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -487,10 +487,10 @@ Los resultados devueltos son similares al siguiente documento JSON:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="consume-the-service-from-power-bi"></a>Utilizar el servicio de Power BI
+## <a name="consume-the-service-from-power-bi"></a>Consumo del servicio desde Power BI
 
-Power BI admite el consumo de servicios web de Azure Machine Learning para enriquecer los datos en Power BI con las predicciones. 
+Power BI admite el consumo de servicios web de Azure Machine Learning para enriquecer los datos de Power BI con predicciones. 
 
-Para generar un servicio web que se admite para su uso en Power BI, el esquema debe admitir el formato requerido por Power BI. [Obtenga información sobre cómo crear un esquema compatible con Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
+Para generar un servicio web cuyo consumo se admita en Power BI, el esquema debe admitir el formato que requiere Power BI. [Aprenda a crear un esquema admitido por Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
 
-Una vez implementado el servicio web, es dese flujos de datos de Power BI. [Obtenga información sobre cómo consumir un servicio web de Azure Machine Learning desde Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Una vez implementado el servicio web, los flujos de datos de Power BI lo podrán consumir. [Aprenda a consumir un servicio web de Azure Machine Learning desde Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

@@ -1,20 +1,20 @@
 ---
-title: 'Azure Backup: Crear almacenes de Recovery Services'
-description: creación de almacenes de Recovery Services que almacena las copias de seguridad y los puntos de recuperación
-services: backup
-author: sogup
-manager: vijayts
-keywords: Almacén de Recovery Services; Azure backup para máquinas virtuales; Restauración de máquinas virtuales de Azure;
+title: 'Azure Backup: Creación de almacenes de Recovery Services'
+description: Creación de almacenes de Recovery Services que almacena las copias de seguridad y los puntos de recuperación
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
+keywords: Almacén de Recovery Services; copia de seguridad de máquina virtual de Azure; restauración de máquina virtual de Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: sogup
-ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477571"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688554"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -62,23 +62,23 @@ Para crear un almacén de Recovery Services:
 
 ## <a name="set-storage-redundancy"></a>Establecimiento de la redundancia de almacenamiento
 
-Copia de seguridad de Azure controla automáticamente el almacenamiento para el almacén. Debe especificar cómo se replica los que el almacenamiento.
+Azure Backup administra automáticamente el almacenamiento para el almacén. Debe especificar cómo se replica ese almacenamiento.
 
-1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En el **configuración** sección, haga clic en **propiedades**.
-2. En **propiedades**, en **configuración de copia de seguridad**, haga clic en **actualización**.
+1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En la sección **Configuración**, haga clic en **Propiedades**.
+2. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
 
-3. Seleccione el tipo de replicación de almacenamiento y haga clic en **guardar**.
+3. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
 
      ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - Se recomienda que si usa Azure como un punto de conexión de almacenamiento de copia de seguridad principal, seguir usando el valor predeterminado **con redundancia geográfica** configuración.
+   - Se recomienda que, si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando la configuración **con redundancia geográfica** predeterminada.
    - Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure.
-   - Obtenga más información sobre [geográfica](../storage/common/storage-redundancy-grs.md) y [local](../storage/common/storage-redundancy-lrs.md) redundancia.
+   - Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy-grs.md) y [local](../storage/common/storage-redundancy-lrs.md).
 
 > [!NOTE]
-> Cambiar **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para una recuperación del almacén de servicios debe realizarse antes de configurar las copias de seguridad en el almacén. Una vez Configurar copia de seguridad, la opción modificar está deshabilitada y no puede cambiar el **tipo de replicación de almacenamiento**. 
+> El cambio del **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services debe realizarse antes de configurar las copias de seguridad en el almacén. Una vez configure la copia de seguridad, la opción para modificar está deshabilitada y no puede cambiar el **tipo de replicación del almacenamiento**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información sobre](backup-azure-recovery-services-vault-overview.md) almacenes de Recovery Services.
-[Obtenga información sobre](backup-azure-delete-vault.md) almacenes de Recovery Services de eliminación.
+[Más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.
+[Más información](backup-azure-delete-vault.md) sobre la eliminación de los almacenes de Recovery Services.

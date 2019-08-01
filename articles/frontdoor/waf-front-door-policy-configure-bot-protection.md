@@ -1,6 +1,6 @@
 ---
-title: Configurar la protección de bot de firewall de aplicaciones web con Azure puerta de entrada (versión preliminar)
-description: Obtenga información sobre firewall de aplicaciones web (WAF).
+title: Configuración de la protección contra bots para el firewall de aplicaciones web con Azure Front Door (versión preliminar)
+description: Obtenga información sobre el firewall de aplicaciones web (WAF).
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -11,31 +11,31 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: af92f3b9049862fc19c69965f979b7dfe8c62526
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481630"
 ---
-# <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Configurar la protección de bot de firewall de aplicaciones web (versión preliminar)
-Este artículo muestra cómo configurar regla de protección de bot en firewall de aplicaciones web de Azure (WAF) para la puerta de entrada mediante el uso de la plantilla de Azure Resource Manager, Azure PowerShell o CLI de Azure.
+# <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Configuración de la protección contra bots para el firewall de aplicaciones web (versión preliminar)
+En este artículo se muestra cómo configurar la regla de protección contra bots en un firewall de aplicaciones web (WAF) de Azure para Front Door mediante la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager.
 
-Un conjunto de reglas de protección de Bot administrado se puede habilitar para que el WAF realizar acciones personalizadas en las solicitudes de direcciones IP malintencionadas conocidas. Se obtienen las direcciones IP de la fuente de Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimenta la inteligencia de amenazas de Microsoft y se usa en varios servicios, incluidos Azure Security Center.
+Se puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF realice acciones personalizadas en las solicitudes de direcciones IP malintencionadas conocidas. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
 
 > [!IMPORTANT]
-> Conjunto de reglas de protección de bot está actualmente en versión preliminar pública y se proporciona con un acuerdo de nivel de servicio de vista previa. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.  Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Actualmente, el conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.  Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Crear una directiva básica de WAF para puerta delantera siguiendo las instrucciones descritas en [crear una directiva de WAF para Azure puerta de entrada mediante el portal de Azure](waf-front-door-create-portal.md).
+Crear una directiva básica de WAF para Front Door siguiendo las instrucciones descritas en [Creación de una directiva de WAF para Azure Front Door mediante Azure Portal](waf-front-door-create-portal.md).
 
-## <a name="enable-bot-protection-rule-set"></a>Habilitar conjunto de reglas de protección de bot
+## <a name="enable-bot-protection-rule-set"></a>Habilitación del conjunto de reglas de protección contra bots
 
-1. En la página de directivas básicas que creó en la sección anterior, en **configuración**, haga clic en **reglas**.
-2. En la página de detalles, en la **administrar reglas** sección, en el menú desplegable, seleccione la casilla situada delante de la regla **BotProtection-preview-0.1**y, a continuación, seleccione **guardar**anteriormente.
+1. En la página de directivas básicas que creó en la sección anterior, en **Configuración**, haga clic en **Reglas**.
+2. En la página de detalles, en la sección **Administrar reglas**, en el menú desplegable seleccione la casilla situada delante de la regla **BotProtection-preview-0.1** y **Guardar**.
     
-   ![Regla de protección de bot](./media/waf-front-door-configure-bot-protection/botprotect2.png)
+   ![Regla de protección contra bots](./media/waf-front-door-configure-bot-protection/botprotect2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [supervisa el WAF](waf-front-door-monitor.md).
+- Aprenda a [supervisar WAF](waf-front-door-monitor.md).

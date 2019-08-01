@@ -5,60 +5,73 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: a80eaa134130195fce00ee6a4d68851e478c4532
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052492"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
-Para colaborar con los usuarios de organizaciones de partners a través de la colaboración B2B de Azure Active Directory (Azure AD), puede invitar a usuarios a acceder a aplicaciones compartidas. Después de agregar a un usuario invitado al directorio a través de la interfaz de usuario, o de que el usuario reciba una invitación a través de PowerShell, la primera vez los usuarios invitados deben pasar por un proceso de consentimiento para aceptar los [términos de privacidad](#privacy-policy-agreement). Este proceso se produce de cualquiera de las maneras siguientes:
+En este artículo se describen las maneras en las que los usuarios invitados pueden acceder a los recursos y el proceso de consentimiento que se encuentran. Si envía un correo electrónico de invitación al invitado, la invitación incluye un vínculo que este puede canjear para acceder a la aplicación o al portal. El correo electrónico de invitación es solo uno de los modos de acceso de los invitados a los recursos. Como alternativa, puede agregar invitados a su directorio y proporcionarles un vínculo directo al portal o a la aplicación que desee compartir. Independientemente del método que usen, la primera vez se les guiará por un proceso de consentimiento. Este proceso garantiza que los invitados acepten los términos de privacidad y los [términos de uso](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) que haya configurado.
 
-- El invitador envía un vínculo directo a una aplicación compartida. El invitado hace clic en el vínculo para iniciar sesión, acepta los términos de privacidad y accede sin problemas al recurso compartido. (El usuario invitado aún recibe un correo electrónico de invitación con una dirección URL de canje, pero, salvo algunos casos especiales, ya no es necesario usar el correo electrónico de invitación).  
-- El usuario invitado recibe un correo electrónico de invitación y hace clic en la dirección URL de canje. Como parte del primer inicio de sesión, se le pedirá que acepte los términos de privacidad.
-
-## <a name="redemption-through-a-direct-link"></a>Canje a través de un vínculo directo
-
-Un invitador de usuarios puede invitar a un usuario invitado mediante el envío de un [vínculo directo a una aplicación compartida](../manage-apps/end-user-experiences.md#direct-sign-on-links). Para el usuario invitado, la experiencia de canje es tan sencilla como iniciar sesión en la aplicación que se compartió con él. Puede hacer clic en un vínculo a la aplicación, revisar y aceptar los términos de privacidad y, a continuación, acceder a la aplicación sin problemas. En la mayoría de los casos, los usuarios invitados ya no necesitan hacer clic en una dirección URL de canje en un correo electrónico de invitación.
-
-Si ha invitado a usuarios a través de la interfaz de usuario, o si elige enviar el correo electrónico de invitación como parte de la experiencia de invitación de PowerShell, el usuario invitado recibirá igualmente un correo electrónico de invitación. Este correo electrónico es útil para los casos especiales siguientes:
-
-- El usuario no tiene una cuenta de Azure AD ni una cuenta de Microsoft (MSA). En este caso, el usuario debe crear una MSA antes de hacer clic en el vínculo, o puede utilizar la dirección URL de canje en el correo electrónico de invitación. El proceso de canje, automáticamente, le pedirá al usuario crear una MSA.
-- A veces, el objeto de usuario invitado puede no tener una dirección de correo electrónico debido a un conflicto con un objeto de contacto (por ejemplo, un objeto de contacto de Outlook). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
-- El usuario puede iniciar sesión con un alias de la dirección de correo electrónico a la que se invitó. (Un alias es una dirección de correo electrónico adicional asociada con una cuenta de correo electrónico). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
-
-Si estos casos especiales son importantes para su organización, se recomienda que invite a los usuarios mediante métodos que aún envíen el correo electrónico de invitación. Además, si un usuario no se encuentra en uno de estos casos especiales, aún puede hacer clic en la dirección URL en un correo electrónico de invitación para acceder.
+Al agregar un usuario invitado al directorio, la cuenta de este tiene un estado de consentimiento (visible en PowerShell) que se establece inicialmente en **PendingAcceptance**. Esta configuración permanece hasta que el invitado acepta la invitación, la política de privacidad y los términos de uso. Después de eso, el estado de consentimiento cambia a **Accepted** y las páginas de consentimiento dejan de aparecer para el invitado.
 
 ## <a name="redemption-through-the-invitation-email"></a>Canje a través del correo electrónico de invitación
 
-Si los usuarios son invitados a través de un método que envía un correo electrónico de invitación, también pueden canjear una invitación a través del correo electrónico de invitación. Un usuario invitado puede hacer clic en la dirección URL de canje en el correo electrónico y, a continuación, revisar y aceptar los términos de privacidad. El proceso se describe con más detalle a continuación:
+Al agregar un usuario invitado al directorio [mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal), se envía un correo electrónico de invitación al invitado. También puede enviar correos electrónicos de invitación cuando [use PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) para agregar usuarios invitados al directorio. Esta es una descripción de la experiencia del invitado cuando canjea el vínculo del correo electrónico.
 
-1.  Para ser invitado, el usuario recibe una invitación por correo electrónico que se envía desde **Invitaciones de Microsoft**.
-2.  El invitado selecciona **Introducción** en el correo electrónico.
-3.  Si el invitado no tiene una cuenta de Azure AD o una MSA, se le pedirá que cree una MSA.
-4.  Al invitado se le redirige a la pantalla **Review permissions** (Revisar permisos), donde puede revisar la declaración de privacidad de la organización que hace la invitación y aceptar los términos.
+1. El invitado recibe un [correo electrónico de invitación](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) que se envía desde **Microsoft Invitations**.
+2. El invitado selecciona **Introducción** en el correo electrónico.
+3. Si el invitado no tiene una cuenta de Azure AD, una cuenta Microsoft (MSA) o una cuenta de correo electrónico en una organización federada, se le pedirá que cree una MSA (a menos que la característica de [código de acceso de un solo uso](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) esté habilitada, ya que esta no requiere MSA).
+4. Al invitado se le guiará por la [experiencia de consentimiento](#consent-experience-for-the-guest) que se describe a continuación.
 
-## <a name="privacy-policy-agreement"></a>Acuerdo de la directiva de privacidad
+## <a name="redemption-through-a-direct-link"></a>Canje a través de un vínculo directo
 
-Después de que un usuario invitado inicie sesión por primera vez para acceder a recursos en una organización asociada, verá la pantalla **Review permissions** (Revisar permisos). Aquí puede revisar la declaración de privacidad de la organización que hace la invitación. Para poder continuar, el usuario debe aceptar el uso de su información de acuerdo con las directivas de privacidad de la organización que hace la invitación.
+Como alternativa a la invitación por correo electrónico, puede darle al invitado un vínculo directo a la aplicación o al portal. Primero debe agregar el usuario invitado a su directorio mediante [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) o [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Puede usar cualquiera de las [maneras personalizables para implementar las aplicaciones para los usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluidos los vínculos de inicio de sesión en directo. Cuando un invitado usa un vínculo directo en lugar de la invitación por correo electrónico, también se le guía por la experiencia de consentimiento inicial.
 
-![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/redemption-experience/ConsentScreen.png) 
+> [!IMPORTANT]
+> El vínculo directo debe ser específico del inquilino. En otras palabras, debe incluir un identificador de inquilino o dominio comprobado de manera que el invitado se puede autenticar en el inquilino donde se encuentra la aplicación compartida. Una dirección URL típica, como https://myapps.microsoft.com, no funcionará para un invitado, ya que redirige al inquilino principal para la autenticación. Estos son algunos ejemplos de vínculos directos con el contexto del inquilino:
+ > - Panel de acceso de aplicaciones: https://myapps.microsoft.com/?tenantid=&lt;Id. de inquilino&gt; 
+ > - Panel de acceso de aplicaciones para un dominio comprobado: https://myapps.microsoft.com/&lt;dominio comprobado&gt;
+ > - Azure Portal: https://portal.azure.com/&lt;Id. de inquilino&gt;
+ > - Aplicación individual: consulte cómo usar un [vínculo de inicio de sesión en directo](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
-Para obtener información sobre cómo puede, como administrador de inquilinos, vincular con la declaración de privacidad de su organización, vea [Procedimiento: Incorporación de información de privacidad de su organización en Azure Active Directory](https://aka.ms/adprivacystatement).
+En algunos casos se recomienda el correo electrónico de invitación en lugar del vínculo directo. Si estos casos especiales son importantes para su organización, se recomienda que invite a los usuarios mediante métodos que aún envíen el correo electrónico de invitación:
+ - El usuario no tiene una cuenta de Azure AD, MSA o de correo electrónico en una organización federada. A menos que use la característica de código de acceso de un solo uso, el invitado deberá canjear la invitación por correo electrónico para que se le guíe para crear una MSA.
+ - A veces, el objeto de usuario invitado puede no tener una dirección de correo electrónico debido a un conflicto con un objeto de contacto (por ejemplo, un objeto de contacto de Outlook). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
+ - El usuario puede iniciar sesión con un alias de la dirección de correo electrónico a la que se invitó. (Un alias es una dirección de correo electrónico adicional asociada con una cuenta de correo electrónico). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
 
-## <a name="terms-of-use"></a>Términos de uso
+## <a name="consent-experience-for-the-guest"></a>Experiencia de consentimiento para el invitado
 
-Términos de uso puede presentar al usuario invitado durante el proceso de canje inicial mediante el uso de los términos de Azure AD de la característica de uso. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, consulte [característica términos de uso de Azure AD](../conditional-access/terms-of-use.md).
+Cuando un invitado iniciar sesión por primera vez para acceder a los recursos de una organización asociada, se le guía por las siguientes páginas. 
 
-![Captura de pantalla en la que se muestran los nuevos términos de uso](media/redemption-experience/organizational-relationships-terms-of-use.png) 
+1. El invitado debe revisar la página **Revisar permisos**, donde se describe la declaración de privacidad de la organización anfitriona. Para poder continuar, el usuario debe **Aceptar** el uso de su información de acuerdo con las directivas de privacidad de la organización anfitriona.
+
+   ![Captura de pantalla que muestra la página Revisar permisos](media/redemption-experience/review-permissions.png) 
+
+   > [!NOTE]
+   > Para obtener información sobre cómo puede, como administrador de inquilinos, vincular con la declaración de privacidad de su organización, vea [Procedimiento: Incorporación de información de privacidad de su organización en Azure Active Directory](https://aka.ms/adprivacystatement).
+
+2. Si se han configurado términos de uso, el invitado debe abrirlos y revisarlos y seleccionar **Aceptar**. 
+
+   ![Captura de pantalla en la que se muestran los nuevos términos de uso](media/redemption-experience/terms-of-use-accept.png) 
+
+   > [!NOTE]
+   > Para la configuración, consulte los [términos de uso](../governance/active-directory-tou.md) de **Administrar** > **Relaciones de organización** > **Términos de uso**.
+
+3. A menos que se especifique otra cosa, al invitado se le redirige al panel de acceso a las aplicaciones, que enumera las aplicaciones a las que puede acceder.
+
+   ![Captura de pantalla que muestra el panel de acceso a las aplicaciones](media/redemption-experience/myapps.png) 
+
+En su directorio, el valor de **Invitación aceptada** cambia a **Sí**. Si se creó una MSA, el **Origen** del usuario muestra **Cuenta Microsoft**. Para más información sobre las propiedades de la cuenta de usuario invitado, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

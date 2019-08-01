@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 156bb4cbf43dc71627f9db785dba574f25139285
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077638"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -67,8 +67,13 @@ Implemente las máquinas virtuales en Azure mediante:
 
 También puede implementar una plataforma SAP HANA completamente instalada en los servicios de máquina virtual de Azure a través de la [plataforma en la nube de SAP](https://cal.sap.com/). El proceso de instalación se describe en [Implementación de SAP S/4HANA o BW/4HANA en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h), o con la automatización publicada [aquí](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
-### <a name="storage-configuration-for-sap-hana"></a>Configuración de almacenamiento de SAP HANA
-Para las configuraciones de almacenamiento y los tipos de almacenamiento para su uso con SAP HANA en Azure, lea el documento [configuraciones de almacenamiento de máquina virtual de Azure de SAP HANA](./hana-vm-operations-storage.md)
+>[!IMPORTANT]
+> Para usar máquinas virtuales M208xx_v2, es preciso seleccionar la imagen de SUSE Linux en la galería de imágenes de máquina virtual de Azure. Para leer los detalles, consulte el artículo [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat aún no se admite para el uso de HANA en máquinas virtuales de la familia Mv2. Planificación actual es proporcionar compatibilidad con las versiones de Red Hat que usan HANA en la familia de máquinas virtuales Mv2 en el cuarto trimestre de 2019 
+> 
+
+
+### <a name="storage-configuration-for-sap-hana"></a>Configuración del almacenamiento en SAP HANA
+Para las configuraciones de almacenamiento y los tipos de almacenamiento que se usan con SAP HANA en Azure, lea el documento [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md)
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Configurar Azure Virtual Network
@@ -148,11 +153,11 @@ Como resultado, el diseño básico de un solo nodo en una configuración de esca
 
 La configuración básica de un nodo de máquina virtual para escalabilidad horizontal de SAP HANA presenta este aspecto:
 
-- Para **/hana/shared**, cree un clúster NFS de alta disponibilidad basado en SUSE Linux 12 SP3. Hosts del clúster el **/hana/shared** recursos compartidos NFS de la configuración de escalado horizontal y SAP NetWeaver o BW/4HANA los servicios centrales. La documentación para crear dicha configuración está disponible en el artículo [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+- Para **/hana/shared**, cree un clúster NFS de alta disponibilidad basado en SUSE Linux 12 SP3. Este clúster hospeda los recursos compartidos NFS de **/hana/shared** de la configuración de escalabilidad horizontal y SAP NetWeaver o BW/4HANA Central Services. La documentación para crear dicha configuración está disponible en el artículo [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
 - Todos los demás volúmenes de disco **NO** se comparten entre los diferentes nodos y **NO** se basan en NFS. Las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log** se proporcionan más adelante en este documento.
 
 >[!NOTE]
->El clúster NFS de alta disponibilidad, como se muestra en los gráficos, hasta ahora, solo se admite con SUSE Linux. Una solución NFS de alta disponibilidad basada en Red Hat será informamos más adelante.
+>El clúster NFS de alta disponibilidad, como se muestra en los gráficos, hasta ahora, solo se admite con SUSE Linux. Más adelante se va a aconsejar una solución NFS de alta disponibilidad basada en Red Hat.
 
 Los tamaños de los volúmenes para los nodos son los mismos que para la escalabilidad horizontal, salvo en el caso de **/hana/shared**. SKU de máquinas virtuales M128s, los tamaños y tipos sugeridos serán estos:
 
@@ -161,7 +166,7 @@ Los tamaños de los volúmenes para los nodos son los mismos que para la escalab
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
 
-Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos cumple con la carga de trabajo que desea ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, tiene que aumentar el número de discos duros virtuales de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales que enumerados aumenta el número de IOPS y rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure. También se aplica el Acelerador de escritura de Azure a los discos que forman el volumen **/hana/log**.
+Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adapta a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, tiene que aumentar el número de discos duros virtuales de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumenta el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure. También se aplica el Acelerador de escritura de Azure a los discos que forman el volumen **/hana/log**.
  
 En el documento [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisitos de almacenamiento de la integración adaptada de centros de datos de SAP HANA), se nombra una fórmula que define el tamaño del volumen **/hana/shared** para la escalabilidad horizontal hasta un tamaño de memoria de un único nodo de trabajo por cuatro nodos de trabajo.
 
@@ -223,16 +228,16 @@ Para instalar una configuración de SAP para escalabilidad horizontal, debe segu
 Como se implementa la infraestructura de máquina virtual de Azure y se realizan todos los demás preparativos, deberá instalar las configuraciones de escalabilidad horizontal de SAP HANA en estos pasos:
 
 - Instale el nodo maestro de SAP HANA según la documentación de SAP.
-- **Después de la instalación, deberá cambiar el archivo global.ini y agregar el parámetro "basepath_shared = no" al archivo global.ini**. Este parámetro permite SAP HANA que se ejecutan en escalabilidad horizontal sin 'shared' **/hana/data** y **/hana/log** volúmenes entre los nodos. Los detalles están documentados en la [nota de SAP n.º 2080991](https://launchpad.support.sap.com/#/notes/2080991).
+- **Después de la instalación, deberá cambiar el archivo global.ini y agregar el parámetro "basepath_shared = no" al archivo global.ini**. Este parámetro habilita SAP HANA para que se ejecute la escalabilidad horizontal sin volúmenes **/hana/data** y **/hana/log** "compartidos" entre los nodos. Los detalles están documentados en la [nota de SAP n.º 2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - Después de cambiar el parámetro global.ini, reinicie la instancia de SAP HANA.
 - Agregue nodos de trabajo adicionales. Consulte también <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Especifique la red interna para la comunicación entre nodos de SAP HANA durante la instalación o después con, por ejemplo, el hdblcm local. Para obtener documentación más detallada, vea también la [nota de SAP n.º 2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
-Después de esta rutina de configuración, la configuración de escalabilidad horizontal instalada usará discos no compartidos para ejecutar **/hana/data** y **/hana/log**. Mientras que la **/hana/shared** volumen va a colocar en la alta disponibilidad recursos compartidos de NFS.
+Después de esta rutina de configuración, la configuración de escalabilidad horizontal instalada usará discos no compartidos para ejecutar **/hana/data** y **/hana/log**. Mientras, el volumen **/hana/shared** se va colocar en el recurso compartido NFS de alta disponibilidad.
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>Dynamic Tiering 2.0 de SAP HANA para máquinas virtuales de Azure
 
-Además de las certificaciones de SAP HANA en máquinas virtuales de la serie M de Azure, Dynamic Tiering 2.0 de SAP HANA también se admite en Microsoft Azure (consulte el vínculo de la documentación de Dynamic Tiering de SAP HANA, más abajo). Aunque no hay ninguna diferencia en la instalación del producto o en su funcionamiento, por ejemplo, a través de SAP HANA Cockpit dentro de una máquina virtual de Azure, hay algunos elementos importantes que son obligatorios para el soporte técnico oficial en Azure. A continuación se describen estos puntos clave. En este artículo, la abreviatura de "DT 2.0" se va a usar en lugar del nombre completo dinámicos los niveles 2.0.
+Además de las certificaciones de SAP HANA en máquinas virtuales de la serie M de Azure, Dynamic Tiering 2.0 de SAP HANA también se admite en Microsoft Azure (consulte el vínculo de la documentación de Dynamic Tiering de SAP HANA, más abajo). Aunque no hay ninguna diferencia en la instalación del producto o en su funcionamiento, por ejemplo, a través de SAP HANA Cockpit dentro de una máquina virtual de Azure, hay algunos elementos importantes que son obligatorios para el soporte técnico oficial en Azure. A continuación se describen estos puntos clave. En este artículo, se va a usar la abreviatura "DT 2.0" en lugar del nombre completo Dynamic Tiering 2.0.
 
 Dynamic Tiering 2.0 de SAP HANA no se admite en SAP BW ni en S4HANA. Los casos de uso principales son ahora las aplicaciones nativas de HANA.
 
@@ -248,7 +253,7 @@ La ilustración siguiente proporciona información general sobre la compatibilid
 - Deben conectarse varios discos de Azure a la máquina virtual de DT 2.0.
 - Es necesario crear una matriz redundante de discos independientes de software o volumen seccionado (ya sea a través de lvm o de mdadm) mediante la creación de bandas en los discos de Azure.
 
-Obtener más detalles se van a se explica en las secciones siguientes.
+Esto se va a explicar con más detalle en las secciones siguientes.
 
 ![Introducción a la arquitectura de DT 2.0 de SAP HANA](media/hana-vm-operations/hana-dt-20.PNG)
 
@@ -286,7 +291,7 @@ Consulte información adicional sobre las redes aceleradas de Azure [aquí](http
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>Almacenamiento de máquinas virtuales para DT 2.0 de SAP HANA
 
-Según las instrucciones de procedimientos recomendados de DT 2.0, el rendimiento de E/S de disco debe ser de 50 MB/s por núcleo físico, como mínimo. Examinar las especificaciones para los dos tipos de máquina virtual de Azure, que son compatibles con 2.0 DT, como el límite de rendimiento de E/S para el aspecto de la máquina virtual de disco máximo:
+Según las instrucciones de procedimientos recomendados de DT 2.0, el rendimiento de E/S de disco debe ser de 50 MB/s por núcleo físico, como mínimo. Al observar la especificación de los dos tipos de máquina virtual de Azure, que son compatibles con DT 2.0, el límite máximo de rendimiento de E/S de disco para la máquina virtual es:
 
 - E32sv3:   768 MB/s (no almacenado en caché), lo que significa una proporción de 48 MB/s por núcleo físico
 - M64-32 ms:  1000 MB/s (no almacenado en caché), lo que significa una proporción de 62,5 MB/s por núcleo físico

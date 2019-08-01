@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
 ms.openlocfilehash: a582a4787a4b215d82dcbff60be8853793f92c32
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66728367"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Cifrado del sistema operativo y discos de datos adjuntos en un conjunto de escalado con Azure PowerShell
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Cifrado de discos de datos conectados y de sistema operativo en un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
 Para proteger los datos en reposo mediante la tecnología de cifrado estándar del sector, Virtual Machine Scale Sets admite Azure Disk Encryption (ADE). El cifrado se puede habilitar para Virtual Machine Scale Sets de Windows y Linux. Para más información, consulte [Azure Disk Encryption para Windows y Linux](../security/azure-security-disk-encryption.md).
 
 El cifrado de discos de Azure es compatible con:
 - Conjuntos de escalado creados con discos administrados, y no es compatible con conjuntos de escalado de discos nativos (o no administrados).
 - Volúmenes de datos y del sistema operativo en conjuntos de escalado de Windows. También se admite la deshabilitación del cifrado de volúmenes de datos y del sistema operativo en conjuntos de escalado de Windows.
-- Volúmenes de datos en conjuntos de escalado de Linux. NO se admite el cifrado de disco del sistema operativo en la actualidad para conjuntos de escalado de Linux.
+- Volúmenes de datos en conjuntos de escalado de Linux. El cifrado de discos del sistema operativo NO se admite actualmente en los conjuntos de escalado de Linux.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -102,9 +102,9 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 
 Cuando se le solicite, escriba *y* para continuar el proceso de cifrado de disco en las instancias de VM del conjunto de escalado.
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitar el cifrado con KEK para ajustar la clave
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitación del cifrado con KEK para ajustar la clave
 
-También puede usar una clave de cifrado para mayor seguridad al cifrar el conjunto de escalado de máquinas virtuales.
+También puede usar una clave de cifrado de claves para mayor seguridad al cifrar el conjunto de escalado de máquinas virtuales.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -117,10 +117,10 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 ```
 
 > [!NOTE]
->  La sintaxis para el valor del parámetro de disco-encryption-Key Vault es la cadena de identificador completo:</br>
-/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
-> La sintaxis para el valor del parámetro de clave de cifrado es el URI completo a la KEK como en:</br>
-https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+>  La sintaxis para el valor del parámetro disk-encryption-keyvault es la cadena de identificador completa:</br>
+/subscriptions/[guid-id-suscripción]/resourceGroups/[nombre-grupo-recursos]/providers/Microsoft.KeyVault/vaults/[nombre-almacén-claves]</br></br>
+> La sintaxis para el valor del parámetro key-encryption-key es el identificador URI completo de la clave de cifrado de claves, como se muestra a continuación:</br>
+https://[nombre-almacén-claves].vault.azure.net/keys/[nombre-clave-cifrado]/[id-exclusivo-clave-cifrado]
 
 ## <a name="check-encryption-progress"></a>Comprobación del progreso del cifrado
 
@@ -163,4 +163,4 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 ## <a name="next-steps"></a>Pasos siguientes
 
 - En este artículo, usó Azure PowerShell para cifrar un conjunto de escalado de máquinas virtuales. También puede usar la [CLI de Azure](virtual-machine-scale-sets-encrypt-disks-cli.md) o plantillas para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) o [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
-- Si desea tener Azure Disk Encryption se aplica después de aprovisiona otra extensión, puede usar [secuenciación de extensión](virtual-machine-scale-sets-extension-sequencing.md). Puede usar [estos ejemplos](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) para empezar a trabajar.
+- Si quiere aplicar Azure Disk Encryption después de aprovisionar otra extensión, puede usar la [secuenciación de extensiones](virtual-machine-scale-sets-extension-sequencing.md). Puede usar [estos ejemplos](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) para empezar a trabajar.

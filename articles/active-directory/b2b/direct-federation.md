@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544638"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233871"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |
@@ -61,8 +61,11 @@ Por ejemplo, al configurar la federación directa para **fabrikam.com**, la dire
 
 ### <a name="signing-certificate-renewal"></a>Renovación del certificado de firma
 Si especifica la dirección URL de metadatos en la configuración del proveedor de identidades, Azure AD renovará automáticamente el certificado de firma cuando expire. Sin embargo, si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
+
+### <a name="limit-on-federation-relationships"></a>Límite de relaciones de federación
+Actualmente, se admite un máximo de 1000 relaciones de federación. Este límite incluye tanto las [federaciones internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como las federaciones directas.
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>¿Puedo configurar la federación directa con un inquilino no administrado (comprobado por correo electrónico)? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>¿Puedo configurar la federación directa con un dominio para el que existe un inquilino no administrado (verificado por correo electrónico)? 
 Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../users-groups-roles/domains-admin-takeover.md), puede configurar una federación directa. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación directa con estos dominios. Si intenta configurar la federación directa con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, verá un error.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la federación directa y la autenticación con código de acceso de un solo uso por correo electrónico están habilitadas, ¿qué método tiene prioridad?
 Cuando se establece la federación directa con una organización asociada, tiene prioridad sobre la autenticación con código de acceso de un solo uso por correo electrónico para los nuevos usuarios invitados de esa organización. Si un usuario invitado ha canjeado una invitación mediante la autenticación de código de acceso de un solo uso antes de configurar la federación directa, seguirá utilizando la autenticación de código de acceso de un solo uso. 

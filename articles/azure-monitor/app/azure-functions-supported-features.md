@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 10/05/2018
+ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60902254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075356"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Características compatibles de Application Insights para Azure Functions
 
@@ -66,9 +66,9 @@ Los criterios de filtros personalizados que especifique se envían hacia el comp
 
 Azure Functions habilita el muestreo de forma predeterminada en su configuración. Para más información, consulte [Configuración del muestreo](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-Si el proyecto toma una dependencia en el SDK de Application Insights para realizar el seguimiento de telemetría manual, puede experimentar un comportamiento extraño si la configuración de muestreo es diferente de la configuración de muestreo de las funciones. 
+Si el proyecto toma una dependencia del SDK de Application Insights para realizar el seguimiento de telemetría manual, puede experimentar un comportamiento extraño si la configuración de muestreo es diferente de la configuración de muestreo de Functions. 
 
-Se recomienda usar la misma configuración como funciones. Con **funciones v2**, puede obtener la misma configuración mediante la inserción de dependencias en su constructor:
+Se recomienda usar la misma configuración que Functions. Con **Functions v2**, puede obtener la misma configuración mediante la inserción de dependencias en el constructor:
 
 ```csharp
 using Microsoft.ApplicationInsights;

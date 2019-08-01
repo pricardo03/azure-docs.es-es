@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076354"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
 
@@ -33,9 +33,9 @@ Azure IoT Hub emite los siguientes tipos de eventos:
 | Microsoft.Devices.DeviceDeleted | Se publica cuando se elimina un dispositivo de una instancia de IoT Hub. | 
 | Microsoft.Devices.DeviceConnected | Se publica cuando se conecta un dispositivo a una instancia de IoT Hub. |
 | Microsoft.Devices.DeviceDisconnected | Se publica cuando se desconecta un dispositivo de una instancia de IoT Hub. | 
-| Microsoft.Devices.DeviceTelemetry | Se publica cuando se envía un mensaje de telemetría a IoT hub. |
+| Microsoft.Devices.DeviceTelemetry | Se publica cuando se envía un mensaje de telemetría a un centro de IoT. |
 
-Todos los eventos de dispositivo, excepto los eventos de telemetría de dispositivo están disponibles con carácter general en todas las regiones compatibles con Event Grid. Evento de telemetría de dispositivo se encuentra en versión preliminar pública y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Todos los eventos del dispositivo, excepto los eventos de telemetría del dispositivo, están disponibles con carácter general en todas las regiones admitidas por Event Grid. El evento de telemetría del dispositivo está en versión preliminar pública y está disponible en todas las regiones, excepto en Este de EE. UU., Oeste de EE. UU., Oeste de Europa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) y [Azure Alemania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Evento de ejemplo
 
@@ -62,7 +62,7 @@ El esquema para los eventos de dispositivo conectado y dispositivo desconectado 
 }]
 ```
 
-El evento DeviceTelemetry se genera cuando se envía un evento de telemetría a IoT Hub. A continuación se muestra un esquema de ejemplo para este evento.
+El evento DeviceTelemetry se genera cuando se envía un evento de telemetría a IoT Hub. A continuación se muestra un esquema de ejemplo de este evento.
 
 ```json
 [{
@@ -176,21 +176,21 @@ Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo descone
 | deviceConnectionStateEventInfo | objeto | Información de evento del estado de conexión del dispositivo
 | sequenceNumber | string | Un número que indica el orden de los eventos de dispositivo conectado o dispositivo desconectado. El evento más reciente tendrá un número de secuencia mayor que el del evento anterior. Este número puede variar en más de 1, pero el orden es siempre ascendente. Consulte [cómo usar el número de secuencia](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-Para **telemetría de dispositivo** eventos de IoT Hub, el objeto de datos contiene el mensaje de dispositivo a nube en [formato de mensaje de IoT hub](../iot-hub/iot-hub-devguide-messages-construct.md) y tiene las siguientes propiedades:
+En el caso del evento de Azure IoT Hub **Telemetría de dispositivo**, el objeto de datos contiene el mensaje del dispositivo a nube en [formato de mensaje de IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) y tiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| Cuerpo | string | El contenido del mensaje desde el dispositivo. |
+| Cuerpo | string | El contenido del mensaje del dispositivo. |
 | properties | string | Las propiedades de la aplicación son cadenas definidas por el usuario que se pueden agregar al mensaje. Estos campos son opcionales. |
-| Propiedades del sistema | string | [Propiedades del sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ayudar a identificar el contenido y el origen de los mensajes. Mensaje de telemetría de dispositivo debe estar en un formato JSON válido con el tipo de contenido establecido en JSON y contentEncoding establecido en UTF-8 en las propiedades de mensaje del sistema. Si no se establece, IoT Hub escribirá los mensajes en formato codificado de base 64.  |
+| system properties | string | Las [propiedades del sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ayudan a identificar el contenido y el origen de los mensajes. El mensaje de telemetría del dispositivo debe estar en un formato JSON válido, el valor de contentType debe ser JSON y el de contentEncoding debe ser UTF-8 en las propiedades del sistema del mensaje. Si no es así, IoT Hub escribirá los mensajes en formato codificado de base 64.  |
 
 Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado**, el objeto de datos contiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| twin | objeto | Información sobre el dispositivo gemelo, que es la representación en la nube de metadatos de dispositivo de la aplicación. | 
+| twin | objeto | Información acerca del dispositivo gemelo, que es la representación en la nube de los metadatos del dispositivo de la aplicación. | 
 | deviceID | string | Identificador único del dispositivo gemelo. | 
-| eTag | string | Un validador para garantizar la coherencia de las actualizaciones de un dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. |  
+| ETag | string | Un validador para garantizar la coherencia de las actualizaciones de un dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. |  
 | deviceEtag| string | Un validador para garantizar la coherencia de las actualizaciones de un registro de dispositivo. Se garantiza que cada deviceEtag sea exclusiva de cada registro de dispositivo. |
 | status | string | Si el dispositivo gemelo está habilitado o deshabilitado. | 
 | statusUpdateTime | string | La marca de tiempo ISO8601 de la última actualización de estado del dispositivo gemelo. |

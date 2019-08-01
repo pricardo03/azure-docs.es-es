@@ -15,10 +15,10 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390648"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
@@ -48,15 +48,15 @@ En la página **Proveedor de compilación**, elija el proveedor de compilación 
 
 En la página **Configurar**, seleccione la organización, el repositorio y la rama desde los que desea realizar la implementación continua. Cuando haya terminado, haga clic en **Continuar**.
 
-Para implementar desde un repositorio en una organización de GitHub, vaya a GitHub y vaya a **configuración** > **aplicaciones** > **autorizado aplicaciones OAuth**. A continuación, haga clic en "Azure App Service".
+Para implementar desde un repositorio en una organización de GitHub, vaya a GitHub, **Configuración** > **Aplicaciones** > **Aplicaciones de OAuth autorizadas**. Después, haga clic en "Azure App Service".
 
-![Configuración > aplicaciones > OAuth aplicaciones autorizadas > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+![Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
 
-En la página siguiente, conceda acceso de App Service a repositorios de su organización, haga clic en el botón "Concesión" en el lado derecho.
+En la página siguiente, conceda acceso a App Service a los repositorios de la organización; para ello, haga clic en el botón "Conceder" en el lado derecho.
 
-![Haga clic en "Autorizar" para conceder acceso de App Service en los repositorios de la organización](media/app-service-continuous-deployment/grant-access.png)
+![Haga clic en "Conceder" para conceder acceso a App Service a los repositorios de la organización](media/app-service-continuous-deployment/grant-access.png)
 
-Su organización debería aparecer ahora en la lista de "Organización" en el **configurar** página del centro de implementación.
+Su organización debería aparecer ahora en la lista "Organización" en la página **Configurar** del Centro de implementación.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Opción 2: Usar Azure Pipelines (versión preliminar)
 
@@ -130,7 +130,7 @@ En la página **Configurar**, en la sección **Compilar**, especifique el marco 
 
 En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
 
-En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](deploy-staging-slots.md) y después haga clic en **Continuar**. DevOps no permite la entrega continua a la ranura de producción. Esto es así por diseño para evitar que las implementaciones accidentales a producción. Debe configurar la entrega continua para una ranura de ensayo, compruebe los cambios e intercambiar las ranuras cuando esté listo.
+En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](deploy-staging-slots.md) y después haga clic en **Continuar**. DevOps no permite la entrega continua en el espacio de producción. Esto es así por diseño, para evitar las implementaciones accidentales en producción. Debe configurar la entrega continua para un espacio de ensayo, comprobar los cambios en él e intercambiar los espacios cuando esté preparado.
 
 ### <a name="finish-configuration"></a>Finalización de la configuración
 

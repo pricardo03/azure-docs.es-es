@@ -1,7 +1,7 @@
 ---
-title: Códec Stream comprime el audio con el SDK de voz - servicios de voz
+title: 'Hacer streaming de audio comprimido con códec mediante el SDK de voz: Servicios de voz'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo hacer streaming de audio comprimido a los servicios de voz de Azure con el SDK de voz. Disponible para C++, C#y Java para Linux.
+description: Obtenga información sobre cómo hacer streaming de audio comprimido a Servicios de voz de Azure con el SDK de voz. Disponible para C++, C# y Java para Linux.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,38 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073056"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Mediante el códec comprime la entrada de audio con el SDK de voz
+# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso de entradas de audio comprimido con códec con el SDK de voz
 
-El SDK de voz **Stream de entrada de Audio comprimido** API proporciona una manera de transmitir audio comprimido en el servicio de voz mediante PullStream o PushStream.
+La API **Compressed Audio Input Stream** del SDK de voz le proporciona una forma de hacer streaming de audio comprimido Speech Services mediante PullStream o PushStream.
 
 > [!IMPORTANT]
-> Solo se admite la transmisión por secuencias de audio comprimido para C++, C#y Java en Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
+> Solo se admite el streaming de audio comprimido para C++, C# y Java para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
+> Se requiere el SDK de voz versión 1.4.0 o posterior.
 
-Para wav/PCM consulte la documentación principal de voz.  Fuera de PCM/wav, se admiten los siguientes formatos de entrada de códec comprimido:
+Para wav/PCM consulte la documentación principal de voz.  Aparte de wav/PCM, se admiten los siguientes formatos de entrada de audio comprimido con códec:
 
 - MP3
 - OPUS/OGG
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Requisitos previos para usar el códec comprimen de entrada de audio
+## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Requisitos previos para el uso de entradas de audio comprimido con códec
 
-Instalar estas dependencias adicionales para usar la entrada de audio comprimida con el SDK de voz para Linux:
+Instale estas dependencias adicionales para usar la entrada de audio comprimido con el SDK de voz para Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Código de ejemplo con el códec comprimido de entrada de audio
+## <a name="example-code-using-codec-compressed-audio-input"></a>Ejemplo de código que usa una entrada de audio comprimido con códec
 
-Para transmitir en un formato de audio comprimido a los servicios de voz, crear `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un `AudioConfig` desde una instancia de la clase stream, especificar el formato de compresión de la secuencia.
+Para hacer streaming de un formato de audio comprimido a Servicios de voz, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia.
 
-Supongamos que tiene una clase de flujo de entrada llamada `myPushStream` y usas OPUS/OGG. El código puede tener este aspecto:
+Supongamos que tiene una clase de flujo de entrada llamada `myPushStream` y que usa OPUS/OGG. El aspecto del código sería el siguiente:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399200"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
@@ -56,7 +56,7 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | $schema |Sin |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
-| title |Sí |Nombre del artefacto que se muestra en el laboratorio. |
+| título |Sí |Nombre del artefacto que se muestra en el laboratorio. |
 | description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
 | iconUri |Sin |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
@@ -78,8 +78,8 @@ Para definir los parámetros, use la estructura siguiente:
 
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| type |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
-| displayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
+| Tipo |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
+| DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
 | description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
@@ -89,8 +89,8 @@ Los tipos permitidos son:
 * bool (cualquier booleano JSON válido)
 * array (cualquier matriz JSON válida)
 
-## <a name="secrets-as-secure-strings"></a>Información confidencial como cadenas seguras
-Declare los secretos como cadenas seguras. Esta es la sintaxis para declarar un parámetro de cadena segura dentro de la `parameters` sección de la **artifactfile.json** archivo:
+## <a name="secrets-as-secure-strings"></a>Secretos como cadenas seguras
+Declare los secretos como cadenas seguras. Esta es la sintaxis para declarar un parámetro de cadena segura dentro de la sección `parameters` del archivo **artifactfile.json**:
 
 ```json
 
@@ -102,7 +102,7 @@ Declare los secretos como cadenas seguras. Esta es la sintaxis para declarar un 
     },
 ```
 
-Comando de instalación del artefacto, ejecute el script de PowerShell que toma la cadena segura creada mediante el comando ConvertTo-SecureString. 
+Para el comando de instalación del artefacto, ejecute el script de PowerShell que toma la cadena segura creado mediante el comando ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,9 +110,9 @@ Comando de instalación del artefacto, ejecute el script de PowerShell que toma 
   }
 ```
 
-Para el artifactfile.json de ejemplo completo y el artifact.ps1 (script de PowerShell), consulte [este ejemplo en GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Para consultar los archivos artifactfile.json y artifact.ps1 del ejemplo completo (script de PowerShell), consulte [este ejemplo en GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Otro punto importante a tener en cuenta es no registrará los secretos en la consola como los resultados se capturan para la depuración de usuario. 
+Otro punto importante que tener en cuenta es no registrar los secretos en la consola a medida que la salida se capture para la depuración de los usuarios. 
 
 ## <a name="artifact-expressions-and-functions"></a>Expresiones y funciones de artefacto
 Puede utilizar expresiones y funciones para construir el comando de instalación del artefacto.

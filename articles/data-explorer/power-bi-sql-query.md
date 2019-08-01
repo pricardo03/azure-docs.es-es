@@ -1,6 +1,6 @@
 ---
 title: Visualización de datos desde Azure Data Explorer con una consulta de SQL en Power BI
-description: 'En este artículo, obtendrá información sobre cómo usar una de las tres opciones para visualizar datos en Power BI: una consulta SQL en un clúster del explorador de datos de Azure.'
+description: 'En este artículo, aprenderá a usar una de las tres opciones de visualización de datos de Power BI: una consulta SQL en un clúster de Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399273"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualización de datos mediante el conector de Azure Data Explorer para Power BI
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Power BI es una solución de análisis de negocios que le permite visualizar sus datos y compartir los resultados en su organización.
 
-Azure Data Explorer ofrece tres opciones para conectarse a los datos de Power BI: usar el conector integrado, importar una consulta de Azure Data Explorer o usar una consulta SQL. Este artículo muestra cómo usar una consulta SQL para obtener datos y visualizarlos en un informe de Power BI.
+Azure Data Explorer ofrece tres opciones para conectarse a los datos de Power BI: usar el conector integrado, importar una consulta de Azure Data Explorer o usar una consulta SQL. En este artículo se enseña a usar una consulta SQL para obtener datos y visualizarlos en un informe de Power BI.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita lo siguiente para completar este artículo:
+Para completar este artículo, necesitará lo siguiente:
 
 * Una cuenta de correo electrónico organizativa que sea miembro de Azure Active Directory, para que pueda conectarse al [clúster de ayuda de Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -80,8 +80,8 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita los informes creados en este artículo, elimine el archivo de Power BI Desktop (.pbix).
+Si ya no necesita el informe que ha creado para este artículo, elimine el archivo de Power BI Desktop (.pbix).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Visualizar datos mediante una consulta importada en Power BI](power-bi-connector.md)
+[Visualización de datos mediante una consulta importada en Power BI](power-bi-connector.md)

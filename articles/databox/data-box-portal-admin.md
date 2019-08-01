@@ -1,6 +1,6 @@
 ---
-title: Administración de Azure Data Box, Azure datos de cuadro pesado mediante el portal de Azure | Microsoft Docs
-description: Describe cómo usar el portal de Azure para administrar su Azure Data Box y cuadro intensivo de datos de Azure.
+title: Administración de Azure Data Box y Azure Data Box Heavy a través de Azure Portal | Microsoft Docs
+description: Describe cómo usar Azure Portal para administrar Azure Data Box y Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427721"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usar el portal de Azure para administrar su Azure Data Box y cuadro intensivo de datos de Azure
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
-En este artículo se aplica a Azure Data Box y cuadro intensivo de datos de Azure. En este artículo se describe algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en el dispositivo de Azure Data Box. Puede administrar el dispositivo Data Box mediante el portal de Azure o local a través de la interfaz de usuario web.
+La información de este artículo se aplica tanto a Azure Data Box como a Azure Data Box Heavy. En este artículo se describen algunas de las tareas de administración y los flujos de trabajo complejos que se pueden realizar en el dispositivo Azure Data Box. Puede administrar el dispositivo Data Box a través de Azure Portal o de la interfaz de usuario web local.
 
-Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Usar el portal de Azure para administrar pedidos, administrar el dispositivo Data Box y un seguimiento del estado del pedido mientras progresa hasta su finalización.
+Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Use Azure Portal para administrar los pedidos y el dispositivo Data Box, y realizar un seguimiento del estado del pedido hasta que se completa.
 
 
 ## <a name="cancel-an-order"></a>Cancelación de un pedido
 
-Es posible que deba cancelar un pedido por diversos motivos después de realizarlo. Solo puede cancelar el pedido antes de que se procese. Una vez que se procesa el pedido y se prepara el dispositivo Data Box, no es posible cancelar el pedido.
+Es posible que deba cancelar un pedido por diversos motivos después de realizarlo. Solo puede cancelar el pedido antes de que se procese. Una vez que el pedido se haya procesado y el dispositivo Data Box esté preparado, no es posible cancelarlo.
 
 Realice los pasos siguientes para cancelar un pedido.
 
@@ -40,7 +40,7 @@ Realice los pasos siguientes para cancelar un pedido.
 
 ## <a name="clone-an-order"></a>Clonación de un pedido
 
-La clonación es útil en determinadas situaciones. Por ejemplo, un usuario ha usado Data Box para transferir algunos datos. Se generan más datos, es necesario para otro dispositivo Data Box transferir datos a Azure. En este caso, simplemente se puede clonar el mismo pedido.
+La clonación es útil en determinadas situaciones. Por ejemplo, un usuario ha usado Data Box para transferir algunos datos. A medida que se generan más datos, se necesita otro dispositivo Data Box para transferirlos a Azure. En este caso, simplemente se puede clonar el mismo pedido.
 
 Realice los pasos siguientes para clonar un pedido.
 
@@ -65,11 +65,11 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
     ![Eliminación del pedido de Data Box 1](media/data-box-portal-admin/delete-order1.png)
 
-3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Haga clic en **Eliminar**.
+3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Hacer clic en **Eliminar**.
 
 ## <a name="download-shipping-label"></a>Descarga de la etiqueta de envío
 
-Deberá descargar la etiqueta de envío si no funciona la pantalla de tinta electrónica de su Data Box y no muestra la etiqueta de envío de devolución. No hay ninguna pantalla E tinta en la pesada de datos de cuadro y, por tanto, este flujo de trabajo no es aplicable a pesadas del cuadro de datos.
+Deberá descargar la etiqueta de envío si no funciona la pantalla de tinta electrónica de su Data Box y no muestra la etiqueta de envío de devolución. No hay ninguna pantalla de E-ink en Data Box Heavy y, por tanto, este flujo de trabajo no es aplicable a Data Box Heavy.
 
 Siga estos pasos para descargar una etiqueta de envío.
 
@@ -120,7 +120,7 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 
     ![Descarga del historial de pedidos](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Haga clic en **Descargar el historial de pedidos**. En el historial descargado verá un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos en una pesada de cuadro de datos. Al desplazarse hasta el final de este registro verá los vínculos a:
+2. Haga clic en **Descargar el historial de pedidos**. En el historial descargado verá un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos en un dispositivo Data Box Heavy. Al desplazarse hasta el final de este registro verá los vínculos a:
     
    - **Registros de copia**: lista de los archivos sin errores durante la copia de datos de Data Box a la cuenta de almacenamiento de Azure.
    - **Registros de auditoría**: contienen información sobre el encendido y el acceso compartido en Data Box cuando está fuera del centro de datos de Azure.
@@ -206,7 +206,7 @@ Cuando cambie el estado del dispositivo en el portal, se le notificará por corr
 |Picked up (Recogido)     |El transportista recogió y analizó el envío de devolución.         |
 |Received     | El dispositivo se recibió y examinó en el centro de datos de Azure. <br> Una vez que se inspecciona el envío, se iniciará la carga del dispositivo.      |
 |Copia de datos     | La copia de datos está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
-|Completada       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
+|Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
 |Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal.   |
 |Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
 |Limpieza | Se borran los datos en los discos del dispositivo. La limpieza del dispositivo se considera completa cuando el historial de pedidos está disponible para su descarga en Azure Portal.|
@@ -215,4 +215,4 @@ Cuando cambie el estado del dispositivo en el portal, se le notificará por corr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [problemas de solución de problemas de Data Box e intensivo de datos de cuadro](data-box-troubleshoot.md).
+- Obtenga información sobre cómo [solucionar problemas relacionados con Azure Data Box y Azure Data Box Heavy](data-box-troubleshoot.md).

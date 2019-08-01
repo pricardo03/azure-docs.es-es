@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389270"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Adición de entidades previamente entrenadas
@@ -39,42 +39,42 @@ Empiece en la página principal de la interfaz de usuario web.
 
 ### <a name="create-the-model"></a>Crear el modelo
 
-1. Seleccione **nuevo modelo**.
-2. Escriba **PretrainedEntities** para **nombre**.
+1. Seleccione **New Model** (Nuevo modelo).
+2. Escriba **PretrainedEntities** en **Name** (Nombre).
 3. Seleccione **Crear**.
 
 ### <a name="entity-creation"></a>Crear la entidad
 
-1. Seleccione **entidades** en el panel izquierdo, a continuación, **nueva entidad**.
-2. Seleccione **Trained Pre/datetimeV2** para **tipo de entidad**.
-3. Comprobar **multivalor** para habilitar la entidad se acumulan uno o varios valores. Tenga en cuenta que las entidades Pre-Trained no puede ser negable.
+1. Seleccione **Entities** (Entidades) en el panel izquierdo y, después, **New Entity** (Nueva entidad).
+2. Seleccione **Pre-Trained/datetimeV2** (Previamente entrenada/fechahoraV2) como **Entity Type** (Tipo de entidad).
+3. Active **Multi-valued** (Multivalor) para permitir que la entidad acumule uno o varios valores. Tenga en cuenta que las entidades previamente entrenadas no puede ser negables.
 4. Seleccione **Crear**.
 
 ![](../media/T08_entity_create.png)
 
-1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
-2. Escriba **la fecha es $builtin-datetimev2** para **respuesta del Bot...** .
+1. Seleccione **Actions** (Acciones) en el panel izquierdo y, a continuación, **New Action** (Nueva acción).
+2. Escriba **La fecha es $builtin-datetimev2** en **Bot's Response...** (Respuesta del bot).
 3. Seleccione **Crear**.
 
 ![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Crear la segunda acción
 
-1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
-2. Escriba **¿qué es la fecha?** para **respuesta del Bot...** . No pueden ser entidades previamente entrenadas **necesario entidades** tal como se reconocen de forma predeterminada para todas las grabaciones de voz.
-3. Escriba **builtin datetimev2** para **descalificación entidades**.
+1. Seleccione **Actions** (Acciones) en el panel izquierdo y, a continuación, **New Action** (Nueva acción).
+2. Escriba **¿Qué día es?** en **Bot´s Response...**  (Respuesta del bot). Las entidades previamente entrenadas no pueden ser **Required Entities** (Entidades necesarias), ya que todas las expresiones del usuario las reconocen de forma predeterminada.
+3. Escriba **builtin-datetimev2** en **Disqualifying Entities** (Entidades descalificadas).
 4. Seleccione **Crear**.
 
 ![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Entrenar el modelo
 
-1. Seleccione **cuadros de diálogo "Train"** en el panel izquierdo, a continuación, **el cuadro de diálogo de nuevo "Train"** .
-2. Escriba **hello** para utterance del usuario en el panel izquierdo del chat.
-3. Seleccione **puntuar acciones**.
-4. Seleccione **¿qué es la fecha?** en la lista de acciones
-5. Escriba **hoy** para utterance del usuario en el panel izquierdo del chat.
-    - El **hoy** modelos previamente entrenados en LUIS reconoce automáticamente utterance (dictado).
+1. Seleccione **Train Dialogs** (Diálogos de entrenamiento) en el panel izquierdo y, a continuación, **New Train Dialog** (Nuevo diálogo de entrenamiento).
+2. Escriba **hola** como expresión del usuario en el panel izquierdo del chat.
+3. Seleccione **Score Actions** (Acciones de puntuación).
+4. Seleccione **¿Qué día es?** en la lista de acciones.
+5. Escriba **today** (hoy) como expresión del usuario en el panel izquierdo del chat.
+    - La expresión **today** (hoy) la reconocen automáticamente los modelos previamente entrenados en LUIS.
     - Al mantener el puntero sobre los valores de las entidades previamente entrenadas, se muestran datos adicionales proporcionados por LUIS.
 
 ![](../media/T08_training.png)

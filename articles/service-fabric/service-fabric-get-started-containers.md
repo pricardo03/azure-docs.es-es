@@ -3,7 +3,7 @@ title: Creación de una aplicación contenedora en Azure Service Fabric | Micros
 description: Cree la primera aplicación contenedora en Windows en Azure Service Fabric. Cree una imagen de Docker con una aplicación en Python, inserte la imagen en un registro de contenedores y compile e implemente una aplicación contenedora en Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
-ms.author: aljo
-ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 9ef1dad0e90ec3e48a4bf22325cba0beb197d290
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428121"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599532"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -38,7 +38,7 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un equipo de desarrollo en el que se ejecute:
-  * Visual Studio 2015 o Visual Studio de 2019.
+  * Visual Studio 2015 o Visual Studio 2019.
   * [SDK y herramientas de Service Fabric](service-fabric-get-started.md).
   *  Docker para Windows. [Obtener Docker CE para Windows (estable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Después de instalar e iniciar Docker, haga clic con el botón derecho en el icono de la bandeja y seleccione **Switch to Windows containers** (Conmutar a contenedores de Windows), Este paso es necesario para ejecutar imágenes de Docker basadas en Windows.
 
@@ -107,10 +107,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
 
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -156,7 +158,7 @@ Si este comando no devuelve nada, ejecute el siguiente e inspeccione la direcci�
 docker inspect my-web-site
 ```
 
-Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta; por ejemplo "http:\//172.31.194.61". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
+Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta; por ejemplo, "http:\//172.31.194.61". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 Para detener el contenedor, ejecute:
 
@@ -175,9 +177,9 @@ docker rm my-web-site
 
 Después de comprobar que el contenedor se ejecuta en el equipo de desarrollo, inserte la imagen en el registro de Azure Container Registry.
 
-Ejecute ``docker login`` para iniciar sesión en el registro de contenedor con su [las credenciales del registro](../container-registry/container-registry-authentication.md).
+Ejecute ``docker login`` para iniciar sesión en el registro de contenedor con sus [credenciales de registro](../container-registry/container-registry-authentication.md).
 
-En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, podría iniciar sesión con su nombre de usuario del registro y la contraseña.
+En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, puede iniciar sesión con su nombre de usuario y contraseña del registro.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -361,7 +363,7 @@ Después, Service Fabric usa las credenciales del repositorio predeterminadas, q
 * IsDefaultContainerRepositoryPasswordEncrypted (valor booleano)
 * DefaultContainerRepositoryPasswordType (cadena): se admite a partir de la versión 6.4 del entorno de ejecución
 
-Esto es un ejemplo de lo que puede agregar dentro de la sección `Hosting` en el archivo ClusterManifestTemplate.json. El `Hosting` sección puede agregarse al crear el clúster o posterior en una actualización de la configuración. Para obtener más información, consulte [Personalización de la configuración de un clúster de Service Fabric](service-fabric-cluster-fabric-settings.md) y [Administración de los secretos en aplicaciones de Azure Service Fabric](service-fabric-application-secret-management.md).
+Esto es un ejemplo de lo que puede agregar dentro de la sección `Hosting` en el archivo ClusterManifestTemplate.json. La sección `Hosting` puede agregarse al crear el clúster o posteriormente en una actualización de la configuración. Para obtener más información, consulte [Personalización de la configuración de un clúster de Service Fabric](service-fabric-cluster-fabric-settings.md) y [Administración de los secretos en aplicaciones de Azure Service Fabric](service-fabric-application-secret-management.md).
 
 ```json
 "fabricSettings": [
@@ -406,7 +408,7 @@ Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper
    >
 
 ## <a name="configure-resource-governance"></a>Configuración de la gobernanza de recursos
-La [regulación de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Es posible establecer límites para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
+La [gobernanza de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Es posible establecer límites para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
 
 ```xml
 <ServiceManifestImport>
@@ -421,7 +423,7 @@ La [regulación de recursos](service-fabric-resource-governance.md) restringe lo
 
 A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. 
 
-A partir de la última versión de actualización de v6.4, tiene la opción para especificar que las evaluaciones de HEALTHCHECK de docker deben notificarse como un error. Si esta opción está habilitada, una **Aceptar** informe de mantenimiento se mostrará cuando *health_status* es *correcto* y **ERROR** aparecerá cuando *health_status* es *en mal estado*.
+A partir de la última versión de actualización, v6.4, tiene la opción de especificar que las evaluaciones de HEALTHCHECK de Docker deben notificarse como un error. Si se habilita esta opción, aparecerá un informe de estado **OK** cuando *health_status* sea *healthy* (correcto) y **ERROR** aparecerá cuando *health_status* sea *unhealthy* (incorrecto).
 
 La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el archivo de Docker que se usa al generar la imagen de contenedor.
 
@@ -445,11 +447,11 @@ Puede configurar el comportamiento **HEALTHCHECK** en cada contenedor mediante l
     </Policies>
 </ServiceManifestImport>
 ```
-De forma predeterminada *IncludeDockerHealthStatusInSystemHealthReport* está establecido en **true**, *RestartContainerOnUnhealthyDockerHealthStatus* está establecido en  **false**, y *TreatContainerUnhealthyStatusAsError* está establecido en **false**. 
+De forma predeterminada, se establece *IncludeDockerHealthStatusInSystemHealthReport* en **true**, *RestartContainerOnUnhealthyDockerHealthStatus* en **false** y *TreatContainerUnhealthyStatusAsError* en **false**. 
 
 Si se establece *RestartContainerOnUnhealthyDockerHealthStatus* en **true**, se reiniciará un contenedor que constantemente informa de un error de mantenimiento (posiblemente en otros nodos).
 
-Si *TreatContainerUnhealthyStatusAsError* está establecido en **true**, **ERROR** informes de mantenimiento se mostrará cuando el contenedor *health_status*es *en mal estado*.
+Si *TreatContainerUnhealthyStatusAsError* se establece en **true**, el informe de mantenimiento con **ERROR** aparecerá cuando el elemento *health_status* del contenedor sea *unhealthy*.
 
 Si quiere deshabilitar la integración de la instrucción **HEALTHCHECK** para todo el clúster de Service Fabric, deberá establecer [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) en **false**.
 
@@ -482,7 +484,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Por ejemplo:
  
 - Los contenedores de Windows Server creados con la versión 1709 de Windows Server no funcionarán en un host que tenga la versión 2016 de Windows Server. 
-- Contenedores de Windows Server creados con Windows Server 2016 funcionan en modo de aislamiento de Hyper-V solo en un host que ejecuta Windows Server versión 1709. 
+- Los contenedores de Windows Server creados con Windows Server 2016 solamente podrán utilizar el modo de aislamiento de Hyper-V en un host que tenga la versión 1709 de Windows Server. 
 - En el caso de los contenedores de Windows Server creados con Windows Server 2016, tal vez sea necesario garantizar que la revisión del sistema operativo del contenedor y del sistema operativo del host es la misma cuando se utiliza el modo de aislamiento de proceso en un host con Windows Server 2016.
  
 Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
@@ -632,7 +634,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configuración del intervalo de tiempo antes de hacer que se termine el contenedor
 
-Puede configurar un intervalo de tiempo para que el entorno de ejecución espere antes de que el contenedor se quite una vez que la eliminación del servicio (o el movimiento a otro nodo) se haya iniciado. Si se configura el intervalo de tiempo, se envía el comando `docker stop <time in seconds>` al contenedor.  Para más detalles, consulte [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). El intervalo de tiempo de espera se especifica en la sección `Hosting`. El `Hosting` sección puede agregarse al crear el clúster o posterior en una actualización de la configuración. El siguiente fragmento de manifiesto de clúster muestra cómo establecer el intervalo de espera:
+Puede configurar un intervalo de tiempo para que el entorno de ejecución espere antes de que el contenedor se quite una vez que la eliminación del servicio (o el movimiento a otro nodo) se haya iniciado. Si se configura el intervalo de tiempo, se envía el comando `docker stop <time in seconds>` al contenedor.  Para más detalles, consulte [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). El intervalo de tiempo de espera se especifica en la sección `Hosting`. La sección `Hosting` puede agregarse al crear el clúster o posteriormente en una actualización de la configuración. El siguiente fragmento de manifiesto de clúster muestra cómo establecer el intervalo de espera:
 
 ```json
 "fabricSettings": [

@@ -1,29 +1,29 @@
 ---
-title: Configurar los contenedores de voz
+title: Configuración de contenedores de Voz
 titleSuffix: Azure Cognitive Services
-description: El contenedor de voz
+description: El contenedor de Voz
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072437"
 ---
-# <a name="configure-speech-service-containers"></a>Configurar los contenedores de servicio de voz
+# <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
 
-Contenedores de voz permiten que los clientes creen una arquitectura de aplicaciones de voz que se optimiza para aprovechar las capacidades de nube sólidas y localidad de edge. Los contenedores de dos voz ahora admitimos son **texto a voz** y **texto a voz**. 
+Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los dos contenedores de voz que se admiten ahora son **conversión de voz a texto** y **conversión de texto a voz**. 
 
-El **voz** entorno en tiempo de ejecución del contenedor se configura mediante el `docker run` argumentos de comandos. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
+El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-# <a name="configuration-settings"></a>Opciones de configuración
+# <a name="configuration-settings"></a>Valores de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -32,11 +32,11 @@ El **voz** entorno en tiempo de ejecución del contenedor se configura mediante 
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
-La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para la ApiKey y el valor debe ser una clave válida para el _voz_ recurso especificado para el [ `Billing` ](#billing-configuration-setting) opción de configuración.
+La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Speech_ especificado para la opción de configuración [`Billing`](#billing-configuration-setting).
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **De voz** administración de recursos, en **claves**
+* Azure Portal: Administración de recursos de **Speech** en **Claves**
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -44,15 +44,15 @@ Este valor se puede encontrar en el siguiente lugar:
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-El `Billing` configuración especifica el URI del extremo de la _voz_ recursos en Azure se usan para medir la información de facturación para el contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de extremo válido para un _voz_ recursos en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
+La configuración `Billing` especifica el URI de punto de conexión del recurso de _Speech_ en Azure que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y este debe ser un URI de punto de conexión válido para un recurso de _Speech_ en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **De voz** información general, con la etiqueta `Endpoint`
+* Azure Portal: Información general de **Speech**, con la etiqueta `Endpoint`
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -74,14 +74,14 @@ Este valor se puede encontrar en el siguiente lugar:
 
 Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedor. Puede especificar un montaje de entrada o un montaje de salida mediante la opción `--mount` del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Los contenedores de voz no utiliza la entrada o salida monta para almacenar el entrenamiento o servicio de datos. 
+Los contenedores de Speech no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. 
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | string | Contenedores de voz no usan.|
-|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | Cadena | Los contenedores de Speech no usan esto.|
+|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -94,16 +94,16 @@ Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | La clave de punto de conexión del recurso de voz. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | La clave de punto de conexión del recurso de Speech. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación, incluida la región.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing-configuration-setting).
-> El valor de ApiKey es el **clave** en la página de claves de recurso de voz de Azure. 
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure Speech. 
 
-## <a name="speech-container-docker-examples"></a>Ejemplos de voz contenedor Docker
+## <a name="speech-container-docker-examples"></a>Ejemplos de Docker del contenedor de Speech
 
-Los siguientes ejemplos de Docker son para el contenedor de voz. 
+En los siguientes ejemplos de Docker encontrará el contenedor de Speech. 
 
 ### <a name="basic-example-for-speech-to-text"></a>Ejemplo básico de voz a texto
 

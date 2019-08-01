@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: c58faa7104a3ca2c740a1d1e35ca5bfd47c3a9fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241207"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creación de una galería de imágenes compartidas con Azure PowerShell 
@@ -44,7 +44,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell](tutorial-custom-images.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede tener más de 1 TB.
+Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell](tutorial-custom-images.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede ser mayor de 1 TB.
 
 Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máquina virtual cuando proceda.
 
@@ -53,9 +53,9 @@ Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máq
  
 ## <a name="create-vms-from-an-image"></a>Creación de máquinas virtuales a partir de una imagen
 
-Una vez que la versión de la imagen se completa, puede crear una o varias VM nuevas. Mediante el [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
+Una vez que la versión de la imagen se completa, puede crear una o varias VM nuevas. Mediante el uso del cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). 
 
-Este ejemplo crea una máquina virtual denominada *myVMfromImage*, en el *myResourceGroup* en el *South Central US* centro de datos.
+Este ejemplo crea una máquina virtual llamada *myVMfromImage* en *myResourceGroup* en el centro de datos *Centro y Sur de EE. UU.*
 
 
 ```azurepowershell-interactive
@@ -98,7 +98,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Generador de imágenes de Azure (versión preliminar)](image-builder-overview.md) pueden ayudar a automatizar la creación de imágenes de versión, incluso puede usar para actualizar y [crear una nueva versión de imagen de una versión de imagen existente](image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (versión preliminar)](image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](image-builder-gallery-update-image-version.md). 
 
 Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 

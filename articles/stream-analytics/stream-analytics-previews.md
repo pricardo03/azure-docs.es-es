@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393687"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
@@ -23,13 +23,13 @@ En este artículo se resumen todas las características actualmente en versión 
 
 Las características siguientes se encuentran en la versión preliminar pública. Puede aprovechar las ventajas de estas características hoy mismo, pero no las use en su entorno de producción.
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code para análisis de Azure Stream (publicado en mayo de 2019)
+### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code para Azure Stream Analytics (publicado en mayo de 2019)
 
-Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Consulte nuestra [tutorial de introducción de VS Code a](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Consulte el [tutorial de introducción de VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 ### <a name="anomaly-detection"></a>Detección de anomalías
 
-Azure Stream Analytics introduce nuevos modelos de aprendizaje automático con compatibilidad para a detección de *picos* y *caídas*, además de detección de tendencias bidireccionales, positivas lentas y negativas lentas. Para obtener más información, visite [detección de anomalías en Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+Azure Stream Analytics introduce nuevos modelos de aprendizaje automático con compatibilidad para a detección de *picos* y *caídas*, además de detección de tendencias bidireccionales, positivas lentas y negativas lentas. Para más información, visite [Detección de anomalías en Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Integración con Azure Machine Learning
 
@@ -49,19 +49,19 @@ Con las funciones definidas por el usuario de . NET Standard, puede ejecutar có
 
 ## <a name="other-previews"></a>Otras versiones preliminares
 
-Las siguientes características también están disponibles en versión preliminar.
+En la versión preliminar también están disponibles las características siguientes.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#deserializador personalizado para Azure Stream Analytics en IoT Edge y en la nube (Announced de mayo de 2019)
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>Deserializador personalizado en C# para Azure Stream Analytics en IoT Edge y Cloud (anunciado en mayo de 2019)
 
-Los desarrolladores pueden implementar deserializadores personalizados en C# para deserializar los eventos recibidos por Azure Stream Analytics. Parquet, Protobuf, XML y todos los formatos binarios son algunos ejemplos de formatos que se pueden deserializar. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
+Los desarrolladores pueden implementar deserializadores personalizados en C# para deserializar los eventos recibidos por Azure Stream Analytics. Parquet, Protobuf, XML y todos los formatos binarios son algunos ejemplos de formatos que se pueden deserializar. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
 
-### <a name="parquet-output-announced-may-2019"></a>Salida de parquet (anunciada en mayo de 2019)
-Parquet es un formato de columnas habilitar eficaz procesamiento de macrodatos. Al generar datos en formato Parquet en un lago de datos, puede aprovechar las ventajas de Azure Stream Analytics para ETL de streaming de gran escala de energía y ejecutar procesamiento por lotes, entrenar algoritmos de aprendizaje automático o ejecutar consultas interactivas en los datos históricos. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
+### <a name="parquet-output-announced-may-2019"></a>Salida de Parquet (anunciada en mayo de 2019)
+Parquet es un formato de columnas que habilita un eficaz procesamiento de los macrodatos. Al generar los datos en formato Parquet en un lago de datos, puede aprovechar las ventajas de Azure Stream Analytics para ETL de streaming de gran escala y para ejecutar el procesamiento por lotes, entrenar los algoritmos de aprendizaje automático o ejecutar consultas interactivas en los datos históricos. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
 
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Integración con Event Hubs (Announced de mayo de 2019) con un solo clic 
-Con esta integración, ahora podrá visualizar los datos entrantes y empezar a escribir una consulta de Stream Analytics con un solo clic desde el portal del centro de eventos. Una vez que la consulta está lista, podrá la incluya en pocos clics y comenzar a obtener perspectivas en tiempo real. Esto reducirá significativamente el tiempo y costo para desarrollar soluciones de análisis en tiempo real. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
+### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Integración en un solo clic con Event Hubs (anunciado en mayo de 2019) 
+Con esta integración, ahora podrá visualizar los datos entrantes y empezar a escribir una consulta de Stream Analytics con un solo clic desde el portal de Event Hubs. Una vez que la consulta esté lista, podrá usarla con unos pocos clics y comenzar a obtener conclusiones en tiempo real. De este modo, se reducirá significativamente el tiempo y el costo del desarrollo de soluciones de análisis en tiempo real. Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
 
-### <a name="support-for-azure-stack-announced-may-2019"></a>Compatibilidad con Azure Stack (anunciada en mayo de 2019)
-Esta característica está habilitada en el tiempo de ejecución de Azure IoT Edge aprovecha las características personalizadas de Azure Stack, como la compatibilidad nativa con entradas locales y da como resultado que se ejecuta en Azure Stack (por ejemplo, Event Hubs, IoT Hub, Blob Storage). Esta nueva integración le permite crear arquitecturas híbridas que se pueden analizar los datos cerca de donde se genera, disminuye la latencia y maximizar insights.
+### <a name="support-for-azure-stack-announced-may-2019"></a>Compatibilidad con Azure Stack (anunciado en mayo de 2019)
+Esta característica habilitada en el entorno de ejecución de Azure IoT Edge aprovecha las características personalizadas de Azure Stack, como la compatibilidad nativa con las entradas locales y las salidas que se ejecutan en Azure Stack (por ejemplo, Event Hubs, IoT Hub, Blob Storage). Esta nueva integración le permite crear arquitecturas híbridas que pueden analizar los datos cerca de donde se generan, disminuyen la latencia y maximizan las conclusiones.
 Regístrese para esta versión preliminar [aquí](https://aka.ms/asapreview1).
 

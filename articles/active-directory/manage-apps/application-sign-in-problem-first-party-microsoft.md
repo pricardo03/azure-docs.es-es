@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108298"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -31,9 +31,9 @@ Hay tres maneras principales en que un usuario puede acceder a una aplicación p
 
 -   En el caso de aplicaciones de Office 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias** o mediante la funcionalidad de asignación de licencias basada en grupo.
 
--   Para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante **consentimiento del usuario**. Esto significa que inicie sesión en la aplicación con su cuenta de Azure AD o centro educativo y permite tener acceso a un conjunto limitado de datos en su cuenta.
+-   Para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante **consentimiento del usuario**. Esto significa que inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
 
--   Para las aplicaciones que publica Microsoft o un 3rd terceros libremente para cualquier persona que use, los usuarios también se concederá acceso a través de **consentimiento del administrador**. Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
+-   Además, para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante **consentimiento del administrador**. Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
 
 Para solucionar el problema, comience con [Áreas problemáticas generales con el acceso a las aplicaciones para tener en cuenta](#general-problem-areas-with-application-access-to-consider) y luego lea el tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft para obtener más información.
 
@@ -67,9 +67,9 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
   * Asegurarse de que **Multi-Factor Authentication** no bloquee el acceso del usuario [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
-  * Asegurarse de que una **directiva de acceso condicional** o una directiva de **protección de identidad** no bloquee el acceso del usuario [Comprobar una directiva de acceso condicional específica](#problems-with-conditional-access-policies) o [comprobar la directiva de acceso condicional de una aplicación específica](#check-a-specific-applications-conditional-access-policy) o [deshabilitar una directiva de acceso condicional específica](#disable-a-specific-conditional-access-policy)
+  * Que una **directiva de acceso condicional** o una directiva de **protección de identidad** no bloquea el acceso del usuario. [Comprobar una directiva de acceso condicional específica](#problems-with-conditional-access-policies) o [comprobar la directiva de acceso condicional de una aplicación específica](#check-a-specific-applications-conditional-access-policy) o [deshabilitar una directiva de acceso condicional específica](#disable-a-specific-conditional-access-policy)
 
-  * Asegurarse de que la **información de contacto de autenticación** del usuario esté actualizada para permitir la aplicación de directivas de Multi-Factor Authentication o de acceso condicional. [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
+  * Que la **información de contacto de autenticación** del usuario está actualizada para permitir la aplicación de directivas de Multi-Factor Authentication o de acceso condicional. [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
 - Para aplicaciones de **Microsoft** **que necesitan una licencia** (como Office365), estos son algunos problemas específicos que se deben comprobar una vez que haya descartado los problemas generales mencionados anteriormente:
 
@@ -87,7 +87,7 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
 - Para aplicaciones de **Microsoft** **que no necesitan licencia**, estos son algunos otros puntos para comprobar:
 
-  * Si la aplicación solicita **permisos de usuario** (por ejemplo "acceso a este buzón de usuario"), asegúrese de que el usuario ha iniciado sesión en la aplicación y se ha realizado una **deoperacióndeconsentimientodeniveldeusuario** para permitir que la aplicación acceder a sus datos.
+  * Si la aplicación solicita **permisos de nivel de usuario** (por ejemplo, acceso al buzón de este usuario), asegúrese de que el usuario ha iniciado sesión en la aplicación y ha realizado una **operación de consentimiento de nivel de usuario** para permitir que la aplicación acceda a sus datos.
 
   * Si la aplicación solicita **permisos de nivel de administrador** (por ejemplo, acceso a los buzones de todos los usuarios), asegúrese de que un administrador global haya realizado una **operación de consentimiento de nivel de administrador en nombre de todos los usuarios** de la organización.
 
@@ -419,7 +419,7 @@ Para asignar una licencia a un grupo, siga estos pasos:
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemas con las directivas de acceso condicional
 
-### <a name="check-a-specific-conditional-access-policy"></a>Comprobar una directiva de acceso condicional específica
+### <a name="check-a-specific-conditional-access-policy"></a>Comprobación de una directiva de acceso condicional específica
 
 Para comprobar o validar una directiva de acceso condicional:
 
@@ -435,14 +435,14 @@ Para comprobar o validar una directiva de acceso condicional:
 
 6. Haga clic en la directiva que le interese inspeccionar.
 
-7. Revisión de datos que están sin condiciones específicas, asignaciones u otras opciones que pudieran estar bloqueando el acceso de usuario.
+7. Revise que no haya condiciones, asignaciones u otras configuraciones específicas que puedan estar bloqueando el acceso del usuario.
 
    >[!NOTE]
    >Puede que desee deshabilitar temporalmente esta directiva para asegurarse de que no afecta a los inicios de sesión. Para ello, establezca el botón de alternancia **Habilitar directiva** en **No** y haga clic en el botón **Guardar**.
    >
    >
 
-### <a name="check-a-specific-applications-conditional-access-policy"></a>Comprobar la directiva de acceso condicional de una aplicación específica
+### <a name="check-a-specific-applications-conditional-access-policy"></a>Comprobación de la directiva de acceso condicional de una aplicación específica
 
 Para comprobar o validar la directiva de acceso condicional configurada actualmente de una aplicación, siga estos pasos:
 
@@ -456,7 +456,7 @@ Para comprobar o validar la directiva de acceso condicional configurada actualme
 
 5.  A continuación, haga clic en **Todas las aplicaciones**.
 
-6.  Busque la aplicación que esté interesado o el usuario está intentando iniciar sesión mediante la aplicación Mostrar Id. de aplicación o del nombre
+6.  Busque la aplicación que le interesa o en la que el usuario intenta iniciar sesión por el nombre para mostrar o el identificador de la aplicación.
 
      >[!NOTE]
      >Si no ve la aplicación que busca, haga clic en el botón **Filtrar** y amplíe el ámbito de la lista a **Todas las aplicaciones**. Si desea ver más columnas, haga clic en el botón **Columnas** para agregar detalles adicionales para las aplicaciones.
@@ -474,7 +474,7 @@ Para comprobar o validar la directiva de acceso condicional configurada actualme
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Deshabilitar una directiva de acceso condicional específica
+### <a name="disable-a-specific-conditional-access-policy"></a>Deshabilitación de una directiva de acceso condicional específica
 
 Para comprobar o validar una directiva de acceso condicional:
 
@@ -512,7 +512,7 @@ El acceso a la aplicación se puede bloquear porque no se haya producido la oper
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Realizar la operación de consentimiento de nivel de administrador para cualquier aplicación
 
--   **Solo para las aplicaciones desarrolladas mediante el modelo de aplicación V1**, puede forzar que se produzca el consentimiento de nivel de administrador si agrega "**?prompt=admin\_consent**" al final de la dirección URL de inicio de sesión de una aplicación.
+-   **Solo para las aplicaciones desarrolladas mediante el modelo de aplicación V1**, puede forzar que se produzca el consentimiento de nivel de administrador si agrega " **?prompt=admin\_consent**" al final de la dirección URL de inicio de sesión de una aplicación.
 
 -   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

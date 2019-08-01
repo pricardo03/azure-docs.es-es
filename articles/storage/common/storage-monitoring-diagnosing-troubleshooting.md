@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912417"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
@@ -426,7 +426,7 @@ Si la métrica **PercentThrottlingError** muestra un aumento en el porcentaje de
 Los aumentos de **PercentThrottlingError** suelen ocurrir al mismo tiempo que los aumentos en el número de solicitudes de almacenamiento, o al realizar las primeras pruebas de carga de la aplicación. Esto también puede manifestarse en el cliente como los mensajes de estado HTTP “503 Servidor ocupado” o “500 Se agotó el tiempo de espera de la operación” de las operaciones de almacenamiento.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitorio de PercentThrottlingError
-Si observa picos en el valor de **PercentThrottlingError** que coinciden con los períodos de gran actividad de la aplicación, debe implementar una estrategia de retroceso exponencial (no lineal) de reintentos en el cliente. Esto reducirá la carga inmediata de la partición y ayudará a la aplicación a suavizar los picos de tráfico. Para obtener más información acerca de cómo implementar directivas de reintentos mediante la biblioteca de cliente de almacenamiento, consulte el [Microsoft.Azure.Storage.RetryPolicies espacio de nombres](/dotnet/api/microsoft.azure.storage.retrypolicies).
+Si observa picos en el valor de **PercentThrottlingError** que coinciden con los períodos de gran actividad de la aplicación, debe implementar una estrategia de retroceso exponencial (no lineal) de reintentos en el cliente. Esto reducirá la carga inmediata de la partición y ayudará a la aplicación a suavizar los picos de tráfico. Para más información sobre cómo implementar directivas de reintentos mediante la biblioteca cliente de almacenamiento, consulte el tema sobre el espacio de nombres [Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Puede que también observe picos en el valor de **PercentThrottlingError** que no coincidan con períodos de gran actividad de la aplicación: en ese caso, la causa más probable es que el servicio de almacenamiento desplace particiones para mejorar el equilibrio de carga.
@@ -470,7 +470,7 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Origen | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
 | Microsoft.Azure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 403 Prohibido. |
 | Microsoft.Azure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -521,7 +521,7 @@ Entradas del registro:
 | 07b26a5d-... |Respuesta recibida. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | 07b26a5d-... |Descargando el cuerpo de respuesta. |
-| 07b26a5d-... |La operación se realizó correctamente. |
+| 07b26a5d-... |Operación completada correctamente. |
 | 07b26a5d-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Esperando respuesta. |
@@ -539,7 +539,7 @@ Entradas del registro:
 | e2d06d78-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 353ae3bc-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | e2d06d78-... |Descargando el cuerpo de respuesta. |
-| e2d06d78-... |La operación se realizó correctamente. |
+| e2d06d78-... |Operación completada correctamente. |
 | e2d06d78-... |A partir de una solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Esperando respuesta. |
@@ -626,7 +626,7 @@ Si este problema se produce a menudo, debe investigar por qué el cliente no rec
 ### <a name="the-client-is-receiving-409-messages"></a>El cliente recibe mensajes HTTP 409 (conflicto)
 En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente por **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
 
-| Timestamp | Operación | Resultado | Nombre de contenedor | Id. de solicitud de cliente |
+| Timestamp | Operación | Resultado | Nombre del contenedor | Id. de solicitud de cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -810,14 +810,14 @@ Puede encontrar más información en [¿Qué es Application Insights?](../../azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de analytics en Azure Storage, consulte estos recursos:
+Para más información acerca de los análisis en Azure Storage, consulte estos recursos:
 
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
-* [Análisis de almacenamiento](storage-analytics.md)
-* [Métricas de Storage analytics](storage-analytics-metrics.md)
-* [Esquema de la tabla de métricas de Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
-* [Registros de análisis de almacenamiento](storage-analytics-logging.md)
-* [Formato de registro de Storage analytics](/rest/api/storageservices/storage-analytics-log-format)
+* [Storage Analytics](storage-analytics.md)
+* [Métricas de Storage Analytics](storage-analytics-metrics.md)
+* [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [Registros de Storage Analytics](storage-analytics-logging.md)
+* [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introducción]: #introduction

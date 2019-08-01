@@ -7,22 +7,22 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f5f777238b4682cfd5873ceeb34452218d4c46f3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068270"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Inicio rápido: Conversión de texto a voz con Node.js
 
 En este tutorial, obtendrá información sobre cómo convertir texto a voz con Node.js y la API REST Texto a voz. El cuerpo de solicitud de esta guía se estructura como [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md), que permite elegir la voz y el idioma de la respuesta.
 
-Esta guía, se requiere un [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
+En este inicio rápido se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,9 +53,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. Esta función intercambia su clave de suscripción de servicios de voz para obtener un token de acceso usa el `issueToken` punto de conexión.
+La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En esta función se intercambia la clave de suscripción de Servicios de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
 
-En este ejemplo se da por supuesto que la suscripción de servicios de voz está en la región Oeste de Estados Unidos. Si usa una región diferente, actualice el valor de `uri`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+En este ejemplo se da por supuesto que su suscripción de Servicios de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `uri`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código en el proyecto:
 
@@ -80,7 +80,7 @@ En la siguiente sección, vamos a crear la función para llamar a la API de text
 
 ## <a name="make-a-request-and-save-the-response"></a>Realización de solicitud y guardado de la respuesta
 
-Aquí va a generar la solicitud a la API de texto a voz y guardar la respuesta de voz. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `uri`. Para obtener más información, consulte [regiones de servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aquí va a generar la solicitud a la API de texto a voz y guardar la respuesta de voz. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `uri`. Para obtener más información, consulte el artículo sobre las [regiones admitidas de Servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 A continuación, deberá agregar los encabezados necesarios para la solicitud. Asegúrese de actualizar `User-Agent` con el nombre del recurso (que se encuentra en Azure Portal) y establezca `X-Microsoft-OutputFormat` en la salida de audio preferida. Para obtener una lista completa de los formatos de salida, vea [Salidas de Audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -136,9 +136,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
-Ya casi ha terminado. El último paso es crear una función asincrónica. Esta función leerá la clave de suscripción desde una variable de entorno, símbolo del sistema para el texto, obtener un token, espere a que la solicitud completar, a continuación, convertir el texto a voz y guardar el audio como un archivo .wav.
+Ya casi ha terminado. El último paso es crear una función asincrónica. Esta función leerá la clave de suscripción desde una variable de entorno, solicitará un texto, obtendrá un token, esperará a que la solicitud se complete y, a continuación, convertirá el texto en voz y guardará el audio como un archivo .wav.
 
-Si está familiarizado con las variables de entorno o si prefiere probar con su suscripción clave codificado de forma rígida como una cadena, reemplace `process.env.SPEECH_SERVICE_KEY` con su clave de suscripción como una cadena.
+Si no está familiarizado con las variables de entorno o si prefiere probar con su clave de suscripción codificada de forma rígida, sustituya `process.env.SPEECH_SERVICE_KEY` por la clave de suscripción como una cadena.
 
 ```javascript
 // Use async and await to get the token before attempting
@@ -185,7 +185,7 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 > [!div class="nextstepaction"]
 > [Explorar ejemplos de Node.js en GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Crear fuentes de voz personalizada](how-to-customize-voice-font.md)

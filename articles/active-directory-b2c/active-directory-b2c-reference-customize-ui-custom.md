@@ -11,10 +11,10 @@ ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509601"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
@@ -150,7 +150,7 @@ En la tabla siguiente se describe la finalidad de las páginas HTML5 anteriores.
 
 Puede agregar un vínculo a las plantillas HTML5/CSS al recorrido de usuario mediante la edición de una directiva personalizada de forma directa.
 
-Las plantillas HTML5/CSS personalizadas que se usarán en el recorrido de usuario se deben especificar en una lista de definiciones de contenido que se pueden emplear en esos recorridos de usuario. Para ese propósito, opcional  *\<ContentDefinitions >* elemento XML debe declararse en el  *\<BuildingBlocks >* sección de su archivo XML de directiva personalizada.
+Las plantillas HTML5/CSS personalizadas que se usarán en el recorrido de usuario se deben especificar en una lista de definiciones de contenido que se pueden emplear en esos recorridos de usuario. Para este fin, se debe declarar un elemento XML *\<ContentDefinitions>* opcional en la sección *\<BuildingBlocks>* de su archivo XML de directivas personalizadas.
 
 En la tabla siguiente se describe el conjunto de identificadores de definición de contenido reconocidos por el motor de experiencia de identidad de Azure AD B2C y el tipo de páginas relacionadas con ellos.
 

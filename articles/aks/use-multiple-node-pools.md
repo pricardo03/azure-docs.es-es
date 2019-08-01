@@ -2,17 +2,17 @@
 title: Uso de grupos de varios nodos de Azure Kubernetes Service (AKS)
 description: Aprenda a crear y administrar grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: iainfou
-ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: mlearned
+ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491540"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278166"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -87,7 +87,7 @@ Aunque esta característica está en versión preliminar, se aplican las siguien
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.12.6* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
+Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.5* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -100,7 +100,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.12.6
+    --kubernetes-version 1.13.5
 ```
 
 La operación de creación del clúster tarda unos minutos.
@@ -134,37 +134,37 @@ En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado cor
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  3        110        mynodepool  1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 > [!TIP]
-> Si no se especifica *OrchestratorVersion* o *VmSize* al agregar un grupo de nodos, los nodos se crean según los valores predeterminados del clúster de AKS. En este ejemplo, esos valores eran una versión de Kubernetes *1.12.6* y un tamaño de nodo de *Standard_DS2_v2*.
+> Si no se especifica *OrchestratorVersion* o *VmSize* al agregar un grupo de nodos, los nodos se crean según los valores predeterminados del clúster de AKS. En este ejemplo, esos valores eran la versión de Kubernetes *1.13.5* y el tamaño de nodo de *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.12.6*. Vamos a actualizar *mynodepool* a Kubernetes *1.12.7*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
+Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.5*. Vamos a actualizar *mynodepool* a Kubernetes *1.13.7*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.12.7 \
+    --kubernetes-version 1.13.7 \
     --no-wait
 ```
 
-Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. El ejemplo siguiente muestra que *mynodepool* está en el estado *Actualizando* a la versión *1.12.7*:
+Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.12.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  3        110        mynodepool  1.13.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 Tarda unos minutos en actualizar los nodos a la versión especificada.
@@ -193,10 +193,10 @@ Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks no
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Scaling              myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Scaling              myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 La operación de escalado tarda unos minutos en completarse.
@@ -217,10 +217,10 @@ En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nod
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Deleting             myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Deleting             myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 Tarda unos minutos en eliminar los nodos y el grupo de nodos.
@@ -248,10 +248,10 @@ En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nod
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  1        110        gpunodepool  1.12.6                 100             Linux     Creating             myResourceGroupPools  Standard_NC6
-VirtualMachineScaleSets  1        110        nodepool1    1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  1        110        gpunodepool  1.13.5                 100             Linux     Creating             myResourceGroup  Standard_NC6
+VirtualMachineScaleSets  1        110        nodepool1    1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 Tarda unos minutos en crear correctamente *gpunodepool*.
@@ -264,8 +264,8 @@ Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.12.6
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.12.6
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.5
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.5
 ```
 
 El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
@@ -342,7 +342,7 @@ Cuando usa una plantilla de Azure Resource Manager para crear y administrar recu
 Cree una plantilla como `aks-agentpools.json` y pegue el siguiente ejemplo de manifiesto. Esta plantilla de ejemplo configura los valores siguientes:
 
 * Actualiza el grupo de agentes de *Linux* denominado *myagentpool* para que ejecute tres nodos.
-* Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.12.8*.
+* Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.13.5*.
 * Define el tamaño del nodo como *Standard_DS2_v2*.
 
 Edite estos valores para actualizar, agregar o eliminar grupos de nodos según sea necesario:
@@ -407,7 +407,7 @@ Edite estos valores para actualizar, agregar o eliminar grupos de nodos según s
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.12.8"
+            "orchestratorVersion": "1.13.5"
       }
     }
   ]

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388213"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
@@ -39,7 +39,7 @@ El Panel de acceso es independiente de Azure Portal y no requiere que los usuari
 Para obtener más información sobre el Panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Iniciador de aplicaciones de Office 365
-Para las organizaciones que han implementado Office 365, las aplicaciones asignadas a los usuarios a través de Azure AD también aparecerán en el portal de Office 365 en [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Office 365.
+Para las organizaciones que han implementado Office 365, las aplicaciones asignadas a los usuarios mediante Azure AD también aparecerán en el portal de Office 365, en [https://portal.office.com/myapps](https://portal.office.com/myapps). Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Office 365.
 
 ![Portal de Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -53,7 +53,7 @@ La mayoría de las aplicaciones federadas que admiten SAML 2.0, WS-Federation u 
 ## <a name="direct-sign-on-links"></a>Vínculos directos de inicio de sesión
 Azure AD también admite vínculos directos de inicio de sesión único a las aplicaciones individuales que admiten el inicio de sesión con contraseña, el inicio de sesión único vinculado y cualquier forma de inicio de sesión único federado.
 
-Estos vínculos son direcciones URL especialmente diseñadas que envían a los usuarios al proceso de inicio de sesión de Azure AD para una aplicación específica sin necesidad de que el usuario la inicie desde el panel de acceso de Azure AD o de Office 365. Estos **usuario tener acceso a las direcciones URL** pueden encontrarse en las propiedades de las aplicaciones de empresa disponibles. En el portal de Azure, seleccione **Azure Active Directory** > **aplicaciones empresariales**. Seleccione la aplicación y, a continuación, seleccione **propiedades**.
+Estos vínculos son direcciones URL especialmente diseñadas que envían a los usuarios al proceso de inicio de sesión de Azure AD para una aplicación específica sin necesidad de que el usuario la inicie desde el panel de acceso de Azure AD o de Office 365. Estas **direcciones URL de acceso de usuario** pueden encontrarse en las propiedades de las aplicaciones empresariales disponibles. En Azure Portal, seleccione **Azure Active Directory** > **Aplicaciones empresariales**. Seleccione la aplicación y, después, **Propiedades**.
 
 ![Ejemplo de la dirección URL de acceso de usuario en las propiedades de Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

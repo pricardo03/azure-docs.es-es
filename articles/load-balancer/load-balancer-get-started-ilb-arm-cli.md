@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
 ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475900"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure
@@ -60,7 +60,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Crear un equilibrador de carga interno con [crear az network lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que incluye una configuración de IP de front-end denominada **myFrontEnd**, un grupo de back-end denominado **myBackEndPool** que está asociado con una dirección IP privada ** 10.0.0.7.
+Cree un equilibrador de carga básica interno con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que incluya una configuración de direcciones IP de front-end denominada **myFrontEnd**, un grupo de servidores back-end denominado **myBackEndPool** que se asocia a una dirección IP privada **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

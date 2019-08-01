@@ -1,7 +1,7 @@
 ---
 title: Configuración de la aplicación
 titleSuffix: Azure Cognitive Services
-description: Comprender la configuración de aplicaciones para las aplicaciones de comprensión de lenguaje.
+description: Entienda la configuración de la aplicación para las aplicaciones de comprensión de lenguaje.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: c19d328c3a5f4dd6dbe14ca94809e42c5655ea72
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391149"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163632"
 ---
 # <a name="application-settings"></a>Configuración de la aplicación
 
-Esta configuración de aplicación se almacena en el [exportado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app y [actualizado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con las API de REST. Cambio de la configuración de la versión de aplicación restablece su estado de entrenamiento de la aplicación no entrenado.
+Esta configuración de la aplicación se almacena en la aplicación [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) y [actualizada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con las API REST. Al cambiar la configuración de la versión de la aplicación, se restablece el estado de entrenamiento de la aplicación a no entrenado.
 
 |Configuración|Valor predeterminado|Notas|
 |--|--|--|
-|NormalizePunctuation|True |Quita los signos de puntuación.|
-|NormalizeDiacritics|True |Quita los signos diacríticos.|
+|NormalizePunctuation|True|Quita los signos de puntuación.|
+|NormalizeDiacritics|True|Quita las marcas diacríticas.|
 
-## <a name="diacritics-normalization"></a>Normalización de los signos diacríticos 
+## <a name="diacritics-normalization"></a>Normalización de las marcas diacríticas 
 
-Activar la normalización de declaración para los signos diacríticos al archivo de aplicación de LUIS JSON en el `settings` parámetro.
+Active la normalización de expresiones para las marcas diacríticas en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Activar la normalización de declaración para los signos diacríticos al archiv
 ] 
 ```
 
-Las declaraciones siguientes muestran cómo afecta la normalización de los signos diacríticos a grabaciones de voz:
+Las declaraciones siguientes muestran cómo afecta la normalización de las marcas diacríticas a las grabaciones de voz:
 
-|Con los signos diacríticos establecidos en false|Con los signos diacríticos establecido en true|
+|Con las marcas diacríticas establecidas en false|Con las marcas diacríticas establecidas en true|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Compatibilidad con idiomas de los signos diacríticos
+### <a name="language-support-for-diacritics"></a>Idiomas admitidos para marcas diacríticas
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugués (Brasil) `pt-br` los signos diacríticos
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Marcas diacríticas `pt-br` de portugués (brasileño)
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ Las declaraciones siguientes muestran cómo afecta la normalización de los sign
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Neerlandés `nl-nl` los signos diacríticos
+#### <a name="dutch-nl-nl-diacritics"></a>Marcas diacríticas `nl-nl` del neerlandés
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ Las declaraciones siguientes muestran cómo afecta la normalización de los sign
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Francés `fr-` los signos diacríticos
+#### <a name="french-fr--diacritics"></a>Marcas diacríticas `fr-` del francés
 
-Esto incluye referencias culturales secundarias tanto francés canadienses.
+Esto incluye las referencias culturales secundarias del francés y canadiense.
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Esto incluye referencias culturales secundarias tanto francés canadienses.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Alemán `de-de` los signos diacríticos
+#### <a name="german-de-de-diacritics"></a>Marcas diacríticas `de-de` del alemán
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |--|--|
 |`ä`|`a`|
-|`ö `|`o`| 
-|`ü `|`u`| 
+|`ö`|`o`| 
+|`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italiano `it-it` los signos diacríticos
+#### <a name="italian-it-it-diacritics"></a>Marcas diacríticas `it-it` del italiano
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -121,28 +121,28 @@ Esto incluye referencias culturales secundarias tanto francés canadienses.
 |`í`|`i`| 
 |`î`|`i`| 
 |`ò`|`o`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Español `es-` los signos diacríticos
+#### <a name="spanish-es--diacritics"></a>Marcas diacríticas `es-` del español
 
-Esto incluye a mexicanos español y canadiense.
+Esto incluye tanto al mexicano y español.
 
-|Los signos diacríticos establecida en false|Los signos diacríticos establecida en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
 |`í`|`i`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Normalización de puntuación
+## <a name="punctuation-normalization"></a>Normalización de la puntuación
 
-Activar la normalización utterance signos de puntuación al archivo de aplicación de LUIS JSON en el `settings` parámetro.
+Active la normalización de expresiones para la puntuación en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Activar la normalización utterance signos de puntuación al archivo de aplicaci
 ] 
 ```
 
-Las declaraciones siguientes muestran cómo los signos diacríticos afecta a las grabaciones de voz:
+Las expresiones siguientes muestran cómo afectan las marcas diacríticas a las expresiones:
 
-|Con los signos diacríticos establecidos en False|Con los signos diacríticos establecidos en True|
+|Con las marcas diacríticas establecidas en False|Con las marcas diacríticas establecidas en True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Puntuación
+### <a name="punctuation-removed"></a>Puntuación suprimida
 
-Se quita el signo de puntuación con `NormalizePunctuation` se establece en true.
+Se quita la siguiente puntuación con `NormalizePunctuation` establecido en true.
 
 |Signos de puntuación|
 |--|

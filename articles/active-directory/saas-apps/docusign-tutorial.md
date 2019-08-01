@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 607e5aded52375190878de6b48ffa4aa2ab49767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c7d6116ed2925e57f094a67f27a11f9e2d61831
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104089"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integración de Azure Active Directory con DocuSign
 
@@ -47,7 +47,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * DocuSign admite el inicio de sesión único iniciado por **SP**
 
-* DocuSign admite el aprovisionamiento de usuarios **Just-In-Time**
+* DocuSign admite el [aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial).
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adición de DocuSign desde la galería
 

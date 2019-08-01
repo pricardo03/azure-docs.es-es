@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: afa4483677336e9a887908a8cccf9590eed27af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df389b6e6a73530c9bbf5a2187d6735946e309f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120796"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249773"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -53,7 +53,7 @@ Hay varias formas de comprobar si el agente se comunica de forma correcta con Az
 
 - Habilite la [Evaluación de estado del agente de Azure Log Analytics](../insights/solution-agenthealth.md) en el área de trabajo. En el panel de Agent Health, examine la columna **Count of unresponsive agents** (Número de agentes que no responden) para ver rápidamente si aparece el agente.  
 
-- Ejecute la consulta siguiente para confirmar que el agente envía un latido al área de trabajo que se ha configurado para que le envíe notificaciones. Reemplace <ComputerName> con el nombre real del equipo.
+- Ejecute la consulta siguiente para confirmar que el agente envía un latido al área de trabajo que se ha configurado para que le envíe notificaciones. Reemplace `<ComputerName>` con el nombre real del equipo.
 
     ```
     Heartbeat 
@@ -77,7 +77,7 @@ Hay varias formas de comprobar si el agente se comunica de forma correcta con Az
     |2127 |Módulos de servicio de mantenimiento |Error al enviar datos de código de error recibido |Si solo se produce de forma periódica durante el día, podría ser simplemente una anomalía aleatoria que se puede ignorar. Supervise para comprender la frecuencia con que sucede. Si se produce con frecuencia a lo largo del día, compruebe la configuración de red y de proxy. Si en la descripción se incluye el código de error HTTP 404 y es la primera vez que el agente intenta enviar datos al servicio, incluirá un error 500 con un código de error 404 interno. 404 significa que no se ha encontrado, lo que indica que el área de almacenamiento para la nueva área de trabajo todavía se está aprovisionando. En el siguiente reintento, los datos se escribirán correctamente en el área de trabajo según lo previsto. Un error HTTP 403 podría indicar un problema de credenciales o permisos. El error 403 incluye más información para ayudar a solucionar el problema.|
     |4000 |Conector de servicio |Error de resolución de nombre DNS |El equipo no pudo resolver la dirección de Internet que se ha usado al enviar datos al servicio. Esto podría deberse a la configuración de resolución DNS en el equipo, la configuración incorrecta del proxy o un problema de DNS temporal con el proveedor. Si se produce de forma periódica, se podría deber a un problema transitorio relacionado con la red.|
     |4001 |Conector de servicio |Error de conexión al servicio. |Este error se puede producir cuando el agente no se puede comunicar directamente o a través de un servidor proxy o firewall con el servicio Azure Monitor. Compruebe la configuración de proxy de agente o que el firewall o proxy de red permite el tráfico TCP desde el equipo al servicio.|
-    |4002 |Conector de servicio |El servicio ha devuelto el código de estado HTTP 403 en respuesta a una consulta. Póngase en contacto con el administrador de servicios para el estado del servicio. La consulta se reintentará más tarde. |Este error se escribe durante la fase de registro inicial del agente y verá una dirección URL similar a la siguiente: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Un código de error 403 significa prohibido y se puede deber a que la clave o el identificador del área de trabajo se hayan escrito incorrectamente, o bien a que la fecha y hora en el equipo sean incorrectas. Si la hora es +/-15 minutos de la hora actual, la incorporación produce un error. Para corregir este problema, actualice la fecha o la zona horaria del equipo Windows.|
+    |4002 |Conector de servicio |El servicio ha devuelto el código de estado HTTP 403 en respuesta a una consulta. Póngase en contacto con el administrador de servicios para el estado del servicio. La consulta se reintentará más tarde. |Este error se escribe durante la fase de registro inicial del agente y verá una dirección URL similar a la siguiente: *https://\<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Un código de error 403 significa prohibido y se puede deber a que la clave o el identificador del área de trabajo se hayan escrito incorrectamente, o bien a que la fecha y hora en el equipo sean incorrectas. Si la hora es +/-15 minutos de la hora actual, la incorporación produce un error. Para corregir este problema, actualice la fecha o la zona horaria del equipo Windows.|
 
 ## <a name="data-collection-issues"></a>Problemas recopilación de datos
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428129"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementación y eliminación de aplicaciones mediante FabricClient
@@ -39,15 +39,15 @@ Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la 
 3. Quitar el paquete de aplicación del almacén de imágenes
 4. Crear la instancia de aplicación
 
-Después de implementar una aplicación y ejecutar una instancia del clúster, puede eliminar la instancia de aplicación y su tipo de aplicación. Quitar completamente una aplicación desde el clúster siguiendo estos pasos:
+Después de implementar una aplicación y ejecutar una instancia en el clúster, puede eliminar la instancia de aplicación y su tipo de aplicación. Para quitar completamente una aplicación del clúster, realice los siguientes pasos:
 
 1. Quitar (o eliminar) la instancia de la aplicación en ejecución
 2. Anular el registro del tipo de aplicación si ya no lo necesita
 
-Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell.  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se proporciona en segundo plano en lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
+Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell.  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
-Para conectarse al clúster, cree una instancia de [FabricClient](/dotnet/api/system.fabric.fabricclient) antes de ejecutar cualquiera de los ejemplos de código de este artículo. Para obtener ejemplos de conexión a un clúster de desarrollo local, a un clúster remoto o a un cluster protegido con Azure Active Directory, certificados X509 o Windows Active Directory, consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Para conectarse al clúster de desarrollo local, ejecute el siguiente ejemplo:
+Para conectarse al clúster, cree una instancia de [FabricClient](/dotnet/api/system.fabric.fabricclient) antes de ejecutar cualquiera de los ejemplos de código de este artículo. Para obtener ejemplos de conexión a un clúster de desarrollo local, a un clúster remoto o a un cluster protegido con Azure Active Directory, certificados X509 o Windows Active Directory, consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Para conectarse al clúster de desarrollo local, ejecute el ejemplo siguiente:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Cargar el paquete de la aplicación
-Imagine que compila y empaqueta una aplicación denominada *MyApplication* en Visual Studio. De forma predeterminada, el nombre del tipo de aplicación que aparece en ApplicationManifest.xml es "MyApplicationType".  El paquete de aplicación, que contiene el manifiesto de aplicación necesario, los manifiestos de servicio y los paquetes code/config/data, se encuentra en *C:\Users\&lt; nombre de usuario&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*.
+Imagine que compila y empaqueta una aplicación denominada *MyApplication* en Visual Studio. De forma predeterminada, el nombre del tipo de aplicación que aparece en ApplicationManifest.xml es "MyApplicationType".  El paquete de aplicación, que contiene el manifiesto de aplicación necesario, así como los manifiestos de servicio y los paquetes code/config/data, se encuentra en *C:\Users\&username&gt;\Documents\Visual Studio 2019\Projects\MyApplication\MyApplication\pkg\Debug*.
 
-Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. Service Fabric comprueba el paquete de aplicación durante su registro. Sin embargo, si desea comprobar el paquete de aplicación localmente (es decir, antes de cargar), use el [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
+Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. Service Fabric comprueba el paquete de aplicación durante su registro. Sin embargo, si quiere comprobar el paquete de aplicación de forma local (es decir, antes de cargarlo), use el cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
 La API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carga el paquete de aplicación en el almacén de imágenes del clúster. 
 
@@ -83,7 +83,7 @@ Pueden crearse varias instancias de aplicación para cualquier versión concreta
 Para ver qué aplicaciones y servicios con nombre se ejecutan en el clúster, ejecute las API [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) y [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync).
 
 ## <a name="create-a-service-instance"></a>Creación de una instancia de servicio
-Puede crear una instancia de un servicio a partir de un tipo de servicio mediante la API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Si el servicio se declara como servicio predeterminado en el manifiesto de aplicación, se crea una instancia de este con la aplicación.  Una llamada a la [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API para un servicio que ya se ha creado una instancia devolverá una excepción de tipo FabricException. La excepción contendrá un código de error con un valor de FabricErrorCode.ServiceAlreadyExists.
+Puede crear una instancia de un servicio a partir de un tipo de servicio mediante la API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Si el servicio se declara como servicio predeterminado en el manifiesto de aplicación, se crea una instancia de este con la aplicación.  La llamada a la API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) de un servicio del que ya se ha creado una instancia devolverá una excepción de tipo FabricException. La excepción contendrá un código de error con un valor de FabricErrorCode.ServiceAlreadyExists.
 
 ## <a name="remove-a-service-instance"></a>Eliminación de una instancia de servicio
 Cuando una instancia de servicio deja de ser necesaria, para quitarla de la instancia de aplicación en funcionamiento, hay que llamar a la API [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync).  
@@ -98,7 +98,7 @@ Cuando una instancia de aplicación deja de ser necesaria, puede quitarla de man
 > No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
 
 ## <a name="unregister-an-application-type"></a>Anulación de un registro del tipo de aplicación
-Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse el registro de esa versión en particular del tipo de aplicación mediante la API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). La anulación del registro de versiones no usadas de tipos de aplicación permite liberar espacio de almacenamiento usado en el almacén de imágenes. Se puede anular una versión de un tipo de aplicación siempre y cuando no se crean instancias de ninguna aplicación con esa versión del tipo de aplicación. Además, el tipo de aplicación no puede tener ninguna aplicación pendiente actualizaciones hacen referencia a esa versión del tipo de aplicación.
+Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse el registro de esa versión en particular del tipo de aplicación mediante la API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). La anulación del registro de versiones no usadas de tipos de aplicación permite liberar espacio de almacenamiento usado en el almacén de imágenes. El registro de una versión de un tipo de aplicación se puede anular mientras no haya ninguna aplicación con instancias de esa versión de tipo de aplicación. Además, el tipo de aplicación no puede tener ninguna actualización de la aplicación pendiente que haga referencia a esa versión del tipo de aplicación.
 
 ## <a name="troubleshooting"></a>solución de problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
@@ -132,26 +132,26 @@ ImageStoreConnectionString se encuentra en el manifiesto de clúster:
 Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para más información sobre el almacén de imágenes y su cadena de conexión.
 
 ### <a name="deploy-large-application-package"></a>Implementación de un paquete de aplicación grande
-Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API se agota el tiempo para un paquete de aplicación grande (del orden de GB).
+Problema: la API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) agota el tiempo de espera para un paquete de aplicación grande (del orden de GB).
 Pruebe lo siguiente:
 - Especifique un tiempo de espera mayor para el método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) con el parámetro `timeout`. De forma predeterminada, el tiempo de espera es de 30 minutos.
 - Compruebe la conexión de red entre la máquina de origen y el clúster. Si la conexión es lenta, considere la posibilidad de usar una máquina con una conexión de red mejor.
 Si la máquina cliente se encuentra en otra región diferente al clúster, considere el uso de una máquina cliente que se encuentre en una región más cercana o en la misma región que el clúster.
 - Compruebe si está alcanzando la limitación externa. Por ejemplo, cuando el almacén de imágenes está configurado para usar Azure Storage, se puede limitar carga.
 
-Problema: Cargar el paquete se completó correctamente, pero [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API agota el tiempo. Pruebe lo siguiente:
+Problema: la carga del paquete se completó correctamente, pero la API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera. Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes.
-La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluye el tiempo de compresión), pero registrar y anular el registro de la aplicación de tipo son más rápidas.
+La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluye el tiempo de compresión), pero el registro y la anulación del registro del tipo de aplicación son más rápidos.
 - Especifique un tiempo de espera mayor para la API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con el parámetro `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Implementación del paquete de aplicación con muchos archivos
-Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de un paquete de aplicación con muchos archivos (del orden de miles).
+Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera para un paquete de aplicación con muchos archivos (del orden de miles).
 Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes. La compresión reduce el número de archivos.
 - Especifique un tiempo de espera mayor para [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con el parámetro `timeout`.
 
 ## <a name="code-example"></a>Ejemplo de código
-El ejemplo siguiente copia un paquete de aplicación en el almacén de imágenes y aprovisiona el tipo de aplicación. A continuación, en el ejemplo se crea una instancia de aplicación y crea una instancia de servicio. Por último, en el ejemplo se quita la instancia de aplicación, desaprovisiona el tipo de aplicación y elimina el paquete de aplicación del almacén de imágenes.
+En el ejemplo siguiente se copia un paquete de aplicación en el almacén de imágenes y se aprovisiona el tipo de aplicación. A continuación, en el ejemplo se crea una instancia de la aplicación y una instancia del servicio. Finalmente, en el ejemplo se elimina la instancia de la aplicación, se desaprovisiona el tipo de aplicación y se elimina el paquete de aplicación del almacén de imágenes.
 
 ```csharp
 using System;

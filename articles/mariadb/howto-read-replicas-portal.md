@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: eb228138118512c5c64574212910c5f16885ee94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/12/2019
+ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081645"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876306"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Procedimientos para crear y administrar réplicas de lectura en Azure Database for MariaDB mediante Azure Portal
 
 En este artículo, obtendrá información sobre cómo crear y administrar réplicas de lectura en el servicio Azure Database for MariaDB mediante Azure Portal.
 
 > [!IMPORTANT]
-> Las réplicas de lectura de la misma región se encuentran actualmente en versión preliminar pública.
+> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. Las réplicas de lectura (en la misma región y entre regiones) se encuentran actualmente en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,7 +45,11 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 
     ![Azure Database for MariaDB: nombre de réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Seleccione **Aceptar** para confirmar la creación de la réplica.
+6. Seleccione la ubicación del servidor de réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es la misma que la del servidor maestro.
+
+    ![Azure Database for MariaDB: ubicación de la réplica](./media/howto-read-replica-portal/replica-location.png)
+
+7. Seleccione **Aceptar** para confirmar la creación de la réplica.
 
 > [!NOTE]
 > Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el maestro para asegurarse de que la réplica trabajar al mismo nivel que el servidor maestro.

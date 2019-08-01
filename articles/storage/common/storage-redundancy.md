@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002823"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
@@ -22,7 +22,7 @@ Los datos de su cuenta de almacenamiento de Microsoft Azure se replican siempre 
 
 La replicación garantiza que la cuenta de almacenamiento cumpla el [contrato de nivel de servicio (SLA) para Storage](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores. Consulte en el SLA información acerca de las garantías de durabilidad y disponibilidad de Azure Storage.
 
-Almacenamiento de Azure con regularidad comprueba la integridad de los datos almacenados mediante comprobaciones de redundancia cíclica (CRC). Si se han detectado datos dañados, se repare con datos redundantes. Almacenamiento de Azure también calcula las sumas de comprobación en todo el tráfico de red para detectar daños en los paquetes de datos al almacenar o recuperar datos.
+Azure Storage comprueba con regularidad la integridad de los datos almacenados mediante pruebas de redundancia cíclica (CRC). Si se detectan datos dañados, se reparan con los datos redundantes. Azure Storage también calcula las sumas de comprobación de todo el tráfico de red para detectar daños en los paquetes de datos al almacenar o recuperar datos.
 
 ## <a name="choosing-a-redundancy-option"></a>Selección de una opción de redundancia
 
@@ -38,9 +38,9 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí                                  | Sí                                  |
-| Una interrupción en toda la región                                                                                     | No                              | No                               | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | No                              | No                               | No                                   | Sí                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                              | Sí                              | Sí                                  | Sí                                  |
+| Una interrupción en toda la región                                                                                     | Sin                              | No                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                              | No                               | No                                   | Sí                                  |
 | Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,99 % (99,9 % para el nivel de acceso esporádico) |
@@ -54,7 +54,7 @@ Para obtener información acerca de las garantías de durabilidad y disponibilid
 > Premium Storage solo admite almacenamiento con redundancia local (LRS).
 
 ## <a name="changing-replication-strategy"></a>Cambio de estrategia de replicación
-Puede cambiar la estrategia de replicación de la cuenta de almacenamiento mediante el [portal Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o uno de los [cliente de Azure bibliotecas](https://docs.microsoft.com/azure/index#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
+Puede cambiar la estrategia de replicación de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una de las [ bibliotecas de cliente de Azure](https://docs.microsoft.com/azure/index#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
 
    > [!NOTE]
    > Actualmente, no se puede usar el Portal o la API para convertir la cuenta a ZRS. Si desea convertir la replicación de la cuenta en ZRS, consulte [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) para más información.
@@ -62,16 +62,16 @@ Puede cambiar la estrategia de replicación de la cuenta de almacenamiento media
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>¿Hay algún costo al cambiar la estrategia de replicación de mi cuenta?
 Depende de la ruta de acceso de la conversión. Si se solicita la oferta de redundancia de más económica a la más cara, tenemos LRS, ZRS, GRS, y RA-GRS. Por ejemplo, si se pasa *de* LRS a cualquier otra opción, se incurrirá en cargos adicionales porque se pasará a un nivel de redundancia más sofisticado. Si se pasa *a* GRS o RA-GRS se incurrirá en un cargo por ancho de banda de salida porque los datos (en la región primaria) se están replicando en la región secundaria remota. Se trata de un cargo único en la instalación inicial. Después de copiar los datos, ya no hay ningún cargo adicional de conversión. Solo se le cobrará por replicar cualquier dato nuevo o actualizado en los datos existentes. Para obtener más información sobre los cargos de ancho de banda, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Si convierte la cuenta de almacenamiento de GRS a LRS, no hay ningún costo adicional, pero los datos replicados se eliminan de la ubicación secundaria.
+Si convierte la cuenta de almacenamiento de GRS a LRS no hay ningún costo adicional, pero los datos replicados se eliminarán de la ubicación secundaria.
 
-Si convierte la cuenta de almacenamiento de RA-GRS a GRS o LRS, esa cuenta se factura como RA-GRS durante 30 días adicionales más allá de la fecha en que se ha convertido.
+Si convierte la cuenta de almacenamiento de RA-GRS a GRS o LRS, esa cuenta se factura como RA-GRS durante 30 días más después de la fecha de conversión.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](storage-redundancy-lrs.md)
 - [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md)
 - [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy-grs.md)
 - [Objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md)
 - [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure Storage redundancia acceso de lectura y las opciones de almacenamiento con redundancia geográfica](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Opciones de redundancia de Microsoft Azure Storage y almacenamiento con redundancia geográfica con acceso de lectura](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Documentación de SOSP: Azure Storage: Un servicio de almacenamiento en nube altamente disponible de gran coherencia).

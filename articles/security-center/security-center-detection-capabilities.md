@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569366"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875554"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Funcionalidades de detección de Azure Security Center
 En este documento se describen las funcionalidades de detección avanzada de Azure Security Center, lo que ayuda a identificar amenazas activas dirigidas a los recursos de Microsoft Azure (tanto en Windows como en Linux) y se proporciona la información necesaria para que pueda responder a estas amenazas con rapidez.

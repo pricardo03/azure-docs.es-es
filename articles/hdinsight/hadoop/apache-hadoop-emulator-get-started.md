@@ -1,5 +1,5 @@
 ---
-title: Obtenga información sobre el uso de un espacio aislado de Hadoop de Apache - emulator - Azure HDInsight
+title: Empleo de un espacio aislado o emulador de Apache Hadoop en Azure HDInsight
 description: 'Para empezar a obtener información sobre el ecosistema de Apache Hadoop, puede configurar un espacio aislado de Hadoop desde Hortonworks en una máquina virtual de Azure. '
 keywords: emulador de hadoop, espacio aislado de hadoop
 ms.reviewer: jasonh
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393146"
 ---
-# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Empezar a trabajar con un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
 Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una máquina virtual para obtener información sobre el ecosistema de Hadoop. El espacio aislado proporciona un entorno de desarrollo local para comprender Hadoop, el sistema de archivos distribuido de Hadoop (HDFS) y el envío de trabajos. Cuando se haya familiarizado con Hadoop, puede empezar a usarlo en Azure mediante la creación de un clúster de HDInsight. Para obtener más información sobre cómo empezar, consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -25,15 +25,15 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Descarga e instalación de la máquina virtual
-1. Vaya a la [Cloudera descargas](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
+1. Vaya a las [descargas de Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Haga clic en **VIRTUALBOX** en **elegir un tipo de instalación** para descargar Sandbox de Hortonworks más reciente en una máquina virtual. Inicie sesión o complete el formulario de interés del producto.
+2. Haga clic en **VIRTUALBOX** en **Elegir el tipo de instalación** para descargar el espacio aislado de Hortonworks más reciente en una máquina virtual. Inicie sesión o complete el formulario de interés del producto.
 
-1. Haga clic en el botón **espacio aislado de HDP (más RECIENTE)** para comenzar la descarga.
+1. Haga clic en el botón **HDP SANDBOX (LATEST)** (Espacio aislado de HDP más reciente) para comenzar la descarga.
 
-Para obtener instrucciones sobre cómo configurar el espacio aislado, consulte [espacio aislado de implementación y la Guía de instalación](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
+Para obtener instrucciones sobre cómo configurar el espacio aislado, consulte [Sandbox Deployment and Install Guide](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/) (Guía de instalación e implementación del espacio aislado).
 
-Para descargar un espacio aislado anterior versión de HDP, consulte los vínculos en **versiones anteriores**.
+Para descargar un espacio aislado anterior de la versión de HDP, consulte los vínculos en **Versiones anteriores**.
 
 ## <a name="start-the-virtual-machine"></a>Inicio de la máquina virtual
 
@@ -42,7 +42,7 @@ Para descargar un espacio aislado anterior versión de HDP, consulte los víncul
 1. Seleccione el espacio aislado Hortonworks Sandbox, haga clic en **Start** (Iniciar) y luego en **Normal Start** (Inicio normal). Una vez que la máquina virtual ha terminado el proceso de arranque, muestra instrucciones de inicio de sesión.
 
     ![Normal Start](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Abra un explorador web y vaya a la dirección URL muestra (normalmente `http://127.0.0.1:8888`).
+2. Abra un explorador web y vaya a la dirección URL que se muestra (normalmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Establecimiento de las contraseñas del espacio aislado
 

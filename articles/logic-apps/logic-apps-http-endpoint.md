@@ -1,5 +1,5 @@
 ---
-title: 'Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP: Azure Logic Apps'
+title: Llamada, desencadenador o anidamiento de flujos de trabajo con puntos de conexión HTTP - Azure Logic Apps
 description: Configuración de puntos de conexión HTTP para llamadas, desencadenamientos o anidamiento de flujos de trabajo para Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -13,13 +13,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495057"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Llamada, desencadenador o anidamiento de flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps
 
 Puede exponer de manera nativa puntos de conexión HTTP sincrónicos como desencadenadores en aplicaciones lógicas, de manera que pueda desencadenar las aplicaciones lógicas o llamarlas a través de una dirección URL. También puede anidar flujos de trabajo en las aplicaciones lógicas mediante el uso de un patrón de puntos de conexión invocables.
 
@@ -271,9 +271,9 @@ A continuación se presenta el aspecto del esquema JSON ahora para la acción **
 
 ## <a name="q--a"></a>Preguntas y respuestas
 
-#### <a name="q-what-about-url-security"></a>P: ¿Qué sucede con seguridad de la dirección URL?
+#### <a name="q-what-about-url-security"></a>P: ¿Qué se puede decir sobre la seguridad de las direcciones URL?
 
-R: Azure genera direcciones URL de devolución de llamada de aplicación lógica mediante una firma de acceso compartido (SAS) de forma segura. Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
+R: Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una firma de acceso compartido (SAS). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
 
    > [!IMPORTANT]
    > Para sistemas seguros y de producción, no se recomienda que llame a su aplicación lógica directamente desde el explorador por los siguientes motivos:
@@ -281,18 +281,18 @@ R: Azure genera direcciones URL de devolución de llamada de aplicación lógica
    > * La clave de acceso compartido aparece en la dirección URL.
    > * No puede administrar las directivas de contenido seguro debido a los dominios compartidos entre los clientes de Logic App.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
 
-R: Sí, los extremos HTTP admiten una configuración más avanzada a través de [ **API Management**](../api-management/api-management-key-concepts.md). Este servicio también ofrece la funcionalidad de administrar de forma coherente todas las API, incluidas las aplicaciones lógicas, configurar nombres de dominio personalizados, usar varios métodos de autenticación y muchas más, como, por ejemplo:
+R: Sí, los puntos de conexión HTTP admiten una configuración más avanzada con [**API Management**](../api-management/api-management-key-concepts.md). Este servicio también ofrece la funcionalidad de administrar de forma coherente todas las API, incluidas las aplicaciones lógicas, configurar nombres de dominio personalizados, usar varios métodos de autenticación y muchas más, como, por ejemplo:
 
 * [Cambio del método de solicitud](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Cambio de los segmentos de dirección URL de la solicitud](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configuración de los dominios de API Management en [Azure Portal](https://portal.azure.com/ "Azure Portal")
 * Configuración de la directiva para comprobar la autenticación básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: ¿Qué ha cambiado al migra el esquema de la versión preliminar del 1 de diciembre de 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: ¿Qué cambió cuando el esquema se migró desde la versión preliminar de 1 de diciembre de 2014?
 
-R: Este es un resumen acerca de estos cambios:
+R: Este es un resumen de estos cambios:
 
 | Versión preliminar de 1 de diciembre de 2014 | 1 de junio de 2016 |
 | --- | --- |

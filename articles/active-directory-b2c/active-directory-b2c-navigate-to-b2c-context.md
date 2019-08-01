@@ -11,10 +11,10 @@ ms.date: 4/13/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509887"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Cambio a inquilino de Azure AD B2C
@@ -37,7 +37,7 @@ Se actualiza Azure Portal.  Ahora estará conectado en Azure Portal al inquilino
 1. Haga clic en **Todos los servicios** y busque `Azure AD B2C` en el panel de navegación izquierdo.  (Para anclar al panel de inicio izquierdo, haga clic en la estrella a la izquierda de Azure AD B2C)
 1. Haga clic en **Azure AD B2C** para tener acceso al panel de características de B2C.
    
-    ![Captura de pantalla de ir a Panel de características B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Captura de pantalla del panel de características de B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > Necesita ser administrador global del inquilino B2C para poder acceder al panel de características de B2C. Un administrador global de cualquier otro inquilino o un usuario de cualquier inquilino no puede acceder a dicha hoja.  Puede cambiar a su inquilino B2C mediante el selector de inquilinos de la esquina superior derecha de Azure Portal.

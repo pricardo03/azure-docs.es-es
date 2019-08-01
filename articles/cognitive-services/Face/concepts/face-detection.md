@@ -1,7 +1,7 @@
 ---
-title: Detección de caras y conceptos de atributos
+title: Conceptos de atributos y detección de caras
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre los conceptos sobre detección de caras y los atributos de cara.
+description: Aprenda conceptos acerca de los atributos y la detección de caras.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -11,73 +11,73 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: e61048eeab9d7061c18f3237db22fc87ca52f526
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891143"
 ---
-# <a name="face-detection-and-attributes"></a>Detección de caras y atributos
+# <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
-Este artículo explica los conceptos de detección de caras y datos de atributos de cara. Detección de caras es la acción de búsqueda de caras humanas en una imagen y opcionalmente devolver distintos tipos de datos relacionados con la cara.
+En este artículo se explican conceptos acerca de los datos de atributos y de detección de caras. La detección de caras es la acción de búsqueda de caras humanas en una imagen y, opcionalmente, la devolución de distintos tipos de datos relacionados con las caras.
 
-Usa el [enfrentan: detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) operación detectar caras en una imagen. Como mínimo, cada rostro detectado corresponde a un campo faceRectangle en la respuesta. Este conjunto de coordenadas de píxel de la izquierda, superior, ancho y alto de marcar la cara que encuentra. Con estas coordenadas, puede obtener la ubicación de la cara y su tamaño. En la respuesta de API, caras se muestran en orden de tamaño de mayor a menor.
+La operación [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) se utiliza para detectar caras en una imagen. Como mínimo, cada cara detectada corresponde a un campo faceRectangle de la respuesta. Este conjunto de coordenadas de píxeles para la parte izquierda, la superior, el ancho y el alto marca la cara localizada. Con estas coordenadas, puede obtener la ubicación de la cara y su tamaño. En la respuesta de la API, las caras se muestran en orden de tamaño de mayor a menor.
 
 ## <a name="face-id"></a>Id. de cara
 
-El identificador de rostros es una cadena de identificador único para cada rostro detectado en una imagen. Puede solicitar un identificador facial en sus [enfrentan: detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) llamada API.
+El identificador de cara es una cadena de identificador único para cada cara detectada en una imagen. Puede solicitar un identificador de cara en su llamada API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-landmarks"></a>Puntos de referencia de cara
 
-Los puntos de referencia son un conjunto de puntos de encontrar en una cara, por ejemplo, los alumnos o la sugerencia de la punta. De forma predeterminada, existen 27 puntos de referencia predefinidos. La siguiente ilustración muestra todos los puntos de 27:
+Los puntos de referencia de cara son un conjunto de puntos fáciles de encontrar en una cara como, por ejemplo, las pupilas o la punta de la nariz. De forma predeterminada, existen 27 puntos de referencia predefinidos. La ilustración siguiente muestra los 27 puntos:
 
-![Un diagrama de cara a todos los 27 puntos de referencia con la etiqueta](../Images/landmarks.1.jpg)
+![Diagrama de cara con los 27 puntos de referencia etiquetados](../Images/landmarks.1.jpg)
 
-Se devuelven las coordenadas de los puntos en unidades de píxeles.
+Las coordenadas de los puntos se devuelven en unidades de píxeles.
 
 ## <a name="attributes"></a>Atributos
 
-Los atributos son un conjunto de características que opcionalmente se pueden detectar el [enfrentan: detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. Se pueden detectar los siguientes atributos:
+Los atributos son un conjunto de características que la API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) puede, opcionalmente, detectar. Se pueden detectar los siguientes atributos:
 
-* **Edad**. La antigüedad estimada en años de una cara determinada.
-* **Desenfoque**. El desenfoque de la cara de la imagen. Este atributo devuelve un valor entre cero y uno y una clasificación informal de baja, Media o alta.
-* **Emotion**. Una lista de emociones con su confianza de detección para la cara determinada. Se normalizan las puntuaciones de confianza y agregue las puntuaciones en todas las emociones en uno. Las emociones devueltas son felicidad, tristeza, neutral, ira, desprecio, asco, sorpresa y miedo.
-* **Exposición**. La exposición de la cara de la imagen. Este atributo, devuelve un valor entre cero y uno y una clasificación de subexposición, goodExposure o sobreexposición informal.
-* **Vello facial**. La presencia de estimado vello facial y la longitud de la cara determinada.
-* **Sexo**. Sexo estimado de la cara determinada. Los valores posibles son hombre, mujer y genderless.
-* **Gafas**. Si la cara determinada tiene gafas. Los valores posibles son NoGlasses, ReadingGlasses, gafas de sol y natación anteojos.
-* **Pelo**. El tipo de selección precisa de la cara. Este atributo muestra si está visible el cabello, si se detecta baldness y se detectan los colores de selección precisa.
-* **Head suponer**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante el cabeceo y puesta ángulos de rotación en grados. Los intervalos de valores son los grados de-90 a 90 grados, de-180 grados a 180 grados y grados de-90 a 90 grados, respectivamente. Consulte el siguiente diagrama de asignaciones de angular:
+* **Edad**. Edad estimada en años de una cara determinada.
+* **Desenfoque**. Desenfoque de la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de bajo, medio o alto.
+* **Emoción**. Lista de emociones con una confianza de detección para la cara determinada. Las puntuaciones de confianza están normalizadas y las puntuaciones de todas las emociones suman uno. Las emociones detectadas son felicidad, tristeza, neutralidad, ira, desprecio, asco, sorpresa y temor.
+* **Exposición**. Exposición de la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de underExposure, goodExposure o overExposure.
+* **Vello facial**. Presencia estimada de vello facial y longitud de la cara determinada.
+* **Sexo**. Sexo estimado de la cara determinada. Los valores posibles son hombre, mujer y sin sexo definido.
+* **Gafas**. Si la cara determinada tiene gafas. Los valores posibles son NoGlasses, ReadingGlasses, Sunglasses y Swimming Goggles.
+* **Pelo**. Tipo de pelo de la cara. Este atributo muestra si el pelo está visible, así como la calvicie y el color de pelo que se detecten.
+* **Posición de la cabeza**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante los ángulos de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) en grados. Los intervalos de valores son de -90 a 90 grados, de -180 a 180 grados y de-90 a 90 grados, respectivamente. Consulte el siguiente diagrama de asignaciones de ángulos:
 
-    ![Un encabezado con el tono, revertir y guiñada ejes con la etiqueta](../Images/headpose.1.jpg)
-* **Composición**. Si la cara tiene maquillaje. Este atributo devuelve un valor booleano para eyeMakeup y lipMakeup.
-* **Ruido**. El ruido visual detectado en la imagen. Este atributo devuelve un valor entre cero y uno y una clasificación informal de baja, Media o alta.
-* **Oclusión**. Si hay objetos bloqueos partes de la cara. Este atributo devuelve un valor booleano para eyeOccluded foreheadOccluded y mouthOccluded.
-* **SMILE**. La expresión de sonrisa de la cara determinada. Este valor está entre cero para no sonrisa y otro para una sonrisa clara.
+    ![Cabeza con ejes de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) etiquetados](../Images/headpose.1.jpg)
+* **Maquillaje**. Si la cara está maquillada. Este atributo devuelve un valor booleano para eyeMakeup y lipMakeup.
+* **Ruido**. Ruido visual detectado en la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de bajo, medio o alto.
+* **Oclusión**. Si hay objetos que bloquean partes de la cara. Este atributo devuelve un valor booleano para eyeOccluded, foreheadOccluded y mouthOccluded.
+* **Sonrisa**. Expresión sonriente de la cara determinada. Este valor se encuentra entre cero para no sonriente y uno para muy sonriente.
 
 > [!IMPORTANT]
-> Se puede predecir atributos faciales mediante el uso de algoritmos estadísticos. Podrían no ser siempre precisas. Tenga cuidado al realizar decisiones basadas en datos de atributo.
+> Los atributos de caras se pueden predecir mediante algoritmos estadísticos. No obstante, es posible que no sean siempre precisos. Tenga cuidado al tomar decisiones basadas en datos de atributos.
 
 ## <a name="input-data"></a>Datos de entrada
 
-Utilice las siguientes sugerencias para asegurarse de que las imágenes de entrada proporcionan los resultados más precisos de detección:
+Utilice las siguientes sugerencias para asegurarse de que las imágenes de entrada proporcionan los resultados de detección más precisos:
 
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF para el primer fotograma y BMP.
-* El tamaño del archivo de imagen debe ser no más de 4 MB.
-* El intervalo de tamaño de cara detectable es 36 x 36 a 4096 × 4096 píxeles. No se puede detectar caras fuera de este intervalo.
-* Algunas caras podrían no detectarse debido a desafíos técnicos. Extremas ángulos de cara (postura principal) u oclusión cara (objetos como gafas de sol o en las manos que bloquear parte de la cara) puede afectar a la detección. Las caras frontales y de frente cercanas ofrecen los mejores resultados.
+* El tamaño del archivo de imagen no debe ser superior a 4 MB.
+* El intervalo de tamaño de cara detectable es 36 x 36 a 4096 × 4096 píxeles. Las caras que se encuentren fuera de este intervalo no se detectarán.
+* Es posible que no se puedan detectar algunas caras debido a desafíos técnicos. Unos ángulos de cara extremos (posición de la cabeza) o una oclusión de la cara (objetos como gafas de sol o manos que bloquean parte de la cara) pueden afectar a la detección. Las caras de frente y casi de frente proporcionan los mejores resultados.
 
-Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinadas opciones de la cámara de vídeo:
+Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinados valores de la cámara de vídeo:
 
-* **Suavizado**: Muchas cámaras de vídeo se aplica un efecto de suavizado. Debe desactivar esta opción si es posible porque crea un desenfoque entre marcos y reduce la claridad.
-* **Velocidad de obturación**: Una velocidad de obturación reduce la cantidad de movimiento entre marcos y hace que cada fotograma más clara. Se recomienda que las velocidades de obturación de 1/60 segundos o más rápido.
-* **Ángulo de obturación**: Algunas cámaras especifican el ángulo del obturador en lugar de velocidad de obturación. Debe usar un ángulo del obturador inferior si es posible. Esto provocará en fotogramas de vídeo más claras.
+* **Suavizado**: muchas cámaras de vídeo aplican un efecto de suavizado. Debe desactivar esta opción, si es posible, porque crea un desenfoque entre fotogramas y reduce la claridad.
+* **Velocidad de obturación**: una velocidad de obturación más rápida reduce la cantidad de movimiento entre fotogramas y hace que cada fotograma sea más claro. Se recomienda utilizar velocidades de obturación de 1/60 de segundo o más rápidas.
+* **Ángulo de obturación**: algunas cámaras especifican el ángulo de obturación en lugar de la velocidad de obturación. Debe usar un ángulo de obturación inferior si es posible. Esto generará unos fotogramas de vídeo más claros.
 
     >[!NOTE]
-    > Una cámara con un ángulo inferior del obturador recibirán menos luz en cada fotograma, por lo que la imagen será más oscura. Deberá determinar el nivel adecuado para usar.
+    > Una cámara con un ángulo de obturación inferior recibirá menos luz en cada fotograma, por lo que la imagen será más oscura. Deberá determinar el nivel adecuado que vaya a usar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está familiarizado con conceptos de detección de caras, obtenga información sobre cómo escribir un script que detecta caras en una imagen determinada.
+Ahora que ya está familiarizado con conceptos de detección de caras, aprenda a escribir un script que detecte caras en una imagen determinada.
 
-* [Detectar caras en una imagen](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Detección de caras en una imagen](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Actualización de PhoneFactor al servidor Azure MFA: Azure Active Directory'
+title: 'Actualización de PhoneFactor al servidor Azure MFA: Azure Active Directory'
 description: Introducción al Servidor Azure MFA al actualizar desde una instancia anterior de PhoneFactor Agent.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277001faf988e5d201a65c9e4112263f226b3db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bcb1bf4996e381db933eac91135093a101e504bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055984"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
 
 Para actualizar PhoneFactor Agent v5.x o una versión anterior al Servidor Azure Multi-Factor Authentication, desinstale primero PhoneFactor Agent y los componentes asociados. Luego, puede instalar el Servidor Multi-Factor Authentication y sus componentes asociados.
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>Desinstalación de PhoneFactor Agent
 

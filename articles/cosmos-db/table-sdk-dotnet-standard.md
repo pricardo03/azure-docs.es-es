@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480206"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
@@ -27,7 +27,7 @@ ms.locfileid: "66480206"
 |   |   |
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Ejemplo**|[Ejemplo de COSMOS DB Table API de .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Ejemplo**|[Ejemplo de Table API de Cosmos DB para .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Guía de inicio rápido**|[Guía de inicio rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Plataforma admitida actualmente**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -40,10 +40,10 @@ ms.locfileid: "66480206"
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versión de disponibilidad general
 
-### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
-* Se realizaron cambios en cómo se puede configurar CloudTableClient. Ahora toma una un objeto TableClientConfiguration durante la construcción. TableClientConfiguration proporciona diferentes propiedades para configurar el comportamiento del cliente dependiendo de si el extremo de destino es Cosmos DB Table API o Table API de Azure Storage.
-* Se agregó compatibilidad para TableQuery para devolver resultados en el criterio de ordenación en una columna personalizada. Esta característica solo se admite en los puntos de conexión de Cosmos DB Table.
-* Se agregó compatibilidad para exponer RequestCharges en varios tipos de resultados. Esta característica solo se admite en los puntos de conexión de Cosmos DB Table.
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-preview
+* Se realizaron cambios en cómo se puede configurar CloudTableClient. Ahora toma una un objeto TableClientConfiguration durante la construcción. TableClientConfiguration proporciona diferentes propiedades para configurar el comportamiento del cliente dependiendo de si el punto de conexión de destino es Table API de Cosmos DB o Table API de Azure Storage.
+* Se agregó compatibilidad para TableQuery para que devuelva resultados en el criterio de ordenación de una columna personalizada. Esta característica solo se admite en los puntos de conexión de Table de Cosmos DB.
+* Se agregó compatibilidad para exponer RequestCharges en varios tipos de resultados. Esta característica solo se admite en los puntos de conexión de Table de Cosmos DB.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Agregue compatibilidad con el token de SAS, las operaciones de TablePermissions, ServiceProperties y ServiceStats sobre los puntos de conexión de Azure Storage. 
@@ -65,7 +65,7 @@ Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelació
 
 Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) reemplazará a la biblioteca de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |19 de abril de 2019 |--- |
 | [1.0.0](#1.0.0) |13 de marzo de 2019 |--- |
@@ -79,5 +79,5 @@ Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table]
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre Table API de Azure Cosmos DB, consulte [Introducción a Table API de Azure Cosmos DB](table-introduction.md). 

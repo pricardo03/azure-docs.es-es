@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481268"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827989"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -45,7 +45,9 @@ Puede publicar aplicaciones con caracteres comodín si tanto las direcciones URL
 
 > http(s)://*.\<domain\>
 
-Por ejemplo: `http(s)://*.adventure-works.com`. Aunque las direcciones URL internas y externas pueden usar dominios diferentes, como procedimiento recomendado, deben ser iguales. Al publicar la aplicación, verá un error si una de las direcciones URL no tiene un carácter comodín.
+Por ejemplo: `http(s)://*.adventure-works.com`.
+
+Aunque las direcciones URL internas y externas pueden usar dominios diferentes, como procedimiento recomendado, deben ser iguales. Al publicar la aplicación, verá un error si una de las direcciones URL no tiene un carácter comodín.
 
 Si tiene otras aplicaciones con distintos valores de configuración, debe publicar estas excepciones como aplicaciones independientes para sobrescribir los valores predeterminados establecidos para el comodín. Las aplicaciones sin caracteres comodín siempre tienen prioridad sobre las que los tienen. Desde la perspectiva de la configuración, se trata "simplemente" de aplicaciones normales.
 
@@ -60,7 +62,7 @@ Para comenzar, asegúrese de que reúne estos requisitos.
 Mientras que los[dominios personalizados](application-proxy-configure-custom-domain.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
 
 1. La creación de un dominio comprobado en Azure.
-2. La carga de un certificado SSL con formato PFX para el proxy de aplicación.
+1. La carga de un certificado SSL con formato PFX para el proxy de aplicación.
 
 Considere la posibilidad de usar un certificado con comodín para que coincida con la aplicación que va a crear. Como alternativa, también puede utilizar un certificado que solo incluya aplicaciones específicas. En este caso, mediante esta aplicación con comodín solo se podrá acceder a las aplicaciones incluidas en el certificado.
 
@@ -82,11 +84,11 @@ Estas son algunas consideraciones que debe tener en cuenta para las aplicaciones
 
 Para las aplicaciones con comodín, la **URL interna** debe tener el formato `http(s)://*.<domain>`.
 
-![Como dirección URL interna, use el formato http(s)://*.<dominio>](./media/application-proxy-wildcard/22.png)
+![Como dirección URL interna, use el formato http(s)://*.\<dominio>](./media/application-proxy-wildcard/22.png)
 
 Al configurar una **dirección URL externa**, debe utilizar el formato siguiente: `https://*.<custom domain>`
 
-![Como dirección URL externa, use el formato https://*.<dominio personalizado>](./media/application-proxy-wildcard/21.png)
+![Como dirección URL externa, use el formato https://*.\<dominio personalizado>](./media/application-proxy-wildcard/21.png)
 
 No se admiten otras posiciones de comodín, varios comodines ni otras cadenas de expresiones regulares, que provocan errores.
 
@@ -95,11 +97,11 @@ No se admiten otras posiciones de comodín, varios comodines ni otras cadenas de
 Para excluir una aplicación de la aplicación con comodín:
 
 - Publique la excepción de aplicación como aplicación normal
-- Habilite el comodín solo para aplicaciones específicas mediante la configuración del servicio de nombres de dominio  
+- Habilite el comodín solo para aplicaciones específicas mediante la configuración del servicio de nombres de dominio
 
 La publicación de una aplicación como aplicación normal es el método preferido para excluir una aplicación de un comodín. Debe publicar las aplicaciones excluidas antes que las aplicaciones con comodín para asegurarse de que las excepciones se aplican desde el principio. La aplicación más específica siempre tiene prioridad: una aplicación que se publica como `budgets.finance.adventure-works.com` tiene prioridad sobre `*.finance.adventure-works.com`, que a su vez tiene prioridad sobre `*.adventure-works.com`.
 
-También puede limitar el carácter comodín para que funcione solo para aplicaciones específicas mediante la administración del servicio de nombres de dominio. Como procedimiento recomendado, debe crear una entrada CNAME que incluya un carácter comodín y coincida con el formato de la dirección URL externa configurada. Sin embargo, en su lugar puede hacer que las direcciones URL de aplicación específica apunten a los caracteres comodín. Por ejemplo, en lugar de `*.adventure-works.com`, haga que `hr.adventure-works.com`, `expenses.adventure-works.com` y `travel.adventure-works.com individually` apunten a `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+También puede limitar el carácter comodín para que funcione solo para aplicaciones específicas mediante la administración del servicio de nombres de dominio. Como procedimiento recomendado, debe crear una entrada CNAME que incluya un carácter comodín y coincida con el formato de la dirección URL externa configurada. Sin embargo, en su lugar puede hacer que las direcciones URL de aplicación específica apunten a los caracteres comodín. Por ejemplo, en lugar de `*.adventure-works.com`, haga que `hr.adventure-works.com`, `expenses.adventure-works.com` y `travel.adventure-works.com individually` apunten a `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Si utiliza esta opción, necesitará otra entrada CNAME para el valor `AppId.domain`, por ejemplo, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, que apunte a la misma ubicación. **AppId** se encuentra en la página de propiedades de la aplicación de la aplicación con comodín:
 
@@ -110,7 +112,7 @@ Si utiliza esta opción, necesitará otra entrada CNAME para el valor `AppId.dom
 La aplicación con comodín se representa con un solo icono en el [panel MyApps](https://myapps.microsoft.com). De forma predeterminada, este icono está oculto. Para mostrar el icono y que los usuarios vayan a una página específica:
 
 1. Siga las directrices para [configurar una dirección URL de página principal](application-proxy-configure-custom-home-page.md).
-2. Establezca **Show Application** en **true** en la página de propiedades de la aplicación.
+1. Establezca **Show Application** en **true** en la página de propiedades de la aplicación.
 
 ### <a name="kerberos-constrained-delegation"></a>Delegación limitada de Kerberos
 

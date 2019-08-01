@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 86f22864c416ad2a90bea09c02675d6eb3322308
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703785"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385641"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -38,13 +38,13 @@ Si tiene la opción **Restringir acceso** habilitada, agregue usuarios (direccio
 
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="share-registration-link-with-students"></a>Vínculo de registro de recurso compartido con los alumnos
-Para enviar el vínculo de registro a los estudiantes, utilice uno de los métodos siguientes. El primer método muestra cómo enviar correos electrónicos a los estudiantes el vínculo de registro y un mensaje opcional. El segundo método muestra cómo obtener el vínculo de registro que puede compartir con otros usuarios como desee. 
+## <a name="share-registration-link-with-students"></a>Compartir el vínculo de registro con los alumnos
+Para enviar el vínculo de registro a los alumnos, use uno de los métodos siguientes. El primer método muestra cómo enviar correos electrónicos a los alumnos con el vínculo de registro y un mensaje opcional. El segundo método muestra cómo obtener el vínculo de registro que puede compartir con otros usuarios como desee. 
 
-Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. Esta opción está habilitada de forma predeterminada. 
+Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. Esta opción está habilitada de manera predeterminada. 
 
-### <a name="send-email-to-users"></a>Enviar correo electrónico a los usuarios
-Azure Lab Services permite a los profesores a enviar por correo electrónico a todas las invitaciones de laboratorio o estudiantes seleccionados sin tener que usar otro cliente de correo electrónico. Pueden mantener los profesores de estudiantes individuales en la lista para ver el icono de correo electrónico para cada alumno o seleccionados uno o varios alumnos y usar **Enviar invitación** en la barra de herramientas. Esta característica envía un correo electrónico con un vínculo de registro y agrega un mensaje (si existe) por el profesor. Después de que se envió la invitación, cambia el estado de la invitación a **invitación enviada** para que los profesores pueden realizar un seguimiento de los estudiantes ya ha recibido el vínculo de registro y la fecha en se envió.
+### <a name="send-email-to-users"></a>Envío de un correo electrónico a los usuarios
+Azure Lab Services permite a los profesores enviar por correo electrónico invitaciones de laboratorio a todos los alumnos, o solo a algunos de ellos, sin tener que usar otro cliente de correo electrónico. Los profesores pueden mantener el puntero sobre cada alumno de la lista para ver el icono de correo electrónico o seleccionar uno o varios alumnos y usar **Send invitation** (Enviar invitación) en la barra de herramientas. Esta característica envía un correo electrónico con un vínculo de registro y agrega un mensaje (si lo hay) del profesor. Después de que se envía la invitación, el estado de la invitación cambia a **invitación enviada** para que los profesores puedan realizar un seguimiento de los alumnos que ya han recibido el vínculo de registro y la fecha en que se envió.
 
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
 2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista. Puede ver el **estado de la invitación** en esta lista.  En la siguiente imagen, se establece el estado de la invitación para todos los alumnos en **Invitación no enviada**. 
@@ -59,7 +59,7 @@ Azure Lab Services permite a los profesores a enviar por correo electrónico a t
         
         ![Invitaciones enviadas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
-## <a name="get-registration-link"></a>Obtiene el vínculo de registro
+## <a name="get-registration-link"></a>Obtención del vínculo de registro
 1. Cambie a la vista **Usuarios** seleccionando **Usuarios** en el menú izquierdo. 
 2. Seleccione el icono **Get registration link** (Obtener vínculo de registro).
 
@@ -68,7 +68,7 @@ Azure Lab Services permite a los profesores a enviar por correo electrónico a t
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
-4. Recurso compartido de la **vínculo de registro** con un alumno para que los estudiantes pueden registrarse para la clase. 
+4. Comparta el **vínculo de registro** con un alumno para que este se pueda registrar en la clase. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Ver los usuarios registrados en el laboratorio
 
@@ -76,23 +76,28 @@ Seleccione **Usuarios** en el menú a la izquierda para ver la lista de usuarios
 
 ![Lista de usuarios registrados en el laboratorio](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-per-user"></a>Establecimiento de cuotas por usuario
+## <a name="set-quotas-for-users"></a>Establecimiento de cuotas para los usuarios
 Puede establecer cuotas por usuario mediante los pasos siguientes: 
 
-1. En el menú izquierdo, seleccione **Users** (Usuarios).
-2. Seleccione **Quota per user: unlimited** (Cuota por usuario: ilimitada) en la barra de herramientas. 
-3. En la página **Quota per user** (Cuota por usuario), seleccione una de las siguientes opciones: 
-    1. **No**. Los usuarios pueden usar sus máquinas virtuales durante el tiempo programado o cuando el propietario del laboratorio active las máquinas virtuales para ellos.
-    2. **Unlimited (default)** (Ilimitado [valor predeterminado]). Los usuarios pueden usar sus máquinas virtuales sin restricciones de tiempo.
-    3. **Specify number of hours per user** (Especificar número de horas por usuario). Los usuarios pueden usar sus máquinas virtuales para el número establecido de horas (especificado a continuación), además del tiempo programado. Si selecciona esta opción, escriba el **número de horas** en el cuadro de texto. 
+1. Seleccione **Usuarios** en el menú de la izquierda si la página todavía no está activa. 
+2. Seleccione **Quota per user: (Cuota por usuario:) 10 horas** en la barra de herramientas. 
+3. En la página **Cuota por usuario**, especifique el número de horas que quiere dar a cada usuario (alumno): 
+    1. **Número total de horas de laboratorio por usuario**. Los usuarios pueden usar sus máquinas virtuales para el número establecido de horas (que se especifica para este campo) **además del tiempo programado**. Si selecciona esta opción, escriba el **número de horas** en el cuadro de texto. 
 
-        ![Número de horas por usuario](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+        ![Número de horas por usuario](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 horas (solo programación)** . Los usuarios pueden usar sus máquinas virtuales durante el tiempo programado o cuando usted, como el propietario del laboratorio, les enciende las máquinas virtuales.
+
+        ![Cero horas: solo el tiempo programado](../media/how-to-configure-student-usage/zero-hours.png)
     4. Seleccione **Guardar**. 
-5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;**. 
+5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;** . 
 
     ![Quota per user (Cuota por usuario)](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Antes de enviar el vínculo de registro a los alumnos, los profesores deben establecer la programación de la clase si eligen una cuota de 0 horas o especificar la cuota de horas del laboratorio.
+>
 > El [tiempo de ejecución programado de las máquinas virtuales](how-to-create-schedules.md) no cuentan en la cuota asignada a un usuario. La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adición de usuarios mediante la carga de un archivo CSV

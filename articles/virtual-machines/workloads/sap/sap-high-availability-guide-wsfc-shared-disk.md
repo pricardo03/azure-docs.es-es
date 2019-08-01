@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7c2b52a0dff08b7fe80d46f878a93d8d0741982c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709041"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249152"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -220,7 +220,7 @@ En Windows, una instancia de ASCS/SCS de SAP contiene servicios centrales de SAP
 Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
 
 * Servicios centrales de SAP:
-    * Dos procesos, un servidor de mensajes y colas y un <nombre de host virtual ASCS/SCS > que se usa para tener acceso a estos dos procesos.
+    * Dos procesos, un servidor de mensajes y colas y un \<nombre de host virtual ASCS/SCS > que se usa para tener acceso a estos dos procesos.
     * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número de instancia\>
 
 
@@ -228,7 +228,7 @@ Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
   * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * El recurso compartido de archivos sapmnt, que permite el acceso a estos archivos S:\usr\sap\\&lt;SID&gt;\SYS\... globales utilizando la siguiente ruta de acceso UNC:
 
-    \\\\&lt;nombre de host virtual ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\<nombre de host virtual ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
 ![Ilustración 2: Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP][sap-ha-guide-figure-8001]
@@ -243,7 +243,7 @@ _**Ilustración 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con
 
 > [!IMPORTANT]
 > Estos dos componentes se ejecutan en la misma instancia de ASCS/SCS de SAP:
->* Se usa el mismo <nombre de host virtual ASCS/SCS> para acceder a los procesos de mensajes y del servidor de colas de SAP y los archivos de host globales de SAP mediante el recurso compartido de archivos sapmnt.
+>* Se usa el mismo \<nombre de host virtual ASCS/SCS> para acceder a los procesos de mensajes y del servidor de colas de SAP y los archivos de host globales de SAP mediante el recurso compartido de archivos sapmnt.
 >* Comparten la misma unidad de disco compartido de clúster S.
 >
 

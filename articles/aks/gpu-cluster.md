@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d15b960afd2c3b39908fb359cf9898b5257abc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: c92762b53b0f5b50ea08f2f78998a3ccecbed990
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061058"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
@@ -22,17 +22,17 @@ Por lo general, las unidades de procesamiento gráfico (GPU) se usan para cargas
 > [!NOTE]
 > Las máquinas virtuales habilitadas para GPU contienen hardware especializado que está sujeto a una mayor disponibilidad de precios y región. Consulte la herramienta de [precios][azure-pricing] y el sitio de [disponibilidad por región][azure-availability].
 
-Actualmente, el uso de grupos de nodos basados en GPU solo está disponible para grupos de nodos de Linux.
+Actualmente, el uso de grupos de nodos habilitados para GPU solo está disponible para grupos de nodos de Linux.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS con nodos que admiten GPU. El clúster de AKS debe ejecutar Kubernetes 1.10 o una versión posterior. Si necesita un clúster de AKS que cumpla estos requisitos, consulte la primera sección de este artículo para [crear un clúster de AKS](#create-an-aks-cluster).
 
-También necesita la CLI de Azure versión 2.0.64 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso tener instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-Si necesita un clúster de AKS que cumpla los requisitos mínimos (nodo habilitado para GPU y Kubernetes versión 1.10 o posterior), siga estos pasos. Si ya tiene un clúster de AKS que cumpla estos requisitos, [ir a la siguiente sección](#confirm-that-gpus-are-schedulable).
+Si necesita un clúster de AKS que cumpla los requisitos mínimos (nodo habilitado para GPU y Kubernetes versión 1.10 o posterior), siga estos pasos. Si ya tiene un clúster de AKS que cumpla estos requisitos, [vaya a la sección siguiente](#confirm-that-gpus-are-schedulable).
 
 Primero, cree un grupo de recursos para el clúster con el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
 
@@ -56,9 +56,9 @@ Obtenga las credenciales para el clúster de AKS mediante el comando [az aks get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instalar a controladores nVidia
+## <a name="install-nvidia-drivers"></a>Instalación de controladores nVidia
 
-Antes de que se pueden usar las GPU en los nodos, debe implementar un DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
+Para poder usar las GPU en los nodos, debe implementar un elemento DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
 
 En primer lugar, cree un espacio de nombres mediante el comando [kubectl create namespace][kubectl-create], como *gpu-resources*:
 
@@ -66,7 +66,7 @@ En primer lugar, cree un espacio de nombres mediante el comando [kubectl create 
 kubectl create namespace gpu-resources
 ```
 
-Cree un archivo denominado *nvidia-device-plugin-ds.yaml* y pegue el siguiente manifiesto YAML. Este manifiesto se proporciona como parte de la [complemento de dispositivo NVIDIA para Kubernetes proyecto][nvidia-github].
+Cree un archivo denominado *nvidia-device-plugin-ds.yaml* y pegue el siguiente manifiesto YAML. Este manifiesto se proporciona como parte del [complemento de dispositivo NVIDIA para proyectos de Kubernetes][nvidia-github].
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -96,7 +96,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.0.0-beta
+      - image: nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -111,7 +111,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Ahora utilice el [kubectl aplicar] [ kubectl-apply] comando para crear el DaemonSet y confirme que el complemento de dispositivo de nVidia se crea correctamente, tal como se muestra en la salida del ejemplo siguiente:
+Use ahora el comando [kubectl apply][ kubectl-apply] para crear el elemento DaemonSet y confirme que el complemento de dispositivo nVidia se crea correctamente, tal como se muestra en la salida de ejemplo siguiente:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -223,7 +223,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Ver el estado y la salida de la carga de trabajo habilitada para GPU
 
-Supervise el progreso del trabajo mediante el comando [kubectl get jobs][kubectl-get] con el argumento `--watch`. Puede tardar unos minutos en extraer primero la imagen y procesar el conjunto de datos. Cuando el *FINALIZACIONES* columna muestra *1/1*, el trabajo ha finalizado correctamente. Salir del `kubetctl --watch` comando *Ctrl-C*:
+Supervise el progreso del trabajo mediante el comando [kubectl get jobs][kubectl-get] con el argumento `--watch`. Puede tardar unos minutos en extraer primero la imagen y procesar el conjunto de datos. Cuando la columna *COMPLETIONS* (FINALIZACIONES) muestra *1/1*, significa que el trabajo ha finalizado correctamente. Salga del comando `kubetctl --watch` con *Ctrl-C*:
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -234,7 +234,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-Para ver la salida de la carga de trabajo basados en GPU, obtener el nombre del pod con el [kubectl get pods] [ kubectl-get] comando:
+Para ver la salida de la carga de trabajo habilitada para GPU, obtenga primero el nombre del pod con el comando [kubectl get pods][kubectl-get]:
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo

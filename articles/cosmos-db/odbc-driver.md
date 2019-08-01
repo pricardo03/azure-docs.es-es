@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257248"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
@@ -97,7 +97,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 
 1. Cuando haya terminado de definir el esquema, haga clic en **Archivo** | **Guardar**, navegue hasta el directorio para guardar el esquema y, luego, haga clic en **Guardar**.
 
-1. Para utilizar este esquema con un DSN, abra el **ventana Azure Cosmos DB ODBC Driver DSN Setup** (a través de los datos de administrador de orígenes ODBC), haga clic en **opciones avanzadas**y, a continuación, en el **delarchivodeesquema** , navegue al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
+1. Para utilizar este esquema con un DSN, abra la **ventana de Configuración de DSN del controlador ODBC de Azure Cosmos DB** (con el Administrador de orígenes de datos ODBC), haga clic en **Opciones avanzadas** y, luego, en el cuadro **Archivo de esquema**, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
 ## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 
@@ -112,7 +112,7 @@ Los pasos siguientes crean un esquema para los datos de una o varias colecciones
 
 1. Seleccione una colección en la pestaña **Vista de ejemplo**, en la columna **Mapping Definition** (Definición de asignación) para la colección y haga clic en **Editar**. A continuación, en la ventana **Mapping Definition** (Definición de asignación), seleccione el método **Table Delimiters** (Delimitadores de tabla). A continuación, haga lo siguiente:
 
-     a. En el cuadro **Atributos**, escriba el nombre de una propiedad de delimitador. Se trata de una propiedad del documento a la que desea limitar el ámbito del muestreo, por ejemplo, Ciudad; luego, presione Intro. 
+    a. En el cuadro **Atributos**, escriba el nombre de una propiedad de delimitador. Se trata de una propiedad del documento a la que desea limitar el ámbito del muestreo, por ejemplo, Ciudad; luego, presione Intro. 
 
     b. Si solo desea definir el ámbito del muestreo a ciertos valores para el atributo que escribió antes, seleccione dicho atributo en el cuadro de selección, escriba un valor en el cuadro **Valor** (por ejemplo, Seattle) y presione Entrar. Puede seguir agregando más valores para los atributos. Solo tiene que asegurarse de que se selecciona el atributo correcto cuando está escribiendo valores.
 

@@ -1,7 +1,7 @@
 ---
-title: Registro de Speech SDK - servicios de voz
+title: 'Registro del SDK de voz: Servicios de voz'
 titleSuffix: Azure Cognitive Services
-description: Habilitar el registro en el SDK de voz.
+description: Habilite el registro en el SDK de voz.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073068"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 
-Registro en el archivo es una característica opcional para el SDK de voz. Durante el desarrollo de registro proporciona información adicional y diagnósticos de componentes principales de la voz del SDK. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` en un objeto de configuración de voz para la ubicación y el nombre del archivo de registro. El registro se activará globalmente una vez creado un módulo de reconocimiento de que la configuración y no se puede deshabilitar posteriormente. No se puede cambiar el nombre de un archivo de registro durante un sesión de registro de ejecución.
+El registro en un archivo es una característica opcional del SDK de voz. Durante el desarrollo, el registro proporciona información adicional y diagnósticos de los componentes principales del SDK de voz. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` de un objeto de configuración de voz en la ubicación y el nombre del archivo de registro. El registro se activará globalmente una vez creado un reconocedor a partir de esa configuración que no se pueda deshabilitar más tarde. No se puede cambiar el nombre de un archivo de registro durante la ejecución de una sesión de registro.
 
 > [!NOTE]
-> El registro está disponible en todos los SDK de voz admitidos lenguajes de programación, con la excepción de JavaScript.
+> El registro está disponible desde la versión 1.4.0 del SDK de voz en todos los lenguajes de programación admitidos a excepción de JavaScript.
 
 ## <a name="sample"></a>Muestra
 
-El nombre de archivo de registro se especifica en un objeto de configuración. Tomando el `SpeechConfig` como ejemplo y suponiendo que haya creado una instancia denominada `config`:
+El nombre del archivo de registro se especifica en un objeto de configuración. Tomando `SpeechConfig` como ejemplo y suponiendo que ha creado una instancia denominada `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -48,18 +48,18 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-Puede crear un módulo de reconocimiento en el objeto de configuración. Esto permitirá que el registro de todos los reconocedores.
+Puede crear un reconocedor a partir del objeto de configuración. Esto habilitará el registro de todos los reconocedores.
 
 > [!NOTE]
-> Si creas un `SpeechSynthesizer` desde el objeto de configuración, no se habilitará el registro. Si está habilitado el registro sin embargo, también recibirá los diagnósticos necesarios desde el `SpeechSynthesizer`.
+> Si crea un `SpeechSynthesizer` a partir del objeto de configuración, no se habilitará el registro. No obstante, si el registro está habilitado, también recibirá los diagnósticos desde `SpeechSynthesizer`.
 
-## <a name="create-a-log-file-on-different-platforms"></a>Crear un archivo de registro en distintas plataformas
+## <a name="create-a-log-file-on-different-platforms"></a>Creación de un archivo de registro en distintas plataformas
 
-Para Windows o Linux, puede ser el archivo de registro en cualquier ruta de acceso que el usuario tiene permiso de escritura. Permisos de escritura en ubicaciones del sistema de archivos en otros sistemas operativos pueden ser limitados o restringidos de forma predeterminada.
+Para Windows o Linux, el archivo de registro puede estar en cualquier ruta sobre la que el usuario tenga permiso de escritura. Los permisos de escritura en ubicaciones del sistema de archivos de otros sistemas operativos puede estar limitada o restringida de forma predeterminada.
 
 ### <a name="universal-windows-platform-uwp"></a>Plataforma universal de Windows (UWP)
 
-Las aplicaciones de UWP requieren sitios de los archivos de registro en una de las ubicaciones de datos de aplicación (locales, móviles o temporales). Un archivo de registro se puede crear en la carpeta de aplicación local:
+Las aplicaciones de UWP requieren que los archivos de registro estén colocados en una de las ubicaciones de datos de la aplicación (local, roaming o temporal). Se puede crear un archivo de registro en la carpeta de la aplicación local:
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -67,11 +67,11 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Más sobre el acceso de archivo está disponible permiso para las aplicaciones de UWP [aquí](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+[Aquí](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) hay más información sobre el permiso de acceso a los archivos de las aplicaciones de UWP.
 
 ### <a name="android"></a>Android
 
-Puede guardar un archivo de registro para el almacenamiento interno, almacenamiento externo o el directorio de caché. Archivos creados en el almacenamiento interno o el directorio de caché son privados para la aplicación. Es preferible crear un archivo de registro en almacenamiento externo.
+Puede guardar un archivo de registro en un almacenamiento interno, externo o en el directorio de la memoria caché. Los archivos creados en el almacenamiento interno o en el directorio de la memoria caché son privados para la aplicación. Es preferible crear un archivo de registro en el almacenamiento externo.
 
 ```java
 File dir = context.getExternalFilesDir(null);
@@ -79,9 +79,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-El código anterior guardará un archivo de registro en el almacenamiento externo en la raíz de un directorio específico de la aplicación. Un usuario puede tener acceso al archivo con el Administrador de archivos (normalmente en `Android/data/ApplicationName/logfile.txt`). El archivo se eliminará cuando se desinstala la aplicación.
+El código anterior guarda un archivo de registro en el almacenamiento externo de la raíz de un directorio específico de la aplicación. Un usuario puede acceder al archivo con el administrador de archivos (normalmente en `Android/data/ApplicationName/logfile.txt`). El archivo se eliminará cuando se desinstale la aplicación.
 
-También deberá solicitar `WRITE_EXTERNAL_STORAGE` permiso en el archivo de manifiesto:
+También deberá solicitar el permiso `WRITE_EXTERNAL_STORAGE` sobre el archivo de manifiesto:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -91,11 +91,11 @@ También deberá solicitar `WRITE_EXTERNAL_STORAGE` permiso en el archivo de man
 </manifest>
 ```
 
-Más acerca de los datos y archivo de almacenamiento para las aplicaciones de Android está disponible [aquí](https://developer.android.com/guide/topics/data/data-storage.html).
+[Aquí](https://developer.android.com/guide/topics/data/data-storage.html) hay disponible más información sobre almacenamiento de datos y de archivos para aplicaciones de Android.
 
 #### <a name="ios"></a>iOS
 
-Solo los directorios dentro del espacio aislado de la aplicación son accesibles. Archivos pueden crearse en los documentos, biblioteca y directorios temporales. Archivos en el directorio de documentos pueden estar disponibles para un usuario. El fragmento de código siguiente muestra la creación de un archivo de registro en el directorio de documentos de la aplicación:
+Solo los directorios dentro del espacio aislado de la aplicación son accesibles. Los archivos se pueden crear en los directorios de documentos, biblioteca y temporales. Los archivos del directorio de documentos pueden estar a disposición de un usuario. El fragmento de código siguiente muestra la creación de un archivo de registro en el directorio de documentos de la aplicación:
 
 ```objc
 NSString *filePath = [
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Para acceder a un archivo creado, agregue la siguientes propiedades para el `Info.plist` lista de propiedades de la aplicación:
+Para acceder a un archivo creado, agregue las siguientes propiedades a la lista de propiedades `Info.plist` de la aplicación:
 
 ```xml
 <key>UIFileSharingEnabled</key>
@@ -113,7 +113,7 @@ Para acceder a un archivo creado, agregue la siguientes propiedades para el `Inf
 <true/>
 ```
 
-Más sobre iOS está disponible del sistema de archivos [aquí](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+[Aquí](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) hay más información disponible sobre el sistema de archivos de iOS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

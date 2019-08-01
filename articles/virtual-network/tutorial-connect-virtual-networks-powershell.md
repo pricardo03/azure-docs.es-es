@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f5c90b7d79b31c321b00869c90b0261c0b4730d3
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66727752"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conexión de redes virtuales con emparejamiento de redes virtuales usando PowerShell
@@ -59,7 +59,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Cree una configuración de subred con [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred con un prefijo de dirección 10.0.0.0/24:
+Cree una configuración de subred con [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred con un prefijo de dirección 10.0.0.0/24:
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-Escriba la configuración de subred en la red virtual con [conjunto AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), que crea la subred:
+Escriba la configuración de subred en la red virtual con [ASet-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), que crea la siguiente subred:
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -96,7 +96,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>Emparejamiento de redes virtuales
 
-Crear un emparejamiento con [agregar AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). El siguiente ejemplo empareja *myVirtualNetwork1* con *myVirtualNetwork2*.
+Cree un emparejamiento con [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). El siguiente ejemplo empareja *myVirtualNetwork1* con *myVirtualNetwork2*.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -114,7 +114,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-En la salida que se devuelve al ejecutarse el comando anterior, verá que **PeeringState** está en estado *Conectado*. Azure también cambia el estado del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* a *Conectado*. Confirme que el estado de emparejamiento para la *myVirtualNetwork1-myVirtualNetwork2* cambia a *conectado* con [Get AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
+En la salida que se devuelve al ejecutarse el comando anterior, verá que **PeeringState** está en estado *Conectado*. Azure también cambia el estado del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* a *Conectado*. Confirme que el estado del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* cambia a *Conectado* con [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -200,7 +200,7 @@ Recibirá cuatro respuestas. Desconecte las sesiones RDP para ambos *myVm1* y *m
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no es necesario, utilice [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene.
+Cuando ya no lo necesite, utilice [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

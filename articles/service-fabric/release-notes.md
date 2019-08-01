@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 78fb96cae3d3d128da608183f37771b2ecf66dcf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 829963cf13eb1dc1b1113b6a296fe77dadb63bc4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165359"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224946"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -26,7 +26,7 @@ ms.locfileid: "67165359"
 
 En este artículo se proporciona más información sobre las versiones y actualizaciones más recientes para los SDK y el runtime de Service Fabric.
 
-## <a name="whats-new-in-service-fabric"></a>**Novedades de Service Fabric**
+## <a name="whats-new-in-service-fabric"></a>Novedades de Service Fabric
 
 ### <a name="service-fabric-65"></a>Service Fabric 6.5
 
@@ -56,6 +56,13 @@ Estas son las novedades de Service Fabric 6.5:
 - [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) se instala de forma predeterminada en los clústeres OneBox de MacOS y Linux.
 
 Para obtener más información, vea las [notas de la versión de Service Fabric 6.5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
+
+### <a name="service-fabric-65-releases"></a>Versiones de Service Fabric 6.5
+
+| Fecha de lanzamiento | Release | Más información |
+|---|---|---|
+| 11 de junio de 2019 | [Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
+| 2 de julio de 2019 | [Versión de actualización de Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
 
 ## <a name="previous-versions"></a>Versiones anteriores
 

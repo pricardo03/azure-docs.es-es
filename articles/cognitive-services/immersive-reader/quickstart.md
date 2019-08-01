@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 6386c22044483a0ac4a324397cf2f9d22e83b579
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442856"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688860"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo (C#)
 
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
-En este inicio rápido, creará una aplicación web desde cero e integrará el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
+En este inicio rápido, creará una aplicación web desde cero e integrará el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -224,4 +224,4 @@ Al hacer clic en el botón "Lector inmersivo", verá que se inicia dicha herrami
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Ver el [tutorial](./tutorial.md) para consultar qué más puede hacer con el SDK del Lector inmersivo
-* Explorar el [SDK del Lector inmersivo](https://github.com/Microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)
+* Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)

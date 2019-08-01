@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295749"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233014"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 
@@ -186,7 +186,7 @@ En algunos casos, puede decidir que su aplicación pueda asumir que el blob sigu
 
 Los datos de configuración y búsqueda, así como otros datos que siempre usa la aplicación, son magníficos candidatos para el almacenamiento en caché.  
 
-Para ver un ejemplo de cómo obtener las propiedades de un blob para detectar la fecha de la última modificación mediante .NET, consulte [Establecer y recuperar propiedades y metadatos](../blobs/storage-properties-metadata.md). Para obtener más información sobre las descargas condicionales, consulte [Actualización condicional de una copia local de un blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Para obtener más información sobre las descargas condicionales, consulte [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations) (Especificación de encabezados condicionales para las operaciones de Blob service).  
 
 #### <a name="subheading8"></a>Carga de datos en lotes
 
@@ -293,8 +293,6 @@ Para volúmenes grandes de datos (más de 1 TB), Azure Storage ofrece el servici
 ### <a name="subheading20"></a>Uso de metadatos
 
 Blob service admite solicitudes de encabezado que pueden incluir metadatos acerca del blob. Por ejemplo, si su aplicación necesita los datos EXIF fuera de una foto, podría recuperar la foto y extraerlos. Para ahorrar ancho de banda y mejorar el rendimiento, la aplicación puede almacenar los datos de EXIF en los metadatos del blob cuando la aplicación haya cargado la foto: posteriormente, puede recuperar los datos de EXIF de los metadatos mediante una única solicitud HEAD, lo que permite ahorrar mucho ancho de banda y el tiempo de procesamiento necesario para extraer los datos de EXIF cada vez que se lee el blob. Esto sería útil en escenarios donde solamente necesita los metadatos y no el contenido completo de un blob.  Solamente se pueden almacenar 8 KB de metadatos por blob (el servicio no aceptará una solicitud para almacenar más que eso), por lo que si los datos no caben en ese tamaño, no podrá usar este enfoque.  
-
-Para ver un ejemplo de cómo obtener los metadatos de un blob mediante .NET, consulte [Establecer y recuperar propiedades y metadatos](../blobs/storage-properties-metadata.md).  
 
 ### <a name="rapid-uploading"></a>Carga rápida
 

@@ -3,8 +3,8 @@ title: Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver | Micros
 description: Guía de alta disponibilidad para SAP NetWeaver en Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e5493b3688c4de9dab971d58b58f85d00f8003b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709029"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67869110"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -51,8 +51,9 @@ ms.locfileid: "67709029"
 [sap-suse-ascs-ha-setting-ha-nfs]:high-availability-guide-suse.md#setting-up-a-highly-available-nfs-server
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
-[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md
 [sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[sap-rhel-ascs-ha-sap-installation-anf]:high-availability-guide-rhel-netapp-files.md
 [high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
 [high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
@@ -245,3 +246,6 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 * ![Linux][Logo_Linux] [Instalación de alta disponibilidad para SAP NetWeaver con un marco de clúster SUSE Linux Enterprise Server para una instancia de ASCS/SCS de SAP con Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
 * ![RHEL][Logo_Linux] [Instalación de SAP NetWeaver ASCS/SCS en la configuración de alta disponibilidad en RHEL][sap-rhel-ascs-ha]
+
+* ![RHEL][Logo_Linux] [Instalación de SAP NetWeaver ASCS/SCS en la configuración de alta disponibilidad en RHEL con Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+

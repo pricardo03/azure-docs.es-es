@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147082"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805710"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Uso de registros para solucionar incidencias de validación en Azure Data Box Disk
 
@@ -90,8 +90,8 @@ En la tabla siguiente se resumen los errores incluidos en el archivo *error.xml*
 | `InvalidBlobNameFormat` | La ruta de acceso del archivo no se asigna a una ruta de acceso de blob válida en la nube según las convenciones de nomenclatura de Azure Blob.|Cambie el nombre del archivo para que cumpla las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Vuelva a intentar la validación. |
 | `InvalidFileNameFormat` | La ruta de acceso del archivo no se asigna a una ruta de acceso del archivo válida en la nube según las convenciones de nomenclatura de los archivos de Azure. |Cambie el nombre del archivo para que cumpla las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Vuelva a intentar la validación. |
 | `InvalidDiskNameFormat` | La ruta de acceso del archivo no se asigna a un nombre de disco válido en la nube según las convenciones de nomenclatura del disco administrado de Azure. |Cambie el nombre del archivo para que cumpla las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Vuelva a intentar la validación.       |
-| `NotPartOfFileShare` | No se han podido cargar los archivos ya que la ruta de acceso de carga no es válida. Cargue los archivos en una carpeta de Azure Files.   | Quite los archivos con errores y cárguelos en una carpeta creada previamente. Vuelva a intentar la validación. |
-| `NonVhdFileNotSupportedForManagedDisk` | No se ha podido cargar un archivo que no es VHD como disco administrado. |Quite los archivos que no son VHD, ya que no son compatibles. Vuelva a intentar la validación. |
+| `NotPartOfFileShare` | La ruta de acceso de carga de los archivos no es válida. Cargue los archivos en una carpeta de Azure Files.   | Quite los archivos con errores y cárguelos en una carpeta creada previamente. Vuelva a intentar la validación. |
+| `NonVhdFileNotSupportedForManagedDisk` | No se ha podido cargar un archivo que no es VHD como disco administrado. |Quite los archivos que no son VHD de la carpeta `ManagedDisk`, ya que no se admiten, o mueva dichos archivos a una carpeta `PageBlob`. Vuelva a intentar la validación. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

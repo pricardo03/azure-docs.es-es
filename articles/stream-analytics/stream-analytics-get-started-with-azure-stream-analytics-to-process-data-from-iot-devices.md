@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/11/2019
+ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481502"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621002"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introducción a Azure Stream Analytics para el procesamiento de datos desde dispositivos de IoT
+
 En este tutorial, aprenderá a crear una lógica de procesamiento de transmisiones para recopilar datos desde dispositivos de Internet de las cosas (IoT). Usaremos un caso de uso real de Internet de las cosas para mostrar cómo puede crear una solución de forma rápida y económica.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Archivos de datos y consultas de ejemplo que se pueden descargar desde [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## <a name="scenario"></a>Escenario
+
 Contoso es una empresa del sector de la automatización industrial que ha automatizado completamente su proceso de fabricación. La maquinaria de esta planta cuenta con sensores capaces de emitir flujos de datos en tiempo real. En este escenario, un administrador del piso de producción desea tener información en tiempo real de los datos provenientes de los sensores para buscar patrones y llevar a cabo las acciones que sean necesarias. Usaremos el lenguaje de consulta de Stream Analytics (SAQL) sobre los datos de los sensores para encontrar patrones interesantes en los flujos de datos entrantes.
 
 Estos datos provienen de un dispositivo SensorTag de Texas Instruments. La carga de los datos está en formato JSON y tiene un aspecto similar al siguiente:
@@ -100,14 +102,14 @@ Aumentemos el grado de detalle de la consulta. En cada tipo de sensor, deseamos 
 
 ![Consulta de filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Ahora debe ver los resultados que contienen solo las 245 filas y nombres de sensores en los que la temperatura promedio supera los 100 grados. Esta consulta agrupa el flujo de eventos por **dspl**, que es el nombre del sensor y con respecto a una **ventana de saltos de tamaño constante** de 30 segundos. Las consultas temporales deben indicar cómo deseamos que transcurra el tiempo. Mediante la cláusula **TIMESTAMP BY**, hemos especificado la columna **OUTPUTTIME** para asociar los tiempos con todos los cálculos temporales. Para obtener información detallada, lea los artículos de MSDN sobre las funciones de [Administración del tiempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) y [Ventana](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Ahora debe ver los resultados que contienen solo las 245 filas y nombres de sensores en los que la temperatura promedio supera los 100 grados. Esta consulta agrupa el flujo de eventos por **dspl**, que es el nombre del sensor y con respecto a una **ventana de saltos de tamaño constante** de 30 segundos. Las consultas temporales deben indicar cómo deseamos que transcurra el tiempo. Mediante la cláusula **TIMESTAMP BY**, hemos especificado la columna **OUTPUTTIME** para asociar los tiempos con todos los cálculos temporales. Para obtener información detallada, lea los artículos de MSDN sobre las funciones de [Administración del tiempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) y [Ventana](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: Detección de la ausencia de eventos
 ¿Cómo podemos escribir una consulta que busque una falta de eventos de entrada? Busquemos la última vez que un sensor envió datos y luego no envió ningún evento en los 5 segundos posteriores. La consulta se encuentra en el archivo AbsenceOfEvent.txt.
 
 ![Detección de la ausencia de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Aquí vamos a usar una combinación **LEFT OUTER** en el mismo flujo de datos (autocombinación). Para una combinación **INNER**, solo se devuelve un resultado cuando se encuentra una coincidencia.  En el caso de una combinación **LEFT OUTER**, si un evento procedente del lado izquierdo de la combinación no tiene coincidencia, se devolverá una fila con el valor NULL en todas las columnas de la derecha. Esta técnica resulta muy útil para buscar la ausencia de eventos. Para más información acerca de [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx), consulte la documentación de MSDN.
+Aquí vamos a usar una combinación **LEFT OUTER** en el mismo flujo de datos (autocombinación). Para una combinación **INNER**, solo se devuelve un resultado cuando se encuentra una coincidencia.  En el caso de una combinación **LEFT OUTER**, si un evento procedente del lado izquierdo de la combinación no tiene coincidencia, se devolverá una fila con el valor NULL en todas las columnas de la derecha. Esta técnica resulta muy útil para buscar la ausencia de eventos. Para más información acerca de [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics), consulte la documentación de MSDN.
 
 ## <a name="conclusion"></a>Conclusión
 El objetivo de este tutorial es mostrar cómo escribir diferentes consultas en el lenguaje de consulta de Stream Analytics y ver los resultados en el explorador. Sin embargo, se trata solo de una introducción. Es mucho más lo que puede hacer con Stream Analytics. Stream Analytics admite una gran variedad de entradas y salidas, e incluso puede usar las funciones de Azure Machine Learning, lo que hace que sea una herramienta sólida para el análisis de flujos de datos. Puede empezar a explorar más sobre Stream Analytics mediante nuestro [mapa de aprendizaje](https://docs.microsoft.com/azure/stream-analytics/). Para más información acerca de cómo escribir consultas, lea el artículo sobre [patrones comunes de consulta](stream-analytics-stream-analytics-query-patterns.md).

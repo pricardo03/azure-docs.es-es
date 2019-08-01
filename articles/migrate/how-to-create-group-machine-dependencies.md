@@ -4,49 +4,77 @@ description: En este artículo se describe cómo crear una evaluación con depen
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.author: hamusa
+ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596798"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598951"
 ---
-# <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
+# <a name="set-up-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias para la evaluación
 
-En este artículo se describe cómo crear un grupo de máquinas para la evaluación de [Azure Migrate](migrate-overview.md) mediante la visualización de dependencias de máquina. Este método se utiliza normalmente cuando se quiere evaluar grupos de máquinas virtuales con mayores niveles de confianza mediante la comprobación cruzada de dependencias de máquina antes de ejecutar una evaluación. La visualización de dependencia puede ayudarle a planear la migración a Azure de forma eficaz. Le ayuda a asegurarse de que no se deja nada atrás y de que no se produzcan interrupciones inesperadas al realizar una migración a Azure. Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.
+En este artículo se describe cómo configurar la asignación de dependencias en Azure Migrate: Server Assessment.
 
-> [!NOTE]
-> La funcionalidad de visualización de dependencias no está disponible en Azure Government.
+La asignación de dependencias le permite visualizar las dependencias en las máquinas que quiere evaluar y migrar.
 
-## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
-Azure Migrate aprovecha la solución Service Map de los registros de Azure Monitor para habilitar la visualización de dependencias de máquinas.
+- En Azure Migrate: Server Assessment, puede reunir las máquinas para evaluarlas. Esto normalmente se hace con las máquinas que quiere migrar juntas.
+- La asignación de dependencias suele usarse cuando quiere evaluar grupos con niveles de confianza más altos.
+- Le permite comprobar las dependencias de las máquinas antes de ejecutar una evaluación y una migración.
+- El hecho de asignar y visualizar las dependencias le ayuda a planear de forma eficaz la migración a Azure. Le permite garantizar que no se olvida de nada, lo que evita que experimente interrupciones inesperadas durante la migración.
+- Con la asignación, puede detectar los sistemas interdependientes que necesitan migrarse juntos. También puede identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.
 
-### <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics
-Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate. Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
+[Obtenga más información](concepts-dependency-visualization.md#how-does-it-work) acerca de la visualización de dependencia.
 
-- Para asociar un área de trabajo de Log Analytics a un proyecto, en **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en **Requiere configuración**.
+## <a name="before-you-start"></a>Antes de comenzar
 
-    ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+- Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
+- Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
+- Compruebe que ha detectado sus máquinas en Azure Migrate; puede hacerlo, configure un dispositivo de Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
 
-- Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
-  - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
-  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Tenga en cuenta que solo se enumeran las áreas de trabajo que se crearon en una región donde [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
-> [!NOTE]
-> No se puede cambiar el área de trabajo asociada a un proyecto de migración.
+**Características** | **Nota:**
+--- | ---
+Disponibilidad | La visualización de dependencias no está disponible en Azure Government.
+Mapa de servicio | La visualización de dependencias usa la solución Service Map en los registros de Azure Monitor. [Service Map](../azure-monitor/insights/service-map-configure.md) detecta y muestra automáticamente las conexiones entre los servidores.
+Agentes | Para usar la visualización de dependencias, instale un par de agentes en las máquinas que quiera asignar:<br/> - [Agente de Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (conocido anteriormente como Microsoft Monitoring Agent [MMA]).<br/> - Agente de dependencias de Service Map.<br/><br/> Para automatizar la instalación de agentes, puede usar una herramienta de implementación, como System Center Configuration Manager, o bien una herramienta de asociado como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que cuenta con una solución de implementación de agentes para Azure Migrate.
+Dependency Agent | Revise la compatibilidad del agente de dependencias con [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) y [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Obtenga más información](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencias.
+Agente de Log Analytics (MMA) | [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) sobre los métodos de instalación de MMA.<br/><br/> En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.<br/><br/> [Revise](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) los sistemas operativos Linux compatibles con el agente de Log Analytics.
+Grupos de evaluación | Los grupos de los que desea visualizar las dependencias no deben contener más de diez máquinas. Si tiene más de 10 máquinas, divídalas en grupos más pequeños para visualizar las dependencias.
 
-### <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
-Después de configurar un área de trabajo, tiene que descargar e instalar agentes en cada máquina local que vaya a evaluar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
+## <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics
 
-1. En **Introducción**, haga clic en **Administrar** > **Máquinas**y seleccione la máquina requerida.
-2. En la columna **Dependencias**, haga clic en **Instalar agentes**.
-3. En la página **Dependencias**, descargue e instale el agente de Microsoft Monitoring Agent (MMA), así como el agente de dependencia en cada máquina virtual que vaya a evaluar.
-4. Copie la clave y el identificador de área de trabajo. Las necesitará cuando se instala MMA en la máquina local.
+Si quiere usar la visualización de dependencias, debe asociar un [área de trabajo de Log Analytics](../azure-monitor/platform/manage-access.md) con un proyecto de Azure Migrate.
 
-> [!NOTE]
-> Para automatizar la instalación de agentes, puede usar cualquier herramienta de implementación como System Center Configuration Manager o bien la herramienta de nuestro asociado [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que tiene una solución de implementación de agentes para Azure Migrate.
+- Solo puede asociar un área de trabajo en la suscripción del proyecto de Azure Migrate.
+- Puede asociar un área de trabajo existente o crear una nueva.
+- La primera vez que configure la visualización de dependencias para una máquina, deberá asociar el área de trabajo.
+- Solo puede asociar un área de trabajo después de detectar máquinas en el proyecto de Azure Migrate. Para ello, puede configurar un dispositivo Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
+
+Asocie un área de trabajo como se indica a continuación:
+
+1. En **Azure Migrate: Server Assessment**, haga clic en **Información general**. Si aún no ha agregado la herramienta Server Assessment, [hágalo primero](how-to-assess.md).
+2. En **Información general**, haga clic en la flecha abajo para expandir **Información esencial**.
+3. En **Área de trabajo de OMS**, haga clic en **Requiere configuración**.
+4. En **Configurar área de trabajo**, especifique si quiere crear un área de trabajo nueva o utilizar una existente.
+
+    ![Adición de un área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
+
+    - Una vez especifica un nombre para un área de trabajo nueva, se crea en la misma geografía que el proyecto de Azure Migrate.
+    - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración.
+    - Necesita acceso de lectura al área de trabajo para poder asociarla.
+    - No puede modificar el área de trabajo asociada a un proyecto una vez se ha adjuntado.
+
+## <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
+
+Descargue e instale los agentes en cada máquina local que quiera visualizar con la asignación de dependencias.
+
+1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+2. Para cada máquina para la que quiera usar la visualización de dependencias, haga clic en **Requiere la instalación del agente**.
+3. En la página **Dependencias** de una máquina > **Descargue e instale MMA**, descargue el agente adecuado e instálelo como se describe a continuación.
+4. En **Download and install Dependency agent** (Descargar e instalar el agente de dependencias), descargue el agente adecuado e instálelo tal y como se describe a continuación.
+5. En **Configure MMA agent** (Configurar agente MMA), copie el id. del área de trabajo y la clave. Los necesitará para instalar el agente MMA.
 
 ### <a name="install-the-mma"></a>Instalación de MMA
 
@@ -60,8 +88,6 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo de Log Analytics nueva. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
-Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como System Center Configuration Manager. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA.
-
 #### <a name="install-the-agent-on-a-linux-machine"></a>Instalación del agente en una máquina Linux
 
 Para instalar al agente en una máquina Linux, siga estos pasos:
@@ -71,75 +97,70 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Linux.
-
-#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Instalación del agente en una máquina supervisada por SCOM
-
-Para las máquinas supervisadas por System Center Operations Manager 2012 R2 o versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map tiene una integración con SCOM que aprovecha SCOM MMA para recopilar los datos de dependencia necesarios. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.
-
-
 ### <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 1. Para instalar al agente de dependencia en una máquina Windows, haga doble clic en el archivo de instalación y siga los pasos del asistente.
 2. Para instalar el agente de dependencia en una máquina Linux, instale como raíz mediante el siguiente comando:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Obtenga más información sobre la compatibilidad de Dependency Agent para los sistemas operativos [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)y [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
+## <a name="create-a-group-using-dependency-visualization"></a>Creación de un grupo mediante la visualización de dependencias
 
-[Más información](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
-
-
-## <a name="create-a-group"></a>Creación de un grupo
-
-1. Después de instalar los agentes, vaya al portal y haga clic en **Administrar** > **Máquinas**.
-2. Busque la máquina en que instaló los agentes.
-3. La columna **Dependencias** de la máquina debería aparecer ahora como **Ver dependencias**. Haga clic en la columna para ver las dependencias de la máquina.
-4. En el mapa de dependencias de la máquina aparecen los siguientes detalles:
-    - Conexiones TCP de entrada (clientes) y de salida (servidores) hacia y desde la máquina
-        - Las máquinas dependientes que no tienen instalado el agente MMA y de dependencias se agrupan en función de los números de puerto.
-        - Las máquinas dependientes que tienen instalado el agente de dependencia y MMA se muestran como casillas diferentes
-    - Procesos que se ejecutan dentro de la máquina; aquí puede expandir cada casilla de la máquina para ver los procesos
-    - Propiedades, como el nombre de dominio completo, el sistema operativo, la dirección MAC, entre otras, de cada máquina; puede hacer clic en la casilla de cada máquina para ver estos detalles
-
-      ![Ver las dependencias de máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+2. En la columna **Dependencias**, haga clic en **Ver dependencias** para cada máquina que quiera revisar.
+3. En el mapa de dependencias, puede ver lo siguiente:
+    - Conexiones TCP de entrada (clientes) y de salida (servidores) hacia y desde la máquina.
+    - Las máquinas dependientes que no tienen instalados agentes de dependencias se agrupan en función de los números de puerto.
+    - Las máquinas dependientes con agentes de dependencias instalados se muestran como cuadros independientes.
+    - Los procesos que se ejecutan en la máquina. Expanda el cuadro de cada máquina para ver los procesos.
+    - Las propiedades de la máquina (incluido el FQDN, el sistema operativo y la dirección MAC). Haga clic en el cuadro de cada máquina para ver los detalles.
 
 4. Puede consultar las dependencias de distintas duraciones; para ello, haga clic en la duración correspondiente en la etiqueta de intervalo de tiempo. De forma predeterminada, el intervalo es una hora. Puede modificar el intervalo de tiempo o especificar las fechas de inicio y finalización, y la duración.
 
-   > [!NOTE]
-   >    Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use los registros de Azure Monitor para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante un período más largo.
-
-5. Después de identificar máquinas dependientes que desea agrupar, use Ctrl+clic para seleccionar varias máquinas en el mapa y haga clic en **Agrupar máquinas**.
-6. Especifique un nombre para el grupo. Verifique que Azure Migrate puede detectar las máquinas dependientes.
-
     > [!NOTE]
-    > Si Azure Migrate no detecta una máquina dependiente, puede agregarla al grupo. Para agregar estas máquinas al grupo, debe volver a ejecutar el proceso de detección con el ámbito correcto en la instancia de vCenter Server y asegurarse de que Azure Migrate detecta la máquina.  
+    > El intervalo de tiempo puede ser de hasta una hora. Si necesita un intervalo más amplio, use Azure Monitor para consultar los datos dependientes durante un período más prolongado.
 
-7. Si desea crear una evaluación para este grupo, seleccione la casilla para crear una evaluación para el grupo.
+5. Después de identificar máquinas dependientes que quiere agrupar, use Control + clic para seleccionar varias máquinas en el mapa y haga clic en **Agrupar máquinas**.
+6. Especifique un nombre para el grupo.
+7. Verifique que Azure Migrate puede detectar las máquinas dependientes.
+
+    - Si Azure Migrate: Server Assessment no detecta una máquina dependiente, no puede agregarla al grupo.
+    - Para agregar una máquina, vuelva a ejecutar la detección y verifique que se detectó.
+
+8. Si desea crear una evaluación para este grupo, seleccione la casilla para crear una evaluación para el grupo.
 8. Haga clic en **Aceptar** para guardar el grupo.
 
-Una vez creado el grupo, se recomienda instalar los agentes en todas las máquinas del grupo y restringir el grupo mediante la visualización de la dependencia de todo el grupo.
+Después de crear el grupo, le recomendamos que instale los agentes en todas las máquinas del grupo y, a continuación, visualice las dependencias de todo el grupo.
 
-## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consulta de datos de dependencia de los registros de Azure Monitor
+## <a name="query-dependency-data-in-azure-monitor"></a>Consulta de datos de dependencia en Azure Monitor
 
-Los datos de dependencia capturados por Service Map están disponibles para su consulta en el área de trabajo de Log Analytics asociado con el proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre las tablas de datos de Service Map que puede consultar en los registros de Azure Monitor. 
+Los datos de dependencia que captura Service Map se pueden consultar en el área de trabajo de Log Analytics asociada con el proyecto de Azure Migrate. Log Analytics se usa para escribir y ejecutar consultas de registros en Azure Monitor.
 
-Para ejecutar consultas de Kusto:
+- [Obtenga información sobre cómo](../azure-monitor/insights/service-map.md#log-analytics-records) buscar datos de Service Map en Log Analytics.
+- [Obtenga información general](../azure-monitor/log-query/get-started-queries.md) sobre la escritura de consultas de registro en [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+
+Ejecute una consulta para los datos de dependencia como se indica a continuación:
 
 1. Después de instalar los agentes, vaya al portal y haga clic en **Introducción**.
-2. En **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en el nombre del área de trabajo que se proporciona junto al **Área de trabajo de OMS**.
-3. En la página del área de trabajo de Log Analytics, haga clic en **General** > **Registros**.
-4. Escriba la consulta para recopilar los datos de dependencia mediante los registros de Azure Monitor. Busque consultas de ejemplo en la sección siguiente.
-5. Ejecute la consulta haciendo clic en Ejecutar. 
+2. En **Azure Migrate: Server Assessment**, haga clic en **Información general**. Haga clic en la flecha abajo para expandir **Información esencial**.
+3. En el **Área de trabajo de OMS**, haga clic en el nombre del área de trabajo.
+3. En la página del área de trabajo de Log Analytics > **General**, haga clic en **Registros**.
+4. Escriba la consulta y haga clic en **Ejecutar**.
 
-[Más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre la escritura de consultas de Kusto. 
+### <a name="sample-queries"></a>Consultas de ejemplo
 
-### <a name="sample-azure-monitor-logs-queries"></a>Consultas de registros de Azure Monitor de ejemplo
+Le proporcionamos consultas de ejemplo que puede utilizar para extraer datos de dependencia.
 
-A continuación se muestran consultas de ejemplo que puede utilizar para extraer datos de dependencia. Puede modificar las consultas para extraer los puntos de datos preferidos. [Aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) hay disponible una lista exhaustiva de los campos de registros de datos de dependencia. Busque más consultas de ejemplo [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+- Puede modificar las consultas para extraer los puntos de datos preferidos.
+- [Revise](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) una lista completa de los registros de datos de dependencia.
+- [Revise](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) ejemplos consultas adicionales.
 
-#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumen de las conexiones entrantes en un conjunto de máquinas
+#### <a name="sample-review-inbound-connections"></a>Sample: revisión de conexiones entrantes
 
-Tenga en cuenta que los registros de la tabla de métricas de conexión, VMConnection, no representan conexiones de red físicos individuales. Varias conexiones de red físicas se agrupan en una conexión lógica. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sobre cómo se agregan los datos de conexión de red física en un solo registro lógico en VMConnection. 
+Revise las conexiones entrantes para un conjunto de máquinas virtuales.
+
+- Los registros de la tabla de métricas de conexión (VMConnection) no representan conexiones de red físicas individuales.
+- Varias conexiones de red físicas se agrupan en una conexión lógica.
+- [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sobre cómo se agregan los datos de conexión de red física en VMConnection.
 
 ```
 // the machines of interest
@@ -147,15 +168,17 @@ let ips=materialize(ServiceMapComputer_CL
 | summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
 | mvexpand ips to typeof(string));
 let StartDateTime = datetime(2019-03-25T00:00:00Z);
-let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
 VMConnection
-| where Direction == 'inbound' 
+| where Direction == 'inbound'
 | where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
 | join kind=inner (ips) on $left.DestinationIp == $right.ips
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Resumen del volumen de datos enviados y recibidos en conexiones entrantes entre un conjunto de máquinas
+#### <a name="sample-summarize-sent-and-received-data"></a>Sample: resumen de los datos enviados y recibidos
+
+En este ejemplo se resume el volumen de datos enviados y recibidos en conexiones salientes entre un conjunto de máquinas.
 
 ```
 // the machines of interest
@@ -163,9 +186,9 @@ let ips=materialize(ServiceMapComputer_CL
 | summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
 | mvexpand ips to typeof(string));
 let StartDateTime = datetime(2019-03-25T00:00:00Z);
-let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
 VMConnection
-| where Direction == 'inbound' 
+| where Direction == 'inbound'
 | where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
 | join kind=inner (ips) on $left.DestinationIp == $right.ips
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
@@ -173,6 +196,4 @@ VMConnection
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Más información](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre las preguntas más frecuentes sobre visualización de dependencias.
-- [Más información](how-to-create-group-dependencies.md) sobre cómo restringir el grupo mediante la visualización de las dependencias del grupo.
-- [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.
+[Cree una evaluación](how-to-create-assessment.md) para un grupo.

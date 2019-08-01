@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478407"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154778"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 La telemetría está disponible en la tabla `customEvents` de [Analytics de Application Insights](analytics.md). Cada fila representa una llamada a `trackEvent(..)` en la aplicación.
 
-Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de los eventos personalizados, debe, por tanto, use código como `customEvents | summarize sum(itemCount)`.
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric está en desuso en .NET SDK. Las métricas deben agregarse previamente siempre durante un tiempo antes de enviarse. Use una de las sobrecargas GetMetric(..) para obtener un objeto de métrica para acceder a funcionalidades de agregación previa del SDK. Si va a implementar su propia lógica de agregación previa, puede usar el método Track(ITelemetry metricTelemetry) para enviar los resultados agregados. Si su aplicación requiere el envío de un elemento de telemetría independiente en cada ocasión sin agregación a lo largo del tiempo, es probable que en su caso haya que usar la telemetría de eventos; consulte TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric no es el método preferido para el envío de métricas. Las métricas deben agregarse previamente siempre durante un tiempo antes de enviarse. Use una de las sobrecargas GetMetric(..) para obtener un objeto de métrica para acceder a funcionalidades de agregación previa del SDK. Si va a implementar su propia lógica de agregación previa, puede usar el método TrackMetric() para enviar los agregados resultantes. Si su aplicación requiere el envío de un elemento de telemetría independiente en cada ocasión sin agregación a lo largo del tiempo, es probable que en su caso haya que usar la telemetría de eventos; consulte TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights puede crear gráficos de métricas que no estén conectadas a eventos concretos. Por ejemplo, puede supervisar una longitud de cola a intervalos regulares. En el caso de las métricas, las mediciones individuales tienen menos interés que las variaciones y tendencias; por tanto, los gráficos estadísticos resultan útiles.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Datos de vaciado
 
-Normalmente, el SDK envía datos a intervalos fijos (normalmente 30 segundos) o siempre que el búfer es completa (normalmente de 500 elementos). Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
+Normalmente, el SDK envía datos a intervalos fijos (normalmente 30 segundos) o cuando el búfer está lleno (normalmente 500 elementos). Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
 
 *C#*
 
@@ -1084,7 +1084,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-Para Node.js, puede habilitar el modo de desarrollador al habilitar el registro interno a través de `setInternalLogging` y estableciendo `maxBatchSize` en 0, lo que hace que los datos de telemetría para enviarse tan pronto como el se recopila.
+Para Node.js, puede habilitar el modo de desarrollador habilitando el registro interno a través de `setInternalLogging` y estableciendo `maxBatchSize` en 0, lo que hace que la telemetría se envíe tan pronto como se recopile.
 
 ```js
 applicationInsights.setup("ikey")

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076865"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 
@@ -41,7 +41,7 @@ Para usar la configuración del almacenamiento automática, la máquina virtual 
 
 En las secciones siguientes se describe cómo configurar el almacenamiento para nuevas máquinas virtuales de SQL Server.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Al aprovisionar una máquina virtual de Azure mediante una imagen de la galería de SQL Server, puede configurar automáticamente el almacenamiento para la nueva máquina virtual. Especifique el tamaño del almacenamiento, los límites de rendimiento y el tipo de carga de trabajo. En la siguiente captura de pantalla se muestra la hoja Configuración de almacenamiento utilizada durante el aprovisionamiento de la máquina virtual de SQL.
 
@@ -55,7 +55,7 @@ En función de lo que elija, Azure realiza las siguientes tareas de configuraci�
 * Asocia el grupo de almacenamiento a una unidad nueva en la máquina virtual.
 * Optimiza esta nueva unidad en función de su tipo de carga de trabajo (almacenamiento de datos, procesamiento de transaccional o general).
 
-Para más información sobre cómo Azure define la configuración del almacenamiento, consulte la sección [Configuración del almacenamiento](#storage-configuration). Para más información detallada acerca de cómo crear una máquina virtual de SQL Server en Azure Portal, consulte el [tutorial de aprovisionamiento](virtual-machines-windows-portal-sql-server-provision.md).
+Para más información sobre cómo Azure define la configuración del almacenamiento, consulte la sección [Configuración del almacenamiento](#storage-configuration). Para ver información más detallada acerca de cómo crear una máquina virtual con SQL Server en Azure Portal, consulte el [tutorial de aprovisionamiento](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Plantillas de Resource Manager
 
@@ -67,24 +67,24 @@ Si utiliza las siguientes plantillas de Resource Manager, se asocian dos discos 
 
 ## <a name="existing-vms"></a>Máquinas virtuales existentes
 
-Para las máquinas virtuales de SQL Server existentes, puede modificar algunas opciones de configuración del almacenamiento en el Portal de Azure. Seleccione la máquina virtual, vaya al área Configuración y seleccione la Configuración de SQL Server. La hoja Configuración de SQL Server muestra el uso del almacenamiento actual de la máquina virtual. En este gráfico se muestran todas las unidades que existen en la máquina virtual. Para cada unidad, el espacio de almacenamiento se muestra en cuatro secciones:
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Para las máquinas virtuales de SQL Server existentes, puede modificar algunas opciones de configuración del almacenamiento en el Portal de Azure. Abra el [recurso máquinas virtuales SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) y seleccione **Información general**. La página SQL Server Overview (Información general de SQL Server) muestra el uso del almacenamiento actual de la máquina virtual. En este gráfico se muestran todas las unidades que existen en la máquina virtual. Para cada unidad, el espacio de almacenamiento se muestra en cuatro secciones:
 
 * Datos SQL
 * Registro de SQL
 * Otros (almacenamiento que no es de SQL)
 * Disponible
 
-![Configuración del almacenamiento para la máquina virtual de SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+Para modificar la configuración de almacenamiento, seleccione **Configurar** en **Configuración**. 
 
-Para configurar el almacenamiento con el fin de agregar una nueva unidad o extender una unidad existente, haga clic en el vínculo Editar encima del gráfico.
+![Configuración del almacenamiento para la máquina virtual de SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Las opciones de configuración que se ven varían en función de si ha utilizado esta característica antes. Cuando se utiliza por primera vez, puede especificar los requisitos de almacenamiento para una nueva unidad. Si ha utilizado esta característica anteriormente para crear una unidad, puede ampliar el almacenamiento de esa unidad.
 
 ### <a name="use-for-the-first-time"></a>Uso por primera vez
 
 Si es la primera vez que usa esta característica, puede especificar los límites de tamaño y rendimiento del almacenamiento para una nueva unidad. Esta experiencia es similar a lo que vería en el tiempo de aprovisionamiento. La principal diferencia es que no se permiten especificar el tipo de carga de trabajo. Esta restricción impide que se interrumpa cualquier configuración de SQL Server existente en la máquina virtual.
-
-![Configuración de los controles deslizantes del almacenamiento de SQL Server](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
 Azure crea una unidad en función de sus especificaciones. En este escenario, Azure realiza las siguientes tareas de configuración del almacenamiento:
 
@@ -98,8 +98,6 @@ Para más información sobre cómo Azure define la configuración del almacenami
 ### <a name="add-a-new-drive"></a>Incorporación de una nueva unidad
 
 Si ya ha configurado el almacenamiento en la máquina virtual de SQL Server, al expandirlo aparecen dos nuevas opciones. La primera opción es agregar una nueva unidad, lo que puede aumentar el nivel de rendimiento de la máquina virtual.
-
-![Incorporación de una nueva unidad a una máquina virtual de SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
 
 Sin embargo, después de agregar la unidad, debe realizar una configuración manual adicional para conseguir el aumento del rendimiento.
 
@@ -129,8 +127,8 @@ Azure usa la siguiente configuración para crear el grupo de almacenamiento en m
 | Tamaños de disco |1 TB cada uno |
 | Memoria caché |Lectura |
 | Tamaño de la asignación |Tamaño de la unidad de asignación NTFS = 64 KB |
-| Inicialización de archivo instantáneo |Enabled |
-| Bloquear páginas en memoria |Enabled |
+| Inicialización de archivo instantáneo |habilitado |
+| Bloquear páginas en memoria |habilitado |
 | Recuperación |Recuperación simple (sin resistencia) |
 | Número de columnas |Número de discos de datos<sup>1</sup> |
 | TempDB location (Ubicación de TempDB) |Almacenada en discos de datos<sup>2</sup> |

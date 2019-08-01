@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109449"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -46,7 +46,7 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 |Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalación mediante configuración personalizada | [Instalación personalizada de Azure AD Connect](./how-to-connect-install-custom.md)|
 |Actualización desde DirSync | [Actualización desde la herramienta de sincronización de Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Después de la instalación | [Comprobar la instalación y asignar licencias](how-to-connect-post-installation.md)|
+|Después de la instalación | [Comprobación de la instalación y asignación de licencias ](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Más información sobre la instalación de Azure AD Connect
 También quiere prepararse para los problemas [operativos](how-to-connect-sync-operations.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](how-to-connect-sync-staging-server.md) .
@@ -68,7 +68,7 @@ Azure AD Connect incluye varias características que puede activar de manera opc
 
 [escritura diferida de contraseñas](../authentication/quickstart-sspr.md) permite a los usuarios cambiar y restablecer sus contraseñas en la nube y aplicar su directiva local de contraseñas.
 
-[reescritura de dispositivos](how-to-connect-device-writeback.md) permite que un dispositivo registrado en Azure AD se reescriba en Active Directory local para que se pueda usar para el acceso condicional.
+[Escritura diferida de dispositivo](how-to-connect-device-writeback.md) permite que un dispositivo registrado en Azure AD se reescriba en Active Directory local para que se pueda usar para el acceso condicional.
 
 La característica para [evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada y protege su directorio en la nube de muchas eliminaciones al mismo tiempo. De forma predeterminada permite 500 eliminaciones por cada ejecución. Puede cambiar esta configuración según el tamaño de la organización.
 
@@ -160,8 +160,8 @@ El portal de Azure AD Connect Health muestra las vistas de alertas, la supervisi
 ![portal de Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **Inicio rápido**: si se selecciona esta opción, se abre la hoja **Inicio rápido**. Para descargar el agente de Azure AD Connect Health, seleccione **Obtener herramientas**. También puede acceder a la documentación y aportar comentarios.
-* **Azure Active Directory Connect (sincronización)**: esta opción muestra los servidores de Azure AD Connect que Azure AD Connect Health supervisa actualmente. La entrada **Errores de sincronización** mostrará los errores de sincronización básicos de su primer servicio de sincronización incorporado por categorías. Al seleccionar la entrada **Servicios de sincronización**, la hoja que se abre muestra información acerca de los servidores de Azure AD Connect. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-sync.md).
-* **Servicios de federación de Active Directory (AD FS)**: esta opción muestra todos los servicios de AD FS que Azure AD Connect Health supervisa actualmente. Cuando se selecciona una instancia, la hoja que se abre muestra información acerca de ella. Esta información incluye una descripción general, propiedades, alertas, supervisión y análisis de uso. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-adfs.md).
+* **Azure Active Directory Connect (sincronización)** : esta opción muestra los servidores de Azure AD Connect que Azure AD Connect Health supervisa actualmente. La entrada **Errores de sincronización** mostrará los errores de sincronización básicos de su primer servicio de sincronización incorporado por categorías. Al seleccionar la entrada **Servicios de sincronización**, la hoja que se abre muestra información acerca de los servidores de Azure AD Connect. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-sync.md).
+* **Servicios de federación de Active Directory (AD FS)** : esta opción muestra todos los servicios de AD FS que Azure AD Connect Health supervisa actualmente. Cuando se selecciona una instancia, la hoja que se abre muestra información acerca de ella. Esta información incluye una descripción general, propiedades, alertas, supervisión y análisis de uso. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-adfs.md).
 * **Active Directory Domain Services**: esta opción muestra todos los bosques de AD DS que Azure AD Connect Health supervisa actualmente. Cuando se selecciona un bosque, la hoja que se abre muestra información acerca de él. Esta información incluye una introducción a la información esencial, el panel de controladores de dominio, el panel de estado de replicación, alertas y supervisión. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health con AD DS](how-to-connect-health-adds.md).
 * **Configurar**: esta sección incluye opciones para activar o desactivar lo siguiente:
 

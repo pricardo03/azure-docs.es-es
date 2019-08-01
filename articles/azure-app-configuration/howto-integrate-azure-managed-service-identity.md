@@ -1,6 +1,6 @@
 ---
-title: Integrar con Azure administra las identidades | Microsoft Docs
-description: Aprenda a usar Azure administra las identidades para autenticarse y obtener acceso a la configuración de la aplicación de Azure
+title: Integración con identidades administradas de Azure | Microsoft Docs
+description: Aprenderá a usar identidades administradas de Azure para autenticarse en Azure App Configuration y acceder a este servicio
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393648"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure

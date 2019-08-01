@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
 ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475962"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
@@ -62,13 +62,13 @@ Para más información sobre cómo instalar el certificado de cliente, consulte 
 
 ### <a name="symptom"></a>Síntoma
 
-Cuando pruebe y conectarse a una puerta de enlace de red virtual de Azure con IKEv2 en Windows, obtendrá el mensaje de error siguiente:
+Cuando lo intente y se conecte a una puerta de enlace de red virtual de Azure con IKEv2 en Windows, obtendrá el mensaje de error siguiente:
 
 **No se pudo establecer la conexión de red entre el equipo y el servidor VPN porque el servidor remoto no responde**
 
 ### <a name="cause"></a>Causa
  
- El problema se produce si la versión de Windows no dispone de soporte técnico para la fragmentación de IKE
+ El problema se produce si la versión de Windows no dispone de soporte técnico para la fragmentación de IKE.
  
 ### <a name="solution"></a>Solución
 
@@ -246,7 +246,7 @@ Si el certificado cubre más del 50 por ciento durante su vigencia, se deshace.
 
 ### <a name="solution"></a>Solución
 
-Para resolver este problema, vuelva a descargar y volver a implementar el paquete en todos los clientes del sitio, seleccione.
+Para resolver este problema, vuelva a descargar e implementar el paquete de punto a sitio en todos los clientes.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Demasiados clientes de VPN conectados a la vez
 

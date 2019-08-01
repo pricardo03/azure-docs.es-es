@@ -1,5 +1,5 @@
 ---
-title: 'Configurar servidor Azure MFA para alta disponibilidad: Azure Active Directory'
+title: 'Configuración del servidor Azure MFA para la alta disponibilidad: Azure Active Directory'
 description: Implemente varias instancias del Servidor Microsoft Azure Multi-Factor Authentication en configuraciones que proporcionan alta disponibilidad.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,22 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 43154e428c3208f5d990688554407777d09f2f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056033"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configuración del Servidor Microsoft Azure Multi-Factor Authentication para la alta disponibilidad
 
 Para conseguir una alta disponibilidad con la implementación del Servidor Azure MFA, debe implementar varios servidores MFA. En esta sección se proporciona información sobre un diseño de carga equilibrada para conseguir objetivos de alta disponibilidad en la implementación del Servidor Azure MFA.
 
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+
 ## <a name="mfa-server-overview"></a>Introducción al Servidor MFA
 
 La arquitectura del servicio del Servidor Azure MFA consta de varios componentes, como se muestra en el siguiente diagrama:
 
- ![Componentes de la arquitectura de servidor MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![Componentes clave de la arquitectura del servidor MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 Un Servidor MFA es un servidor con Windows Server que tiene instalado el software Azure Multi-Factor Authentication. El servicio MFA debe activar la instancia del Servidor MFA en Azure para que dicho servidor funcione. Se puede instalar más de una instancia del Servidor MFA en el entorno local.
 
@@ -36,7 +39,7 @@ Las instancias maestras y subordinadas del Servidor MFA se comunican con el serv
 
 Tras la autenticación correcta con AD, la instancia del Servidor MFA se comunicará con el servicio MFA. La instancia del Servidor MFA espera a recibir una notificación del servicio MFA para permitir o denegar el acceso del usuario a la aplicación.
 
-Si la instancia maestra del Servidor MFA se queda sin conexión, las autenticaciones todavía pueden procesarse, pero no las operaciones que requieren cambios en la base de datos de MFA. (Algunos ejemplos son: la adición de usuarios, autoservicio PIN cambios, cambiar información de usuario o acceso al portal de usuarios)
+Si la instancia maestra del Servidor MFA se queda sin conexión, las autenticaciones todavía pueden procesarse, pero no las operaciones que requieren cambios en la base de datos de MFA. (Algunos ejemplos son la incorporación de usuarios, los cambios de PIN de autoservicio, las modificaciones de información del usuario o el acceso al portal de usuarios)
 
 ## <a name="deployment"></a>Implementación
 

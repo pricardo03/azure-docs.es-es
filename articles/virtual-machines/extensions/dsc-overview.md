@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515907"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
 El agente de máquina virtual de Azure y las extensiones asociadas forman parte de los servicios de infraestructura de Microsoft Azure. Las extensiones de máquina virtual son componentes de software que amplían la funcionalidad de dicha máquina virtual y simplifican diversas operaciones de administración de la máquina virtual.
 
-El principal caso de uso de la extensión de Desired State Configuration (DSC) de Azure es arrancar una máquina virtual en el [servicio de configuración de estado de Azure Automation (DSC)](../../automation/automation-dsc-overview.md).
-El servicio proporciona [ventajas](/powershell/dsc/metaconfig#pull-service) que incluyen la administración continua de la configuración de máquina virtual y la integración con otras herramientas operativas, como la supervisión de Azure.
-Uso de la extensión para registrar la máquina virtual para el servicio proporciona una solución flexible que funciona incluso a través de las suscripciones de Azure.
+El caso de uso principal de la extensión Desired State Configuration (DSC) de Azure es arrancar una máquina virtual en el [servicio State Configuration (DSC) de Azure Automation](../../automation/automation-dsc-overview.md).
+El servicio proporciona [ventajas](/powershell/dsc/metaconfig#pull-service) que incluyen la administración continua de la configuración de máquinas virtuales y la integración con otras herramientas operativas, como Supervisión de Azure.
+El uso de la extensión para registrar las máquinas virtuales para el servicio proporciona una solución flexible que funciona incluso en las suscripciones de Azure.
 
 Puede utilizar la extensión DSC independientemente del servicio DSC de Automatización.
-Sin embargo, esto solo insertará una configuración a la máquina virtual.
-Ningún informe en curso está disponible, excepto localmente en la máquina virtual.
+Sin embargo, esto solo insertará una configuración en la máquina virtual.
+No hay ningún informe disponible, excepto los locales en la máquina virtual.
 
 Este artículo proporciona información sobre ambos escenarios de uso de la extensión DSC: para la incorporación de Automation y como herramienta para asignar configuraciones a las máquinas virtuales mediante Azure SDK.
 
@@ -66,24 +66,24 @@ La instalación de WMF requiere un reinicio. Después del reinicio, la extensió
 
 La extensión DSC de Azure incluye un script de configuración predeterminada diseñado para utilizarse al incorporar una máquina virtual al servicio DSC de Azure Automation. Los parámetros del script se alinean con las propiedades configurables del [administrador de configuración local](/powershell/dsc/metaconfig). Para los parámetros de script, consulte [Script de configuración predeterminada](dsc-template.md#default-configuration-script) en [Extensión Desired State Configuration con plantillas de Azure Resource Manager](dsc-template.md). Para el script completo, consulte la [plantilla de inicio rápido de Azure en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Información para registrar con el servicio de configuración de estado de Azure Automation (DSC)
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Información para el registro con el servicio State Configuration (DSC) de Azure Automation
 
-Al usar la extensión DSC para registrar un nodo con el servicio de configuración de estado, deberá proporcionarse tres valores.
+Al usar la extensión DSC para registrar un nodo con el servicio de State Configuration, deberán proporcionarse tres valores.
 
-- RegistrationUrl: la dirección https de la cuenta de Azure Automation
-- RegistrationKey - un secreto compartido que se usa para registrar los nodos con el servicio
-- NodeConfigurationName - el nombre de la configuración nodo (MOF) para extraer desde el servicio para configurar el rol de servidor
+- RegistrationUrl: dirección https de la cuenta de Azure Automation
+- RegistrationKey: secreto compartido que se usa para registrar los nodos con el servicio
+- NodeConfigurationName: nombre de la configuración del nodo (MOF) para extraer desde el servicio y configurar el rol de servidor
 
-Esta información puede verse en la [portal Azure](../../automation/automation-dsc-onboarding.md#azure-portal) o puede usar PowerShell.
+Esta información se encuentra en [Azure Portal](../../automation/automation-dsc-onboarding.md#azure-portal), pero también puede usar PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Para el nombre de la configuración de nodo, asegúrese de que la configuración del nodo existe en la configuración de estado de Azure.  Si no es así, la implementación de extensión devolverá un error.  Además, asegúrese de que usa el nombre de la *configuración de nodo* y no la configuración.
-Se define una configuración en una secuencia de comandos que se usa [para compilar la configuración de nodo (archivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
-El nombre será siempre la configuración seguida por un punto `.` y `localhost` o un nombre de equipo específico.
+Para el nombre de la configuración del nodo, asegúrese de que la configuración del nodo existe en Azure State Configuration.  Si no es así, la implementación de extensión devolverá un error.  Además, asegúrese de que usa el nombre de la *Configuración del nodo* y no de Configuración.
+La configuración se define en un script que se usa para [compilar la Configuración del nodo (archivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+El nombre será siempre la Configuración seguida por un punto `.` y, o bien, `localhost`, o bien, un nombre de equipo específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensión DSC en plantillas de Resource Manager
 
@@ -146,9 +146,9 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 
-La CLI de Azure puede utilizarse para implementar la extensión de DSC en una máquina virtual existente.
+La CLI de Azure puede utilizarse para implementar la extensión DSC en una máquina virtual existente.
 
-Para una máquina virtual con Windows:
+Para máquinas virtuales que ejecutan Windows:
 
 ```azurecli
 az vm extension set \
@@ -160,7 +160,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-Para una máquina virtual Linux:
+Para máquinas virtuales que ejecutan Linux:
 
 ```azurecli
 az vm extension set \

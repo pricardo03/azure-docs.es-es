@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059185"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -49,23 +49,23 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
     - Azure Storage
     - Recurso compartido de archivos (local)
 - Enumeración de las copias de seguridad
-- Desencadenar una copia de seguridad ad hoc de una partición
+- Desencadenamiento de una copia de seguridad ad hoc de una partición
 - Restauración de una partición mediante la copia de seguridad anterior
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para ver los pasos necesarios para crear el clúster de Service Fabric mediante la plantilla de recursos de Azure.
+* Clúster de Service Fabric con la versión 6.4 de Fabric y versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para ver los pasos necesarios para crear el clúster de Service Fabric mediante la plantilla de recursos de Azure.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para saber cómo obtener o crear un certificado X.509.
-* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. Para las aplicaciones destinadas a .NET Core 2.0, aplicación debe compilarse con el SDK de Service Fabric versión 3.1 o superior.
+* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .NET Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
 * Cree una cuenta de Azure Storage para almacenar las copias de seguridad de la aplicación.
-* Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [preliminar] para realizar llamadas de la configuración.
+* Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Asegúrese de que el clúster está conectado mediante el `Connect-SFCluster` comando antes de realizar cualquier solicitud de configuración mediante el módulo Microsoft.ServiceFabric.Powershell.Http.
+* Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -77,9 +77,9 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 
 ### <a name="using-azure-portal"></a>Uso de Azure Portal
 
-Habilitar `Include backup restore service` casilla de verificación bajo `+ Show optional settings` en `Cluster Configuration` ficha.
+Habilite la casilla `Include backup restore service` bajo `+ Show optional settings` en la pestaña `Cluster Configuration`.
 
-![Habilitar el servicio de restauración de copia de seguridad con el Portal][1]
+![Habilitación del servicio de copia de seguridad y restauración con Azure Portal][1]
 
 
 ### <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
@@ -141,7 +141,7 @@ Para el almacenamiento de copia de seguridad, use la cuenta de Azure Storage cre
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
 
-Ejecute el siguiente cmdlets de PowerShell para crear nueva directiva de copia de seguridad. Reemplace `account-name` por el nombre de la cuenta de almacenamiento y `account-key` por la clave de la cuenta de almacenamiento.
+Ejecute los siguientes cmdlets de PowerShell para crear una nueva directiva de copia de seguridad. Reemplace `account-name` por el nombre de la cuenta de almacenamiento y `account-key` por la clave de la cuenta de almacenamiento.
 
 ```powershell
 
@@ -149,7 +149,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para crear la nueva directiva. Reemplace `account-name` por el nombre de la cuenta de almacenamiento y `account-key` por la clave de la cuenta de almacenamiento.
 
@@ -195,7 +195,7 @@ Después de definir la directiva de copia de seguridad para satisfacer los requi
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para asociar la directiva de copia de seguridad con el nombre `BackupPolicy1` que se ha creado en el paso anterior con la aplicación `SampleApp`.
 
@@ -227,7 +227,7 @@ Las copias de seguridad asociadas a todas las particiones que pertenecen a los s
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute el siguiente script de PowerShell para invocar la API de HTTP a fin de enumerar las copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`.
 
@@ -281,7 +281,7 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
-- Cmdlets de PowerShell de Service Fabric están en modo de vista previa.
+- Los cmdlets de PowerShell para Service Fabric están en modo de versión preliminar.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes

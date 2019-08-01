@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341446"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154565"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse"></a>Cree su primera función con Java y Eclipse 
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Creación de la primera función con Java y Eclipse 
 
 En este artículo se muestra cómo crear un proyecto de función [sin servidor](https://azure.microsoft.com/solutions/serverless/) con el IDE de Eclipse y Apache Maven, probarlo y depurarlo, e implementarlo en Azure Functions. 
 
@@ -43,15 +43,15 @@ Se recomienda encarecidamente instalar también [Azure Functions Core Tools, ver
 
 ## <a name="create-a-functions-project"></a>Creación de un proyecto de Functions
 
-1. En Eclipse, seleccione el menú **File** (Archivo) y, luego, elija **Project** (Proyecto). 
-1. Abra la carpeta **Java Project** (Proyecto de Java) en la ventana **New Project** (Nuevo proyecto), seleccione **Maven Project** (Proyecto de Maven) y, a continuación, elija **Next** (Siguiente).
+1. En Eclipse, seleccione el menú **File** (Archivo) y, luego, seleccione **New -&gt; Maven Project** (Nuevo - Proyecto Maven). 
 1. Acepte los valores predeterminados en el cuadro de diálogo **New Maven Project** (Nuevo proyecto de Maven) y seleccione **Next** (Siguiente).
 1. Seleccione **Add Archetype** (Agregar arquetipo) y agregue las entradas para [azure-functions-arquetipo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Identificador de grupo de arquetipo: com.microsoft.azure
     - Identificador de artefacto de arquetipo: azure-functions-arquetipo
-    - Versión: Use la versión más reciente de [el repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![crear Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Haga clic en **OK** (Aceptar), escriba los detalles del proyecto actual y, por último, seleccione **Finish** (Finalizar).
+    - Versión: Utilice la versión más reciente **1.22** del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Creación de Maven en Eclipse](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Haga clic en **OK** (Aceptar) y, a continuación, haga clic en **Next** (Siguiente) para especificar los valores, como la siguiente instantánea (use un nombre de aplicación diferente que **fabrikam-function-20170920120101928**) y finalmente **Finish** (Finalizar).
+    ![Creación de Maven en Eclipse 2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven crea los archivos del proyecto en una carpeta nueva con el nombre _artifactId_. El código generado en el proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simple que devuelve el cuerpo de la solicitud HTTP desencadenadora.
 
@@ -68,7 +68,7 @@ Finalice el tiempo de ejecución en la ventana de consola cuando haya terminado 
 
 ### <a name="debug-the-function-in-eclipse"></a>Depuración de la función en Eclipse
 
-En la configuración de **Run As** (Ejecutar como) establecida en el paso anterior, cambie `azure-functions:run` a `mvn azure-functions:run -DenableDebug` y ejecute la configuración actualizada para iniciar la aplicación de función en el modo de depuración.
+En la configuración de **Run As** (Ejecutar como) establecida en el paso anterior, cambie `azure-functions:run` a `azure-functions:run -DenableDebug` y ejecute la configuración actualizada para iniciar la aplicación de función en el modo de depuración.
 
 Seleccione el menú **Run** (Ejecutar) y abra **Debug Configurations** (Configuraciones de depuración). Elija **Remote Java Application** (Aplicación de Java remota) y cree una. Asigne un nombre a la configuración y complete la configuración. El puerto debe ser el mismo que el del puerto de depuración que abrió el host de función, cuyo valor predeterminado es `5005`. Después de la instalación, haga clic en `Debug` para iniciar la depuración.
 

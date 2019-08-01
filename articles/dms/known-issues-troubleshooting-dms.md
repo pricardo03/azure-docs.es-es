@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190961"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249978"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas y errores comunes de Azure Database Migration Service
 
@@ -58,7 +58,7 @@ Recibe el siguiente error al detener la instancia de Azure Database Migration Se
 
 | Causa         | Resolución |
 | ------------- | ------------- |
-| Este error se muestra cuando la instancia de servicio que está intentando detener incluye actividades que siguen en ejecución o están presentes en proyectos de migración. <br><br><br><br><br><br> | Asegúrese de que no hay ninguna actividad en ejecución en la instancia de Azure Database Migration Service que intenta detener. También puede eliminar las actividades o proyectos antes de intentar detener el servicio. Los siguientes pasos muestran cómo quitar proyectos para limpiar la instancia de servicio de migración eliminando todas las tareas en ejecución:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+| Este error se muestra cuando la instancia de servicio que está intentando detener incluye actividades que siguen en ejecución o están presentes en proyectos de migración. <br><br><br><br><br><br> | Asegúrese de que no hay ninguna actividad en ejecución en la instancia de Azure Database Migration Service que intenta detener. También puede eliminar las actividades o proyectos antes de intentar detener el servicio. Los siguientes pasos muestran cómo quitar proyectos para limpiar la instancia de servicio de migración eliminando todas las tareas en ejecución:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "\<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Error al intentar iniciar Azure Database Migration Service
 

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388328"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
@@ -64,7 +64,7 @@ También puede descargar la extensión para Chrome y Microsoft Edge directamente
 
 - [Extensión para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Extensión para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
-- [Extensión de Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
+- [Extensión para Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Uso de la extensión de inicio de sesión seguro de Mis aplicaciones
 * Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:

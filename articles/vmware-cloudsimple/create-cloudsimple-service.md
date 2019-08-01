@@ -1,6 +1,6 @@
 ---
-title: Crear solución de VMware CloudSimple - servicio de Azure
-description: Describe cómo crear el servicio CloudSimple en el portal de Azure
+title: Creación de una solución de VMware en Azure por CloudSimple
+description: Describe cómo crear el servicio CloudSimple en Azure Portal.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/04/2019
@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fc08ce48b3b5a4b2cd28cb66e6dd4d9eae3f3885
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: a0ccce6f298270b2751307868fdf85697cb7e8ee
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676959"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154966"
 ---
-# <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>Crear solución de VMware de Azure por CloudSimple - servicio
+# <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>Creación de una solución de VMware en Azure por CloudSimple
 
-Para empezar a trabajar con soluciones de VMware de Azure por CloudSimple, cree la solución de VMware de Azure por servicio CloudSimple en el portal de Azure.
+Para empezar a trabajar con la solución de VMware en Azure por CloudSimple, cree este servicio en Azure Portal.
 
 > [!NOTE]
-> Antes de crear el servicio CloudSimple, debe registrar el proveedor de recursos Microsoft.VMwareCloudSimple en su suscripción de Azure. Siga los pasos de [habilitar el proveedor de recursos Microsoft.VMwareCloudSimple en su suscripción de Azure](enable-cloudsimple-service.md).
+> Antes de crear el servicio CloudSimple, debe registrar el proveedor de recursos Microsoft.VMwareCloudSimple en la suscripción de Azure. Siga los pasos indicados en [Registrar el proveedor de recursos Microsoft.VMwareCloudSimple en su suscripción de Azure](enable-cloudsimple-service.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -30,25 +30,25 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 1. Seleccione **Todos los servicios**.
 
-2. Busque **CloudSimple servicios**.
+2. Busque **Servicios de CloudSimple**.
 
-    ![Search CloudSimple Service](media/create-cloudsimple-service-search.png)
+    ![Búsqueda del servicio CloudSimple](media/create-cloudsimple-service-search.png)
 
-3. Seleccione **CloudSimple servicios**.
+3. Seleccione **Servicios CloudSimple**.
 
-4. Haga clic en **agregar** para crear un nuevo servicio.
+4. Haga clic en **Agregar** para crear un servicio.
 
-    ![Agregar servicio CloudSimple](media/create-cloudsimple-service-add.png)
+    ![Adición del servicio CloudSimple](media/create-cloudsimple-service-add.png)
 
-5. Seleccione la suscripción en la que desea crear el servicio CloudSimple.
+5. Seleccione la suscripción en la que quiera crear el servicio CloudSimple.
 
-6. Seleccione el grupo de recursos para el servicio. Para agregar un nuevo grupo de recursos, haga clic en **crear nuevo**.
+6. Seleccione el grupo de recursos del servicio. Para agregar un nuevo grupo de recursos, haga clic en **Crear nuevo**.
 
-7. Escriba el nombre para identificar el servicio.
+7. Escriba un nombre para identificar el servicio.
 
-8. Escriba el CIDR de la puerta de enlace de servicio. Especifique una de/28 subred que no se superponga con cualquiera de las subredes existentes.  Estos incluyen subredes locales, las subredes de Azure, o cualquier planeado CloudSimple subredes. No se puede cambiar el CIDR después de crear el servicio.
+8. Escriba el CIDR de la puerta de enlace de servicio. Especifique una subred /28 que no se superponga con ninguna de sus subredes existentes.  Estas incluyen subredes locales, subredes de Azure o cualquier subred planeada de CloudSimple. No puede cambiar el CIDR después de crear el servicio.
 
-    ![Creando el servicio CloudSimple](media/create-cloudsimple-service.png)
+    ![Creación del servicio CloudSimple](media/create-cloudsimple-service.png)
 
 9. Haga clic en **OK**.
 
@@ -56,5 +56,5 @@ El servicio se crea y se agrega a la lista de servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [crear una nube privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Obtenga información sobre cómo [configurar un entorno de nube privada](quickstart-create-private-cloud.md)
+* Más información sobre cómo [crear una nube privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Más información sobre cómo [configurar un entorno de nube privada](quickstart-create-private-cloud.md)

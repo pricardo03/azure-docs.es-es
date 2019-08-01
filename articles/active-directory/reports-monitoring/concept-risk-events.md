@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107696"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
@@ -52,7 +52,7 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. 
 
 * Con la **edición de Azure AD Premium P2**, obtiene la información más detallada acerca de todas las detecciones subyacentes. 
-* Con el **P1 de Azure AD Premium edition**avanzada detecciones (por ejemplo, las propiedades de inicio de sesión desconocidas) no están cubiertas por su licencia y aparecerán bajo el nombre **inicie sesión con riesgo adicional detectado** . Además, se ocultan los campos de detalle de riesgo y el nivel de riesgo.
+* Con la **edición Azure AD Premium P1**, las detecciones avanzadas (como las propiedades de inicio de sesión desconocidas) no están cubiertas por la licencia y aparecerán bajo el nombre **Inicio de sesión con riesgo adicional detectado**. Además, se ocultan los campos de detalle de riesgo y de nivel de riesgo.
 
 Si bien la detección de eventos de riesgo ya representa un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o implementar respuestas automatizadas si configura directivas de acceso condicional. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

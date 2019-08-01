@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
 ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475594"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
@@ -50,7 +50,7 @@ Para obtener más información acerca de la integración de Azure AD y RBAC, con
 
 De la misma manera, debería conceder a los usuarios o a los grupos el menor número de privilegios requeridos, los contenedores también deberían limitarse a las acciones y procesos que necesiten. Para minimizar el riesgo de ataques, no configure las aplicaciones ni los contenedores que requieren privilegios escalados o acceso a raíz. Por ejemplo, establezca `allowPrivilegeEscalation: false` en el manifiesto de pod. Estos *contextos de seguridad de pod* están integrados en Kubernetes y le permiten definir permisos adicionales, como el usuario o grupo como el que se ejecutará, o qué funcionalidades de Linux se expondrán. Para ver más recomendaciones, consulte [Secure pod access to resources][pod-security-contexts] (Acceso seguro de pod a recursos).
 
-Para un control más detallado de las acciones de los contenedores, también puede usar las características de seguridad incorporadas de Linux como *AppArmor*y *seccomp*. Estas características se definen en el nivel de nodo y, después, se implementan a través de un manifiesto de pod. Características de seguridad integradas de Linux solo están disponibles en los pods y los nodos de Linux.
+Para un control más detallado de las acciones de los contenedores, también puede usar las características de seguridad incorporadas de Linux como *AppArmor*y *seccomp*. Estas características se definen en el nivel de nodo y, después, se implementan a través de un manifiesto de pod. Las características de seguridad integradas de Linux solo están disponibles en los pods y los nodos de Linux.
 
 > [!NOTE]
 > Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. Utilizar otras características de seguridad adicionales, como *AppArmor*, *seccomp*, *Pod Security Policies* o los controles de acceso basados en roles (RBAC) más específicos, puede hacer que las vulnerabilidades de seguridad sean menos frecuentes. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Para obtener más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] y [Actualización de un clúster de AKS][aks-upgrade].
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Nodo de proceso de Linux se actualiza y reinicia utilizando kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proceso de las actualizaciones y reinicios de nodos Linux con kured
 
-**Mejor orientación práctica** : AKS se descarga automáticamente y seguridad de las instalaciones correcciones en cada nodos de Linux, pero no se reinicia automáticamente si es necesario. Use `kured` para prestar atención a los reinicios pendientes, luego acordone y drene el nodo de forma segura para permitir que se reinicie, se apliquen las actualizaciones y esté lo más seguro posible con respecto al sistema operativo. Para los nodos de Windows Server (actualmente en versión preliminar de AKS), realice periódicamente una operación de actualización de AKS acordonar y agotar pods y implementar los nodos actualizados de forma segura.
+**Orientación con procedimientos recomendados**: AKS descarga e instala automáticamente correcciones de seguridad en cada uno de los nodos Linux, pero no se reinicia automáticamente si es necesario. Use `kured` para prestar atención a los reinicios pendientes, luego acordone y drene el nodo de forma segura para permitir que se reinicie, se apliquen las actualizaciones y esté lo más seguro posible con respecto al sistema operativo. Para los nodos de Windows Server (actualmente en versión preliminar de AKS), realice periódicamente una operación de actualización de AKS para acordonar y drenar los pods de forma segura, e implemente los nodos actualizados.
 
-Cada noche, los nodos de Linux en AKS obtención las revisiones de seguridad disponibles a través de su canal de actualización de la distribución. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel.
+Cada noche, los nodos Linux de AKS obtienen las revisiones de seguridad disponibles en su canal de actualización de distribuciones. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel.
 
-El proyecto [kured (KUbernetes REboot Daemon)][kured] de código abierto de Weaveworks vigila los reinicios pendientes del nodo. Cuando un nodo de Linux aplica a las actualizaciones que requieren un reinicio, el nodo sin ningún riesgo es acordonan y vacían para mover y programar los pods en otros nodos del clúster. Una vez que se reinicia el nodo, se vuelve a agregar al clúster y Kubernetes vuelve a reanudar la programación de pods en él. Para minimizar las interrupciones, solo se permite que `kured` reinicie un único nodo a la vez.
+El proyecto [kured (KUbernetes REboot Daemon)][kured] de código abierto de Weaveworks vigila los reinicios pendientes del nodo. Cuando un nodo Linux aplica actualizaciones que requieren un reinicio, el nodo se acordona y se drena de forma segura para mover y programar los pods en otros nodos del clúster. Una vez que se reinicia el nodo, se vuelve a agregar al clúster y Kubernetes vuelve a reanudar la programación de pods en él. Para minimizar las interrupciones, solo se permite que `kured` reinicie un único nodo a la vez.
 
 ![Proceso de reinicio del nodo de AKS con kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241267"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Límites de memoria y simultaneidad para Azure SQL Data Warehouse
@@ -39,8 +39,8 @@ Gen2 proporciona 2,5 veces más memoria por consulta que Gen1. Esta memoria adic
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
-| DW2500c           | 5             | 12                             |  1.500                          |
-| DW3000c           | 6             | 10                             |  1.800                          |
+| DW2500c           | 5             | 12                             |  1\.500                          |
+| DW3000c           | 6             | 10                             |  1\.800                          |
 | DW5000c           | 10            | 6                              |  3000                          |
 | DW6000c           | 12            | 5                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
@@ -70,7 +70,7 @@ Los niveles de servicio de Gen1 oscilan entre DW100 y DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Valores máximos de simultaneidad
-Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola según la importancia y espacios de simultaneidad. Las consultas que se esperan en la cola hasta que haya suficientes espacios de simultaneidad disponibles. [Importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y espacios de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
+Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
 ### <a name="gen2"></a>Gen2
  

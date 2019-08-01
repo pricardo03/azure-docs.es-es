@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/01/2019
-ms.openlocfilehash: 8c99ae1aa96e41173fb6e4d7303979d8fc167003
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/15/2019
+ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491602"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233046"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -44,26 +44,25 @@ Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito ge
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Reservations**.
-3. Seleccione **Agregar** y, en el panel Seleccione el tipo de producto, elija **SQL Database** para adquirir una nueva reserva para SQL Database.
+3. Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **SQL Database** para comprar una nueva reserva para SQL Database.
 4. Rellene todos los campos obligatorios. Las bases de datos únicas, los grupos elásticos o las instancias administradas nuevas que coincidan con los atributos seleccionados serán aptos para el descuento en la capacidad reservada. El número real de instancias de SQL Database que obtienen el descuento depende el ámbito y la cantidad seleccionados.
+    ![Captura de pantalla antes del envío de la compra de la capacidad reservada de SQL Database](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![Captura de pantalla antes del envío de la compra de capacidad reservada de SQL Database](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+En la siguiente tabla se describen los campos obligatorios.
 
-    | Campo      | DESCRIPCIÓN|
-    |:------------|:--------------|
-    |NOMBRE        |Nombre de esta reserva.|
-    |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
-    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. <br/><br/>**Suscripción compartida**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.|
-    |Region      |La región de Azure que abarca la capacidad reservada de SQL Database.|
-    |Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|
-    |Nivel de rendimiento|El nivel de servicio de las instancias de SQL Database.
-    |Término        |Un año o tres años.|
-    |Cantidad    |Número de instancias que se compran dentro de la capacidad reservada de SQL Database. La cantidad es el número de instancias de SQL Database en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si tiene 10 instancias de SQL Database en la región Este de EE. UU., debería especificar 10 como cantidad para maximizar la ventaja para todas las máquinas en ejecución. |
-    |||
+| Campo      | DESCRIPCIÓN|
+|------------|--------------|
+|Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
+|Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. <br/><br/>**Grupo de recursos único**: el descuento de reserva se aplica a las instancias de SQL Database de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.|
+|Region      |La región de Azure que abarca la capacidad reservada de SQL Database.|
+|Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|
+|Nivel de rendimiento|El nivel de servicio de las instancias de SQL Database.
+|Término        |Un año o tres años.|
+|Cantidad    |Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada de SQL Database. La cantidad es un número de núcleos virtuales de la región de Azure y el nivel de rendimiento seleccionados que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta o planea ejecutar instancias de SQL Database con la capacidad total de proceso de 16 núcleos virtuales Gen5 en la región Este de EE. UU., deberá especificar la cantidad como 16 para maximizar las ventajas de todas las instancias. |
 
-5. Revise el costo de la reserva de capacidad reservada de SQL Database en la sección **Costos**.
-6. Seleccione **Comprar**.
-7. Haga clic en **Ver esta reserva** para conocer el estado de la compra.
+1. Revise el costo de la reserva de capacidad reservada de SQL Database en la sección **Costos**.
+1. Seleccione **Comprar**.
+1. Haga clic en **Ver esta reserva** para conocer el estado de la compra.
 
 ## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
 

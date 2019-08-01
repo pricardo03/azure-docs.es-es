@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717152"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229239"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Crear un recurso de instancia de contenedor de Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "67717152"
     |Configuración|Valor|
     |--|--|
     |Subscription|Seleccione su suscripción.|
-    |Grupos de recursos|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
+    |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
     |Nombre del contenedor|Escriba un nombre como `cognitive-container-instance`. Este nombre debe estar en minúsculas.|
     |Location|Seleccione una región para la implementación.|
     |Tipo de imagen|`Public`|
@@ -39,12 +39,12 @@ ms.locfileid: "67717152"
     |--|--|
     |Puertos|Establezca el puerto TCP en `5000`. Expone el contenedor en el puerto 5000.|
 
-4. En la pestaña **Opciones avanzadas**, escriba las **Variables de entorno** necesarias para la [configuración de la facturación](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) del recurso de ACI:
+4. En la pestaña **Opciones avanzadas**, escriba las **Variables de entorno** necesarias para la configuración de la facturación del contenedor del recurso de ACI:
 
     | Clave | Valor |
     |--|--|
-    |`apikey`|Se copia desde la página **Claves** del recurso de Text Analytics. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Se copia desde la página **Información general** del recurso de Text Analytics. Ejemplo: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Se copia desde la página **Claves** del recurso. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Se copia desde la página **Información general** del recurso.|
     |`eula`|`accept`|
 
 1. Haga clic en **Revisar y crear**.

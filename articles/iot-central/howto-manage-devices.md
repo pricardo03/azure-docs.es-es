@@ -3,17 +3,17 @@ title: Administración de dispositivos en una aplicación de Azure IoT Central |
 description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052998"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -90,11 +90,11 @@ Si registra dispositivos mediante la importación en **Unassociated devices** (D
 
 1. Seleccione los dispositivos que quiere asociar con una plantilla:
 
-1. Seleccione **asociar**:
+1. Seleccione **Asociar**:
 
     ![Asociar dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Elija la plantilla de la lista de plantillas disponibles y seleccione **asociar**.
+1. Elija la plantilla de la lista de plantillas disponibles y seleccione **Asociar**.
 
 1. Los dispositivos seleccionados están asociados con la plantilla de dispositivo que eligió.
 
@@ -103,7 +103,7 @@ Si registra dispositivos mediante la importación en **Unassociated devices** (D
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
-Para conectar un dispositivo real a IoT Central, necesita su cadena de conexión. Puede exportar los detalles del dispositivo de forma masiva para obtener la información que necesita crear cadenas de conexión del dispositivo. El proceso de exportación crea un archivo CSV con la identidad del dispositivo, nombre del dispositivo y claves para todos los dispositivos seleccionados.
+Para conectar un dispositivo real a IoT Central, necesita su cadena de conexión. Puede exportar los detalles del dispositivo de forma masiva para obtener la información que necesita para crear las cadenas de conexión del dispositivo. El proceso de exportación crea un archivo CSV con la identidad, el nombre y las claves de todos los dispositivos seleccionados.
 
 Para realizar la exportación masiva de dispositivos desde la aplicación:
 
@@ -111,9 +111,9 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
 1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea exportar los dispositivos.
 
-1. Seleccione los dispositivos que desea exportar y, a continuación, seleccione el **exportar** acción.
+1. Seleccione los dispositivos que desea exportar y la acción **Exportar**.
 
-    ![Exportar](./media/howto-manage-devices/export1a.png)
+    ![Exportación](./media/howto-manage-devices/export1a.png)
 
 1. Se inicia el proceso de exportación. Puede realizar un seguimiento del estado en la parte superior de la cuadrícula.
 
@@ -132,7 +132,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Consulte [conectividad de dispositivos en Azure IoT Central](concepts-connectivity.md), para obtener más información acerca de las cadenas de conexión y conectando dispositivos reales para la aplicación IoT Central.
+Consulte [Conectividad de dispositivos en Azure IoT Central](concepts-connectivity.md) para más información sobre las cadenas de conexión y la conexión de dispositivos reales a la aplicación de IoT Central.
 
 ## <a name="delete-a-device"></a>Eliminar un dispositivo
 

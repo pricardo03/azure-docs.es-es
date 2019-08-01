@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688803"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
@@ -38,7 +38,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
    * Modo directo
 
-     El modo Direct es compatible con la conectividad a través de protocolos TCP y HTTPS. Si usa la versión más reciente del SDK de. NET, se admite el modo de conectividad directa de .NET Standard 2.0 y .NET framework. Al usar el modo directo, hay dos opciones de protocolo disponibles:
+     El modo Direct es compatible con la conectividad a través de protocolos TCP y HTTPS. Si usa la versión más reciente del SDK de .NET, se admite el modo de conectividad directa de .NET Standard 2.0 y .NET Framework. Al usar el modo directo, hay dos opciones de protocolo disponibles:
 
      * TCP
      * HTTPS
@@ -47,7 +47,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
      |Modo de conexión  |Protocolo admitido  |SDK admitidos  |API o puerto de servicio  |
      |---------|---------|---------|---------|
-     |Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL(443), Mongo (10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
      |Directo    |    HTTPS     |  SDK de .NET y Java    |   Puertos incluidos en el intervalo 10 000-20 000    |
      |Directo    |     TCP    |  .NET SDK    | Puertos incluidos en el intervalo 10 000-20 000 |
 
@@ -86,9 +86,9 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Dado que las llamadas a Azure Cosmos DB se realizan a través de la red, puede que tenga que variar el grado de paralelismo de las solicitudes para reducir todo lo posible el tiempo que la aplicación cliente espera entre una solicitud y otra. Por ejemplo, si usa la [biblioteca TPL](https://msdn.microsoft.com//library/dd460717.aspx) de .NET, cree del orden de 100 tareas de lectura o escritura en Azure Cosmos DB.
 
-5. **Habilitar Accelerated Networking:**
+5. **Habilitación de la redes aceleradas**
 
-   Con el fin de reducir la latencia y vibración de CPU, se recomienda que las máquinas virtuales de cliente están habilitadas las redes aceleradas. Consulte la [crear una máquina virtual de Windows con Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) o [crear una máquina virtual Linux con Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) artículos para habilitar redes aceleradas.
+   Con el fin de reducir la latencia y la vibración de la CPU, se recomienda habilitar las redes aceleradas en las máquinas virtuales de cliente. Consulte los artículos [Creación de una máquina virtual Windows con redes aceleradas](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Creación de una máquina virtual Linux con redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md) para habilitar las redes aceleradas.
 
 
 ## <a name="sdk-usage"></a>Uso del SDK
@@ -142,15 +142,15 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
    Para reducir el número de recorridos de ida y vuelta de red necesarios para recuperar todos los resultados aplicables, puede aumentar el tamaño de página con el encabezado de solicitud [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) hasta a 1000. En aquellos casos en los que solo sea necesario mostrar unos cuantos resultados, por ejemplo, si la interfaz de usuario o la API de aplicación solo devuelven 10 resultados de una vez, también puede reducir el tamaño de página a 10 a fin de reducir el rendimiento consumido en las lecturas y consultas.
 
    > [!NOTE] 
-   > La propiedad maxItemCount no debe utilizarse solo con fines de paginación. Es el uso principal para mejorar el rendimiento de consultas reduciendo el número máximo de elementos devueltos en una sola página.  
+   > La propiedad maxItemCount no debe usarse únicamente con fines de paginación. Sirve principalmente para mejorar el rendimiento de las consultas al reducir el número máximo de elementos que se devuelven en una página.  
 
-   También puede establecer el tamaño de página mediante el SDK de Azure Cosmos DB disponible. El [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) propiedad en FeedOptions le permite establecer el número máximo de elementos que se devolverán en la operación enmuration. Cuando `maxItemCount` se establece en -1, el SDK busca automáticamente el valor óptimo según el tamaño del documento. Por ejemplo:
+   También puede establecer el tamaño de página mediante los SDK de Azure Cosmos DB disponibles. La propiedad [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) de FeedOptions le permite establecer el número máximo de elementos que se devolverán en la enumeración. Cuando `maxItemCount` se establece en -1, el SDK busca automáticamente el valor óptimo según el tamaño del documento. Por ejemplo:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Cuando se ejecuta una consulta, se envían los datos resultantes en un paquete TCP. Si especifica un valor demasiado bajo para `maxItemCount`, el número de viajes requeridos para enviar los datos dentro del paquete TCP es alto, lo que afecta al rendimiento. Por tanto, si no está seguro de qué valor establecer para `maxItemCount` propiedad, es mejor establecerla en -1 y dejar que el SDK elige el valor predeterminado. 
+   Cuando se ejecuta una consulta, se envían los datos resultantes en un paquete TCP. Si especifica un valor demasiado bajo para `maxItemCount`, el número de viajes requeridos para enviar los datos dentro del paquete TCP es alto, lo que afecta al rendimiento. Por tanto, si no está seguro de qué valor establecer para la propiedad `maxItemCount`, es mejor establecerla en -1 y dejar que el SDK elija el valor predeterminado. 
 
 10. **Aumento del número de subprocesos y tareas**
 
@@ -172,7 +172,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
  
 1. **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras**
 
-    La directiva de indexación de Cosmos DB también le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (IndexingPolicy.IncludedPaths y IndexingPolicy.ExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas.  Por ejemplo, el código siguiente muestra cómo excluir una sección completa de los documentos (un subárbol) de la indexación usando el "*" carácter comodín.
+    La directiva de indexación de Cosmos DB también le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (IndexingPolicy.IncludedPaths y IndexingPolicy.ExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas.  Por ejemplo, en el siguiente código se muestra cómo excluir una sección completa de los documentos (un subárbol) de la indexación mediante el comodín "*".
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

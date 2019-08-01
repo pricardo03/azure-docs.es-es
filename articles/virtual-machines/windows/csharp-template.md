@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305961"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager
@@ -166,7 +166,7 @@ En este paso, creará un archivo de plantilla que implementa los recursos y un a
 
 ### <a name="create-the-parameters-file"></a>Cree el archivo de parámetros
 
-Para especificar valores para los parámetros de recursos en la plantilla, cree un archivo de parámetros que contiene los valores.
+Para especificar los valores de los parámetros de recurso en la plantilla, debe crear un archivo de parámetros que contenga los valores.
 
 1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#* . Asigne un nombre al archivo *Parameters.json* y, después, haga clic en **Agregar**.
 2. Agregue este código JSON al archivo creado:
@@ -205,7 +205,7 @@ Antes de poder implementar una plantilla, asegúrese de que tiene acceso a una [
     Reemplace **&lt;subscription-id&gt;** por su identificador de suscripción, **&lt;application-id&gt;** por el identificador de aplicación de Active Directory, **&lt;authentication-key&gt;** por la clave de aplicación y **&lt;tenant-id&gt;** por el identificador de inquilino.
 
 3. Guarde el archivo azureauth.properties.
-4. Conjunto de que una variable de entorno de Windows había denominada AZURE_AUTH_LOCATION con la ruta de acceso completa al archivo de autorización que ha creado, por ejemplo puede usar el siguiente comando de PowerShell:
+4. Establezca una variable de entorno de Windows llamada AZURE_AUTH_LOCATION con la ruta de acceso completa al archivo de autorización que ha creado; por ejemplo, puede usar el siguiente comando de PowerShell:
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -215,7 +215,7 @@ Antes de poder implementar una plantilla, asegúrese de que tiene acceso a una [
 
 ## <a name="create-the-management-client"></a>Creación del cliente de administración
 
-1. Abra el archivo Program.cs del proyecto que ha creado. Agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
+1. Abra el archivo Program.cs del proyecto que ha creado. A continuación, agregue estas instrucciones using a las instrucciones existentes en la parte superior del archivo:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

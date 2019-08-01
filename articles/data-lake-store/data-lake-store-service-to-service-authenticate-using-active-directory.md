@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de servicio a servicio: Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
+title: 'Autenticación de servicio a servicio: Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
 description: Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory.
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241369"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory
@@ -45,14 +45,14 @@ Al seguir las instrucciones que aparecen en el vínculo anterior, asegúrese de 
 
 ![Crear aplicación web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Crear aplicación web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener Id. de aplicación, la clave de autenticación y el Id. de inquilino
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener el identificador de aplicación, la clave de autenticación y el identificador de inquilino
 Al iniciar sesión mediante programación, necesita el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también necesitará una clave de autenticación.
 
 * Para obtener instrucciones sobre cómo recuperar el identificador y la clave de autenticación de la aplicación, consulte [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 * Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Paso 3: Asignar la aplicación de Azure AD a la carpeta o archivo de la cuenta de Azure Data Lake Storage Gen1
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Paso 3: Asignar la aplicación de Azure AD al archivo o la carpeta de la cuenta de Azure Data Lake Storage Gen1.
 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la cuenta de Data Lake Storage Gen1 que quiere asociar a la aplicación de Azure Active Directory que creó anteriormente.
@@ -85,7 +85,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Paso 4: Obtener el extremo de token de OAuth 2.0 (solo para aplicaciones basadas en Java)
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Paso 4: Obtener el punto de conexión del token de OAuth 2.0 (solo para aplicaciones basadas en Java)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en Active Directory en el panel izquierdo.
 

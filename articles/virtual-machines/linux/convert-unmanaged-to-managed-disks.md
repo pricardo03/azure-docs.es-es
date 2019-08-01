@@ -1,27 +1,18 @@
 ---
 title: Conversión de una máquina virtual Linux en Azure con discos no administrados a discos administrados - Azure Managed Disks | Microsoft Docs
 description: Conversión de una máquina virtual Linux con discos no administrados en discos administrados mediante la CLI de Azure en el modelo de implementación de Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418466"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696068"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 
@@ -34,7 +25,7 @@ En este artículo se muestra cómo convertir máquinas virtuales con la CLI de A
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* No se eliminan los discos duros virtuales originales ni la cuenta de almacenamiento usada por la máquina virtual antes de la conversión. Seguirán acumulando cargos. Para evitar que se le facture por estos artefactos, elimine los blobs de los discos duros virtuales originales después de comprobar que la conversión esté completa. Si tiene que buscar estos discos no conectados con el fin de eliminarlos, consulte nuestro artículo [buscar y eliminar discos administrados y no administrados Azure](find-unattached-disks.md).
+* No se eliminan los discos duros virtuales originales ni la cuenta de almacenamiento usada por la máquina virtual antes de la conversión. Seguirán acumulando cargos. Para evitar que se le facture por estos artefactos, elimine los blobs de los discos duros virtuales originales después de comprobar que la conversión esté completa. Si tiene que buscar estos discos no conectados con el fin de eliminarlos, consulte nuestro artículo [Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Conversión de máquinas virtuales de instancia única
 En esta sección se explica cómo convertir máquinas virtuales de Azure de instancia única de Unmanaged Disks a Managed Disks. (Si las máquinas virtuales se encuentran en un conjunto de disponibilidad, consulte la sección siguiente). Puede usar este proceso para convertir las máquinas virtuales de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar.

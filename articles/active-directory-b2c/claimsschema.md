@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511866"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateVali
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
+| Protocolo | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
 
 El elemento **Protocol** contiene los atributos siguientes:
 
@@ -107,7 +107,7 @@ El elemento **Mask** contiene los siguientes atributos:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| `Regex` | No | Si **`Type`** está establecido en `Regex`, especifique la expresión regular a utilizar.
+| `Regex` | Sin | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -161,9 +161,9 @@ El elemento **Enumeration** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Text | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
+| Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
 |Valor | Sí | El valor de notificación que está asociado a la selección de esta opción. |
-| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
@@ -191,7 +191,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | No | El patrón o una expresión regular para esta notificación. |
+| HelpText | Sin | El patrón o una expresión regular para esta notificación. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 

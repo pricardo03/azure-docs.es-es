@@ -1,161 +1,165 @@
 ---
-title: Tabla de Azure | Azure Marketplace
-description: Configure la administración de clientes potenciales para Azure Table.
+title: Azure Table Storage | Azure Marketplace
+description: Configure la administración de clientes potenciales en Azure Table Storage.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147899"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227898"
 ---
-# <a name="lead-management-instructions-for-azure-table"></a>Instrucciones de administración de clientes potenciales con Tabla de Azure
+# <a name="lead-management-instructions-for-table-storage"></a>Instrucciones de administración de clientes potenciales con Table Storage
 
-En este artículo se describe cómo configurar Azure Table para almacenar clientes potenciales de ventas. Azure Table le permite almacenar y personalizar la información del cliente.
+En este artículo se describe cómo configurar Azure Table Storage para administrar clientes potenciales. Table Storage le ayuda a almacenar y modificar la información de los clientes.
 
+## <a name="configure-table-storage"></a>Configuración del almacenamiento de tabla
 
-## <a name="how-to-configure-azure-table"></a>Cómo configurar Tabla de Azure
+1. Si no tiene una cuenta de Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+1. Cuando la cuenta esté activa, inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En Azure Portal, haga lo siguiente:  
+    1. En el panel de la izquierda, seleccione **+Crear un recurso**. Se abrirá el panel **Nuevo**.
+    1. En el panel **Nuevo**, seleccione **Storage**. Se abrirá una lista de **Destacados** en el lado derecho.
+    1. Seleccione **Cuenta de almacenamiento**. A continuación, siga las instrucciones para [crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-1. Si no tiene una cuenta de Azure, puede [crear una cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-2. Cuando la cuenta de Azure esté activa, inicie sesión en [Azure Portal](https://portal.azure.com).
-3. En Azure Portal, cree una cuenta de almacenamiento mediante el siguiente procedimiento.  
-    1. En la barra de menú de la izquierda, seleccione **+ Crear un recurso**.  El panel **Nuevo** (hoja) se mostrará a la derecha.
-    2. Seleccione **Almacenamiento** en el panel **Nuevo**.  En la derecha se mostrará una lista de **Destacados**.
-    3. Seleccione **Cuenta de almacenamiento** para iniciar la creación de la cuenta.  Siga las instrucciones que aparecen en el artículo [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    ![Creación de una cuenta de Azure Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    ![Pasos para crear una cuenta de Azure Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+    Para obtener más información sobre las cuentas de almacenamiento, seleccione [Tutorial de inicio rápido](https://docs.microsoft.com/azure/storage/). Para obtener información sobre precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-    Para más información sobre las cuentas de almacenamiento, seleccione [Tutorial de inicio rápido](https://docs.microsoft.com/azure/storage/).  Para más información sobre los precios de almacenamiento, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
-
-4. Espere hasta que se aprovisione la cuenta de almacenamiento, proceso que normalmente tarda unos minutos.  Luego, acceda a la cuenta de almacenamiento desde la página de **Inicio** de Azure Portal mediante la selección de **Ver todos los recursos** o **Todos los recursos** en la barra de menú de navegación de la izquierda.
+1. Espere hasta que se aprovisione la cuenta de almacenamiento, que normalmente tarda unos minutos. A continuación, acceda a la cuenta desde la página principal de Azure Portal: Seleccione **Ver todos los recursos** o **Todos los recursos** en el panel de navegación.
 
     ![Acceso a la cuenta de almacenamiento de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-5. En el panel de la cuenta de almacenamiento, copie la cadena de conexión de la cuenta de almacenamiento para la clave y péguela en el campo **Cadena de conexión de cuenta de almacenamiento** en Cloud Partner Portal. Este es un ejemplo de una cadena de conexión:
+1. En el panel de la cuenta de almacenamiento, copie la cadena de conexión de la cuenta de almacenamiento para obtener la clave. Péguelo en el campo **Cadena de conexión** para la cuenta de almacenamiento en Cloud Partner Portal.
 
-```sql
-DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
-```
+    Cadena de conexión de ejemplo:
 
-  ![Claves de Azure Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    ```sql
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    ```
 
-Puede usar el [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o cualquier otra herramienta parecida para ver los datos en la tabla de almacenamiento. También puede exportar los datos de tablas de Azure.
+      ![Claves de Azure Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
+Puede usar el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/) o una herramienta parecida para ver los datos de Table Storage. También puede exportar datos desde allí.
 
-## <a name="use-microsoft-flow-with-an-azure-table-optional"></a>Uso de Microsoft Flow con una tabla de Azure (*opcional*) 
+## <a name="use-microsoft-flow-with-table-storage-optional"></a>Uso de Microsoft Flow con Table Storage (*opcional*)
 
-Puede usar [Microsoft Flow](https://docs.microsoft.com/flow/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
-
+Puede usar [Microsoft Flow](https://docs.microsoft.com/flow/) para enviar notificaciones automáticamente cuando se agrega un cliente potencial a Table Storage. Si no tiene ninguna cuenta de Microsoft Flow, [regístrese para obtener una cuenta de prueba gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Ejemplo de notificación de cliente potencial
 
-Utilice este ejemplo como guía para crear un flujo básico que envíe automáticamente una notificación por correo cuando se agregue un nuevo cliente potencial a una tabla de Azure. En este ejemplo se configura una periodicidad para enviar información de clientes potenciales cada hora si se actualiza el almacenamiento en las tablas.
+En este ejemplo se muestra cómo crear un flujo básico. El flujo envía automáticamente una notificación por correo electrónico cuando se agregan nuevos clientes potenciales a Table Storage.
 
 1. Inicie sesión en la cuenta de Microsoft Flow.
-2. En la barra de navegación de la izquierda, seleccione **My flows** (Mis flujos).
-3. En la barra de navegación de la izquierda, seleccione **+ New** (+ Nuevo).  
-4. En la lista desplegable, seleccione **+ Crear desde cero**.
-5. En Crear un flujo a partir de un documento en blanco, seleccione **Crear desde cero**.
+1. En el panel de navegación de la izquierda, seleccione **Mis flujos**.
+1. En la barra de navegación de la izquierda, seleccione **+Nuevo**.  
+1. En la lista desplegable, seleccione **+Crear desde cero**.
+1. En **Crear un flujo a partir de un documento en blanco**, seleccione **Crear desde cero**.
 
    ![Creación de un flujo a partir de un documento en blanco](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-6. En la página de búsqueda de los conectores y desencadenadores, escriba **Desencadenadores**.
-7. En **Desencadenadores**, seleccione **Periodicidad**.
-8. En la ventana **Periodicidad**, mantenga el valor predeterminado de 1 para **Intervalo**. Desde la lista desplegable **Frecuencia**, seleccione **Hora**.
+1. En la página de búsqueda de los conectores y desencadenadores, escriba **Desencadenadores**.
+1. En **Desencadenadores**, seleccione **Periodicidad**.
+1. En la ventana **Periodicidad**, mantenga el valor predeterminado de **1** para **Intervalo**. En la lista desplegable **Frecuencia**, seleccione **Hora**.
 
    >[!NOTE] 
-   >Aunque en este ejemplo se usa un intervalo de 1 hora, puede seleccionar el intervalo y la frecuencia más apropiada para sus necesidades empresariales.
+   >En este ejemplo se usa un intervalo de una hora. Sin embargo, puede seleccionar el intervalo y la frecuencia que mejor se adapten a sus necesidades empresariales.
 
    ![Establecimiento de la frecuencia de 1 hora para la periodicidad](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
-9. Seleccione **+ New step**(+ Nuevo paso).
-10. Busque "Obtener la hora pasada" y, a continuación, seleccione **Obtener la hora pasada** en Acciones. 
+1. Seleccione **+Nuevo paso.**
+1. Busque **Obtener la hora pasada** y, a continuación, seleccione **Obtener la hora pasada** en **Elegir una acción**.
 
-    ![Búsqueda y selección de la acción de obtener la hora pasada](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
+    ![Búsqueda y selección de la acción "obtener la hora pasada"](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-11. En la ventana **Obtener la hora pasada**, establezca el **Intervalo** en 1.  Desde la lista desplegable **Unidad de tiempo**, seleccione **Hora**.
+1. En la ventana **Obtener la hora pasada**, establezca el **Intervalo** en **1**.  En la lista desplegable **Unidad de tiempo**, seleccione **Hora**.
     >[!IMPORTANT] 
-    >Asegúrese de que este intervalo y unidad de tiempo coinciden con el intervalo y la frecuencia que se ha configurado para la periodicidad.
+    >Asegúrese de que **Intervalo** y **Unidad de tiempo** coincidan con el intervalo y la frecuencia que ha configurado para la periodicidad (paso 8).
 
     ![Establecimiento del valor para obtener el intervalo de tiempo pasado](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >Puede comprobar el flujo en cualquier momento para comprobar que cada paso está configurado correctamente. Para comprobar el flujo, seleccione **Comprobador de flujo** en la barra de menús Flujo.
+    >Puede comprobar el flujo en cualquier momento para comprobar que cada paso esté configurado correctamente: Seleccione **Comprobador de flujo** en la barra de menús Flujo.
 
-En el siguiente conjunto de pasos, se conectará a la tabla de Azure y configurará la lógica de procesamiento para controlar nuevos clientes potenciales.
+En el siguiente conjunto de pasos, se conectará a Table Storage y configurará la lógica de procesamiento para controlar nuevos clientes potenciales.
 
-1. Después del paso para obtener la hora pasada, seleccione **+ Nuevo paso** y, a continuación, busque "Obtener entidades".
-2. En **Acciones**, seleccione **Obtener entidades** y, a continuación, seleccione **Mostrar opciones avanzadas**.
-3. En la ventana **Obtener entidades**, proporcione información para los campos siguientes:
+1. Después del paso **Obtener la hora pasada**, seleccione **+Nuevo paso** y, a continuación, busque **Obtener entidades**.
+1. En **Acciones**, seleccione **Obtener entidades** y, a continuación, seleccione **Mostrar opciones avanzadas**.
+1. En la ventana **Obtener entidades**, rellene los siguientes campos:
 
-   - **Tabla**: escriba el nombre de Azure Table Storage. La captura de pantalla siguiente muestra el símbolo del sistema cuando se escribe "MarketPlaceLeads" en este ejemplo. 
+   - **Tabla**: el nombre de Table Storage. En la imagen siguiente se muestra "MarketPlaceLeads":
 
      ![Elija un valor personalizado para el nombre de la tabla de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Consulta de filtro**: haga clic en este campo y el icono de **Obtener la hora pasada** se mostrará en una ventana emergente. Seleccione **Hora pasada** para usarla como marca de tiempo para filtrar la consulta. También puede pegar la función siguiente en el campo: CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
+   - **Consulta de filtro**: Al seleccionar este campo, el icono de **Obtener la hora pasada** se mostrará en una ventana emergente. Seleccione **Hora pasada** para usar este valor como marca de tiempo para filtrar la consulta. O bien, puede pegar la función siguiente en el campo:
+   
+      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Configuración de la función de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-4. Seleccione **Nuevo paso** para agregar una condición para examinar la tabla de Azure y comprobar si hay nuevos clientes potenciales.
+1. Seleccione **Nuevo paso** para agregar una condición para examinar Table Storage y comprobar si hay nuevos clientes potenciales.
 
-   ![Uso del paso Nuevo para agregar una condición para examinar la tabla de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
+   ![Uso de "Nuevo paso" para agregar una condición para examinar Table Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-5. En la ventana **Elegir una acción**, seleccione **Acciones** y, a continuación, seleccione el control **Condición**.
+1. En la ventana **Elegir una acción**, seleccione **Acciones** y, a continuación, seleccione el **Control de condición**.
 
-     ![Adición de un control a la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
+     ![Adición de un control de condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
-6. En la ventana **Condición**, seleccione el campo **Elegir un valor** y, a continuación, seleccione **Expresión** en la ventana emergente.
-7. Pegue `length(body('Get_entities')?['value'])` en el campo ***fx***. Seleccione **Aceptar** para agregar esta función. Para finalizar la configuración de la condición:
+1. En la ventana **Condición**, seleccione el campo **Elegir un valor** y, a continuación, seleccione **Expresión** en la ventana emergente.
+1. Pegue `length(body('Get_entities')?['value'])` en el campo ***fx***. Seleccione **Aceptar** para agregar esta función. 
 
-   - Seleccione "es mayor que" en la lista desplegable.
-   - Escriba 0 como valor. 
+
 
      ![Adición de una función a la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-8. Configure la acción que se realizará basándose en el resultado de la condición.
+1. Configure la acción que se realizará basándose en el resultado de la condición.
 
-     ![Configuración de las acciones según los resultados de la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
+    1. Seleccione **es mayor que** en la lista desplegable.
+   1. Escriba **0** como valor.
 
-9. Si la condición se resuelve como **En caso negativo**, no haga nada. 
-10. Si la condición se resuelve como **En caso positivo**, desencadene una acción que se conecte a su cuenta de Office 365 para enviar un correo electrónico. Seleccione **Add an action**(Agregar una acción).
-11. Seleccione **Enviar un correo electrónico**. 
-12. En la ventana **Enviar un correo electrónico**, proporcione información para los campos siguientes:
+     ![Configuración de una acción según los resultados de la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-    - **Para**: escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
-    - **Asunto**: proporcione un asunto para el correo electrónico. Por ejemplo:  Nuevos clientes potenciales.
-    - **Cuerpo**:   Agregue el texto que desee incluir en cada correo electrónico (opcional) y, a continuación, pegue en el cuerpo `body('Get_entities')?['value']` como una función para insertar información de los clientes potenciales.
+1. Si la condición se resuelve como "En caso negativo", no haga nada.
 
-      >[!NOTE] 
-      >Puede insertar puntos de datos estáticos o dinámicos adicionales en el cuerpo de este correo electrónico.
+    Si la condición se resuelve como "En caso positivo", desencadene una acción que se conecte a su cuenta de Office 365 para enviar un correo electrónico:
+   1. Seleccione **Add an action**(Agregar una acción).
+   1. Seleccione **Enviar un correo electrónico**.
+   1. En la ventana **Enviar un correo electrónico**, escriba información en los campos siguientes:
+
+      - **Para**: dirección de correo electrónico para todos los usuarios que recibirán la notificación.
+      - **Asunto**: asunto para el correo electrónico. Por ejemplo:  *Nuevos clientes potenciales.*
+      - **Cuerpo**: texto que quiere incluir en cada correo electrónico (opcional). También puede pegar `body('Get_entities')?['value']` como una función para insertar información de clientes potenciales.
+
+        >[!NOTE] 
+        >Puede insertar puntos de datos estáticos o dinámicos adicionales en el cuerpo de este correo electrónico.
 
       ![Configuración del correo electrónico de notificación de clientes potenciales](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-13. Seleccione **Guardar** para guardar el flujo. Microsoft Flow probará automáticamente el flujo de errores. Si no hay errores, el flujo comienza a ejecutarse después de guardarlo.
+1. Seleccione **Guardar** para guardar el flujo. Microsoft Flow lo probará automáticamente en busca de errores. Si no hay errores, el flujo comienza a ejecutarse después de guardarlo.
 
-La captura de pantalla siguiente muestra un ejemplo de cómo debe ser el último flujo.
+    La imagen siguiente muestra un ejemplo de cómo debe ser el último flujo.
 
-[![Secuencia final de flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+    [![Secuencia final de flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-(*Haga clic en la imagen para ampliarla*).
-
+    (*Seleccione la imagen para ampliarla*).
 
 ### <a name="manage-your-flow"></a>Administración del flujo
 
-Es fácil administrar el flujo una vez se está ejecutando.  Tiene control completo sobre el flujo. Por ejemplo, puede detenerlo, editarlo, ver un historial de ejecución y obtener el análisis. La captura de pantalla siguiente muestra las opciones disponibles para administrar un flujo. 
+Es fácil administrar el flujo una vez se está ejecutando. Tiene control completo sobre el flujo. Por ejemplo, puede detenerlo, editarlo, ver un historial de ejecución y obtener el análisis. En la imagen siguiente se muestran las opciones de administración de flujo.
 
- ![Administración de un flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+ ![Opciones de administración de flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
 
-El flujo seguirá ejecutándose hasta que lo detenga mediante la opción **Desactivar el flujo**.
+El flujo sigue ejecutándose hasta que seleccione **Desactivar el flujo**.
 
-Si no recibe notificaciones de correo electrónico de clientes potenciales, significa que no se han agregado nuevos clientes potenciales a la tabla de Azure. Si se produce un error de flujo, recibirá un correo electrónico similar al del ejemplo de la siguiente captura de pantalla.
+Si no recibe notificaciones de correo electrónico de clientes potenciales, no se agregó ningún nuevo cliente potencial a Table Storage.
+Recibirá un correo electrónico similar al siguiente ejemplo si se produce un error del flujo:
 
  ![Notificación por correo electrónico de los errores del flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

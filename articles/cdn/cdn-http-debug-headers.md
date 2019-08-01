@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475287"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
@@ -68,11 +68,11 @@ El encabezado X-EC-Debug notifica la información sobre el código de estado de 
 - `X-EC-Debug: x-ec-cache-remote: <StatusCode from Platform (POP/ID)>`
 
 Los términos que se usan en la sintaxis del encabezado de respuesta anterior se definen de la siguiente manera:
-- StatusCode: Indica cómo se controla el contenido solicitado por la red CDN, el cual se representa mediante un código de estado de la memoria caché.
+- StatusCode: indica cómo administró la red CDN el contenido solicitado, el cual se representa mediante un código de estado de caché.
     
     El código de estado TCP_DENIED se puede notificar en lugar de NONE cuando se deniega una solicitud no autorizada debido a la autenticación basada en token. Sin embargo, el código de estado NONE se continuará usando al ver los informes de estado de la caché o los datos de registro sin procesar.
 
-- Plataforma: Indica la plataforma en la que se solicitó el contenido. Los códigos siguientes son válidos para este campo:
+- Plataforma: indica la plataforma en la que se solicitó el contenido. Los códigos siguientes son válidos para este campo:
 
     Código  | Plataforma
     ------| --------
@@ -80,7 +80,7 @@ Los términos que se usan en la sintaxis del encabezado de respuesta anterior se
     ECS   | HTTP pequeño
     ECD   | Red de entrega de aplicaciones (ADN)
 
-- POP: Indica el [POP](cdn-pop-abbreviations.md) que procesó la solicitud. 
+- POP: indica el servidor [POP](cdn-pop-abbreviations.md) que procesó la solicitud. 
 
 ### <a name="sample-response-headers"></a>Ejemplos de encabezados de respuesta
 
@@ -106,7 +106,7 @@ Los términos que se usan en la sintaxis del encabezado de respuesta anterior se
 Valor  | DESCRIPCIÓN
 -------| --------
 SÍ    | Indica que el contenido solicitado era apto para el almacenamiento en caché.
-NO     | Indica que el contenido solicitado no era apto para el almacenamiento en caché. Este estado podría deberse a uno de los siguientes motivos: <br /> Configuración específica del cliente: Una configuración específica de la cuenta puede impedir que los servidores pop el almacenamiento en caché un recurso. Por ejemplo, el motor de reglas puede impedir que un recurso se almacene en caché habilitando la característica Omisión de la memoria caché para calificar las solicitudes.<br /> -Encabezados de respuesta de caché: Los encabezados Cache-Control y Expires del recurso solicitado pueden impedir que los servidores POP en la caché.
+NO     | Indica que el contenido solicitado no era apto para el almacenamiento en caché. Este estado podría deberse a uno de los siguientes motivos: <br /> - Configuración específica del cliente: una configuración específica de la cuenta puede impedir a los servidores POP el almacenamiento en caché de un recurso. Por ejemplo, el motor de reglas puede impedir que un recurso se almacene en caché habilitando la característica Omisión de la memoria caché para calificar las solicitudes.<br /> - Encabezados de respuesta de la caché: los encabezados Cache-Control y Expires del recurso solicitado pueden impedir que los servidores POP almacenen el contenido en caché.
 DESCONOCIDO | Indica que los servidores no pudieron determinar si el recurso solicitado era almacenable en caché. Este estado se produce normalmente si la solicitud se deniega debido a una autenticación basada en token.
 
 ### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta
@@ -147,23 +147,23 @@ El encabezado de respuesta `X-EC-Debug` notifica la información sobre el estado
 
 Los términos que se usan en la sintaxis del encabezado de respuesta anterior se definen de la siguiente manera:
 
-- MASeconds: Indica la antigüedad máxima (en segundos) como se define en los encabezados Cache-Control del contenido solicitado.
+- MASeconds: indica la duración máxima (en segundos) de acuerdo con los encabezados Cache-Control del contenido solicitado.
 
-- MATimePeriod: Convierte el valor de max-age (es decir, MASeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días). 
+- MATimePeriod: convierte el valor de la duración máxima (es decir, MASeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días). 
 
-- UnixTime: Indica la marca de tiempo de la memoria caché del contenido solicitado en el tiempo de Unix (también conocido como POSIX tiempo o tiempo Unix). La marca de tiempo de la caché indica la fecha y hora de inicio desde la que se empezará a calcular el período de vida de un recurso. 
+- UnixTime: indica la marca de tiempo de caché del contenido solicitado en tiempo Unix (también conocido como tiempo POSIX o epoch Unix). La marca de tiempo de la caché indica la fecha y hora de inicio desde la que se empezará a calcular el período de vida de un recurso. 
 
-    Si el servidor de origen no utiliza un servidor de caché HTTP de un tercero o si ese servidor no devuelve el encabezado de respuesta Age, la marca de tiempo de la caché será siempre la fecha y hora en la que se recuperó o revalidó el recurso. En caso contrario, los servidores POP usará el campo Age para calcular el TTL del activo como sigue: Retrieval/RevalidateDateTime - Age.
+    Si el servidor de origen no utiliza un servidor de caché HTTP de un tercero o si ese servidor no devuelve el encabezado de respuesta Age, la marca de tiempo de la caché será siempre la fecha y hora en la que se recuperó o revalidó el recurso. En caso contrario, los servidores POP usarán el campo Age para calcular el período de vida del recurso de la siguiente manera: Retrieval/RevalidateDateTime - Age.
 
-- ddd, dd MMM yyyy hh: mm: GMT: Indica la marca de tiempo de la memoria caché del contenido solicitado. Para más información, consulte el término UnixTime descrito anteriormente.
+- ddd, dd, MMM, aaaa HH:mm:ss GMT: indica la marca de tiempo de caché del contenido solicitado en tiempo. Para más información, consulte el término UnixTime descrito anteriormente.
 
-- CASeconds: Indica el número de segundos que han transcurrido desde la marca de tiempo de la memoria caché.
+- CASeconds: indica el número de segundos transcurridos desde la marca de tiempo de caché.
 
-- RTSeconds: Indica el número de segundos que quedan para que el contenido almacenado en caché se considerará actualizado. Este valor se calcula como sigue: RTSeconds = max-age - age de caché.
+- RTSeconds: indica el número de segundos que quedan antes de que el contenido almacenado en caché deje de considerarse nuevo. Este valor se calcula de la siguiente manera: RTSeconds = duración máxima - edad de caché.
 
-- RTTimePeriod: Convierte el valor TTL restante (es decir, RTSeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días).
+- RTTimePeriod: convierte el valor del período de vida (es decir, RTSeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días).
 
-- ExpiresSeconds: Indica el número de segundos que quedan antes de la fecha y hora especificada en el `Expires` encabezado de respuesta. Si el encabezado de respuesta `Expires` no se incluyó en la respuesta, el valor de este término será *none*.
+- ExpiresSeconds: indica el número de segundos que quedan antes de la fecha y hora especificadas en el encabezado de respuesta `Expires`. Si el encabezado de respuesta `Expires` no se incluyó en la respuesta, el valor de este término será *none*.
 
 ### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta
 

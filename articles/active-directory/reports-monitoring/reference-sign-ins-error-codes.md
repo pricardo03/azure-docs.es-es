@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107621"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -66,7 +66,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50001|No se ha encontrado el nombre de entidad de seguridad de servicio en este inquilino. Este problema puede ocurrir si el administrador del inquilino no ha instalado la aplicación, o si la entidad de seguridad del recurso no se ha encontrado en el directorio o no es válida.|
 |50002|No se pudo iniciar sesión debido a un acceso de proxy restringido en el inquilino. Si se trata de su propia directiva de inquilino, puede cambiar la configuración restringida del inquilino para corregir este problema.|
 |50003|No se pudo iniciar sesión debido a que falta la clave de firma o el certificado. Esto se puede deber a que no había ninguna clave de firma configurada en la aplicación. Compruebe las soluciones detalladas en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si el problema persiste, póngase en contacto con el propietario o el administrador de la aplicación.|
-|50005|El usuario intentó iniciar sesión en un dispositivo desde una plataforma que no es compatible actualmente mediante una directiva de acceso condicional.|
+|50005|El usuario intentó iniciar sesión en un dispositivo desde una plataforma que actualmente no es compatible mediante una directiva de acceso condicional.|
 |50006| No se pudo comprobar la firma debido a una firma no válida. Compruebe la solución detallada en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si el problema persiste, póngase en contacto con el propietario o el administrador de la aplicación.|
 |50007|No se encontró el certificado de cifrado del asociado para esta aplicación. [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) en Microsoft para solucionar este problema.|
 |50008|La aserción SAML falta o está mal configurada en el token. Póngase en contacto con el proveedor de federación.|
@@ -79,7 +79,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50027|Token JWT no válido debido a los siguientes motivos:<ul><li>no contiene la notificación nonce, sub notificación</li><li>no coincide el identificador de asunto</li><li>notificación duplicada en las notificaciones de idToken</li><li>emisor inesperado</li><li>audiencia inesperada</li><li>fuera de su intervalo de tiempo válido </li><li>el formato del token no es correcto</li><li>El token del identificador externo del emisor no pudo comprobar la firma.</li></ul>Póngase en contacto con el propietario de la aplicación|
 |50029|Identificador URI no válido: el nombre de dominio contiene caracteres no válidos. Póngase en contacto con el administrador del inquilino.|
 |50034|El usuario no existe en el directorio. Póngase en contacto con el administrador del inquilino.|
-|50042|Falta la sal necesaria para generar un identificador en pares en principio. Póngase en contacto con el administrador del inquilino.|
+|50042|En principio, falta la sal necesaria para generar un identificador en pares. Póngase en contacto con el administrador del inquilino.|
 |50048|El asunto no coincide con la notificación del emisor en la aserción de cliente. Póngase en contacto con el administrador del inquilino.|
 |50050|La solicitud tiene un formato incorrecto. Póngase en contacto con el propietario de la aplicación.|
 |50053|La cuenta está bloqueada porque el usuario intentó iniciar sesión demasiadas veces con un identificador de usuario o una contraseña incorrectos.|
@@ -129,11 +129,11 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50180|Se necesita la autenticación integrada de Windows. Habilite el inquilino para un inicio de sesión único de conexión directa.|
 |51001|La sugerencia de dominio no está presente con el identificador de seguridad local: UPN local.|
 |51004|La cuenta de usuario no existe en el directorio.|
-|51006|Se necesita la autenticación integrada de Windows. Usuario ha iniciado sesión con el token de sesión que falta a través de la notificación. Solicite al usuario que vuelva a iniciar sesión.|
+|51006|Se necesita la autenticación integrada de Windows. El usuario ha iniciado sesión mediante un token de sesión que falta en la notificación. Solicite al usuario que vuelva a iniciar sesión.|
 |52004|El usuario no ha proporcionado consentimiento para acceder a los recursos de LinkedIn. |
 |53000|La directiva de acceso condicional requiere un dispositivo compatible, y el dispositivo no lo es. Indique al usuario que inscriba su dispositivo con un proveedor de administración de datos maestros aprobado como Intune.|
 |53001|La directiva de acceso condicional requiere un dispositivo unido a un dominio y este no lo está. Haga que el usuario utilice un dispositivo unido a un dominio.|
-|53002|La aplicación utilizada no es una aplicación aprobada para el acceso condicional. El usuario tiene que usar una de las aplicaciones de la lista de aplicaciones aprobadas para poder acceder.|
+|53002|La aplicación utilizada no está aprobada para el acceso condicional. El usuario tiene que usar una de las aplicaciones de la lista de aplicaciones aprobadas para poder acceder.|
 |53003|Se ha bloqueado el acceso debido a las directivas de acceso condicional.|
 |53004|El usuario tiene que completar el proceso de registro de la autenticación multifactor antes de acceder a este contenido. El usuario se debe registrar en la autenticación multifactor.|
 |65001|La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no han dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
@@ -174,14 +174,14 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |81012|No se trata de una condición de error. Indica que el usuario que intenta iniciar sesión en Azure AD es distinto del que inició sesión en el dispositivo. Puede omitir este código en los registros sin problemas.|
 |90010|La solicitud no se admite por diversos motivos. Por ejemplo, la solicitud se ha realizado utilizando un método de solicitud que no es compatible (se admite solo el método POST), o el algoritmo de firma de token que se solicitó no es compatible. Póngase en contacto con el desarrollador de aplicaciones.|
 |90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
-|90051| Token de delegación no válido. Se especifica el identificador de nube nacionales no válido ({cloudId}).|
+|90051| Token de delegación no válido. Se especifica un identificador de nube nacional ({cloudId}) no válido.|
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
-|500021|Inquilino está restringido por el proxy de la empresa. Denegar el acceso al recurso.|
-|500121| Error de autenticación durante la solicitud de autenticación segura.|
+|500021|El inquilino está restringido por el proxy de la empresa. Se deniega el acceso del recurso.|
+|500121| Error de autenticación durante la solicitud de autenticación sólida.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
-|530021|Aplicación no cumple los requisitos de aplicación aprobada de acceso condicional.|
-|7000218|El cuerpo de solicitud debe contener el siguiente parámetro: 'client_assertion' o 'client_secret'.|
+|530021|La aplicación no cumple los requisitos de aplicación aprobada para el acceso condicional.|
+|7000218|El cuerpo de la solicitud debe contener el siguiente parámetro: "client_assertion" o "client_secret".|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

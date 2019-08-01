@@ -1,6 +1,6 @@
 ---
-title: Configurar la administración de la sesión de autenticación con el acceso condicional de Azure Active Directory
-description: Personalizar la configuración de sesión de autenticación de Azure AD como el inicio de sesión de usuario en la persistencia de sesión de frecuencia y el explorador.
+title: Configuración de la administración de sesiones de autenticación con el acceso condicional de Azure Active Directory
+description: Personalice la configuración de la sesión de autenticación de Azure AD incluida la frecuencia de inicio de sesión de usuario y la persistencia de la sesión del explorador.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,97 +11,97 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112336"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar la administración de la sesión de autenticación con el acceso condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
-En las implementaciones complejas, las organizaciones pueden tener una necesidad para restringir las sesiones de autenticación. Algunos escenarios podrían incluir:
+En las implementaciones complejas, las organizaciones pueden tener la necesidad de restringir las sesiones de autenticación. Algunos escenarios podrían incluir:
 
-* Acceso a los recursos de un dispositivo no administrado o compartido
-* Acceso a información confidencial desde una red externa
-* Usuarios de alto impacto
+* El acceso a los recursos desde un dispositivo no administrado o compartido
+* El acceso a información confidencial desde una red externa
+* Usuarios de gran impacto
 * Aplicaciones empresariales críticas
 
-Controles de acceso condicional le permiten crear directivas que tienen como destino de los casos de uso específicos dentro de su organización sin que afecte a todos los usuarios.
+Los controles de acceso condicional le permiten crear directivas dirigidas a casos de uso específicos dentro de la organización sin afectar a todos los usuarios.
 
-Antes de entrar en detalles sobre cómo configurar la directiva, vamos a examinar la configuración predeterminada.
+Antes de entrar en detalles sobre cómo configurar la directiva, examinemos la configuración predeterminada.
 
 ## <a name="user-sign-in-frequency"></a>Frecuencia de inicio de sesión de usuario
 
-Frecuencia de inicio de sesión define el período de tiempo antes de que un usuario se le pida volver a iniciar sesión cuando se intenta acceder a un recurso.
+La frecuencia de inicio de sesión define el período de tiempo antes de que se pida a un usuario que vuelva a iniciar sesión cuando intenta acceder a un recurso.
 
-La configuración predeterminada de Azure Active Directory (Azure AD) para el inicio de sesión de usuario en la frecuencia es una ventana con desplazamiento de 90 días. Pedir al usuario las credenciales a menudo puede parecer algo razonable, pero quizás funcione: los usuarios que están entrenados para escribir sus credenciales sin pensar puede involuntariamente suministrarlos a una petición de credenciales malintencionado.
+La configuración predeterminada de Azure Active Directory (Azure AD) para la frecuencia de inicio de sesión de usuario es período sucesivo de 90 días. Pedir credenciales a los usuarios a menudo parece algo sensato, pero puede resultar contraproducente: los usuarios que están capacitados para escribir sus credenciales sin pensarlo pueden suministrarlas sin querer a una petición de credenciales malintencionada.
 
-Podría parecer una alarmante no pedir al iniciarla durante 90 días, en realidad de que cualquier infracción de las directivas de TI revocará la sesión usuario. Algunos ejemplos incluyen (pero no se limitan a) un cambio de contraseña, un dispositivo estar o deshabilitar de cuenta. Se puede convertir explícitamente también [revocar sesiones de los usuarios mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD desciende a "no pregunte a los usuarios proporcionen sus credenciales si no ha cambiado la posición de seguridad de sus sesiones".
+Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión durante 90 días; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
-Inicio de sesión de configuración de frecuencia funciona con aplicaciones que se han implementado los protocolos de OATH2 o OIDC según los estándares. La mayoría aplicaciones nativas de Microsoft para Windows, Mac y móviles cumplen con la configuración.
+La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OATH2 o OIDC de acuerdo con los estándares. La mayoría de las aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles cumplen con la configuración.
 
-## <a name="persistence-of-browsing-sessions"></a>Persistencia de sesiones de exploración
+## <a name="persistence-of-browsing-sessions"></a>Persistencia de las sesiones de exploración
 
-Una sesión de explorador persistente permite a los usuarios permanecer con la sesión después de cerrar y volver a abrir la ventana del explorador.
+Una sesión persistente del explorador permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador.
 
-¿El valor predeterminado de Azure AD para la persistencia de sesión de explorador permite a los usuarios en dispositivos personales que elija si desea conservar la sesión presentando un "permanezca iniciada"? símbolo del sistema tras una autenticación correcta. Si se configura la persistencia de explorador en AD FS siguiendo las instrucciones del artículo [único inicio de sesión en configuración de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-), agregaremos cumplen con esa directiva y conservar también la sesión de AD de Azure. ¿También puede configurar si los usuarios de su inquilino de ver la "permanezca iniciada"? símbolo del sistema, cambie la configuración adecuada en el panel del portal de Azure siguiendo las instrucciones del artículo de marca de empresa [personalizar su página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
+El valor predeterminado de Azure AD para la persistencia de la sesión del explorador permite a los usuarios de dispositivos personales elegir si desean mantener la sesión mostrando un aviso de "¿Quiere mantener la sesión iniciada?" tras una autenticación correcta. Si se configura la persistencia del explorador en AD FS mediante las instrucciones del artículo [Configuración de inicio de sesión único de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), cumpliremos con esa directiva y persistiremos también en la sesión de Azure AD. También, para configurar si los usuarios del inquilino van a ver el aviso "¿Quiere mantener la sesión iniciada?", cambie la configuración apropiada en el panel de la marca de la empresa en Azure Portal mediante la guía del artículo [Personalización de la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
 
-## <a name="configuring-authentication-session-controls"></a>Configuración de controles de sesión de autenticación
+## <a name="configuring-authentication-session-controls"></a>Configuración de los controles de sesión de autenticación
 
-Acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia premium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements).
+El acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia prémium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
-> Si usas el [vigencia de tokens configurables](../develop/active-directory-configurable-token-lifetimes.md) características actualmente en versión preliminar pública, tenga en cuenta que no se admite crear dos directivas diferentes para la misma combinación de la aplicación o un usuario: uno con esta característica y otra con característica de vigencia de tokens configurables. Microsoft tiene planeado retirar la característica de vigencia de tokens configurables del 15 de octubre y reemplácela con la característica de administración de sesión de autenticación de acceso condicional.  
+> Si utiliza la característica de [vigencia del token configurable](../develop/active-directory-configurable-token-lifetimes.md) actualmente en versión preliminar pública, tenga en cuenta que no se admite la creación de dos directivas diferentes para el mismo usuario o combinación de aplicaciones: una con esta característica y otra con la característica de vigencia del token configurable. Microsoft piensa retirar la característica de vigencia del token configurable el 1 de noviembre y reemplazarla por la característica de administración de sesiones de autenticación de acceso condicional.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Directiva 1: Control de inicio de sesión de frecuencia
+### <a name="policy-1-sign-in-frequency-control"></a>Directiva 1: Control de la frecuencia de inicio de sesión
 
-1. Crear nueva directiva
-1. Elija las condiciones de todo lo necesarias para el entorno del cliente, incluidas las aplicaciones de nube de destino.
+1. Cree una nueva directiva.
+1. Elija todas las condiciones necesarias para el entorno del cliente, incluidas las aplicaciones en la nube de destino.
 
    > [!NOTE]
-   > Se recomienda establecer la frecuencia de símbolo del sistema de autenticación igual para aplicaciones de Microsoft Office claves como Exchange Online y SharePoint Online para la mejor experiencia de usuario.
+   > Se recomienda establecer la misma frecuencia de autenticación para las aplicaciones clave de Microsoft Office, como Exchange Online y SharePoint Online, para una mejor experiencia del usuario.
 
-1. Vaya a **controles de acceso** > **sesión** y haga clic en **frecuencia de inicio de sesión**
-1. Escriba el valor requerido de los días y horas en el primer cuadro de texto
-1. Seleccione un valor de **horas** o **días** desde la lista desplegable
-1. Guardar la directiva
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Frecuencia de inicio de sesión**.
+1. Escriba el valor requerido de los días y horas en el primer cuadro de texto.
+1. Seleccione un valor para las **horas** o **días** en la lista desplegable.
+1. Guarde la directiva.
 
-![Directiva de acceso condicional configurada para inicio de sesión en frecuencia](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Directiva de acceso condicional configurada para la frecuencia de inicio de sesión](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-En Azure AD registrada Windows dispositivos inicie sesión en el dispositivo se considera un símbolo del sistema. Por ejemplo, si ha configurado el inicio de sesión en la frecuencia de hasta 24 horas para aplicaciones de Office, los usuarios en Azure AD registran Windows dispositivos cumplirán la directiva de frecuencia de inicio de sesión al iniciar sesión en el dispositivo y no pedirá nuevamente cuando abran las aplicaciones de Office.
+En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en el dispositivo se considera un aviso. Por ejemplo, si ha configurado la frecuencia de inicio de sesión a 24 horas para aplicaciones de Office, los usuarios de dispositivos de Windows registrados en Azure AD cumplirán la directiva de frecuencia de inicio de sesión mediante el inicio de sesión en el dispositivo y no se les volverá a preguntar cuando abran las aplicaciones de Office.
 
-Si ha configurado otro inicio de sesión de frecuencia para aplicaciones web diferentes que se ejecutan en la misma sesión del explorador, se aplicará la directiva más estricta a ambas aplicaciones porque todas las aplicaciones que se ejecutan en la misma sesión del explorador comparten un token de sesión único.
+Si ha configurado una frecuencia de inicio de sesión diferente para distintas aplicaciones web que se ejecutan en la misma sesión del navegador, se aplicará la directiva más estricta a ambas aplicaciones porque todas las aplicaciones que se ejecutan en la misma sesión del explorador comparten un único token de sesión.
 
 ### <a name="policy-2-persistent-browser-session"></a>Directiva 2: Sesión del explorador persistente
 
-1. Crear nueva directiva
+1. Cree una nueva directiva.
 1. Elija todas las condiciones necesarias.
 
    > [!NOTE]
-   > Tenga en cuenta que este control requiere elegir "Todas las aplicaciones de nube" como una condición. Persistencia de la sesión de explorador se controla mediante el token de sesión de autenticación. Todas las fichas en una sesión de explorador comparten un token de sesión único y, por tanto, todos ellos deben compartir el estado de persistencia.
+   > Tenga en cuenta que este control requiere elegir "Todas las aplicaciones en la nube" como una condición. La persistencia de la sesión del explorador se controla mediante el token de la sesión de autenticación. Todas las pestañas de una sesión del explorador comparten un único token de sesión y, por tanto, todas ellas deben compartir el estado de persistencia.
 
-1. Vaya a **controles de acceso** > **sesión** y haga clic en **sesión persistente del explorador**
-1. Seleccione un valor de la lista desplegable
-1. Guardar directiva
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Sesión del explorador persistente**.
+1. Seleccione un valor en la lista desplegable.
+1. Guarde la directiva.
 
-![Directiva de acceso condicional configurada para explorador persistente](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Directiva de acceso condicional configurada para el explorador persistente](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> La configuración persistente de sesión del explorador en el acceso condicional de Azure AD, sobrescribirá el "permanezca iniciada?" Si se establece la marca de panel en el portal de Azure para el mismo usuario si ha configurado las dos directivas de la empresa.
+> La configuración de la sesión del explorador persistente en el acceso condicional de Azure AD sobrescribirá la configuración "¿Quiere mantener la sesión iniciada?" en el panel de personalización de marca de la empresa en Azure Portal para el mismo usuario si ha configurado las dos directivas.
 
 ## <a name="validation"></a>Validación
 
-Utilice la herramienta What If para simular un inicio de sesión del usuario para la aplicación de destino y otras condiciones en función de la configuración de la directiva. Los controles de administración de la sesión de autenticación se muestran en el resultado de la herramienta.
+Utilice la herramienta What-If para simular un inicio de sesión del usuario en la aplicación de destino y otras condiciones según la configuración de la directiva. Los controles de administración de la sesión de autenticación se muestran en el resultado de la herramienta.
 
-![¿Qué ocurre si da como resultado herramienta de acceso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultados de la herramienta "What If" para el acceso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Implementación de directivas
 
-Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para obtener más información, vea el artículo [procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para más información, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si desea saber cómo configurar una directiva de acceso condicional, consulte el artículo [exigencia de MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md).
-* Si está listo para configurar directivas de acceso condicional para su entorno, consulte el artículo [procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+* Si quiere saber cómo configurar una directiva de acceso condicional, consulte el artículo [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md).
+* Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).

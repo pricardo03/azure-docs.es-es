@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479959"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
@@ -49,7 +49,7 @@ Esta es la arquitectura antes de la conmutación por error.
         - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
         - El Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.2.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con el espacio de direcciones 10.2.4.0/24.
-        - Nodos de réplica de SQL Server Always On, etc. de controlador de dominio se encuentran en **subred 4**.
+        - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
     - Las redes **VNET de origen** y **VNET de Azure** están conectadas con una conexión VPN de sitio a sitio.
     - La red **Recovery VNet** no está conectada a ninguna otra red virtual.
     - La **empresa A** asigna o comprueba las direcciones IP de destino de los elementos replicados. La IP de destino es la misma que la IP de origen para cada máquina virtual.
@@ -92,7 +92,7 @@ Antes de la conmutación por error, la arquitectura es la siguiente:
 - La región secundaria (destino) es Sudeste Asiático de Azure. Sudeste Asiático tiene redes virtuales de recuperación (**VNET de recuperación 1** y **VNET de recuperación 2**) que son idénticas a las redes **VNET de origen 1** y **VNET de origen 2**.
         Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con un espacio de direcciones 10.3.4.0/24.
-        -Nodos de réplica para SQL Server Always On, etc. de controlador de dominio se encuentran en **subred 4**.
+        - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
 - Hay diferentes conexiones de VPN de sitio a sitio: 
     - **VNET de origen 1** y **VNET de Azure**
     - **VNET de origen 2** y **VNET de Azure**
@@ -132,10 +132,10 @@ Este es el aspecto de la arquitectura de red antes de la conmutación por error:
   - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
     - **Subred 1**: 10.1.1.0/24
     - **Subred 2**: 10.1.2.0/24
-    - **Subred 3**: 10.1.3.0/24, uso de una red virtual con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
+    - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
       - La región secundaria (destino) es la del Sudeste Asiático de Azure:
   - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
-- Las máquinas virtuales de Asia Pacífico están conectadas a un centro de datos locales con Azure ExpressRoute o VPN de sitio a sitio.
+- Las máquinas virtuales de la región de Asia Oriental están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
 - Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
 - La empresa B asigna o comprueba las direcciones IP de destino de las máquinas virtuales replicadas. La dirección IP de destino es la misma que la dirección IP de origen para cada máquina virtual.
 

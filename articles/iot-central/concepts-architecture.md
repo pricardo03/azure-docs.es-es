@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693132"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
@@ -81,11 +81,11 @@ Una aplicación puede tener uno o varios dispositivos simulados y reales basados
 
 ## <a name="data-export"></a>Exportación de datos
 
-En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data-event-hubs-service-bus.md) a su propio Azure Event Hubs y las instancias de Azure Service Bus. Periódicamente también puede exportar los datos a la cuenta de almacenamiento de blobs de Azure. IoT Central puede exportar las medidas, dispositivos y las plantillas de dispositivo.
+En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data-event-hubs-service-bus.md) a sus propias instancias de Azure Event Hubs y de Azure Service Bus. También puede exportar los datos periódicamente a la cuenta de Azure Blob Storage. IoT Central puede exportar medidas, dispositivos y plantillas de dispositivo.
 
-## <a name="batch-device-updates"></a>Actualizaciones del dispositivo por lotes
+## <a name="batch-device-updates"></a>Actualizaciones de dispositivos en lote
 
-En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto-run-a-job.md) para administrar los dispositivos conectados. Estos trabajos le permiten las actualizaciones de configuración o las propiedades del dispositivo de forma masiva o ejecutar comandos. Por ejemplo, puede crear un trabajo para aumentar la velocidad del ventilador para varias máquinas expendedoras refrigeradas.
+En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto-run-a-job.md) para administrar los dispositivos conectados. Estos trabajos le permiten realizar actualizaciones masivas de los comandos, las configuraciones y propiedades de los dispositivos. Por ejemplo, puede crear un trabajo para aumentar la velocidad del ventilador de varias máquinas expendedoras refrigeradas.
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 
@@ -103,10 +103,10 @@ Entre las características de seguridad de Azure IoT Central están las siguient
 ## <a name="ui-shell"></a>Shell de IU
 
 El shell de la interfaz de usuario es una a aplicación moderna, con capacidad de respuesta y basada en un explorador HTML5.
-Un administrador puede personalizar la interfaz de usuario de la aplicación aplicando temas personalizados y modificar los vínculos de ayuda para que apunte a sus propios recursos de ayuda personalizado. Para obtener más información acerca de la interfaz de usuario personalizada, vea [personalizar Azure IoT Central UI](howto-customize-ui.md) artículo.
+Un administrador puede personalizar la interfaz de usuario de la aplicación mediante la aplicación de temas personalizados y la modificación de los vínculos de ayuda para que apunten a sus propios recursos de ayuda personalizados. Para más información sobre la interfaz de usuario personalizada, consulte el artículo [Personalizar la interfaz de usuario de Azure IoT Central](howto-customize-ui.md).
 
-Un operador puede crear paneles de aplicaciones personalizadas. Puede tener varios paneles que muestran datos diferentes y cambiar entre ellas.
+Un operador puede crear paneles de aplicaciones personalizados. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido acerca de la arquitectura de Azure IoT Central, el siguiente paso sugerido es obtener información sobre [conectividad de dispositivos](concepts-connectivity.md) en Azure IoT Central.
+Ahora que ha aprendido sobre la arquitectura de Azure IoT Central, el siguiente paso sugerido es obtener información sobre [la conectividad de dispositivos](concepts-connectivity.md) en Azure IoT Central.

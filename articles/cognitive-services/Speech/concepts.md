@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954529"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
@@ -32,7 +32,7 @@ Si es la primera vez que va a crear una aplicación habilitada para voz o si es 
 
 Ante todo, entre los conceptos básicos de la voz se encuentra la *secuencia de audio*. A diferencia de una pulsación de tecla, que se produce en un único punto en el tiempo y contiene un único fragmento de información, una solicitud hablada se extiende a cientos de milisegundos y contiene una gran cantidad de kilobytes de información. La duración de las expresiones habladas presenta algunas dificultades a los desarrolladores que desean proporcionar una experiencia de voz simplificada y elegante para su aplicación. Los equipos y algoritmos actuales realizan la transcripción de voz en aproximadamente la mitad de la duración de la expresión, por lo que una expresión de 2 segundos puede transcribirse en aproximadamente 1 segundo, pero cualquier aplicación que experimente un retraso de 1 segundo en el proceso de usuario no será simplificada ni elegante.
 
-Afortunadamente, hay formas de "ocultar" el tiempo de transcripción realizando la transcripción de una parte de la expresión mientras el usuario dice la otra parte. Por ejemplo, mediante la división de una declaración de 1 segundo en 10 fragmentos de 100 milisegundos y mediante la realización de transcripción en cada fragmento a su vez, más 450 de los 500 milisegundos total necesarios para la transcripción puede permanecer "ocultas" para que el usuario no es consciente transcripción es llevando a cabo mientras están hablando. Al pensar en este ejemplo, recuerde que el servicio realiza la transcripción de los 100 milisegundos de audio anteriores mientras el usuario habla durante los 100 siguientes, por lo que cuando el usuario deje de hablar, el servicio solo tendrá que transcribir aproximadamente 100 milisegundos de audio para producir un resultado.
+Afortunadamente, hay formas de "ocultar" el tiempo de transcripción realizando la transcripción de una parte de la expresión mientras el usuario dice la otra parte. Por ejemplo, si se divide una expresión de 1 segundo en 10 fragmentos de 100 milisegundos y se realiza la transcripción de cada fragmento, más de 450 de los 500 milisegundos totales necesarios para la transcripción pueden "ocultarse", de modo que el usuario no sea consciente de la transcripción que se realiza mientras habla. Al pensar en este ejemplo, recuerde que el servicio realiza la transcripción de los 100 milisegundos de audio anteriores mientras el usuario habla durante los 100 siguientes, por lo que cuando el usuario deje de hablar, el servicio solo tendrá que transcribir aproximadamente 100 milisegundos de audio para producir un resultado.
 
 Para lograr esta experiencia de usuario, la información de audio hablada se recopila en fragmentos y se transcriben a medida que el usuario habla. Estos fragmentos de audio colectivos de la *secuencia de audio* y el proceso de envío de estos fragmentos de audio al servicio se denomina *streaming de audio.* Audio streaming es una parte importante de cualquier aplicación habilitada para voz; el ajuste del tamaño de fragmento y la optimización de la implementación del streaming son algunas de las formas más impactantes de mejorar la experiencia de usuario de su aplicación.
 
@@ -82,9 +82,9 @@ El servicio de reconocimiento de voz de Microsoft ofrece dos métodos para que l
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | Sí | Sí |
-| Convertir un audio largo (> 15 s) | Sin  | Sí |
-| Audio de secuencia con resultados provisionales deseados | Sin  | Sí |
-| Comprender el texto convertido desde audio mediante LUIS | Sin  | Sí |
+| Convertir un audio largo (> 15 s) | Sin | Sí |
+| Audio de secuencia con resultados provisionales deseados | Sin | Sí |
+| Comprender el texto convertido desde audio mediante LUIS | Sin | Sí |
 
  Si el lenguaje o plataforma no tiene todavía un SDK, puede crear su propia implementación en función de la [documentación del protocolo](API-Reference-REST/websocketprotocol.md).
 

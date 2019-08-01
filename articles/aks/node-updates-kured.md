@@ -1,35 +1,35 @@
 ---
-title: Actualizar y reiniciar los nodos de Linux con kured en Azure Kubernetes Service (AKS)
-description: Obtenga información sobre cómo actualizar los nodos de Linux y reiniciarlas automáticamente con kured en Azure Kubernetes Service (AKS)
+title: Actualización y reinicio de nodos de Linux con Kured en Azure Kubernetes Service (AKS)
+description: Aprenda a actualizar los nodos de Linux y a reiniciarlos automáticamente con Kured en Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055640"
 ---
-# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar actualizaciones de kernel y de seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicación de actualizaciones de kernel y seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
 
-Para proteger los clústeres, las actualizaciones de seguridad se aplican automáticamente a los nodos de Linux en AKS. Estas actualizaciones incluyen las revisiones de seguridad del sistema operativo o las actualizaciones del kernel. Algunas de estas actualizaciones requieren un reinicio del nodo para completar el proceso. AKS no reiniciar automáticamente estos nodos de Linux para completar el proceso de actualización.
+Para proteger los clústeres, las actualizaciones de seguridad se aplican automáticamente a los nodos de Linux en AKS. Estas actualizaciones incluyen las revisiones de seguridad del sistema operativo o las actualizaciones del kernel. Algunas de estas actualizaciones requieren un reinicio del nodo para completar el proceso. AKS no reinicia automáticamente estos nodos de Linux para completar el proceso de actualización.
 
-El proceso para mantener actualizados los nodos de Windows Server (actualmente en versión preliminar de AKS) es un poco diferente. Nodos de Windows Server no reciben actualizaciones diarias. En su lugar, realice una actualización AKS que implementa nuevos nodos con la imagen de Windows Server base más reciente y las revisiones. Para clústeres AKS que usan los nodos de Windows Server, vea [actualizar un grupo de nodos de AKS][nodepool-upgrade].
+El proceso para mantener actualizados los nodos de Windows Server (actualmente en versión preliminar de AKS) difiere ligeramente. Los nodos de Windows Server no reciben actualizaciones diarias. En su lugar, debe actualizar AKS para implementar nuevos nodos con la imagen base de Windows Server más reciente y las revisiones. Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actualización de un grupo de nodos de AKS][nodepool-upgrade].
 
-Este artículo muestra cómo usar el código abierto [kured (demonio de reinicio de KUbernetes)] [ kured] ver para los nodos de Linux que requieren un reinicio, a continuación, controlar automáticamente la reprogramación de pods y nodos en ejecución Reinicie el proceso.
+En este artículo se muestra cómo usar el código abierto [Kured (demonio de reinicio de Kubernetes)][kured] para buscar nodos de Linux que requieran reinicio y, a continuación, administrar automáticamente la reprogramación de pods en ejecución y el proceso de reinicio de los nodos.
 
 > [!NOTE]
-> `Kured` es un proyecto de código abierto de Weaveworks. La asistencia para este proyecto en AKS se proporciona dentro de lo posible. Soporte técnico adicional puede encontrarse en el canal de slack #weave-Comunidad.
+> `Kured` es un proyecto de código abierto de Weaveworks. La asistencia para este proyecto en AKS se proporciona dentro de lo posible. Se puede encontrar soporte técnico adicional en el canal de Slack #weave-community.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Información sobre la experiencia de actualización del nodo AKS
 
@@ -37,9 +37,9 @@ En un clúster de AKS, los nodos de Kubernetes se ejecutan como máquinas virtua
 
 ![Actualización de nodo AKS y proceso de reinicio con Kured](media/node-updates-kured/node-reboot-process.png)
 
-Algunas actualizaciones de seguridad, como las actualizaciones del kernel, requieren un reinicio del nodo para finalizar el proceso. Un nodo de Linux que requiere un reinicio crea un archivo denominado */var/run/reboot-required*. Este proceso de reinicio no se realiza automáticamente.
+Algunas actualizaciones de seguridad, como las actualizaciones del kernel, requieren un reinicio del nodo para finalizar el proceso. Un nodo de Linux que requiere reinicio crea un archivo denominado */var/run/reboot-required*. Este proceso de reinicio no se realiza automáticamente.
 
-Puede usar sus propios flujos de trabajo y procesos para controlar los reinicios de nodo, o usar `kured` para coordinar el proceso. Con `kured`, un [DaemonSet] [ DaemonSet] implementada que ejecuta un pod en cada nodo del clúster de Linux. Estos pods en el DaemonSet comprueban si existe el archivo */var/run/reboot-required* y, a continuación, inician un proceso para reiniciar los nodos.
+Puede usar sus propios flujos de trabajo y procesos para controlar los reinicios de nodo, o usar `kured` para coordinar el proceso. Con `kured`, se implementa un [DaemonSet][DaemonSet] que ejecuta un pod en cada nodo de Linux del clúster. Estos pods en el DaemonSet comprueban si existe el archivo */var/run/reboot-required* y, a continuación, inician un proceso para reiniciar los nodos.
 
 ### <a name="node-upgrades"></a>Actualizaciones de nodo
 
@@ -58,12 +58,13 @@ Para implementar el DaemonSet de `kured`, aplique el siguiente manifiesto YAML d
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+```
 
-You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
+También puede configurar parámetros adicionales para `kured`, como la integración con Prometheus o Slack. Para más información acerca de los parámetros de configuración adicionales, consulte los [documentos de instalación de Kured][kured-install].
 
-## Update cluster nodes
+## <a name="update-cluster-nodes"></a>Actualización de nodos de clúster
 
-By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
+De forma predeterminada, los nodos de Linux en AKS buscan actualizaciones por la noche. Si no desea esperar, puede realizar manualmente una actualización para comprobar que `kured` se ejecuta correctamente. En primer lugar, siga los pasos para [conectar con SSH a uno de los nodos AKS][aks-ssh]. Una vez que tenga una conexión SSH al nodo de Linux, compruebe si hay actualizaciones y aplíquelas como sigue:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -82,7 +83,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Una vez completado el proceso de actualización, puede ver el estado de los nodos mediante el comando [kubectl get nodes][kubectl-get-nodes] con el parámetro `--output wide`. Esta salida adicional le permite ver la diferencia en *KERNEL-VERSION* de los nodos subyacentes, como se muestra en la siguiente salida de ejemplo. El *aks-nodepool1-28993262-0* se actualizó en un paso anterior y mostrará la versión de kernel *4.15.0-1039-azure*. El nodo *aks-nodepool1-28993262-1* que no ha sido actualizado mostrará la versión de kernel *4.15.0-1037-azure*.
+Una vez completado el proceso de actualización, puede ver el estado de los nodos mediante el comando [kubectl get nodes][kubectl-get-nodes] con el parámetro `--output wide`. Esta salida adicional le permite ver la diferencia en *KERNEL-VERSION* de los nodos subyacentes, como se muestra en la siguiente salida de ejemplo. El nodo *aks-nodepool1-28993262-0* se actualizó en un paso anterior y muestra la versión de kernel *4.15.0-1039-azure*. El nodo *aks-nodepool1-28993262-1* que no ha sido actualizado muestra la versión de kernel *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -92,9 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se detallaba cómo utilizar `kured` para los nodos de Linux se reinicie automáticamente como parte del proceso de actualización de seguridad. Para actualizar a la versión más reciente de Kubernetes, puede [actualizar el clúster de AKS][aks-upgrade].
+En este artículo se ha detallado cómo utilizar `kured` para reiniciar nodos de Linux automáticamente como parte del proceso de actualización de seguridad. Para actualizar a la versión más reciente de Kubernetes, puede [actualizar el clúster de AKS][aks-upgrade].
 
-Para clústeres AKS que usan los nodos de Windows Server, vea [actualizar un grupo de nodos de AKS][nodepool-upgrade].
+Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actualización de un grupo de nodos de AKS][nodepool-upgrade].
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured

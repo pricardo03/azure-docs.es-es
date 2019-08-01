@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048519"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -26,14 +26,14 @@ Actualmente, todos los tipos de actividad, excepto la actividad personalizada, a
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esta característica se basa en la identidad de data factory administra. Obtenga información sobre cómo funciona [la identidad de la factoría de datos administrada](data-factory-service-identity.md) y asegúrese de que la factoría de datos tiene una asociada.
+Esta característica se basa en la identidad administrada de Data Factory. Aprenda cómo funciona en [Identidad administrada de Data Factory](data-factory-service-identity.md) y asegúrese de que su instancia de Data Factory tenga una asociada.
 
 ## <a name="steps"></a>Pasos
 
 Para hacer referencia a una credencial almacenada en Azure Key Vault, deberá seguir estos pasos:
 
-1. **Recuperar la identidad de data factory administra** copiando el valor "servicio de identidad del identificador de aplicación" generado junto con la factoría. Si usa la interfaz de usuario de creación de ADF, se mostrará el identificador de aplicación de identidad administrada en la ventana de creación del servicio vinculado de Azure Key Vault; También se puede recuperar desde Azure portal, consulte [factoría de datos de recuperar la identidad administrada](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Conceda acceso de identidad administrada para Azure Key Vault.** En el almacén de claves de-acceso -> directivas > Agregar -> nuevo, busque administra este Id. de aplicación de identidad para conceder **obtener** permiso en la lista desplegable de permisos de secretos. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
+1. **Recuperación de la identidad administrada de Data Factory**: copie el valor de "Id. de aplicación de identidad administrada" que se generó junto con la factoría. Si usa la IU de creación de ADF, el identificador de aplicación de identidad administrada se mostrará en la ventana de creación del servicio vinculado de Azure Key Vault; también puede recuperarlo de Azure Portal, consulte [Recuperación de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Concesión del acceso de identidad administrada a Azure Key Vault.** En el almacén de claves -> Directivas de acceso -> Agregar nueva ->, busque este identificador de la aplicación de identidad administrada para conceder el permiso **Get** en el menú desplegable Permisos de secretos. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
 3. **Creación de un servicio vinculado que apunte a Azure Key Vault.** Consulte [Servicio vinculado de Azure Key Vault](#azure-key-vault-linked-service).
 4. **Creación de un servicio vinculado a un almacén de datos en el que se hace referencia al secreto correspondiente guardado en el almacén de claves.** Consulte [Secreto de referencia almacenado en el almacén de claves](#reference-secret-stored-in-key-vault).
 
@@ -48,7 +48,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 
 **Uso de la IU de creación:**
 
-Haga clic en **Conexiones** -> **Servicios vinculados** -> **+ Nuevo** -> busque "Azure Key Vault":
+Haga clic en **Conexiones** -> **Servicios vinculados** ->  **+ Nuevo** -> busque "Azure Key Vault":
 
 ![Búsqueda de AKV](media/store-credentials-in-key-vault/search-akv.png)
 
@@ -76,9 +76,9 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
+| Tipo | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
 | secretName | El nombre del secreto en Azure Key Vault. | Sí |
-| secretVersion | La versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin  |
+| secretVersion | La versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin |
 | store | Hace referencia a un servicio vinculado de Azure Key Vault que se usa para almacenar las credenciales. | Sí |
 
 **Uso de la IU de creación:**
@@ -86,7 +86,7 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 Seleccione **Azure Key Vault** para campos secretos al crear la conexión al almacén de datos/proceso. Seleccione el servicio vinculado de Azure Key Vault aprovisionado y proporcione el **nombre del secreto**. También puede proporcionar una versión del secreto. 
 
 >[!TIP]
->Para los conectores con la cadena de conexión en el servicio vinculado, como SQL Server, almacenamiento de blobs, etc., puede elegir almacenar solo el campo secreto, por ejemplo, la contraseña en Azure Key VAULT, o para almacenar la cadena de conexión completa en Azure Key VAULT. Puede encontrar ambas opciones en la interfaz de usuario.
+>Para los conectores que usan cadena de conexión en el servicio vinculado, como SQL Server, Blob Storage, etc., puede elegir almacenar solo el campo secreto, por ejemplo, la contraseña, en AKV o la cadena de conexión completa. Puede encontrar ambas opciones en la interfaz de usuario.
 
 ![Configuración de secreto de AKV](media/store-credentials-in-key-vault/configure-akv-secret.png)
 

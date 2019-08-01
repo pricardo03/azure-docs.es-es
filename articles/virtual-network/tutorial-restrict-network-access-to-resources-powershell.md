@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b76256ef70b85df0c504427179518d175f08b645
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66727671"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restricción del acceso a la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante PowerShell
@@ -61,7 +61,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Cree una configuración de subred con [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred para una subred denominada *Public*:
+Cree una configuración de subred con [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred para una subred denominada *Public*:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Cree la subred en la red virtual escribiendo la configuración de subred en la red virtual con [conjunto AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+Cree la subred en la red virtual escribiendo la configuración de dicha subred en la red virtual con [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>Habilitación de un punto de conexión de servicio
 
-Puede habilitar puntos de conexión de servicio únicamente para los servicios que admiten estos puntos de conexión. Ver servicios habilitados por el punto de conexión servicio disponibles en una ubicación de Azure con [Get AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). En el ejemplo siguiente se devuelve una lista de servicios habilitados para puntos de conexión de servicio disponibles en la región *eastus*. La lista de servicios devuelta crecerá con el tiempo a medida que más servicios de Azure pasan a estar habilitados para puntos de conexión de servicio.
+Puede habilitar puntos de conexión de servicio únicamente para los servicios que admiten estos puntos de conexión. Vea los servicios habilitados para puntos de conexión de servicio disponibles en una ubicación de Azure con [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). En el ejemplo siguiente se devuelve una lista de servicios habilitados para puntos de conexión de servicio disponibles en la región *eastus*. La lista de servicios devuelta crecerá con el tiempo a medida que más servicios de Azure pasan a estar habilitados para puntos de conexión de servicio.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -98,7 +98,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Restricción del acceso de la red para una subred
 
-Crear reglas de seguridad de grupo con seguridad de red [New AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La siguiente regla permite el acceso de salida a las direcciones IP públicas asignadas al servicio Azure Storage: 
+Cree reglas de seguridad de grupo de seguridad de red con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La siguiente regla permite el acceso de salida a las direcciones IP públicas asignadas al servicio Azure Storage: 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-Asocie el grupo de seguridad de red a la *privada* subred con [conjunto AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) y, a continuación, escriba la configuración de subred a la red virtual. En el ejemplo siguiente se asocia el grupo de seguridad de red *myNsgPrivate* a la subred *Private*:
+Asocie el grupo de seguridad de red a la subred *Private* con [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) y escriba la configuración de la subred en la red virtual. En el ejemplo siguiente se asocia el grupo de seguridad de red *myNsgPrivate* a la subred *Private*:
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -172,7 +172,7 @@ Los pasos que deben seguirse para restringir el acceso de la red a los recursos 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento de Azure con [New AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Remplace `<replace-with-your-unique-storage-account-name>` por un nombre que sea único en todas las ubicaciones de Azure, que tenga entre 3 y 24 caracteres de longitud y que esté compuesto exclusivamente de números y letras en minúscula.
+Cree una cuenta de almacenamiento de Azure con [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Remplace `<replace-with-your-unique-storage-account-name>` por un nombre que sea único en todas las ubicaciones de Azure, que tenga entre 3 y 24 caracteres de longitud y que esté compuesto exclusivamente de números y letras en minúscula.
 
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
@@ -185,7 +185,7 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Una vez creada la cuenta de almacenamiento, recupere la clave para la cuenta de almacenamiento en una variable con [Get AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+Después de crear la cuenta de almacenamiento, recupere la clave para dicha cuenta en una variable con [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzStorageAccountKey `
@@ -197,19 +197,19 @@ La clave se utiliza para crear un recurso compartido de archivos en un paso post
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creación de un recurso compartido de archivos en la cuenta de almacenamiento
 
-Crear un contexto de la cuenta de almacenamiento y la clave con [New AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). El contexto encapsula el nombre y la clave de la cuenta de almacenamiento:
+Cree un contexto para la clave y la cuenta de almacenamiento con [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). El contexto encapsula el nombre y la clave de la cuenta de almacenamiento:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Crear un recurso compartido de archivos con [New AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+Cree un recurso compartido de archivos con [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Denegación de todo el acceso a la red a una cuenta de almacenamiento
 
-De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red procedentes de clientes de cualquier red. Para limitar el acceso a redes seleccionadas, cambie la acción predeterminada a *Deny* con [actualización AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Una vez que se deniega el acceso a la red, no se puede acceder a la cuenta de almacenamiento desde ninguna red.
+De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red procedentes de clientes de cualquier red. Para limitar el acceso a redes seleccionadas, cambie la acción predeterminada a *Deny* con [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Una vez que se deniega el acceso a la red, no se puede acceder a la cuenta de almacenamiento desde ninguna red.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -220,7 +220,7 @@ Update-AzStorageAccountNetworkRuleSet  `
 
 ### <a name="enable-network-access-from-a-subnet"></a>Habilitación del acceso de red desde una subred
 
-Recuperar la red virtual creada con [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) y, a continuación, recupere el objeto de subred privada en una variable con [Get AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+Recupere la red virtual creada con [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) y recupere el objeto de subred privada en una variable con [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-Permitir el acceso de red a la cuenta de almacenamiento desde el *privada* subred con [agregar AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+Permita el acceso a la red a la cuenta de almacenamiento desde la subred *Private* con [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -245,7 +245,7 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
 
 ### <a name="create-the-first-virtual-machine"></a>Creación de la primera máquina virtual
 
-Crear una máquina virtual en el *pública* subred con [New-AzVM](/powershell/module/az.compute/new-azvm). Cuando ejecute el comando siguiente, se le solicitarán las credenciales. Los valores que especifique se configuran como el nombre de usuario y la contraseña de la máquina virtual. La opción `-AsJob` crea la máquina virtual en segundo plano, así que puede continuar con el siguiente paso.
+Cree una máquina virtual en la subred *Pública* con [New-AzVM](/powershell/module/az.compute/new-azvm). Cuando ejecute el comando siguiente, se le solicitarán las credenciales. Los valores que especifique se configuran como el nombre de usuario y la contraseña de la máquina virtual. La opción `-AsJob` crea la máquina virtual en segundo plano, así que puede continuar con el siguiente paso.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-Se denegó el acceso y recibe un *Get AzStorageFile: El servidor remoto devolvió un error: 403 Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: This request is not authorized to perform this operation* (Esta solicitud no está autorizada para realizar esta operación) porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
+Se deniega el acceso y se recibe el error *Get-AzStorageFile: El servidor remoto devolvió un error: 403 Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: This request is not authorized to perform this operation* (Esta solicitud no está autorizada para realizar esta operación) porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387095"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
@@ -89,7 +89,7 @@ Para ejecutar simultáneamente varias instancias del orquestador, envíe varias 
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transferencia de datos fuertemente tipados (solo .NET)
 
-El orquestador requiere varios fragmentos de datos, por lo que [objetos POCO compartidos](../functions-reference-csharp.md#reusing-csx-code) se usan para la transferencia de datos fuertemente tipados en C# y C# secuencia de comandos:  
+El orquestador requiere varios fragmentos de datos, por lo que se usan [objetos POCO compartidos](../functions-reference-csharp.md#reusing-csx-code) para la transferencia de datos fuertemente tipados en C# y scripts de C#:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: a39d9f9c5a138ece5d40cc5afe1d1dcdd8e7a41a
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65849797"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
@@ -30,11 +30,11 @@ Azure enruta automáticamente el tráfico entre redes locales, las redes virtual
 Complete las tareas siguientes antes de seguir los pasos de las secciones de este artículo:
 
 * Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).<br>
-* Si usa el portal, abra https://portal.azure.come inicie sesión con su cuenta de Azure.<br>
+* Si usa el portal, abra https://portal.azure.com e inicie sesión con su cuenta de Azure.<br>
 * Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, se necesita la versión 1.0.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.<br>
 * Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial, es necesaria la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
-La cuenta que inicie sesión en o conectarse a Azure, debe asignarse a la [colaborador de la red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol o a un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que se asigna a las acciones adecuadas que se muestran en [permisos ](#permissions).
+La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
@@ -42,9 +42,9 @@ Existe un límite para la cantidad de tablas de rutas que puede crear por suscri
 
 1. En la esquina superior izquierda del portal, seleccione **+ Crear un recurso**.
 1. Seleccione **Redes** y, luego, **Tabla de rutas**.
-1. Escriba un **nombre** para la tabla de rutas, seleccione la **suscripción**, cree un **grupo de recursos** nuevo o seleccione uno existe, seleccione una **ubicación** y, luego, seleccione **Crear**. Si va a asociar la tabla de rutas a una subred de una red virtual que está conectada a la red local a través de una puerta de enlace VPN y deshabilita **propagación de rutas de puerta de enlace de red Virtual**, no lo son las rutas locales se propaga a las interfaces de red en la subred.
+1. Escriba un **nombre** para la tabla de rutas, seleccione la **suscripción**, cree un **grupo de recursos** nuevo o seleccione uno existe, seleccione una **ubicación** y, luego, seleccione **Crear**. Si va a asociar la tabla de rutas a una subred de una red virtual conectada a la red local mediante una puerta de enlace VPN y deshabilita **Propagación de rutas de puerta de enlace de red virtual**, las rutas locales no se propagan a las interfaces de red de la subred.
 
-### <a name="create-route-table---commands"></a>Crear tabla de rutas - comandos
+### <a name="create-route-table---commands"></a>Creación de una tabla de rutas: comandos
 
 * CLI de Azure: [az network route-table create](/cli/azure/network/route-table/route)<br>
 * PowerShell: [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
@@ -53,7 +53,7 @@ Existe un límite para la cantidad de tablas de rutas que puede crear por suscri
 
 En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *tablas de rutas*. Cuando la opción **Tablas de rutas** aparezca en los resultados de la búsqueda, selecciónela. Aparecen las tablas de rutas que existen en la suscripción.
 
-### <a name="view-route-table---commands"></a>Vista de tabla de rutas - comandos
+### <a name="view-route-table---commands"></a>Vista de una tabla de rutas: comandos
 
 * CLI de Azure: [az network route-table list](/cli/azure/network/route-table/route)<br>
 * PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
@@ -70,7 +70,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
     * [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Script de Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-### <a name="view-details-of-route-table---commands"></a>Ver detalles de la tabla de rutas - comandos
+### <a name="view-details-of-route-table---commands"></a>Vista de los detalles de una tabla de rutas: comandos
 
 * CLI de Azure: [az network route-table show](/cli/azure/network/route-table/route)<br>
 * PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
@@ -80,14 +80,14 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *tablas de rutas*. Cuando la opción **Tablas de rutas** aparezca en los resultados de la búsqueda, selecciónela.
 1. Seleccione la tabla de rutas que desea modificar. Los cambios más comunes son [agregar](#create-a-route) o [quitar](#delete-a-route) rutas y [asociar](#associate-a-route-table-to-a-subnet) o [desasociar](#dissociate-a-route-table-from-a-subnet) tablas de rutas de las subredes.
 
-### <a name="change-a-route-table---commands"></a>Cambiar una tabla de rutas - comandos
+### <a name="change-a-route-table---commands"></a>Modificación de una tabla de rutas: comandos
 
 * CLI de Azure: [az network route-table update](/cli/azure/network/route-table/route)<br>
 * PowerShell: [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Asociación de una tabla de rutas a una subred
 
-Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de rutas se puede asociar a varias subredes o a ninguna. Como las tablas de rutas no se asocian a las redes virtuales, debe asociar una tabla de rutas a cada subred con la que desea asociarla. Todo el tráfico sale de la subred se enruta en función de las rutas que se ha creado dentro de las tablas de rutas, [rutas predeterminadas](virtual-networks-udr-overview.md#default), y las rutas propagadas desde una red local, si la red virtual está conectada a una puerta de enlace de red virtual de Azure () ExpressRoute o VPN). Solo puede asociar una tabla de rutas a las subredes de las redes virtuales que existen en la misma suscripción y ubicación de Azure de la tabla de rutas.
+Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de rutas se puede asociar a varias subredes o a ninguna. Como las tablas de rutas no se asocian a las redes virtuales, debe asociar una tabla de rutas a cada subred con la que desea asociarla. Todo el tráfico que sale de la subred se enruta según las rutas que se crearon dentro de las tablas de rutas, las [rutas predeterminadas](virtual-networks-udr-overview.md#default) y las rutas propagadas desde una red local, si la red virtual está conectada a una puerta de enlace de red virtual de Azure (ExpressRoute o VPN). Solo puede asociar una tabla de rutas a las subredes de las redes virtuales que existen en la misma suscripción y ubicación de Azure de la tabla de rutas.
 
 1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
 1. Seleccione la red virtual en la lista que contiene la subred a la que desea asociar una tabla de rutas.
@@ -97,7 +97,7 @@ Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de
 
 Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información acerca del uso de 0.0.0.0/0 en una ruta, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md#default-route).
 
-### <a name="associate-a-route-table---commands"></a>Asociar una tabla de rutas - comandos
+### <a name="associate-a-route-table---commands"></a>Asociación de una tabla de rutas: comandos
 
 * CLI de Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
 * PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
@@ -112,7 +112,7 @@ Cuando desasocia una tabla de rutas de una subred, Azure enruta el tráfico seg�
 1. Seleccione la subred de la que desea desasociar la tabla de rutas.
 1. Seleccione **Tabla de rutas**, **Ninguna** y, luego, seleccione **Guardar**.
 
-### <a name="dissociate-a-route-table---commands"></a>Desasociar una tabla de rutas - comandos
+### <a name="dissociate-a-route-table---commands"></a>Desasociación de una tabla de rutas: comandos
 
 * CLI de Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
 * PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
@@ -125,7 +125,7 @@ Una tabla de rutas no se puede eliminar si está asociada a alguna subred. [Desa
 1. Seleccione **...** en el lado derecho de la tabla de rutas que desea eliminar.
 1. Seleccione **Eliminar** y, luego, seleccione **Sí**.
 
-### <a name="delete-a-route-table---commands"></a>Eliminar una tabla de rutas - comandos
+### <a name="delete-a-route-table---commands"></a>Eliminación de una tabla de rutas: comandos
 
 * CLI de Azure: [az network route-table delete](/cli/azure/network/route-table/route)<br>
 * PowerShell: [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
@@ -137,14 +137,14 @@ Existe un límite para la cantidad de rutas por tabla de rutas que puede crear p
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *tablas de rutas*. Cuando la opción **Tablas de rutas** aparezca en los resultados de la búsqueda, selecciónela.
 1. Seleccione en la lista la tabla de rutas a la que desea agregar una ruta.
 1. Seleccione **Rutas** en **CONFIGURACIÓN**.
-1. Seleccione **+ agregar**.
+1. Seleccione **+Agregar**.
 1. Escriba un **nombre** único para la ruta dentro de la tabla de rutas.
 1. Escriba el **prefijo de dirección**, en notación CIDR, al que desea enrutar el tráfico. El prefijo no se puede duplicar en más de una ruta dentro de la tabla de rutas, aunque puede estar dentro de otro prefijo. Por ejemplo, si definió 10.0.0.0/16 como prefijo en una ruta, de todos modos puede definir otra ruta con el prefijo de dirección 10.0.0.0/24. Azure selecciona una ruta para el tráfico en función de la coincidencia de prefijo más larga. Para más información sobre cómo Azure selecciona las rutas, consulte [Selección de rutas por parte de Azure](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 1. Seleccione un **tipo de próximo salto**. Para una descripción detallada de todos los tipos de próximo salto, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md).
 1. Escriba una dirección IP en la **dirección del próximo salto**. Solo puede escribir una dirección si seleccionó *Aplicación virtual* en **Tipo de próximo salto**.
 1. Seleccione **Aceptar**.
 
-### <a name="create-a-route---commands"></a>Creación de una ruta - comandos
+### <a name="create-a-route---commands"></a>Creación de una ruta: comandos
 
 * CLI de Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
 * PowerShell: [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
@@ -157,7 +157,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 1. Seleccione en la lista la tabla de rutas cuyas rutas quiere ver.
 1. Seleccione **Rutas** en **CONFIGURACIÓN**.
 
-### <a name="view-routes---commands"></a>Visualización de las rutas - comandos
+### <a name="view-routes---commands"></a>Vista de las rutas: comandos
 
 * CLI de Azure: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
 * PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
@@ -169,7 +169,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 1. Seleccione **Rutas**.
 1. Seleccione la ruta cuyos detalles quiere ver.
 
-### <a name="view-details-of-a-route---commands"></a>Ver detalles de una ruta - comandos
+### <a name="view-details-of-a-route---commands"></a>Vista de los detalles de una ruta: comandos
 
 * CLI de Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
 * PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
@@ -182,7 +182,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 1. Seleccione la ruta que desea modificar.
 1. Cambie la configuración existente a la configuración nueva y, luego, seleccione **Guardar**.
 
-### <a name="change-a-route---commands"></a>Cambiar una ruta - comandos
+### <a name="change-a-route---commands"></a>Modificación de una ruta: comandos
 
 * CLI de Azure: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
 * PowerShell: [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
@@ -195,7 +195,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 1. En la lista de rutas, seleccione **...** en el lado derecho de la ruta que desea eliminar.
 1. Seleccione **Eliminar** y, luego, seleccione **Sí**.
 
-### <a name="delete-a-route---commands"></a>Eliminar una ruta - comandos
+### <a name="delete-a-route---commands"></a>Eliminación de una ruta: comandos
 
 * CLI de Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
 * PowerShell: [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
@@ -210,7 +210,7 @@ Las rutas eficaces de cada interfaz de red conectada a una máquina virtual son 
 1. Seleccione **Rutas eficaces** en **SOPORTE Y SOLUCIÓN DE PROBLEMAS**.
 1. Revise la lista de las rutas eficaces para determinar si existe la ruta correcta a la que desea enrutar el tráfico. Obtenga más información sobre los tipos de próximo salto que ve en esta lista en [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md).
 
-### <a name="view-effective-routes---commands"></a>Vista de las rutas eficaces: comandos
+### <a name="view-effective-routes---commands"></a>Vista de las rutas efectivas: comandos
 
 * CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)<br>
 * PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
@@ -227,7 +227,7 @@ Puede determinar el tipo de próximo paso entre una máquina virtual y la direcc
 1. Seleccione **Próximo paso**.
 1. Tras una breve espera, se devuelve información que le indica el tipo de próximo paso y el identificador de la ruta que enrutó el tráfico. Obtenga más información sobre los tipos de próximo salto que aquí se devuelven en [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md).
 
-### <a name="validate-routing-between-two-endpoints---commands"></a>Validar el enrutamiento entre dos puntos de conexión, comandos
+### <a name="validate-routing-between-two-endpoints---commands"></a>Validación del enrutamiento entre dos puntos de conexión: comandos
 
 * CLI de Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)<br>
 * PowerShell: [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)

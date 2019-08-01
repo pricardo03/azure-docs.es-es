@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685664"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442071"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -21,7 +21,7 @@ Este artículo es el primero de una serie sobre las mejores prácticas para migr
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Por qué migrar a Azure HDInsight
 
-Azure HDInsight es una distribución en la nube de los componentes de Hadoop de [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight hace que sea fácil, rápido y rentable procesar grandes cantidades de datos. HDInsight incluye los marcos de código abierto más populares, como:
+Azure HDInsight es una distribución de nube de componentes de Hadoop. Azure HDInsight hace que sea fácil, rápido y rentable procesar grandes cantidades de datos. HDInsight incluye los marcos de código abierto más populares, como:
 
 - Apache Hadoop
 - Spark de Apache
@@ -43,7 +43,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 
 - **Disponibilidad global**: HDInsight está disponible en más [regiones](https://azure.microsoft.com/regions/services/) que ninguna otra oferta de análisis de macrodatos. También está disponible en Azure Government, China y Alemania, lo que le permite satisfacer las necesidades de su empresa en áreas soberanas clave.
 
-- **Seguro y compatible**: HDInsight le permite proteger los recursos de datos de la empresa mediante [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), el  [cifrado](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) y la integración con  [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight también cumple con los  [estándares de cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud) más conocidos del sector y de la administración.
+- **Seguro y compatible**: HDInsight le permite proteger los recursos de datos de la empresa mediante [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), el  [cifrado](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) y la integración con  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight también cumple con los  [estándares de cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud) más conocidos del sector y de la administración.
 
 - **Administración de versiones simplificada**: Azure HDInsight administra la versión de componentes del ecosistema de Hadoop y los mantiene actualizados. Las actualizaciones de software suelen ser un proceso complejo para las implementaciones locales.
 
@@ -53,7 +53,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 
 - **Extensibilidad con herramientas personalizadas o aplicaciones de terceros**: los clústeres de HDInsight se pueden ampliar con componentes instalados y también pueden integrarse con otras soluciones de macrodatos utilizando implementaciones de [un solo clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) del Marketplace de Azure.
 
-- **Fácil administración, administración y supervisión** -Azure HDInsight se integra con [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para proporcionar una única interfaz con el que puede supervisar todos los clústeres.
+- **Fácil administración y supervisión**: Azure HDInsight se integra con los  [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md)  para proporcionar una única interfaz con la que puede supervisar todos los clústeres.
 
 - **Integración con otros servicios de Azure**: HDInsight puede integrarse fácilmente con otros servicios populares de Azure como los siguientes:
 
@@ -90,7 +90,6 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 | **Pregunta** | **Ejemplo** | **Respuesta** |
 |---|---|---|
 |**Tema**: **Entorno**|||
-|Tipo de distribución de clúster|Hortonworks, Cloudera, MapR| |
 |Versión de distribución de clúster|HDP 2.6.5, CDH 5.7|
 |Componentes de ecosistema de big Data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de clúster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -184,7 +183,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |No. de usuarios de AD para sincronizar|          100||
 |¿Aceptar sincronizar contraseñas en la nube?|    Sí||
 |¿Solo usuarios en la nube?|                 Sí||
-|¿MFA necesario?|                       Sin || 
+|¿MFA necesario?|                       Sin|| 
 |¿Requisitos de autorización de datos?|  Sí||
 |¿Control de acceso basado en roles?|        Sí||
 |¿Auditoría necesaria?|                  Sí||
@@ -198,8 +197,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Usar una tienda de metadatos remota?|Sí||
 |¿Compartir tiendas de metadatos entre clústeres diferentes?|Sí||
 |¿Deconstruir las cargas de trabajo?|Reemplace los trabajos de Hive con trabajos de Spark||
-|¿Usar ADF para orquestación de datos?|Sin ||
-|¿HDInsight frente a Hortonworks Data Platform en IaaS?|HDInsight||
+|¿Usar ADF para orquestación de datos?|Sin||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305272"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
@@ -22,7 +22,7 @@ En este artículo se describen los principales conceptos de Azure Event Grid.
 
 Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema. Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único. Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como el valor `lastTimeModified`. O bien, un evento de Event Hubs tiene la dirección URL del archivo de captura. 
 
-Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 
 Para obtener las propiedades que se envían en un evento, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
@@ -41,7 +41,7 @@ Para información sobre la implementación de cualquiera de los orígenes de Eve
 
 En el tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
 
-Los temas del sistema son temas integrados que ofrecen los servicios de Azure. No ve los temas del sistema en la suscripción de Azure porque el publicador posee los temas, pero puede suscribirse a ellos. Para suscribirse, proporciona información sobre el recurso del que quiere recibir eventos. Siempre que tengan acceso al recurso, puede suscribirse a sus eventos.
+Los temas del sistema son temas integrados que ofrecen los servicios de Azure. No ve los temas del sistema en la suscripción de Azure porque el publicador posee los temas, pero puede suscribirse a ellos. Para suscribirse, proporciona información sobre el recurso del que quiere recibir eventos. Siempre y cuando tenga acceso al recurso, puede suscribirse a sus eventos.
 
 Los temas personalizados son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción.
 
@@ -80,10 +80,10 @@ Si Event Grid no puede confirmar que un evento se ha recibido en el punto de con
 
 ## <a name="batching"></a>Lotes
 
-Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento todavía no debe superior a 64 KB (Disponibilidad General) o 1 MB (versión preliminar).
+Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento no debe ser superior a 64 KB (Disponibilidad general) o 1 MB (Versión preliminar).
 
 > [!NOTE]
-> Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+> Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

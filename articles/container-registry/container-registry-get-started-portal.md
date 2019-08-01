@@ -3,23 +3,24 @@ title: 'Guía de inicio rápido: Creación de un registro privado de Docker en A
 description: Aprenda rápidamente a crear un registro de contenedor privado de Docker en Azure Portal.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682991"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309483"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal
 
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. En esta guía de inicio rápido, creará un registro de contenedor con Azure Portal. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
 
-Para iniciar sesión en el registro y trabajar con imágenes de contenedor, este inicio rápido requiere que se ejecute la CLI de Azure (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Para iniciar sesión en el registro y trabajar con imágenes de contenedor, este inicio rápido requiere que se ejecute la CLI de Azure (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
 También debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 

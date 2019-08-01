@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387270"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
@@ -86,7 +86,7 @@ Para establecer estos parámetros, busque esta línea en el fragmento de código
       // Insert here
     });
 
-Para obtener una lista completa de parámetros de configuración, consulte el [GitHub Page](https://github.com/microsoft/applicationinsights-js#configuration). Algunos parámetros disponibles incluyen:
+Para una lista completa de los parámetros de configuración, consulte la [página de GitHub Page](https://github.com/microsoft/applicationinsights-js#configuration). Entre los parámetros disponibles se incluyen:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -144,17 +144,17 @@ El gráfico muestra el promedio de todas las cargas de páginas en la aplicació
 
 Observe que el recuento de vistas de página y la desviación estándar. Si el número de páginas es muy bajo, el problema no afecta mucho a los usuarios. Una desviación estándar alta (en comparación con el mismo promedio) indica mucha variación entre las mediciones individuales.
 
-**Amplíe la información de una dirección URL y una vista de página.**  Haga clic en cualquier nombre de página para ver una hoja de gráficos de explorador filtrada solo para esa dirección URL y, a continuación, en una instancia de una vista de página.
+**Amplíe la información de una dirección URL y una vista de página.** Haga clic en cualquier nombre de página para ver una hoja de gráficos de explorador filtrada solo para esa dirección URL y, a continuación, en una instancia de una vista de página.
 
 ![](./media/javascript/35.png)
 
 Haga clic en `...` para obtener una lista completa de las propiedades del evento, o bien inspeccione las llamadas Ajax y los eventos relacionados. Las llamadas Ajax lentas afectan al tiempo total de carga de la página si son sincrónicas. Entre los eventos relacionados se incluyen las solicitudes del servidor para la misma dirección URL (si ha configurado Application Insights en el servidor web).
 
-**Evolución del rendimiento de la página en el tiempo.**  De nuevo en la hoja de exploradores, cambie la cuadrícula de tiempo de carga de la vista de página en un gráfico de líneas para ver si hay picos en momentos concretos:
+**Evolución del rendimiento de la página en el tiempo.** De nuevo en la hoja de exploradores, cambie la cuadrícula de tiempo de carga de la vista de página en un gráfico de líneas para ver si hay picos en momentos concretos:
 
 ![Haga clic en el encabezado de la cuadrícula y seleccione un nuevo tipo de gráfico](./media/javascript/10-page-perf-area.png)
 
-**Segmentación mediante otras dimensiones.**  ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Group-by** (Agrupar por).
+**Segmentación mediante otras dimensiones.** ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Group-by** (Agrupar por).
 
 ![](./media/javascript/21.png)
 

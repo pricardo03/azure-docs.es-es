@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072372"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
-¿Está empezando simplemente explorar la funcionalidad de los servicios de voz? ¿Está implementando una nueva característica a la aplicación? Estas son las sugerencias acerca de dónde puede obtener ayuda como desarrollador.
+¿Está empezando a explorar la funcionalidad de Servicios de voz? ¿Está implementando una nueva característica a la aplicación? Estas son las sugerencias acerca de dónde puede obtener ayuda como desarrollador.
 
 > [!div class="checklist"]
 > * Manténgase informado sobre los nuevos desarrollos en *Azure Cognitive Services* o busque las últimas noticias relacionadas con el *servicio Voz*.
-> * Notas de la versión contienen información para todas las versiones.
+> * Las notas de la versión contienen información para todas las versiones.
 > * Realice una búsqueda para ver la comunidad ya ha tratado este problema o si ya existe documentación de la característica que quiere implementar.
 > * Si no encuentra una respuesta satisfactoria, formule una pregunta en *Stack Overflow*.
 > * Si encuentra algún problema con uno de los ejemplos de GitHub, puede abrir un problema en *GitHub*.
@@ -31,11 +31,11 @@ ms.locfileid: "65138148"
 
 ## <a name="stay-informed"></a>Manténgase informado
 
-Las noticias sobre Cognitive Services se recopilan en el [blog de Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obtener la información más reciente acerca de los servicios de voz, realizar un seguimiento de la [blog de servicios de voz](https://azure.microsoft.com/blog/tag/speech-service/).
+Las noticias sobre Cognitive Services se recopilan en el [blog de Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obtener la información más reciente sobre el servicio de Voz, siga el [blog de Servicios de voz](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de la versión
 
-El [notas de la versión](https://aka.ms/csspeech/whatsnew) se actualizan en cuanto está disponible una nueva versión. Las notas contienen información sobre las nuevas características, mejoras y correcciones de errores.
+Las [notas de la versión](https://aka.ms/csspeech/whatsnew) se actualizan en cuanto está disponible una nueva versión. Las notas contienen información sobre las nuevas características, mejoras y correcciones de errores.
 
 ## <a name="search"></a>Search
 
@@ -64,14 +64,14 @@ Stack Overflow es el canal preferido para las preguntas relacionadas con el desa
 
 Si no encuentra una respuesta a su problema a través de la búsqueda, envíe una nueva pregunta a Stack Overflow. Use una de las siguientes etiquetas al formular la pregunta:
 
-|Componente/área  |`Tags`  |
+|Componente/área  |Etiquetas  |
 |---------|---------|
 |Reconocimiento de voz |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Síntesis de voz |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intención de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Speech SDK general |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Asistentes de voz en primer lugar Virtual (versión preliminar) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| Asistentes virtuales por voz (versión preliminar) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
@@ -83,7 +83,7 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Puede crear un informe de errores, solicitar una característica o formular una pregunta general y compartir procedimientos recomendados. Para los informes de errores, siga la plantilla proporcionada:
 
@@ -114,7 +114,7 @@ Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
 **Contexto adicional**
 
  - Mensajes de error, información de registro, seguimiento de la pila, etc.
- - Si utiliza para notificar un error para la interacción de un servicio específico, notifique el SessionId y la hora (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
+ - Si informa de un error de interacción de un determinado servicio, indique los valores de SessionId y time (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
  - Cualquier otra información adicional
 
 

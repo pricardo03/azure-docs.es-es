@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9ee7422b372993d60c629524eb036b9678e5776c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186497"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286208"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Registro de certificados o secretos
 
@@ -32,9 +32,11 @@ La administración de credenciales de cliente se produce en la página **Certifi
 ![imagen](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
 
 - Azure AD genera el secreto de aplicación (también denominado secreto de cliente) durante el registro de la aplicación cliente confidencial. Esta generación ocurre al seleccionar **Nuevo secreto de cliente**. En ese momento, debe copiar la cadena de secreto en el Portapapeles para utilizarla en su aplicación, antes de seleccionar **Guardar**. Esta cadena no volverá a aparecer.
-- El certificado se carga en el registro de aplicación mediante el botón **Cargar certificado**.
+- El certificado se carga en el registro de aplicación mediante el botón **Cargar certificado**. Azure AD solo admite certificados que se registran directamente en la aplicación y no siguen las cadenas de certificados.
 
 Para más información, consulte [Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web | Adición de credenciales a la aplicación web](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+
+
 
 ### <a name="registering-client-secrets-using-powershell"></a>Registro de los secretos de cliente mediante PowerShell
 

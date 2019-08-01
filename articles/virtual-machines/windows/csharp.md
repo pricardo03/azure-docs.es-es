@@ -4,7 +4,7 @@ description: Use C# y Azure Resource Manager para implementar una máquina virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: b88bade886bf8cf22387e8733b8710414c944988
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304587"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361139"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creación y administración de máquinas virtuales Windows en Azure mediante C# #
 
@@ -85,9 +85,9 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
 ### <a name="create-the-management-client"></a>Creación del cliente de administración
 
-1. Abra el archivo Program.cs del proyecto que ha creado. Agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
+1. Abra el archivo Program.cs del proyecto que ha creado. A continuación, agregue estas instrucciones using a las instrucciones existentes en la parte superior del archivo:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -97,7 +97,7 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
 2. Para crear el cliente de administración, agregue este código al método Main:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -116,7 +116,7 @@ Todos los recursos deben encontrarse en un [grupo de recursos](../../azure-resou
 
 Para especificar los valores de la aplicación y crear el grupo de recursos, agregue este código al método Main:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
 var location = Region.USWest;
@@ -133,7 +133,7 @@ Los [conjuntos de disponibilidad](tutorial-availability-sets.md) facilitan el ma
 
 Para crear el conjunto de disponibilidad, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Creating availability set...");
 var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithRegion(location)
@@ -148,7 +148,7 @@ Se necesita una [dirección IP pública](../../virtual-network/virtual-network-i
 
 Para crear la dirección IP pública de la máquina virtual, agregue este código al método Main:
    
-```
+```csharp
 Console.WriteLine("Creating public IP address...");
 var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .WithRegion(location)
@@ -163,7 +163,7 @@ Debe haber una máquina virtual en una subred de una [red virtual](../../virtual
 
 Para crear una subred y una red virtual, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Creating virtual network...");
 var network = azure.Networks.Define("myVNet")
     .WithRegion(location)
@@ -179,7 +179,7 @@ Una máquina virtual requiere una interfaz de red para comunicarse en la red vir
 
 Para crear una interfaz de red, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
@@ -197,7 +197,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
 
 Para crear la máquina virtual, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Creating virtual machine...");
 azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
@@ -219,7 +219,7 @@ azure.VirtualMachines.Define(vmName)
 
 Si desea usar un disco existente en lugar de una imagen de Marketplace, use este código:
 
-```
+```csharp
 var managedDisk = azure.Disks.Define("myosdisk")
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
@@ -244,7 +244,7 @@ Durante el ciclo de vida de una máquina virtual, puede ejecutar tareas de admin
 
 Cuando tenga que hacerlas con la máquina virtual, deberá obtener una instancia de ella:
 
-```
+```csharp
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
@@ -252,7 +252,7 @@ var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 
 Para obtener información acerca de la máquina virtual, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -324,7 +324,7 @@ Puede detener una máquina virtual y mantener toda su configuración, pero se le
 
 Para detener la máquina virtual sin desasignarla, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
@@ -333,7 +333,7 @@ Console.ReadLine();
 
 Si desea desasignar la máquina virtual, cambie la llamada de PowerOff por este código:
 
-```
+```csharp
 vm.Deallocate();
 ```
 
@@ -341,7 +341,7 @@ vm.Deallocate();
 
 Para iniciar la máquina virtual, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Starting vm...");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
@@ -354,7 +354,7 @@ Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos
 
 Para cambiar el tamaño de la máquina virtual, agregue este código al método Main:
 
-```
+```csharp
 Console.WriteLine("Resizing vm...");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
@@ -365,9 +365,9 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Incorporación de un disco de datos a la máquina virtual
 
-Para agregar un disco de datos a la máquina virtual, agregue este código al método Main. Este ejemplo agrega un disco de datos de 2 GB de tamaño, tener un LUN de 0 y un tipo de almacenamiento en caché de lectura y escritura:
+Para agregar un disco de datos a la máquina virtual, agregue este código al método Main. Este ejemplo agrega un disco de datos de 2 GB de tamaño, con un LUN de 0 y un tipo de almacenamiento en caché de lectura y escritura:
 
-```
+```csharp
 Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
@@ -382,7 +382,7 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 Para eliminar el grupo de recursos, agregue este código al método Main:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -397,4 +397,3 @@ Esta aplicación de consola tardará unos cinco minutos en ejecutarse completame
 ## <a name="next-steps"></a>Pasos siguientes
 * Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para más información acerca del uso de las [bibliotecas de Azure para .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
-

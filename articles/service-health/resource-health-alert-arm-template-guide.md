@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493395"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
@@ -20,7 +20,7 @@ En este artículo se muestra cómo crear alertas del registro de actividad de Re
 Azure Resource Health le mantiene informado sobre el estado actual y pasado de sus recursos de Azure. Además, le notifica casi en tiempo real de los cambios de estado en estos recursos. La creación y la personalización de alertas mediante programación en Resource Health se puede realizar en bloque.
 
 > [!NOTE]
-> Alertas de estado de recursos están actualmente en versión preliminar.
+> Las alertas de Resource Health están actualmente en la versión preliminar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,7 +28,7 @@ Azure Resource Health le mantiene informado sobre el estado actual y pasado de s
 
 Para seguir las instrucciones que aparecen en esta página, necesita de antemano algunas cosas:
 
-1. Deberá instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+1. Debe instalar el [módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/platform/action-groups.md) configurado para recibir notificaciones
 
 ## <a name="instructions"></a>Instrucciones
@@ -76,7 +76,7 @@ Para seguir las instrucciones que aparecen en esta página, necesita de antemano
 
 Tenga en cuenta que si planea automatizar completamente este proceso, basta con editar la plantilla de Resource Manager para que no solicite los valores del paso 5.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opciones de plantilla del Administrador de recursos para las alertas de estado de los recursos
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opciones de la plantilla de Resource Manager para las alertas de Resource Health
 
 Para crear alertas de Resource Health puede usar esta plantilla base como punto de partida. Esta plantilla funcionará como se escriba y le permitirá recibir alertas de todos los eventos de estado de recurso que se activen a partir de ese momento en los recursos de una suscripción.
 
@@ -286,7 +286,7 @@ No obstante, cuando un recurso se notifica como "Desconocido", es probable que s
 
 En este ejemplo, solo se notifican los eventos en los que el estado actual y anterior no son desconocidos. Este cambio puede resultar útil si las alertas se envían directamente al correo electrónico o teléfono móvil. 
 
-Tenga en cuenta que es posible que las propiedades currentHealthStatus y previousHealthStatus para ser null, en algunos eventos. Por ejemplo, cuando un evento Updated se produce es probable que el estado de mantenimiento del recurso no ha cambiado desde el último informe, solo está disponible esa información adicional del evento (por ejemplo, producir). Por lo tanto, mediante la cláusula anterior puede generar algunas alertas no se desencadene, ya los valores properties.currentHealthStatus y properties.previousHealthStatus se establecerá en null.
+Tenga en cuenta que es posible que las propiedades currentHealthStatus y previousHealthStatus sean null en algunos eventos. Por ejemplo, cuando se produce un evento Updated, es probable que el estado de mantenimiento del recurso no haya cambiado desde el último informe y solo está disponible esa información adicional del evento (por ejemplo, la causa). Por lo tanto, mediante la cláusula anterior puede provocar que algunas alertas no se desencadenen, ya que los valores de properties.currentHealthStatus y properties.previousHealthStatus se establecerán en null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Ajuste de la alerta para evitar eventos iniciados por el usuario
 
@@ -306,11 +306,11 @@ Es fácil de configurar la alerta para filtrar solo estos tipos de eventos:
     ]
 }
 ```
-Tenga en cuenta que es posible que el campo causa sea null, en algunos eventos. Es decir, una transición de estado tiene lugar (por ejemplo, disponible como no disponible) y se registra el evento inmediatamente evitar que la notificación se retrasa. Por lo tanto, mediante la cláusula anterior puede generar una alerta no se desencadene, ya se establecerá el valor de propiedad properties.clause en null.
+Tenga en cuenta que es posible que el campo de la causa sea null en algunos eventos. Es decir, una transición de estado tiene lugar (por ejemplo, pasa de disponible a no disponible) y el evento se registra inmediatamente a fin de evitar que la notificación se retrase. Por lo tanto, mediante la cláusula anterior puede provocar que una alerta no se desencadene, ya que el valor de la propiedad properties.clause se establecerá en null.
 
-## <a name="complete-resource-health-alert-template"></a>Plantilla de alerta de estado de los recursos completa
+## <a name="complete-resource-health-alert-template"></a>Completar la plantilla de alerta de Resource Health
 
-Aquí se usa los ajustes diferentes que se describe en la sección anterior, es una plantilla de ejemplo que está configurada para maximizar la señal en proporción de ruido. Tenga en cuenta las observaciones que se ha indicado anteriormente donde los currentHealthStatus, previousHealthStatus y valores de propiedad de la causa pueden ser nulos en algunos eventos.
+Con los distintos ajustes que se describen en la sección anterior, a continuación se muestra una plantilla de muestra configurada para maximizar la relación señal/ruido. Tenga en cuenta las observaciones que se han indicado anteriormente donde los valores de las propiedades currentHealthStatus, previousHealthStatus y cause pueden ser null en algunos eventos.
 
 ```json
 {
@@ -445,4 +445,4 @@ Más información sobre Resource Health:
 
 Creación de alertas de Service Health:
 -  [Configuración de alertas de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Esquema de eventos de registro de actividad de Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Esquema de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log-schema.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475483"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Actualizar o rotar las credenciales de una entidad de servicio en Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ De forma predeterminada, los clústeres de AKS se crean con una entidad de servi
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Necesita la CLI de Azure versión 2.0.65 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Elija actualizar o crear una entidad de servicio
 
@@ -33,7 +33,7 @@ Si quiere crear una entidad de servicio y actualizar el clúster de AKS, omita e
 
 ### <a name="get-the-service-principal-id"></a>Obtener el id. de la entidad de servicio
 
-Para actualizar las credenciales de la entidad de servicio existente, obtenga el id. de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de entidad de servicio se establece como una variable denominada *SP_ID* para su uso en comandos adicionales.
+Para actualizar las credenciales de la entidad de servicio existente, obtenga el id. de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \

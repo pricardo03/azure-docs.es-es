@@ -1,6 +1,6 @@
 ---
-title: Preguntas más frecuentes sobre configuración de aplicación de Azure | Microsoft Docs
-description: Preguntas más frecuentes sobre la configuración de la aplicación de Azure
+title: Preguntas frecuentes de Azure App Configuration | Microsoft Docs
+description: Preguntas frecuentes sobre Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,21 +13,21 @@ ms.date: 05/02/2019
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: e321c0b473b110597b5b87a6e67666737116daa2
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393345"
 ---
-# <a name="azure-app-configuration-faq"></a>Preguntas más frecuentes sobre configuración de aplicación de Azure
+# <a name="azure-app-configuration-faq"></a>Preguntas frecuentes de Azure App Configuration
 
-Este artículo tratan las preguntas más frecuentes sobre la configuración de la aplicación de Azure.
+En este artículo se abordan las preguntas más frecuentes sobre Azure App Configuration.
 
-## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>¿En qué se diferencia App Configuration de Azure Key Vault?
+## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>¿En qué se diferencia App Configuration de Azure Key Vault?
 
-Configuración de la aplicación está diseñada para un conjunto distinto de los casos de uso: lo ayuda a los desarrolladores administrar la configuración de la aplicación y controlar la disponibilidad de características. Pretende simplificar muchas de las tareas del trabajo con datos de configuración compleja.
+App Configuration está diseñado para un conjunto distinto de casos de uso: ayuda a los desarrolladores a administrar la configuración de las aplicaciones y a controlar la disponibilidad de características. Pretende simplificar muchas de las tareas del trabajo con datos de configuración complejos.
 
-Configuración de la aplicación es compatible con:
+App Configuration admite:
 
 - Espacios de nombres jerárquicos
 - Etiquetado
@@ -36,27 +36,27 @@ Configuración de la aplicación es compatible con:
 - Operaciones de administración especializadas
 - Una interfaz de usuario de administración de características
 
-Configuración de la aplicación es complementario a Key Vault y los dos deben usarse en paralelo en la mayoría de las implementaciones de aplicaciones.
+App Configuration es complementario a Key Vault y los dos deben usarse en paralelo en la mayoría de las implementaciones de aplicaciones.
 
-## <a name="should-i-store-secrets-in-app-configuration"></a>¿Debo almacenar secretos en la configuración de la aplicación?
+## <a name="should-i-store-secrets-in-app-configuration"></a>¿Debo almacenar secretos en App Configuration?
 
-Aunque la configuración de la aplicación ofrece mayor seguridad, el almacén de claves sigue siendo el mejor lugar para almacenar secretos de aplicación. Key Vault proporciona cifrado de nivel de hardware, las directivas de acceso granulares y las operaciones de administración, como la rotación de certificados.
+Aunque App Configuration ofrece mayor seguridad, Key Vault sigue siendo el mejor lugar para almacenar los secretos de la aplicación. Key Vault proporciona cifrado de nivel de hardware, directivas de acceso granulares y operaciones de administración, como la rotación de certificados.
 
-## <a name="does-app-configuration-encrypt-my-data"></a>¿Configuración de la aplicación cifra Mis datos?
+## <a name="does-app-configuration-encrypt-my-data"></a>¿Cifra App Configuration mis datos?
 
-Sí. Configuración de la aplicación cifra todos los valores de clave que contiene, y cifra la comunicación de red. Los nombres de clave se usan como los índices para recuperar datos de configuración y no se cifran.
+Sí. App Configuration cifra todos los valores de clave que contiene, así como la comunicación de red. Los nombres de clave se usan como índices para recuperar los datos de configuración y no se cifran.
 
-## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>¿Cómo debo almacenar configuraciones para varios entornos (pruebas, ensayo, producción etc.)?
+## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>¿Cómo debo almacenar las configuraciones para varios entornos (pruebas, ensayo, producción etc.)?
 
-Actualmente puede controlar quién tiene acceso a la configuración de la aplicación en un nivel por almacén. Use un almacén independiente para cada entorno que requiere permisos distintos. Este enfoque le ofrece el mejor aislamiento de seguridad.
+Actualmente puede controlar quién tiene acceso a App Configuration en cada almacén. Use un almacén independiente para cada entorno que requiera permisos distintos. Este enfoque le ofrece el mejor aislamiento de seguridad.
 
-## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>¿Cuáles son los métodos recomendados para usar la configuración de la aplicación?
+## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>¿Cuáles son los métodos recomendados para usar App Configuration?
 
-Consulte [procedimientos recomendados](./howto-best-practices.md).
+Consulte los [procedimientos recomendados](./howto-best-practices.md).
 
-## <a name="how-much-does-app-configuration-cost"></a>¿Cuánto cuesta la configuración de la aplicación?
+## <a name="how-much-does-app-configuration-cost"></a>¿Cuánto cuesta App Configuration?
 
-El servicio de uso es gratuito durante la versión preliminar pública.
+El uso del servicio es gratuito durante la versión preliminar pública.
 
 ## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>¿Cómo puedo notificar un problema o proporcionar una sugerencia?
 
@@ -64,4 +64,4 @@ Puede comunicarse con nosotros directamente en [GitHub](https://github.com/Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Acerca de la configuración de aplicación de Azure](./overview.md)
+* [Acerca de Azure App Configuration](./overview.md)

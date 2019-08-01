@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 403f111882b1bd151b26af56fd614355e7ba88e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065680"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
 Puede descargar los registros del servidor de Azure Database for MariaDB mediante la CLI de Azure, la utilidad de la línea de comandos de Azure.
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lista de registros del servidor de Azure Database for MariaDB
-Para mostrar la lista de archivos de registro disponibles para el servidor, ejecute el comando [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list).
+Para mostrar la lista de archivos de registro de consultas lentas disponibles para el servidor, ejecute el comando [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list).
 
 Puede enumerar los archivos de registro del servidor **mydemoserver.mariadb.database.azure.com** en el grupo de recursos **myresourcegroup**. A continuación, dirija la lista de archivos de registro a un archivo de texto denominado **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre los [registros del servidor de Azure Database for MariaDB](concepts-server-logs.md).
+- Más información sobre los [registros de consultas lentas en Azure Database for MariaDB](concepts-server-logs.md).

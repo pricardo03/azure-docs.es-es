@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: twhitney
 ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304538"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
@@ -34,7 +34,7 @@ Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-brows
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si no se abre un explorador web en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente `http://127.0.0.1:8001`.
+Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si un explorador web no se abre en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente `http://127.0.0.1:8001`.
 
 ![Página de información general del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 

@@ -11,10 +11,10 @@ ms.date: 11/26/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515770"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedimientos recomendados para Azure SQL Data Warehouse
@@ -49,7 +49,7 @@ Aunque Polybase, también conocido ahora como tablas externas, puede ser la mane
 Consulte también [Guía para el uso de PolyBase en SQL Data Warehouse][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>Distribución Hash para tablas grandes
-De forma predeterminada, las tablas se distribuyen según el patrón Round Robin.  Esto facilita a los usuarios empezar a crear tablas sin tener que decidir sobre la distribución.  Las tablas round robin pueden ser suficientes para algunas cargas de trabajo, pero en la mayoría de los casos, la selección de una columna de distribución funcionará mucho opción.  El ejemplo más común de tabla distribuida por una columna que supera con creces a una Round Robin es al combinarse dos tablas grandes de hechos.  Por ejemplo, si tiene una tabla de pedidos, que se distribuye por order_id, y una tabla de transacciones, que también se distribuye por order_id, al unir la tabla de pedidos a la de transacciones en order_id, esta consulta se convierte en una consulta de paso a través, lo que significa que se eliminan las operaciones de movimiento de datos.  Menos pasos suponen consultas más rápidas.  Menos movimiento de datos también se traduce en consultas más rápidas.  Esta explicación es muy general. Al cargar una tabla con distribución, asegúrese de que no se ordenan los datos entrantes en la clave de distribución, ya que esto ralentizará la carga.  Consulte los siguientes vínculos para mucho más detalles sobre cómo seleccionar una columna de distribución puede mejorar el rendimiento, además de cómo definir una tabla distribuida en la cláusula WITH de la instrucción CREATE TABLE.
+De forma predeterminada, las tablas se distribuyen según el patrón Round Robin.  Esto facilita a los usuarios empezar a crear tablas sin tener que decidir sobre la distribución.  Las tablas round robin pueden ser suficientes para algunas cargas de trabajo, pero en la mayoría de los casos, la selección de una columna de distribución funcionará mucho opción.  El ejemplo más común de tabla distribuida por una columna que supera con creces a una Round Robin es al combinarse dos tablas grandes de hechos.  Por ejemplo, si tiene una tabla de pedidos, que se distribuye por order_id, y una tabla de transacciones, que también se distribuye por order_id, al unir la tabla de pedidos a la de transacciones en order_id, esta consulta se convierte en una consulta de paso a través, lo que significa que se eliminan las operaciones de movimiento de datos.  Menos pasos suponen consultas más rápidas.  Menos movimiento de datos también se traduce en consultas más rápidas.  Esta explicación es muy general. Al cargar una tabla con distribución, asegúrese de que no se ordenan los datos entrantes en la clave de distribución, ya que esto ralentizará la carga.  En los siguientes vínculos se muestra con mucho más detalle cómo seleccionar una columna de distribución mejora el rendimiento y la manera de definir una tabla distribuida en la cláusula WITH de la instrucción CREATE TABLE.
 
 Consulte también [Información general de tablas en SQL Data Warehouse][Table overview], [Distribución de tablas en SQL Data Warehouse][Table distribution], [Selección de la distribución de tablas][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 

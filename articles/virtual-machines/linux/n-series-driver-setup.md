@@ -17,10 +17,10 @@ ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479104"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
@@ -189,7 +189,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
 
    sudo apt-get install build-essential ubuntu-desktop -y
    ```
-3. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NVv2). Para ello, cree un archivo en `/etc/modprobe.d` denominado `nouveau.conf` con el siguiente contenido:
+3. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NVv2). Para ello, cree un archivo en `/etc/modprobe.d` llamado `nouveau.conf` con el siguiente contenido:
 
    ```
    blacklist nouveau
@@ -244,7 +244,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
    sudo yum install dkms
    ```
 
-2. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NV2). Para ello, cree un archivo en `/etc/modprobe.d` denominado `nouveau.conf` con el siguiente contenido:
+2. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NV2). Para ello, cree un archivo en `/etc/modprobe.d` llamado `nouveau.conf` con el siguiente contenido:
 
    ```
    blacklist nouveau

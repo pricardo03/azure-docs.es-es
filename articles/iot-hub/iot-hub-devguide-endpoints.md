@@ -7,13 +7,13 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055345"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -82,14 +82,14 @@ IoT Hub admite actualmente los siguientes servicios de Azure como puntos de cone
 
 Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md).
 
-Puede usar la API de REST [obtener estado de punto de conexión](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar la [métricas de IoT Hub](iot-hub-metrics.md) relacionados con la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del extremo no responde o está en mal estado, tal como esperábamos latencia será mayor si el punto de conexión está en uno de esos Estados.
+Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar las [métricas de IoT Hub](iot-hub-metrics.md) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión no responda o esté en mal estado, ya que se espera que la latencia sea mayor con el punto de conexión en uno de esos estados.
 
 |Estado de mantenimiento|DESCRIPCIÓN|
 |---|---|
-|healthy|El punto de conexión está aceptando los mensajes según lo previsto.|
-|Insalubre|El punto de conexión no acepta los mensajes según lo previsto y está reintentando la operación de IoT Hub para enviar datos a este punto de conexión. Se actualizará el estado de un punto de conexión en mal estado a correcto cuando IoT Hub ha establecido un estado coherente de mantenimiento.|
-|unknown|IoT Hub no ha establecido una conexión con el punto de conexión. Se han entregado a ningún mensaje o rechazarse desde este punto de conexión.|
-|problemas de entrega|El punto de conexión no acepta los mensajes, después de IoT Hub reintenta el envío de mensajes para el período retrial.|
+|healthy|El punto de conexión acepta los mensajes según lo previsto.|
+|unhealthy|El punto de conexión no acepta los mensajes según lo previsto e IoT Hub le está intentando volver a enviar datos. El estado del punto de conexión incorrecto se actualizará a correcto cuando IoT Hub haya establecido finalmente un estado de mantenimiento coherente.|
+|unknown|IoT Hub no ha establecido conexión con el punto de conexión. No se han entregado mensajes o el punto de conexión los ha rechazado.|
+|dead|El punto de conexión no acepta los mensajes tras los intentos de IoT Hub por enviar mensajes durante el período establecido para ello.|
 
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 

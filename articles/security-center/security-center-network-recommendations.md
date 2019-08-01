@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428371"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
@@ -49,7 +49,7 @@ Para abrir el mapa de red:
  
 La vista predeterminada del mapa topológico muestra:
 - Suscripciones seleccionadas en Azure. El mapa admite varias suscripciones.
-- Las máquinas virtuales, subredes y redes virtuales del tipo de recurso de Resource Manager (no se admiten los recursos de Azure clásico)
+- Máquinas virtuales, subredes y redes virtuales del tipo de recurso de Resource Manager (no se admiten los recursos de Azure clásico)
 - Redes virtuales emparejadas
 - Solo los recursos que tienen [recomendaciones de red](security-center-recommendations.md) con una gravedad media o alta  
 - Recursos accesibles desde Internet
@@ -99,7 +99,7 @@ Por ejemplo, podría detectar dos máquinas que no sabía que se podían comunic
 
 Para explorar en profundidad un recurso:
 1. Al seleccionar un recurso específico en el mapa, el panel derecho se abre y le ofrece información general sobre el recurso, soluciones de seguridad conectadas (de existir) y recomendaciones relevantes para el recurso. Es el mismo tipo de comportamiento para cada tipo de recurso que seleccione. 
-2. Haga clic en **Tráfico** para ver la lista de posible tráfico entrante y saliente en el recurso. Se trata de una lista completa de quién puede comunicarse con el recurso y viceversa, así como a través de qué protocolos y puertos. Por ejemplo, cuando se selecciona una máquina virtual, todas las máquinas virtuales que puede comunicarse con se muestran y cuando se selecciona una subred, se muestran todas las subredes que se pueden comunicar con.
+2. Haga clic en **Tráfico** para ver la lista de posible tráfico entrante y saliente en el recurso. Se trata de una lista completa de quién puede comunicarse con el recurso y viceversa, así como a través de qué protocolos y puertos. Por ejemplo, cuando se selecciona una máquina virtual, todas las máquinas virtuales con las que puede comunicarse se muestran y, cuando se selecciona una subred, se muestran todas las subredes con las que se puede comunicar.
 
 **Estos datos se basan en el análisis de los Grupos de seguridad de red, así como en algoritmos con aprendizaje automático que analizan varias reglas para comprender las interacciones y cruces.** 
 
@@ -131,15 +131,15 @@ El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descr
 
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
 |----|----|----|----|
-|Machine|40|Se debe habilitar los grupos de seguridad de red para las máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
-|Subred|35|Grupos de seguridad de red en el nivel de subred debe estar habilitados|Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
-|Machine|30|Se debe aplicar el control de acceso de red Just-In-Time en máquinas virtuales|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
-|Machine|20|Restricción del acceso a través de puntos de conexión accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
-|Machine|10|Agregar un firewall de próxima generación|Agregue una solución de Firewall de próxima generación (NGFW) para proteger mejor sus máquinas virtuales accesibles desde Internet.|
-|Machine|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de su solución de firewall de próxima generación, se debe enrutar el tráfico a las máquinas virtuales accesibles desde Internet protegidas solo a través de la solución de firewall de próxima generación.|
+|Máquina|40|Se debe habilitar los grupos de seguridad de red para las máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
+|Subred|35|Se debe habilitar los grupos de seguridad de red en el nivel de subred|Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
+|Máquina|30|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
+|Máquina|20|Restricción del acceso a través de puntos de conexión accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
+|Máquina|10|Agregar un firewall de próxima generación|Agregue una solución de Firewall de próxima generación (NGFW) para proteger mejor sus máquinas virtuales accesibles desde Internet.|
+|Máquina|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de su solución de firewall de próxima generación, se debe enrutar el tráfico a las máquinas virtuales accesibles desde Internet protegidas solo a través de la solución de firewall de próxima generación.|
 |VNet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
 * [Protección de las máquinas virtuales en Azure Security Center](security-center-virtual-machine-recommendations.md)

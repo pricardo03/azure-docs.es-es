@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058051"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
@@ -30,6 +30,21 @@ Una instancia de App Service aislado tiene una serie de dependencias de entrada.
 Las dependencias de salida de App Service aislado se definen casi por completo con los FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red (NSG) para bloquear el tráfico saliente de una instancia de App Service aislado. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución actual ni usarlas para crear grupos de seguridad de red. 
 
 La solución para proteger las direcciones de salida se encuentra en el uso de un dispositivo de firewall que puede controlar el tráfico saliente basándose en los nombres de dominio. Azure Firewall puede restringir el tráfico saliente HTTP y HTTPS basándose en el FQDN de destino.  
+
+## <a name="system-architecture"></a>Arquitectura del sistema
+
+Para implementar un ASE con tráfico saliente que pasa por un dispositivo de firewall, es necesario cambiar las rutas en la subred de ASE. Las rutas funcionan en el nivel de IP. Si no tiene cuidado al definir las rutas, puede forzar a que el tráfico de respuesta TCP salga de otra dirección. Esto se conoce como enrutamiento asimétrico e interrumpirá el TCP.
+
+Para que el tráfico que entrad al ASE pueda responder de la misma forma en que se originó, debe haber rutas definidas. Esto es cierto en el caso de las solicitudes de administración de entrada y las solicitudes de aplicación de entrada.
+
+El tráfico hacia y desde una instancia de ASE debe cumplir las convenciones siguientes:
+
+* El tráfico a Azure SQL, Storage y el centro de eventos no se admite con el uso de un dispositivo de firewall. Este tráfico debe enviarse directamente a esos servicios. Para ello, es necesario configurar los puntos de conexión de servicio para esos tres servicios. 
+* Se deben definir reglas de tabla de rutas que envíen el tráfico de administración de vuelta al lugar donde se originó.
+* Se deben definir reglas de tabla de rutas que envíen el tráfico de aplicaciones de vuelta al lugar donde se originó. 
+* El resto del tráfico que sale de ASE se puede enviar al dispositivo de firewall con una regla de la tabla de rutas.
+
+![ASE con flujo de conexión de Azure Firewall][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuración de Azure Firewall con App Service aislado 
 
@@ -69,8 +84,6 @@ Si las aplicaciones tienen dependencias, deben agregarse a Azure Firewall. Crear
 
 Si conoce el intervalo de direcciones del que provendrá el tráfico de la solicitud de la aplicación, puede agregarlo a la tabla de rutas asignada a la subred de App Service aislado. Si el intervalo de direcciones es grande o no se especifica, puede usar un dispositivo de red, como Application Gateway, para proporcionarle una dirección para agregar a la tabla de rutas. Para obtener más información sobre cómo configurar una instancia de Application Gateway con su instancia de App Service aislado con ILB, lea [Integración de App Service aislado con ILB con Azure Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
-![ASE con flujo de conexión de Azure Firewall][5]
-
 Este uso de Application Gateway es solo un ejemplo de cómo configurar el sistema. Si ha seguido este procedimiento, deberá agregar una ruta a la tabla de rutas de subred de ASE para que el tráfico de respuesta enviado a Application Gateway vaya allí directamente. 
 
 ## <a name="logging"></a>Registro 
@@ -105,14 +118,14 @@ La siguiente información solo es necesaria si desea configurar un dispositivo d
 |----------| ----- |
 | \*:123 | Comprobación de reloj NTP. El tráfico se comprueba en varios puntos de conexión en el puerto 123. |
 | \*:12000 | Este puerto se usa para algunas tareas de supervisión del sistema. Si se bloquea, algunos problemas serán más difíciles de evaluar, pero el ASE seguirá funcionando. |
-| 40.77.24.27:80 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 40.77.24.27:443 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 13.90.249.229:80 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 13.90.249.229:443 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 104.45.230.69:80 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 104.45.230.69:443 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 13.82.184.151:80 | Es necesario para supervisar y alertar sobre problemas de ASE |
-| 13.82.184.151:443 | Es necesario para supervisar y alertar sobre problemas de ASE |
+| 40.77.24.27:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 40.77.24.27:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.90.249.229:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.90.249.229:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 104.45.230.69:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 104.45.230.69:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.82.184.151:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.82.184.151:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
 
 Con una instancia de Azure Firewall, se configurará automáticamente todo lo siguiente con etiquetas FQDN. 
 

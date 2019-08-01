@@ -17,10 +17,10 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393855"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
@@ -99,7 +99,7 @@ Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas 
 **Traiga su propia licencia de SQL Server a través de License Mobility**, que también se conoce como **BYOL**, consiste en usar una licencia por volumen existente de SQL Server con Software Assurance en una máquina virtual de Azure. Si se trata de una máquina virtual con SQL Server con licencia BYOL, solo se carga el costo de la ejecución de la máquina virtual, no el relativo a la licencia de SQL Server, puesto que ya ha adquirido licencias y Software Assurance a través de un programa de licencias por volumen.
 
 > [!IMPORTANT]
-> Las imágenes BYOL requieren un contrato Enterprise con Software Assurance. No están disponibles como parte de Azure Cloud Solution Partner (CSP) en este momento. Los clientes de CSP pueden aportar su propia licencia al implementar una imagen de pago por uso y, a continuación, habilitar la [ventaja híbrida de Azure](virtual-machines-windows-sql-ahb.md).
+> Las imágenes BYOL requieren un contrato Enterprise con Software Assurance. No están disponibles como parte de Azure Cloud Solution Partner (CSP) en este momento. Los clientes de CSP pueden aportar su propia licencia al implementar una imagen de pago por uso y, a continuación, habilitar la [Ventaja híbrida de Azure](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > Actualmente, las imágenes BYOL solo están disponibles para máquinas virtuales de Windows. Sin embargo, puede instalar manualmente SQL Server en una máquina virtual con solo Linux. Consulte las instrucciones en [Preguntas más frecuentes para SQL Server en máquinas virtuales Linux de Azure](../../linux/sql/sql-server-linux-faq.md).

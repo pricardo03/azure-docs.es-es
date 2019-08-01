@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427841"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
@@ -39,7 +39,7 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 -   La incorporación como administrador de TI, administrador de PKI o cualquiera que administre las cuentas con entidades de certificación para una empresa determinada (p. ej. Contoso) es un requisito previo para usar los certificados de Key Vault.  
     Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault:  
     -   DigiCert: Key Vault ofrece certificados SSL OV con DigiCert.  
-    -   Globaltrust - Key Vault ofrece OV SSL certificados con Globaltrust.  
+    -   Globaltrust: Key Vault ofrece certificados SSL OV con Globaltrust.  
 
 **Paso 2**: un administrador de la cuenta del proveedor de la entidad de certificación crea las credenciales que utilizará Key Vault para la inscripción, la renovación y el uso de certificados SSL mediante Key Vault.
 
@@ -97,14 +97,14 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 
 -   Además, el usuario puede editar la directiva, que es funcional en el momento de la importación, pero contiene los valores predeterminados sin información especificada en la importación. Ejemplo: sin información del emisor  
 
-### <a name="formats-of-import-we-support"></a>Formatos de importación se admite
-Se admiten los siguientes tipos de importación para el formato de archivo PEM. Un único certificado PEM codificado junto con un PKCS #8 codificada, clave sin cifrar que tiene las siguientes
+### <a name="formats-of-import-we-support"></a>Formatos de importación que se admiten
+Se admiten los siguientes tipos de importación para el formato de archivo PEM. Un único certificado PEM codificado junto con una clave sin cifrar codificada PKCS#8, con lo siguiente:
 
----BEGIN CERTIFICATE------END CERTIFICATE---
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
----BEGIN PRIVATE KEY------END PRIVATE KEY---
+-----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-En la combinación de certificados se admiten los formatos PEM basado 2. O bien puede combinar un único certificado codificado en PKCS #8 o archivo de P7B codificado en base64. ---BEGIN CERTIFICATE------END CERTIFICATE---
+En la combinación de certificados se admiten dos formatos basados en PEM. O bien puede combinar un único certificado codificado en PKCS #8 o un archivo P7B codificado en base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 Actualmente no se admiten claves CE en formato PEM.
 
@@ -125,6 +125,6 @@ Actualmente no se admiten claves CE en formato PEM.
 
   (5) - La aplicación termina de crear el certificado con una combinación del certificado X.509 de la entidad de certificación.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

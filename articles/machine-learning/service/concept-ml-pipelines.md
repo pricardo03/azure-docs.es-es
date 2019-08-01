@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f49b384f6f943e8c6767a6133a835011bc1e6bac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059331"
 ---
-# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Crear canalizaciones de ML reutilizables en el servicio de Azure Machine Learning
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Creación de canalizaciones de ML reutilizables en Azure Machine Learning Service
 
 En este artículo, aprenderá sobre las canalizaciones de aprendizaje automático que puede crear con el SDK de Azure Machine Learning para Python y las ventajas de usar canalizaciones.
 
@@ -34,15 +34,16 @@ El diagrama siguiente muestra un ejemplo de canalización:
 
 ![Canalizaciones de aprendizaje automático en el servicio Azure Machine Learning](./media/concept-ml-pipelines/pipelines.png)
 
-### <a name="which-azure-pipeline-technology-should-i-use"></a>¿La tecnología de la canalización de Azure se debe usar?
+<a name="compare"></a>
+### <a name="which-azure-pipeline-technology-should-i-use"></a>¿Qué tecnología de canalización de Azure se debe usar?
 
-La nube de Azure proporciona varias otras canalizaciones, cada uno con un propósito diferente. En la tabla siguiente se enumera las canalizaciones diferentes y lo que se usan para:
+La nube de Azure proporciona otras canalizaciones, cada una con una finalidad diferente. En la tabla siguiente se enumeran las diferentes canalizaciones y para qué se usan:
 
-| Canalización | Qué hace | Canalización canónico |
+| Canalización | Qué hace | Canalización canónica |
 | ---- | ---- | ---- |
-| Canalizaciones de Azure Machine Learning | Define los flujos de trabajo que pueden utilizarse como plantilla para los escenarios de aprendizaje automático de aprendizaje de automático reutilizable. | Datos -> modelo |
-| [Canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Las actividades de control, transformación y movimiento de datos de los grupos necesitan para realizar una tarea.  | Datos -> datos |
-| [Canalizaciones de Azure](https://azure.microsoft.com/services/devops/pipelines/) | La integración continua y entrega de la aplicación para cualquier plataforma/any en la nube  | Código -> aplicación/servicio |
+| Canalizaciones de Azure Machine Learning | Define flujos de trabajo de aprendizaje automático reutilizables que pueden emplearse como plantilla para los escenarios de aprendizaje automático. | Datos -> modelo |
+| [Canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Agrupa las actividades de movimiento, transformación y control de datos necesarias para realizar una tarea.  | Datos -> datos |
+| [Canalizaciones de Azure](https://azure.microsoft.com/services/devops/pipelines/) | Integración y entrega continuas de la aplicación en cualquier plataforma y en cualquier nube.  | Código -> aplicación/servicio |
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Motivos para compilar canalizaciones con Azure Machine Learning
 
@@ -50,11 +51,11 @@ El [SDK de Azure Machine Learning para Python](#the-python-sdk-for-pipelines) pu
 
 Con las canalizaciones, puede optimizar su flujo de trabajo con sencillez, velocidad, portabilidad y reutilización. Al crear canalizaciones mediante Azure Machine Learning, puede centrarse en lo que domina, el aprendizaje automático, en lugar de en la infraestructura.
 
-El uso de distintos pasos permite volver a ejecutar solo aquellos que necesita, mientras ajusta y prueba el flujo de trabajo. Un paso es una unidad de proceso en la canalización. Como se muestra en el diagrama anterior, en la tarea de preparación de los datos pueden intervenir muchos pasos. Estos pasos incluyen, pero no se limitan a, normalización, transformación, validación y características. Los orígenes de datos y los datos intermedios se reutilizan en la canalización, lo que ahorra tiempo y recursos de proceso. 
+El uso de distintos pasos permite volver a ejecutar solo aquellos que necesita, mientras ajusta y prueba el flujo de trabajo. Un paso es una unidad de proceso en la canalización. Como se muestra en el diagrama anterior, en la tarea de preparación de los datos pueden intervenir muchos pasos. Entre ellos, normalización, transformación, validación y caracterización. Los orígenes de datos y los datos intermedios se reutilizan en la canalización, lo que ahorra tiempo y recursos de proceso. 
 
 Una vez diseñada la canalización, a menudo se aplican más ajustes en torno al bucle de aprendizaje de la canalización. Cuando se vuelve a ejecutar una canalización, la ejecución salta a los pasos necesarios para volver a ejecutarse, como un script de aprendizaje actualizado, y omite lo que no ha cambiado. El mismo paradigma se aplica a los scripts sin cambios utilizados para la ejecución del paso. 
 
-Con Azure Machine Learning, puede usar diversos Kits de herramientas y marcos, como TensorFlow, o de PyTorch para cada paso en la canalización. Azure se coordina entre los distintos [destinos de proceso](concept-azure-machine-learning-architecture.md) que usa para que los datos intermedios se puedan compartir con los destinos de proceso de bajada fácilmente. 
+Con Azure Machine Learning, puede usar diversos kits de herramientas y marcos, como PyTorch o TensorFlow, en cada paso de la canalización. Azure se coordina entre los distintos [destinos de proceso](concept-azure-machine-learning-architecture.md) que usa para que los datos intermedios se puedan compartir con los destinos de proceso de bajada fácilmente. 
 
 También puede [realizar un seguimiento de las métricas de los experimentos de canalización](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directamente en Azure Portal. 
 

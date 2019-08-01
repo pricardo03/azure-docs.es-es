@@ -8,15 +8,18 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: f179687b0983e145244e228a3d3b06b4eabead48
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723328"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233959"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Procesamiento de datos de un centro de eventos con Azure Stream Analytics
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Procesamiento de datos de un centro de eventos con Azure Stream Analytics (versión preliminar)
 El servicio Azure Stream Analytics permite ingerir, procesar y analizar fácilmente los datos de streaming procedentes de Azure Event Hubs, lo que proporciona valiosa información para emprender acciones en tiempo real. Esta integración le permite crear rápidamente una canalización de análisis de la ruta de acceso activa. Puede usar Azure Portal para visualizar los datos de entrada y escribir una consulta de Stream Analytics. Cuando la consulta esté lista, podrá transferirla a producción con solo unos pocos clics. 
+
+> [!NOTE]
+> Esta funcionalidad actualmente está en su versión preliminar. 
 
 ## <a name="key-benefits"></a>Ventajas principales
 Estas son las principales ventajas de la integración de Azure Event Hubs y Azure Stream Analytics: 
@@ -37,7 +40,7 @@ Estas son las principales ventajas de la integración de Azure Event Hubs y Azur
 1. Aparecerá una página de consulta con los valores ya establecidos en los campos siguientes:
     1. El **centro de eventos**, como entrada de la consulta.
     1. Una **consulta SQL** de ejemplo con la instrucción SELECT. 
-    1. Un alias de **salida** que hace referencia a los resultados de la prueba. 
+    1. Un alias de **salida** que hace referencia a los resultados de la prueba de consulta. 
 
         ![Editor de consultas](./media/process-data-azure-stream-analytics/query-editor.png)
         

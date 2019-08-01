@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823465"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111804"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
 
 > [!IMPORTANT]
-> Después de la audiencia de los clientes durante la vista previa, hemos reemplazamos la característica de vigencia de tokens configurables con [capacidades de administración de sesión de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en acceso condicional de Azure AD. Esta característica dejará de usarse el 1 de noviembre de 2019. Si usa la directiva de vigencia de tokens configurables, cambie a la nueva característica de acceso condicional. 
+> Después de escuchar a los clientes durante la versión preliminar, hemos reemplazado la característica de vigencia del token configurable con [funcionalidades de administración de sesiones de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en el acceso condicional de Azure AD. Esta característica estará en desuso el 1 de noviembre de 2019. Si usa la directiva de duración del token configurable, cambie a la nueva característica de acceso condicional. 
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
@@ -61,15 +61,15 @@ Los clientes confidenciales son aplicaciones que pueden almacenar de forma segur
 
 Los clientes públicos no pueden almacenar de forma segura una contraseña (secreto) de cliente. Por ejemplo, una aplicación de iOS o Android no puede ofuscar un secreto del propietario del recurso y, por ello, se considera a la aplicación un cliente público. Se pueden establecer directivas sobre los recursos para evitar que los tokens de actualización de clientes públicos anteriores a un período especificado obtengan un nuevo par de tokens de acceso/actualización. Para ello, utilice la propiedad de tiempo máximo de inactividad del token de actualización (`MaxInactiveTime`). También puede utilizar directivas para establecer un período más allá del cual ya no se aceptan los tokens de actualización. (Para ello, utilice la propiedad de antigüedad máxima del token de actualización). Puede ajustar la vigencia del token de actualización para controlar cuándo y con qué frecuencia es necesario que el usuario vuelva a escribir las credenciales en lugar de volver a autenticarse de forma silenciosa al usar una aplicación cliente pública.
 
-### <a name="id-tokens"></a>Tokens de id.
+### <a name="id-tokens"></a>Tokens de identificador
 Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los tokens de identificador contienen información de perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran. Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario. Puede ajustar la vigencia del token de identificador para controlar la frecuencia con la que la aplicación web expirará la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar en Azure AD (de forma silenciosa o interactiva).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sesión de inicio de sesión único
-Cuando un usuario se autentica con Azure AD, se establece una sesión mediante inicio de sesión único (SSO) con Azure AD y el explorador del usuario. El token de SSO, en forma de cookie, representa esta sesión. El token de sesión SSO no está enlazado a una aplicación cliente y el recurso específico. Los tokens de sesión SSO se pueden revocar y su validez se comprueba cada vez que se utilizan.
+Cuando un usuario se autentica con Azure AD, se establece una sesión mediante inicio de sesión único (SSO) con Azure AD y el explorador del usuario. El token de SSO, en forma de cookie, representa esta sesión. El token de sesión SSO no está enlazado a una aplicación cliente o de recursos específica. Los tokens de sesión SSO se pueden revocar y su validez se comprueba cada vez que se utilizan.
 
 Azure AD usa dos tipos de tokens de sesión SSO: persistente y no persistente. El explorador almacena los tokens de sesión persistentes como cookies. Los tokens de sesión no persistentes se almacenan como cookies de sesión. (Las cookies de sesión se destruyen cuando se cierra el explorador). Por lo general, se almacena un token de sesión no persistente. Pero, si el usuario selecciona la casilla **Mantener la sesión iniciada** durante la autenticación, un token de sesión persistente se almacena.
 
-Los tokens de sesión no persistentes tienen una vigencia de 24 horas. Los tokens persistentes tienen una vigencia de 180 días. Cada vez que se usa un token de sesión SSO dentro de su período de validez, el período de validez se amplía otras 24 horas o 180 días, según el tipo de token. Si un token de sesión SSO no se usa dentro de su período de validez, se considerará caducado y ya no se aceptará.
+Los tokens de sesión no persistentes tienen una vigencia de 24 horas. Los tokens persistentes tienen una vigencia de 180 días. Cada vez que se utilice el token de sesión SSO dentro del período de validez, este se amplía otras 24 horas o 180 días, dependiendo del tipo de token. Si un token de sesión SSO no se usa dentro de su período de validez, se considerará caducado y ya no se aceptará.
 
 Puede utilizar una directiva para establecer el período de tiempo después de la emisión del primer token de sesión, más allá del cual ya no se aceptará este token. (Para ello, utilice la propiedad de antigüedad máxima del token de sesión). Puede ajustar la vigencia de un token de sesión para controlar cuándo y con qué frecuencia el usuario debe volver a escribir las credenciales en lugar de autenticarse de forma silenciosa cuando se usa una aplicación web.
 
@@ -77,7 +77,7 @@ Puede utilizar una directiva para establecer el período de tiempo después de l
 Una directiva de vigencia del token es un tipo de objeto de directiva que contiene reglas de vigencia del token. Use las propiedades de la directiva para controlar las vigencias de tokens especificados. Si no se establece ninguna directiva, el sistema aplica el valor de vigencia predeterminado.
 
 ### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
-| Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máximo |
+| Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
 | --- | --- | --- | --- | --- | --- |
 | Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
@@ -220,7 +220,7 @@ Para comenzar, realice uno de los pasos siguientes:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Ejemplo: Administrar una directiva predeterminada de una organización
-En este ejemplo, creará una directiva que permite el inicio de sesión de usuarios con menos frecuencia en toda su organización. Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella.
+En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesión con menos frecuencia en toda su organización. Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella.
 
 1. Cree una directiva de vigencia del token.
 
@@ -278,7 +278,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
 
 2. Asigne la directiva a su entidad de servicio. También necesitará obtener el valor de **ObjectId** de su entidad de servicio.
 
-    1. Use la [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet para ver las entidades de servicio de la de la organización o una entidad de servicio único.
+    1. Utilice el cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todas las entidades de servicio de la organización o una única entidad de servicio.
         ```powershell
         # Get ID of the service principal
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
@@ -307,9 +307,9 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Asigne la directiva a la API web. También necesitará obtener el valor de **ObjectId** de la aplicación. Utilice la [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar la aplicación **ObjectId**, o usar el [portal de Azure](https://portal.azure.com/).
+2. Asigne la directiva a la API web. También necesitará obtener el valor de **ObjectId** de la aplicación. Utilice el cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar el valor de **ObjectId** de la aplicación o usar [Azure Portal](https://portal.azure.com/).
 
-    Obtener el **ObjectId** de la aplicación y asignar la directiva:
+    Obtenga el valor de **ObjectId** de la aplicación y asigne la directiva:
 
     ```powershell
     # Get the application
@@ -320,7 +320,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
     ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Ejemplo: Administrar una directiva avanzada
-En este ejemplo, crear unas pocas directivas para obtener información sobre cómo funciona el sistema de prioridad. También aprenderá a administrar varias directivas que se aplican a varios objetos.
+En este ejemplo, va a crear algunas directivas para obtener información sobre cómo funciona el sistema de prioridad. También puede aprender a administrar varias directivas que se aplican a varios objetos.
 
 1. Cree una directiva de vigencia del token.
 
@@ -340,7 +340,7 @@ En este ejemplo, crear unas pocas directivas para obtener información sobre có
 
     Ahora tiene una directiva que se aplica a toda la organización. Es posible que quiera conservar esta directiva 30 días para una entidad de servicio específica, pero cambiar la directiva predeterminada de organización para que sea el límite superior de "hasta que se revoque".
 
-    1. Para ver las entidades de servicio de la de la organización, usa el [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
+    1. Para ver todas las entidades de servicio de la organización, utilice el cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
     2. Cuando tenga la entidad de servicio, ejecute el siguiente comando:
 
@@ -399,7 +399,7 @@ Get-AzureADPolicy
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Opcional] |**ObjectId (ID)** de la directiva que desee. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -412,7 +412,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la directiva que desee. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -425,7 +425,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la directiva que desee. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Opcional] |La matriz de cadenas JSON que contiene todas las reglas de la directiva. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Opcional] |Si es true establece la directiva como directiva predeterminada de la organización. Si es false, no hace nada. |`-IsOrganizationDefault $true` |
@@ -443,7 +443,7 @@ Elimina la directiva especificada.
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la directiva que desee. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -459,7 +459,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -473,7 +473,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -486,12 +486,12 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Directivas de entidad de servicio
+### <a name="service-principal-policies"></a>Directivas de la entidad de servicio
 Los cmdlets siguientes se pueden usar para las directivas de entidad de servicio.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
@@ -503,7 +503,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -517,7 +517,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -530,5 +530,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** de la aplicación. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |

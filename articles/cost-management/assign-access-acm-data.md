@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
 ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493754"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
@@ -23,7 +23,7 @@ En el caso de los usuarios con Contratos Enterprise de Azure, una combinación d
 
 El ámbito que un usuario selecciona se usa en Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando se usan los ámbitos, los usuarios no pueden seleccionar varios de ellos. En su lugar, deben seleccionar un ámbito más amplio que abarque los ámbitos secundarios y filtrar lo que quieran ver. Es importante comprender la consolidación de datos porque algunas personas no deberían tener acceso a un ámbito principal que abarque los ámbitos secundarios.
 
-Inspección del [cómo asignar acceso con Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) vídeo para obtener información sobre la asignación de acceso para ver los costos y gastos con control de acceso basado en roles de Azure.
+Vea el vídeo [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) (Cómo asignar acceso con Azure Cost Management) para información sobre la asignación de acceso y para ver los costos y los gastos del control de acceso basado en roles de Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -171,11 +171,11 @@ Para obtener acceso al grupo de recursos es necesario tener al menos permiso de 
 8. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
 9. Haga clic en **Save**(Guardar).
 
-## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticación entre inquilinos
+## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticación a través de inquilinos
 
-Actualmente, Azure Cost Management tiene compatibilidad para la autenticación entre inquilinos limitada. En algunas circunstancias cuando intenta autenticarse en varios inquilinos, puede recibir un **acceso denegado** error de análisis de costos. Este problema puede producirse si configura el control de acceso basado en roles (RBAC) para la suscripción del otro inquilino y, a continuación, intente ver los datos de costo.
+Actualmente, Azure Cost Management tiene compatibilidad limitada con la autenticación entre inquilinos. En algunas circunstancias cuando intenta autenticarse en varios inquilinos, puede recibir un error de **acceso denegado** en el análisis de costos. Este problema puede producirse si configura el control de acceso basado en roles (RBAC) para la suscripción del otro inquilino y, a continuación, intenta ver los datos del costo.
 
-*Para solucionar el problema*: Después de configurar RBAC entre inquilinos, espere una hora. A continuación, intente ver los costos de análisis de costos o conceder acceso de administración de costos para los usuarios de ambos inquilinos.  
+*Para solucionar el problema*: Después de configurar RBAC entre inquilinos, espere una hora. A continuación, intente ver el análisis de costos o conceder acceso a Cost Management a los usuarios en ambos inquilinos.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

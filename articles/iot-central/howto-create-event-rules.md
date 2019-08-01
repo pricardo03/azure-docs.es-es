@@ -3,17 +3,17 @@ title: Creación y administración de reglas de evento en una aplicación de Azu
 description: Las reglas de eventos de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 4754e6b571845d286ef22014f87b86fae2f6633d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053022"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de evento y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -27,21 +27,21 @@ Los dispositivos pueden usar medidas de los eventos para enviar eventos de dispo
 
 Para crear una regla de evento, la plantilla de dispositivos debe tener definida al menos una medida de evento. En este ejemplo se utiliza un máquina expendedora con refrigeración que notifica un evento de error del motor del ventilador. La regla supervisa el evento notificado por el dispositivo y envía un correo electrónico cada vez que se notifica el evento.
 
-1. Mediante el **las plantillas de dispositivo** página, vaya a la plantilla de dispositivo para el que va a agregar la regla para.
+1. Desde la página **Plantillas de dispositivo**, vaya a la plantilla de dispositivo para la que va a agregar la regla.
 
 1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
     ![No hay ninguna regla todavía](media/howto-create-event-rules/rules_landing_page1.png)
 
-1. En el **reglas** ficha, seleccione **+ nueva regla** para ver los tipos de reglas que puede crear.
+1. En la pestaña **Reglas**, seleccione **+ Nueva regla** para ver los tipos de reglas que puede crear.
 
-1. Elija la **eventos** icono para crear una regla de supervisión de eventos.
+1. Elija el icono **Evento** para crear una regla de supervisión de eventos.
 
     ![Tipos de regla](media/howto-create-event-rules/rule_types1.png)
 
 1. Escriba un nombre que le ayude a identificar la regla en esta plantilla de dispositivos.
 
-1. Para habilitar inmediatamente la regla para todos los dispositivos que se crea a partir de esta plantilla, alternar **Habilitar regla para todos los dispositivos de esta plantilla**.
+1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
     ![Detalle de la regla](media/howto-create-event-rules/rule_detail1.png)
 
@@ -59,15 +59,15 @@ La condición define los criterios que la regla supervisa.
 
 1. Si lo desea, también puede establecer **Recuento** como **Agregación** y proporcionar el umbral correspondiente.
 
-   - Sin agregación, la regla se desencadena para cada punto de datos del evento que cumple la condición. Por ejemplo, si configura la regla de condición para desencadenar cuando un **Error de ventilador Motor** , a continuación, la regla desencadena casi inmediatamente cuando el dispositivo notifica ese evento, se produce el evento.
-   - Si usa Recuento como función de agregación, debe proporcionar un **Umbral** y una **ventana de tiempo agregado** en la cual se evalúe la condición. En este caso, se agrega el recuento de eventos y los desencadenadores de la regla solo si el recuento de eventos agregados coincide con el umbral.
+   - Sin agregación, la regla se desencadena para cada punto de datos del evento que cumple la condición. Por ejemplo, si configura la condición de regla para que se desencadene cuando se produzca un **evento de error del motor del ventilador**, la regla se desencadenará casi inmediatamente después de que el dispositivo notifique el evento.
+   - Si usa Recuento como función de agregación, debe proporcionar un **Umbral** y una **ventana de tiempo agregado** en la cual se evalúe la condición. En este caso, el recuento de eventos es agregado y la regla se desencadenará solo si el recuento de eventos agregados coincide con el umbral.
 
      Por ejemplo, si desea que se envíe una alerta cuando se produzcan más de tres eventos de dispositivo en cinco minutos, seleccione el evento y establezca la función de agregado como "count", el operador como "greater than" y "threshold" como 3. Establezca "Aggregation time period" (Tiempo de agregación) como "5 minutos". La regla se desencadena cuando el dispositivo envía más de tres eventos en 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
      ![Adición de condición de evento](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
-     >En **Condición** se puede agregar más de una medida del evento. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición obtiene unido por una cláusula 'AND' implícitamente. Al usar el agregado, se debe agregar cada medida.
+     >En **Condición** se puede agregar más de una medida del evento. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
 
 ### <a name="configure-actions"></a>Configuración de acciones
 
@@ -113,5 +113,5 @@ Ahora que ha aprendido a crear reglas en una aplicación de Azure IoT Central, a
 
 - [Incorporación de una acción de Microsoft Flow a las reglas](howto-add-microsoft-flow.md)
 - [Incorporación de una acción de Webhook a las reglas](howto-create-webhooks.md)
-- [Agrupar varias acciones para ejecutar desde una o varias reglas](howto-use-action-groups.md)
+- [Agrupación de varias acciones para ejecutar desde una o varias reglas](howto-use-action-groups.md)
 - [Administración de los dispositivos](howto-manage-devices.md)

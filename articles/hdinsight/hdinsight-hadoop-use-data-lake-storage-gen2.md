@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
-description: Aprenda a usar Azure Data Lake Storage Gen2 con clústeres de HDInsight de Azure.
+description: Obtenga información sobre cómo usar Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight.
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -8,80 +8,80 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: hrasheed
 ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427376"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
-Azure Data Lake Storage Gen2 es un servicio de almacenamiento en la nube dedicado para análisis de macrodatos basados en almacenamiento de blobs de Azure. Data Lake Storage Gen2 combina las funcionalidades de almacenamiento de blobs de Azure y Azure Data Lake Storage Gen1. El servicio resultante ofrece características de Azure Data Lake Storage Gen1, por ejemplo, la semántica del sistema de archivos, la seguridad de nivel de archivo y directorio y la escalabilidad, junto con el almacenamiento de bajo costo y en capas, alta disponibilidad y capacidades de recuperación ante desastres desde Azure Blob storage.
+‎Azure Data Lake Storage Gen2 es un servicio de almacenamiento en la nube dedicado al análisis de macrodatos e integrado en Azure Blob Storage. Data Lake Storage Gen2 combina las funcionalidades de Azure Blob Storage y Azure Data Lake Storage Gen1. El servicio resultante ofrece características de Azure Data Lake Storage Gen1, como la semántica del sistema de archivos, la seguridad de los niveles de directorio y de archivo, y la escalabilidad junto con las funcionalidades de recuperación ante desastres, de alta disponibilidad y de almacenamiento por niveles de bajo costo de Azure Blob Storage.
 
 ## <a name="data-lake-storage-gen2-availability"></a>Disponibilidad de Data Lake Storage Gen2
 
-Data Lake Storage Gen2 está disponible como una opción de almacenamiento para casi todos los tipos de clúster de HDInsight de Azure como un valor predeterminado y una cuenta de almacenamiento adicional. Sin embargo, HBase, puede tener solo una cuenta de Data Lake Storage Gen2.
+Data Lake Storage Gen2 está disponible como opción de almacenamiento para casi todos los tipos de clúster de Azure HDInsight como una cuenta de almacenamiento predeterminada o adicional. Sin embargo, HBase solo puede tener una cuenta de Data Lake Storage Gen2.
 
 > [!Note]  
-> Después de seleccionar Data Lake Storage Gen2 como su **tipo de almacenamiento principal**, no puede seleccionar una cuenta de Data Lake Storage Gen1 como almacenamiento adicional.
+> Una vez que selecciona Data Lake Storage Gen2 como el **tipo de almacenamiento principal**, no puede seleccionar una cuenta de Data Lake Storage Gen1 como almacenamiento adicional.
 
-## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Crear un clúster con Data Lake Storage Gen2 mediante el portal de Azure
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Creación de un clúster con Data Lake Storage Gen2 mediante Azure Portal
 
-Para crear un clúster de HDInsight que usa Data Lake almacenamiento Gen2 para el almacenamiento, siga estos pasos para configurar una cuenta de Data Lake Storage Gen2.
+Para crear un clúster de HDInsight que use Data Lake Storage Gen2 para el almacenamiento, siga estos pasos para configurar una cuenta de Data Lake Storage Gen2.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 
-Cree una identidad administrada asignada por el usuario si todavía no tiene una. Consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Para obtener más información sobre cómo administrado trabajo de identidades en Azure HDInsight, consulte [administra identidades en Azure HDInsight](hdinsight-managed-identities.md).
+Cree una identidad administrada asignada por el usuario si todavía no tiene una. Consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Para más información sobre cómo funcionan las identidades administradas en Azure HDInsight, consulte [Identidades administradas en Azure HDInsight](hdinsight-managed-identities.md).
 
 ![Crear una identidad administrada asignada por el usuario](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Creación de una cuenta de Data Lake Storage Gen2
 
-Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2. Asegúrese de que el **espacio de nombres jerárquico** está habilitada. Para más información, consulte [Inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2. Asegúrese de que esté habilitada la opción **Espacio de nombres jerárquico**. Para más información, consulte [Inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Captura de pantalla en la que se muestra la creación de una cuenta de almacenamiento en Azure Portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurar permisos para la identidad administrada en la cuenta de Data Lake Storage Gen2
+### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configuración de permisos para la identidad administrada en la cuenta de Data Lake Storage Gen2
 
-Asignar la identidad administrada para el **propietario del almacenamiento de datos Blob** rol en la cuenta de almacenamiento. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md).
+Asigne la identidad administrada al rol **Propietario de datos de Storage Blob** en la cuenta de almacenamiento. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md).
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
-1. Seleccione la cuenta de almacenamiento y luego seleccione **control de acceso (IAM)** para mostrar la configuración de control de acceso para la cuenta. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
+1. Seleccione la cuenta de almacenamiento y, después, seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de la cuenta. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
     
     ![Captura de pantalla que muestra la configuración de control de acceso del almacenamiento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
-1. Seleccione el **+ Agregar asignación de roles** para agregar un nuevo rol.
-1. En el **Agregar asignación de roles** ventana, seleccione el **propietario del almacenamiento de datos Blob** rol. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y se mostrará en **miembros seleccionados**.
+1. Seleccione el botón **+ Agregar asignación de roles** para agregar un rol nuevo.
+1. En la ventana **Agregar asignación de roles**, seleccione el rol **Propietario de datos de Storage Blob**. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y esta se mostrará en **Miembros seleccionados**.
     
     ![Captura de pantalla que muestra cómo asignar un rol de RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-1. Seleccione **Guardar**. La identidad asignada por el usuario que ha seleccionado aparece ahora en el rol seleccionado.
+1. Seleccione **Guardar**. La identidad asignada por el usuario que seleccionó ahora aparece en el rol seleccionado.
 1. Una vez completada la configuración inicial, puede crear un clúster a través del portal. El clúster debe estar en la misma región de Azure que la cuenta de almacenamiento. En la sección **Almacenamiento** del menú de creación del clúster, seleccione estas opciones:
         
-    * Para **tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen2**.
-    * En **seleccione una cuenta de almacenamiento**, busque y seleccione la cuenta de almacenamiento de Data Lake Storage Gen2 recién creada.
+    * En **Tipo de almacenamiento principal**, haga clic en **Azure Data Lake Storage Gen2**.
+    * En **Seleccionar una cuenta de almacenamiento**, busque y seleccione la cuenta de almacenamiento de Data Lake Storage Gen2 recién creada.
         
         ![Configuración de almacenamiento para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
     
-    * En **identidad**, seleccione la suscripción correcta y recién creado asignada por el usuario identidad administrada.
+    * En **Identidad**, seleccione la suscripción correcta y la identidad administrada asignada por el usuario recién creada.
         
         ![Configuración de identidad para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Para agregar una cuenta de Data Lake Storage Gen2 secundaria, en el nivel de cuenta de almacenamiento, asigne simplemente la identidad administrada creada anteriormente a la nueva cuenta de almacenamiento de Data Lake Storage Gen2 que desea agregar. Tenga en cuenta que no se admite la adición de una cuenta de Data Lake Storage Gen2 secundaria a través de la hoja "cuentas de almacenamiento adicionales" en HDInsight. 
+> Para agregar una cuenta de Data Lake Storage Gen2 secundaria, en el nivel de cuenta de almacenamiento, simplemente asigne la identidad administrada creada anteriormente a la nueva cuenta de almacenamiento de Data Lake Storage Gen2 que desea agregar. Tenga en cuenta que no se admite la adición de una cuenta de Data Lake Storage Gen2 secundaria a través de la hoja "Cuentas de almacenamiento adicionales" en HDInsight. 
 
-## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Crear un clúster con Data Lake Storage Gen2 mediante la CLI de Azure
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Creación de un clúster con Data Lake Storage Gen2 mediante la CLI de Azure
 
-También puede [descargar un archivo de plantilla de ejemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) y [descargar un archivo de parámetros de ejemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de usar la plantilla, reemplace la cadena `<SUBSCRIPTION_ID>` por su identificador de suscripción de Azure reales. Además, reemplace la cadena `<PASSWORD>` con la contraseña elegida para establecer tanto la contraseña que usará para iniciar sesión en el clúster y la contraseña de SSH.
+Puede [descargar un archivo de plantilla de muestra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) y [descargar un archivo de parámetros de muestra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de usar la plantilla, sustituya la cadena `<SUBSCRIPTION_ID>` con el identificador real de la suscripción de Azure. Además, reemplace la cadena `<PASSWORD>` con la contraseña elegida para establecer tanto la contraseña que usará para iniciar sesión en el clúster como la contraseña de SSH.
 
 El siguiente fragmento de código realiza los pasos iniciales siguientes:
 
-1. Inicia sesión en su cuenta de Azure.
-1. Establece la suscripción activa donde se realizará las operaciones de creación.
-1. Crea un nuevo grupo de recursos para las actividades de implementación nuevo denominado `hdinsight-deployment-rg`.
+1. Inicia sesión en la cuenta de Azure.
+1. Establece la suscripción activa donde se realizarán las operaciones de creación.
+1. Crea un nuevo grupo de recursos para las nuevas actividades de implementación denominado `hdinsight-deployment-rg`.
 1. Crea una identidad administrada asignada por el usuario denominada `test-hdinsight-msi`.
-1. Agrega una extensión a la CLI de Azure para utilizar las características de Data Lake Storage Gen2.
-1. Crea una nueva cuenta de Data Lake Storage Gen2 denominada `hdinsightadlsgen2`, utilizando el `--hierarchical-namespace true` marca.
+1. Agrega una extensión a la CLI de Azure para usar las características para Data Lake Storage Gen2.
+1. Crea una nueva cuenta de Data Lake Storage Gen2 denominada `hdinsightadlsgen2`, con la marca `--hierarchical-namespace true`.
 
 ```azurecli
 az login
@@ -101,7 +101,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-A continuación, inicie sesión en el portal. Agregar la nueva identidad administrada asignada por el usuario para el **colaborador de datos de Blob de almacenamiento** rol en la cuenta de almacenamiento, como se describe en el paso 3 en [mediante Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Después, inicie sesión en el portal. Agregue la nueva identidad administrada asignada por el usuario al rol **Colaborador de datos de Storage Blob** en la cuenta de almacenamiento, como se describe en el paso 3 en [Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Después de haber asignado el rol para la identidad administrada asignada por el usuario, implemente la plantilla mediante el siguiente fragmento de código.
 
@@ -112,29 +112,29 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --parameters parameters.json
 ```
 
-## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Control de acceso de Data Lake Storage Gen2 en HDInsight
+## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Control de acceso para Data Lake Storage Gen2 en HDInsight
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>¿Qué tipos de permisos admite Data Lake Storage Gen2?
 
-Data Lake Storage Gen2 usa un modelo de control de acceso que admite el control de acceso basado en roles (RBAC) y listas de control de acceso POSIX como (ACL). Admite de Data Lake Storage Gen1 control de acceso sólo para controlar el acceso a datos.
+Data Lake Storage Gen2 usa un modelo de control de acceso compatible con el control de acceso basado en rol (RBAC) y las listas de control de acceso (ACL) tipo POSIX. Data Lake Storage Gen1 admite las listas de control de acceso solo para controlar el acceso a los datos.
 
-RBAC utiliza las asignaciones de roles para aplicar de forma eficaz los conjuntos de permisos a los usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a recursos de nivel superior (por ejemplo, cuentas de almacenamiento de Azure). Para el almacenamiento de Azure así como Data Lake Storage Gen2, este mecanismo se ha ampliado para el recurso de sistema de archivos.
+RBAC usa las asignaciones de roles para aplicar de forma eficaz conjuntos de permisos a usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo, las cuentas de Azure Storage). En el caso de Azure Storage y también de Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso del sistema de archivos.
 
- Para obtener más información acerca de los permisos de archivo con RBAC, consulte [control de acceso de Azure basada en roles (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ Para más información sobre los permisos de archivo con RBAC, consulte [Control de acceso basado en rol (RBAC) de Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
-Para obtener más información acerca de los permisos de archivo con las ACL, consulte [listas de control de acceso de archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+Para más información sobre los permisos de archivo con las listas de control de acceso, consulte [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>¿Cómo se puede controlar acceso a Mis datos en Data Lake Storage Gen2?
+### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>¿Cómo se controla el acceso a mis datos en Data Lake Storage Gen2?
 
-Capacidad de su clúster HDInsight para obtener acceso a archivos en Data Lake Storage Gen2 se controla a través de las identidades administradas. Una identidad administrada es una identidad registrada en Azure Active Directory (Azure AD) cuyas credenciales se administran mediante Azure. Con las identidades administradas, no es necesario registrar a las entidades de servicio en Azure AD o mantener credenciales, como certificados.
+La capacidad que el clúster de HDInsight tiene de acceder a los archivos en Data Lake Storage Gen2 se controla mediante las identidades administradas. Una identidad administrada es una identidad registrada en Azure Active Directory (Azure AD) cuyas credenciales son administradas por Azure. Con las identidades administradas, no es necesario registrar las entidades de servicio en Azure AD ni mantener credenciales, tales como los certificados.
 
-Servicios de Azure tienen dos tipos de identidades administradas: asignado por el sistema y asignada por el usuario. HDInsight usa identidades administradas asignada por el usuario para tener acceso a Data Lake Storage Gen2. Las identidades administrada asignadas por el usuario se crean como recursos de Azure independientes. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, esta puede asignarse a una o varias instancias de servicio de Azure.
+Los servicios de Azure tienen dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. HDInsight usa las identidades administradas asignadas por el usuario para acceder a Data Lake Storage Gen2. Las identidades administrada asignadas por el usuario se crean como recursos de Azure independientes. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, esta puede asignarse a una o varias instancias de servicio de Azure.
 
-El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna. Para obtener más información acerca de las identidades administradas, vea [cómo las identidades administradas por el trabajo de los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna. Para más información sobre las identidades administradas, consulte [¿Cómo funcionan las identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 
-### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>¿Cómo configuro permisos para usuarios de Azure AD para consultar los datos en Data Lake Storage Gen2 mediante el uso de Hive u otros servicios?
+### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>¿Cómo puedo establecer los permisos para que los usuarios de Azure AD consulten los datos en Data Lake Storage Gen2 mediante Hive u otros servicios?
 
-Para establecer permisos para los usuarios para consultar los datos, utilice grupos de seguridad de Azure AD como la entidad de seguridad asignado en las ACL. No asignar directamente los permisos de acceso de archivo a usuarios individuales o entidades de servicio. Cuando use grupos de seguridad de Azure AD para controlar el flujo de permisos, puede agregar y quitar usuarios o entidades de servicio sin volver a aplicar las ACL a una estructura de todo el directorio. Solo tiene que agregar o quitar los usuarios del grupo de seguridad de Azure AD adecuado. No se heredan las ACL, para volver a aplicar las ACL es necesario actualizar la ACL en todos los archivos y subdirectorios.
+Para establecer los permisos para que los usuarios consulten los datos, utilice grupos de seguridad de Azure AD como la entidad de seguridad asignada en las ACL. No asigne directamente permisos de acceso a archivos a usuarios individuales ni a entidades de servicio. Cuando usa los grupos de seguridad de Azure AD para controlar el flujo de los permisos, puede agregar y quitar usuarios o entidades de servicio sin volver a aplicar las ACL a la estructura de todo un directorio. Solo tiene que agregar o quitar los usuarios del grupo de seguridad de Azure AD adecuado. Las ACL no se heredan y, por ello, para volver a aplicar las ACL es necesario actualizarlas en cada archivo y subdirectorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

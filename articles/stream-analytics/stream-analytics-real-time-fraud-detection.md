@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943949"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621836"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -30,7 +30,7 @@ En este tutorial se usa el ejemplo de detección de fraudes en tiempo real basad
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Escenario: telecomunicaciones y detección de fraudes de SIM en tiempo real
 
-Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía quiere detectar llamadas fraudulentas en tiempo real para poder notificarlo a los clientes o cancelar el servicio para un número concreto. Un tipo de fraude de SIM implica varias llamadas desde la misma identidad aproximadamente a la misma hora, pero en distintas ubicaciones geográficas. Para detectar este tipo de fraude, la empresa debe examinar los registros de teléfono entrantes y buscar patrones específicos, en este caso, para las llamadas realizadas aproximadamente al mismo tiempo en diferentes países o regiones. Los registros de teléfono que entren en esta categoría se escriben en el almacenamiento para su análisis posterior.
+Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía quiere detectar llamadas fraudulentas en tiempo real para poder notificarlo a los clientes o cancelar el servicio para un número concreto. Un tipo de fraude de SIM implica varias llamadas desde la misma identidad aproximadamente a la misma hora, pero en distintas ubicaciones geográficas. Para detectar este tipo de fraude, la compañía ha de examinar los registros de llamadas entrantes y buscar patrones concretos (en este caso, llamadas realizadas aproximadamente a la misma hora en distintos países o regiones). Los registros de teléfono que entren en esta categoría se escriben en el almacenamiento para su análisis posterior.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -131,11 +131,12 @@ Antes de iniciar la aplicación TelcoGenerator, es preciso configurarla para que
 
 ### <a name="start-the-app"></a>Inicio de la aplicación
 1.  Abra una ventana de comandos y cambie a la carpeta en la que se ha descomprimido la aplicación TelcoGenerator.
+
 2.  Escriba el comando siguiente:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     Los parámetros son los siguientes: 
 
@@ -150,7 +151,7 @@ Estos son algunos de los principales campos que se van a usar en esta aplicació
 |**Registro**|**Definición**|
 |----------|--------------|
 |`CallrecTime`|Marca de tiempo para la hora de inicio de la llamada. |
-|`SwitchNum`|Conmutador de teléfono que se usa para conectar la llamada. En este ejemplo, los conmutadores son cadenas que representan el país o región de origen (Estados Unidos, China, Reino Unido, Alemania o Australia). |
+|`SwitchNum`|Conmutador de teléfono que se usa para conectar la llamada. En este ejemplo, los conmutadores son cadenas que representan el país o la región de origen (Estados Unidos, China, Reino Unido, Alemania o Australia). |
 |`CallingNum`|Número de teléfono del autor de la llamada. |
 |`CallingIMSI`|Identidad del suscriptor móvil internacional (IMSI). Se trata del identificador único del autor de la llamada. |
 |`CalledNum`|Número de teléfono del destinatario de la llamada. |
@@ -206,7 +207,7 @@ Una consulta sencilla bastaría para leer todos los datos entrantes. Pero, a men
 
 Las consultas que se creen aquí solo mostrarán los datos transformados en la pantalla. En una sección posterior, configurará un receptor de salida y una consulta que escriba los datos transformados en ese receptor.
 
-Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx).
+Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obtención de datos de muestra para probar las consultas
 
@@ -276,7 +277,7 @@ En muchos casos, el análisis no necesita todas las columnas del flujo de entrad
 
 Suponga que quiere saber el número de llamadas entrantes por región. En los datos de streaming, si se quiere ejecutar funciones de agregado como el recuento, hay que segmentar el flujo en unidades temporales (ya que el flujo en sí es de hecho ilimitado). Para ello, use una [función de ventana](stream-analytics-window-functions.md) de Stream Analytics. Luego puede trabajar con los datos contenidos en esa ventana como unidad.
 
-Para esta transformación, se busca una secuencia de ventanas temporales que no se superpongan; cada ventana tendrá un conjunto discreto de datos que se pueden agrupar y agregar. Este tipo de ventana se denomina *ventana de saltos de tamaño constante*. Dentro de la ventana de saltos de tamaño constante, puede obtener un recuento de las llamadas entrantes agrupado por `SwitchNum`, que representa el país o región donde se originó la llamada. 
+Para esta transformación, se busca una secuencia de ventanas temporales que no se superpongan; cada ventana tendrá un conjunto discreto de datos que se pueden agrupar y agregar. Este tipo de ventana se denomina *ventana de saltos de tamaño constante*. En la ventana de saltos de tamaño constante, puede ver el número de llamadas entrantes agrupadas por `SwitchNum`, que representa el país o la región en los que se realizó la llamada. 
 
 1. Cambie la consulta en el editor de código a:
 
@@ -288,11 +289,11 @@ Para esta transformación, se busca una secuencia de ventanas temporales que no 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    En esta consulta se usa la palabra clave `Timestamp By` en la cláusula `FROM` para especificar el campo de marca de tiempo del flujo de entrada que se usa para definir la ventana de saltos de tamaño constante. En este caso, la ventana divide los datos en segmentos por el campo `CallRecTime` de cada registro. Si no se ha especificado este campo, la operación de ventana usa la hora en la que cada evento llega al centro de eventos. Vea "Tiempo de llegada frente a tiempo de aplicación" en [Referencia de lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    En esta consulta se usa la palabra clave `Timestamp By` en la cláusula `FROM` para especificar el campo de marca de tiempo del flujo de entrada que se usa para definir la ventana de saltos de tamaño constante. En este caso, la ventana divide los datos en segmentos por el campo `CallRecTime` de cada registro. Si no se ha especificado este campo, la operación de ventana usa la hora en la que cada evento llega al centro de eventos. Vea "Tiempo de llegada frente a tiempo de aplicación" en [Referencia de lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     La proyección incluye `System.Timestamp`, que devuelve una marca de tiempo para el final de cada ventana. 
 
-    Para especificar que desea usar una ventana de saltos de tamaño constante, utilice el [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionando en el `GROUP BY` cláusula. En la función, especifique una unidad de tiempo (entre un microsegundo y un día) y un tamaño de ventana (el número de unidades). En este ejemplo, la ventana de saltos de tamaño constante se compone de intervalos de 5 segundos, por lo que se obtendrá un recuento por país o región para las llamadas correspondientes a cada 5 segundos.
+    Para especificar que desea usar una ventana de saltos de tamaño constante, use la función [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) en la cláusula `GROUP BY`. En la función, especifique una unidad de tiempo (entre un microsegundo y un día) y un tamaño de ventana (el número de unidades). En este ejemplo, la ventana de saltos de tamaño constante se compone de intervalos de cinco segundos, por lo que se obtendrá un recuento por país o región de las llamadas correspondientes a cada cinco segundos.
 
 2. Haga clic de nuevo en **Probar**. En los resultados, observe que las marcas de tiempo que aparecen en **WindowEnd** reflejan incrementos de cinco segundos.
 
@@ -302,7 +303,7 @@ Para esta transformación, se busca una secuencia de ventanas temporales que no 
 
 Para este ejemplo, se considera uso fraudulento aquellas llamadas cuyo origen sea un solo usuario, pero que se realicen en ubicaciones diferentes en intervalos inferiores a cinco segundos entre una y otra. Por ejemplo, el mismo usuario no puede legítimamente realizar una llamada desde Estados Unidos y Australia al mismo tiempo. 
 
-Para comprobar estos casos, puede usar una autocombinación de los datos de streaming que combine el flujo consigo mismo en función del valor `CallRecTime`. A continuación, busque llamada registros donde el `CallingIMSI` valor (el número original) es el mismo, pero la `SwitchNum` valor (país o región de origen) no es el mismo.
+Para comprobar estos casos, puede usar una autocombinación de los datos de streaming que combine el flujo consigo mismo en función del valor `CallRecTime`. Luego puede buscar los registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país o región de origen) no lo sea.
 
 Cuando use una combinación con datos de streaming, la combinación debe especificar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. (Como ya se ha señalado, los datos de streaming son de hecho ilimitados). Los límites de tiempo de la relación se especifican en la cláusula `ON` de la combinación, con la función `DATEDIFF`. En este caso, la combinación se basa en un intervalo de cinco segundos entre datos de llamada.
 
@@ -417,5 +418,5 @@ Para más información sobre Stream Analytics en general, examine estos artícul
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

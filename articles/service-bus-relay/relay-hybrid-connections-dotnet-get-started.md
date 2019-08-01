@@ -1,6 +1,6 @@
 ---
-title: Introducción a Azure Relay híbrida conexiones WebSockets en .NET | Microsoft Docs
-description: Escribir un C# aplicación para Azure Relay híbrida conexiones WebSockets de consola.
+title: Introducción a los WebSockets de Conexiones híbridas de Azure Relay en .NET | Microsoft Docs
+description: Escriba una aplicación de consola en C# para WebSockets de Conexiones híbridas de Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428358"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introducción a WebSockets de Conexiones híbridas de Relay en .NET
@@ -64,7 +64,7 @@ En Visual Studio, escriba una aplicación de consola en C# para enviar mensajes 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Enhorabuena, ha creado una aplicación completa de las conexiones híbridas.
+Enhorabuena, ha creado una aplicación de Conexiones híbridas completa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha creado aplicaciones de cliente y servidor de .NET que han usado WebSockets para enviar y recibir mensajes. La característica Conexiones híbridas de Azure Relay también admite el uso de HTTP para enviar y recibir mensajes. Para aprender a usar HTTP con Conexiones híbridas de Azure Relay, consulte la [guía de inicio rápido de HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

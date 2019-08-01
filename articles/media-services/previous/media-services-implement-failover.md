@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f09391bf18910bf9151c99b8df91f92b2582e823
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051652"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>Implementar la conmutación por error de streaming con Media Services 
+# <a name="implement-failover-streaming-with-media-services"></a>Implementación de streaming de conmutación por error con Media Services 
 
 En este tutorial se muestra cómo copiar contenido (blobs) de un recurso a otro con el fin de controlar la redundancia de streaming a petición. Este escenario es útil si desea configurar Azure Content Delivery Network para que conmute por error entre dos centros de datos, en el caso de se produzca una interrupción en uno de ellos. En este tutorial se usa el SDK de Azure Media Services, la API de REST de Azure Media Services y el SDK de Azure Storage para demostrar las siguientes tareas:
 
@@ -61,7 +61,7 @@ En esta sección, va a crear y configurar un proyecto de aplicación de consola 
 
 1. Use Visual Studio para crear una nueva solución que contenga el proyecto de aplicación de consola de C#. Escriba **HandleRedundancyForOnDemandStreaming** como nombre y haga clic en **Aceptar**.
 2. Cree la carpeta **SupportFiles** en el mismo nivel que el archivo de proyecto **HandleRedundancyForOnDemandStreaming.csproj**. En la carpeta **SupportFiles**, cree las carpetas **OutputFiles** y **MP4Files**. Copie un archivo. mp4 en la carpeta **MP4Files**. (En este ejemplo, se usa el archivo **BigBuckBunny.mp4**). 
-3. Use **Nuget** para agregar referencias a archivos DLL relacionados con Media Services. En el **menú principal de Visual Studio**, seleccione **HERRAMIENTAS** > **Library Package Manager (Administrador de paquetes de biblioteca)** > **Package Manager Console** (Consola del administrador de paquetes). En la ventana de la consola, escriba **Install-Package windowsazure.mediaservices** y presione Entrar.
+3. Use **Nuget** para agregar referencias a archivos DLL relacionados con Media Services. En el **menú principal de Visual Studio**, seleccione **HERRAMIENTAS** > **Library Package Manager (Administrador de paquetes de biblioteca)**  > **Package Manager Console** (Consola del administrador de paquetes). En la ventana de la consola, escriba **Install-Package windowsazure.mediaservices** y presione Entrar.
 4. Agregue otras referencias que son necesarias para este proyecto: System.Configuration, System.Runtime.Serialization y System.Web.
 5. Reemplace las instrucciones **using** que se agregaron al archivo **Programs.cs** de forma predeterminada por las siguientes:
    
@@ -409,8 +409,7 @@ En esta sección, va a crear la capacidad de controlar la redundancia.
         {
 
             var ismAssetFiles = asset.AssetFiles.ToList().
-                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase))
-                        .ToArray();
+                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
             if (ismAssetFiles.Count() != 1)
                 throw new ArgumentException("The asset should have only one, .ism file");
@@ -421,15 +420,12 @@ En esta sección, va a crear la capacidad de controlar la redundancia.
 
         public static IAssetFile GetPrimaryFile(IAsset asset)
         {
-            var theManifest =
-                    from f in asset.AssetFiles
-                    where f.Name.EndsWith(".ism")
-                    select f;
-
             // Cast the reference to a true IAssetFile type. 
-            IAssetFile manifestFile = theManifest.First();
+        IAssetFile theManifest = asset.AssetFiles.ToList().
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).
+                FirstOrDefault();   
 
-            return manifestFile;
+            return theManifest;
         }
 
         public static IAsset RefreshAsset(CloudMediaContext context, IAsset asset)

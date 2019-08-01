@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969081"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
@@ -66,14 +66,14 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
     ![Segundo ejemplo de lista de etiquetas por las que puede agrupar](./media/understanding-cost-reports/groups-tags02.png)
 
     En los informes de asignación de costos, los grupos en las categorías de grupos basados en etiquetas podrían incluir:
-      - `Tags`
+      - Etiquetas
       - etiquetas de grupos de recursos
       - Etiquetas de entidad de costo de Cloudyn
       - Categorías de etiquetas de suscripción para la asignación de costos
 
    Algunos ejemplos pueden incluir:
-   - Centro de costo
-   - Departamento
+   - Centro de costos
+   - department
    - Application
    - Entorno
    - Código de costo
@@ -144,8 +144,8 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 8. **Resolución**
 
     Utilice Resolution (Resolución) para seleccionar la resolución de tiempo dentro del intervalo de fechas seleccionado. La resolución de tiempo determina cómo se muestran las unidades en el informe y pueden ser:
-    - Diariamente
-    - Semanalmente
+    - Diario
+    - Semanal
     - Mensual
     - Trimestral
     - Anual
@@ -191,7 +191,7 @@ Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continua
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Guardar un informe en el almacenamiento del proveedor de nube
 
-Para guardar un informe en su proveedor de servicios en la nube, ya debe haber configurado una cuenta de almacenamiento. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y, a continuación, seleccione la cuenta de almacenamiento o agregue una nueva. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione un formato de archivo CSV o JSON y, a continuación, guarde el informe.
+Para guardar un informe en su proveedor de servicios en la nube, ya debe haber configurado una cuenta de almacenamiento. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y, a continuación, seleccione la cuenta de almacenamiento o agregue una nueva. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione el formato de archivo CSV o JSON y, a continuación, guarde el informe.
 
 ### <a name="schedule-a-report"></a>Programar un informe
 

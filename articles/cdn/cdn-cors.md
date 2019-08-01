@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
-ms.translationtype: MT
+ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077419"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de Azure CDN con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -30,13 +30,13 @@ Hay dos tipos de solicitudes de CORS, *solicitudes sencillas* y *solicitudes com
 
 ### <a name="for-simple-requests"></a>Para solicitudes sencillas:
 
-1. El explorador envía la solicitud de CORS con un encabezado de solicitud HTTP de **origen** adicional. El valor de este encabezado es el origen del que proviene la página primaria, que se define como la combinación de *protocolo,* *dominio,* y *puerto.*  Cuando una página de https\:/ / www.contoso.com intenta tener acceso a datos de un usuario en el origen fabrikam.com, se enviaría el siguiente encabezado de solicitud a fabrikam.com:
+1. El explorador envía la solicitud de CORS con un encabezado de solicitud HTTP de **origen** adicional. El valor de este encabezado es el origen del que proviene la página primaria, que se define como la combinación de *protocolo,* *dominio,* y *puerto.*  Cuando una página de https\://www.contoso.com intenta acceder a datos de un usuario en el origen fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
 2. El servidor puede responder con lo siguiente:
 
-   * Un encabezado **Access-Control-Allow-Origin** en la respuesta, que indica cuál de los sitios de origen se permite. Por ejemplo: 
+   * Un encabezado **Access-Control-Allow-Origin** en la respuesta, que indica cuál de los sitios de origen se permite. Por ejemplo:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -85,7 +85,7 @@ Si la expresión regular coincide, la regla reemplazará el encabezado **Access-
 ![Ejemplo de reglas con expresiones regulares](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regla de encabezado de solicitud para cada origen
-En lugar de usar expresiones regulares, puede crear una regla aparte para cada origen que quiera permitir con la **condición de coincidencia** [carácter comodín del encabezado de solicitud](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). Al igual que con el método de expresión regular, el motor de reglas es el único que establece los encabezados de CORS. 
+En lugar de usar expresiones regulares, puede crear una regla aparte para cada origen que quiera permitir con la **condición de coincidencia** [carácter comodín del encabezado de solicitud](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). Al igual que con el método de expresión regular, el motor de reglas es el único que establece los encabezados de CORS. 
 
 ![Ejemplo de reglas sin expresiones regulares](./media/cdn-cors/cdn-cors-no-regex.png)
 

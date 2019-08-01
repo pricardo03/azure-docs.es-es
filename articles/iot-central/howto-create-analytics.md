@@ -3,17 +3,17 @@ title: Análisis de los datos del dispositivo en la aplicación de Azure IoT Cen
 description: Analice los datos del dispositivo en la aplicación de Azure IoT Central.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ffe8b350c1b5cea23aeb65092c7912c6d6c1ed89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052955"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -23,7 +23,7 @@ Azure IoT Central proporciona completas funcionalidades de análisis para dotar 
 
 ## <a name="querying-your-data"></a>Consulta de los datos
 
-Debe elegir un **conjunto de dispositivos**, agregue un **filtro** (opcional) y seleccione un **período de tiempo** para empezar a trabajar. Una vez que haya terminado, seleccione **mostrar resultados** para comenzar a visualizar los datos.
+Debe elegir un **conjunto de dispositivos**, agregue un **filtro** (opcional) y seleccione un **período de tiempo** para empezar a trabajar. Cuando haya terminado, seleccione **Mostrar resultados** para comenzar a visualizar los datos.
 
 * **Conjuntos de dispositivos**: un [conjunto de dispositivos](howto-use-device-sets.md) es un grupo de dispositivos definido por el usuario. Por ejemplo, todos los refrigeradores en Oakland o todas las turbinas eólicas rev 2.0.
 
@@ -46,31 +46,31 @@ Cuando haya consultado los datos, podrá comenzar a visualizarlos. Se pueden mos
 
 ## <a name="interacting-with-your-data"></a>Interacción con los datos
 
-Hay varias maneras de cambiar los resultados de consulta para satisfacer las necesidades de visualización. Puede alternar entre una vista de gráfico y una vista de cuadrícula, acercar y alejar, actualice el conjunto de datos y modificar cómo se muestran las líneas.
+Dispone de varias formas de modificar los resultados de la consulta para satisfacer sus necesidades de visualización. Puede alternar entre una vista de gráfico y una vista de cuadrícula, acercar o alejar la vista, actualizar el conjunto de datos y modificar la forma en que se muestran las líneas.
 
-* **Mostrar cuadrícula**: Los resultados están disponibles en un formato de tabla, lo que le permite ver el valor específico para cada punto de datos. Esta vista también cumple los estándares de seguridad.
-* **Mostrar gráfico**: Los resultados se muestran en un formato de línea para ayudarle a identificar hacia arriba o hacia abajo tendencias y anomalías.
+* **Mostrar cuadrícula**: los resultados están disponibles en formato de tabla para permitirle ver el valor específico para cada punto de datos. Esta vista también cumple los estándares de seguridad.
+* **Mostrar gráfico**: los resultados se muestran en un formato de línea que le ayudará a detectar fácilmente tendencias ascendentes/descendentes y anomalías.
 
   ![Presentación de la vista de cuadrícula para los análisis](media/howto-create-analytics/analytics-showgrid.png)
 
-Zoom le permite a la página principal de en los datos. Si encuentra un período de tiempo en el que quiere centrarse dentro del conjunto de resultados, use el cursor para seleccionar el área que desea ampliar y utilice los controles disponibles para realizar una de las siguientes acciones:
+El zoom le permite dirigirse a sus datos. Si encuentra un período de tiempo en el que quiere centrarse dentro del conjunto de resultados, use el cursor para seleccionar el área que desea ampliar y utilice los controles disponibles para realizar una de las siguientes acciones:
 
-* **Acercar**: Una vez que haya seleccionado un período de tiempo, haga zoom está habilitada y le permite acercar a los datos.
-* **Alejar**: este control le permite alejarse un nivel a partir del último zoom. Por ejemplo, si ha zoom a sus datos tres veces, zoom tarda cómo realizar una copia un paso a la vez.
+* **Acercar**: cuando haya seleccionado un período de tiempo, este control que permite ampliar los datos se habilitará.
+* **Alejar**: este control le permite alejarse un nivel a partir del último zoom. Por ejemplo, si ha acercado tres veces los datos, este control le alejará paso a paso.
 * **Restablecer zoom**: cuando haya ejecutado varios niveles de zoom, puede usar el control de restablecimiento de zoom para volver al conjunto de resultados original.
 
   ![Ejecución del zoom en los datos](media/howto-create-analytics/analytics-zoom.png)
 
 Puede cambiar el estilo de línea para ajustarse sus necesidades. Tiene cuatro opciones:
 
-* **Línea**: Una línea plana entre cada uno de los puntos de datos.
-* **Suave**: Una línea curva entre cada punto.
-* **Paso**: Línea entre cada punto en el gráfico es un paso.
-* **Dispersión**: Todos los puntos se trazan en el gráfico sin las líneas que conectan a ellos.
+* **Línea**: línea recta entre los puntos de datos.
+* **Suave**: línea curva entre los puntos.
+* **Paso**: la línea entre los puntos del gráfico es un paso.
+* **Dispersión**: se trazarán todos los puntos del gráfico sin líneas que los conecten.
 
   ![Distintos tipos de línea disponibles en Analytics](media/howto-create-analytics/analytics-linetypes.png)
 
-Por último, puede organizar los datos en el eje y eligiendo uno de tres modos:
+Por último, puede organizar los datos en el eje Y eligiendo uno de los tres modos:
 
 * **Apilado**: se apila un gráfico de cada medida y cada gráfico tiene su propio eje Y. Los gráficos apilados son útiles cuando tiene varias medidas seleccionadas y desea tener una vista distinta de estas medidas.
 * **No apilado**: se traza un gráfico de cada medida con respecto a un eje Y, pero los valores del eje Y se cambian en función de la medida resaltada. Los gráficos no apilados son útiles cuando se quieren superponer varias medidas y se quieren ver los patrones entre estas medidas para el mismo intervalo de tiempo.

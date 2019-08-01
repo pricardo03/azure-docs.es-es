@@ -3,20 +3,20 @@ title: Consideraciones de rendimiento de Azure Traffic Manager | Microsoft Docs
 description: Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329988"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071049"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
 
@@ -28,7 +28,7 @@ Tiene instancias de su sitio web en las regiones Oeste de EE. UU. y Este de Asia
 
 El único impacto en el rendimiento que puede tener Traffic Manager sobre su sitio web es en la búsqueda de DNS inicial. Una solicitud de DNS del nombre de su perfil de Traffic Manager se procesa mediante el servidor de raíz DNS de Microsoft que hospeda la zona trafficmanager.net. Traffic Manager rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft en función de la directiva de Traffic Manager y los resultados del sondeo. Por tanto, incluso durante la búsqueda de DNS inicial, no se envía ninguna consulta de DNS a Traffic Manager.
 
-El Administrador de tráfico se compone de varios componentes: Un punto de conexión de servicio de supervisión, un servicio de API, la capa de almacenamiento y los servidores de nombres DNS. Si se produce un error en un componente del servicio Traffic Manager, no surte ningún efecto en el nombre DNS asociado a su perfil de Traffic Manager. No se modificarán los registros en los servidores DNS de Microsoft. Sin embargo, la supervisión de puntos de conexión y la actualización de DNS no se llevan a cabo. Por lo tanto, Traffic Manager no es capaz de actualizar DNS para que señale a su sitio de conmutación por error cuando el sitio principal deja de funcionar.
+Traffic Manager está formado por varios componentes: servidores de nombres DNS, un servicio de API, la capa de almacenamiento y un servicio de supervisión de puntos de conexión. Si se produce un error en un componente del servicio Traffic Manager, no surte ningún efecto en el nombre DNS asociado a su perfil de Traffic Manager. No se modificarán los registros en los servidores DNS de Microsoft. Sin embargo, la supervisión de puntos de conexión y la actualización de DNS no se llevan a cabo. Por lo tanto, Traffic Manager no es capaz de actualizar DNS para que señale a su sitio de conmutación por error cuando el sitio principal deja de funcionar.
 
 La resolución de nombres DNS es rápida y los resultados se almacenan en la memoria caché. La velocidad de la búsqueda de DNS inicial depende de los servidores DNS que el cliente use para la resolución de nombres. Por lo general, un cliente puede completar una búsqueda de DNS en aproximadamente 50 ms. Los resultados de la búsqueda se almacenan en la memoria caché durante el período de vida (TTL) de DNS. El TTL predeterminado para Traffic Manager es 300 segundos.
 
@@ -58,7 +58,7 @@ Las herramientas de estos sitios miden las latencias de DNS y muestran las direc
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Conocido anteriormente como la herramienta de inspección mouse Check Website, este sitio muestra el tiempo de resolución DNS desde varias regiones geográficas simultáneamente. Escriba la dirección URL para ver el tiempo de resolución de DNS, el tiempo de conexión y la velocidad desde varias ubicaciones geográficas. Use esta prueba para ver qué servicio hospedado se devuelve para diferentes ubicaciones del mundo.
+    Antes conocido como la herramienta Watch-mouse Check Website, este sitio muestra el tiempo de resolución de DNS desde varias regiones geográficas simultáneamente. Escriba la dirección URL para ver el tiempo de resolución de DNS, el tiempo de conexión y la velocidad desde varias ubicaciones geográficas. Use esta prueba para ver qué servicio hospedado se devuelve para diferentes ubicaciones del mundo.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

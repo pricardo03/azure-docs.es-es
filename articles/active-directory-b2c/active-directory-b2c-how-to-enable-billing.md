@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9d3ce15ac9899fe09d907296976db15ed0babb35
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612480"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835432"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure Active Directory B2C
 
@@ -45,9 +45,9 @@ Vaya al inquilino de Azure AD que muestra su suscripción de Azure. Abra [Azure 
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Búsqueda de Azure AD B2C en Azure Marketplace
 
-Haga clic en el botón **Crear un recurso**. En el campo **Buscar en el Marketplace**, escriba `B2C`.
+Haga clic en el botón **Crear un recurso**. En el campo **Buscar en Marketplace**, escriba `Active Directory B2C`.
 
-![Agregue el resaltado y el texto Azure AD B2C en el campo de búsqueda en el Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Captura de pantalla del portal con "Active Directory B2C" en la búsqueda de Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 En la lista de resultados, seleccione **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ En Suscripción, seleccione una suscripción activa de Azure de las que sea admi
 
 Seleccione un grupo de recursos y una ubicación del grupo de recursos. Aquí la elección no tiene ningún efecto en la ubicación, el rendimiento o el estado de facturación del inquilino de Azure AD B2C.
 
-![Crear recurso de B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Página de creación de recursos de Azure AD B2C en Azure Portal](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Administración de los recursos del inquilino de Azure AD B2C
 
@@ -80,7 +80,7 @@ Este recurso se puede utilizar para:
 - Enviar una solicitud de soporte técnico.
 - Mover el recurso del inquilino de Azure AD B2C a otra suscripción de Azure o a otro grupo de recursos.
 
-![Configuración de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Página de configuración de recursos de B2C en Azure Portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Cambio de la suscripción de facturación del inquilino de Azure AD B2C
 

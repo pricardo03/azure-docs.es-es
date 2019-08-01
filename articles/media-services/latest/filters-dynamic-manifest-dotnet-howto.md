@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66494308"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Creación de filtros con el SDK de .NET de Media Services
 
 Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que su cliente necesite más flexibilidad que lo descrito en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
 
-Para una descripción detallada de esta característica y los escenarios donde se utiliza, consulte [los manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [filtros](filters-concept.md).
+Para una descripción detallada de esta característica y los escenarios donde se utiliza, consulte [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
 En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) y [Filtros de recurso](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
@@ -82,11 +82,11 @@ AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
+## <a name="associate-filters-with-streaming-locator"></a>Asociación de filtros con localizadores de streaming
 
-Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico (extremo de Streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+Ahora puede especificar una lista de filtros de cuentas o recursos, que se aplicarían a su localizador de streaming. El [empaquetado dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si desea aplicar filtros, pero no desea exponer los nombres de filtro en la dirección URL.
 
-La siguiente C# código muestra cómo crear un localizador de Streaming y especifique `StreamingLocator.Filters`. Esta es una propiedad opcional que toma un `IList<string>` de nombres de filtro.
+El siguiente código C# muestra cómo crear un localizador de streaming y especificar `StreamingLocator.Filters`. Esta es una propiedad opcional que toma una `IList<string>` de nombres de filtro.
 
 ```csharp
 IList<string> filters = new List<string>();
@@ -104,13 +104,13 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
       
-## <a name="stream-using-filters"></a>Uso de filtros de Stream
+## <a name="stream-using-filters"></a>Streaming con filtros
 
 Una vez que defina los filtros, los clientes podrán utilizarlos en la dirección URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable: formatos Apple HTTP Live Streaming (HLS), MPEG-DASH y Smooth Streaming
 
 En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtros:
 
-|Protocol|Ejemplo|
+|Protocolo|Ejemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

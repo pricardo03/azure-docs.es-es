@@ -1,7 +1,7 @@
 ---
-title: Listas de frase - servicios de voz
+title: 'Listas de frases: Servicios de voz'
 titlesuffix: Azure Cognitive Services
-description: Aprenda a proporcionar los servicios de voz con una lista de frases mediante la `PhraseListGrammar` objeto para mejorar los resultados de reconocimiento de voz a texto.
+description: Aprenda cómo proporcionar a Servicios de voz una lista de frases mediante el objeto `PhraseListGrammar` para mejorar los resultados de reconocimiento de voz a texto.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 5/02/2019
 ms.author: rhurey
 ms.openlocfilehash: a3be5d28ebe394771a2d8b492f1f6a9c8a82fb9e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515306"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>Listas de frase de texto a voz
+# <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para reconocimiento de voz a texto
 
-Al proporcionar los servicios de voz con una lista de frases, puede mejorar la precisión del reconocimiento de voz. Frase listas se usan para identificar las frases conocidas de datos de audio, como nombre de una persona o una ubicación específica.
+Al proporcionar a Servicios de voz una lista de frases, puede mejorar la precisión del reconocimiento de voz. Las listas de frases se usan para identificar frases conocidas en datos de audio, como el nombre de una persona o una ubicación específica.
 
-Por ejemplo, si tiene un comando "Mover a" y un posible destino de "Ward" que se puede hablar, puede agregar una entrada de "Mover a Ward". Adición de una frase, aumentará la probabilidad de que cuando el audio se reconoce que se reconozca "Mover a Ward" en lugar de "Mover hacia".
+Por ejemplo, si tiene el comando "Mover a" y "Cerca" como posible destino que se puede decir, puede añadir la entrada "Mover a Cerca". Al agregar una frase, aumentará la probabilidad de que, cuando se reconozca el audio, se reconozca "Mover a Cerca" en lugar de "Mover acerca".
 
-Solo palabras o frases completas pueden agregarse a una lista de frases. Durante el reconocimiento, una entrada en una lista de frases se utiliza si se incluye una coincidencia exacta en el audio. Compilar en el ejemplo anterior, si la lista de frases incluye "Mover a Ward" y la frase capturado es "Mover hacia lenta", entonces el resultado de reconocimiento se producirá "Mover a Ward lenta".
+A una lista de frases se pueden agregar palabras solas o frases completas. Durante el reconocimiento, se usa una entrada de una lista de frases si el audio incluye una coincidencia exacta. Siguiendo con el ejemplo anterior, si la lista de frases incluye "Mover a Cerca" y la frase capturada es "Mover acerca lentamente", el resultado del reconocimiento será "Mover a Cerca lentamente".
 
-## <a name="how-to-use-phrase-lists"></a>Uso de listas de frase
+## <a name="how-to-use-phrase-lists"></a>Cómo usar las listas de frases
 
-Los ejemplos siguientes muestran cómo crear una lista de frases mediante la `PhraseListGrammar` objeto.
+Los ejemplos siguientes muestran cómo crear una lista de frases mediante el objeto `PhraseListGrammar`.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -65,9 +65,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> El número máximo de frase listas que usará el servicio de voz para que coincida con la voz es 1024 frases.
+> El número máximo de listas de frases que usará el servicio de voz para establecer coincidencias con la voz es 1024 frases.
 
-También puede borrar las frases asociadas con el `PhraseListGrammar` por clear() que realiza la llamada.
+También puede borrar las frases asociadas con `PhraseListGrammar` llamando a clear().
 
 ```C++
 phraselist->Clear();
@@ -90,8 +90,8 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Cambia a un `PhraseListGrammar` objeto tienen efecto sobre el reconocimiento siguiente o siguiendo una reconexión con los servicios de voz.
+> Los cambios realizados en el objeto `PhraseListGrammar` se aplican en el siguiente reconocimiento o tras una reconexión con Servicios de voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de referencia de Speech SDK](speech-sdk.md)
+* [Documentación de referencia del SDK de voz](speech-sdk.md)

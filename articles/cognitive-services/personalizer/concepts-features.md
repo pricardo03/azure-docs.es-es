@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340887"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253581"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -66,9 +66,10 @@ A continuación encontrará ejemplos de espacios de nombres de características 
 * current_time
 * NewsArticle_TextAnalytics
 
-Al asignar nombres a los espacios de nombres de las características puede seguir sus propias convenciones, siempre sean claves JSON válidas.
+Al asignar nombres a los espacios de nombres de las características puede seguir sus propias convenciones, siempre sean claves JSON válidas. Los espacios de nombres se usan para organizar características en conjuntos distintos y para eliminar la ambigüedad de las características con nombres similares. Los espacios de nombres se pueden considerar como un "prefijo" que se agrega a los nombres de las características. Los espacios de nombres no se pueden anidar.
 
-En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características.
+
+En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características. Nota sobre la versión preliminar pública: Actualmente, le recomendamos que use nombres para los espacios de nombres de características que se basen en el formato UTF-8 y comiencen por letras diferentes. Por ejemplo, los términos `user`, `state` y `device` empiezan por `u`, `s` y `d`. Actualmente, el uso de espacios de nombres con los mismos caracteres iniciales puede provocar colisiones en los índices usados para el aprendizaje automático.
 
 Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
 
@@ -77,7 +78,7 @@ Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores si
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },

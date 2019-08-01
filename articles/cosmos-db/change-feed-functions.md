@@ -8,47 +8,47 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 08429ca76823b9e6c80a197cc390a5964c4198e6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969012"
 ---
-# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas sin servidor basada en eventos con Azure Cosmos DB y Azure Functions
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas basadas en eventos sin servidor con Azure Cosmos DB y Azure Functions
 
-Azure Functions proporciona la manera más sencilla para conectarse a la [fuente de cambios](change-feed.md). Puede crear pequeñas reactivo funciones de Azure que se desencadenará automáticamente en cada nuevo evento en la fuente de cambios de su contenedor de Azure Cosmos.
+Azure Functions proporciona la manera más sencilla de conectarse a la [fuente de cambios](change-feed.md). Puede crear pequeñas funciones reactivas de Azure Functions que se desencadenarán automáticamente en cada nuevo evento en la fuente de cambios de su contenedor de Azure Cosmos.
 
-![Funciones sin servidor basado en eventos, trabajar con el desencadenador de Azure Cosmos DB](./media/change-feed-functions/functions.png)
+![Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Cosmos DB](./media/change-feed-functions/functions.png)
 
-Con el [desencadenador de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), puede aprovechar la [procesadores de fuente de cambios](./change-feed-processor.md)escalado y la funcionalidad de detección de eventos confiable sin necesidad de mantener cualquiera [trabajo infraestructura](./change-feed-processor.md#implementing-the-change-feed-processor-library). Centrarse en la lógica de la función de Azure sin preocuparse por el resto de la canalización de abastecimiento de eventos. Incluso puede combinar el desencadenador con cualquier otro [enlaces de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+Con el [desencadenador de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), puede aprovechar el escalado del [procesador de fuente de cambios](./change-feed-processor.md) y la funcionalidad de detección de eventos confiable sin necesidad de mantener ninguna [infraestructura de trabajo](./change-feed-processor.md#implementing-the-change-feed-processor-library). Céntrese en la lógica de Azure Functions sin preocuparse por el resto de la canalización de origen de eventos. Incluso puede combinar el desencadenador con cualquier otro [enlace de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
-> Actualmente, el desencadenador de Azure Cosmos DB se puede usar con el núcleo (API de SQL) solo.
+> Actualmente, el uso del desencadenador de Azure Cosmos DB se admite solo con Core (SQL) API.
 
 ## <a name="requirements"></a>Requisitos
 
 Para implementar un flujo basado en eventos sin servidor, necesita:
 
-* **El contenedor supervisado**: Contenedor supervisado es el contenedor de Azure Cosmos supervisado, y almacena los datos desde el que se genera la fuente de cambios. Todas las inserciones y cambios (por ejemplo, CRUD) al contenedor supervisado se reflejan en la fuente de cambios del contenedor.
-* **El contenedor de concesión**: El contenedor de concesión mantiene el estado entre varios y las instancias de función dinámica de Azure sin servidor y permite el escalado dinámico. Este contenedor de concesión puede manual o automáticamente crearse mediante el Trigger.To de Azure Cosmos DB automáticamente cree el contenedor de la concesión, establezca la *CreateLeaseCollectionIfNotExists* marca en el [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Contenedores de concesión con particiones se deben tener un `/id` definición de la clave de partición.
+* **El contenedor supervisado**: el contenedor supervisado es el contenedor de Azure Cosmos que se está supervisando y almacena los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y cambios (por ejemplo, CRUD) realizados en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
+* **El contenedor de concesión**: el contenedor de concesión mantiene el estado entre instancias de Azure Functions sin servidor múltiples y dinámicas, y permite un escalado dinámico. Este contenedor de concesión se puede crear de forma manual o automática mediante el desencadenador de Azure Cosmos DB. Para crear automáticamente el contenedor de concesión, establezca la marca *CreateLeaseCollectionIfNotExists* en la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Los contenedores de concesión con particiones deben tener una definición de clave de partición `/id`.
 
-## <a name="create-your-azure-cosmos-db-trigger"></a>Crear el desencadenador de Azure Cosmos DB
+## <a name="create-your-azure-cosmos-db-trigger"></a>Creación de un desencadenador de Azure Cosmos DB
 
-Ahora se admite la creación de la función de Azure con un desencadenador de Azure Cosmos DB en todos los IDE de las funciones de Azure y las integraciones de CLI:
+Ahora se admite la creación de una función de Azure con un desencadenador de Azure Cosmos DB en todos los IDE de Azure Functions e integraciones de la CLI:
 
-* [Extensión de Visual Studio](../azure-functions/functions-develop-vs.md) para usuarios de Visual Studio.
-* [Extensión de Visual Studio Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) para los usuarios de Visual Studio Code.
-* Y, finalmente, [herramientas CLI Core](../azure-functions/functions-run-local.md#create-func) para una experiencia independiente del IDE multiplataforma.
+* [Extensión de Visual Studio](../azure-functions/functions-develop-vs.md) para usuarios de Visual Studio.
+* [Extensión de núcleo de Visual Studio](https://code.visualstudio.com/tutorials/functions-extension/create-function) para usuarios de Visual Studio Code.
+* Y, finalmente, [herramientas de la CLI de Core](../azure-functions/functions-run-local.md#create-func) para una experiencia independiente del IDE multiplataforma.
 
-## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Ejecutar el desencadenador de Azure Cosmos DB localmente
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Ejecución local de un desencadenador de Azure Cosmos DB
 
-Puede ejecutar su [Azure Functions localmente](../azure-functions/functions-develop-local.md) con el [emulador de Azure Cosmos DB](./local-emulator.md) para crear y desarrollar sus flujos basado en eventos sin servidor sin una suscripción de Azure ni incurrir en ningún gasto.
+Puede ejecutar la [función de Azure localmente](../azure-functions/functions-develop-local.md) con el [Emulador de Azure Cosmos DB](./local-emulator.md) para crear y desarrollar flujos basados en eventos sin servidor, sin tener una suscripción de Azure ni incurrir en gastos.
 
-Si desea probar escenarios en vivo en la nube, puede [probar Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) sin ninguna tarjeta de crédito o una suscripción de Azure necesarios.
+Si desea probar escenarios en vivo en la nube, puede [probar Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) sin necesidad de tener tarjetas de crédito ni suscripciones de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede continuar obtener más información acerca de la fuente de cambios en los siguientes artículos:
+Ahora, puede seguir aprendiendo acerca de las fuentes de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
 * [Maneras de leer la fuente de cambios](read-change-feed.md)

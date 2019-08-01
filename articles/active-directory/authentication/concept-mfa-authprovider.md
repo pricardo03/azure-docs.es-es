@@ -1,5 +1,5 @@
 ---
-title: ¿Cuándo y cómo usar un proveedor de Azure Multi-factor Authentication? - Azure Active Directory
+title: ¿Cuándo y cómo usar un proveedor de Azure Multi-factor Authentication? - Azure Active Directory
 description: ¿Cuándo se debe usar un proveedor de autenticación con Azure MFA?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c9c24f5b594935c0057eb15acec09a0b27324
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 8b1461999679935587370f66349a440d588465cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052537"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Cuándo usar un proveedor de Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ La verificación en dos pasos está disponible de forma predeterminada para los 
 Un proveedor de Azure Multi-Factor Authentication se usa para aprovechar las características que Azure Multi-factor Authentication proporciona para los usuarios que **no tienen licencias**.
 
 > [!NOTE]
-> A partir del 1 de septiembre de 2018, no se pueden crear nuevos clientes de autenticación. Los proveedores de autenticación existentes se pueden seguir usando y actualizando. La autenticación multifactor seguirá estando disponible como una característica en las licencias de Azure AD Premium.
+> A partir del 1 de septiembre de 2018, no se pueden crear nuevos clientes de autenticación. Los proveedores de autenticación existentes se pueden seguir usando y actualizando, pero ya no se puede migrar. La autenticación multifactor seguirá estando disponible como una característica en las licencias de Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Advertencias relacionadas con el SDK de Azure MFA
 

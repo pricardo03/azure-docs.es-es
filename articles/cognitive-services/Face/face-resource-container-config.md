@@ -3,20 +3,20 @@ title: Configuración de contenedores
 titlesuffix: Face - Azure Cognitive Services
 description: Opciones de configuración de los contenedores.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071492"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -31,11 +31,11 @@ El entorno en tiempo de ejecución del contenedor de **Face** se configura media
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
-La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para la ApiKey y el valor debe ser una clave válida para el _Cognitive Services_ recurso especificado para el [ `Billing` ](#billing-configuration-setting) opción de configuración.
+La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Cognitive Services_ especificado para la opción de configuración [`Billing`](#billing-configuration-setting).
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **Cognitivas Services** administración de recursos, en **claves**
+* Azure Portal: Administración de recursos de **Cognitivas Services**, en **Claves**.
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -43,17 +43,17 @@ Este valor se puede encontrar en el siguiente lugar:
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-El `Billing` configuración especifica el URI del extremo de la _Cognitive Services_ recursos en Azure se usan para medir la información de facturación para el contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de extremo válido para un _Cognitive Services_ recursos en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
+La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de _Cognitive Services_ que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración, que debe ser un URI de punto de conexión válido para un recurso de _Cognitive Services_ en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **Cognitivas Services** información general, con la etiqueta `Endpoint`
+* Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
 
-No olvide agregar el _cara_ tal como se muestra en el ejemplo de enrutamiento para el URI del extremo. 
+No olvide agregar la ruta _Face_ al URI de punto de conexión, tal como se muestra en el ejemplo. 
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -63,7 +63,7 @@ Las opciones de configuración de la sección `CloudAI` proporcionan opciones es
 
 | NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |------|-----------|-------------|
-| `Storage` | Object | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
+| `Storage` | Objeto | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Configuración del escenario de almacenamiento
 
@@ -82,9 +82,9 @@ Los escenarios de almacenamiento y las opciones de configuración asociadas se a
 
 | NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |------|-----------|-------------|
-| `StorageScenario` | string | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
-| `ConnectionStringOfAzureStorage` | string | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
-| `ConnectionStringOfCosmosMongo` | string | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `StorageScenario` | Cadena | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
+| `ConnectionStringOfAzureStorage` | Cadena | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | Cadena | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
 
 Por ejemplo, el siguiente comando especifica el escenario de almacenamiento de Azure y proporciona las cadenas de conexión de ejemplo para los recursos de Azure Storage y Cosmos DB usados para almacenar datos del contenedor de Face.
 
@@ -124,8 +124,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | string | Los contenedores de Face no usan esto.|
-|Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | Cadena | Los contenedores de Face no usan esto.|
+|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -139,11 +139,11 @@ Reemplace {_argument_name_} por sus propios valores:
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | La clave de punto de conexión del recurso de Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | El valor de punto de conexión facturación incluidas la región y el enrutamiento de cara.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación, incluida la región y la ruta de Face.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](face-how-to-install-containers.md#billing).
-> El valor de ApiKey es el **clave** desde Azure `Cognitive Services` página claves de recursos. 
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Cognitive Services`. 
 
 ## <a name="face-container-docker-examples"></a>Ejemplos de Docker del contenedor de Face
 

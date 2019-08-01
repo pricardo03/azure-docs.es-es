@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
 ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476117"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
@@ -24,14 +24,14 @@ ms.locfileid: "66476117"
 ### <a name="what-is-an-event-hubs-namespace"></a>¿Qué es un espacio de nombres de Event Hubs?
 Un espacio de nombres es un contenedor de temas de Event Hubs y Kafka. Proporciona un [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) único. Un espacio de nombres actúa como un contenedor de aplicaciones que puede alojar varios temas de Event Hubs y Kafka. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>¿Cuando crea un nuevo espacio de nombres frente al uso un espacio de nombres existente?
-Las asignaciones de capacidad ([unidades de procesamiento (tu)](#throughput-units)) se facturan según el nivel de espacio de nombres. Un espacio de nombres también se asocia con una región.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>¿Cuando crear un nuevo espacio de nombres o cuándo usar un espacio de nombres existente?
+Las asignaciones de capacidad ([unidades de procesamiento (TU)](#throughput-units)) se facturan según el espacio de nombres. Un espacio de nombres también se asocia a una región.
 
-Es posible que desee crear un nuevo espacio de nombres en lugar de usar una existente en cada uno de los siguientes escenarios: 
+Es posible que desee crear un nuevo espacio de nombres en lugar de usar uno existente en alguno de los siguientes escenarios: 
 
-- Necesita un centro de eventos asociados con una nueva región.
-- Necesita un centro de eventos asociados con una suscripción diferente.
-- Necesita un centro de eventos con una asignación de capacidad diferentes (es decir, la capacidad es necesario para el espacio de nombres con el centro de eventos se ha agregado podría superar el umbral de MA 40 y no quiere ir para el clúster dedicado)  
+- Necesita un centro de eventos asociado a una nueva región.
+- Necesita un centro de eventos asociado a otra suscripción.
+- Necesita un centro de eventos con una asignación de capacidad diferente (es decir, la capacidad necesaria para el espacio de nombres con el centro de eventos agregado superaría el umbral de 40 TU y no sería conveniente el clúster dedicado)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>¿Cuál es la diferencia entre los niveles Basic y Standard de Event Hubs?
 
@@ -61,29 +61,29 @@ El nivel Event Hubs estándar admite actualmente un período de retención máxi
 Event Hubs emite métricas exhaustivas que proporcionan el estado de los recursos a [Azure Monitor](../azure-monitor/overview.md). También permite evaluar el estado general del servicio Event Hubs, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Obtenga información sobre la supervisión que se ofrece para [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
-Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
+Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Consulte la siguiente tabla para los puertos de salida que se debe abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
+Consulte en la siguiente tabla los puertos de salida que se deben abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
 
-| Protocol | Puertos | Detalles | 
+| Protocolo | Puertos | Detalles | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 y 5672 | Consulte [Guía del protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [Use centros de eventos de aplicaciones de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP es necesario en la lista blanca?
-Para buscar las direcciones IP correctas a la lista blanca para las conexiones, siga estos pasos:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP es necesario incluir en la lista de permitidas?
+Para buscar las direcciones IP correctas que incluir en la lista de direcciones permitidas para las conexiones, siga estos pasos:
 
-1. Ejecute el siguiente comando desde un símbolo del sistema: 
+1. Ejecute el siguiente comando desde el símbolo del sistema: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único punto en el tiempo que se vayan a cambiar es si restaurar el espacio de nombres en un clúster distinto.
+2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
 
 Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
 
@@ -92,14 +92,14 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote el nombre de la **respuesta no autoritativa** sección, que se encuentra en uno de los siguientes formatos: 
+2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Ejecute nslookup para cada uno con sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad 
+3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
 ## <a name="apache-kafka-integration"></a>Integración de Apache Kafka
 

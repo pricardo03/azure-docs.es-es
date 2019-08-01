@@ -1,19 +1,19 @@
 ---
-title: Configuración de alertas de estado del servicio de Azure con PagerDuty | Microsoft Docs
+title: Envío de alertas de Azure Service Health con PageDuty mediante webhooks
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de PagerDuty.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067148"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Configuración de alertas de estado del servicio con PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envío de alertas de Azure Service Health con PageDuty mediante webhooks
 
 Este artículo muestra cómo configurar las notificaciones de estado del servicio de Azure con PagerDuty mediante un webhook. Mediante el tipo de integración de Microsoft Azure personalizado de [PagerDuty](https://www.pagerduty.com/), puede agregar fácilmente alertas de estado del servicio a los servicios de PagerDuty nuevos o existentes.
 
@@ -28,7 +28,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
 1.  En **Integration Settings** (Configuración de la integración), seleccione lo siguiente:
 
-     a. **Tipo de integración**: Microsoft Azure
+    a. **Tipo de integración**: Microsoft Azure
 
     b. **Nombre de integración**: \<Nombre\>
 
@@ -46,7 +46,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de PagerDuty guardada anteriormente.
 
@@ -63,7 +63,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de PagerDuty guardada anteriormente.
 

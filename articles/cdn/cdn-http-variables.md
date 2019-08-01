@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475206"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
@@ -34,11 +34,11 @@ Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta
 En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve un valor en blanco cuando los metadatos de replicación geográfica (por ejemplo, el código postal) no están disponibles para una solicitud concreta.
 
 
-| Name | Variable | DESCRIPCIÓN | Valor de ejemplo |
+| NOMBRE | Variable | DESCRIPCIÓN | Valor de ejemplo |
 | ---- | -------- | ----------- | ------------ |
 | ASN (solicitante) | %{geo_asnum} | Indica el número de sistema autónomo (AS) del solicitante. <br /><br />**En desuso**: %{virt_dst_asnum}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_asnum}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | AS15133 |
 | Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Ángeles |
-| Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />COMO: Asia<br />UNIÓN EUROPEA: Europa<br />NA: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <br />Esta variable está desusada en favor de % {geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
+| Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />AS: Asia<br />EU: Europa<br />N/D: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
 | Valor de la cookie | %{cookie_Cookie} | Devuelve el valor correspondiente a la clave de cookie identificada por el término Cookie. | Ejemplo de uso: <br />%{cookie__utma}<br /><br />Valor de ejemplo:<br />111662281.2.10.1222100123 |
 | País (solicitante) | %{geo_country} | Indica el país de origen del solicitante mediante su código de país. <br />**En desuso**: %{virt_dst_country}. <br /><br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_country}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | US |
 | Área de mercado designada (solicitante) | %{geo_dma_code} |Indica el mercado de medios del solicitante mediante su código de región. <br /><br />Este campo solo es aplicable a las solicitudes que se originan en los Estados Unidos.| 745 |
@@ -50,19 +50,19 @@ En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve u
 | Área estadística metropolitana (solicitante) | %{geo_metro_code} | Indica el área metropolitana del solicitante. <br /><br />Este campo solo es aplicable a las solicitudes que se originan en los Estados Unidos.<br />| 745 |
 | Puerto (solicitante) | %{virt_dst_port} | Indica el puerto efímero del solicitante. | 55885 |
 | Código postal (solicitante) | %{geo_postal_code} | Indica el código postal del solicitante. | 90210 |
-| Cadena de consulta encontrada | %{is_args} | El valor de esta variable varía según si la solicitud contiene una cadena de consulta.<br /><br />- Cadena de consulta encontrada: ?<br />-Ninguna cadena de consulta: NULL | ? |
-| Parámetro de cadena de consulta encontrado | %{is_amp} | El valor de esta variable varía según si la solicitud contiene al menos un parámetro de cadena de consulta.<br /><br />- Parámetro encontrado: &<br />-Ningún parámetro: NULL | & |
+| Cadena de consulta encontrada | %{is_args} | El valor de esta variable varía según si la solicitud contiene una cadena de consulta.<br /><br />- Cadena de consulta encontrada: ?<br />- Sin cadena de consulta: NULL | ? |
+| Parámetro de cadena de consulta encontrado | %{is_amp} | El valor de esta variable varía según si la solicitud contiene al menos un parámetro de cadena de consulta.<br /><br />- Parámetro encontrado: &<br />- Sin parámetros: NULL | & |
 | Valor de parámetro de cadena de consulta | %{arg_&lt;parameter&gt;} | Devuelve el valor correspondiente al parámetro de cadena de consulta identificado por el término &lt;parámetro&gt;. | Ejemplo de uso: <br />%{arg_language}<br /><br />Parámetro de cadena de consulta de ejemplo: <br />?language=es<br /><br />Valor de ejemplo: es |
 | Valor de cadena de consulta | %{query_string} | Indica el valor de cadena de consulta completo definido en la dirección URL de la solicitud. |key1=val1&key2=val2&key3=val3 |
-| Dominio de origen de referencia | %{referring_domain} | Indica el dominio definido en el encabezado de solicitud de origen de referencia. | <www.google.com> |
+| Dominio de origen de referencia | %{referring_domain} | Indica el dominio definido en el encabezado de solicitud del origen de referencia. | <www.google.com> |
 | Región (solicitante) | %{geo_region} | Indica la región del solicitante (por ejemplo, estado o provincia) mediante su abreviatura alfanumérica. | CA |
 | Valor de encabezado de solicitud | %{http_RequestHeader} | Devuelve el valor correspondiente al encabezado de solicitud identificado por el término RequestHeader. <br /><br />Si el nombre del encabezado de solicitud contiene un guión (por ejemplo, Usuario-Agente), reemplácelo por un guión bajo (por ejemplo, Usuario_Agente).| Ejemplo de uso: %{http_Connection}<br /><br />Valor de ejemplo: Keep-Alive | 
 | Host de solicitud | %{host} | Indica el host definido en la dirección URL de la solicitud. | <www.mydomain.com> |
 | Protocolo de solicitud | %{request_protocol} | Indica el protocolo de la solicitud. | HTTP/1.1 |
 | Esquema de solicitud | %{scheme} | Indica el esquema de solicitud. |http |
 | URI de solicitud (relativa) | %{request_uri} | Indica la ruta de acceso relativa, incluida la cadena de consulta, definida en el URI de solicitud. | /marketing/foo.js?loggedin=true |
-| URI de solicitud (relativa sin cadena de consulta) | %{uri} | Indica la ruta de acceso relativa al contenido solicitado. <br /><br/>Información importante:<br />- Esta ruta de acceso relativa excluye la cadena de consulta.<br />- Esta ruta de acceso relativa refleja las reescrituras de la dirección URL. Una dirección URL se reescribirá en las siguientes condiciones:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Característica de reescritura URL: Esta característica se vuelve a escribir la ruta de acceso relativa que se define en el URI de solicitud.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Dirección URL de CNAME edge: Este tipo de solicitud se reescribe la dirección URL de CDN correspondiente. |/800001/corigin/rewrittendir/foo.js |
-| URI de solicitud | %{request} | Describe la solicitud. <br />Sintaxis: &lt;Método HTTP&gt; &lt;ruta de acceso relativa&gt; &lt;protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| URI de solicitud (relativa sin cadena de consulta) | %{uri} | Indica la ruta de acceso relativa al contenido solicitado. <br /><br/>Información importante:<br />- Esta ruta de acceso relativa excluye la cadena de consulta.<br />- Esta ruta de acceso relativa refleja las reescrituras de la dirección URL. Una dirección URL se reescribirá en las siguientes condiciones:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Característica de reescritura de direcciones URL: esta característica reescribe la ruta de acceso relativa definida en el URI de solicitud.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Dirección URL de CNAME perimetral: este tipo de solicitud se reescribe para la dirección URL de CDN correspondiente. |/800001/corigin/rewrittendir/foo.js |
+| URI de solicitud | %{request} | Describe la solicitud. <br />Sintaxis: &lt;método HTTP&gt; &lt;ruta de acceso relativa&gt; &lt;protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Valor de encabezado de respuesta | %{resp_&lt;ResponseHeader&gt;} | Devuelve el valor correspondiente al encabezado de respuesta identificado por el término &lt;ResponseHeader&gt;. <br /><br />Si el nombre del encabezado de respuesta contiene un guión (por ejemplo, Usuario-Agente), reemplácelo por un guión bajo (por ejemplo, Usuario_Agente). | Ejemplo de uso: %{resp_Content_Length}<br /><br />Valor de ejemplo: 100 |
 
 ## <a name="usage"></a>Uso
@@ -88,7 +88,7 @@ Se puede especificar un delimitador después de una variable HTTP para lograr cu
 
 - Manipular el valor asociado a la variable.
 
-     Ejemplo: Usar expresiones regulares para cambiar el valor asociado a la variable HTTP.
+     Ejemplo: use expresiones regulares para cambiar el valor asociado a la variable HTTP.
 
 Los delimitadores se describen en la tabla siguiente.
 
@@ -114,7 +114,7 @@ En la tabla siguiente se describen las circunstancias en que el texto especifica
 | --------- | ----------- | --------|
 | Símbolo de escape % | El símbolo de porcentaje se puede escapar mediante el uso de una barra diagonal inversa. <br />El valor de ejemplo de la derecha se tratará como un valor literal y no como una variable HTTP.| \%{host} |
 | Variables desconocidas | Siempre se devuelve una cadena vacía para variables desconocidas. | %{unknown_variable} |
-| Sintaxis o caracteres no válidos | Las variables que contienen sintaxis o caracteres no válidos se tratan como valores literales. <br /><br />Ejemplo 1 #: El valor especificado contiene un carácter no válido (por ejemplo,-). <br /><br />Ejemplo 2 de #: El valor especificado contiene un conjunto de llaves doble. <br /><br />Ejemplo 3 #: El valor especificado no tiene una llave de cierre.<br /> | Ejemplo 1: %{resp_user-agent} <br /><br />Ejemplo 2: %{{host}} <br /><br />Ejemplo 3: %{host |
+| Sintaxis o caracteres no válidos | Las variables que contienen sintaxis o caracteres no válidos se tratan como valores literales. <br /><br />Ejemplo 1: el valor especificado contiene un carácter no válido (por ejemplo, -). <br /><br />Ejemplo 2: el valor especificado contiene un conjunto doble de llaves. <br /><br />Ejemplo 3: al valor especificado le falta una llave de cierre.<br /> | Ejemplo 1: %{resp_user-agent} <br /><br />Ejemplo 2: %{{host}} <br /><br />Ejemplo 3: %{host |
 | Falta el nombre de variable | Siempre se devuelve un valor NULL cuando no se especifica una variable. | %{} |
 | Caracteres finales | Caracteres que finalizan una variable se tratan como valores literales. <br />El valor de ejemplo de la derecha contiene una llave final que se tratará como un valor literal. | %{host}} |
 
@@ -127,9 +127,9 @@ En la tabla siguiente se describe cómo definir un valor predeterminado.
 
 | Condición | Sintaxis | Ejemplo | DESCRIPCIÓN |
 | --------- | ------ | --------| ----------- |
-| Establecer un encabezado en un valor predeterminado si se cumple alguna de las siguientes condiciones: <br /><br />- Falta el encabezado <br /><br />- El valor de encabezado está establecido en NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando lo falta o está establecido en NULL. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
-| Establecer un encabezado en un valor predeterminado cuando está ausente. | %{Variable=Value} | %{http_referrer=unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando no aparece. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
-| Establecer el encabezado en un valor predeterminado si no se cumple alguna de las siguientes condiciones: <br /><br />- Falte.<br /><br /> - Se establezca en NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando se ha asignado un valor a él. No se llevará a cabo ninguna acción si falta o está establecido en NULL. |
+| Establecer un encabezado en un valor predeterminado si se cumple alguna de las siguientes condiciones: <br /><br />- Falta el encabezado <br /><br />- El valor de encabezado está establecido en NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* en caso de que falte o de que esté establecido en NULL. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
+| Establecer un encabezado en un valor predeterminado cuando está ausente. | %{Variable=Value} | %{http_referrer=unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* en caso de que falte. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
+| Establecer el encabezado en un valor predeterminado si no se cumple alguna de las siguientes condiciones: <br /><br />- Falte.<br /><br /> - Se establezca en NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* si se le ha asignado algún valor. No se llevará a cabo ninguna acción si falta o está establecido en NULL. |
 
 ## <a name="manipulating-variables"></a>Manipular variables
 Las variables se pueden manipular de las maneras siguientes:
@@ -146,15 +146,15 @@ Información importante:
 
 - El valor asignado al término de desplazamiento determina el carácter inicial de la subcadena:
 
-     - Positivo: El carácter inicial de la subcadena se calcula desde el primer carácter de la cadena.
-     - Zero: El carácter inicial de la subcadena es el primer carácter en la cadena.
-     - Negativo: El carácter inicial de la subcadena se calcula desde el último carácter de la cadena.
+     - Positivo: se calcula el carácter inicial de la subcadena desde el primer carácter de la cadena.
+     - Cero: el carácter inicial de la subcadena es el primer carácter de la cadena.
+     - Negativo: se calcula el carácter inicial de la subcadena desde el último carácter de la cadena.
 
 - La longitud de la subcadena se determina con el término *Longitud*:
 
-     - Omitir: Si se omite el término de longitud permite que la subcadena que se va a incluir todos los caracteres entre el carácter inicial y final de la cadena.
-     - Positivo: Determina la longitud de la subcadena desde el carácter de inicio a la derecha.
-     - Negativo: Determina la longitud de la subcadena desde el carácter de inicio a la izquierda.
+     - Omitido: la omisión del término Longitud permite que la subcadena incluya todos los caracteres entre el carácter inicial y el final de la cadena.
+     - Positivo: determina la longitud de la subcadena desde el carácter inicial de la derecha.
+     - Negativo: determina la longitud de la subcadena desde el carácter inicial de la izquierda.
 
 #### <a name="example"></a>Ejemplo:
 
@@ -227,13 +227,13 @@ Información importante:
     En el ejemplo anterior, el nombre de host se reescribe como `cdn.$2.$3:80` (por ejemplo, cdn.midominio.com:80).
 
 - El caso de un marcador de posición de patrón (por ejemplo, $1) puede modificarse con las siguientes marcas:
-     - U: El valor expandido letras en mayúsculas.
+     - U: en mayúscula el valor expandido.
 
          Sintaxis de ejemplo:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
-     - L: Minúsculas del valor expandido.
+     - L: en minúscula el valor expandido.
 
          Sintaxis de ejemplo:
 
@@ -241,9 +241,9 @@ Información importante:
 
 - Un operador debe especificarse antes del patrón. El operador especificado determina el comportamiento de captura del patrón:
 
-     - `=`: Indica que se deben capturar y volver a escribir todas las apariciones del patrón especificado.
-     - `^`: Indica que se capturarán sólo el texto que comienza con el patrón especificado.
-     - `$`: Indica que sólo el texto que termina con el patrón especificado se captura.
+     - `=`: indica que se deben capturar y reescribir todas las apariciones del patrón especificado.
+     - `^`: indica que solo se capturará el texto que empieza con el patrón especificado.
+     - `$`: indica que solo se capturará el texto que termina con el patrón especificado.
  
 - Si omite el valor */Rewrite*, se eliminará el texto que coincide con el patrón.
 

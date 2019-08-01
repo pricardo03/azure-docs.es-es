@@ -2,27 +2,21 @@
 title: Guía de Azure Active Directory Identity Protection | Microsoft Docs
 description: Aprenda cómo Azure AD Identity Protection permite limitar la capacidad de un atacante para aprovechar una identidad o un dispositivo en peligro y asegurar una identidad o un dispositivo que antes fue sospechoso o que se sabe que estuvo en peligro.
 services: active-directory
-keywords: azure active directory identity protection, detección en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294385"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333931"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 
@@ -30,7 +24,6 @@ Esta guía le ayudará a:
 
 * Rellenar los datos en el entorno de Identity Protection mediante la simulación de vulnerabilidades y eventos de riesgo
 * Configurar directivas de acceso condicional en función del riesgo y probar el impacto de estas directivas
-
 
 ## <a name="simulating-risk-events"></a>Simulación de eventos de riesgo
 
@@ -67,7 +60,6 @@ Para simular ubicaciones desconocidas, debe iniciar sesión desde una ubicación
 El siguiente procedimiento usa:
 
 - Una conexión VPN recién creada, para simular la nueva ubicación.
-
 - Una máquina virtual recién creada, para simular un dispositivo nuevo.
 
 Para completar el procedimiento siguiente, necesitará una cuenta de usuario con:
@@ -75,12 +67,10 @@ Para completar el procedimiento siguiente, necesitará una cuenta de usuario con
 - Al menos un historial de inicio de sesión de 30 días.
 - Autenticación multifactor habilitada.
 
-
 **Para simular un inicio de sesión desde una ubicación desconocida, realice los siguientes pasos**:
 
 1. Al iniciar sesión en su cuenta de prueba, no supere el desafío MFA.
 2. Mediante la VPN nueva, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com) y escriba las credenciales de la cuenta de prueba.
-   
 
 El inicio de sesión se mostrará en el panel de Identity Protection en un plazo máximo de 10 o 15 minutos.
 
@@ -89,7 +79,6 @@ El inicio de sesión se mostrará en el panel de Identity Protection en un plazo
 Para obtener más información acerca de este evento de riesgo, vea [Viaje imposible a una ubicación inusual](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 Simular la condición de viaje imposible es complicado porque el algoritmo utiliza el aprendizaje automático para descartar falsos positivos, como un viaje imposible desde dispositivos conocidos o inicios de sesión de VPN usadas por otros usuarios del directorio. Además, el algoritmo requiere un historial de inicios de sesión de 14 días y 10 inicios de sesión del usuario antes de empezar a generar eventos de riesgo. Debido a los complejos modelos de aprendizaje automático y a las reglas anteriores, es probable que los pasos siguientes no den lugar a un evento de riesgo. Puede replicar estos pasos para varias cuentas de Azure AD para publicar este evento de riesgo.
-
 
 **Para simular un viaje imposible a una ubicación inusual, realice los pasos siguientes**:
 
@@ -108,18 +97,15 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 * Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
 * [Privileged Identity Management](../privileged-identity-management/pim-configure.md)de Azure AD. 
 
-
 ## <a name="testing-security-policies"></a>Prueba de las directivas de seguridad
 
 En esta sección se proporcionan los pasos necesarios para probar el riesgo de usuario y la directiva de seguridad de riesgo de inicio de sesión.
-
 
 ### <a name="user-risk-security-policy"></a>Directiva de seguridad de riesgo del usuario
 
 Para más información, consulte [Procedimiento de configuración de la directiva de riesgo del usuario](howto-user-risk-policy.md).
 
 ![Guía de](./media/playbook/02.png "riesgo del usuario")
-
 
 **Para probar una directiva de seguridad de riesgo del usuario, realice los pasos siguientes**:
 
@@ -136,8 +122,6 @@ Para más información, consulte [Procedimiento de configuración de la directiv
 7. Espere unos minutos y, después, compruebe que el nivel de usuario para el usuario sea Medio. De lo contrario, simule más eventos de riesgo para el usuario.
 8. En **Aplicar directiva**, seleccione **Activar**.
 9. Ahora puede probar el acceso condicional basado en riesgos del usuario mediante un inicio de sesión con un usuario con un nivel de riesgo elevado.
-    
-    
 
 ### <a name="sign-in-risk-security-policy"></a>Directiva de seguridad de riesgo de inicio de sesión
 
@@ -145,34 +129,20 @@ Para más información, consulte [Configuración de la directiva de riesgo de in
 
 ![Guía de](./media/playbook/01.png "riesgo de inicio de sesión")
 
-
 **Para probar la directiva de riesgo de inicio de sesión, realice los pasos siguientes:**
 
 1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com) con las credenciales de administrador global del inquilino.
-
 2. Vaya a **Azure AD Identity Protection**.
-
 3. En la página principal **Azure AD Identity Protection**, haga clic en **Directiva de riesgo de inicio de sesión**. 
-
 4. En la sección **Asignaciones**, seleccione los usuarios (y grupos) deseados y el nivel de riesgo de inicio de sesión.
 
     ![Guía de](./media/playbook/04.png "riesgo de inicio de sesión")
 
-
 5. En la sección **Controles**, seleccione el control de acceso deseado (por ejemplo, **Requerir autenticación multifactor**). 
-
 6. En **Aplicar directiva**, seleccione **Activar**.
-
 7. Haga clic en **Save**(Guardar).
-
 8. Ahora puede probar el acceso condicional basado en riesgo de inicio de sesión mediante el inicio de sesión con una sesión de riesgo (por ejemplo, mediante Tor Browser). 
 
- 
-
-
-
-
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

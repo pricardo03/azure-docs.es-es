@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059209"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services con .NET 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede supervisar las notificaciones de trabajo de Media Services con Azure WebHooks o con [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md). En este artículo se explica cómo trabajar con webhooks.
 
@@ -72,7 +72,7 @@ Una vez implementada su instancia de Function App, puede encontrarla entre Azure
 
 1. Seleccione la aplicación de función y haga clic en **Nueva función**.
 2. Seleccione el código **C#** y el escenario **API y WebHooks**. 
-3. Seleccione **Webhook genérico: C#**.
+3. Seleccione **Webhook genérico: C#** .
 4. Asigne un nombre al webhook y presione **Crear**.
 
 ### <a name="files"></a>Archivos
@@ -245,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

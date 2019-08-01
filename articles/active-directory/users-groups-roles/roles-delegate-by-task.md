@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083785"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -58,7 +58,7 @@ Leer toda la configuración | Administrador global |
 Leer registros de auditoría de B2C | Administrador global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Los administradores globales de Azure AD B2C no tiene los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, debe asegurarse de que se encuentra en un directorio de Azure AD B2C y no un directorio de Azure AD.
+> Los administradores globales de Azure AD B2C no tiene los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, asegúrese de que se encuentra en un directorio de Azure AD B2C, no de Azure AD.
 
 ## <a name="company-branding"></a>Personalización de marca de empresa
 
@@ -153,8 +153,8 @@ Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicació
 Administrar expiración de grupos | Administrador de usuarios | 
 Administración de la configuración de grupo | Administrador global | 
 Leer toda la configuración (excepto pertenencia oculta) | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, el Administrador de equipos, Administrador de usuarios
-Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Usuario administrador, Administrador de equipos
+Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, Administrador de equipos, Administrador de usuarios
+Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Administrador de usuarios, Administrador de equipos
 Revocar licencia | Administrador de licencias | Administrador de usuarios
 Actualizar pertenencia a grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
 Actualizar propietarios de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
@@ -341,7 +341,7 @@ Actualizar configuración de usuario | Administrador global |
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Enviar incidencia de soporte técnico | Administrador de servicios | Administrador de aplicaciones, Administrador de Azure Information Protection, contraseña de administrador, Administrador de la aplicación en la nube, cumplimiento administrador, Administrador de Dynamics 365, análisis de escritorio Administrador, Administrador de Exchange, de facturación Administrador, Administrador de Intune, Skype para Administrador empresarial, Administrador de Power BI, con privilegios de administrador de autenticación, Administrador de SharePoint, Administrador de comunicaciones de los equipos, los equipos administrador, Administrador de usuarios Administrador de Workplace Analytics
+Enviar incidencia de soporte técnico | Administrador de servicios | Administrador de aplicaciones, Administrador de Azure Information Protection, Administrador de facturación, Administrador de aplicaciones en la nube, Administrador de cumplimiento, Administrador de Dynamics 365, Administrador de análisis de escritorio, Administrador de Exchange, Administrador de contraseñas, Administrador de Intune, Administrador de Skype Empresarial, Administrador de Power BI, Administrador de autenticación con privilegios, Administrador de SharePoint, Administrador de comunicaciones de equipos, Administrador de equipos, Administrador de usuarios, Administrador de Workplace Analytics
 
 ## <a name="next-steps"></a>Pasos siguientes
 

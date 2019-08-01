@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392921"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
-En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Media Services v3 proporciona que algunas directivas de transmisión por secuencias de predefinidas para que se pueden usar directamente para la versión de prueba o producción. 
+En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Media Services v3 proporciona algunas directivas de streaming predefinidas para que se pueden usar directamente en la versión de prueba o en producción. 
 
-Directivas de transmisión por secuencias predefinidas disponibles actualmente:<br/>
+Las directivas de streaming predefinidas que están disponibles actualmente son:<br/>
 * 'Predefined_DownloadOnly'
 * 'Predefined_ClearStreamingOnly'
 * 'Predefined_DownloadAndClearStreaming'
@@ -30,7 +30,7 @@ Directivas de transmisión por secuencias predefinidas disponibles actualmente:<
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
-El siguiente "árbol de decisión" le ayudará a elegir una directiva predefinida de transmisión por secuencias para su escenario.
+El siguiente árbol de decisión le ayudará a elegir una directiva predefinida de streaming para su escenario.
 
 > [!IMPORTANT]
 > * Las propiedades de **directivas de streaming** que son del tipo Datetime siempre están en formato UTC.
@@ -42,13 +42,13 @@ Haga clic en la imagen para verla a tamaño completo.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Si el cifrado del contenido, deberá crear un [directiva de clave de contenido](content-key-policy-concept.md), el **directiva de clave de contenido** no es necesaria para borrar streaming o descarga. 
+Si cifra el contenido, deberá crear una [directiva de clave de contenido](content-key-policy-concept.md); la **directiva de clave de contenido** no es necesaria para la descarga o el streaming sin cifrar. 
 
-Si tiene requisitos especiales (por ejemplo, si desea especificar diferentes protocolos, debe usar un servicio de entrega de claves personalizados, o debe usar una pista de audio claro), puede [crear](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) una directiva personalizada de transmisión por secuencias. 
+Si tiene requisitos especiales (por ejemplo, si desea especificar protocolos diferentes, tiene que usar un servicio de entrega de claves personalizadas o una pista de audio sin cifrar), puede [crear](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) una directiva personalizada de streaming. 
 
-## <a name="get-a-streaming-policy-definition"></a>Obtener una definición de directiva de transmisión por secuencias  
+## <a name="get-a-streaming-policy-definition"></a>Obtención de la definición de una directiva de streaming  
 
-Si desea ver la definición de una directiva de transmisión por secuencias, utilice [obtener](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) y especifique el nombre de la directiva. Por ejemplo:
+Si desea ver la definición de una directiva de streaming, utilice [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) y especifique el nombre de la directiva. Por ejemplo:
 
 ### <a name="rest"></a>REST
 

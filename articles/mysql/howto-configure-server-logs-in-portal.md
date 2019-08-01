@@ -1,21 +1,21 @@
 ---
-title: Configuración y acceso a los registros de servidor de Azure Database for MySQL en Azure Portal
-description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for MySQL, y acceder a ellos, mediante Azure Portal.
+title: Configuración y acceso a los registros de consultas lentas de Azure Database for MySQL en Azure Portal
+description: En este artículo se describe cómo configurar los registros de consultas lentas de Azure Database for MySQL y acceder a ellos mediante Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60526036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052722"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas en Azure Portal
 
-Los [registros de servidor de Azure Database for MySQL](concepts-server-logs.md) se pueden configurar, enumerar y descargar desde Azure Portal.
+Los [Registros de consultas lentas de Azure Database for MySQL](concepts-server-logs.md) se pueden configurar, enumerar y descargar desde Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
@@ -42,7 +42,7 @@ Configure el acceso al registro de consultas lentas de MySQL.
 6. Para volver a la lista de registros, haga clic en el **botón Cerrar** (icono de X) de la página **Parámetros de servidor**.
 
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
-Una vez que comience el registro, puede ver una lista de registros disponibles y descargar archivos de registro individuales en el panel Registros de servidor. 
+Una vez que comience el registro, puede ver una lista de registros de consultas lentas disponibles y descargar archivos de registro individuales en el panel Registros de servidor.
 
 1. Abra Azure Portal.
 
@@ -61,9 +61,7 @@ Una vez que comience el registro, puede ver una lista de registros disponibles y
 
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md) (Configuración y acceso a los registros del servidor con la CLI de Azure) para más información acerca de cómo descargar registros mediante programación.
-- Aprenda más sobre los [registros del servidor](concepts-server-logs.md) en Azure Database for MySQL. 
+- Consulte el artículo de [configuración y acceso a los registros de consultas lentas con la CLI de Azure](howto-configure-server-logs-in-cli.md) para más información sobre cómo descargar registros de consultas lentas mediante programación.
+- Más información sobre los [registros de consultas lentas](concepts-server-logs.md) en Azure Database for MySQL.
 - Para más información sobre las definiciones de parámetros y el registro de MySQL, consulte la documentación de MySQL sobre [registros](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-

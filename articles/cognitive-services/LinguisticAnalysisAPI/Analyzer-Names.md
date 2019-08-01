@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954706"
 ---
 # <a name="analyzer-names"></a>Nombres de analizador
@@ -43,10 +43,10 @@ Actualmente, hay tres clases distintas:
 Sin embargo, dentro de una clase dada, distintos expertos podrían discrepar en cómo se debe analizar un fenómeno determinado.
 A diferencia de los lenguajes de programación, no hay ninguna definición clara y exacta de cómo debe hacerse.
 
-Por ejemplo, imagine que estábamos intentando encontrar los tokens en la frase en inglés "No vayan."
+Por ejemplo, imagine que intenta encontrar los tokens en la frase en inglés "They didn't go".
 En concreto, considere la cadena "didn't".
 Una posible interpretación es que esta cadena debería dividirse en dos tokens: "did" y "not".
-A continuación, la frase alternativa "que no se ha pasado" tendría el mismo conjunto de tokens.
+Entonces, la frase alternativa "They did not go" tendría el mismo conjunto de tokens.
 Otra posibilidad consiste en indicar que se debe dividir en los tokens "did" y "n't".
 Este último token no se consideraría normalmente una palabra, pero este enfoque conserva más información sobre la cadena de superficie, lo que a veces puede resultar útil.
 O quizás, que la contracción se debe considerar una sola palabra.

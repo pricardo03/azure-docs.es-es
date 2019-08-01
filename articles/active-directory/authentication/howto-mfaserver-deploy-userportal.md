@@ -1,5 +1,5 @@
 ---
-title: 'Portal de usuarios para servidor de MFA de Azure: Azure Active Directory'
+title: 'Portal de usuarios del servidor Azure MFA: Azure Active Directory'
 description: Introducción a Azure MFA y al Portal de usuarios.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056052"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de usuarios para el Servidor Azure Multi-Factor Authentication
 
@@ -28,7 +28,10 @@ Es posible que se configuren administradores para el Portal de usuarios y que se
 
 Según su entorno, puede que desee implementar el Portal de usuarios en el mismo servidor que el Servidor Microsoft Azure Multi-Factor Authentication o en otro servidor con conexión a Internet.
 
-![Registro del Portal de usuario del servidor de MFA en la página](./media/howto-mfaserver-deploy-userportal/portal.png)
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+
+![Página de inicio de sesión en el portal de usuarios del servidor MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > El portal de usuarios solo está disponible con el Servidor Multi-Factor Authentication. Si utiliza Multi-Factor Authentication en la nube, remita a sus usuarios a [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md) o [Administración de la configuración de la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-manage-settings.md).
@@ -134,7 +137,7 @@ Servidor Azure Multi-Factor Authentication ofrece varias opciones para el portal
 | Permitir que los usuarios inicien sesión | Permite a los usuarios especificar un nombre de usuario y una contraseña en la página de inicio de sesión del Portal de usuarios. Si no está seleccionada esta opción, las casillas se atenuarán. |
 | Permitir inscripción de usuario | Permite al usuario inscribirse en Multi-Factor Authentication al llevarlo a una pantalla de configuración en la que se solicita información adicional, como el número de teléfono. Solicitar teléfono de reserva permite a los usuarios especificar un número de teléfono secundario. Solicita un token OATH de terceros permite a los usuarios especificar un token OATH de terceros. |
 | Permitir a los usuarios iniciar Omisión por única vez | Permite a los usuarios iniciar Omisión por única vez. Si un usuario configura esta opción, entrará en vigor la próxima vez que el usuario inicie sesión. Solicitar segundos de omisión proporciona al usuario un cuadro para que puedan cambiar el valor predeterminado de 300 segundos. De lo contrario, la omisión por única vez solo funciona durante 300 segundos. |
-|  Permitir a los usuarios seleccionar el método  | Permite a los usuarios especificar su método de contacto principal. Este método puede consistir en una llamada de teléfono, un mensaje de texto, una aplicación móvil o un token OATH. |
+| Permitir a los usuarios seleccionar el método | Permite a los usuarios especificar su método de contacto principal. Este método puede consistir en una llamada de teléfono, un mensaje de texto, una aplicación móvil o un token OATH. |
 | Permitir a los usuarios seleccionar el idioma | Permite a los usuarios cambiar el idioma que se usa para la llamada de teléfono, el mensaje de texto, la aplicación móvil o el token OATH. |
 | Permitir a los usuarios activar la aplicación móvil | Permite a los usuarios generar un código de activación para completar el proceso de activación de la aplicación móvil que se usa con el servidor.  También puede establecer el número de dispositivos en los que se puede activar la aplicación, entre 1 y 10. |
 | Usar preguntas de seguridad para la reserva | Permite preguntas de seguridad en caso de que la verificación en dos pasos genere un error. Puede especificar el número de preguntas de seguridad que se deben responder correctamente. |
@@ -143,11 +146,11 @@ Servidor Azure Multi-Factor Authentication ofrece varias opciones para el portal
 | Habilitación del registro | Habilita el registro en el Portal de usuarios. Los archivos de registro se encuentran en: C:\Archivos de programa\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
-> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios de servidor MFA de inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios del servidor MFA en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 La mayoría de estas configuraciones son visibles para el usuario del portal una vez que están habilitados y hayan iniciado sesión en el Portal de usuarios.
 
-![Administrar la cuenta del servidor de MFA mediante el portal de usuarios](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Administración de la cuenta del servidor de MFA mediante el portal de usuarios](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Autoservicio de inscripción de usuarios
 
@@ -163,7 +166,7 @@ Si el usuario debe usar un PIN al realizar la autenticación, la página le pedi
 
 Si el usuario selecciona el método de verificación Text Message (Mensaje de texto) o se ha configurado previamente para usar este método, la página solicitará al usuario su número de teléfono móvil. Si el usuario debe usar un PIN al realizar la autenticación, la página también le pedirá que escriba un PIN.  Después de escribir su número de teléfono y PIN (si procede), el usuario hace clic en el botón **Text Me Now to Authenticate** (Enviarme un SMS ahora para autenticar). Azure Multi-Factor Authentication llevará a cabo una verificación mediante un SMS al teléfono móvil del usuario. El usuario recibe el mensaje de texto con un código de acceso de un solo uso, responde al mensaje con ese código más su PIN (si procede).
 
-![Comprobación de portal de usuarios mediante SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![Comprobación del portal de usuarios mediante SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Si el usuario selecciona el método de verificación Mobile App (Aplicación móvil), la página solicitará al usuario que instale la aplicación Microsoft Authenticator en su dispositivo y genere un código de activación. Después de instalar la aplicación, el usuario hace clic en el botón Generate Activation Code (Generar código de activación).
 

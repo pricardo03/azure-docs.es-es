@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: 59ece9c37a563efba6329a30c06c1b596b1a5d57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058157"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -28,31 +28,86 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas con las asignaciones de roles RBAC
 
-- Si no estás no se puede agregar una asignación de roles en el portal de Azure en **control de acceso (IAM)** porque el **agregar** > **Agregar asignación de roles** opción está deshabilitada o Dado que reciben el error de permisos de "el cliente con el Id. de objeto no tiene autorización para realizar la acción", compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Authorization/roleAssignments/write` permiso como [propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) en el ámbito que se intenta asignar el rol.
-- Si recibe el mensaje de error "no se pueden crear ningún más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción.
+- Si no puede agregar una asignación de roles en Azure Portal, en **Control de acceso (IAM)** porque la opción **Agregar** > **Agregar asignación de roles** está deshabilitada o porque recibe el error de permisos "El cliente con el identificador de objeto no está autorizado para realizar la acción", compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator), en el ámbito en el que intenta asignar el rol.
+- Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción.
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
-- Si desea conocer los pasos para crear un rol personalizado, consulte los tutoriales de rol personalizado mediante [Azure PowerShell](tutorial-custom-role-powershell.md) o [CLI de Azure](tutorial-custom-role-cli.md).
-- Si no se puede actualizar un rol personalizado existente, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Authorization/roleDefinition/write` permiso como [propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
+- Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
+- Si no puede actualizar un rol personalizado existente, compruebe que haya iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleDefinition/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 - Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
-- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No hay más definiciones de roles se pueden crear (código: RoleDefinitionLimitExceeded) "al intentar crear un nuevo rol personalizado, eliminar los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un inquilino. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es 2000 de roles personalizados).
-- Si se produce un error similar a "el cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/ subscriptions / {subscriptionid}', pero no se encontró la suscripción vinculada" al intentar actualizar un rol personalizado, consulte Si uno o más [ámbitos asignables](role-definitions.md#assignablescopes) se han eliminado en el inquilino. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
+- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un inquilino. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados).
+- Si obtiene un error similar a "El cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/subscriptions/{subscriptionid}', aunque la suscripción vinculada no se encontró" al intentar actualizar un rol personalizado, consulte si se han eliminado uno o varios [ámbitos asignables](role-definitions.md#assignablescopes) del inquilino. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperación de RBAC cuando las suscripciones se trasladan de un inquilino a otro
 
-- Si desea conocer los pasos acerca de cómo transferir una suscripción a un Azure AD diferente de inquilinos, consulte [transferir la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
-- Si transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Si es una instancia de Azure AD administrador Global y no tiene acceso a una suscripción después de haberse movido entre los inquilinos, use el **Access management para recursos de Azure** alternar temporalmente [elevar su acceso](elevate-access-global-admin.md) para obtener acceso a la suscripción.
+- Si necesita consultar los pasos para transferir una suscripción a otro inquilino de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
+- Si transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para más información, consulte [Preguntas frecuentes y problemas conocidos con identidades administradas](../active-directory/managed-identities-azure-resources/known-issues.md).
+- Si es un administrador global de Azure AD y no tiene acceso a una suscripción después de trasladarla de un inquilino a otro, use la **administración de acceso a los recursos de Azure** para [elevar sus permisos de acceso](elevate-access-global-admin.md) temporalmente y obtener acceso a la suscripción.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas con los administradores o coadministradores de servicios
 
-- Si tiene problemas con el Administrador de servicios o los coadministradores, vea [agregar o cambiar los administradores de suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) y [roles de administrador de suscripción clásica, roles RBAC de Azure y Azure AD roles de administrador](rbac-and-directory-admin-roles.md).
+- Si tiene problemas con el administrador del servicio o los coadministradores, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) y [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](rbac-and-directory-admin-roles.md).
 
-## <a name="access-denied-or-permission-errors"></a>Acceso denegado o errores de permisos
+## <a name="access-denied-or-permission-errors"></a>Errores de permiso o acceso denegado
 
 - Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de todos los permisos para cada uno de los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
-- Si se produce un error de permisos "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Support/supportTickets/write` permiso, como [Colaborador de la solicitud de soporte](built-in-roles.md#support-request-contributor).
+- Si aparece el error de permiso "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Support/supportTickets/write`, como [Colaborador de solicitud de soporte técnico](built-in-roles.md#support-request-contributor).
+
+## <a name="role-assignments-without-a-security-principal"></a>Asignaciones de roles sin una entidad de seguridad
+
+Al enumerar las asignaciones de roles con Azure PowerShell, puede que vea asignaciones con un valor de `DisplayName` vacío y un valor de `ObjectType` desconocido. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
+
+```azurepowershell
+RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
+Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
+DisplayName        :
+SignInName         :
+RoleDefinitionName : Storage Blob Data Contributor
+RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
+ObjectId           : 33333333-3333-3333-3333-333333333333
+ObjectType         : Unknown
+CanDelegate        : False
+```
+
+Igualmente, al enumerar las asignaciones de roles mediante la CLI de Azure, puede que vea asignaciones con un valor de `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la siguiente:
+
+```azurecli
+{
+    "canDelegate": null,
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
+    "name": "22222222-2222-2222-2222-222222222222",
+    "principalId": "33333333-3333-3333-3333-333333333333",
+    "principalName": "",
+    "roleDefinitionId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
+    "roleDefinitionName": "Storage Blob Data Contributor",
+    "scope": "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "type": "Microsoft.Authorization/roleAssignments"
+}
+```
+
+Estas asignaciones de roles se producen cuando se asigna un rol a una entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) y posteriormente se elimina esa entidad de seguridad. Estas asignaciones de roles no se muestran en Azure Portal y no es un problema dejarlas. Sin embargo, si lo desea, puede quitarlas.
+
+Para quitar estas asignaciones de roles, use los comandos [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) o [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete).
+
+En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). A continuación se muestra un ejemplo del mensaje de error:
+
+```Example
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
+
+Remove-AzRoleAssignment : The provided information does not map to a role assignment.
+At line:1 char:1
++ Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : CloseError: (:) [Remove-AzRoleAssignment], KeyNotFoundException
++ FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
+```
+
+Si recibe este mensaje de error, asegúrese de especificar también los parámetros `-Scope` o `-ResourceGroupName`.
+
+```Example
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Los cambios RBAC no se detectan
 
@@ -92,7 +147,7 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
 * Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-* Reglas de alerta  
+* Reglas de alertas  
 * Opciones de escala automática  
 * Componentes de Application Insights  
 * Pruebas web  
@@ -114,13 +169,13 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 
 * Conjunto de disponibilidad  
 * El conjunto de carga equilibrada  
-* Reglas de alerta  
+* Reglas de alertas  
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions y acceso de escritura
 
-Algunas características de [Azure Functions](../azure-functions/functions-overview.md) requieren acceso de escritura. Por ejemplo, si se asigna a un usuario el rol de lector, este no podrá ver las funciones dentro de una aplicación de función. El portal mostrará **(Sin acceso)**.
+Algunas características de [Azure Functions](../azure-functions/functions-overview.md) requieren acceso de escritura. Por ejemplo, si se asigna a un usuario el rol de lector, este no podrá ver las funciones dentro de una aplicación de función. El portal mostrará **(Sin acceso)** .
 
 ![Sin acceso a aplicaciones de función](./media/troubleshooting/functionapps-noaccess.png)
 

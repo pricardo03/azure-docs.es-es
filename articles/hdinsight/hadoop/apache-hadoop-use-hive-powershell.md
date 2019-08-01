@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 108a3e7d899eef4ca78ae7507bf4852b861e74d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078369"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Ejecución de consultas de Apache Hive con PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -28,9 +28,6 @@ En este documento se ofrece un ejemplo de uso de Azure PowerShell en el modo Gru
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Un clúster de Apache Hadoop en HDInsight basado en Linux versión 3.4 o posterior.
-
-  > [!IMPORTANT]  
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un cliente con Azure PowerShell.
 
@@ -60,7 +57,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
         .\hivejob.ps1
 
-    Cuando se ejecuta el script, se le pide que escriba el nombre del clúster y las credenciales de la cuenta de administrador HTTPS o del clúster. Puede que también se le pida que inicie la sesión en su suscripción de Azure.
+    Cuando se ejecuta el script, se le pide que escriba el nombre del clúster y las credenciales de la cuenta de administrador HTTPS o del clúster. También se le puede solicitar que inicie la sesión en su suscripción de Azure.
 
 3. Cuando el trabajo se complete, la información devuelta será similar a la siguiente:
 

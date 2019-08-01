@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693088"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566427"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -32,7 +31,7 @@ Data Sync es útil en los casos en que es necesario mantener los datos actualiza
 
 - **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales y bases de datos de Azure SQL para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 - **Aplicaciones distribuidas:** en muchos casos, es conveniente separar diferentes cargas de trabajo entre diferentes bases de datos. Por ejemplo, si tiene una base de datos de producción de grande, pero también debe ejecutar una carga de trabajo de informes o análisis en estos datos, resulta útil tener una segunda base de datos para esta carga de trabajo adicional. Este enfoque minimiza el impacto de rendimiento en la carga de trabajo de producción. Puede usar Data Sync para mantener estas dos bases de datos sincronizadas.
-- **Aplicaciones globalmente distribuidas:** Muchas empresas abarcan varias regiones e incluso varios países o regiones. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
+- **Aplicaciones globalmente distribuidas:** muchas empresas abarcan varias regiones e incluso varios países. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
 
 Data Sync no es la solución preferida para los siguientes escenarios:
 
@@ -91,8 +90,8 @@ Un grupo de sincronización tiene las siguientes propiedades:
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configuración de la sincronización de datos con PowerShell
 
-- [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
-- [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+- [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+- [Uso de PowerShell para realizar la sincronización entre una base de datos de Azure SQL y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>Revisión de los procedimientos recomendados para Data Sync
 
@@ -229,7 +228,7 @@ La base de datos raíz de federación puede utilizarse en el servicio SQL Data S
 
 ¿Se ejecuta SQL Data Sync según lo previsto? Para supervisar la actividad y solucionar problemas, consulte los artículos siguientes:
 
-- [Supervisar Azure SQL Data Sync con registros de Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Supervisión de SQL Data Sync con registros de Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Más información acerca de Azure SQL Database

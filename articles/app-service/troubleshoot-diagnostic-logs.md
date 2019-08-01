@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059648"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -34,12 +34,12 @@ App Service ofrece la funcionalidad de diagnóstico para registrar información 
 ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
 Puede habilitar o deshabilitar los siguientes tipos de registros:
 
-* **Registro de errores detallado** -información detallada acerca de cualquier solicitud que da como resultado código de estado HTTP 400 o superior. Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error. Archivo HTML se genera para cada error en el sistema de archivos de la aplicación y hasta 50 errores (archivos) se conservan. Cuando el número de archivos HTML supera 50, los 26 archivos más antiguos se eliminan automáticamente.
-* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta para cada error en el sistema de archivos de la aplicación. Las directivas de retención de archivo son los mismos que el registro por encima de errores detallado.
+* **Registro detallado de errores**: información detallada acerca de cualquier solicitud que dé como resultado el código de estado HTTP 400 o superior. Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error. Se genera un archivo HTML por cada error del sistema de archivos de la aplicación y se conservan hasta 50 errores (archivos). Cuando se superan los 50 archivos HTML, se eliminan automáticamente los 26 archivos más antiguos.
+* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta por cada error del sistema de archivos de la aplicación. Las directivas de retención de archivo son las mismas que para el registro detallado de errores anterior.
 * **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](/windows/desktop/Http/w3c-logging). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -75,7 +75,7 @@ Para la opción **Registro del servidor web**, puede seleccionar **Almacenamient
 
 Si almacena registros en el sistema de archivos, es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP mediante la CLI de Azure.
 
-De forma predeterminada, los registros no se eliminan automáticamente (con la excepción del **Registro de aplicaciones [sistema de archivos]**). Para eliminar automáticamente los registros, establezca el campo **Período de retención (días)**.
+De forma predeterminada, los registros no se eliminan automáticamente (con la excepción del **Registro de aplicaciones [sistema de archivos]** ). Para eliminar automáticamente los registros, establezca el campo **Período de retención (días)** .
 
 > [!NOTE]
 > Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
@@ -115,7 +115,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Este comando guarda los registros de la aplicación denominada 'appname' en un archivo denominado **webapp_logs.zip** en el directorio actual.
+Este comando guarda los registros de la aplicación denominada "appname" en un archivo denominado **webapp_logs.zip** en el directorio actual.
 
 > [!NOTE]
 > Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte la [Introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -141,7 +141,7 @@ Al implementar una aplicación, suele resultar útil ver la información de regi
 > Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 >
 > [!NOTE]
-> La transmisión de registros también transmite información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\\**.
+> La transmisión de registros también transmite información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\\** .
 >
 >
 
@@ -152,11 +152,11 @@ Para transmitir información de registro, abra una nueva sesión del símbolo de
 
 Este comando establece conexión con la aplicación denominada "appname" y comenzará a transmitir información a la ventana a medida que se produzcan los eventos de registro en la aplicación. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
 
-Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo: 
+Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo:
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo: 
+Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo:
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -205,7 +205,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> En el caso de ASP.NET Core, el registro se realiza mediante el proveedor [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Este proveedor deposita archivos de registro adicionales en el contenedor de blobs. Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> En el caso de ASP.NET Core, el registro se realiza mediante el proveedor [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Este proveedor deposita archivos de registro adicionales en el contenedor de blobs. Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging).
 >
 >
 
@@ -215,7 +215,7 @@ El seguimiento de solicitudes con error se almacena en archivos XML con nombre *
 ![solicitud con error visualizada en el explorador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 > [!NOTE]
-> Es una manera fácil de ver los seguimientos de solicitudes con error con formato navegar a la página de la aplicación en el portal. En el menú izquierdo, seleccione **diagnosticar y solucionar problemas**, a continuación, busque **error registros de seguimiento de solicitudes**, a continuación, haga clic en el icono para examinar y ver el seguimiento que desee.
+> Una manera sencilla de ver los seguimientos de las solicitudes con error con formato consiste en navegar a la página de la aplicación en el portal. En el menú izquierdo, seleccione **Diagnosticar y solucionar problemas**, busque **registros de seguimiento de solicitudes erróneas** y haga clic en el icono para examinar y ver el seguimiento que desee.
 >
 
 ### <a name="detailed-error-logs"></a>Registros detallados de errores

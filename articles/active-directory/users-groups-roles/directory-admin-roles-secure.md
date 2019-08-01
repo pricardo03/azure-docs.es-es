@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920480"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608103"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -76,7 +76,7 @@ El marco de esta hoja de ruta está diseñado para maximizar el uso de tecnolog�
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Fase 1: elementos críticos que es aconsejable realizar de inmediato
 
-![Elementos críticos para la fase 1 hacer primero](./media/directory-admin-roles-secure/stage-one.png)
+![Fase 1, elementos críticos que se hacen primero](./media/directory-admin-roles-secure/stage-one.png)
 
 La fase 1 de la hoja de ruta se centra en tareas críticas que se implementan de forma rápida y sencilla. Se recomienda realizar estos pocos elementos de inmediato, en las primeras 24 a 48 horas, para garantizar un nivel básico de acceso con privilegios seguro. Esta fase de la hoja de ruta del acceso con privilegios protegido incluye las siguientes acciones:
 
@@ -102,7 +102,7 @@ A la primera persona que use Azure AD Privileged Identity Management en el inqui
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificación y clasificación de las cuentas que están en roles con privilegios elevados 
 
-Después de activar Azure AD Privileged Identity Management, vea los usuarios que están en los roles de directorio Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Si no tiene Azure AD Privileged Identity Management en su inquilino, puede usar la [API de PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience con el rol de administrador global, como este rol es genérico: un usuario que se asigna este rol de administrador tiene los mismos permisos en todos los servicios en la nube para el que se haya suscrito su organización, independientemente de si ha asignado este rol en Microsoft 365 Centro de administración de Azure portal, o mediante el módulo de Azure AD para PowerShell de Microsoft. 
+Después de activar Azure AD Privileged Identity Management, vea los usuarios que están en los roles de directorio Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Si no tiene Azure AD Privileged Identity Management en su inquilino, puede usar la [API de PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience con el rol de administrador global, ya que este rol es genérico: un usuario al que se haya asignado este rol de administrador tiene los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de que el rol se haya asignado en el Centro de administración de Microsoft 365, en Azure Portal o por medio del módulo de Azure AD para Microsoft PowerShell. 
 
 Quite las cuentas que ya no sean necesarias en esos roles. A continuación, clasifique las restantes que están asignadas a roles de administrador:
 
@@ -127,7 +127,7 @@ Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión para to
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: mitigar las técnicas de ataque que se usan con más frecuencia
 
-![Fase 2 de uso frecuente de mitigar ataques](./media/directory-admin-roles-secure/stage-two.png)
+![Fase 2, mitigación de ataques de que se usan con frecuencia](./media/directory-admin-roles-secure/stage-two.png)
 
 La fase 2 de la hoja de ruta se centra en mitigar las técnicas de ataque que se usan con más frecuencia para el robo y uso de credenciales y puede implementarse en aproximadamente 2 a 4 semanas. Esta fase de la hoja de ruta del acceso con privilegios protegido incluye las siguientes acciones.
 
@@ -135,11 +135,11 @@ La fase 2 de la hoja de ruta se centra en mitigar las técnicas de ataque que se
 
 #### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Realice un inventario de los servicios, propietarios y administradores
 
-Con el aumento de las directivas de bring-your-own-device (BYOD) y de trabajo desde casa y el crecimiento de la conectividad inalámbrica en las empresas, es fundamental supervisar quiénes se conectan a la red. Una auditoría de seguridad eficaz suele revelar aquellos dispositivos, aplicaciones y programas que se ejecutan en la red y que no tienen el soporte técnico de TI y, por lo tanto, son potencialmente no seguros. Para más información, consulte [Información general sobre la administración y la supervisión de la seguridad en Azure](../../security/security-management-and-monitoring-overview.md). Asegúrese de que incluye las tareas siguientes en el proceso de inventario. 
+Con el aumento de las directivas de bring-your-own-device (BYOD) y de trabajo desde casa y el crecimiento de la conectividad inalámbrica en las empresas, es fundamental supervisar quiénes se conectan a la red. Una auditoría de seguridad eficaz suele revelar aquellos dispositivos, aplicaciones y programas que se ejecutan en la red y que no tienen el soporte técnico de TI y, por lo tanto, son potencialmente no seguros. Para más información, consulte [Información general sobre la administración y la supervisión de la seguridad en Azure](../../security/fundamentals/management-monitoring-overview.md). Asegúrese de que incluye las tareas siguientes en el proceso de inventario. 
 
 * Identifique a los usuarios que tengan roles administrativos y los servicios donde pueden administrarlos.
 * Use Azure AD Privileged Identity Management para averiguar qué usuarios de la organización tienen acceso de administrador a Azure AD, incluidos roles adicionales que no se enumeran en la fase 1.
-* Más allá de los roles definidos en Azure AD, Office 365 incluye un conjunto de roles de administrador que se pueden asignar a los usuarios de una organización. Cada rol de administrador se asigna a funciones empresariales comunes y ofrece a las personas de su organización permisos para realizar tareas específicas el [centro de administración de Microsoft 365](https://admin.microsoft.com). Use el centro de administración de Microsoft 365 para averiguar qué usuarios de su organización tienen acceso de administrador a Office 365, lo que incluye roles no administrados en Azure AD. Para más información, consulte [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) y [Procedimientos recomendados de seguridad para Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Más allá de los roles definidos en Azure AD, Office 365 incluye un conjunto de roles de administrador que se pueden asignar a los usuarios de una organización. Cada rol de administrador se asigna a funciones empresariales comunes y proporciona a las personas de su organización permisos para realizar tareas específicas en el [Centro de administración de Microsoft 365](https://admin.microsoft.com). Use el Centro de administración de Microsoft 365 para averiguar qué usuarios de la organización tienen acceso de administrador a Office 365, lo que incluye mediante roles no administrados en Azure AD. Para más información, consulte [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) y [Procedimientos recomendados de seguridad para Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
 * Realice el inventario de otros servicios que use su organización, como Azure, Intune o Dynamics 365.
 * Asegúrese de que sus cuentas de administrador (cuentas que se usan con fines de administración, no las cuentas diarias de los usuarios) tienen direcciones de correo electrónico activas asociadas y que se han registrado en Azure MFA o usan MFA localmente.
 * Pida a los usuarios su justificación comercial para el acceso administrativo.
@@ -169,7 +169,7 @@ Azure AD recomienda que requiera la autenticación multifactor (MFA) a todos los
 
 Active:
 
-* [Uso de directivas de acceso condicional de MFA](../authentication/howto-mfa-getstarted.md) para todos los usuarios de su organización.
+* [MFA usando directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) para todos los usuarios de su organización.
 
 Si usa Windows Hello for Business, el requisito de MFA se puede cumplir con la experiencia de inicio de sesión de Windows Hello. Para más información, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -187,7 +187,7 @@ El [plan de seguridad y cumplimiento](https://support.office.com/article/Plan-fo
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Configure la supervisión de la actividad de Office 365 (si usa Office 365)
 
-Puede supervisar la forma en que el personal de su organización usa los servicios de Office 365, lo que le permite identificar a los usuarios que tienen una cuenta administrativa y que puede que no necesiten acceso a Office 365 poerqu7e no inician sesión en esos portales. Para obtener más información, consulte [informes de actividad en el centro de administración de Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Puede supervisar la forma en que el personal de su organización usa los servicios de Office 365, lo que le permite identificar a los usuarios que tienen una cuenta administrativa y que puede que no necesiten acceso a Office 365 poerqu7e no inician sesión en esos portales. Para más información, consulte [Informes de actividades en el Centro de administración de Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Establezca los propietarios de plan de respuesta ante incidentes o emergencias
 
@@ -205,7 +205,7 @@ Utilice Enterprise Portal y Azure Portal para identificar las suscripciones de l
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Eliminación de cuentas de Microsoft de roles de administrador
 
-Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook no deben usarse como cuentas de administrador para las suscripciones de la organización. Quitar estado de administración de todas las cuentas de Microsoft y reemplace con Azure Active Directory (por ejemplo, chris@contoso.com) cuentas profesionales o educativas.
+Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook no deben usarse como cuentas de administrador para las suscripciones de la organización. Quite el estado de administrador de todas las cuentas Microsoft y sustitúyalas por cuentas profesionales o educativas de Azure Active Directory (por ejemplo, chris@contoso.com).
 
 #### <a name="monitor-azure-activity"></a>Supervise la actividad de Azure
 
@@ -213,14 +213,14 @@ El registro de actividad de Azure proporciona un historial de los eventos de niv
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Pasos adicionales para las organizaciones que administran el acceso a otras aplicaciones en la nube a través de Azure AD
 
-#### <a name="configure-conditional-access-policies"></a>Configure directivas de acceso condicional
+#### <a name="configure-conditional-access-policies"></a>Configuración de directivas de acceso condicional
 
-Prepare las directivas de acceso condicional para aplicaciones locales y hospedadas en la nube. Si los usuarios han unido dispositivos al área de trabajo, obtenga más información de [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-device-registration-on-premises-setup.md).
+Prepare directivas de acceso condicional tanto para las aplicaciones locales como para las hospedadas en la nube. Si los usuarios han unido dispositivos al área de trabajo, obtenga más información de [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Fase 3: crear visibilidad y crear control total de la actividad de administración
 
-![Fase 3 tome el control de la actividad administrativa](./media/directory-admin-roles-secure/stage-three.png)
+![Fase 3, toma de control de la actividad administrativa](./media/directory-admin-roles-secure/stage-three.png)
 
 La fase 3 se basa en las mitigaciones de riesgos de la fase 2 y está diseñada para implementarse en aproximadamente 1 a 3 meses. Esta fase de la hoja de ruta del acceso con privilegios protegido incluye los siguientes componentes.
 
@@ -261,7 +261,7 @@ Si ya usa Azure AD Privileged Identity Management, ajuste los períodos de tiemp
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determine la exposición a protocolos de inicio de sesión mediante contraseña (si usa Exchange Online)
 
-Antes, los protocolos asumían que las combinaciones de nombre de usuario y contraseña se insertaban en los dispositivos, las cuentas de correo electrónico, los teléfonos, etc. Pero ahora, con el riesgo de ciberataques en la nube, se recomienda identificar a todos los usuarios potenciales que podrían causar una catástrofe en la organización si sus credenciales corrieran peligro y no permitirles iniciar sesión en su correo electrónico con una combinación de nombre de usuario y contraseña mediante la implementación de requisitos de autenticación segura y acceso condicional. Puede bloquear [mediante el acceso condicional de autenticación heredados](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Compruebe los detalles en [cómo bloquear la autenticación básica](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) a través de Exchange online. 
+Antes, los protocolos asumían que las combinaciones de nombre de usuario y contraseña se insertaban en los dispositivos, las cuentas de correo electrónico, los teléfonos, etc. Pero ahora, con el riesgo de ciberataques en la nube, se recomienda identificar a todos los usuarios potenciales que podrían causar una catástrofe en la organización si sus credenciales corrieran peligro y no permitirles iniciar sesión en su correo electrónico con una combinación de nombre de usuario y contraseña mediante la implementación de requisitos de autenticación segura y acceso condicional. Puede bloquear la [autenticación heredada mediante el acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Compruebe los detalles en [Bloqueo de la autenticación básica](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) a través de Exchange online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Realice una valoración del examen de los roles de Office 365 (si usa Office 365)
 
@@ -291,7 +291,7 @@ Use Privileged Identity Management con los roles de administrador de Azure AD pa
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Use las integraciones de registros de Azure para enviar los registros de Azure relevantes a los sistemas de SIEM 
 
-Azure Log Integration permite integrar los registros sin procesar de los recursos de Azure en los sistemas de administración de eventos e información de seguridad (SIEM) existentes de la organización. [Azure Log Integration](../../security/security-azure-log-integration-overview.md) recopila eventos de Windows de los registros del Visor de eventos de Windows y registros de Azure de los registros de actividad de Azure, las alertas de Azure Security Center y los registros de Azure Diagnostics. 
+Azure Log Integration permite integrar los registros sin procesar de los recursos de Azure en los sistemas de administración de eventos e información de seguridad (SIEM) existentes de la organización. [Azure Log Integration](../../security/fundamentals/azure-log-integration-overview.md) recopila eventos de Windows de los registros del Visor de eventos de Windows y registros de Azure de los registros de actividad de Azure, las alertas de Azure Security Center y los registros de Azure Diagnostics. 
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Pasos adicionales para las organizaciones que administran el acceso a otras aplicaciones en la nube a través de Azure AD
@@ -304,9 +304,9 @@ Azure AD permite automatizar la creación, el mantenimiento y la eliminación de
 
 MCAS permite investigar archivos y establecer directivas en función de las etiquetas de clasificación de Azure Information Protection, lo que permite tener mayor visibilidad y control de los datos en la nube. Analice y clasifique los archivos de la nube y aplique las etiquetas de Azure Information Protection. Para más información, consulte [Integración de Azure Information Protection](https://docs.microsoft.com/cloud-app-security/azip-integration).
 
-#### <a name="configure-conditional-access"></a>Configure el acceso condicional
+#### <a name="configure-conditional-access"></a>Configuración del acceso condicional
 
-Configure el acceso condicional en función del grupo, la ubicación y la confidencialidad de la aplicación para las aplicaciones [SaaS](https://azure.microsoft.com/overview/what-is-saas/) y las aplicaciones conectadas a Azure AD. 
+Configure el acceso condicional en función del grupo, la ubicación y la confidencialidad de la aplicación para las [aplicaciones SaaS](https://azure.microsoft.com/overview/what-is-saas/) y las aplicaciones conectadas a Azure AD. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Supervise la actividad en las aplicaciones en la nube conectadas
 
@@ -322,7 +322,7 @@ El agente de SIEM de Cloud App Security integra Cloud App Security en el servido
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Fase 4: seguir creando defensas para tener una postura proactiva con respecto a la seguridad
 
-![Fase 4 adopten una postura de seguridad proactivas](./media/directory-admin-roles-secure/stage-four.png)
+![Fase 4, adopción de una postura de seguridad proactiva](./media/directory-admin-roles-secure/stage-four.png)
 
 La fase 4 de la hoja de ruta se basa en la visibilidad de la fase 3 y está diseñada para implementarse en seis meses, o más. La finalización de la hoja de ruta le ayuda a desarrollar una mayor protección del acceso con privilegios frente a posibles ataques conocidos y disponibles actualmente. Lamentablemente, las amenazas de seguridad están en constante evolución, por lo que le recomendamos que vea la seguridad como un proceso continuo dirigido a elevar el costo y reducir la tasa de éxito de aquellos que dirigen sus ataques a su entorno.
 
@@ -367,7 +367,7 @@ Determine si necesita [transferir la propiedad de una suscripción de Azure a ot
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Romper el cristal": qué hacer en caso de emergencia
 
-![Cuentas para el acceso de emergencia salto glass](./media/directory-admin-roles-secure/emergency.jpeg)
+![Cuentas para acceder en caso de emergencia](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. Proporcione a los principales directivos y responsables de seguridad la información pertinente acerca del incidente.
 

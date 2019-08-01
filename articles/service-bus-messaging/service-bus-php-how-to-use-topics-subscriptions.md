@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063869"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Uso de temas y suscripciones de Service Bus con PHP
 
@@ -34,11 +34,11 @@ En este artículo se muestra cómo usar los temas y las suscripciones de Service
 - Eliminación de temas y suscripciones
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [las ventajas de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos de la [inicio rápido: Usar el portal de Azure para crear un tema de Service Bus y las suscripciones al tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un Bus de servicio **espacio de nombres** y obtenga el **cadena de conexión**.
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga los pasos del [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
 
     > [!NOTE]
-    > Creará un **tema** y un **suscripción** al tema mediante el uso de **PHP** en este inicio rápido. 
+    > En este inicio rápido, creará un **tema** y una **suscripción** al tema mediante **PHP**. 
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
 El único requisito a la hora de crear una aplicación PHP para obtener acceso a Azure Blob service es que se haga referencia a clases de [Azure SDK para PHP](../php-download-sdk.md) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
@@ -51,7 +51,23 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 En este artículo se describe cómo se usan las características de servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, un rol de trabajo o un sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Instalación mediante el compositor
+1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
+3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
 Para usar las API de Service Bus:
@@ -67,7 +83,7 @@ En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -101,7 +117,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-topic"></a>Crear un tema
+## <a name="create-a-topic"></a>de un tema
 Puede realizar operaciones de administración para temas de Service Bus mediante la clase `ServiceBusRestProxy`. Un objeto `ServiceBusRestProxy` se construye mediante el método de generador `ServicesBuilder::createServiceBusService` con una cadena de conexión adecuada que encapsula los permisos de token para administrarlo.
 
 En el ejemplo siguiente se muestra cómo crear una instancia de un objeto `ServiceBusRestProxy` y llamar a `ServiceBusRestProxy->createTopic` para crear un tema denominado `mytopic` dentro de un espacio de nombres `MySBNamespace`:
@@ -136,7 +152,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="create-a-subscription"></a>Crear una suscripción
+## <a name="create-a-subscription"></a>una suscripción
 También se crean suscripciones de temas con el método `ServiceBusRestProxy->createSubscription`. A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
@@ -345,7 +361,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 > [!NOTE]
-> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea [Colas, temas y suscripciones de Service Bus][Queues, topics, and subscriptions].

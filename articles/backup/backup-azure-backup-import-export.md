@@ -1,19 +1,19 @@
 ---
 title: 'Azure Backup: copia de seguridad sin conexión o propagación inicial mediante el servicio Azure Import/Export'
 description: Descubra cómo Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de Azure Import/Export.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: dacurwin
+ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648421"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689471"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -76,7 +76,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
    La descripción de las entradas es la siguiente:
 
     * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
-    * **Cuenta de almacenamiento de Azure Resource Manager**: el nombre de la cuenta de almacenamiento de tipo Resource Manager en cualquier suscripción de Azure.
+    * **Cuenta de almacenamiento de Azure Resource Manager**: El nombre de la cuenta de almacenamiento de tipo Resource Manager (de uso general v1 o v2) en cualquier suscripción de Azure.
     * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage en la que se importan los datos de la copia de seguridad antes de que se copien en el almacén de Recovery Services.
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que se crea la cuenta de Azure Storage.
     * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure. 

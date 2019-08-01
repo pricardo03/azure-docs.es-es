@@ -1,6 +1,6 @@
 ---
-title: Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database | Microsoft Docs
-description: Obtenga información acerca de cómo migrar una instancia de SQL Server a Instancia administrada de Azure SQL Database.
+title: Migración de bases de datos desde una instancia de SQL Server a Instancia administrada de Azure SQL Database | Microsoft Docs
+description: Aprenda a migrar una base de datos desde una instancia de SQL Server a Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070425"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -49,11 +49,34 @@ Si se ha notificado algún problema de bloqueo que no se haya eliminado con la o
 - Si es imprescindible que permanezca en una versión específica de SQL Server (2012, por ejemplo).
 - Si los requisitos de proceso son mucho menores que los que la instancia administrada ofrece (un núcleo virtual, por ejemplo) y la consolidación de la base de datos no es una opción aceptable.
 
+Si ha resuelto todos los bloqueadores identificados de la migración y va a continuar con la migración a Instancia administrada, tenga en cuenta que algunos de los cambios podrían afectar al rendimiento de la carga de trabajo:
+- El modelo de recuperación completa obligatorio y la programación de copias de seguridad automatizadas y regulares podría afectar al rendimiento de la carga de trabajo o al de las acciones de mantenimiento o de extracción, transformación y carga de datos si ha empleado periódicamente el modelo simple o el modelo para cargas masivas de registros, o detenido copias de seguridad a petición.
+- Distintas configuraciones en el nivel de servidor o de base de datos como marcas de seguimiento o niveles de compatibilidad
+- Las nuevas características que usa como Cifrado de datos transparente (TDE) o los grupos de conmutación por error automática podrían afectar a la CPU y al uso de E/S.
+
+Instancia administrada garantiza el 99,99 % de disponibilidad incluso en escenarios críticos, por lo que la sobrecarga provocada por estas características no se puede deshabilitar. Para más información, consulte [las causas principales que podrían provocar un rendimiento diferente en SQL Server e Instancia administrada](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+### <a name="create-performance-baseline"></a>Creación de base de referencia de rendimiento
+
+Si necesita comparar el rendimiento de la carga de trabajo en Instancia administrada con la carga de trabajo original que se ejecuta en SQL Server, deberá crear una base de referencia de rendimiento que se usará para la comparación. Algunos de los parámetros que necesitará medir en su instancia de SQL Server son: 
+- [Supervisión del uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y registro del uso medio y uso máximo de la CPU.
+- [Supervisión del uso de memoria en la instancia de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
+- Supervise el uso de E/S de disco en la instancia de SQL Server de origen mediante la vista [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) o los [contadores de rendimiento](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Supervise el rendimiento de la carga de trabajo y de la consulta o la instancia de SQL Server mediante el análisis de vistas de administración dinámica o el almacén de consultas si va a migrar desde la versión SQL Server 2016 o versiones posteriores. Identifique el promedio de duración y el uso de CPU de las consultas más importantes de la carga de trabajo para compararlos con las consultas que se ejecutan en la instancia administrada.
+
+> [!Note]
+> Si observa algún problema con la carga de trabajo de SQL Server como un uso elevado de CPU, presión de memoria constante, problemas de tempdb o de parametrización, debe intentar resolverlos en la instancia de SQL Server de origen antes tomar la base de referencia y realizar la migración. La migración de problemas conocidos a cualquier sistema nuevo podría provocar resultados inesperados e invalidar cualquier comparación de rendimiento.
+
+Como resultado de esta actividad debería tener documentados los valores promedio y máximo de la CPU, la memoria y el uso de E/S en el sistema de origen, así como la duración promedio y la duración máxima y el uso de la CPU de la consulta dominante y la consulta más crítica de la carga de trabajo. Deberá usar estos valores más adelante para comparar el rendimiento de la carga de trabajo en Instancia administrada con el rendimiento de la base de referencia de la carga de trabajo de la instancia de SQL Server de origen.
+
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementación en una instancia administrada con tamaño óptimo
 
-Instancia administrada se ha diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](sql-database-service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El modelo de compra de Instancia administrada se basa en núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube.
+Instancia administrada se ha diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](sql-database-service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El modelo de compra de Instancia administrada se basa en núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube. Aquí se describen algunas directrices generales que pueden ayudarle a elegir las características y el nivel de servicio correctos:
+- [Supervise el uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y compruebe cuánta potencia de proceso utiliza actualmente (mediante vistas de administración dinámicas, SQL Server Management Studio u otras herramientas de supervisión). Puede aprovisionar una instancia administrada que coincida con el número de núcleos que usa en SQL Server, teniendo en cuenta que puede que las características de la CPU tengan que escalarse para que coincidan con las [características de la máquina virtual en la que está instalada Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
+- Compruebe la cantidad de memoria disponible en la instancia de SQL Server y elija [el nivel de servicio que coincida con la memoria](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Sería útil medir la duración prevista de la página en la instancia de SQL Server para determinar si [necesita memoria adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Mida la latencia de E/S del subsistema de archivos para elegir entre los niveles de servicio De uso General y Crítico para la empresa.
 
-Puede seleccionar recursos de almacenamiento y proceso en el momento de la implementación y, posteriormente, cambiarlo sin introducir tiempo de inactividad de la aplicación con [Azure Portal](sql-database-scale-resources.md):
+Puede seleccionar recursos de almacenamiento y proceso en el momento de la implementación y, posteriormente, cambiarlos sin provocar tiempo de inactividad de la aplicación con [Azure Portal](sql-database-scale-resources.md):
 
 ![ajuste de tamaño de la instancia administrada](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
@@ -111,18 +134,52 @@ Para obtener una guía rápida que incluya la manera de restaurar una copia de s
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
+
 ## <a name="monitor-applications"></a>Supervisión de aplicaciones
 
-Realice un seguimiento del comportamiento y el rendimiento de las aplicaciones después de la migración. En Instancia administrada, algunos cambios se habilitan solo después de [cambiar el nivel de compatibilidad de la base de datos](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). En la mayoría de los casos, al migrar la base de datos a Azure SQL Database se mantiene su nivel de compatibilidad original. Si el nivel de compatibilidad de una base de datos de usuario era 100 o superior antes de la migración, permanece igual después de la migración. Si el nivel de compatibilidad de una base de datos de usuario era 90 antes de la migración, el nivel de compatibilidad de la base de datos actualizada se establece en 100, que es el nivel de compatibilidad mínimo admitido en Instancia administrada. El nivel de compatibilidad de las bases de datos del sistema es 140.
+Una vez haya completado la migración a Instancia administrada, debe realizar un seguimiento del comportamiento de la aplicación y del rendimiento de la carga de trabajo. Este proceso incluye las siguientes actividades:
+- [Comparar el rendimiento de la carga de trabajo que se ejecuta en la instancia administrada](#compare-performance-with-the-baseline) con la [base de referencia de rendimiento que ha creado en la instancia de SQL Server de origen](#create-performance-baseline).
+- [Supervisar el rendimiento de la carga de trabajo](#monitor-performance) continuamente para identificar posibles problemas y mejoras.
 
-Para reducir los riesgos de la migración, cambie el nivel de compatibilidad de la base de datos solo después de supervisar el rendimiento. Use Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+### <a name="compare-performance-with-the-baseline"></a>Comparación del rendimiento con la base de referencia
 
-Cuando ya esté en una plataforma completamente administrada, aproveche las ventajas que proporciona automáticamente el servicio SQL Database. Por ejemplo, no tiene que crear copias de seguridad en Instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. Instancia administrada permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](sql-database-high-availability.md) está integrada.
+La primera actividad que necesita llevar a cabo inmediatamente después de realizar una migración correcta es comparar el rendimiento de la carga de trabajo con el de la carga de trabajo de la base de referencia. El objetivo de esta actividad es confirmar que el rendimiento de la carga de trabajo en la instancia administrada satisface sus necesidades. 
 
-Para reforzar la seguridad, considere la posibilidad de utilizar algunas de las características que hay disponibles:
+En la mayoría de los casos, la migración de base de datos a Instancia administrada mantiene la configuración de la base de datos y el nivel de compatibilidad original. La configuración original se conserva siempre que es posible para reducir el riesgo de algunas degradaciones del rendimiento en comparación con el de la instancia de SQL Server de origen. Si el nivel de compatibilidad de una base de datos de usuario era 100 o superior antes de la migración, permanece igual después de la migración. Si el nivel de compatibilidad de una base de datos de usuario era 90 antes de la migración, el nivel de compatibilidad de la base de datos actualizada se establece en 100, que es el nivel de compatibilidad mínimo admitido en Instancia administrada. El nivel de compatibilidad de las bases de datos del sistema es 140. Puesto que la migración a Instancia administrada consiste realmente en migrar a la última versión del motor de base de datos de SQL Server, debe tener en cuenta que deberá volver a probar el rendimiento de la carga de trabajo para evitar algunos problemas de rendimiento inesperados.
 
-- Autenticación con Azure Active Directory en el nivel de base de datos
-- Use [características de seguridad avanzadas](sql-database-security-overview.md) como la [auditoría](sql-database-managed-instance-auditing.md), la [detección de amenazas](sql-database-advanced-data-security.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) para proteger la instancia.
+Como requisito previo, asegúrese de que ha completado las siguientes actividades:
+- Alinear la configuración de Instancia administrada con la configuración de la instancia de SQL Server de origen investigando diversos valores de configuración de la instancia, la base de datos y tempdb. Asegúrese de que no ha cambiado valores como los de los niveles de compatibilidad o el cifrado antes de ejecutar la primera comparación de rendimiento, o acepte el riesgo de que algunas de las nuevas características que ha habilitado afecten a algunas consultas. Para reducir los riesgos de la migración, cambie el nivel de compatibilidad de la base de datos solo después de supervisar el rendimiento.
+- Implementar [directrices de procedimientos recomendados de almacenamiento de uso general](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525) como preasignar el tamaño de los archivos para obtener el mejor rendimiento.
+- Obtener más información sobre las [principales diferencias del entorno que podrían producir diferencias de rendimiento entre Instancia administrada y SQL Server]( https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) e identificar los riesgos que podrían afectar al rendimiento.
+- Asegurarse de que tiene habilitado Almacén de consultas y Ajuste automático en la instancia administrada. Estas características le permiten medir el rendimiento de carga de trabajo y corregir automáticamente los posibles problemas de rendimiento. Aprenda a usar Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+Una vez que haya preparado el entorno de forma que sea lo más parecido posible al entorno local, puede empezar a ejecutar la carga de trabajo y a medir el rendimiento. El proceso de medición debe incluir los mismos parámetros que midió [al crear la base de referencia de rendimiento de la carga de trabajo en la instancia de origen de SQL Server](#create-performance-baseline).
+Como resultado, debe comparar los parámetros de rendimiento con la base de referencia e identificar las diferencias más importantes.
+
+> [!NOTE]
+> En muchos casos, no podrá obtener un rendimiento que coincida exactamente en Instancia administrada y en SQL Server. Instancia administrada es un motor de base de datos de SQL Server pero la infraestructura y la configuración de alta disponibilidad de ella pueden suponer alguna diferencia. Posiblemente algunas consultas serán más rápidas mientras que otras pueden ser más lentas. El objetivo de la comparación es comprobar que el rendimiento de la carga de trabajo en Instancia administrada coincide con el rendimiento en SQL Server (el promedio) e identificar si hay alguna consulta crítica con un rendimiento que no coincida con el rendimiento original.
+
+El resultado de la comparación de rendimiento puede ser:
+- El rendimiento de la carga de trabajo en Instancia administrada está alineado o es mejor que el rendimiento en SQL Server. En este caso ha confirmado satisfactoriamente que la migración ha sido correcta.
+- La mayoría de los parámetros de rendimiento y las consultas de la carga de trabajo funcionan bien, con algunas excepciones que tienen un rendimiento reducido. En este caso, deberá identificar las diferencias y su importancia. Si hay algunas consultas importantes con rendimiento reducido, debería investigar si hay planes subyacentes de SQL que hayan cambiado o si las consultas están traspasando algunos de los límites de los recursos. La mitigación en este caso consistiría en aplicar algunas sugerencias a las consultas críticas (por ejemplo, un nuevo nivel de compatibilidad o estimador de cardinalidad heredado) ya sea directamente o mediante guías de planes, y crear o recrear estadísticas e índices que pudieran afectar a los planes. 
+- La mayoría de las consultas son más lentas en Instancia administrada en comparación con las de la instancia de SQL Server de origen. En este caso, intente identificar las causas principales de la diferencia como, por ejemplo, [haber alcanzado el límite de algunos recursos]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) como los límites de E/S, el límite de memoria, el límite de tasa de registro de instancias, etc. Si no hay ningún límite de recursos que pueda provocar la diferencia, pruebe a cambiar el nivel de compatibilidad de la base de datos o algún valor de configuración de esta como la estimación de cardinalidad heredada y vuelva a iniciar la prueba. Revise las recomendaciones proporcionadas por las vistas de Instancia administrada o Almacén de consultas para identificar las consultas en las que se redujo el rendimiento.
+
+> [!IMPORTANT]
+> Instancia administrada tiene una característica de corrección automática de planes integrada que está habilitada de forma predeterminada. Esta característica garantiza que las consultas que funcionaban bien en el pasado no se degradarán en el futuro. Asegúrese de que esta característica está habilitada y que ha ejecutado la carga de trabajo durante el tiempo suficiente con la configuración anterior antes de cambiar a la nueva configuración para permitir que Instancia administrada obtenga más información sobre la base de referencia de rendimiento y los planes.
+
+Cambie los parámetros o actualice los niveles de servicio para que converjan en la configuración óptima hasta que consiga que el rendimiento de la carga de trabajo se ajuste a sus necesidades.
+
+### <a name="monitor-performance"></a>Supervisión del rendimiento
+
+Una vez que se encuentra en una plataforma totalmente administrada y ha comprobado que el rendimiento de la carga de trabajo coincide con el rendimiento de la carga de trabajo de SQL Server, aproveche las ventajas que se proporcionan automáticamente como parte del servicio SQL Database. 
+
+Incluso si no ha realizado cambios en la instancia administrada durante la migración, es muy probable que haya activado algunas características nuevas mientras trabaja con la instancia para sacar partido a algunas de las mejoras más recientes del motor de base de datos. Algunos cambios se habilitan solo después de [cambiar el nivel de compatibilidad de la base de datos](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+
+
+Por ejemplo, no tiene que crear copias de seguridad en Instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. Instancia administrada permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](sql-database-high-availability.md) está integrada.
+
+Para reforzar la seguridad, considere la posibilidad de usar la [autenticación de Azure Active Directory](sql-database-security-overview.md), la [auditoría](sql-database-managed-instance-auditing.md), la [detección de amenazas](sql-database-advanced-data-security.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+
+Además de la administración avanzada y las características de seguridad, Instancia administrada ofrece un conjunto de herramientas avanzadas que pueden ayudarle a [supervisar y optimizar la carga de trabajo](sql-database-monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) le permite supervisar un conjunto grande de instancias administradas y centralizar la supervisión de un gran número de instancias y bases de datos. [Ajuste automático](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) de Instancia administrada supervisa continuamente el rendimiento de las estadísticas de ejecución del plan de SQL y corrige automáticamente los problemas de rendimiento identificados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

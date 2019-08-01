@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241282"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
@@ -93,4 +93,4 @@ Cuando use Conexión directa, tenga en cuenta lo siguiente:
 Estas restricciones y notas pueden cambiar a medida que mejoran las experiencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que hemos dado algún tiempo para preparar los datos de ejemplo, consulte cómo [desarrollar](sql-data-warehouse-overview-develop.md) o [cargar](design-elt-data-loading.md). También puede visitar el [sitio web de Power BI](https://www.powerbi.com/).
+Ahora que le hemos dado algún tiempo para preparar los datos de ejemplo, consulte cómo los puede [desarrollar](sql-data-warehouse-overview-develop.md) o [cargar](design-elt-data-loading.md). También puede visitar el [sitio web de Power BI](https://www.powerbi.com/).

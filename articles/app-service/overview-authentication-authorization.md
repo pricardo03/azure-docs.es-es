@@ -16,12 +16,12 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 1e8bd60eab5853b121b9c08622914b9c62449f8f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618769"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515185"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -56,7 +56,7 @@ El módulo se ejecuta por separado del código de aplicación y se configura med
 
 ### <a name="user-claims"></a>Notificaciones de usuario
 
-Para todos los marcos de lenguaje, App Service pone las notificaciones de usuario a disposición del código inyectándolas en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`.
+Para todos los marcos de lenguaje, App Service pone las notificaciones de usuario a disposición del código inyectándolas en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` no se hidrata para el código .NET, pero todavía puede encontrar las notificaciones de usuario en los encabezados de solicitud.
 

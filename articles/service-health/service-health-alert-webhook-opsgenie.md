@@ -1,20 +1,19 @@
 ---
-title: Configuración de alertas de estado del servicio de Azure con OpsGenie | Microsoft Docs
+title: Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de OpsGenie.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067164"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Configuración de alertas de estado del servicio con OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 
 Este artículo muestra cómo configurar las alertas de estado del servicio de Azure con OpsGenie mediante un webhook. Mediante el uso de la integración del estado del servicio de Azure de [OpsGenie](https://www.opsgenie.com/) puede reenviar alertas de estado del servicio de Azure a OpsGenie. OpsGenie puede determinar las personas adecuadas a las que enviar la notificación según las programaciones de entrega mediante correo electrónico, mensajes de texto (SMS), llamadas de teléfono, notificaciones de inserción de iOS y Android y la escalación de alertas hasta que la alerta se confirma o se cierra.
 
@@ -45,7 +44,7 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de OpsGenie guardada anteriormente.
 
@@ -62,7 +61,7 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de OpsGenie guardada anteriormente.
 

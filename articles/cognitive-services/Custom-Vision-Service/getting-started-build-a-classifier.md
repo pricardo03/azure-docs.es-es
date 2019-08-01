@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497303"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
@@ -27,12 +27,12 @@ Para usar Custom Vision Service para la clasificación de imágenes, primero deb
 - Un conjunto de imágenes con el que entrenar el clasificador. Consulte las siguientes sugerencias sobre cómo elegir imágenes.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Crear recursos de visión personalizada en el portal de Azure
-Para usar Custom Vision Service, deberá crear los recursos de Custom Vision entrenamiento y predicción de la [portal Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). De esta manera se crea un recurso de entrenamiento y predicción. 
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
+Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). De esta manera se crea un recurso de entrenamiento y predicción. 
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
-En el explorador web, vaya a la [página web de Custom Vision](https://customvision.ai) y seleccione __Sign in__ (Iniciar sesión). Inicie sesión con la misma cuenta que usó para iniciar sesión en el portal de Azure.
+En el explorador web, vaya a la [página web de Custom Vision](https://customvision.ai) y seleccione __Sign in__ (Iniciar sesión). Inicie sesión con la misma cuenta que usó para iniciar sesión en Azure Portal.
 
 ![Imagen de la página de inicio de sesión](./media/browser-home.png)
 
@@ -44,7 +44,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 1. Escriba un nombre y una descripción para el proyecto. Después, seleccione un grupo de recursos. Si la cuenta con la que ha iniciado sesión está asociada a una cuenta de Azure, aparecerá el menú desplegable Resource Group (Grupo de recursos) que incluye un recurso de Custom Vision Service. 
 
    > [!NOTE]
-   > Si no hay ningún grupo de recursos está disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que se usa para iniciar sesión en el [portal Azure](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
+   > Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
 
 1. Seleccione __Classification__ (Clasificación) en __Project Types__ (Tipos de proyecto). Después, en __Classification Types__ (Tipos de clasificación), elija **Multilabel** (Multietiqueta) o **Multiclass** (Multiclase) según su caso de uso. La clasificación multietiqueta aplica un número cualquiera de etiquetas a una imagen (cero o más), mientras que la clasificación multiclase ordena las imágenes en categorías únicas (cada imagen que envíe se clasificará en la etiqueta más probable). Puede cambiar el tipo de clasificación más adelante si lo desea.
 

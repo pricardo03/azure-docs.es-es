@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074893"
 ---
 # <a name="live-event-states-and-billing"></a>Estados y facturación de LiveEvent
 
 En Azure Media Services, un objeto LiveEvent comienza la facturación tan pronto como su estado realiza la transición a **En ejecución**. Para detener la facturación del objeto LiveEvent, debe pararlo.
 
-Si **LiveEventEncodingType** en el objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está establecido en Estándar, Media Services cerrará automáticamente cualquier objeto LiveEvent que tenga aún el estado **En ejecución** doce horas después de que se pierda la fuente de entrada y si no hay ningún objeto **LiveOutput** en ejecución. Sin embargo, se le facturará por el tiempo que el objeto LiveEvent haya estado en estado **En ejecución**.
+Si **LiveEventEncodingType** en el objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está establecido en Estándar o Premium1080p, Media Services cerrará automáticamente cualquier objeto LiveEvent que tenga aún el estado **En ejecución** doce horas después de que se pierda la fuente de entrada y si no hay ningún objeto **LiveOutput** en ejecución. Sin embargo, se le facturará por el tiempo que el objeto LiveEvent haya estado en estado **En ejecución**.
 
 ## <a name="states"></a>States
 

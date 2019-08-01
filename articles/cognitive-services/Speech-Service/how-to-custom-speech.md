@@ -1,7 +1,7 @@
 ---
-title: Empezar a trabajar con la conversión de voz personalizados - servicios de voz
+title: 'Introducción a Custom Speech: Servicios de voz'
 titlesuffix: Azure Cognitive Services
-description: Conversión personalizada de voz es un conjunto de herramientas en línea que le permiten evaluar y mejorar la precisión de texto a voz de Microsoft para sus productos, herramientas y aplicaciones. Todo que lo necesario para empezar a trabajar son un puñado de archivos de audio de prueba. Siga los vínculos siguientes para empezar a crear una experiencia personalizada de voz a texto.
+description: Custom Speech es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto de Microsoft para las aplicaciones, herramientas y productos. Para comenzar solo se necesita una serie de archivos de audio de prueba. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,61 +10,61 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060896"
 ---
-# <a name="what-is-custom-speech"></a>¿Qué es la voz personalizada?
+# <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
-[Conversión personalizada de voz](https://aka.ms/custom-speech) es un conjunto de herramientas en línea que le permiten evaluar y mejorar la precisión de texto a voz de Microsoft para sus productos, herramientas y aplicaciones. Todo que lo necesario para empezar a trabajar son un puñado de archivos de audio de prueba. Siga los vínculos siguientes para empezar a crear una experiencia personalizada de voz a texto.
+[Custom Speech](https://aka.ms/custom-speech) es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto de Microsoft para las aplicaciones, herramientas y productos. Para comenzar solo se necesita una serie de archivos de audio de prueba. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
 
-## <a name="whats-in-custom-speech"></a>¿Qué es personalizado de voz?
+## <a name="whats-in-custom-speech"></a>¿Qué incluye Custom Speech?
 
-Antes de hacer cualquier cosa con voz personalizada, necesitará una cuenta de Azure y una suscripción de servicios de voz. Cuando esté satisfecho con una cuenta, puede preparación de los datos, entrenar y probar sus modelos, inspeccionar la calidad del reconocimiento, evaluar la precisión y en última instancia, implementar y utilizar el modelo de voz a texto personalizado.
+Para utilizar Custom Speech necesitará una cuenta de Azure y una suscripción a Servicios de voz. Cuando ya tenga la cuenta, podrá preparar los datos, entrenar y probar sus modelos, inspeccionar la calidad del reconocimiento, evaluar la precisión y, en última instancia, implementar y utilizar el modelo de conversión de voz a texto personalizado.
 
-Este diagrama resalta las partes que componen el portal de voz personalizado. Use los vínculos siguientes para obtener más información sobre cada paso.
+Este diagrama resalta las partes que componen el portal de Custom Speech. Use los siguientes vínculos para obtener más información sobre cada paso.
 
-![Se resaltan los distintos componentes que constituyen el portal de voz personalizado.](./media/custom-speech/custom-speech-overview.png)
+![Se resaltan los distintos componentes que constituyen el portal de Custom Speech.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Suscríbase y cree un proyecto](#set-up-your-azure-account) : crear una cuenta de Azure y suscribirse a los servicios de voz. Esta suscripción unificada proporciona acceso a voz a texto, texto a voz, traducción de voz y el portal de voz personalizado. A continuación, usar su suscripción de servicios de voz, crear su primer proyecto de voz personalizado.
+1. [Suscríbase y cree un proyecto](#set-up-your-azure-account): cree una cuenta de Azure y suscríbase a Servicios de voz. Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Custom Speech. A continuación, mediante la suscripción a Servicios de voz, cree su primer proyecto de Custom Speech.
 
-2. [Cargar datos de prueba](how-to-custom-speech-test-data.md) -los datos de prueba de carga (archivos de audio) para evaluar speech-to-text de Microsoft oferta para sus productos, herramientas y aplicaciones.
+2. [Cargue datos de prueba](how-to-custom-speech-test-data.md): cargue datos de prueba (archivos de audio) para evaluar la oferta de conversión de voz a texto para sus aplicaciones, herramientas y productos.
 
-3. [Inspeccionar la calidad del reconocimiento](how-to-custom-speech-inspect-data.md) -usar el portal de voz personalizados para reproducir sonido cargado e inspeccione la calidad del reconocimiento de voz de los datos de prueba. Para las medidas cuantitativas, consulte [inspeccionar datos](how-to-custom-speech-inspect-data.md).
+3. [Inspeccione la calidad del reconocimiento](how-to-custom-speech-inspect-data.md): use el portal de Custom Speech para reproducir el audio cargado e inspeccionar la calidad del reconocimiento de voz de los datos de prueba. Para conocer las medidas cuantitativas, consulte [Inspección de los datos](how-to-custom-speech-inspect-data.md).
 
-4. [Evalúe su precisión](how-to-custom-speech-evaluate-data.md) -evaluar la precisión del modelo de texto a voz. El portal de Custom Speech proporcionará un *tasa de errores de Word*, que puede utilizarse para determinar si se requiere aprendizaje adicional. Si está satisfecho con la precisión, puede usar directamente las API de servicios de voz. Si desea mejorar la precisión de una media relativa del 5 al 20%, use el **entrenamiento** ficha en el portal para cargar los datos de entrenamiento adicionales, como humanos etiquetados transcripciones y texto relacionado.
+4. [Evalúe la precisión](how-to-custom-speech-evaluate-data.md): evalúe la precisión del modelo de conversión de voz a texto. El portal de Custom Speech proporcionará una *tasa de errores de palabras*, que puede utilizarse para determinar si se necesita más entrenamiento. Si está satisfecho con la precisión, puede usar directamente las API de Speech Services. Si desea mejorar la precisión en una media relativa del 5 al 20 %, use la pestaña **Entrenamiento** del portal para cargar datos de entrenamiento adicionales, como transcripciones con etiqueta humana y texto relacionado.
 
-5. [Entrenar el modelo](how-to-custom-speech-train-model.md) : mejorar la precisión del modelo de texto a voz proporcionando las transcripciones escritas (10-1.000 horas) y el texto relacionado (< 200 MB), junto con el audio de los datos de pruebas. Estos datos ayudan a entrenar el modelo de texto a voz. Después del entrenamiento, vuelva a probar, y si está satisfecho con el resultado, puede implementar el modelo.
+5. [Entrene el modelo](how-to-custom-speech-train-model.md): mejore la precisión del modelo de conversión de voz a texto uniendo transcripciones escritas (de 10 a 1000 horas) y texto relacionado (< 200 MB) a datos de prueba de audio. Estos datos ayudan a entrenar el modelo de conversión de voz a texto. Después del entrenamiento, vuelva a probar; si le satisface el resultado, ya puede implementar el modelo.
 
-6. [Implementar el modelo](how-to-custom-speech-deploy-model.md) : crear un punto de conexión personalizado para el modelo de voz a texto y usarla en sus aplicaciones, herramientas o productos.
+6. [Implemente el modelo](how-to-custom-speech-deploy-model.md): cree un punto de conexión personalizado para el modelo de conversión de voz a texto y úselo en sus aplicaciones, herramientas o productos.
 
-## <a name="set-up-your-azure-account"></a>Configurar una cuenta de Azure
+## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Para poder usar el portal de voz personalizado para crear un modelo personalizado, se necesita una suscripción de servicios de voz. Siga estas instrucciones para crear una suscripción estándar de servicios de voz: [Crear una suscripción de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Para poder usar el portal de Custom Speech y crear un modelo personalizado, se necesita una suscripción de Servicios de voz. Siga estas instrucciones para crear una suscripción estándar a Servicios de voz: [Creación de una suscripción a Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
-> Asegúrese de crear las suscripciones de estándar (S0), no se admiten suscripciones de prueba gratuita (F0).
+> Asegúrese de crear suscripciones estándar (S0); no se admiten las suscripciones de prueba gratuita (F0).
 
-Una vez que ha creado una cuenta de Azure y una suscripción de servicios de voz, deberá iniciar sesión en el portal de voz personalizado y conectarse a su suscripción.
+Después de crear la cuenta de Azure y la suscripción a Servicios de voz, deberá iniciar sesión en el portal de Custom Speech y conectarse a su suscripción.
 
-1. Obtenga su clave de suscripción de servicios de voz desde el portal de Azure.
-2. Inicie sesión en el [portal de voz personalizado](https://aka.ms/custom-speech).
-3. Seleccione la suscripción que necesita para trabajar en y crear un proyecto de voz.
-4. Si desea modificar su suscripción, utilice el **engranaje** icono se encuentra en el panel de navegación superior.
+1. Obtenga la clave de la suscripción de Servicios de voz en Azure Portal.
+2. Inicie sesión en el [portal de Custom Speech](https://aka.ms/custom-speech).
+3. Seleccione la suscripción que necesita para trabajar y crear un proyecto de voz.
+4. Si desea modificar la suscripción, utilice el icono **engranaje** situado en el panel de navegación superior.
 
-## <a name="how-to-create-a-project"></a>Cómo crear un proyecto
+## <a name="how-to-create-a-project"></a>Creación de un proyecto
 
-Contenido, como datos, modelos, las pruebas y los puntos de conexión se organizan en **proyectos** en el portal de voz personalizado. Cada proyecto es específica a un dominio y el país y el idioma. Por ejemplo, puede crear un proyecto para centros de llamadas que usan el inglés de Estados Unidos.
+El contenido, como datos, modelos, pruebas y puntos de conexión, se organiza en **proyectos** en el portal de Custom Speech. Cada proyecto es específico de un dominio y un país o idioma. Por ejemplo, puede crear un proyecto para centros de llamadas que usan el inglés en Estados Unidos.
 
-Para crear su primer proyecto, seleccione el **voz de voz a texto/personalizada**, a continuación, haga clic en **nuevo proyecto**. Siga las instrucciones proporcionadas por el Asistente para crear el proyecto. Después de crear un proyecto, debería ver cuatro pestañas: **Datos**, **pruebas**, **entrenamiento**, y **implementación**. Use los vínculos proporcionados en [pasos siguientes](#next-steps) para obtener información sobre cómo usar cada pestaña.
+Para crear su primer proyecto, seleccione **Speech-to-text/Custom speech** (Conversión de voz a texto/Conversión de voz personalizada) y, a continuación, haga clic en **New project** (Nuevo proyecto). Siga las instrucciones del asistente para crear el proyecto. Después de crear el proyecto, verá cuatro pestañas: **Datos**, **Pruebas**, **Entrenamiento** e **Implementación**. Use los vínculos incluidos en [Pasos siguientes](#next-steps) para aprender a usar cada pestaña.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Preparar y probar los datos](how-to-custom-speech-test-data.md)
-* [Inspeccione los datos](how-to-custom-speech-inspect-data.md)
-* [Evaluar los datos](how-to-custom-speech-evaluate-data.md)
-* [Entrenar el modelo.](how-to-custom-speech-train-model.md)
-* [Implementar el modelo](how-to-custom-speech-deploy-model.md)
+* [Preparación y prueba de los datos](how-to-custom-speech-test-data.md)
+* [Inspección de los datos](how-to-custom-speech-inspect-data.md)
+* [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
+* [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
+* [Implementación del modelo](how-to-custom-speech-deploy-model.md)

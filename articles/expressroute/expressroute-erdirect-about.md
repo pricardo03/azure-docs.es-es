@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: d7add3d509427d72e23d61d1777db7941c7550a4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657257"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807476"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -59,6 +59,22 @@ ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Stora
 | --- | --- |
 | **Ancho de banda suscrito**: 200 Gbps | **Ancho de banda suscrito**: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## <a name="technical-requirements"></a>Requisitos técnicos
+
+* Interfaces del enrutador de perímetro empresarial de Microsoft (MSEE):
+    * Puertos dobles Gigabit Ethernet 10 o 100 solo en pares de enrutadores.
+    * Conectividad de fibra LR de modo único.
+    * IPv4 e IPv6.
+    * MTU de IP de 1500 bytes.
+
+* Conectividad de nivel 2 o nivel 3 del conmutador o enrutador:
+    * Debe admitir una etiqueta 1 802.1Q (Dot1Q) o una encapsulación de etiquetas de dos etiquetas 802.1Q (QinQ).
+    * Ethertype = 0x8100.
+    * Debe agregar la etiqueta de VLAN externa (STAG) en función del identificador de VLAN especificado por Microsoft: *aplicable solo en QinQ*.
+    * Debe admitir varias sesiones de BGP (VLAN) por puerto y dispositivo.
+    * Conectividad IPv4 e IPv6. *Para IPv6, no se creará ninguna subinterfaz adicional. La dirección IPv6 se agregará a la subinterfaz existente*. 
+    * Opcional: Compatibilidad con la [detección de reenvío bidireccional (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd), que se configura de manera predeterminada en todos los emparejamientos privados en circuitos de ExpressRoute.
 
 ## <a name="vlan-tagging"></a>Etiquetado de VLAN
 

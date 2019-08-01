@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: 8521566087690523359b753b800268e75437a257
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384266"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtener conclusiones acerca de una imagen con Bing Image Search API
@@ -374,7 +374,7 @@ La respuesta muestra una entidad reconocida.
 
 ## <a name="finding-visually-similar-products"></a>Buscar productos visualmente similares  
 
-Para encontrar las imágenes que contienen productos visualmente similares a los productos que aparecen en la imagen original, establezca el [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) SimilarProducts parámetro de consulta.  
+Para buscar imágenes que contengan productos visualmente similares a los productos que aparecen en la imagen original, defina el parámetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) como SimilarProducts.  
 
 La solicitud siguiente muestra cómo obtener imágenes de productos visualmente similares. La solicitud utiliza el parámetro de consulta [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) para identificar la imagen original que se devolvió en una solicitud anterior. Para mejorar la relevancia, debe incluir la cadena de consulta del usuario.  
 

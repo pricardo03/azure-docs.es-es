@@ -1,6 +1,6 @@
 ---
 title: Ingesta de datos de Kafka en Azure Data Explorer
-description: En este artículo, obtendrá información sobre cómo introducir (cargar) datos en el Explorador de datos de Azure de Kafka.
+description: En este artículo obtendrá información sobre cómo ingerir (cargar) datos en Azure Data Explorer desde Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497276"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingesta de datos de Kafka en Azure Data Explorer
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Pasos siguientes
  
-* [Consultar los datos en el Explorador de datos de Azure](web-query-data.md)
+* [Consulta de datos en Azure Data Explorer](web-query-data.md)

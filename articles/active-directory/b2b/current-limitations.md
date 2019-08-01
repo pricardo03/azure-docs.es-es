@@ -1,5 +1,5 @@
 ---
-title: Limitaciones de colaboración de B2B - Azure Active Directory | Microsoft Docs
+title: Limitaciones de colaboración B2B de Azure Active Directory | Microsoft Docs
 description: Limitaciones actuales de la colaboración B2B de Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: b45277c89193c51f70836bcef8a21636fc9c7973
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113123"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitaciones de colaboración B2B de Azure AD
 La colaboración B2B de Active Directory (Azure AD) de Azure está sujeta actualmente a las limitaciones descritas en este artículo.
@@ -31,7 +31,7 @@ En los flujos de colaboración B2B, hemos agregado usuarios al directorio y los 
 Azure AD B2B está sujeto a los límites de directorio del servicio Azure AD. Para obtener más información sobre el número de directorios que puede crear un usuario y el número de directorios al que puede pertenecer un usuario o usuario invitado, consulte [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="national-clouds"></a>Nubes nacionales
-[Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) son instancias físicamente aisladas de Azure. No se admite la colaboración B2B a través de límites de la nube nacional. Por ejemplo, si su inquilino de Azure se encuentra en la nube pública, global, no se puede invitar a un usuario cuya cuenta se encuentra en una nube nacional. Para colaborar con el usuario, pídale a otra dirección de correo electrónico o crear una cuenta de usuario del miembro para ellos en el directorio.
+Las [nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) son instancias físicamente aisladas de Azure. La colaboración B2B no se admite más allá de los límites de la nube nacional. Por ejemplo, si el inquilino de Azure está en la nube global pública, no puede invitar a un usuario cuya cuenta está en una nube nacional. Para colaborar con el usuario, pídale otra dirección de correo electrónico o cree una cuenta de usuario miembro para él en el directorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059447"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight
 
@@ -39,9 +39,6 @@ Para **clústeres basados en Linux**: [https://hdiconfigactions.blob.core.window
 
 Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Requisitos**
 
 * Las scripts deben aplicarse tanto a los **nodos principales** como a los **nodos de trabajo**.
@@ -50,7 +47,7 @@ Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wind
 
 * La cuenta de almacenamiento que contiene la biblioteca de archivos JAR **debe** vincularse al clúster de HDInsight durante la creación. Debe ser la cuenta de almacenamiento predeterminada o una agregada a través de la __configuración opcional__.
 
-* La ruta de acceso de WASB al contenedor debe especificarse como un parámetro para la acción de script. Por ejemplo, si los archivos JAR se almacenan en un contenedor denominado **libs** en una cuenta de almacenamiento denominada **mystorage**, el parámetro sería **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
+* La ruta de acceso de WASB al contenedor debe especificarse como un parámetro para la acción de script. Por ejemplo, si los archivos JAR se almacenan en un contenedor llamado **libs** en una cuenta de almacenamiento llamada **mystorage**, el parámetro sería **wasb://libs\@mystorage.blob.core.windows.net/** .
 
   > [!NOTE]  
   > En este documento se supone que ha creado ya una cuenta de almacenamiento, contenedora de blobs, y ha cargado los archivos en ella.
@@ -78,7 +75,7 @@ Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wind
 
    * **ZOOKEEPER**: Déjelo en blanco.
 
-   * **PARÁMETROS**: escriba la dirección WASB que dirige al contenedor y la cuenta de almacenamiento que contiene los archivos JAR. Por ejemplo, **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARÁMETROS**: escriba la dirección WASB que dirige al contenedor y la cuenta de almacenamiento que contiene los archivos JAR. Por ejemplo, **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración.
 

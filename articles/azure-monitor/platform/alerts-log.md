@@ -1,6 +1,6 @@
 ---
-title: Crear, ver y administrar alertas de registro de Azure Monitor | Microsoft Docs
-description: Utilice al Monitor de Azure para crear, ver y administrar reglas de alertas de registro en Azure.
+title: Creación, visualización y administración de alertas de registro mediante Azure Monitor | Microsoft Docs
+description: Utilice Azure Monitor para crear, ver y administrar las reglas de alertas de registro en Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,10 +9,10 @@ ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427454"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
@@ -23,10 +23,10 @@ En este artículo se muestra cómo configurar las alertas de registro con la int
 - Criterios: condición o lógica específicas que, cuando se señaliza la alerta, deben desencadenar una acción.
 - Acción: llamada específica enviada a un receptor de una notificación (correo electrónico, SMS, webhook, etc.).
 
-El término **alertas del registro** para describir aquellas alertas cuya señal es una consulta de registro en un [área de trabajo de Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos de [Alertas de registro: información general](alerts-unified-log.md).
+El término **Alertas de registro** se usa para describir las alertas cuya señal es una consulta de registro basada en un [área de trabajo de Log Analytics](../learn/tutorial-viewdata.md) o en [Application Insights](../app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos de [Alertas de registro: información general](alerts-unified-log.md).
 
 > [!NOTE]
-> Datos de registro populares de [un área de trabajo de Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ahora también está disponible en la plataforma de métricas en Azure Monitor. Para obtener más detalles, consulte [Alerta de métricas de los registros](alerts-metric-logs.md).
+> Ahora los datos de registro populares de [un área de trabajo de Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) también están disponibles en la plataforma de métricas de Azure Monitor. Para obtener más detalles, consulte [Alerta de métricas de los registros](alerts-metric-logs.md).
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Administración de las alertas de registro desde Azure Portal
 
@@ -58,7 +58,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
    > [!NOTE]
    > 
-   > Las listas de las alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por lo que los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas - en más detalles sobre el uso de consultas guardadas en [mediante la consulta de registro en Azure Monitor](../log-query/log-query-overview.md) o [consulta compartida en application insights analytics ](../log-query/log-query-overview.md).
+   > Las listas de las alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Introducción a las consultas de registro en Azure Monitor](../log-query/log-query-overview.md) o [Consulta compartida en Analytics de Application Insights](../log-query/log-query-overview.md).
 
 1. *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
@@ -205,7 +205,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 ```
 
 > [!IMPORTANT]
-> Campo de etiqueta con vínculo oculto para el recurso de destino es obligatorio en el uso de [reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) plantilla de llamada o un recurso de API.
+> El campo de etiqueta con vínculo oculto al recurso de destino es obligatorio con el uso de la plantilla de recursos o la llamada a la API de [Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -304,7 +304,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 ```
 
 > [!IMPORTANT]
-> Campo de etiqueta con vínculo oculto para el recurso de destino es obligatorio en el uso de [reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) plantilla de llamada o un recurso de API. Si usa una consulta entre recursos en la alerta de registros, el uso de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) es obligatorio y el usuario debe acceder a la lista de los recursos indicados.
+> El campo de etiqueta con vínculo oculto al recurso de destino es obligatorio con el uso de la plantilla de recursos o la llamada a la API de [Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Si usa una consulta entre recursos en la alerta de registros, el uso de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) es obligatorio y el usuario debe acceder a la lista de los recursos indicados.
 
 El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -312,32 +312,32 @@ El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQuery
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor: [API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API de REST y totalmente compatible con la REST API de Azure Resource Manager. Y los cmdlets de PowerShell que se enumeran a continuación están disponibles para aprovechar la [API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+Azure Monitor: [API de Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API REST totalmente compatible con la API REST de Azure Resource Manager. Y los cmdlets de PowerShell que se enumeran a continuación están disponibles para aprovechar la [API de Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Cmdlet de PowerShell para crear una nueva regla de alerta de registro.
-1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Cmdlet de PowerShell para actualizar una regla de alerta de registro existente.
-1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de origen para una alerta de registro. Usar como entrada por [New AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [conjunto AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): Cmdlet de PowerShell para crear o actualizar objeto especificando parámetros de programación de una alerta de registro. Usar como entrada por [New AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [conjunto AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de acción para una alerta de registro. Usar como entrada por [New AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [conjunto AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : Cmdlet de PowerShell para crear o actualizar el objeto que especifica la acción agrupa parámetros para una alerta de registro. Usar como entrada por [New AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : Cmdlet de PowerShell para crear o actualizar objeto especificando parámetros de la condición de desencadenador de alerta de registro. Usar como entrada por [New AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : Cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de la condición de desencadenador de métricas para [alerta de registro del tipo de unidades métricas](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usar como entrada por [New AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
-1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Cmdlet de PowerShell a la lista existente registrar reglas de alerta o una regla de alerta de registro específicos
-1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : Cmdlet de PowerShell para habilitar o deshabilitar la regla de alerta de registro
-1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): Cmdlet de PowerShell para eliminar una regla de alerta de registro existente
+1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule): cmdlet de PowerShell para crear una nueva regla de alerta de registro.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule): cmdlet de PowerShell para actualizar una regla de alerta de registro.
+1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de origen para una alerta de registro. Se usa como entrada en los cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de programación para una alerta de registro. Se usa como entrada en los cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de acción para una alerta de registro. Se usa como entrada en los cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) y [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de grupos para una alerta de registro. Se usa como entrada en el cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de condición de desencadenador para una alerta de registro. Se usa como entrada en el cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): cmdlet de PowerShell para crear o actualizar el objeto que especifica los parámetros de condición de desencadenador para una [alerta de registro de tipo de medida de métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Se usa como entrada en el cmdlet [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition).
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule): cmdlet de PowerShell para enumerar las reglas de alerta de registro o una regla de alerta de registro específica
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule): cmdlet de PowerShell para habilitar o deshabilitar la regla de alerta de registro
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): cmdlet de PowerShell para eliminar una regla de alerta de registro
 
 > [!NOTE]
-> Cmdlets de ScheduledQueryRules PowerShell solo pueden administrar las reglas creadas cmdlet propio o mediante Azure Monitor - [API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Registrar reglas de alerta creadas mediante heredado [API de alerta de Log Analytics](api-alerts.md) y plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions-resources-searches-alerts.md) pueden administrarse mediante los cmdlets de ScheduledQueryRules PowerShell sólo después usuario [cambia la preferencia de API para alertas de Log Analytics](alerts-log-api-switch.md).
+> Los cmdlets de PowerShell ScheduledQueryRules solo pueden administrar las reglas creadas por el propio cmdlet o mediante Azure Monitor: [API de Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Las reglas de alerta de registro creadas con la [API de alertas de Log Analytics](api-alerts.md) antiguas y las plantillas antiguas de [alertas y búsquedas guardadas de Log Analytics](../insights/solutions-resources-searches-alerts.md) pueden administrarse mediante los cmdlets de PowerShell ScheduledQueryRules solo después de que el usuario [cambie la preferencia de API a las alertas de Log Analytics](alerts-log-api-switch.md).
 
-## <a name="managing-log-alerts-using-cli-or-api"></a>Administración de alertas de registro mediante la CLI o la API
+## <a name="managing-log-alerts-using-cli-or-api"></a>Administración de alertas de registro con la CLI o la API
 
-Azure Monitor: [API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API de REST y totalmente compatible con la REST API de Azure Resource Manager. Por lo que puede usar a través de Powershell mediante los comandos del Administrador de recursos para la CLI de Azure.
+Azure Monitor: [API de Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API REST totalmente compatible con la API REST de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con los comandos de Resource Manager para la CLI de Azure.
 
 
 > [!NOTE]
 > Las alertas de registro de Log Analytics también se puede administrar mediante [Alert API de Log Analytics](api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions-resources-searches-alerts.md) también. Para más información acerca del uso de la nueva API de Reglas de consulta programadas detallada aquí de forma predeterminada, consulte [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md) (Cambio a una API nueva de alertas de Log Analytics).
 
-Las alertas del registro actualmente no tiene los comandos CLI dedicados actualmente; pero, como se muestra a continuación pueden utilizarse a través del comando de CLI de Azure Resource Manager de ejemplo de plantilla de recursos que se muestra anteriormente (sampleScheduledQueryRule.json) en la sección de la plantilla de recursos:
+Actualmente, las alertas de registro no tienen comandos de la CLI dedicados; pero, como se muestra a continuación, se pueden usar mediante el cmdlet de la CLI de Azure Resource Manager para la plantilla de recursos de muestra que se mostró anteriormente (sampleScheduledQueryRule.json) en la sección Plantilla de recursos:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
@@ -350,4 +350,4 @@ Si la operación se realiza correctamente, se devolverá 201 para indicar que se
 * Más información sobre las [alertas de registro en las alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Conocer las [acciones de webhook para alertas de registro](../../azure-monitor/platform/alerts-log-webhook.md)
 * Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
-* Obtenga más información sobre [registrar consultas](../log-query/log-query-overview.md).
+* Obtenga más información sobre [consultas de registro](../log-query/log-query-overview.md).

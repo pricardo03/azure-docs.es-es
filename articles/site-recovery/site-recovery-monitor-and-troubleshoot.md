@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497544"
 ---
-# <a name="monitor-site-recovery"></a>Monitor de recuperación de sitios
+# <a name="monitor-site-recovery"></a>Supervisión de Site Recovery
 
 En este artículo, aprenderá a usar las características de supervisión integradas de Azure Site Recovery para la supervisión y solución de problemas. 
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a usar las características de supervisión integr
 
 En la sección de elementos replicados se muestra el estado de todas las máquinas que tienen habilitada la replicación en el almacén.
 
-**Estado** | **Detalles**
+**State** | **Detalles**
 --- | ---
 Healthy | La replicación progresa con normalidad. No se ha detectado ningún síntoma de error o advertencia.
 Advertencia | Se han detectado uno o varios síntomas de advertencia que podrían afectar a la replicación.
@@ -49,7 +49,7 @@ Puede ver el estado de conmutación por error de prueba para las máquinas en el
 - Recomendamos que ejecute una conmutación por error de prueba en máquinas replicadas al menos una vez cada seis meses. Es una forma de comprobar que la conmutación por error funciona según lo esperado sin interrumpir su entorno de producción. 
 - Una conmutación por error de prueba se considera correcta solo después de que la conmutación por error y la limpieza posterior a la conmutación por error se hayan completado correctamente.
 
-**Estado** | **Detalles**
+**State** | **Detalles**
 --- | ---
 Prueba recomendada | Máquinas que no han tenido una conmutación por error de prueba desde que se habilitó la protección.
 Realizada correctamente | Máquinas con una o varias conmutaciones por error de prueba correctas.
@@ -62,7 +62,7 @@ La sección **Problemas de configuración** muestra una lista de problemas que p
 - Los problemas de configuración (salvo en el caso de la disponibilidad de actualizaciones de software) se detectan mediante una operación periódica de validador que se ejecuta cada 12 horas de forma predeterminada. Puede forzar la operación de validador para que se ejecute inmediatamente; para ello, haga clic en el icono de actualización junto al encabezado de la sección **Problemas de configuración**.
 - Haga clic en los vínculos para obtener más detalles. En caso de producirse problemas que afecten a máquinas específicas, haga clic en **Necesita atención** en la columna **Configuraciones de destino**. Entre los detalles se incluyen recomendaciones de corrección.
 
-**Estado** | **Detalles**
+**State** | **Detalles**
 --- | ---
 Configuraciones que faltan | Falta una configuración necesaria, como una red de recuperación o un grupo de recursos.
 Recursos que faltan | Un recurso especificado no se encuentra o no está disponible en la suscripción. Por ejemplo, el recurso se eliminó o migró. Entre los recursos supervisados se incluían el grupo de recursos de destino, la red virtual o subred de destino, la cuenta de almacenamiento de registro o destino, el conjunto de disponibilidad de destino y la dirección IP de destino.
@@ -84,7 +84,7 @@ La sección **Resumen de errores** muestra los síntomas de los errores actualme
 En la **Vista de la infraestructura** se muestran los componentes de infraestructura implicados en la replicación, así como el estado de conectividad entre los servidores y los servicios de Azure.
 
 - Una línea verde indica que el estado de la conexión es correcto.
-- Una línea roja con el icono de error superpuesto indica la existencia de uno o varios síntomas de error que afectará a la conectividad.
+- Una línea roja con el icono de error superpuesto indica la existencia de uno o varios síntomas de error que afectan a la conectividad.
 -  Mantenga el puntero del mouse sobre el icono del error para mostrar el error y el número de entidades afectadas. Haga clic en el icono de una lista filtrada de entidades afectadas.
 
     ![Vista de la infraestructura de Site Recovery (almacén)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -95,14 +95,14 @@ En la **Vista de la infraestructura** se muestran los componentes de infraestruc
 - Para usar todas las características en la vista de la infraestructura, debe ejecutar el [paquete acumulativo de actualizaciones 22](https://support.microsoft.com/help/4072852) para estos componentes.
 - Para utilizar la vista de la infraestructura, seleccione el escenario de replicación adecuado en su entorno. Puede explorar en profundidad en la vista para obtener más detalles. En la siguiente tabla se muestran los escenarios representados.
 
-    **Escenario** | **Estado**  | **¿Vista disponible?**
+    **Escenario** | **State**  | **¿Vista disponible?**
     --- |--- | ---
     **Replicación entre sitios locales** | Todos los estados | Sin 
     **Replicación de máquina virtual de Azure entre las regiones de Azure**  | Replicación habilitada/replicación inicial en curso | Sí
-    **Replicación de máquina virtual de Azure entre las regiones de Azure** | Conmutada por error/conmutación por recuperación | No   
+    **Replicación de máquina virtual de Azure entre las regiones de Azure** | Conmutada por error/conmutación por recuperación | Sin   
     **Replicación de VMware en Azure** | Replicación habilitada/replicación inicial en curso | Sí     
     **Replicación de VMware en Azure** | Conmutada por error/conmutada por recuperación | Sin      
-    **Replicación de Hyper-V en Azure** | Conmutada por error/conmutada por recuperación | No
+    **Replicación de Hyper-V en Azure** | Conmutada por error/conmutada por recuperación | Sin
 
 - Para ver la vista de la infraestructura para una sola máquina de replicación, en el menú Almacén, haga clic en **Elementos replicados** y seleccione un servidor.  
 
@@ -190,7 +190,7 @@ Puede suscribirse para recibir notificaciones por correo electrónico para estos
 
 Suscríbase de la siguiente manera:
 
-En el almacén > **supervisión** sección, haga clic en **eventos de Site Recovery**.
+En el almacén > sección **Supervisión**, haga clic en **Eventos de Site Recovery**.
 1. Haga clic en **Notificaciones por correo electrónico**.
 1. En **Notificaciones por correo electrónico**, active las notificaciones y especifique a quién deben enviarse. Puede enviarlas a todos los administradores de suscripción y, de forma opcional, a direcciones de correo electrónico específicas.
 

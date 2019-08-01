@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241185"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
@@ -53,7 +53,7 @@ Para ver y configurar las opciones de configuración Git, puede hacer clic en el
 ![Habilitar GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Los secretos que no estén definidos como valores con nombre se almacenará en el repositorio y permanecerán en su historial hasta que deshabilitar y volver a habilitar el acceso de Git. Valores con nombre proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, a través de toda la configuración de la API y las directivas, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para obtener más información, consulte [cómo usar los valores con nombre en las directivas de Azure API Management](api-management-howto-properties.md).
+> Los secretos que no se definan como valores con nombre se almacenarán en el repositorio y permanecerán en su historial hasta que deshabilite y vuelva a habilitar el acceso de Git. Los valores con nombre proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, en toda la configuración y las directivas de API, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para más información, consulte [Cómo usar valores con nombre en las directivas de Azure API Management](api-management-howto-properties.md).
 >
 >
 
@@ -165,7 +165,7 @@ Cada carpeta puede contener uno o varios archivos y, en algunos casos, una o var
 | --- | --- |
 | json |Información de configuración acerca de la entidad correspondiente |
 | html |Descripción de la entidad, a menudo mostrada en el portal para desarrolladores |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Hojas de estilo para la personalización del portal para desarrolladores |
 
 Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de archivos local, y los cambios se pueden implementar de nuevo en la instancia de servicio de API Management.

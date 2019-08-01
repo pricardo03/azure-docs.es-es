@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 5ffe75a58a8cfb2409af3a65ff822023d7ccf5d4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508469"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de LinkedIn mediante Azure Active Directory B2C
@@ -41,6 +41,6 @@ Para usar una cuenta de LinkedIn como [proveedor de identidades](active-director
 7. Seleccione **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de cliente que anotó anteriormente como el valor de **Client ID**, y el secreto de cliente que registró como **Client Secret** de la aplicación de LinkedIn que creó anteriormente.
 8. Haga clic en **OK** (Aceptar) y en **Create** (Crear) para guardar la configuración de la cuenta de LinkedIn.
 
-## <a name="migration-from-v10-to-v20"></a>Migración desde v1.0, v2.0
+## <a name="migration-from-v10-to-v20"></a>Migración desde la versión 1.0 a la 2.0
 
-LinkedIn recientemente [actualizan sus API desde v1.0 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Como parte de la migración, solo es capaz de obtener el nombre completo del usuario de LinkedIn durante la suscripción a Azure AD B2C. Si una dirección de correo electrónico es uno de los atributos que se recopilan durante el proceso de suscripción, el usuario debe manualmente escriba la dirección de correo electrónico y validarlo.
+LinkedIn [ha actualizado recientemente sus API de la versión 1.0 a la 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Como parte de la migración, Azure AD B2C solo es capaz de obtener el nombre completo del usuario de LinkedIn durante la suscripción. Si una dirección de correo electrónico es uno de los atributos que se recopilan durante el proceso de suscripción, el usuario debe escribir manualmente la dirección de correo electrónico y validarla.

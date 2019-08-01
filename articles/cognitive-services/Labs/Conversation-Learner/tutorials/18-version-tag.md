@@ -1,5 +1,5 @@
 ---
-title: Uso de etiquetado de versión con un modelo de aprendiz conversación - Azure Cognitive Services | Microsoft Docs
+title: 'Uso del etiquetado de versiones con un modelo de Conversation Learner: Azure Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
 description: Obtenga información sobre cómo usar el control de versiones y el etiquetado con un modelo de Conversation Learner.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475713"
 ---
 # <a name="how-to-use-version-tagging"></a>Uso del etiquetado de versiones
@@ -109,4 +109,4 @@ Ya ha visto cómo funciona el control de versiones y cómo puede interactuar con
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Las entidades de Enum y establezca las acciones de entidad](./tutorial-enum-set-entity.md)
+> [Entidades ENUM y acciones SET ENTITY](./tutorial-enum-set-entity.md)

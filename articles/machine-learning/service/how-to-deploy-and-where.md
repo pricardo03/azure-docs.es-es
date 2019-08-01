@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514304"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260343"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -332,12 +332,12 @@ La tabla siguiente proporciona un ejemplo de creación de una configuración de 
 Las secciones siguientes muestran cómo crear la configuración de implementación y cómo usarla posteriormente para implementar el servicio web.
 
 ### <a name="optional-profile-your-model"></a>Opcional: Generación del perfil del modelo
-Antes de implementar el modelo como un servicio, puede que desee generar un perfil para determinar los requisitos de CPU y memoria óptimos. Puede generar perfiles del modelo mediante el SDK o la CLI.
 
-Para más información, revise la documentación del SDK aquí: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+Antes de implementar el modelo como un servicio, puede generar perfiles de este para determinar los requisitos de CPU y memoria óptimos mediante el SDK o la CLI.  Los resultados de la generación de perfiles del modelo se emiten como un objeto `Run`. Los detalles completos del [esquema del perfil de modelo se pueden encontrar en la documentación de la API](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py).
 
-Los resultados de la generación de perfiles del modelo se emiten como un objeto de ejecución.
-Puede encontrar los detalles específicos sobre el esquema de generación de perfiles del modelo aquí: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Obtenga más información [sobre cómo generar perfiles de su modelo con el SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-).
+
+Para generar perfiles de su modelo mediante la CLI, use [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 ## <a name="deploy-to-target"></a>Implementación en el destino
 
@@ -356,9 +356,27 @@ Para implementar de forma local, deberá tener **Docker instalado** en la máqui
 
 + **Uso de la CLI**
 
+    Para realizar una implementación con la CLI, use el siguiente comando. Reemplace `mymodel:1` por el nombre y la versión del modelo registrado:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Las entradas del documento `deploymentconfig.json` se asignan a los parámetros de [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
+
+    | Entidad JSON | Parámetro de método | DESCRIPCIÓN |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | El destino de proceso. Para una implementación local, el valor tiene que ser `local`. |
+    | `port` | `port` | Puerto local en el que se va a exponer el punto de conexión HTTP del servicio. |
+
+    El siguiente JSON es un ejemplo de la configuración de implementación que se puede usar con la CLI:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +397,44 @@ Para ver la disponibilidad de cuotas y regiones de ACI, consulte el artículo [D
 
 + **Uso de la CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    Para realizar una implementación con la CLI, use el siguiente comando. Reemplace `mymodel:1` por el nombre y la versión del modelo registrado. Reemplace `myservice` por el nombre que quiere asignar a este servicio:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    Las entradas del documento `deploymentconfig.json` se asignan a los parámetros de [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
+
+    | Entidad JSON | Parámetro de método | DESCRIPCIÓN |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | El destino de proceso. Para ACI, el valor tiene que ser `ACI`. |
+    | `containerResourceRequirements` | N/D | Contiene los elementos de configuración para la CPU y la memoria asignadas al contenedor. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Número de núcleos de CPU que se asigna a este servicio web. El valor predeterminado es `0.1`. |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Cantidad de memoria (en GB) que se va a asignar a este servicio web. El valor predeterminado es `0.5`. |
+    | `location` | `location` | Región de Azure en la que se implementará este servicio web. Si no se especifica, se usará la ubicación del área de trabajo. Puede encontrar más información sobre las regiones disponibles aquí: [Regiones de ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Indica si se debe habilitar o no la autenticación para este servicio web. El valor predeterminado es False. |
+    | `sslEnabled` | `ssl_enabled` | Indica si se debe habilitar o no SSL para este servicio web. El valor predeterminado es False. |
+    | `appInsightsEnabled` | `enable_app_insights` | Indica si se debe habilitar o no AppInsights para este servicio web. El valor predeterminado es False. |
+    | `sslCertificate` | `ssl_cert_pem_file` | Archivo de certificado necesario si SSL está habilitado |
+    | `sslKey` | `ssl_key_pem_file` | Archivo de clave necesario si SSL está habilitado |
+    | `cname` | `ssl_cname` | CNAME para si SSL está habilitado |
+    | `dnsNameLabel` | `dns_name_label` | Etiqueta del nombre DNS para el punto de conexión de puntuación. Si no se especifica, se generará una etiqueta de nombre DNS única para el punto de conexión de puntuación. |
+
+    El siguiente JSON es un ejemplo de la configuración de implementación que se puede usar con la CLI:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **Uso de Visual Studio Code**
 
@@ -414,9 +466,71 @@ Si ya tiene un clúster de AKS asociado, puede realizar la implementación en é
 
 + **Uso de la CLI**
 
+    Para realizar una implementación con la CLI, use el siguiente comando. Reemplace `myaks` por el nombre del destino de proceso de AKS. Reemplace `mymodel:1` por el nombre y la versión del modelo registrado. Reemplace `myservice` por el nombre que quiere asignar a este servicio:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Las entradas del documento `deploymentconfig.json` se asignan a los parámetros de [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
+
+    | Entidad JSON | Parámetro de método | DESCRIPCIÓN |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | El destino de proceso. Para AKS, el valor tiene que ser `aks`. |
+    | `autoScaler` | N/D | Contiene elementos de configuración para la escalabilidad automática. Consulte la tabla del escalador automático. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Indica si se debe habilitar o no la escalabilidad automática para el servicio web. Si `numReplicas` = `0`, `True`; de lo contrario, `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Número mínimo de contenedores que se van a usar al escalar automáticamente este servicio web. El valor predeterminado es `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Número máximo de contenedores que se van a usar al escalar automáticamente este servicio web. El valor predeterminado es `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Frecuencia con la que el escalador automático intenta escalar este servicio web. El valor predeterminado es `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Uso objetivo (en un porcentaje de 100) que el escalador automático debe intentar mantener para este servicio web. El valor predeterminado es `70`. |
+    | `dataCollection` | N/D | Contiene elementos de configuración para la colección de datos. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indica si se debe habilitar o no la recopilación de datos del modelo para el servicio web. El valor predeterminado es `False`. |
+    | `authEnabled` | `auth_enabled` | Indica si se debe habilitar o no la autenticación para el servicio web. El valor predeterminado es `True`. |
+    | `containerResourceRequirements` | N/D | Contiene los elementos de configuración para la CPU y la memoria asignadas al contenedor. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Número de núcleos de CPU que se asigna a este servicio web. El valor predeterminado es `0.1`. |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Cantidad de memoria (en GB) que se va a asignar a este servicio web. El valor predeterminado es `0.5`. |
+    | `appInsightsEnabled` | `enable_app_insights` | Indica si se debe habilitar o no el registro de Application Insights para el servicio web. El valor predeterminado es `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | Tiempo de espera que se aplicará a las llamadas de puntuación al servicio web. El valor predeterminado es `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Número máximo de solicitudes simultáneas por nodo para este servicio web. El valor predeterminado es `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | Tiempo máximo en que una solicitud permanecerá en la cola (en milisegundos) antes de que se devuelva un error 503. El valor predeterminado es `500`. |
+    | `numReplicas` | `num_replicas` | Número de contenedores que se asignarán a este servicio web. No hay ningún valor predeterminado. Si no se establece este parámetro, el escalador automático está habilitado de forma predeterminada. |
+    | `keys` | N/D | Contiene elementos de configuración para las claves. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | Clave de autenticación principal que se usará para este servicio web |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | Clave de autenticación secundaria que se usará para este servicio web |
+    | `gpuCores` | `gpu_cores` | Número de núcleos de GPU que se asignará a este servicio web. El valor predeterminado es 1. |
+    | `livenessProbeRequirements` | N/D | Contiene elementos de configuración para los requisitos de sondeo de ejecución. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Frecuencia (en segundos) en que se ejecutará el sondeo de ejecución. El valor predeterminado es de 10 segundos. El valor mínimo es 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Número de segundos después de que se haya iniciado el contenedor antes de que se inicien los sondeos de ejecución. El valor predeterminado es 310. |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Número de segundos tras el que el sondeo de ejecución agota el tiempo de espera. El valor predeterminado es de 2 segundos. El valor mínimo es 1. |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Número mínimo de valores correctos consecutivos para que el sondeo de ejecución se considere correcto después de que se haya producido un error. De manera predeterminada, su valor es 1. El valor mínimo es 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Cuando se inicie un pod y se produzca un error en el sondeo de ejecución, Kubernetes probará failureThreshold varias veces antes de abandonarlo. El valor predeterminado es 3. El valor mínimo es 1. |
+    | `namespace` | `namespace` | Espacio de nombres de Kubernetes en el que está implementado el servicio web. Hasta 63 caracteres alfanuméricos en minúsculas (de la "a" a la "z" y de "0" a "9") y guiones ("-"). El primer y el último carácter no puede ser un guion. |
+
+    El siguiente JSON es un ejemplo de la configuración de implementación que se puede usar con la CLI:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **Uso de Visual Studio Code**
 

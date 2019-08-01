@@ -3,20 +3,20 @@ title: 'Puntuación de confianza: QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Esta puntuación de confianza indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792750"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165133"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Puntuación de confianza de una base de conocimiento de QnA Maker
 Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión. 
@@ -56,6 +56,12 @@ Al elegir el umbral, tenga en cuenta el equilibrio entre los valores de Precisi�
 
 > [!NOTE]
 > Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Establecimiento del umbral 
+
+Establezca la puntuación del umbral como una propiedad del [cuerpo JSON GenerateAnswer API](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Esto significa que se configura para cada llamada en GenerateAnswer. 
+
+En la plataforma de bots, establezca la puntuación como parte del objeto de opciones con [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) o [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Mejorar las puntuaciones de confianza
 Para mejorar la puntuación de confianza de una respuesta concreta a una consulta de usuario, puede agregar la consulta del usuario a la base de conocimiento como una pregunta alternativa en la respuesta. También puede usar [alteraciones de palabras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que no distinguen mayúsculas de minúsculas para agregar sinónimos a las palabras clave en la KB.

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076907"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 
@@ -38,7 +38,7 @@ En [SQL Server images provisioned in the Azure portal](quickstart-sql-vm-create-
 
 La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en Azure Virtual Machines:
 
-| Área | Optimizaciones |
+| Ámbito | Optimizaciones |
 | --- | --- |
 | [Tamaño de VM](#vm-size-guidance) | - [DS3_v2](../sizes-general.md), o superior, para la edición SQL Enterprise.<br/><br/> - [DS2_v2](../sizes-general.md), o superior, para las ediciones SQL Standard y Web. |
 | [Storage](#storage-guidance) | - Use [unidades de estado sólido prémium](../disks-types.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/> - Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la máquina virtual con SQL Server en la misma región.<br/><br/> * Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
@@ -55,7 +55,7 @@ En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tam
 * **SQL Server Enterprise Edition**: DS3_v2 o superior
 * **Ediciones de SQL Server Standard y Web**: DS2_v2 o superior
 
-[Serie DSv2](../sizes-general.md#dsv2-series): las máquinas virtuales admiten el almacenamiento Premium, lo que se recomienda para optimizar el rendimiento. Los tamaños recomendados aquí son líneas de base, pero el tamaño real de la máquina que seleccione depende de las demandas de carga de trabajo. Las máquinas virtuales de la serie DSv2 son máquinas virtuales de uso general adecuadas para una gran variedad de cargas de trabajo, mientras que otros tamaños de máquinas están optimizados para tipos específicos de carga de trabajo. Por ejemplo, la [serie M](../sizes-memory.md#m-series) ofrece la mayor cantidad de vCPU y memoria para las mayores cargas de trabajo de SQL Server. Las [series GS](../sizes-memory.md#gs-series) y [DSv2 series 11-15](../sizes-memory.md#dsv2-series-11-15) están optimizadas para grandes requisitos de memoria. Ambas series también están disponibles en [ tamaños de núcleo limitados](../../windows/constrained-vcpu.md), lo que ahorra dinero para cargas de trabajo con menores exigencias de proceso. Las máquinas de la [serie Ls](../sizes-storage.md) están optimizadas para un alto rendimiento de disco y E/S. Es importante considerar la carga de trabajo específica de SQL Server y aplicarla a la selección de una serie y tamaño de máquina virtual.
+[Serie DSv2](../sizes-general.md#dsv2-series): las máquinas virtuales admiten el almacenamiento Premium, lo que se recomienda para optimizar el rendimiento. Los tamaños recomendados aquí son líneas de base, pero el tamaño real de la máquina que seleccione depende de las demandas de carga de trabajo. Las máquinas virtuales de la serie DSv2 son máquinas virtuales de uso general adecuadas para una gran variedad de cargas de trabajo, mientras que otros tamaños de máquinas están optimizados para tipos específicos de carga de trabajo. Por ejemplo, la [serie M](../sizes-memory.md#m-series) ofrece la mayor cantidad de vCPU y memoria para las mayores cargas de trabajo de SQL Server. Las [series GS](../sizes-previous-gen.md#gs-series) y [DSv2 series 11-15](../sizes-memory.md#dsv2-series-11-15) están optimizadas para grandes requisitos de memoria. Ambas series también están disponibles en [ tamaños de núcleo limitados](../../windows/constrained-vcpu.md), lo que ahorra dinero para cargas de trabajo con menores exigencias de proceso. Las máquinas de la [serie Ls](../sizes-storage.md) están optimizadas para un alto rendimiento de disco y E/S. Es importante considerar la carga de trabajo específica de SQL Server y aplicarla a la selección de una serie y tamaño de máquina virtual.
 
 ## <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
@@ -179,7 +179,7 @@ Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB i
 
 Algunas implementaciones pueden lograr ventajas de rendimiento adicionales mediante técnicas de configuración más avanzadas. En la siguiente lista se destacan algunas características de SQL Server que pueden ayudarle a lograr un mejor rendimiento:
 
-### <a name="backup-to-azure-storage"></a>Copia de seguridad en almacenamiento de Azure
+### <a name="backup-to-azure-storage"></a>Copia de seguridad en Azure Storage
 al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar una [Copia de seguridad en URL de SQL Server](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQL Server a Azure](https://www.microsoft.com/download/details.aspx?id=40740). Esta herramienta puede ayudar a aumentar el rendimiento de la copia de seguridad con varios destinos de franjas de copia de seguridad.
@@ -188,11 +188,11 @@ Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQ
 
 esta nueva característica ([Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx)) está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
 
-### <a name="failover-cluster-instance-and-storage-spaces"></a>Instancia de clúster de conmutación por error y espacios de almacenamiento
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Instancia de clúster de conmutación por error y Espacios de almacenamiento
 
-Si usa espacios de almacenamiento, al agregar nodos al clúster en el **confirmación** página, desactive la casilla **agregar todo el almacenamiento apto al clúster**. 
+Si usa Espacios de almacenamiento, al agregar nodos al clúster en la página **Confirmación**, desactive la casilla **Agregar todo el almacenamiento apto al clúster**. 
 
-![Desactive el almacenamiento apto](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+![Desactivación del almacenamiento apto](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
 
 Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](/windows-server/storage/storage-spaces/overview).
 

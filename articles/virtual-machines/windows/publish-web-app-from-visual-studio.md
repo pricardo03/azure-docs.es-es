@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305925"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
-Este documento describe cómo publicar una aplicación web ASP.NET en una máquina virtual de Azure (VM) mediante el **Microsoft Azure Virtual Machines** característica de publicación en Visual Studio de 2019.  
+En este documento se describe cómo publicar una aplicación web ASP.NET en una máquina virtual de Azure mediante la característica de publicación **Microsoft Azure Virtual Machines** de Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máquina virtual de Azure, la máquina virtual debe estar correctamente configurada.
@@ -34,7 +34,7 @@ A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máq
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicación de la aplicación web ASP.NET en la máquina virtual de Azure con Visual Studio
 En la siguiente sección se describe cómo publicar una aplicación web ASP.NET existente en una máquina virtual de Azure.
 
-1. Abra la solución de aplicación web en Visual Studio de 2019.
+1. Abra la solución de la aplicación web en Visual Studio 2019.
 2. Haga clic con el botón derecho en el Explorador de soluciones y elija **Publicar...**
 3. Con la flecha situada a la derecha de la página, desplácese por las opciones de publicación hasta que encuentre **Microsoft Azure Virtual Machines**.  
 
@@ -58,7 +58,7 @@ En la siguiente sección se describe cómo publicar una aplicación web ASP.NET 
 
 7. Haga clic en Aceptar para empezar a publicar.
 
-8. Cuando se le solicite las credenciales, proporcione el nombre de usuario y la contraseña de una cuenta de usuario en la máquina virtual que está configurada con derechos de publicación de destino. Estas credenciales normalmente son el nombre de usuario administrador y la contraseña que utilizó al crear la máquina virtual.  
+8. Cuando se le pidan las credenciales, proporcione el nombre de usuario y la contraseña de una cuenta de usuario de la máquina virtual de destino que esté configurada con derechos de publicación. Estas credenciales normalmente son el nombre de usuario administrador y la contraseña que utilizó al crear la máquina virtual.  
 
    ![Inicio de sesión de WebDeploy]
 
@@ -99,14 +99,14 @@ La configuración debería ser similar a la que se muestra a continuación:
 ![Configuración de publicación: página de conexión]
 
 #### <a name="save-user-name-and-password"></a>Guardado de nombre de usuario y contraseña
-- Evite proporcionar información de autenticación cada vez que publique. Para ello, rellene el **nombre de usuario** y **contraseña** campos y seleccione el **Guardar contraseña** cuadro.
+- Evite proporcionar información de autenticación cada vez que publique. Para ello, rellene los campos **Nombre de usuario** y **Contraseña** y seleccione la casilla **Guardar contraseña**.
 - Use el botón **Validar conexión** para confirmar que ha escrito la información correcta.
 
 #### <a name="deploy-to-clean-web-server"></a>Implementación en servidor web limpio
 
-- Si desea asegurarse de que el servidor web tiene una copia limpia de la aplicación web después de cada carga y que ningún otro archivo quedan desde una implementación anterior, puede comprobar el **quitar archivos adicionales en destino** casilla de verificación en la  **Configuración** ficha.
+- Si desea asegurarse de que el servidor web tiene una copia limpia de la aplicación web después de cada carga y que no quedan otros archivos de una implementación anterior, puede activar la casilla **Eliminar archivos adicionales en el destino** en la pestaña **Configuración**.
 
-- Advertencia: Publicación con este parámetro elimina todos los archivos que existen en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
+- Advertencia: la publicación con este parámetro elimina todos los archivos existentes en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
 
 ![Configuración de publicación: página de configuración]
 

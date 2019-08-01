@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186279"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286169"
 ---
 Las galerías de imágenes compartidas le permiten compartir las imágenes mediante RBAC. Puede utilizar RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 
 
@@ -46,7 +46,7 @@ Conceda permiso al registro de aplicación para usar la Galería de imágenes co
 
 ## <a name="give-tenant-2-access"></a>Conceder acceso a Inquilino 2
 
-Conceda acceso a Inquilino 2 a la aplicación solicitando un inicio de sesión mediante un explorador. Reemplace *<Tenant2 ID>* con el identificador del inquilino con el que le gustaría compartir la galería de imágenes. Reemplace *<Identificador de la aplicación (cliente)>* con el identificador de la aplicación del registro de aplicación que creó. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en Inquilino 2.
+Conceda acceso a Inquilino 2 a la aplicación solicitando un inicio de sesión mediante un explorador. Reemplace *\<Tenant2 ID>* con el id. del inquilino con el que le gustaría compartir la galería de imágenes. Reemplace *\<Application (client) ID>* con el identificador de la aplicación del registro de aplicación que creó. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en Inquilino 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

@@ -1,23 +1,24 @@
 ---
-title: Configuración de alertas de estado del servicio de Azure con ServiceNow | Microsoft Docs
+title: Envío de alertas de Azure Service Health con ServiceNow mediante webhooks
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de ServiceNow.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067121"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Configuración de alertas de estado del servicio con ServiceNow
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envío de alertas de Azure Service Health con ServiceNow mediante webhooks
 
 Este artículo muestra cómo integrar las alertas de estado del servicio de Azure con ServiceNow mediante un webhook. Después de configurar la integración de webhook con su instancia de ServiceNow, obtendrá alertas a través de la infraestructura de notificación existente cuando le afecten los problemas de servicio de Azure. Cada vez que se genera una alerta de Estado del servicio de Azure, llama a un webhook a través de la API de REST con script de ServiceNow.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Creación de una API de REST con script en ServiceNow
+
 1.  Asegúrese de que se ha registrado y ha iniciado sesión en su cuenta de [ServiceNow](https://www.servicenow.com/).
 
 1.  Vaya hasta la sección **System Web Services** (Servicios web del sistema) en ServiceNow y seleccione **Scripted REST APIs** (API de REST con script).
@@ -152,7 +153,7 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de ServiceNow guardada anteriormente.
 
@@ -169,7 +170,7 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
 1. Defina la lista de **acciones**:
 
-     a. **Tipo de acción:** *Webhook*
+    a. **Tipo de acción:** *Webhook*
 
     b. **Detalles:** la **dirección URL de integración** de ServiceNow guardada anteriormente.
 

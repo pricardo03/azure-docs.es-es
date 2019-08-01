@@ -1,24 +1,25 @@
 ---
 title: 'Moderación del texto mediante Text Moderation API: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Pruebe la moderación de texto mediante Text Moderation API en la consola en línea.
 services: cognitive-services
 author: sanjeev3
+ms.author: sajagtap
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688843"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561180"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
-Use la [API de moderación de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) en Azure Content Moderator para examinar el contenido de texto las blasfemias y compárela con las listas personalizadas y compartidas.
+Use la [API de moderación de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) de Azure Content Moderator para examinar el texto, detectar las blasfemias y compararlo con listas personalizadas y compartidas.
 
 ## <a name="get-your-api-key"></a>Obtener la clave de API
 
@@ -72,7 +73,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Análisis de la respuesta
 
-La respuesta siguiente muestra las distintas conclusiones desde la API. Contiene blasfemias potenciales, los datos personales, clasificación (versión preliminar) y la versión corregido automáticamente.
+La respuesta siguiente muestra las distintas conclusiones desde la API. Contiene posibles palabras soeces, datos personales, clasificación (versión preliminar) y la versión corregida automáticamente.
 
 > [!NOTE]
 > La característica "Classification" (Clasificación) asistida por máquina está en versión preliminar y solo admite inglés.
@@ -171,8 +172,8 @@ La respuesta siguiente muestra las distintas conclusiones desde la API. Contiene
 }
 ```
 
-Para obtener una explicación detallada de todas las secciones de la respuesta JSON, consulte el [moderación de texto](text-moderation-api.md) guía conceptual.
+Para una explicación detallada de todas las secciones de la respuesta JSON, consulte la guía conceptual de [moderación de texto](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Usar la API de REST en el código o iniciar con el [inicio rápido de .NET de moderación de texto](text-moderation-quickstart-dotnet.md) para integrarse con la aplicación.
+Use la API REST en el código o empiece con el [inicio rápido de moderación de texto para .NET](text-moderation-quickstart-dotnet.md) para integrarlo en su aplicación.

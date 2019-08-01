@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 3836eb87516eed546ae6bb69f53bf64e5df00906
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.openlocfilehash: bd2a594bfd7fbac53deacc767ace3cd44484798e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058111"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
 
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Para obtener un ejemplo completo, vea el [ejemplo de administración de .NET en GitHub]((https://github.com/Azure-Samples/service-bus-dotnet-management/)). 
+> Para ver un ejemplo completo, consulte el [ejemplo de administración de .NET en GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus) (Referencia de API de Microsoft.Azure.Management.ServiceBus)

@@ -1,6 +1,6 @@
 ---
-title: Crear un inquilino de Azure AD para Azure Red Hat OpenShift | Microsoft Docs
-description: Aquí le mostramos cómo crear un inquilino de Azure Active Directory (Azure AD) para hospedar el clúster de Microsoft Azure Red Hat OpenShift.
+title: Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure | Microsoft Docs
+description: Aquí se muestra cómo crear un inquilino de Azure Active Directory (Azure AD) para hospedar el clúster de Red Hat OpenShift en Microsoft Azure.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
@@ -8,42 +8,42 @@ manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306462"
 ---
-# <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Crear a un inquilino de Azure AD para Azure Red Hat OpenShift
+# <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure
 
-Microsoft Azure Red Hat OpenShift requiere un [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) inquilino en el que se va a crear el clúster. Un *inquilino* es una instancia dedicada de Azure AD que un desarrollador de la organización o una aplicación recibe cuando crea una relación con Microsoft registrándose en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto y distinto de Azure AD a los inquilinos y tiene su propio trabajo y las identidades del centro educativo y registros de aplicaciones.
+Red Hat OpenShift en Microsoft Azure requiere un inquilino de [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) en el que crear el clúster. Un *inquilino* es una instancia dedicada de Azure AD que reciben una organización o un desarrollador de aplicaciones cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD y tiene sus propias identidades de trabajo y educativa y registros de aplicaciones.
 
-Si aún no tiene un inquilino de Azure AD, siga estas instrucciones para crear uno.
+Si aún no tiene un inquilino de Azure AD, siga estas instrucciones para crear uno.
 
 ## <a name="create-a-new-azure-ad-tenant"></a>Creación de un nuevo inquilino de Azure AD
 
-Para crear a un inquilino:
+Para crear un inquilino:
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com/) mediante la cuenta que desea asociar con el clúster de Azure Red Hat OpenShift.
-2. Abra el [hoja Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para crear un nuevo inquilino (también conocido como un nuevo *Azure Active Directory*).
-3. Proporcione un **nombreDeOrganización**.
-4. Proporcione un **nombre de dominio inicial**. Esto tendrá *onmicrosoft.com* anexado a él. Puede volver a usar el valor de *nombreDeOrganización* aquí.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con la cuenta que desea asociar con el clúster de Red Hat OpenShift en Azure.
+2. Abra la [hoja Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para crear un nuevo inquilino (también conocido como un nuevo directorio de *Azure Active Directory*).
+3. Proporcione un **Nombre de organización**.
+4. Proporcione un **Nombre de dominio inicial**. Este tendrá *onmicrosoft.com* anexado a él. Puede volver a usar el valor de *Nombre de organización*.
 5. Elija un país o región donde se creará el inquilino.
 6. Haga clic en **Create**(Crear).
-7. Una vez creado el inquilino de Azure AD, seleccione el **haga clic aquí para administrar el nuevo directorio** vínculo. El nuevo nombre del inquilino se debe mostrar la parte superior derecha de Azure portal:  
+7. Una vez creado el inquilino de Azure AD, seleccione el vínculo **Haga clic aquí para administrar el nuevo directorio**. El nombre del nuevo inquilino se debe mostrar en la parte superior derecha de Azure Portal:  
 
-    ![Captura de pantalla del portal que muestra el nombre del inquilino en la esquina superior derecha][tenantcallout]  
+    ![Captura de pantalla del portal que muestra el nombre del inquilino en la parte superior derecha][tenantcallout]  
 
-8. Tome nota de la *Id. de inquilino* , más adelante, que permite especificar dónde desea crear el clúster de Azure Red Hat OpenShift. En el portal, ahora debería ver la hoja de información general de Azure Active Directory en el nuevo inquilino. Seleccione **propiedades** y copie el valor para su **Id. de directorio**. Nos referiremos a este valor como `TENANT` en el [crear un clúster de Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
+8. Tome nota del *Identificador de inquilino*, para que pueda especificar más adelante dónde desea crear el clúster de Red Hat OpenShift en Azure. Ahora debería ver la hoja de información general de Azure Active Directory del nuevo inquilino en el portal. Seleccione **Propiedades** y copie el valor del **Identificador de directorio**. En el tutorial [Creación de un clúster de Red Hat OpenShift en Azure](tutorial-create-cluster.md), se hará referencia a este valor como `TENANT`.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
 ## <a name="resources"></a>Recursos
 
-Desproteger [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) para obtener más información sobre [inquilinos de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Consulte la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) para más información sobre los [inquilinos de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a crear a una entidad de servicio, generar una URL de devolución de llamada de secreto y autenticación de cliente y crear un nuevo usuario de Active Directory para probar aplicaciones en un clúster de Azure Red Hat OpenShift.
+Aprenda a crear a una entidad de servicio, generar un secreto de cliente y una dirección URL de devolución de llamada de autenticación y crear un nuevo usuario de Active Directory para probar aplicaciones en el clúster de Red Hat OpenShift en Azure.
 
-[Crear un objeto de aplicación de Azure AD y el usuario](howto-aad-app-configuration.md)
+[Creación de un objeto de aplicación y un usuario de Azure AD](howto-aad-app-configuration.md)

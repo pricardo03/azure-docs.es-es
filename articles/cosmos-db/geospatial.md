@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480128"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Uso de datos geoespaciales de ubicación y de GeoJSON con la cuenta de SQL API de Azure Cosmos DB
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Si no tiene la información de latitud y longitud, pero tiene las direcciones físicas o nombre de la ubicación como ciudad o país o región, puede buscar las coordenadas reales mediante el uso de un servicio de geocodificación como servicios de REST de mapas de Bing. Obtener más información acerca de la codificación geográfica de Bing Maps [aquí](https://msdn.microsoft.com/library/ff701713.aspx).
+Si no dispone de la información de latitud y longitud, pero tiene los nombres de ubicación como ciudad o país/región o direcciones físicas, puede buscar las coordenadas reales mediante un servicio de codificación geográfica, como los servicios de REST de Bing Maps. Obtener más información acerca de la codificación geográfica de Bing Maps [aquí](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Consulta de tipos espaciales
 Ahora que ya hemos visto cómo insertar datos geoespaciales, echemos un vistazo a cómo consultar estos datos mediante Azure Cosmos DB con SQL y LINQ.

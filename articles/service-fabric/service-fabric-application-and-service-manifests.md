@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052673"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -74,7 +74,7 @@ El manifiesto de servicio define mediante declaración el tipo de servicio y la 
 
 El archivo ejecutable especificado por **EntryPoint** suele ser el host de servicio de ejecución prolongada. **SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *LocalSystem* ) antes que cualquier otro punto de entrada.  La presencia de un punto de entrada de configuración independiente evita tener que ejecutar el host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. Si el proceso finaliza o se bloquea alguna vez, el proceso resultante se supervisa y reinicia (comenzando de nuevo con **SetupEntryPoint**).  
 
-Los escenarios de uso de **SetupEntryPoint** habituales se corresponden a cuando se ejecuta un archivo ejecutable antes de iniciar el servicio o cuando se realiza una operación con privilegios elevados. Por ejemplo: 
+Los escenarios de uso de **SetupEntryPoint** habituales se corresponden a cuando se ejecuta un archivo ejecutable antes de iniciar el servicio o cuando se realiza una operación con privilegios elevados. Por ejemplo:
 
 * configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. Esto no se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 * Configuración del control de acceso mediante la instalación de certificados de seguridad.
@@ -96,7 +96,7 @@ Para más información acerca de cómo configurar SetupEntryPoint, consulte [Con
 </Settings>
 ```
 
-Un **punto de conexión** del servicio Service Fabric es un ejemplo de un recurso de Service Fabric; un recurso de Service Fabric puede declararse o cambiarse sin cambiar el código compilado. El acceso a los recursos de Service Fabric especificados en el manifiesto de servicio puede controlarse a través de **SecurityGroup** en el manifiesto de aplicación. Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Obtenga más información sobre la [especificación o reemplazo de los recursos de punto de conexión](service-fabric-service-manifest-resources.md).
+Un **punto de conexión** de servicio de Service Fabric es un ejemplo de recurso de Service Fabric. Los recursos de Service Fabric se pueden declarar o cambiar sin cambiar el código compilado. El acceso a los recursos de Service Fabric especificados en el manifiesto de servicio puede controlarse a través de **SecurityGroup** en el manifiesto de aplicación. Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Obtenga más información sobre la [especificación o reemplazo de los recursos de punto de conexión](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas
 
 **Certificates** (sin establecer en el ejemplo anterior) declara los certificados que se usan para [configurar puntos de conexión HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [cifrar secretos en el manifiesto de aplicación](service-fabric-application-secret-management.md).
 
-**Policies** (sin establecer en el ejemplo anterior) describe las directivas que se establecerán en el nivel de la aplicación sobre recopilación de registros, [ejecución predeterminada](service-fabric-application-runas-security.md), [mantenimiento](service-fabric-health-introduction.md#health-policies) y [acceso de seguridad](service-fabric-application-runas-security.md).
+**Policies** (sin establecer en el ejemplo anterior) describe las directivas que se establecerán en el nivel de la aplicación sobre recopilación de registros, [ejecución predeterminada](service-fabric-application-runas-security.md), [mantenimiento](service-fabric-health-introduction.md#health-policies) y [acceso de seguridad](service-fabric-application-runas-security.md), incluido el acceso de los servicios al tiempo de ejecución de Service Fabric.
+
+> [!NOTE] 
+> De forma predeterminada, las aplicaciones de Service Fabric tienen acceso al tiempo de ejecución de Service Fabric en forma de punto de conexión que acepta solicitudes específicas de la aplicación y variables de entorno que apuntan a las rutas de acceso de los archivos del host que contienen archivos específicos de la aplicación y de Fabric. Considere la posibilidad de deshabilitar este acceso cuando la aplicación hospede código inseguro (es decir, código cuya procedencia sea desconocida o que el propietario de la aplicación sepa que no es seguro ejecutarlo). Para más información, consulte los [procedimientos recomendados de seguridad en Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principals** (sin establecer en el ejemplo anterior) describen las entidades de seguridad (usuarios o grupos) necesarias para [ejecutar servicios y asegurar recursos de servicio](service-fabric-application-runas-security.md).  Se hace referencia a las entidades de seguridad en las secciones **Policies**.
 

@@ -16,10 +16,10 @@ ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428057"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
@@ -88,7 +88,7 @@ Inicie Visual Studio como administrador y cree un servicio ASP.NET Core:
     </Resources>
     ```
 
-    Al quitar el puerto permite que Service Fabric especificar un puerto dinámicamente desde el intervalo de puertos de aplicación, puede abrir a través del grupo de seguridad de red en la plantilla de Cluster Resource Manager, permitiendo el tráfico fluya a él desde API Management.
+    Al quitar el puerto, Service Fabric puede especificar un puerto dinámicamente del intervalo de puertos de la aplicación, abierta con el grupo de seguridad de red en la plantilla del clúster de Resource Manager, que permite que el tráfico fluya a él desde API Management.
 
  6. Presione F5 en Visual Studio para comprobar que la API web está disponible de manera local.
 
@@ -145,7 +145,7 @@ Rellene el campo **displayName** con un valor descriptivo y el campo **descripti
 
 * **displayName** puede ser cualquier nombre para la API. En este artículo usará "Service Fabric App".
 * **name** proporciona un nombre único y descriptivo para la API, como "aplicación de service fabric". Se muestra en el portal para desarrolladores y en el portal del publicador.
-* **serviceUrl** hace referencia al servicio HTTP que implementa la API. API Management envía las solicitudes a esta dirección. En servidores back-end de Service Fabric, este valor de dirección URL no se usa. Puede escribir aquí cualquier valor. Este artículo, por ejemplo "http:\//servicefabric".
+* **serviceUrl** hace referencia al servicio HTTP que implementa la API. API Management envía las solicitudes a esta dirección. En servidores back-end de Service Fabric, este valor de dirección URL no se usa. Puede escribir aquí cualquier valor. En este artículo, por ejemplo "http:\//servicefabric".
 * **path** se anexa a la dirección URL base del servicio API Management. La dirección URL base es común para todas las API hospedadas en una instancia del servicio API Management. API Management distingue las API por su sufijo, por lo que el sufijo debe ser único para cada API de un publicador determinado.
 * El campo **protocols** determina los protocolos que se pueden usar para acceder a la API. En este artículo, se muestran **http** y **https**.
 * **path** es un sufijo de la API. En este artículo deberá usar "myapp".
@@ -288,7 +288,7 @@ Ahora puede intentar enviar una solicitud al servicio back-end de Service Fabric
 
 Un clúster está formado por muchos otros recursos de Azure, además del propio recurso del clúster. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
-Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](https://portal.azure.com). Eliminar el grupo de recursos y todos los recursos de clúster mediante el [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](https://portal.azure.com). Elimine el grupo de recursos y todos los recursos del clúster mediante el cmdlet [Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

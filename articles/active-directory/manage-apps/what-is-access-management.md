@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825996"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477110"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un rol activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
@@ -27,7 +27,7 @@ El acceso continuo a las aplicaciones, la evaluación del uso y la generación d
 ## <a name="how-does-azure-active-directory-help"></a>¿Cómo ayuda Azure Active Directory?
  Azure AD proporciona una exhaustiva administración del acceso para aplicaciones configuradas, lo que permite a las organizaciones lograr fácilmente las directivas de acceso adecuadas: desde asignación automática y basada en atributos (escenarios ABAC o RBAC) hasta la delegación y la administración de administradores. Con Azure AD, se pueden conseguir fácilmente directivas complejas al combinar varios modelos de administración para una sola aplicación, e incluso se pueden volver a usar las reglas de administración entre aplicaciones con las mismas audiencias.
 
-* [Adición de aplicaciones nuevas o existentes](configure-single-sign-on-portal.md)
+* [Adición de aplicaciones nuevas o existentes](add-gallery-app.md)
 
   La asignación de aplicaciones de Azure AD se centra en dos modos de asignación principales:
 

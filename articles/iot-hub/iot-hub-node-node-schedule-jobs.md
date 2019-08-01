@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: af35a84c299544e43988547771ddce75fd71bd90
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065783"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Programación y difusión de trabajos (Node)
 
@@ -30,9 +30,9 @@ Conceptualmente, un trabajo contiene una de estas acciones y realiza un seguimie
 
 Más información sobre estas funcionalidades en estos artículos:
 
-* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md) y [Tutorial: Cómo usar las propiedades del dispositivo gemelo](tutorial-device-twins.md)
+* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md) y [Tutorial: Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: métodos directos](quickstart-control-device-node.md)
+* Métodos directos: [Guía para desarrolladores de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Métodos directos](quickstart-control-device-node.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -50,7 +50,7 @@ Al final de este tutorial tendrá dos aplicaciones de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 10.0 o posterior [preparar el entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
+* Node.js versión 10.0.x o posterior. En el artículo [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
@@ -105,7 +105,7 @@ En esta sección, creará una aplicación de consola de Node.js que responda a u
    
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
@@ -283,6 +283,6 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [Tutorial: Cómo realizar una actualización de firmware](tutorial-firmware-update.md).
+Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos, como la actualización de firmware remota de forma inalámbrica, consulte [Tutorial: Cómo realizar una actualización de firmware](tutorial-firmware-update.md).
 
-Para continuar la introducción a IoT Hub, consulte [Introducción a Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Para continuar con la introducción a IoT Hub, consulte [Introducción a Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

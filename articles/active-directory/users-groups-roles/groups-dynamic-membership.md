@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66397879"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
@@ -61,7 +61,7 @@ Los paréntesis son opcionales para una expresión única. La longitud total del
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
 * Boolean
-* String
+* Cadena
 * Colección de cadenas
 
 Las siguientes son las propiedades de usuario que puede utilizar para crear una expresión única.
@@ -283,7 +283,7 @@ La regla de subordinados directos se construye mediante la sintaxis siguiente:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Este es un ejemplo de una regla válida, donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el valor de objectID del administrador:
+El siguiente es un ejemplo de una regla válida donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,17 +300,17 @@ Las siguientes sugerencias pueden ayudarle a usar correctamente la regla.
 
 Puede crear un grupo que contenga todos los usuarios de un inquilino mediante una regla de pertenencia. Cuando se agreguen o eliminen usuarios del inquilino en el futuro, la pertenencia al grupo se ajustará automáticamente.
 
-La regla "All users" se construye con la expresión única mediante el operador - ne y el valor null. Esta regla agrega usuarios invitados de B2B, así como usuarios miembros al grupo.
+La regla de "Todos los usuarios" se construye con una expresión única con el operador -ne y el valor null. Esta regla agrega usuarios invitados de B2B, así como usuarios miembros al grupo.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Crear una regla de "Todos los dispositivos"
+### <a name="create-an-all-devices-rule"></a>Creación de una regla de "Todos los dispositivos"
 
 Puede crear un grupo que contenga todos los dispositivos de un inquilino mediante una regla de pertenencia. Cuando se agreguen o eliminen dispositivos del inquilino en el futuro, la pertenencia al grupo se ajustará automáticamente.
 
-La regla de "Todos los dispositivos" se construye utilizando la expresión única mediante el operador - ne y el valor null:
+La regla de "Todos los dispositivos" se construye con una expresión única con el operador -ne y el valor null:
 
 ```
 device.objectid -ne null
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propiedades de extensión y propiedades de extensión personalizadas
 
-Se admiten los atributos de extensión y las propiedades de extensión personalizadas como propiedades de cadena en las reglas de pertenencia dinámica. Los atributos de extensión se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número de 1 a 15. Este es un ejemplo de una regla que utiliza un atributo de extensión como propiedad:
+Las reglas de pertenencia dinámica admiten los atributos de extensión y las propiedades de extensión personalizadas como propiedades de cadena. Los atributos de extensión se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número de 1 a 15. Este es un ejemplo de una regla que utiliza un atributo de extensión como propiedad:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -358,7 +358,7 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  managementType | MDM (para dispositivos móviles)<br>PC (para equipos administrados por el agente de PC de Intune) | (device.managementType -eq "MDM")
  deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | un id. de objeto de Azure AD válido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | cualquier cadena que coincida con la propiedad de dispositivo de Intune para etiquetar dispositivos del área de trabajo moderno | (device.systemLabels-contiene "M365Managed")
+ systemLabels | cualquier cadena que coincida con la propiedad de dispositivo de Intune para etiquetar dispositivos del área de trabajo moderno | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Para deviceOwnership, al crear grupos dinámicos para dispositivos, tiene que establecer el valor igual a "Compañía". En Intune la propiedad del dispositivo se representa en su lugar como Corporativa. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obtener más detalles. 

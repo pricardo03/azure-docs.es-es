@@ -1,7 +1,7 @@
 ---
-title: Webhooks - servicios de voz
+title: 'Webhooks: Servicios de voz'
 titlesuffix: Azure Cognitive Services
-description: Los Webhooks son ideales para optimizar la solución cuando se trabaja con prolongada de devolución de llamada HTTP procesos como importaciones, adaptación, pruebas de precisión o transcripciones de los archivos de larga ejecución.
+description: Los webhooks son devoluciones de llamada HTTP idóneos para optimizar la solución cuando se trabaja con procesos de larga duración como importaciones, adaptación, pruebas de precisión o transcripciones de archivos de larga duración.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072307"
 ---
-# <a name="webhooks-for-speech-services"></a>Webhooks para servicios de voz
+# <a name="webhooks-for-speech-services"></a>Webhooks en Servicios de voz
 
-Los Webhooks son como las devoluciones de llamada HTTP que permite que la aplicación aceptar datos de los servicios de voz cuando esté disponible. Uso de webhooks, puede optimizar el uso de nuestras API de REST al eliminar la necesidad de sondear continuamente para una respuesta. En las secciones siguientes, obtendrá información sobre cómo usar webhooks con los servicios de voz.
+Los webhooks son como las devoluciones de llamada HTTP que permiten que la aplicación acepte datos de Servicios de voz cuando estén disponibles. Mediante los webhooks, puede optimizar el uso de la API REST eliminando la necesidad de realizar sondeos continuamente en busca de una respuesta. En las secciones siguientes, aprenderá a usar webhooks con Servicios de voz.
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
-Los servicios de voz admitir webhooks para todas las operaciones de larga ejecución. Cada una de las operaciones enumeradas a continuación puede desencadenar una devolución de llamada HTTP tras la finalización. 
+Servicios de voz admiten webhooks para todas las operaciones de larga duración. Cada una de las operaciones enumeradas a continuación puede desencadenar una devolución de llamada HTTP tras la finalización. 
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,11 +37,11 @@ A continuación, vamos a crear un webhook.
 
 ## <a name="create-a-webhook"></a>Creación de un webhook
 
-Vamos a crear un webhook para una transcripción sin conexión. El escenario: un usuario tiene un archivo de audio de larga ejecución que les gustaría transcribir de forma asincrónica con la API de transcripción de Batch. 
+Vamos a crear un webhook para una transcripción sin conexión. El escenario: un usuario tiene un archivo de audio de larga duración que le gustaría transcribir de forma asincrónica con la API Batch Transcription. 
 
-Para crear una web enlace POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Los webhooks se pueden crear mediante una solicitud POST a https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
-Se proporcionan los parámetros de configuración para la solicitud como JSON:
+Los parámetros de configuración de la solicitud se proporcionan como JSON:
 
 ```json
 {
@@ -61,15 +61,15 @@ Se proporcionan los parámetros de configuración para la solicitud como JSON:
 
 }
 ```
-Todas las solicitudes POST a la API de transcripción de Batch requieren un `name`. El `description` y `properties` parámetros son opcionales.
+Todas las solicitudes POST a la API Batch Transcription requieren un `name`. Los parámetros `description` y `properties` son opcionales.
 
-El `Active` propiedad se usa para conmutar devolviendo la llamada a la dirección URL y desactivar sin tener que eliminar y volver a crear el registro de webhook. Si solo necesita devolver la llamada una vez después de que tiene el proceso completo, a continuación, eliminar el webhook y cambiar el `Active` propiedad en false.
+La propiedad `Active` se usa para activar y desactivar la devolución de llamada a la dirección URL sin tener que eliminar y volver a crear el registro del webhook. Si solo necesita devolver la llamada una vez después de que el proceso se haya completado, elimine el webhook y cambie la propiedad `Active` a false.
 
-El tipo de evento `TranscriptionCompletion` se proporciona en la matriz de eventos. Volverá a llamar al punto de conexión cuando una transcripción entra en un estado terminal (`Succeeded` o `Failed`). Al devolver la llamada a la dirección URL registrada, la solicitud contendrá una `X-MicrosoftSpeechServices-Event` encabezado que contiene uno de los tipos de eventos registrados. Hay una solicitud por tipo de evento registrado. 
+El tipo de evento `TranscriptionCompletion` se proporciona en la matriz de eventos. Este devolverá la llamada al punto de conexión cuando una transcripción alcance un estado terminal (`Succeeded` o `Failed`). Al devolver la llamada a la dirección URL registrada, la solicitud contendrá un encabezado `X-MicrosoftSpeechServices-Event` que incluye uno de los tipos de eventos registrados. Hay una solicitud por cada tipo de evento registrado. 
 
-Hay un tipo de evento que no puede suscribirse a. Es el `Ping` tipo de evento. Se envía una solicitud con este tipo a la dirección URL cuando termine de crear un webhook cuando se usa la dirección URL de ping (ver abajo).  
+Hay un tipo de evento al que no puede suscribirse. Es el tipo de evento `Ping`. Una solicitud con este tipo se envía a la dirección URL cuando se termina de crear un webhook al usar la dirección URL de ping (como se indica a continuación).  
 
-En la configuración, el `url` propiedad es obligatoria. Se envían las solicitudes POST a esta dirección URL. El `secret` se utiliza para crear un hash SHA256 de la carga, con el secreto como una clave HMAC. El hash se establece como el `X-MicrosoftSpeechServices-Signature` encabezado al devolver la llamada a la dirección URL registrada. Este encabezado está codificado en Base64.
+En la configuración, se requiere la propiedad `url`. Las solicitudes POST se envían a esta dirección URL. El `secret` se utiliza para crear un hash SHA256 de la carga, con el secreto como una clave de HMAC. El hash se establece como el encabezado `X-MicrosoftSpeechServices-Signature` al devolver la llamada a la dirección URL registrada. Este encabezado está codificado en Base64.
 
 Este ejemplo muestra cómo validar una carga mediante C#:
 
@@ -111,32 +111,32 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-En este fragmento de código, el `secret` se puede descodificar y validado. También podrá observar que se ha cambiado el tipo de evento de webhook. Actualmente hay un evento por cada transcripción completada. El código vuelve a intentar cinco veces para cada evento (con un una retraso segunda) antes de desistir.
+En este fragmento de código, `secret` se descodifica y valida. También observará que se ha cambiado el tipo de evento de webhook. Actualmente hay un evento por cada transcripción completada. El código vuelve a intentarse cinco veces para cada evento (con un retraso de un segundo) antes de desistir.
 
 ### <a name="other-webhook-operations"></a>Otras operaciones de webhook
 
-Para obtener todas las instancias registrados webhooks: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Para obtener todos los webhooks registrados: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Para obtener un webhook específico: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-Para quitar un webhook específico: DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+Para eliminar un webhook específico: DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 > [!Note] 
-> En el ejemplo anterior, la región es "westus". Esto se debe reemplazar por la región donde ha creado el recurso de servicios de voz en el portal de Azure.
+> En el ejemplo anterior, la región es "westus". Esta se debe reemplazar por la región en la que haya creado el recurso de Servicios de voz en Azure Portal.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping cuerpo: vacío
+POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping Body: empty
 
-Envía una solicitud POST a la dirección URL registrada. La solicitud contiene un `X-MicrosoftSpeechServices-Event` encabezado con un ping de valor. Si el webhook se registró con un secreto, contendrá un `X-MicrosoftSpeechServices-Signature` encabezado con un hash SHA256 de la carga con el secreto como clave HMAC. El hash está codificado en Base64. 
+Envía una solicitud POST a la dirección URL registrada. La solicitud contiene un encabezado `X-MicrosoftSpeechServices-Event` con un ping de valor. Si el webhook se registró con un secreto, contendrá un encabezado `X-MicrosoftSpeechServices-Signature` con un hash de SHA256 de la carga con el secreto como clave de HMAC. El hash está codificado en Base64. 
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test cuerpo: vacío
+POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test Body: empty
 
-Envía una solicitud POST a la dirección URL registrada si una entidad para el tipo de evento suscrito (transcripción) está presente en el sistema y se encuentra en el estado apropiado. La carga se generará desde la última entidad que hubiera invocado el webhook. Si no hay entidades está presente, la entrada de blog responderá con 204. Si se puede realizar una solicitud de prueba, responderá con 200. Es el cuerpo de solicitud de la misma forma que en la solicitud GET de una entidad específica (por ejemplo, transcripción) se ha suscrito el webhook. La solicitud tendrá el `X-MicrosoftSpeechServices-Event` y `X-MicrosoftSpeechServices-Signature` encabezados según lo descrito anteriormente.
+Envía una solicitud POST a la dirección URL registrada si una entidad del tipo de evento suscrito (transcripción) está presente en el sistema y se encuentra en el estado apropiado. La carga se generará desde la última entidad que hubiera invocado el webhook. Si no hay entidades presentes, la solicitud POST responderá con 204. Si se puede realizar una solicitud de prueba, responderá con 200. El cuerpo de la solicitud tiene la misma forma que el de la solicitud GET para una entidad específica a la que el webhook se ha suscrito (por ejemplo, una transcripción). La solicitud tendrá los encabezados `X-MicrosoftSpeechServices-Event` y `X-MicrosoftSpeechServices-Signature` como se indicó anteriormente.
 
-### <a name="run-a-test"></a>Ejecutar una prueba
+### <a name="run-a-test"></a>Ejecución de una prueba
 
-Se puede realizar una prueba rápida mediante el sitio Web https://bin.webhookrelay.com. Desde allí, puede obtener llamada hacer una copia de las direcciones URL para pasar como parámetro a la operación HTTP POST para crear un webhook que se describió anteriormente en el documento.
+Se puede realizar una prueba rápida mediante el sitio web https://bin.webhookrelay.com. Desde allí, puede obtener las direcciones URL de devolución de llamada para pasarlas como parámetro a la operación HTTP POST para crear un webhook como se indicó anteriormente en el documento.
 
-Haga clic en "Crear cubos" y siga la pantalla instrucciones para obtener un enlace. A continuación, utilice la información proporcionada en esta página para registrar el enlace con el servicio de voz. La carga de una retransmisión message - en respuesta a la finalización de una transcripción-busca como sigue:
+Haga clic en "Create Bucket" (Crear cubo) y siga las instrucciones en pantalla para obtener un enlace. A continuación, utilice la información proporcionada en esta página para registrar el enlace con el servicio de Voz. La carga de un mensaje de retransmisión, en respuesta a la finalización de una transcripción, tiene el aspecto siguiente:
 
 ```json
 {
@@ -178,7 +178,7 @@ Haga clic en "Crear cubos" y siga la pantalla instrucciones para obtener un enla
     }
 }
 ```
-El mensaje contiene la dirección URL de la grabación y modelos que se usan para transcribir que la grabación.
+El mensaje contiene la dirección URL de la grabación y los modelos que se usan para transcribir esa grabación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

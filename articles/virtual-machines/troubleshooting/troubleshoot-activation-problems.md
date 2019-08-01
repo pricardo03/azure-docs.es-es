@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921283"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155152"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
@@ -51,11 +51,9 @@ Por lo general, los problemas de activación de máquinas virtuales de Azure se 
 >
 >Si usa ExpressRoute y tiene una ruta predeterminada publica, vea [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Es posible que la máquina virtual de Azure no se pueda activar por ExpressRoute).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Paso 1 Configuración de la clave de instalación de cliente KMS adecuada (para Windows Server 2016 y Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Paso 1 Establecimiento de la clave de configuración de cliente KMS adecuada
 
-En el caso de máquinas creadas a partir de una imagen personalizada de Windows Server 2016 o Windows Server 2012 R2, hay que configurar la clave de instalación de cliente KMS adecuada para la VM.
-
-Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica Automation Virtual Machine Activation (AVMA), que solo es compatible con Windows Server 2016 y Windows Server 2012 R2.
+En el caso de máquinas virtuales creadas a partir de una imagen personalizada, hay que configurar la clave de configuración de cliente KMS adecuada para la máquina virtual.
 
 1. Ejecute **slmgr.vbs /dlv** en un símbolo del sistema con privilegios elevados. Compruebe el valor de Descripción en la salida y determine si se ha creado desde el canal comercial (RETAIL) o desde soportes de licencia por volumen (VOLUME_KMSCLIENT):
   

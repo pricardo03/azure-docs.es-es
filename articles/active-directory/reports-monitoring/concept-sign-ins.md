@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107666"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -135,28 +135,28 @@ Si agrega campos adicionales a la vista de inicios de sesión, estos campos se a
 ![Actividad de inicio de sesión](./media/concept-sign-ins/12.png "Actividad de inicio de sesión")
 
 - **Browser**  
-    Este filtro muestra todos los eventos donde inicio de sesión de intentos se realizaron con flujos del explorador.
+    Este filtro muestra todos los eventos en los que se han realizado intentos de inicio de sesión mediante los flujos del explorador.
 - **Exchange ActiveSync (compatible)**  
-    Este filtro muestra todos los intentos de inicio de sesión donde se ha intentado el protocolo Exchange ActiveSync (EAS) desde las plataformas compatibles, como iOS, Android y Windows Phone.
-- **Exchange ActiveSync (incompatible)**  
-    Este filtro muestra todos los intentos de inicio de sesión donde se ha intentado el protocolo EAS de plataformas no compatibles, como las distribuciones de Linux.
-- **Clientes de escritorio y Mobile Apps** este filtro muestra todos los intentos de inicio de sesión que no estaban usando flujos del explorador. Puede tratarse de aplicaciones móviles desde cualquier plataforma mediante cualquier protocolo o desde las aplicaciones de cliente de escritorio como Office en Windows o MacOS.
+    Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo Exchange ActiveSync (EAS) desde plataformas compatibles como iOS, Android y Windows Phone.
+- **Exchange ActiveSync (no compatible)**  
+    Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo EAS desde plataformas no compatibles como las distribuciones Linux.
+- **Clientes de escritorio y Mobile Apps**: este filtro muestra todos los intentos de inicio de sesión que se realizaron sin usar los flujos del explorador. Pueden ser aplicaciones móviles desde cualquier plataforma que utilice cualquier protocolo o desde aplicaciones cliente de escritorio como Office en Windows o MacOS.
   
 - **Otros clientes**
     - **IMAP**  
-        Un cliente de correo antiguos mediante IMAP para recuperar el correo electrónico.
+        Un cliente de correo heredado que utiliza IMAP para recuperar el correo electrónico.
     - **MAPI**  
-        Office 2013, donde ADAL está habilitada y se usa MAPI.
+        Office 2013, donde ADAL está habilitado y utiliza MAPI.
     - **Clientes antiguos de Office**  
-        Office 2013 en su configuración predeterminada que ADAL no está habilitado y se usa MAPI, u Office 2016 que se han deshabilitado ADAL.
+        Office 2013 en su configuración predeterminada, donde ADAL no está habilitado y utiliza MAPI, u Office 2016 donde ADAL se ha deshabilitado.
     - **POP**  
-        Un cliente de correo antiguos mediante POP3 para recuperar el correo electrónico.
+        Un cliente de correo heredado que utiliza POP3 para recuperar el correo electrónico.
     - **SMTP**  
-        Un cliente heredado de correo electrónico mediante SMTP para enviar correo electrónico.
+        Un cliente de correo heredado que utiliza SMTP para enviar el correo electrónico.
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 
-Puede [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal. Al hacer clic en **descargar** le ofrece la opción para crear un archivo CSV o JSON de los 250 000 registros más recientes.  
+Puede [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal. Al hacer clic en **Descargar** tiene la opción de crear un archivo CSV o JSON de los 250 000 registros más recientes.  
 
 ![Descargar](./media/concept-sign-ins/71.png "Descargar")
 
@@ -175,7 +175,7 @@ Además de Azure AD, Azure Portal proporciona puntos de entrada adicionales para
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Datos de inicio de sesión de usuarios en la protección de la identidad de la seguridad
 
-El gráfico de inicio de sesión de usuario en el **protección de identidad de seguridad** página de información general muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período de tiempo determinado. El valor predeterminado para el período es 30 días.
+El gráfico de inicio de sesión de usuario en la página de información general de la **protección de la seguridad de identidad** muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/06.png "Actividad de inicio de sesión")
 
@@ -221,7 +221,7 @@ El punto de entrada a los datos son las tres aplicaciones principales de su orga
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
 
-La aplicación uso graph agregaciones semanales de inicios de sesión para sus aplicaciones 3 principales en un período de tiempo determinado. El valor predeterminado para el período es 30 días.
+Agregaciones semanales del gráfico de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/47.png "Actividad de inicio de sesión")
 
@@ -237,7 +237,7 @@ La opción **Inicios de sesión** ofrece una descripción completa de todos los 
 
 ## <a name="office-365-activity-logs"></a>Registros de actividad de Office 365
 
-Puede ver los registros de actividad de Office 365 desde el [centro de administración de Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque la actividad de Office 365 y los registros de actividad de Azure AD comparten mucho de los recursos del directorio, solo el centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
+Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
 
 También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

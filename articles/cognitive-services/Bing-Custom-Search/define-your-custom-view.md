@@ -1,6 +1,6 @@
 ---
 title: Configuración de la experiencia de Bing Custom Search | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describe cómo crear servicios de búsqueda de sitio y verticales.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390420"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405123"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -28,7 +28,7 @@ Al definir los sectores de la web, use los siguientes elementos:
 | Nombre del sector | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dominio     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica `microsoft.com`, Bing también devuelve los resultados de `support.microsoft.com` o `technet.microsoft.com`. |
-| Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página web    | Un sector de página web puede incluir solo esa página web en una búsqueda personalizada. Opcionalmente, puede especificar si se deben incluir subpáginas.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -118,9 +118,9 @@ El portal también le permite anclar las direcciones URL al principio de los res
 
 Puede anclar una página web al principio de dos maneras:
 
-* En el **anclado** , escriba la dirección URL de la página Web para anclar a la parte superior y la consulta correspondiente.
+* En la pestaña **Pinned** (Anclado), escriba la dirección URL de la página web que se va a anclar al principio y su consulta correspondiente.
 
-* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página Web que desea anclar para la consulta y haga clic en **Pin al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
+* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
 

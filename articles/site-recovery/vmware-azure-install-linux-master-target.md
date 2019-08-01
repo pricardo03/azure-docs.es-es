@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479992"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
@@ -62,7 +62,7 @@ Se admiten los siguientes kernels de Ubuntu.
 
 Siga los siguientes pasos para instalar el sistema operativo Ubuntu 16.04.2 de 64 bits.
 
-1.   Vaya a la [vínculo de descarga](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), elija el reflejo más cercano y descargar un ISO de 64 bits mínima de Ubuntu 16.04.2.
+1.   Vaya al [vínculo de descarga](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), elija el reflejo más adecuado y descargue una imagen ISO de 64 bits mínima de Ubuntu 16.04.2.
 Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD e inicie el sistema.
 
 1.  Seleccione el **inglés** como idioma preferido y, a continuación, seleccione **Entrar**.
@@ -83,7 +83,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 1. Seleccione **No** (opción predeterminada) y, a continuación, seleccione **Entrar**.
 
      ![Configuración del teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Seleccione **inglés (Estados Unidos)** como el país o región de origen para el teclado y, a continuación, seleccione **ENTRAR**.
+1. Seleccione **English (US)** [Inglés (EE. UU.)] como país/región de origen para el teclado y **Entrar**.
 
 1. Seleccione **English (US)** [Inglés (EE. UU.)] como distribución del teclado y, luego, seleccione **Entrar**.
 
@@ -262,7 +262,7 @@ Use los pasos siguientes para crear un disco de retención:
     
     Seleccione **Insertar** para comenzar a editar el archivo. Cree una nueva línea y luego inserte el siguiente texto. Edite el identificador de múltiples rutas del disco basándose en el identificador de múltiples rutas resaltado del comando anterior.
 
-    **/dev/mapper/\<identificador de múltiples rutas de discos de retención >/mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<id de ruta múltiple de los discos de retención> /mnt/retention ext4 rw 0 0**
 
     Seleccione **Esc** y luego escriba **:wq** (escribir y salir) para cerrar la ventana del editor.
 
