@@ -57,7 +57,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **SqlServer**. | Sí |
+| type | La propiedad type se debe establecer en: **SqlServer**. | Sí |
 | connectionString |Esta propiedad especifica la información de **connectionString** necesaria para conectarse a la instancia administrada mediante la autenticación de SQL. Para más información, vea los ejemplos siguientes. <br/>Marque este campo como **SecureString** para almacenarlo de forma segura en Azure Data Factory. También puede poner una contraseña en Azure Key Vault. Si se trata de la autenticación de SQL, extraiga la configuración `password` de la cadena de conexión. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | Este [entorno de ejecución de integración](concepts-integration-runtime.md) se usa para conectarse al almacén de datos. Puede usar un entorno de ejecución de integración autohospedado o un entorno de ejecución de integración de Azure si la instancia administrada tiene un punto de conexión público y permite que Azure Data Factory acceda a él. Si no se especifica, se usa el entorno de ejecución de integración predeterminado de Azure. |Sí |
 
