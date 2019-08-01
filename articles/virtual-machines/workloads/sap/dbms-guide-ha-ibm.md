@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689711"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249134"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,13 +77,13 @@ Antes de comenzar una instalación, consulte la documentación y notas SAP sigui
 | Documentación | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) (wiki de la comunidad de SAP): tiene todas las notas de SAP necesarias para Linux |
-| Guía [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] (Planificación e implementación de máquinas virtuales de Azure para SAP en Linux) |
-| [Implementación de máquinas virtuales de Azure para SAP en Linux] [ deployment-guide] (este artículo) |
-| Guía [Azure Virtual Machines database management system(DBMS) deployment for SAP on Linux][dbms-guide] (Implementación del sistema de administración de bases de datos (DBMS) de máquinas virtuales de Azure para SAP en Linux) |
-| [SAP workload on Azure planning and deployment checklist][azr-sap-plancheck] (Carga de trabajo SAP en la lista de comprobación de planificación e implementación de Azure) |
-| [Guías de procedimientos recomendados de SUSE Linux Enterprise Server para SAP Applications 12 SP3][sles-for-sap-bp] |
+| Guía [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver][planning-guide] |
+| [Implementación de máquinas virtuales de Azure para SAP en Linux][deployment-guide] (este artículo) |
+| Guía [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP][dbms-guide] |
+| [Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure][azr-sap-plancheck] |
+| [Guías de procedimientos recomendados de SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp] |
 | [SUSE Linux Enterprise High Availability Extension 12 SP3][sles-ha-guide] |
-| [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2] (Implementación de DBMS de máquinas virtuales de Azure de IBM Db2 para cargas de trabajo SAP) |
+| [Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
 
@@ -496,12 +496,11 @@ Si realizó la instalación antes de haber creado la configuración de HADR de D
 
 Use la herramienta de configuración de J2EE para comprobar o actualizar la dirección URL de JDBC. Dado que la herramienta de configuración de J2EE es una herramienta gráfica, deberá tener X server instalado:
  
-1. Inicie sesión en el servidor de aplicaciones principal de la instancia de J2EE y ejecute lo siguiente:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. Inicie sesión en el servidor de aplicaciones principal de la instancia de J2EE y ejecute lo siguiente: `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. En el marco de la izquierda, seleccione **security store**.
 1. En el marco de la derecha, elija la clave jdbc/pool/\<SAPSID>/url.
-1. Cambie el nombre de host en la dirección URL de JDBC al nombre de host virtual.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+1. Cambie el nombre de host de la dirección URL de JDBC al nombre de host virtual.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Seleccione **Agregar**.
 1. Para guardar los cambios, seleccione el icono de disco de la parte superior izquierda.
 1. Cierre la herramienta de configuración.
@@ -594,7 +593,7 @@ Vuelva a migrar el recurso a *azibmdb01* y elimine las restricciones de ubicaci�
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm resource migrate \<res_name> <host>:** crea restricciones de ubicación y puede causar problemas con la toma de control.
+- **crm resource migrate \<res_name> \<host>:** crea restricciones de ubicación y puede causar problemas con la toma de control.
 - **crm resource clear \<res_name>** : elimina las restricciones de ubicación.
 - **crm resource cleanup \<res_name>** : elimina todos los errores del recurso.
 

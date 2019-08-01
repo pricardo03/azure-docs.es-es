@@ -146,7 +146,7 @@ Use este cmdlet para obtener detalles de los miembros o enumerar los miembros de
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | NOMBRE | El nombre del miembro de Blockchain Service cuyos detalles se desea recuperar. Cuando se escribe un nombre, devuelve los detalles del miembro. Si se omite un nombre, devuelve una lista de todos los miembros del consorcio. | Sin |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
 #### <a name="example"></a>Ejemplo
@@ -175,7 +175,7 @@ Use este cmdlet para quitar a un miembro de la cadena de bloques.
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | NOMBRE | Nombre del miembro que quitar | Sí |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
@@ -201,7 +201,7 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 | NOMBRE | Nombre de un miembro de la cadena de bloques | Sí |
 | DisplayName | Nuevo nombre para mostrar | Sin |
 | AccountAddress | Dirección de la cuenta | Sin |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client |  Objeto Web3Client obtenido de New-Web3Connection| Sí |
 
@@ -228,7 +228,7 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
 | Role | Rol del consorcio. Los valores pueden ser ADMIN o USER. ADMIN es el rol de administrador del consorcio. USER es el rol de miembro del consorcio. | Sí |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
@@ -247,7 +247,7 @@ Use este cmdlet para recuperar o enumerar el estado de la invitación de un miem
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar. Si se proporciona el identificador de la suscripción, devuelve los detalles de la invitación de dicho identificador. Si el identificador de suscripción se omite, devuelve una lista de todas las invitaciones de miembros. | Sin |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
 #### <a name="example"></a>Ejemplo
@@ -276,7 +276,7 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea revocar | Sí |
-| Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
@@ -299,7 +299,7 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
 | Role | Nuevo rol del consorcio para la invitación. Los valores pueden ser **USER** o **ADMIN**. | Sí |
-| Miembros |  Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
+| Members |  Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 

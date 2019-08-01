@@ -15,6 +15,8 @@
               href: QuickStarts/csharp-detect-sdk.md
             - name: Python
               href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: SDK de Python
+          href: QuickStarts/python-sdk.md
     - name: Uso de la API de REST
       items:
         - name: Detectar caras en una imagen

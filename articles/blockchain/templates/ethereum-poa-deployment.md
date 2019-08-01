@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126798"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698451"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
 
@@ -218,7 +218,7 @@ Contraseña (Tipo de autenticación = Contraseña)|La contraseña de la cuenta d
 Clave SSH (Tipo de autenticación = Clave pública)|La clave de shell seguro que se usa para el inicio de sesión remoto.||N/D
 Subscription|La suscripción en la que se va a implementar la red del consorcio.||N/D
 Grupo de recursos|El grupo de recursos en el que se va a implementar la red del consorcio.||N/D
-Ubicación|La región de Azure para el grupo de recursos.||N/D
+Location|La región de Azure para el grupo de recursos.||N/D
 
 A continuación se muestra una implementación de ejemplo: ![Aspectos básicos](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -764,7 +764,7 @@ La compatibilidad con WebAssembly ya está habilitada automáticamente en redes 
 
 #### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Observo que hay muchas transacciones en la red que no envié. ¿De dónde vienen?
 
-No es seguro desbloquear la [API personal](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Los bots escuchan cuentas desbloqueadas de Ethereum e intentan vaciar los fondos. El bot supone que estas cuentas contienen Ether real e intenta ser el primero en desviar el saldo. No habilite la API personal en la red. En su lugar, firme previamente las transacciones ya sea manualmente, usando un monedero como MetaMask, o mediante programación, como se describe en la sección [Interacción mediante programación con un contrato inteligente](#programmatically-interacting-with-a-smart-contract).
+No es seguro desbloquear la [API personal](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Los bots escuchan cuentas desbloqueadas de Ethereum e intentan vaciar los fondos. El bot supone que estas cuentas contienen Ether real e intenta ser el primero en desviar el saldo. No habilite la API personal en la red. En su lugar, firme previamente las transacciones ya sea manualmente, usando un monedero como MetaMask, o mediante programación, como se describe en la sección [Interacción mediante programación con un contrato inteligente](#programmatically-interacting-with-a-smart-contract).
 
 #### <a name="how-to-ssh-onto-a-vm"></a>¿Cómo aplicar SSH a una máquina virtual?
 

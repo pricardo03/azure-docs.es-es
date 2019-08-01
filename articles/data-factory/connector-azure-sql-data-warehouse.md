@@ -60,7 +60,7 @@ Las siguientes propiedades son compatibles con un servicio vinculado de Azure SQ
 
 | Propiedad            | DESCRIPCIÓN                                                  | Obligatorio                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Tipo                | La propiedad type debe establecerse en **AzureSqlDW**.             | Sí                                                          |
+| type                | La propiedad type debe establecerse en **AzureSqlDW**.             | Sí                                                          |
 | connectionString    | Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí                                                          |
 | servicePrincipalId  | Especifique el id. de cliente de la aplicación.                         | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
@@ -233,7 +233,7 @@ Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL 
 
 | Propiedad  | DESCRIPCIÓN                                                  | Obligatorio                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| Tipo      | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | Sí                         |
+| type      | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | Sí                         |
 | tableName | El nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
@@ -266,7 +266,7 @@ Para copiar datos desde Azure SQL Data Warehouse, establezca la propiedad **type
 
 | Propiedad                     | DESCRIPCIÓN                                                  | Obligatorio |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| Tipo                         | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlDWSource**. | Sí      |
+| type                         | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlDWSource**. | Sí      |
 | sqlReaderQuery               | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin       |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | Sin       |
 | storedProcedureParameters    | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin       |
@@ -369,7 +369,7 @@ Para copiar datos en Azure SQL Data Warehouse, establezca el tipo de receptor de
 
 | Propiedad          | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| Tipo              | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlDWSink**. | Sí                                           |
+| type              | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlDWSink**. | Sí                                           |
 | allowPolyBase     | Indica si se usa PolyBase, si procede, en lugar del mecanismo BULKINSERT. <br/><br/> Se recomienda usar PolyBase para cargar datos en SQL Data Warehouse. Consulte la sección [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Uso de PolyBase para cargar datos en SQL Data Warehouse) para ver restricciones y más información.<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado). | Sin                                            |
 | polyBaseSettings  | Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. | Sin                                            |
 | rejectValue       | Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta.<br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Los valores permitidos son 0 (valor predeterminado), 1, 2, etc. | Sin                                            |

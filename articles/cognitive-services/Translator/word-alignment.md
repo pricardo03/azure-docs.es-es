@@ -1,6 +1,6 @@
 ---
 title: 'Alineación de palabras: Translator Text API'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reciba información de alineación de palabras de Translator Text API.
 services: cognitive-services
 author: swmachan
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 3db5e9651e307211e9dccee20bb8d69586bb9ef1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448162"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594784"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Cómo recibir información de alineación de palabras
 
