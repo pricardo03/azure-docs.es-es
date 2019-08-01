@@ -1,18 +1,19 @@
 ---
 title: Copia de seguridad y restauración de archivos de Azure Files con Azure Backup y PowerShell
 description: Realice una copia de seguridad de archivos de Azure Files y restáurelos con Azure Backup y PowerShell.
-author: pvrk
-manager: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: pullabhk
-ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.reviewer: pullabhk
+ms.openlocfilehash: 5f62bd0456bfbf5882d6d8c3ee822433fbb58302
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204179"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688773"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restauración de archivos de Azure Files con PowerShell
 
@@ -95,7 +96,7 @@ Siga estos pasos para crear un almacén de Recovery Services.
 
 - El almacén de Recovery Services es un recurso de Resource Manager, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno con el cmdlet **New-AzResourceGroup**. Al crear un grupo de recursos, especifique el nombre y la ubicación. 
 
-1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
+1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
@@ -149,7 +150,7 @@ En el ejemplo siguiente se establece el contexto del almacén de **testvault**.
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
-### <a name="fetch-the-vault-id"></a>Obtención del identificador del almacén
+### <a name="fetch-the-vault-id"></a>Recuperación del identificador del almacén
 
 Tenemos previsto dejar de usar la configuración del contexto de almacén según las directrices de Azure PowerShell. En su lugar, puede almacenar o recuperar el identificador del almacén y pasarlo a los comandos pertinentes, como sigue:
 

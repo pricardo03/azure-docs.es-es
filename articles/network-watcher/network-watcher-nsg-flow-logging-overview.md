@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925411"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640819"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -76,8 +76,6 @@ Los registros de flujo incluyen las siguientes propiedades:
 La versión 2 de los registros presenta el estado de flujo. Puede configurar qué versión de los registros de flujo recibe. Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
 
 El estado de flujo *B* se registra cuando se inicia un flujo. El estado de flujo *C* y el estado de flujo *E* son estados que marcan la continuación de un flujo y la terminación de este, respectivamente. Los estados *C* y *E* contienen información sobre el ancho de banda del tráfico.
-
-Para los estados de continuación *C* y finalización *E*, los recuentos de paquetes y bytes son recuentos agregados desde el momento del registro de la tupla de flujo anterior. Con referencia a la conversación de ejemplo anterior, el número total de paquetes transferidos es 1021+52+8005+47 = 9125. El número total de bytes transferidos es 588096+29952+4610880+27072 = 5256000.
 
 **Ejemplo**: tuplas de flujo de una conversación TCP entre 185.170.185.105:35370 y 10.2.0.4:23:
 

@@ -1,6 +1,6 @@
 ---
 title: Informes de Collaborative Translation Framework (CTF) - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cómo usar los informes de Collaborative Translation Framework (CTF).
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443462"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595943"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
@@ -96,7 +96,7 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 
 | Campo | DESCRIPCIÓN |
 |:---|:---|
-| Recuento| Número de resultados que se recupera|
+| Count| Número de resultados que se recupera|
 | De | Idioma de origen|
 | Rating| Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
 | Para| Idioma de destino|

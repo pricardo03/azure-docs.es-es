@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561020"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608139"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Directiva de base de referencia: Protección del usuario final (versión preliminar)
 
@@ -56,7 +56,7 @@ Dado que la directiva de **protección del usuario final** se aplica a todos los
 Los clientes de correo usan los protocolos de autenticación heredados (IMAP, SMTP, POP3, etc.) para realizar solicitudes de autenticación. Estos protocolos no son compatibles con MFA.  La mayoría de las cuentas en riesgo que ha encontrado Microsoft se deben a que los delincuentes realizan ataques contra los protocolos heredados al intentar omitir la MFA. Para asegurarse de que se requiere la MFA al iniciar sesión en una cuenta y que los delincuentes no pueden omitir la MFA, esta directiva bloquea todas las solicitudes de autenticación realizadas a las cuentas de administrador de protocolos heredados.
 
 > [!WARNING]
-> Antes de habilitar esta directiva, asegúrese de que los usuarios no usan protocolos de autenticación heredados. Consulte el artículo [Control de Bloqueo de autenticación heredada a Azure AD con acceso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obtener más información.
+> Antes de habilitar esta directiva, asegúrese de que los usuarios no usan protocolos de autenticación heredados. Consulte el artículo [Control de bloquear la autenticación heredada a Azure AD con acceso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obtener más información.
 
 ## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de base de referencia
 
@@ -68,12 +68,12 @@ Para habilitar esta directiva y proteger a los usuarios:
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Directiva de base de referencia: Protección del usuario final (versión preliminar)** .
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
-1. Haga clic en **Guardar**.
+1. Haga clic en  **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-* [Directivas de la protección de base de referencia de acceso condicional](concept-baseline-protection.md)
-* [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
+* [Directivas de protección de base de referencia de acceso condicional](concept-baseline-protection.md)
+* [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

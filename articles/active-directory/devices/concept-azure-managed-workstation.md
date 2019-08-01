@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a6ddef294c4872f2d7e50e8940ecbb4b4b7bc4
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491589"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562172"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Descripción de las estaciones de trabajo seguras administradas por Azure
 
@@ -25,7 +25,7 @@ Las estaciones de trabajo seguras y aisladas son de una importancia vital para l
 Este documento explica qué necesita para la creación de una estación de trabajo segura, lo cual se conoce a menudo como estación de trabajo de acceso con privilegios (PAW). El artículo también incluye instrucciones detalladas para configurar los controles de seguridad iniciales. En esta guía se describe cómo la tecnología basada en la nube puede administrar el servicio. Se basa en funcionalidades de seguridad que se incluyeron en Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory e Intune.
 
 > [!NOTE]
-> En este artículo se explica el concepto de una estación de trabajo segura y su importancia. Si ya está familiarizado con el concepto y desea pasar directamente a la implementación, visite [Implementación de una estación de trabajo segura](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> En este artículo se explica el concepto de una estación de trabajo segura y su importancia. Si ya está familiarizado con el concepto y desea pasar directamente a la implementación, visite [Implementación de una estación de trabajo segura](howto-azure-managed-workstation.md).
 
 ## <a name="why-secure-workstation-access-is-important"></a>¿Por qué es importante el acceso a una estación de trabajo segura?
 

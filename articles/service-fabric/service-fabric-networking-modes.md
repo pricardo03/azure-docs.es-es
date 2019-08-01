@@ -3,7 +3,7 @@ title: Configuración de modos de redes para servicios de contenedor de Azure Se
 description: Aprenda a configurar los diferentes modos de red que admite Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621931"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599393"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -202,12 +202,12 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
 
    |Configuración |Valor | |
    | --- | --- | --- |
-   |Prioridad |2000 | |
+   |Priority |2000 | |
    |NOMBRE |Custom_Dns  | |
-   |Origen |VirtualNetwork | |
+   |Source |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Servicio | DNS (UDP/53) | |
-   |. | PERMITIR  | |
+   |. | Allow  | |
    | | |
 
 4. Especifique el modo de red en el manifiesto de aplicación para cada servicio `<NetworkConfig NetworkType="Open">`. El modo **abierto** da lugar a que el servicio obtenga una dirección IP dedicada. Si no se especifica un modo, el servicio adopta como valor predeterminado el modo **nat**. En el siguiente ejemplo de manifiesto, los servicios `NodeContainerServicePackage1` y `NodeContainerServicePackage2` pueden escuchar en el mismo puerto (ambos servicios escuchan en `Endpoint1`). Cuando se especifica el modo de red abierto, no se pueden especificar configuraciones de `PortBinding`.

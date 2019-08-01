@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65465168"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567398"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar un punto de conexión público en una instancia administrada de Azure SQL Database
 
@@ -97,10 +96,10 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Origen**     |Cualquier dirección IP o etiqueta de servicio         |<ul><li>En servicios de Azure como Power BI, seleccione la etiqueta de servicio en la nube de Azure.</li> <li>En su equipo o máquina virtual de Azure, use la dirección IP de NAT.</li></ul> |
     |**Intervalos de puertos de origen**     |*         |Deje esta opción en * (cualquiera), puesto que los puertos de origen suelen asignarse de forma dinámica y, por lo tanto, son impredecibles. |
-    |**Destino**     |Cualquiera         |Deje la opción Destino en Cualquiera para permitir el tráfico en la subred de la instancia administrada. |
+    |**Destino**     |Any         |Deje la opción Destino en Cualquiera para permitir el tráfico en la subred de la instancia administrada. |
     |**Intervalos de puertos de destino**     |3342         |Establezca el puerto de destino en 3342, que es el punto de conexión TDS público de la instancia administrada. |
     |**Protocolo**     |TCP         |La instancia administrada utiliza el protocolo TCP para TDS. |
-    |**Acción**     |PERMITIR         |Permite el tráfico entrante en la instancia administrada mediante el punto de conexión público. |
+    |**Acción**     |Allow         |Permite el tráfico entrante en la instancia administrada mediante el punto de conexión público. |
     |**Prioridad**     |1300         |Asegúrese de que esta regla tiene más prioridad que la regla **deny_all_inbound**. |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

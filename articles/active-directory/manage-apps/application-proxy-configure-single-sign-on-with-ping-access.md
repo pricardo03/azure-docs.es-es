@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 0544ed0ff217b6e37cca22a1fc1e0048b30da462
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723997"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694230"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -94,7 +94,7 @@ Para publicar su propia aplicación local:
    1. **Traducir URL en encabezados**: elija **No**.
 
    > [!NOTE]
-   > Si esta es su primera aplicación, utilice el puerto 3000 para empezar y regrese para actualizar este valor si cambia la configuración de PingAccess. En aplicaciones posteriores, el puerto deberá coincidir con la escucha que ha configurado en PingAccess. Obtenga más información sobre [escucha en PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
+   > Si esta es su primera aplicación, utilice el puerto 3000 para empezar y regrese para actualizar este valor si cambia la configuración de PingAccess. En aplicaciones posteriores, el puerto deberá coincidir con la escucha que ha configurado en PingAccess. Obtenga más información sobre [escucha en PingAccess](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=reference/ui/pa_c_Listeners.html).
 
 1. Seleccione **Agregar**. Aparecerá la página de información general de la nueva aplicación.
 
@@ -232,7 +232,7 @@ Cuando configure PingAccess en el paso siguiente, la sesión web que cree en Set
 
 Ahora que ha completado todos los pasos de instalación de Azure Active Directory, puede pasar a configurar PingAccess.
 
-Los pasos detallados de la parte de PingAccess de este escenario se pueden encontrar en la documentación de Ping Identity. Siga las instrucciones sobre cómo [configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) en el sitio web de Ping Identity.
+Los pasos detallados de la parte de PingAccess de este escenario se pueden encontrar en la documentación de Ping Identity. Siga las instrucciones sobre cómo [configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html) en el sitio web de Ping Identity.
 
 Esos pasos le permiten instalar PingAccess y configurar una cuenta de PingAccess (si aún no tiene una). Luego, para crear una conexión de Azure AD OpenID Connect (OIDC), configure un proveedor de tokens con el valor de **Id. de directorio (inquilino)** que copió desde el portal de Azure AD. Tras ello, para crear una sesión web en PingAccess, utilice los valores de **Id. de la aplicación (cliente)** y `PingAccess key`. Después, puede configurar la asignación de identidades y crear un host virtual, un sitio y una aplicación.
 
@@ -242,6 +242,6 @@ Cuando haya completado todos los pasos, la aplicación debería estar en funcion
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
+- [Configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html)
 - [Inicio de sesión único en aplicaciones en Azure Active Directory](what-is-single-sign-on.md)
 - [Solución de problemas y mensajes de error de Proxy de aplicación](application-proxy-troubleshoot.md)

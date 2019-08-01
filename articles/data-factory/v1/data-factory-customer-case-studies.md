@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c636032766b90af78e7794b3d515b924fa31d6cd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486981"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596031"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - Casos prácticos de clientes
 Factoría de datos es un servicio de administración de información basado en la nube que automatiza el movimiento y la transformación de datos. Los clientes de numerosos sectoress usan la Factoría de datos y otros servicios de Azure para crear su canalizaciones de análisis y solucionar sus problemas empresariales.  Aprenda directamente de nuestros clientes cómo y por qué usan la Factoría de datos.
 
 ## <a name="milliman"></a>Milliman
-[Importante compañía actuarial superior transforma el sector de los seguros](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[Importante compañía actuarial superior transforma el sector de los seguros](https://customers.microsoft.com/en-us/story/732463-top-actuarial-firm-transforms-the-insurance-industry-w)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[La compañía de automatización industrial reduce los costos hasta en un 90 % con las soluciones de macrodatos](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[La compañía de automatización industrial reduce los costos hasta en un 90 % con las soluciones de macrodatos](https://customers.microsoft.com/en-us/story/726192-industrial-automation-firm-cuts-costs-up-to-90-percent)
 
 ## <a name="ziosk"></a>Ziosk
 [¿Qué juego quiere con la hamburguesa? Puede que Ziosk lo sepa.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)

@@ -1,6 +1,6 @@
 ---
 title: 'Devuelva las N mejores traducciones: Translator Text API'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Devuelva las N mejores traducciones con Microsoft Translator Text API.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: d3e64fff8fa0d2d815ea3bff4a44962d74a7118b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 7aec6bb81f3ca99ead744767668c2e4f1d1d4d53
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357631"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594893"
 ---
 # <a name="how-to-return-n-best-translations"></a>Devolución de las N mejores traducciones
 

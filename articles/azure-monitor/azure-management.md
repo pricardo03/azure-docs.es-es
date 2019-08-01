@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0d3ea3f4a63e7c69a190cf856929437d6f0b9d8
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371654"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608295"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
@@ -43,7 +43,7 @@ Configurar hace referencia a la implementación inicial y a la configuración de
 La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, la gobernanza se implementa principalmente con dos servicios.  [Azure Policy](../governance/policy/overview.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.
 
 ## <a name="secure"></a>Seguridad
-La administración de la seguridad de las aplicaciones, recursos y datos conlleva la combinación de la evaluación de las amenazas, la recopilación y el análisis de los datos de seguridad, y la garantía de que tanto las aplicaciones como los recursos están diseñados y configurados de forma segura.  La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.  También debe consultar [Introducción a la seguridad de Azure](../security/azure-security.md), donde encontrará información completa acerca la seguridad en Azure e instrucciones para configurar de forma segura los recursos de Azure.
+La administración de la seguridad de las aplicaciones, recursos y datos conlleva la combinación de la evaluación de las amenazas, la recopilación y el análisis de los datos de seguridad, y la garantía de que tanto las aplicaciones como los recursos están diseñados y configurados de forma segura.  La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.  También debe consultar [Introducción a la seguridad de Azure](../security/fundamentals/overview.md), donde encontrará información completa acerca la seguridad en Azure e instrucciones para configurar de forma segura los recursos de Azure.
 
 
 ## <a name="protect"></a>Protección

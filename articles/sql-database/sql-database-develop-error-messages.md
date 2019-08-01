@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723509"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568895"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error de SQL para aplicaciones cliente de SQL Database: Errores de conexión de base de datos y otros problemas
 
@@ -53,7 +52,7 @@ Una explicación del *período de bloqueo* para clientes que usan ADO.NET está 
 
 Los siguientes errores son transitorios y se deben volver a probar en la lógica de aplicación: 
 
-| Código de error | Gravedad | DESCRIPCIÓN |
+| Código de error | severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. Para obtener más información, consulte [los errores de 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999).|
 | 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. Para obtener más información, vea [Errores transitorios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
@@ -68,7 +67,7 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 
 Pueden encontrarse los siguientes errores al copiar una base de datos en Azure SQL Database. Para más información, vea [Copiar una base de datos de Azure SQL](sql-database-copy.md).
 
-| Código de error | Gravedad | DESCRIPCIÓN |
+| Código de error | severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 40635 |16 |El cliente con la dirección IP '%.&#x2a;ls' está deshabilitado temporalmente. |
 | 40637 |16 |Crear copia de base de datos está deshabilitado actualmente. |
@@ -103,7 +102,7 @@ Temas relacionados:
   * [Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)
   * [Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) 
 
-| Código de error | Gravedad | DESCRIPCIÓN |
+| Código de error | severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [Límites de recursos de SQL Database para bases de datos únicas y agrupadas](sql-database-resource-limits-database-server.md).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) |
 | 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) <br/>De lo contrario, inténtelo de nuevo más tarde. |
@@ -118,7 +117,7 @@ Temas relacionados:
 
 Los errores siguientes están relacionados con la creación y el uso de grupos elásticos:
 
-| Código de error | Gravedad | DESCRIPCIÓN | Acción correctiva |
+| Código de error | severity | DESCRIPCIÓN | Acción correctiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md) <br/> |Considere la posibilidad de incrementar el número de DTU y de agregar almacenamiento al grupo elástico si es posible para aumentar su límite de almacenamiento, reducir el almacenamiento usado por las bases de datos individuales del grupo elástico o quitar bases de datos de este. Para la escalada del grupo elástico, consulte [Escalar recursos de grupos elásticos](sql-database-elastic-pool-scale.md).|
 | 10929 | 16 |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md) <br/> De lo contrario, inténtelo de nuevo más tarde. Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos. El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
@@ -152,7 +151,7 @@ Temas relacionados:
 
 Los siguientes errores no se incluyen en ninguna categoría anterior.
 
-| Código de error | Gravedad | DESCRIPCIÓN |
+| Código de error | severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(AdministratorLogin) no es un nombre válido porque contiene caracteres no válidos.|
 | [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Error de inicio de sesión. El inicio de sesión se realiza desde un dominio que no es de confianza y no se puede utilizar con autenticación de Windows.%.&#x2a;ls (Los inicios de sesión de Windows no se admiten en esta versión de SQL Server.). |

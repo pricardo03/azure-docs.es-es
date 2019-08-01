@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560949"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608161"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)
 
@@ -65,6 +65,6 @@ Para habilitar esta directiva y proteger a los administradores:
 
 Para más información, consulte:
 
-* [Directivas de la protección de base de referencia de acceso condicional](concept-baseline-protection.md)
-* [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
+* [Directivas de protección de base de referencia de acceso condicional](concept-baseline-protection.md)
+* [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

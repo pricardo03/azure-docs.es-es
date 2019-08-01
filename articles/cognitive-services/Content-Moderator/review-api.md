@@ -1,6 +1,6 @@
 ---
 title: 'Conceptos de revisiones, flujos de trabajo y trabajos: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Más información sobre revisiones, flujos de trabajo y trabajos
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607299"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565549"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
 
@@ -29,7 +29,7 @@ En una revisión, el contenido se carga en la herramienta de revisión y aparece
 
 Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/review-moderated-images.md) para empezar a crear revisiones o la [guía de la API REST](./try-review-api-review.md) si quiere aprender a hacerlo mediante programación.
 
-## <a name="workflows"></a>Flujos de trabajo
+## <a name="workflows"></a>Workflows
 
 Un flujo de trabajo es un filtro personalizado basado en la nube para el contenido. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. Con el conector de Content Moderator, un flujo de trabajo puede aplicar automáticamente etiquetas de moderación y crear revisiones con el contenido enviado.
 

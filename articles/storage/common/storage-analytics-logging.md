@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46064076fb5d38fbde94bd4bb7e5dfbcff7e3b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204991"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68556172"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -26,6 +26,8 @@ Storage Analytics registra información detallada sobre las solicitudes correcta
 
 > [!NOTE]
 >  Actualmente, el registro de Storage Analytics está disponible solo para los servicios Blob, Queue y Table service. Pero las cuentas de almacenamiento premium no se admiten.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="requests-logged-in-logging"></a>Solicitudes registradas en el registro
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación

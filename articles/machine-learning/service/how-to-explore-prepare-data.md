@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443966"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699115"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Exploración y preparación de datos con la clase Dataset (versión preliminar)
 
@@ -65,11 +65,11 @@ top_n_sample_dataset.to_pandas_dataframe()
 
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
-0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|...
-1|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-2|10519196|HZ261252|15/4/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
-3|10519591|HZ261534|15/4/2016 9:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|...
-4|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+0|10 498 554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|...
+1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
+3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|...
+4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 
 ### <a name="simple-random-sample"></a>Muestreo aleatorio simple
 
@@ -82,9 +82,9 @@ simple_random_sample_dataset.to_pandas_dataframe()
 
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
-0|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-1|10519196|HZ261252|15/4/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
-2|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
+2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 
 ### <a name="stratified-sample"></a>Muestreo estratificado
 
@@ -105,8 +105,8 @@ sample_dataset.to_pandas_dataframe()
 
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
-0|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-1|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|15/4/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 
 ## <a name="explore-with-summary-statistics"></a>Explorar con estadísticas de resumen
@@ -125,14 +125,14 @@ Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0
 Block|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primary Type|FieldType.STRING|DECEPTIVE PRACTICE|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-DESCRIPCIÓN|FieldType.STRING|BOGUS CHECK|MÁS DE $500|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+DESCRIPCIÓN|FieldType.STRING|BOGUS CHECK|OVER $500|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||SCHOOL, PUBLIC, BUILDING|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Latido|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
 District|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24,5|16.2635|264.5|0.173723|-1.51271
-Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37,5|71|77|77|77|41,2|26.6366|709.511|0.112157|-1.73379
+Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
 X Coordinate|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e+06|10793.5|1.165e+08|0.335126|-2.33333
 Y Coordinate|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e+06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
@@ -168,7 +168,7 @@ ds_def.head(3)
 |1|10516598|False| 41.744107 |-87.664494|
 |2|10519196|False| NaN|NaN|
 
-Después, compruebe el valor `MEAN` de la columna de latitud mediante la función [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow). Esta función acepta una matriz de columnas en el parámetro `group_by_columns` para especificar el nivel de agregación. El parámetro `summary_columns` acepta la función `SummaryColumnsValue`, que especifica el nombre de la columna actual, el nuevo nombre del campo calculado y el valor de `SummaryFunction` que se va a realizar.
+Después, compruebe el valor `MEAN` de la columna de latitud mediante la función [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow). Esta función acepta una matriz de columnas en el parámetro `group_by_columns` para especificar el nivel de agregación. El parámetro `summary_columns` acepta la función `SummaryColumnsValue`, que especifica el nombre de la columna actual, el nuevo nombre del campo calculado y el valor de `SummaryFunction` que se va a realizar.
 
 ```Python
 lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
@@ -290,7 +290,7 @@ dataset.head(3)
 
 ||id|Case Number|Date|Block|...|
 -|---------|-----|---------|----|---
-0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
+0|10 498 554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 

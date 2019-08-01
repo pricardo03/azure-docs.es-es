@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564756"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -101,7 +101,7 @@ La mayoría de los servicios de Azure generarán [métricas de plataforma](data-
 | Destino | DESCRIPCIÓN | Referencia |
 |:---|:---|:---|
 | Métricas de Azure Monitor | Las métricas de la plataforma se escribirán en la base de datos de métricas de Azure Monitor sin ninguna configuración. Acceda a las métricas de la plataforma del Explorador de métricas.  | [Introducción al Explorador de métricas de Azure](metrics-getting-started.md)<br>[Métricas compatibles con Azure Monitor](metrics-supported.md) |
-| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
+| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](diagnostic-logs-stream-log-store.md) |
 | Event Hubs | Transmita métricas a otras ubicaciones mediante Event Hubs. |[Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="diagnostic-logs"></a>Registros de diagnóstico

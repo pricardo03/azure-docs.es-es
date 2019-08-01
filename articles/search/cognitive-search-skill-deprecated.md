@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd49cdf1bd6a49e8f89f8b805cbaa50276527de3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541731"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698876"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 
@@ -31,7 +31,7 @@ En este documento se describen las aptitudes cognitivas que se consideran en des
 
 ### <a name="last-available-api-version"></a>Última versión de API disponible
 
-2019-05-06-Preview
+2017-11-11-Preview
 
 ### <a name="end-of-support"></a>Finalización del soporte técnico
 

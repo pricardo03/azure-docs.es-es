@@ -3,18 +3,18 @@ title: Adición de una capa de símbolo a Azure Maps | Microsoft Docs
 description: Cómo agregar símbolos al mapa de JavaScript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba5d5d3aaa6a83dbcc5e5072872bca0fcd22bbf9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771675"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638711"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 

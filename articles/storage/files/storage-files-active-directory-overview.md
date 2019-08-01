@@ -1,18 +1,17 @@
 ---
 title: 'Introducción de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar): Azure Storage'
 description: Azure Files admite la autenticación basada en identidades sobre SMB (Bloque de mensajes del servidor) (versión preliminar) mediante Azure Active Directory (Azure AD) Domain Services. Las máquinas virtuales Windows unidas al dominio pueden entonces acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 21087424be1a7a3edfe2dddcbec830bd74559b23
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269371"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699735"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>Introducción del soporte de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

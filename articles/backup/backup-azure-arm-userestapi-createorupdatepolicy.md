@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: Creación de directivas de copia de seguridad mediante la API REST'
 description: Administración de directivas de copia de seguridad (programación y retención) mediante la API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466814"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688741"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -24,7 +25,7 @@ Los pasos para crear una directiva de copia de seguridad para un almacén de Azu
 
 - Se crea una directiva de copia de seguridad por almacén.
 - Se puede crear una directiva de copia de seguridad para la copia de seguridad de las cargas de trabajo siguientes:
-  - MV de Azure
+  - Azure VM
   - SQL en Azure VM
   - Recurso compartido de archivos de Azure
 - Una directiva puede asignarse a muchos recursos. Una directiva de copia de seguridad de Azure VM puede usarse para proteger varias máquinas virtuales de Azure.

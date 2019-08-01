@@ -1,6 +1,6 @@
 ---
 title: 'Creación de revisiones de moderación con la consola de API REST: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use las API de revisión de Azure Content Moderator para crear revisiones de imagen o texto para la moderación humana.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607545"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564350"
 ---
 # <a name="create-human-reviews-rest"></a>Creación de revisiones humanas (REST)
 
@@ -36,7 +36,7 @@ Para crear una revisión, vaya a la página de referencia de API **[Review - Cre
 Especifique los valores para **teamName** y **Ocp-Apim-Subscription-Key**:
 
 - **teamName**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo de **identificador** en la pantalla Credentials [Credenciales] de la herramienta de revisión).
-- **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="enter-a-review-definition"></a>Especificación de una definición de revisión
 
@@ -44,7 +44,7 @@ Edite el cuadro **Cuerpo de la solicitud** para especificar la solicitud JSON co
 
 - **Metadatos**: pares de clave-valor personalizados devueltos al punto de conexión de la devolución de llamada. Si la clave es un código corto definido en la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com), aparece como una etiqueta.
 - **Content**: en el caso de contenido de imagen y vídeo, se trata de una cadena de dirección URL que apunta al contenido. Para el contenido de texto, esta es la cadena de texto real.
-- **ContentId**: una cadena de identificador. Esta cadena se pasa a la API y se devuelve a través de la devolución de llamada. Es útil para asociar los identificadores internos o metadatos con los resultados de un trabajo de moderación.
+- **ContentId**: cadena de identificador personalizada. Esta cadena se pasa a la API y se devuelve a través de la devolución de llamada. Es útil para asociar los identificadores internos o metadatos con los resultados de un trabajo de moderación.
 - **CallbackEndpoint**: (Opcional) La dirección URL para recibir información de devolución de llamada cuando la revisión se completa.
 
 El cuerpo de la solicitud predeterminado muestra ejemplos de los diferentes tipos de revisiones que se puede crear:
@@ -186,7 +186,7 @@ Seleccione **Enviar**. Si la operación se realiza correctamente, el **estado de
 
 Tome nota de los siguientes campos en la respuesta:
 
-- **estado**
+- **status**
 - **reviewerResultTags**: esto aparece si el equipo de revisión humana ha agregado manualmente las etiquetas (se muestra en el campo **createdBy**).
 - **metadata**: esto muestra las etiquetas que se agregaron inicialmente en la revisión, antes de que el equipo de revisión humana realizara cambios.
 

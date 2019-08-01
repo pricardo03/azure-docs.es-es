@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 53cd2b1dde1158a1c46f798e57911dad110dc87e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 71d564dac43328371e9d34684f2d13a26616a99d
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718252"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609776"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendaciones de seguridad para App Service
 
-Este artículo contiene recomendaciones de seguridad para Azure App Service. La implementación de estas recomendaciones le ayudará a cumplir con las obligaciones de seguridad que se describen en nuestro modelo de responsabilidad compartido y mejorará la seguridad general de sus soluciones de aplicación de web. Para obtener más información sobre lo que Microsoft hace para cumplir con las responsabilidades del proveedor de servicios, lea [Seguridad de la infraestructura de Azure](../security/azure-security-infrastructure.md).
+Este artículo contiene recomendaciones de seguridad para Azure App Service. La implementación de estas recomendaciones le ayudará a cumplir con las obligaciones de seguridad que se describen en nuestro modelo de responsabilidad compartido y mejorará la seguridad general de sus soluciones de aplicación de web. Para obtener más información sobre lo que Microsoft hace para cumplir con las responsabilidades del proveedor de servicios, lea [Seguridad de la infraestructura de Azure](../security/fundamentals/infrastructure.md).
 
 ## <a name="general"></a>General
 
@@ -62,4 +62,4 @@ Este artículo contiene recomendaciones de seguridad para Azure App Service. La 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Póngase en contacto con el proveedor de la aplicación para ver si hay más requisitos de seguridad. Para obtener más información sobre el desarrollo de aplicaciones seguras, vea [Documentación sobre desarrollo seguro](../security/abstract-develop-secure-apps.md).
+Póngase en contacto con el proveedor de la aplicación para ver si hay más requisitos de seguridad. Para obtener más información sobre el desarrollo de aplicaciones seguras, vea [Documentación sobre desarrollo seguro](../security/fundamentals/abstract-develop-secure-apps.md).

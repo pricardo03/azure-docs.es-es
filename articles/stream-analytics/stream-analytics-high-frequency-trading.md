@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480092"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598646"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulación de operación bursátil de alta frecuencia con Stream Analytics
 La combinación del lenguaje SQL, las funciones definidas por el usuario (UDF) de JavaScript y los agregados definidos por el usuario (UDA) en Azure Stream Analytics permite a los usuarios realizar análisis avanzados. Los análisis avanzados pueden incluir el entrenamiento y la puntuación en línea del aprendizaje automático, así como la simulación de procesos con estado. En este artículo se describe cómo realizar una regresión lineal en un trabajo de Azure Stream Analytics que realiza un entrenamiento y una puntuación continuos en un escenario de operaciones bursátiles de alta frecuencia.
@@ -65,7 +65,7 @@ Estos son algunos eventos de ejemplo que se han generado:
 >La marca de tiempo del evento es **lastUpdated**, en tiempo epoch.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modelo predictivo de las operaciones bursátiles de alta frecuencia
-Para la demostración se usa un modelo lineal que describe Darryl Shen en [su documento](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
+Para la demostración se usa un modelo lineal que describe Darryl Shen en [su documento](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 Desequilibrio en el volumen de órdenes (VOI) es una función del precio y volumen de compra/venta, y el volumen y precio de compra/venta desde el último "tick". En el documento se identifica la correlación entre VOI y movimiento de precios en el futuro. Genera un modelo lineal entre los cinco últimos valores de VOI y el cambio de precio en los diez "ticks" siguientes. El modelo se entrena con los datos del día anterior con regresión lineal. 
 

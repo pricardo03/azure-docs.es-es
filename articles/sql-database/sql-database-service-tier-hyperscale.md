@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974462"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566715"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Nivel de servicio Hiperescala para un máximo de 100 TB
 
@@ -161,7 +160,7 @@ El nivel Hiperescala de Azure SQL Database está disponible actualmente en las r
 - Este de China 2
 - Norte de China 2
 - Asia oriental
-- Este de EE. UU
+- East US
 - Este de EE. UU. 2
 - Centro de Francia
 - Este de Japón

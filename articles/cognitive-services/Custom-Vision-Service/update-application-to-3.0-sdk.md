@@ -1,6 +1,6 @@
 ---
 title: Migración de un proyecto a la API 3.0
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aprenda a migrar proyectos de Custom Vision de la versión anterior de la API a la API 3.0.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816464"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560901"
 ---
 # <a name="migrate-to-the-30-api"></a>Migrar a la API 3.0
 

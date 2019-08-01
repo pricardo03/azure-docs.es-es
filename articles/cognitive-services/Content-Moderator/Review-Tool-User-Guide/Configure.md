@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de la herramienta de revisión: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use la herramienta de revisión para configurar o recuperar su equipo, etiquetas, conectores, flujos de trabajo y credenciales de Content Moderator.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70bc2c9f457aba09f3d3220061b2fd31d0923906
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61285549"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565671"
 ---
 # <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
 
@@ -105,7 +105,7 @@ Para agregar un conector (y que esté disponible para su uso en los [flujos de t
 
 ![Configuración de conectores de Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Flujos de trabajo
+## <a name="workflows"></a>Workflows
 
 La pestaña **Workflows** (Flujos de trabajo) le permite administrar sus [flujos de trabajo](../review-api.md#workflows). Los flujos de trabajo son filtros basados en la nube del contenido, y funcionan con conectores para ordenarlo de diversas maneras y realizar las acciones adecuadas. Aquí, puede definir, editar y probar los flujos de trabajo. Consulte [Definición y uso de los flujos de trabajo](Workflows.md) para guiarle en este procedimiento.
 

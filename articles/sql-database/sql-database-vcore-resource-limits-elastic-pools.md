@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447181"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566186"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual
 
@@ -38,7 +37,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Uso general: tamaños de almacenamiento y tamaños de proceso
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
+> Las nuevas bases de datos de Gen4 ya no se admiten en la región Este de Australia.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Uso general: Plataforma de procesos de generación 4 (parte 1)
 
@@ -84,7 +83,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|3500|4000|4500|5000|7000|7000|
-|Límites de velocidad de los registros (MBps)|32,8125|37,5|37,5|37,5|37,5|37,5|
+|Límites de velocidad de los registros (MBps)|32,8125|37.5|37.5|37.5|37.5|37.5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
 |Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -140,7 +139,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
-|Límites de velocidad de los registros (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
+|Límites de velocidad de los registros (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|33600|4200|8400|
 |Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1680|1890|2100|2520|33600|4200|8400|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|

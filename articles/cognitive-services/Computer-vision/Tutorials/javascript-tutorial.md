@@ -1,6 +1,6 @@
 ---
 title: Realización de operaciones de imagen - JavaScript
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explore una aplicación básica de JavaScript que usa Computer Vision API en Azure Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231666"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564565"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Uso de las características de Computer Vision con la API REST y JavaScript
 

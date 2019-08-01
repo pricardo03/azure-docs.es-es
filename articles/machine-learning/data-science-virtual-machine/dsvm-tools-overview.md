@@ -4,7 +4,7 @@ description: Obtenga información sobre las utilidades y herramientas que están
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: d48c2b849f875289c89201f20478deebf4c00db9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236474"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565222"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conozca Data Science Virtual Machine
 
@@ -30,7 +30,7 @@ Data Science Virtual Machine (DSVM) incluye una amplia lista de conocidas herram
 DSVM también incluye varios ejemplos de código y tutoriales en forma de cuadernos de Jupyter que se pueden ejecutar localmente. También hay documentación para estos ejemplos que facilitan la comprensión. 
 
 > [!NOTE]
-> Puede usar [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) para crear, ejecutar y compartir cuadernos de Jupyter en la nube. También puede [adjuntar una Data Science VM a Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) para ampliar la capacidad de proceso disponible.
+> Puede usar [Azure Notebooks](../../notebooks/azure-notebooks-overview.md) para crear, ejecutar y compartir cuadernos de Jupyter en la nube. También puede [adjuntar una Data Science VM a Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) para ampliar la capacidad de proceso disponible.
 
 Las herramientas, plataformas, utilidades y ejemplos incluidos en la máquina virtual de ciencia de datos se han organizado en las siguientes secciones:
 

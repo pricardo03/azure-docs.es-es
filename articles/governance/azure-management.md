@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488476"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608200"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Información general de los servicios de administración de Azure
 
@@ -44,7 +44,7 @@ En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure P
 
 ## <a name="secure"></a>Seguridad
 
-Administre la seguridad de los recursos y los datos. Un programa de seguridad implica evaluar amenazas, recopilar y analizar datos y que las aplicaciones y los recursos cumplan con los requisitos. La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Consulte [Introducción a la seguridad de Azure](../security/azure-security.md) para información y guías detalladas sobre cómo proteger los recursos de Azure.
+Administre la seguridad de los recursos y los datos. Un programa de seguridad implica evaluar amenazas, recopilar y analizar datos y que las aplicaciones y los recursos cumplan con los requisitos. La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Consulte [Introducción a la seguridad de Azure](../security/fundamentals/overview.md) para información y guías detalladas sobre cómo proteger los recursos de Azure.
 
 ## <a name="protect"></a>Protección
 

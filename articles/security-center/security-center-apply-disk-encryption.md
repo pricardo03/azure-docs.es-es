@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d285461aef1e56dfd08a162e51ada0340d6eeae4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c76e99c2588181a596a2a91ddd138cb9d7ae4a5a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095428"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610306"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicación del cifrado de discos en el Centro de seguridad de Azure
 Azure Security Center recomienda que aplique el cifrado de discos si tiene discos de máquina virtual de Windows o Linux que no estén cifrados con Azure Disk Encryption. El Cifrado de discos permite cifrar los discos de máquina virtual IaaS de Windows y Linux.  Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.
@@ -44,7 +44,7 @@ Para cifrar Azure Virtual Machines que Security Center ha identificado que neces
 * Obtenga y ejecute el script de Azure PowerShell de requisitos previos de Azure Disk Encryption.
 * Cifre las máquinas virtuales.
 
-[Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md) le guiará en estos pasos. En este tema se supone que utiliza una máquina cliente Windows desde la que configura el cifrado de disco.
+[Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/fundamentals/quick-encrypt-vm-powershell.md) le guiará en estos pasos. En este tema se supone que utiliza una máquina cliente Windows desde la que configura el cifrado de disco.
 
 Existen varios enfoques que se pueden usar para Azure Virtual Machines. Si conoce bien Azure PowerShell o CLI de Azure, puede preferir el uso de métodos alternativos. Para más información sobre estos otros enfoques, consulte [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 

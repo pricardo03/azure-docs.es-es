@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 089285637bb740fea47f1fd07de0906dfe46662b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 421e25570cd4c4495769530e4072cd8e0219f752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244455"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666275"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Dar forma a JSON para maximizar el rendimiento de las consultas 
 
@@ -195,5 +195,5 @@ Para una propiedad con un gran número de valores posibles, es mejor enviarlos c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) (Sintaxis de consulta de Azure Time Series Insights) para obtener más información sobre la sintaxis de consulta para la API de REST de acceso a datos de Time Series Insights.
+- Lea [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) (Sintaxis de consulta de Azure Time Series Insights) para obtener más información sobre la sintaxis de consulta para la API de REST de acceso a datos de Time Series Insights.
 - Aprenda a [dar forma a eventos](./time-series-insights-send-events.md).

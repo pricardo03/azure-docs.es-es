@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560957"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608125"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Directiva de base de referencia: Requerir MFA para la administración de servicios (versión preliminar)
 
@@ -62,12 +62,12 @@ Para habilitar esta directiva y proteger a los administradores:
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Directiva de línea base: Requerir MFA para la administración de servicios (versión preliminar)** .
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
-1. Haga clic en **Guardar**.
+1. Haga clic en  **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-* [Directivas de la protección de base de referencia de acceso condicional](concept-baseline-protection.md)
-* [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
+* [Directivas de protección de base de referencia de acceso condicional](concept-baseline-protection.md)
+* [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

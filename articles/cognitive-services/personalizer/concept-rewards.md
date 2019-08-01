@@ -3,19 +3,19 @@ title: 'Puntuación de recompensa: Personalizer'
 titleSuffix: Azure Cognitive Services
 description: La puntuación de recompensa indica el resultado que tuvo la elección de personalización, RewardActionID, para el usuario. El valor de la puntuación de recompensa viene determinado por la lógica de negocios, según las observaciones del comportamiento del usuario. Personalizer entrena sus modelos de Machine Learning mediante la evaluación de las recompensas.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 39db28cd7e11d77362a2aefcf4ad8d2748db59c2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722515"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663372"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 

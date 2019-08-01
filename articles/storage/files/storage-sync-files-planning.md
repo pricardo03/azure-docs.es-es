@@ -1,19 +1,18 @@
 ---
 title: Planeamiento de una implementación de Azure File Sync |Microsoft Docs
 description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798677"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699336"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -252,7 +251,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | India Central | Pune |
 | Centro de EE. UU. | Iowa |
 | Asia oriental | RAE de Hong Kong |
-| Este de EE. UU | Virginia |
+| East US | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Centro de Francia | París |
 | Corea Central| Seúl |
@@ -294,7 +293,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | India Central       | Sur de la India        |
 | Centro de EE. UU.          | Este de EE. UU. 2          |
 | Asia oriental           | Sudeste asiático     |
-| Este de EE. UU             | Oeste de EE. UU.            |
+| East US             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
 | Centro de Francia      | Sur de Francia       |
 | Este de Japón          | Oeste de Japón         |
@@ -313,7 +312,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Gobierno de EE. UU. - Virginia      | Gobierno de EE. UU.: Texas       |
 | Europa occidental         | Europa del Norte       |
 | Centro occidental de EE.UU.     | Oeste de EE. UU. 2          |
-| Oeste de EE. UU.             | Este de EE. UU            |
+| Oeste de EE. UU.             | East US            |
 | Oeste de EE. UU. 2           | Centro occidental de EE.UU.    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync

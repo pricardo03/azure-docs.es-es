@@ -1,6 +1,6 @@
 ---
 title: 'Definición de flujos de trabajo de moderación con la consola de API de REST: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Puede usar las API de revisión de Azure Content Moderator para definir flujos de trabajo y umbrales personalizados en función de las directivas de contenido.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605900"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561198"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definición y uso de los flujos de trabajo de moderación (REST)
 
@@ -37,7 +37,7 @@ Especifique los valores para **team**, **workflowName** y **Ocp-Apim-Subscriptio
 
 - **team**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo de **identificador** en la pantalla Credenciales de la herramienta de revisión).
 - **workflowname**: nombre de un nuevo flujo de trabajo que se va a agregar (o un nombre existente, si desea actualizar un flujo de trabajo existente).
-- **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
 
 ![Parámetros y encabezados de consulta de la consola de Workflow - Create Or Update (Flujo de trabajo: Crear o actualizar)](images/workflow-console-parameters.PNG)
 

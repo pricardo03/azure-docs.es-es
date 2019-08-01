@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630370"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516704"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -87,7 +89,7 @@ Cuando varios usuarios simultáneos acceden a la matriz virtual, todos ellos com
 
 StorSimple Virtual Array no es adecuado para cargas de trabajo que necesitan una alta disponibilidad. La matriz virtual es un dispositivo de nodo único que experimenta un tiempo de inactividad cuando se instalan las actualizaciones de software. Los administradores deben planear una ventana de mantenimiento de 30 minutos tres o cuatro veces al año.
 
-## <a name="workflows"></a>Flujos de trabajo
+## <a name="workflows"></a>Workflows
 
 La matriz virtual de StorSimple es especialmente adecuada para los siguientes flujos de trabajo:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666137"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562222"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
@@ -271,7 +271,7 @@ MAM no es aplicable a la unión a Azure AD.
 
 ## <a name="configure-enterprise-state-roaming"></a>Configuración de Enterprise State Roaming
 
-Si quiere habilitar State Roaming en Azure AD para que los usuarios puedan sincronizar su configuración entre dispositivos, consulte [Habilitación de Enterprise State Roaming en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
+Si quiere habilitar State Roaming en Azure AD para que los usuarios puedan sincronizar su configuración entre dispositivos, consulte [Habilitación de Enterprise State Roaming en Azure Active Directory](enterprise-state-roaming-enable.md). 
 
 **Recomendación:** Habilite esta opción incluso para los dispositivos unidos a Azure AD híbrido.
 

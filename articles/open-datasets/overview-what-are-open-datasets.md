@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b01ad5a4fd8808c1e841ba2fb47ea06ece011010
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051044"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598977"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets (versión preliminar) y cómo puede usarse?
 
@@ -58,4 +58,4 @@ Si no encuentra los datos que quiere, envíenos un correo electrónico para [sol
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cuaderno de ejemplo](samples.md)
 * [Tutorial: Regression modeling with NY taxi data](tutorial-opendatasets-automl.md) (Tutorial: Modelado de regresión con datos de taxis de Nueva York)
-* [SDK de Python para Open Datasets](https://aka.ms/open-datasets-api)
+* [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)

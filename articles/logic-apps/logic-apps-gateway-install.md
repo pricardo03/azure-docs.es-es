@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a9b319b9ea44f766bc6f014b76bc48d15efc57
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544477"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598456"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -296,7 +296,7 @@ La puerta de enlace de datos se ejecuta como servicio de Windows, así que, al i
 
 ## <a name="tenant-level-administration"></a>Administración en el nivel de inquilino 
 
-En este momento no hay un único lugar donde los administradores de inquilinos puedan administrar todas las puertas de enlace que otros usuarios han instalado y configurado. Si es administrador de inquilinos, tal vez quiera que los usuarios de la organización le agreguen como administrador para cada puerta de enlace que instalen. Así, puede administrar todas las puertas de enlace de la organización a través de la página de configuración de la puerta de enlace o mediante [comandos de PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+En este momento no hay un único lugar donde los administradores de inquilinos puedan administrar todas las puertas de enlace que otros usuarios han instalado y configurado. Si es administrador de inquilinos, tal vez quiera que los usuarios de la organización le agreguen como administrador para cada puerta de enlace que instalen. Así, puede administrar todas las puertas de enlace de la organización a través de la página de configuración de la puerta de enlace o mediante [comandos de PowerShell](/data-integration/gateway/service-gateway-powershell-support). 
 
 <a name="gateway-cloud-service"></a>
 
@@ -418,7 +418,7 @@ Para ayudarle a solucionar problemas, empiece por recopilar y revisar los regist
 
 Estas son otras ubicaciones donde puede encontrar diversos registros:
 
-| Tipo de registro | Ubicación | 
+| Tipo de registro | Location | 
 |----------|----------| 
 | **Registros del instalador** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **Registros de configuración** | C:\Users\<*nombreDeUsuario*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*AAAAMMDD*>.<*número*>.log | 

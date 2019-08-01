@@ -3,18 +3,18 @@ title: Agrupación en clústeres de datos de punto en Azure Maps | Microsoft Doc
 description: Cómo agrupar en clúster los datos de punto en el SDK web
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957318"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639066"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
 
@@ -84,7 +84,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weigh
 
 Cuando se producen eventos del mouse en una capa que contiene puntos de datos agrupados en clúster, se devolverá el punto de datos agrupados en clúster para el evento como un objeto de característica de punto de GeoJSON. La característica de punto tendrá las siguientes propiedades:
 
-| Nombre de propiedad | Type | DESCRIPCIÓN |
+| Nombre de propiedad | type | DESCRIPCIÓN |
 |---------------|------|-------------|
 | cluster | boolean | Indica si la característica representa un clúster. |
 | cluster_id | string | Un id. exclusivo para el clúster que se puede usar con los métodos `getClusterExpansionZoom`, `getClusterChildren` y `getClusterLeaves` de DataSource. |

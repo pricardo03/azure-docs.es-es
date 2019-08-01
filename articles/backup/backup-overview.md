@@ -1,19 +1,19 @@
 ---
 title: ¿Qué es Azure Backup?
 description: Proporciona información general del servicio Azure Backup, y cómo contribuye a la estrategia de continuidad empresarial y recuperación ante desastres (BCDR).
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688722"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639634"
 ---
 # <a name="what-is-azure-backup"></a>¿Qué es Azure Backup?
 
@@ -123,7 +123,7 @@ En la tabla siguiente se muestra la frecuencia de copia de seguridad máxima par
 | Frecuencia de copia de seguridad<br/> (en el almacén de Recovery Services) |Tres copias de seguridad por día |Dos copias de seguridad por día |Dos copias de seguridad por día |Una copia de seguridad por día |
 | Frecuencia de copia de seguridad<br/> (en el disco) |No aplicable |Cada 15 minutos para SQL Server<br/><br/> Cada hora para otras cargas de trabajo |Cada 15 minutos para SQL Server<br/><br/> Cada hora para otras cargas de trabajo |No aplicable |
 | Opciones de retención |Diariamente, semanalmente, mensualmente y anualmente |Diariamente, semanalmente, mensualmente y anualmente |Diariamente, semanalmente, mensualmente y anualmente |Diariamente, semanalmente, mensualmente y anualmente |
-| Número máximo de puntos de recuperación por instancia protegida |9.999|9.999|9.999|9.999|
+| Número máximo de puntos de recuperación por instancia protegida |9\.999|9\.999|9\.999|9\.999|
 | Período de retención máximo |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |
 | Puntos de recuperación en disco local |No aplicable | 64 en el caso de servidores de archivos<br/><br/> 448 en el caso de servidores de aplicaciones | 64 en el caso de servidores de archivos<br/><br/> 448 en el caso de servidores de aplicaciones |No aplicable |
 | Puntos de recuperación en cinta |No aplicable |Ilimitado |No aplicable |No aplicable |

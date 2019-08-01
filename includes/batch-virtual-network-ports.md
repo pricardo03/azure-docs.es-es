@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322652"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
@@ -66,14 +66,14 @@ No es necesario especificar los grupos de seguridad de red a nivel de subred, po
 
 | Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Cualquiera | 29876-29877 | TCP | PERMITIR |
-| Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Cualquiera | 3389 (Windows), 22 (Linux) | TCP | PERMITIR |
+| N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
+| Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Puertos de destino | Protocolo | . |
+| Source | Puertos de origen | Destino | Etiqueta de servicio de destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- | --- |
-| Cualquiera | * | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual) | 443 | TCP | PERMITIR |
+| Any | * | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Grupos de la configuración de servicios en la nube
 
@@ -99,11 +99,11 @@ Configure el tráfico entrante en el puerto 3389 para Windows si tiene que permi
 
 | Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- |
-Cualquiera <br /><br />Aunque esto requiere "permitir todo" realmente, el servicio Batch aplica una regla de lista de control de acceso a nivel de cada nodo que filtra todas las direcciones IP de servicio que no sean de Batch. | * | Cualquiera | 10100, 20100, 30100 | TCP | PERMITIR |
-| Opcional, para permitir el acceso RDP en nodos de ejecución. | * | Cualquiera | 3389 | TCP | PERMITIR |
+Any <br /><br />Aunque esto requiere "permitir todo" realmente, el servicio Batch aplica una regla de lista de control de acceso a nivel de cada nodo que filtra todas las direcciones IP de servicio que no sean de Batch. | * | Any | 10100, 20100, 30100 | TCP | Allow |
+| Opcional, para permitir el acceso RDP en nodos de ejecución. | * | Any | 3389 | TCP | Allow |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Source | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- |
-| Cualquiera | * | Cualquiera | 443  | Cualquiera | PERMITIR |
+| Any | * | Any | 443  | Any | Allow |

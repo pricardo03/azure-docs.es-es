@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277636"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517237"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -35,7 +35,7 @@ Los conectores están disponibles como desencadenadores y acciones integrados, o
   > Las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pueden acceder directamente a los recursos de una red virtual de Azure.
   > Cuando se usa un ISE, los desencadenadores y acciones integrados en los que se muestra la etiqueta **Core** se ejecutan en el mismo ISE que las aplicaciones lógicas. Las aplicaciones lógicas y las acciones y los desencadenadores integrados que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo.
   >
-  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). 
   > Para más información sobre los precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ Los conectores están disponibles como desencadenadores y acciones integrados, o
   >
   > En lo que respecta a los sistemas locales conectados a una red virtual de Azure, inserte el ISE en esa red para que las aplicaciones lógicas puedan acceder directamente a esos sistemas mediante un conector que tenga una etiqueta **ISE**, una acción HTTP o un [conector personalizado](#custom). Las aplicaciones lógicas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. 
   >
-  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
   > Para más información sobre los precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
   Para obtener la lista completa de conectores y la información de referencia de cada conector, como acciones y desencadenadores, que se definen mediante una descripción de OpenAPI (anteriormente Swagger), además de los límites, vea la [Introducción a los conectores](/connectors/). Para obtener información sobre precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y [Detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
@@ -196,7 +196,7 @@ Para que las aplicaciones de API o los conectores personalizados sean públicos 
 >
 > Los conectores personalizados creados dentro de un ISE no funcionan con la puerta de enlace de datos local. Pero estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a una red virtual de Azure en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos.
 >
-> Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

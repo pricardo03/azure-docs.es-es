@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 05/08/2019
-ms.openlocfilehash: 783a8f0bc25717f1c2bf78a9c0d40b209a07939b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65473343"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569036"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Control de acceso a Azure SQL Database y SQL Data Warehouse
 
@@ -51,7 +50,7 @@ Las cuentas de usuario se pueden crear en la base de datos maestra y se pueden c
 
 Como procedimiento recomendado, la aplicación debe usar una cuenta dedicada para autenticar. De esta forma, puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de la aplicación sea vulnerable a ataques por inyección de código SQL. Se recomienda crear un [usuario de base de datos independiente](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), ya que esto permitirá que la aplicación se autentique directamente en la base de datos. 
 
-## <a name="authorization"></a>Autorización
+## <a name="authorization"></a>Authorization
 
 Autorización indica las acciones que pueden realizar los usuarios en una base de datos de Azure SQL, algo que controlan las [pertenencias a roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) y los [permisos de nivel de objeto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) de las bases de datos de la cuenta de usuario. Como procedimiento recomendado, debe conceder a los usuarios los privilegios mínimos necesarios. La cuenta de administrador de servidor con la que se está conectando forma parte de db_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación. Para más información, consulte [Administración de inicios de sesión](sql-database-manage-logins.md).
 

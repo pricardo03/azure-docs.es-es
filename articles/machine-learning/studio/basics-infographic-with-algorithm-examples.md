@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0a355852be57a3b0869a6bf094e98a89f49f28
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751649"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514923"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 
@@ -35,7 +35,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 
 * Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo elegir el correcto para su solución, consulte [Cómo elegir algoritmos para Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Machine Learning Studio.
-* Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [Lista de la A a la Z de módulos de Machine Learning Studio][a-z-list] (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
+* Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [A-Z list of Machine Learning Studio modules][a-z-list] (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
 * Para información general de la Galería de Azure AI y los numerosos recursos generados por la comunidad que allí se encuentran, vea [Uso compartido y descubrimiento de recursos en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
 

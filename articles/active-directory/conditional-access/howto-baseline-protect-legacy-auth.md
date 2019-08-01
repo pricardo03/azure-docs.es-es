@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227324"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608075"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)
 
@@ -117,5 +117,5 @@ Para habilitar esta directiva y proteger a su organización:
 Para más información, consulte:
 
 * [Directivas de protección de base de referencia de acceso condicional](concept-baseline-protection.md)
-* [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
+* [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

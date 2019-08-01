@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: dd0a33364ed9395a85478798e47352c533bd47dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028206"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608530"
 ---
 # <a name="azure-blockchain-service-security"></a>Seguridad de Azure Blockchain Service
 
@@ -23,7 +23,7 @@ Azure Blockchain Service usa varias capacidades de Azure para mantener los datos
 
 ## <a name="isolation"></a>Aislamiento
 
-Los recursos de Azure Blockchain Service están aislados en una red virtual privada. Cada nodo de transacción y validación es una máquina virtual (VM). Las máquinas virtuales de una red virtual no se pueden comunicar directamente con las máquinas virtuales de una red virtual diferente. El aislamiento garantiza que la comunicación siga siendo privada dentro de la red virtual. Para obtener más información sobre el aislamiento de la red virtual de Azure, consulte el [aislamiento en la nube pública de Azure](../../security/azure-isolation.md#networking-isolation).
+Los recursos de Azure Blockchain Service están aislados en una red virtual privada. Cada nodo de transacción y validación es una máquina virtual (VM). Las máquinas virtuales de una red virtual no se pueden comunicar directamente con las máquinas virtuales de una red virtual diferente. El aislamiento garantiza que la comunicación siga siendo privada dentro de la red virtual. Para obtener más información sobre el aislamiento de la red virtual de Azure, consulte el [aislamiento en la nube pública de Azure](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
 ![Diagrama de VNET](./media/data-security/vnet.png)
 

@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630145"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516762"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
+
 ## <a name="overview"></a>Información general
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 La matriz virtual de Microsoft Azure StorSimple es una solución de almacenamiento integrada que administra las tareas de almacenamiento de información entre un dispositivo virtual local que se ejecuta en un hipervisor y el almacenamiento de nube de Microsoft Azure. La matriz virtual de StorSimple es una alternativa eficaz y rentable a la matriz física de la serie 8000. La matriz virtual se puede ejecutar en la infraestructura existente de hipervisor, admite los protocolos iSCSI y SMB, y está especialmente indicada para escenarios de oficinas remotas y sucursales. Para más información sobre las soluciones de StorSimple, vaya a [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx) (Información general de Microsoft Azure StorSimple).
 
 En este artículo se tratan los procedimientos recomendados que se implementan durante la instalación inicial, la implementación y la administración de la matriz virtual de StorSimple. Estos procedimientos proporcionan directrices validadas para la instalación y administración de una matriz virtual. Este artículo va dirigido a los administradores de TI que implementan y administran las matrices virtuales en sus centros de datos.

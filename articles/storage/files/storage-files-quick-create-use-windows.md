@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido de Azure: Creación y uso de un recurso compartido de Azure Files en máquinas virtuales Windows | Microsoft Docs'
 description: En este inicio rápido, configurará un recurso compartido de Azure Files en Azure Portal y lo conectará a una máquina virtual Windows. Se conectará al recurso compartido de Files y cargará un archivo en él. A continuación, tomará una instantánea del recurso compartido de Files, modificará el archivo en el él y restaurará una instantánea anterior del recurso.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165801"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699750"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
 

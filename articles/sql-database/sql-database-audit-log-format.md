@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 334d277370bb8d6678679c887f6a2b89d65652c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417395"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569471"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
@@ -60,7 +59,7 @@ Los eventos de auditoría se escriben en el área de trabajo de Log Analytics de
 | database_principal_id | database_principal_id_d | Id. del contexto de usuario de la base de datos donde se realiza la acción. | int | int |
 | database_principal_name | database_principal_name_s | Nombre del contexto de usuario de la base de datos donde se realiza la acción. | sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Duración de la ejecución de la consulta, en milisegundos. | bigint | int |
-| event_time | event_time_t | Fecha y hora en que se activó la acción auditable. | datetime2 | Datetime |
+| event_time | event_time_t | Fecha y hora en que se activó la acción auditable. | datetime2 | datetime |
 | host_name | N/D | Nombre de host del cliente. | string | N/D |
 | is_column_permission | is_column_permission_s | Marca que indica si se trata de un permiso de nivel de columna. 1 = true, 0 = false | bit | string |
 | N/D | is_server_level_audit_s | Marca que indica si esta auditoría está en el nivel de servidor. | N/D | string |

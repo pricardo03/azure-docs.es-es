@@ -1,7 +1,7 @@
 ---
-title: Migración de Custom Speech Service al servicio de Voz
-titlesuffix: Azure Cognitive Services
-description: Custom Speech Service ahora forma parte de los servicios de Voz. Cambie a los servicios de Voz para aprovechar las actualizaciones más recientes de calidad y características.
+title: Migrar de Custom Speech Service al servicio Voz
+titleSuffix: Azure Cognitive Services
+description: Custom Speech Service ahora forma parte del servicio Voz. Cambie al servicio Voz para aprovechar las actualizaciones más recientes de calidad y características.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995665"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562767"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar de Custom Speech Service al servicio Voz
 
@@ -62,4 +62,4 @@ Migre sus claves de recursos existentes a los servicios de Voz en el portal de l
 ## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es el servicio Voz?](overview.md)
-* [Documentación de los servicios de Voz y Speech SDK](speech-sdk.md#get-the-sdk)
+* [Documentación de los servicios de voz y Speech SDK](speech-sdk.md#get-the-sdk)

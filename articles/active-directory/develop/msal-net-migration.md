@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785216"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663344"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -55,7 +55,7 @@ In MSAL.NET también se puede acceder a los recursos de v1.0. Vea los detalles e
 
 - ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) como representación de la conexión al servidor de autorización o al servicio de token de seguridad (STS), a través de una entidad. Por el contrario, MSAL.NET está diseñado en torno a [aplicaciones cliente](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Proporciona dos clases independientes: `PublicClientApplication` y `ConfidentialClientApplication`
 
-- Adquisición de tokens: ADAL.NET y MSAL.NET tienen las mismas llamadas de autenticación (`AcquireTokenAsync` y `AcquireTokenSilentAsync` para ADAL.NET, y `AqquireTokenInteractive` y `AcquireTokenSilent` en MSAL.NET), pero con distintos parámetros requeridos. Una diferencia es el hecho de que, en MSAL.NET, no es preciso usar el `ClientID` de la aplicación en todas las llamadas a AcquireTokenXX. De hecho, `ClientID` se establece una sola vez al compilar `IPublicClientApplication` o `IConfidentialClientApplication`.
+- Adquisición de tokens: ADAL.NET y MSAL.NET tienen las mismas llamadas de autenticación (`AcquireTokenAsync` y `AcquireTokenSilentAsync` para ADAL.NET, y `AcquireTokenInteractive` y `AcquireTokenSilent` en MSAL.NET), pero con distintos parámetros requeridos. Una diferencia es el hecho de que, en MSAL.NET, no es preciso usar el `ClientID` de la aplicación en todas las llamadas a AcquireTokenXX. De hecho, `ClientID` se establece una sola vez al compilar `IPublicClientApplication` o `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount no IUser
 
@@ -139,7 +139,7 @@ MSAL.NET hace que la caché de tokens sea una clase sellada y elimina la posibil
 
 ## <a name="signification-of-the-common-authority"></a>Significación de la autoridad común
 
-En la versión 1.0, si usa la autoridad https://login.microsoftonline.com/common, permitirá a los usuarios iniciar sesión con cualquier cuenta de AAD (para cualquier organización). Consulte [Validación de autoridad en ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+En la versión 1.0, si usa la autoridad https://login.microsoftonline.com/common , permitirá a los usuarios iniciar sesión con cualquier cuenta de AAD (para cualquier organización). Consulte [Validación de autoridad en ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
 Si usa la autoridad https://login.microsoftonline.com/common en la versión 2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o de cualquier organización de AAD. En MSAL.NET, si desea restringir el inicio de sesión a cualquier cuenta de AAD (el mismo comportamiento que con ADAL.NET), es preciso que use https://login.microsoftonline.com/organizations. Para más información, consulte el parámetro `authority` en la [aplicación cliente pública](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -161,7 +161,7 @@ Los permisos de OAuth2 son ámbitos de permiso que una aplicación de API web (r
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a permisos específicos de OAuth2 de una aplicación de la versión 1.0
 
-Si desea adquirir tokens para ámbitos específicos de una aplicación de la versión 1.0 (por ejemplo el gráfico de AAD, que es https://graph.windows.net), necesitaría crear `scopes` mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
+Si desea adquirir tokens para ámbitos específicos de una aplicación de la versión 1.0 (por ejemplo el gráfico de AAD, que es https://graph.windows.net) , necesitaría crear `scopes` mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
 
 Por ejemplo, para acceder en nombre del usuario a una API Web v1.0 que tiene un URI de identificador de aplicación `ResourceId`, es probable que desee usar:
 
@@ -169,7 +169,7 @@ Por ejemplo, para acceder en nombre del usuario a una API Web v1.0 que tiene un 
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Si desea leer y escribir con MSAL.NET Azure Active Directory mediante la API Graph de AAD (https://graph.windows.net/), debe crear una lista de ámbitos, como en el siguiente fragmento de código:
+Si desea leer y escribir con MSAL.NET Azure Active Directory mediante la API Graph de AAD (https://graph.windows.net/) , debe crear una lista de ámbitos, como en el siguiente fragmento de código:
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
@@ -178,7 +178,7 @@ var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directo
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Advertencia: debe tener uno o dos barras diagonales en el ámbito correspondiente a una API web v1.0
 
-Si desea escribir el ámbito correspondiente a la API de Azure Resource Manager (https://management.core.windows.net/), es preciso que solicite el ámbito siguiente (tenga en cuenta las dos barras diagonales) 
+Si desea escribir el ámbito correspondiente a la API de Azure Resource Manager (https://management.core.windows.net/) , es preciso que solicite el ámbito siguiente (tenga en cuenta las dos barras diagonales) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -192,7 +192,7 @@ Esto se debe a que la API de Resource Manager espera una barra diagonal en su no
 La lógica que usa Azure AD es la siguiente:
 - Para el punto de conexión de ADAL (v1.0) con un token de acceso de la versión 1.0 (el único posible), aud = resource
 - Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 2.0, aud=resource.AppId
-- Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https:\//database.windows.net espera una audiencia de "https://database.windows.net/", deberá solicitar un ámbito de https:\//database.windows.net//.default. Vea también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): falta la barra diagonal final de la dirección URL, lo que ha provocado el produjo el error de autenticación de SQL #747
+- Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https:\//database.windows.net espera una audiencia de "https://database.windows.net/ ", deberá solicitar un ámbito de https:\/ /database.windows.net//.default. Vea también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): falta la barra diagonal final de la dirección URL, lo que ha provocado el produjo el error de autenticación de SQL #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a todos los permisos de una aplicación de la versión 1.0

@@ -1,20 +1,18 @@
 ---
 title: Introducción a los discos administrados de Azure Disk Storage para máquinas virtuales Linux | Microsoft Docs
 description: Introducción a los discos administrados de Azure, que controlan las cuentas de almacenamiento cuando se usan máquinas virtuales Linux
-services: virtual-machines-linux,storage
 author: roygara
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: vm-linux
 ms.topic: overview
 ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 18dc1bd2eea232d0c2eb73d496dd4bd9d2d5016e
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 5052504b4fb63ce9d638a9d2505ad1c08d3324de
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "64707806"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695465"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 

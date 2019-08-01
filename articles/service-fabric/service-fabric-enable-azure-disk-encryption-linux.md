@@ -3,7 +3,7 @@ title: Habilitación del cifrado de disco para clústeres con Linux de Azure Ser
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric en Linux mediante Azure Resource Manager y Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: navya
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
-ms.author: aljo
-ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258762"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599596"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Linux 
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ La versión preliminar del cifrado de disco de un conjunto de escalado de máqui
 3. Instale la versión más reciente del [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Estos son los cmdlets de Azure Disk Encryption para habilitar ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) el cifrado, recuperar ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) el estado de cifrado y eliminar ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) el cifrado en la instancia del conjunto de escalado.
 
 
-| Get-Help | Versión |  Origen  |
+| Get-Help | Versión |  Source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 o posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 o posterior | Az.Compute |

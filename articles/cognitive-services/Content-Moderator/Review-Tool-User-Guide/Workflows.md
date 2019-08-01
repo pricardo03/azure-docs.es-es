@@ -1,6 +1,6 @@
 ---
 title: 'Definición y uso de flujos de trabajo de contenido mediante la herramienta de revisión: Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Puede usar el diseñador de flujos de trabajo de Content Moderator para definir flujos de trabajo y umbrales personalizados en función de las directivas de contenido.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b87529014a0eeb5561cd166a29f2309198733b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271182"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565635"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definición y uso de los flujos de trabajo de moderación
 

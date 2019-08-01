@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc5f35aedd52e206433afb0f556bc1cde8296232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fdfd39527ccd298b78ef2c4c895d1f667d8d33b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237471"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677612"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consulta de datos desde el entorno de versión preliminar de Azure Time Series Insights mediante C#
 
@@ -42,6 +42,6 @@ El ejemplo muestra varios ejemplos básicos del uso de la API de consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre la consulta, vea la [referencia sobre las API de consulta](/rest/api/time-series-insights/preview-query).
+- Para más información sobre la consulta, vea la [referencia sobre las API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
 - Lea cómo [conectar una aplicación de página única de JavaScript](tutorial-create-tsi-sample-spa.md) a Time Series Insights.

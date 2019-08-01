@@ -1,18 +1,18 @@
 ---
 title: Habilitar la copia de seguridad al crear una VM de Azure con Azure Backup
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: raynew
-ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: dacurwin
+ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436346"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639718"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -54,7 +54,7 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
 
 > [!NOTE]
-> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de la VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geografía_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden provocarse errores de copia de seguridad.<br>
+> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de la VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geografía_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad.<br>
 Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
 
 

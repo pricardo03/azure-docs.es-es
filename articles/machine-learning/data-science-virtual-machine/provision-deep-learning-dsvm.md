@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configure y cree una instancia de Deep Learning Data Science Virtual Machine en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: b9d0f9aead6e2cedd3ca0884273bac0106a925a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410435"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591915"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
@@ -68,7 +68,7 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 
 ### <a name="linux-edition"></a>Edición de Linux
 
-Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Use las credenciales de la cuenta que ha creado en la sección [**Aspectos básicos**](#basics) del paso 3 con la interfaz de shell de texto. Para más información sobre las conexiones SSH a máquinas virtuales de Azure, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](/azure/virtual-machines/linux/use-remote-desktop). En un cliente Windows, puede descargar una herramienta de cliente SSH como [Putty](https://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go. 
+Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Use las credenciales de la cuenta que ha creado en la sección [**Aspectos básicos**](#basics) del paso 3 con la interfaz de shell de texto. Para más información sobre las conexiones SSH a máquinas virtuales de Azure, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md). En un cliente Windows, puede descargar una herramienta de cliente SSH como [Putty](https://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go. 
 
 > [!NOTE]
 > El cliente X2Go ha tenido un mejor rendimiento que el reenvío de X11 durante las pruebas. Por lo tanto, se recomienda usar el cliente X2Go para la interfaz gráfica de escritorio.

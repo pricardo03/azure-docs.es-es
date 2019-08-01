@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186280"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68623107"
 ---
 Es importante proteger la máquina virtual (VM) para las aplicaciones que se ejecutan. Proteger las máquinas virtuales puede suponer que se incluyan uno o varios servicios y características de Azure que abarcan un acceso seguro a las máquinas virtuales y al almacenamiento seguro de los datos. Este artículo proporciona información que le permite proteger las máquinas virtuales y las aplicaciones.
 
 ## <a name="antimalware"></a>Antimalware
 
-El panorama moderno de amenazas para los entornos de nube es dinámico, lo que aumenta la presión para mantener una protección eficaz a fin de satisfacer los requisitos de cumplimiento y seguridad. [Microsoft Antimalware para Azure](../articles/security/azure-security-antimalware.md) es una funcionalidad gratuita de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Las alertas se pueden configurar para avisarle cuando software no deseado o malintencionado intenta instalarse o ejecutarse en una máquina virtual.
+El panorama moderno de amenazas para los entornos de nube es dinámico, lo que aumenta la presión para mantener una protección eficaz a fin de satisfacer los requisitos de cumplimiento y seguridad. [Microsoft Antimalware para Azure](../articles/security/fundamentals/antimalware.md) es una funcionalidad gratuita de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Las alertas se pueden configurar para avisarle cuando software no deseado o malintencionado intenta instalarse o ejecutarse en una máquina virtual.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -53,4 +53,4 @@ Mediante el [control de acceso basado en rol (RBAC)](../articles/role-based-acce
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) o [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).
+- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../articles/security/fundamentals/overview.md) o [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

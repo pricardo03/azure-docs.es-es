@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409176"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698337"
 ---
 # <a name="cluster-tuning"></a>Ajuste del clúster
 
@@ -46,8 +46,6 @@ Estos cambios son recomendables según las cualidades del conjunto de datos o el
 Para aprovechar las velocidades de datos más altas entre el clúster de vFXT y el almacenamiento en la nube en un escenario de NAS o puerta de enlace en la nube (donde el clúster de vFXT proporciona acceso de estilo NAS a un contenedor en la nube), su representante puede recomendarle cambiar opciones de configuración como éstas para insertar datos de forma más agresiva al volumen de almacenamiento desde la caché:
 
 * Aumentar el número de conexiones TCP entre el clúster y el contenedor de almacenamiento.
-* Disminuir el valor de tiempo de espera de REST para la comunicación entre el clúster y el almacenamiento para volver a intentar realizar las escrituras antes si el proceso no se realiza correctamente.  
-* Aumentar el tamaño del segmento para que cada segmento de escritura de back-end transfiera un fragmento de datos de 8 MB de tamaño en lugar de 1 MB.
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Seguridad en la nube u optimizaciones WAN híbridas
 

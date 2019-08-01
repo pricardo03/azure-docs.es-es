@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60906587"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609950"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
 Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
@@ -100,7 +100,7 @@ Se abre otro resultado de la búsqueda con la información filtrada solo para es
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, mostramos cómo implementar la recomendación "Instalar Endpoint Protection" de Security Center. Para obtener más información sobre cómo habilitar Microsoft Antimalware en Azure, consulte el siguiente documento:
 
-* [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../security/azure-security-antimalware.md): aprenda a implementar Microsoft Antimalware.
+* [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../security/fundamentals/antimalware.md): aprenda a implementar Microsoft Antimalware.
 
 Para obtener más información sobre Security Center, consulte los siguientes documentos:
 

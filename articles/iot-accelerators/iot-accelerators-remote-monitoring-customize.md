@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143495"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608006"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalización del acelerador de la solución de supervisión remota
 
@@ -37,7 +37,7 @@ Los siguientes pasos describen el proceso para configurar un entorno local para 
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Solo se debe habilitar el acceso de SSH durante el desarrollo y las pruebas. Si habilita SSH, [debe deshabilitarlo tan pronto como haya terminado de usarlo](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Solo se debe habilitar el acceso de SSH durante el desarrollo y las pruebas. Si habilita SSH, [debe deshabilitarlo tan pronto como haya terminado de usarlo](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Use Azure Portal o Azure Cloud Shell para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
 

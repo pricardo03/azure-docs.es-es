@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480435"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516332"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -95,7 +95,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 >
 > 
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
 | Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
@@ -283,15 +283,15 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
   }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | Tipo              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.                            | Sí      |
-| nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
-| contraseña          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
+| username          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
+| password          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | Sí      |
-| isEspEnabled      | Especifique "*true*" si el clúster de HDInsight está habilitado por [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction). El valor predeterminado es "*false*". | Sin       |
+| isEspEnabled      | Especifique "*true*" si el clúster de HDInsight está habilitado por [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). El valor predeterminado es "*false*". | Sin       |
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. <br />Para un clúster de HDInsight habilitado por Enterprise Security Package use un runtime de integración autohospedado que tenga una línea de visión al clúster, o debe implementarse dentro de la misma red virtual que el clúster de HDInsight de ESP. | Sin       |
 
 > [!IMPORTANT]
@@ -343,7 +343,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Azure Ba
 ```
 
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
@@ -379,10 +379,10 @@ Un servicio vinculado de Azure Machine Learning se crea para registrar un punto 
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad               | DESCRIPCIÓN                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
+| type                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
 | mlEndpoint             | La dirección URL de puntuación por lotes.                   | Sí                                      |
 | apiKey                 | La API del modelo de área de trabajo publicado.     | Sí                                      |
 | updateResourceEndpoint | Dirección URL de recursos de actualización para un punto de conexión de servicio web de Azure ML utilizado para actualizar el servicio web de predicción con el archivo de modelo entrenado. | Sin                                       |
@@ -421,11 +421,11 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Tipo                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
+| type                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
 | dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake.           | Sin                                       |
 | subscriptionId       | Identificador de suscripción de Azure                    | Sin                                       |
@@ -481,7 +481,7 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |

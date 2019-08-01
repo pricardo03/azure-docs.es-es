@@ -2,7 +2,7 @@
 title: 'Preguntas más frecuentes: Azure Active Directory | Microsoft Docs'
 description: Preguntas y respuestas frecuentes sobre Azure y Azure Active Directory, administración de contraseñas y acceso a las aplicaciones.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c67eec3a17e949d630bedf920c690f9f5a36424d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4c1ee5e849d8004f828a2d92d728ad7925fc05c4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204565"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693946"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -68,7 +68,8 @@ Además, los servicios de pago de Azure AD, como Enterprise Mobility + Security,
 
 **P: ¿Cómo dejo un inquilino cuando se me ha agregado como colaborador?**
 
-<a name="a-when-you-are-added-to-another-organizations-tenant-as-a-collaborator-you-can-use-the-tenant-switcher-in-the-upper-right-to-switch-between-tenants--currently-there-is-no-way-to-leave-the-inviting-organization-and-microsoft-is-working-on-providing-this-functionality--until-this-feature-is-available-you-can-ask-the-inviting-organization-to-remove-you-from-their-tenant"></a>**R:** Cuando se agrega a otro inquilino de la organización como colaborador, puede usar el "cambio de inquilino " de la esquina superior derecha para cambiar entre los inquilinos.  Actualmente, no hay forma de abandonar la organización que invita y Microsoft está trabajando para proporcionar esta funcionalidad.  Hasta que esta característica esté disponible, puede pedir a la organización que invita que le quite de su inquilino.
+**R:** Cuando se agrega a otro inquilino de la organización como colaborador, puede usar el "cambio de inquilino " de la esquina superior derecha para cambiar entre los inquilinos.  Actualmente, no hay forma de abandonar la organización que invita y Microsoft está trabajando para proporcionar esta funcionalidad.  Hasta que esta característica esté disponible, puede pedir a la organización que invita que le quite de su inquilino.
+
 ---
 **P: ¿Cómo conecto mi directorio local a Azure AD?**
 

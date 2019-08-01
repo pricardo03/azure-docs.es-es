@@ -1,19 +1,18 @@
 ---
 title: Planeamiento de una implementación de Azure Files | Microsoft Docs
 description: Conozca los puntos que debe tener en cuenta al planear una implementación de Azure Files.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1845107998bfefde4c604744c3c09f5356010f7b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501434"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699701"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -98,7 +97,7 @@ Actualmente, no se puede convertir directamente entre un recurso compartido de a
 > [!IMPORTANT]
 > Los recursos compartidos de archivos prémium solo están disponibles con LRS y están disponibles en la mayoría de regiones que ofrecen cuentas de almacenamiento. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure.
 
-### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
+#### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 
 Los recursos compartidos de archivos Premium se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos.
 
@@ -135,7 +134,7 @@ En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los t
 > [!NOTE]
 > El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Para lograr una escala de rendimiento máxima, distribuya la carga entre varias VM. Consulte en la [guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y soluciones alternativas.
 
-### <a name="bursting"></a>Creación de ráfagas
+#### <a name="bursting"></a>Creación de ráfagas
 
 Los recursos compartidos de archivos prémium pueden crear ráfagas de su IOPS hasta un factor de tres. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. La creación de ráfagas funciona en la medida de lo posible y el límite de ráfaga no es una garantía: los recursos compartidos de archivos pueden crear ráfagas *hasta* el límite.
 
@@ -208,6 +207,7 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 
 |Region  |Redundancia admitida  |Admite cuentas de almacenamiento existentes  |
 |---------|---------|---------|
+|Este de Australia     |LRS|Sin         |
 |Sudeste Asiático     |LRS|Sin         |
 |Europa occidental     |LRS, ZRS|Sin         |
 |Oeste de EE. UU. 2     |LRS, ZRS|Sin         |

@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: f2470f937d2d812bf79cea3c23d89a50717a5a92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aa43fe6c7999b8fa73419916870f9dfca0c01e3d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277464"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601376"
 ---
 | Recurso | [Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
@@ -33,6 +33,6 @@ ms.locfileid: "67277464"
 <sup>2</sup> De manera predeterminada, el tiempo de espera para el tiempo de ejecución de Functions 1.x en un plan de App Service no está enlazado.  
 <sup>3</sup> Requiere que el plan de App Service se establezca en [Always On](../articles/azure-functions/functions-scale.md#always-on). Abonar según las [tarifas](https://azure.microsoft.com/pricing/details/app-service/) estándar.  
 <sup>4</sup> Estos límites [se establecen en el host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>5</sup> El número real de aplicaciones de funciones que puede hospedar depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y la utilización de recursos correspondiente.
+<sup>5</sup> El número real de aplicaciones de funciones que puede hospedar depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y la utilización de recursos correspondiente.  
 <sup>6</sup> El límite de almacenamiento es el tamaño total del almacenamiento temporal entre todas las aplicaciones en el mismo plan de App Service. El plan de consumo usa Azure Files para el almacenamiento temporal.  
 <sup>7</sup> Cuando la aplicación de funciones se hospeda en un [plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo se admite solo la opción CNAME. Para aplicaciones de funciones se hospedan en un [plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) o en un [plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un CNAME o un registro A.

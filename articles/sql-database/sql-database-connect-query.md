@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569096"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guías de inicio rápido: Conexión y consulta de Azure SQL Database
 
@@ -60,7 +59,7 @@ Puede usar varias bibliotecas y plataformas para conectarse a Azure SQL Database
 
 En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Docker, Windows o Linux y usarlas para conectarse a Azure SQL Database y Azure SQL Data Warehouse. 
 
-| Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
+| Idioma | Plataforma | Recursos adicionales | Descargar | Primeros pasos |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Descargar](https://www.microsoft.com/net/download/) | [Primeros pasos](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Controlador JDBC de Microsoft para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Descargar](https://go.microsoft.com/fwlink/?linkid=852460) |  [Primeros pasos](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
@@ -94,8 +93,8 @@ En la tabla siguiente se muestran ejemplos de marcos de asignación relacional d
   - [Conexión a SQL Database mediante Python](sql-database-connect-query-python.md)
   - [Conexión a SQL Database mediante Ruby](sql-database-connect-query-ruby.md)
 - Ejemplos de código de la lógica de reintento:
-  - [Conexión resistente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Conexión resistente a SQL con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

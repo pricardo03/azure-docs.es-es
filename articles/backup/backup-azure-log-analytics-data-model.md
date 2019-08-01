@@ -1,18 +1,19 @@
 ---
 title: Modelo de datos de registros de Azure Monitor para Azure Backup
 description: Este artículo informa de manera detallada sobre el modelo de datos de registros de Azure Monitor para datos de Azure Backup.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466158"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689236"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -329,12 +330,12 @@ En esta tabla se proporcionan campos básicos sobre los servidores de administra
 
 |Campo  |Tipo de datos  | DESCRIPCIÓN  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Texto         |Nombre del servidor de administración de copia de seguridad.        |
+|BackupManagementServerName_s     |Texto         |Nombre del servidor de administración de copia de seguridad.        |
 |AzureBackupAgentVersion_s     |Texto         |Versión de Azure Backup Agent en el servidor de administración de copia de seguridad.          |
-|BackupManagmentServerVersion_s     |Texto         |Versión del servidor de administración de copia de seguridad.|
-|BackupManagmentServerOSVersion_s     |Texto            |Versión del sistema operativo del servidor de administración de copia de seguridad.|
+|BackupManagementServerVersion_s     |Texto         |Versión del servidor de administración de copia de seguridad.|
+|BackupManagementServerOSVersion_s     |Texto            |Versión del sistema operativo del servidor de administración de copia de seguridad.|
 |BackupManagementServerType_s     |Texto         |Tipo del servidor de administración de copia de seguridad, como MABS o SC DPM.|
-|BackupManagmentServerUniqueId_s     |Texto         |Campo para identificar de forma única el servidor de administración de copia de seguridad.       |
+|BackupManagementServerUniqueId_s     |Texto         |Campo para identificar de forma única el servidor de administración de copia de seguridad.       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 

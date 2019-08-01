@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: c42e70efc8543e1d255690070ffb51b865e1754f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460687"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608584"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -59,7 +59,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
 
-- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una cuenta de almacenamiento de Azure administrada por los servicios de administración de Azure Data Factory. Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/security-storage-overview.md).
+- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una cuenta de almacenamiento de Azure administrada por los servicios de administración de Azure Data Factory. Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/fundamentals/storage-overview.md).
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito

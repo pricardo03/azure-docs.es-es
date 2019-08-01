@@ -9,14 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901974"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567867"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
@@ -45,7 +44,7 @@ Son varios los escenarios en los que podría usar la automatización de trabajos
 Las siguientes tecnologías de programación de trabajos están disponibles en Azure SQL Database:
 
 - Los **trabajos del Agente SQL** son componentes de programación de trabajos de SQL Server clásicos y probados que están disponibles en Instancia administrada. Los trabajos del Agente SQL no están disponibles en bases de datos únicas.
-- Los **trabajos de Elastic Database** son el servicio de programación de trabajos que ejecuta trabajos personalizados en una o varias instancias de Azure SQL Database.
+- Los **trabajos de Elastic Database** son el servicio de programación de trabajos que ejecuta trabajos personalizados en una o varias bases de datos de Azure SQL.
 
 Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL Database) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en SQL Data Warehouse).
 

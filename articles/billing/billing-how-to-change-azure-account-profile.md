@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: dea54f2e692174e12cb2dc1f0e0e0ed9fca127bc
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724080"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516573"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Cambiar la información de perfil de la cuenta de Azure
 
@@ -28,7 +28,7 @@ Microsoft usa la dirección de correo electrónico en el perfil de un usuario (e
 
 ## <a name="change-your-profile-information"></a>Modificación de información de perfil
 
-1. Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Profile).
+1. Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/subscriptions).
 1. Seleccione el botón **Editar detalles** y actualice la información de **perfil**.
 
    ![Ejemplo de información de un perfil de Azure](./media/billing-how-to-change-azure-account-profile/profile.png)
@@ -72,7 +72,7 @@ Escriba la dirección de correo electrónico donde quiera recibir comunicaciones
 
 Puede cambiar su dirección de correo electrónico de contacto mediante uno de los siguientes métodos:
 
-* Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Profile). Seleccione **Editar detalles** y luego actualice la dirección de correo electrónico del perfil. La actualización de la dirección de correo electrónico del perfil no actualizará la dirección de correo electrónico de inicio de sesión.
+* Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/subscriptions). Seleccione **Editar detalles** y luego actualice la dirección de correo electrónico del perfil. La actualización de la dirección de correo electrónico del perfil no actualizará la dirección de correo electrónico de inicio de sesión.
 
 * Vaya al área de [información de contacto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) en Azure Portal y escriba una dirección de correo electrónico. La dirección que proporcione recibe comunicaciones del servicio y de marketing. La dirección de correo electrónico del perfil del Centro de cuentas de Azure se actualiza para que coincida automáticamente. La actualización de la dirección de correo electrónico del perfil no actualizará la dirección de correo electrónico de inicio de sesión.
 

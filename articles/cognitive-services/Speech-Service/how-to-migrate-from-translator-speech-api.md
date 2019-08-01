@@ -1,7 +1,7 @@
 ---
 title: Migrar de Translator Speech API al servicio Voz
 titleSuffix: Azure Cognitive Services
-description: Aprenda a migrar sus aplicaciones desde Translator Speech API hasta los servicios de Voz.
+description: Obtenga información sobre cómo migrar sus aplicaciones de Translator Speech API al servicio Voz.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785676"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559571"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
 
@@ -61,10 +61,10 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Prueba gratuita de los servicios de Voz](get-started.md)
+* [Prueba gratuita de los servicios de voz](get-started.md)
 * [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es el servicio Voz?](overview.md)
-* [Documentación de los servicios de Voz y Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Documentación de los servicios de voz y Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
