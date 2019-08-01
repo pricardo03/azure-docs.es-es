@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Detección de anomalías en datos transmitidos con Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Use API Anomaly Detector y Azure Databricks para supervisar anomalías en los datos.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080787"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721475"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detección de anomalías en datos transmitidos con Azure Databricks
 
@@ -166,9 +167,9 @@ En este tutorial, las [API Anomaly Detector de Azure Cognitive Services](../over
     |---------|---------|
     |NOMBRE     | Nombre del recurso de Anomaly Detector.        |
     |Subscription     | Suscripción de Azure con la que se asociará el recurso.        |
-    |Ubicación     | Una ubicación de Azure.        |
+    |Location     | Una ubicación de Azure.        |
     |Plan de tarifa     | El plan de tarifa del servicio. Para más información acerca de los precios de Anomaly Detector, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Grupos de recursos     | Especifique si desea crear un nuevo grupo de recursos o seleccionar uno existente.        |
+    |Resource group     | Especifique si desea crear un nuevo grupo de recursos o seleccionar uno existente.        |
 
 
      Seleccione **Crear**.

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 06/06/2019
+ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076328"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -39,16 +39,16 @@ Utilice la siguiente tabla para descubrir distintas formas de usar Hive con HDIn
 | **Use este método** si desea… | ... consultas **interactivas** | ...procesamiento por**lotes** | ...desde este **sistema operativo de cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Herramientas de HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X o Windows |
-| [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ | Windows |
+| [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Vista de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Cualquiera (en función del explorador) |
 | [Cliente Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X o Windows |
 | [API DE REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ | Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 
 ## <a name="hiveql-language-reference"></a>Referencia del lenguaje HiveQL
 
-La referencia del lenguaje de HiveQL está disponible en el [manual del lenguaje (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+La referencia del lenguaje de HiveQL está disponible en el [manual del lenguaje](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive y estructura de datos
 
@@ -91,11 +91,11 @@ Hay dos tipos de tablas que puede crear con Hive:
     * Necesite una ubicación personalizada, como una cuenta de almacenamiento no predeterminada.
     * Un programa distinto de Hive administre el formato de datos, la ubicación, etc.
 
-Para más información, consulte la entrada de blog [Hive Internal and External Tables Intro][cindygross-hive-tables] (Introducción a las tablas internas y externas de Hive).
+Para más información, consulte la entrada de blog [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) (Introducción a las tablas internas y externas de Hive).
 
 ## <a name="user-defined-functions-udf"></a>Funciones definidas por el usuario (UDF)
 
-Hive también puede extenderse a través de **funciones definidas por el usuario (UDF)**. Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL. Para obtener un ejemplo del uso de UDF con Hive, vea los siguientes documentos:
+Hive también puede extenderse a través de **funciones definidas por el usuario (UDF)** . Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL. Para obtener un ejemplo del uso de UDF con Hive, vea los siguientes documentos:
 
 * [Utilización de una función definida por el usuario de Java con Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -143,7 +143,7 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 
 * `STORED AS TEXTFILE LOCATION`: indica a Hive dónde se almacenan los datos (el directorio `example/data`) y que se almacenen como texto. Los datos pueden estar en un archivo o distribuidos en varios archivos dentro del directorio.
 
-* `SELECT`: selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]**. Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.
+* `SELECT`: selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.
 
 * `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
 
@@ -184,7 +184,7 @@ Estas instrucciones realizan las acciones siguientes:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. Tez está habilitado de forma predeterminada.  Los [documentos de diseño de Apache Hive en Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) incluyen detalles sobre las opciones de implementación y las configuraciones de ajuste.
+[Apache Tez](https://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. Tez está habilitado de manera predeterminada.  Los [documentos de diseño de Apache Hive en Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) incluyen detalles sobre las opciones de implementación y las configuraciones de ajuste.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Procesamiento analítico de baja latencia (LLAP)
 
@@ -204,50 +204,20 @@ Azure Data Factory permite usar HDInsight como parte de una canalización de Dat
 
 Puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Hive. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Hive en HDInsight.
 
-* [Tarea de Hive de Azure HDInsight][hivetask]
+* [Tarea de Hive de Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Administrador de conexiones de suscripción de Azure][connectionmanager]
+* [Administrador de conexiones de suscripción de Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para más información, consulte la documentación del [Paquete de características de Azure][ssispack].
+Para más información, consulte la documentación del [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie es un sistema de coordinación y flujos de trabajo que administra trabajos de Hadoop. Para más información sobre el uso de Oozie con Hive, consulte el documento [Uso de Apache Oozie para definir y ejecutar un flujo de trabajo](../hdinsight-use-oozie-linux-mac.md).
 
-## <a id="nextsteps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
 
-* [Carga de datos en HDInsight][hdinsight-upload-data]
-* [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
-* [Uso de trabajos de MapReduce con HDInsight][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [Carga de datos en HDInsight](../hdinsight-upload-data.md)
+* [Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight](./python-udf-hdinsight.md)
+* [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)

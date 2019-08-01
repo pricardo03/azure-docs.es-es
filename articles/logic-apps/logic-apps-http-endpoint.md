@@ -5,19 +5,19 @@ services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
 author: ecfan
-ms.author: klam; LADocs
+ms.author: klam
 ms.reviewer: jehollan, klam, LADocs
 manager: carmonm
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495057"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875951"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Llamada, desencadenador o anidamiento de flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps
 
@@ -244,8 +244,8 @@ Las respuestas tienen estas propiedades:
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | statusCode |Especifica el código de estado HTTP para responder a la solicitud entrante. Este código puede ser cualquier código de estado válido que comience con 2xx, 4xx o 5xx. En cambio, no se permiten códigos de estado 3xx. |
-| encabezados |Define cualquier número de encabezados para incluirse en la respuesta. |
-| Cuerpo |Especifica un objeto de cuerpo que puede ser una cadena, un objeto JSON o incluso contenido binario al que se hace referencia desde un paso anterior. |
+| headers |Define cualquier número de encabezados para incluirse en la respuesta. |
+| body |Especifica un objeto de cuerpo que puede ser una cadena, un objeto JSON o incluso contenido binario al que se hace referencia desde un paso anterior. |
 
 A continuación se presenta el aspecto del esquema JSON ahora para la acción **Response**:
 

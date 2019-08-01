@@ -3,7 +3,7 @@ title: Creación de una aplicación contenedora de Azure Service Fabric en Linux
 description: Cree la primera aplicación contenedora en Linux en Azure Service Fabric. Cree una imagen de Docker con la aplicación, inserte la imagen en un registro de contenedor y compile e implemente una aplicación contenedora en Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302270"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599555"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -84,10 +84,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -234,7 +236,7 @@ La [gobernanza de recursos](service-fabric-resource-governance.md) restringe los
 
 A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. 
 
-A partir de la última versión de actualización, v6.4, tiene la opción de especificar que las evaluaciones de HEALTHCHECK de Docker deben notificarse como un error. Si se habilita esta opción, aparecerá un informe de mantenimiento **OK** cuando *health_status* sea *healthy* y aparecerá **ERROR** cuando *health_status* sea *unhealthy*.
+A partir de la última versión de actualización, v6.4, tiene la opción de especificar que las evaluaciones de HEALTHCHECK de Docker deben notificarse como un error. Si se habilita esta opción, aparecerá un informe de estado **OK** cuando *health_status* sea *healthy* (correcto) y **ERROR** aparecerá cuando *health_status* sea *unhealthy* (incorrecto).
 
 La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el archivo de Docker que se usa al generar la imagen de contenedor.
 

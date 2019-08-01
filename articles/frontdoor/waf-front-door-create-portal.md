@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: abaef0fb521d848134885a06591b0656c60c67e6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479061"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846382"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creación de una directiva WAF para Azure Front Door con Azure Portal
 
@@ -38,7 +39,7 @@ En primer lugar, en el portal, cree una directiva WAF con un conjunto de reglas 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription            |Seleccione el nombre de la suscripción a Front Door.|
-    | Grupos de recursos          |Seleccione el nombre del grupo de recursos de Front Door.|
+    | Resource group          |Seleccione el nombre del grupo de recursos de Front Door.|
     | Nombre de la directiva             |Escriba un nombre único para la directiva WAF.|
 
    ![Creación de una directiva WAF](./media/waf-front-door-create-portal/basic.png)

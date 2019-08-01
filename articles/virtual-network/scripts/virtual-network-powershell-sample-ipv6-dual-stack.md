@@ -10,33 +10,35 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 627ff40361b562630f05c70823e9ad2c7ef711e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002228"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248806"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Ejemplo de script de configuración de puntos de conexión IPv6 en la red virtual (versión preliminar)
 
 En este artículo se muestra cómo implementar una aplicación de pila doble (IPv4 + IPv6) en Azure que contiene una red virtual de pila doble con una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual y direcciones IP públicas duales.
 
-Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/powershell) o desde una instalación de PowerShell local. Si usa PowerShell de forma local, este script requiere la versión 1.0.0 o posterior del módulo Az de PowerShell. Ejecute `Get-Module -ListAvailable Az` para ver cuál es la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/powershell) o desde una instalación de PowerShell local. Si usa PowerShell de forma local, este script requiere la versión 1.0.0 o posterior del módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para ver cuál es la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de implementar una aplicación de pila doble en Azure debe configurar una sola vez la suscripción para esta característica en versión preliminar mediante el siguiente comando de Azure PowerShell:
+Antes de implementar una aplicación de pila doble en Azure, debe configurar una sola vez la suscripción para esta característica en versión preliminar mediante el siguiente comando de Azure PowerShell:
 
 Regístrese del modo siguiente:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro mediante la ejecución del siguiente comando de Azure PowerShell: Compruebe en el registro del modo siguiente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 Una vez completado el registro, ejecute el siguiente comando:
 

@@ -1,17 +1,17 @@
 ---
 title: Supervisión en Azure Database for MariaDB
 description: En este artículo se describen las métricas de supervisión y alertas de Azure Database for MariaDB, incluidas las estadísticas de CPU, almacenamiento y conexión.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065740"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612526"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -35,8 +35,8 @@ Estas métricas están disponibles para Azure Database for MariaDB:
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
-|active_connections|Conexiones activas|Recuento|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Recuento|Número de conexiones con errores al servidor.|
+|active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 

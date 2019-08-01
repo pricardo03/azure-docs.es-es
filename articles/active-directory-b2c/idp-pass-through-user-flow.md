@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510966"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846825"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso a través de un flujo de usuario a la aplicación en Azure Active Directory B2C
 
@@ -54,12 +54,8 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
     Debería ver algo parecido al siguiente ejemplo:
 
-    ![Token descodificado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![Token descodificado en jwt.ms con el bloque idp_access_token resaltado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte la [información general sobre los tokens de Azure AD B2C](active-directory-b2c-reference-tokens.md).
-
-
-
-

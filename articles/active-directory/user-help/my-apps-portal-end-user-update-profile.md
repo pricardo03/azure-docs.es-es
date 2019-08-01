@@ -13,14 +13,15 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305413"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383086"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Actualización del perfil y la información de cuenta en el portal Aplicaciones
+
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -29,10 +30,12 @@ Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basa
 >Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualización de la información de perfil relacionada con la organización
+
 En función de lo que la organización haya elegido incluir en la página **Perfil** del portal **Aplicaciones**, es posible que vea detalles específicos relacionados con el trabajo, junto con los dispositivos y la actividad y cualquier otra organización adicional a la que pertenezca.
 
 ### <a name="to-view-your-profile-information"></a>Para ver la información de perfil
-1.  Inicie sesión en su cuenta profesional o educativa y [vaya al portal **Aplicaciones**](my-apps-portal-end-user-access.md).
+
+1. Inicie sesión en su cuenta profesional o educativa y [vaya al portal **Aplicaciones**](my-apps-portal-end-user-access.md).
 
 2. En la página **Aplicaciones**, seleccione la imagen de perfil en la esquina superior derecha, donde aparece su nombre y su organización y, a continuación, seleccione **Perfil**.
 
@@ -49,6 +52,7 @@ En función de lo que la organización haya elegido incluir en la página **Perf
     - **Revisar sus organizaciones.** Asegúrese de que todavía colabora con cada una de las organizaciones especificadas. Si ya no colabora con una organización, se recomienda que seleccione **Iniciar sesión para salir de la organización**. Después de salir de la organización, esta será eliminada de esta página.
 
 ## <a name="manage-your-work-or-school-account-information"></a>Administración de la información de la cuenta profesional o educativa
+
 Puede actualizar y administrar la información de la cuenta profesional o educativa en la página **Perfil** del portal **Aplicaciones**. Esta página le ayuda a:
 
 - Cambiar la contraseña de la cuenta profesional o educativa.
@@ -62,9 +66,11 @@ Puede actualizar y administrar la información de la cuenta profesional o educat
 - Cerrar todas las sesiones.
 
 ## <a name="change-your-password"></a>Cambio de la contraseña
+
 Si desea cambiar la contraseña de la cuenta profesional o educativa, puede seleccionar **Cambiar contraseña** en el área **Administrar cuenta** de la página **Perfil**.
 
 ### <a name="to-change-your-password"></a>Para cambiar la contraseña
+
 1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Cambiar contraseña**.
 
 2. En la página **Cambiar contraseña**, asegúrese de que el identificador de usuario es correcto y, a continuación, escriba la contraseña anterior y la nueva contraseña en los cuadros de texto.
@@ -76,17 +82,20 @@ Si desea cambiar la contraseña de la cuenta profesional o educativa, puede sele
     Se ha cambiado la contraseña. Se le pedirá que inicie sesión en las aplicaciones en las que haya iniciado sesión anteriormente con la cuenta profesional o educativa.
 
 ## <a name="set-up-and-use-password-reset"></a>Configuración y uso del restablecimiento de contraseña
+
 Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado de su cuenta, puede restablecer su propia contraseña.
 
 >[!Important]
 >El administrador debe activar esta característica y usted debe registrarse para participar. Para más información sobre cómo registrarse y cómo restablecer la contraseña, consulte [Registro en el autoservicio de restablecimiento de contraseña](active-directory-passwords-reset-register.md) y [Restablecimiento de la contraseña profesional o educativa](user-help-reset-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Cambio de la información de comprobación de seguridad
+
 Si la organización requiere el uso de la comprobación en dos fases, puede agregar, actualizar y eliminar la información de seguridad asociada en la página **Comprobación de seguridad adicional**.
 
 La comprobación en dos fases requiere que use dos piezas de información de comprobación, como una contraseña y un PIN, antes de poder llegar a la cuenta o a la información de la organización. Para más información sobre la verificación en dos fases, consulte [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="to-change-your-security-information"></a>Para cambiar la información de seguridad
+
 1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Comprobación de seguridad adicional**.
 
     ![Página Comprobación de seguridad adicional](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
@@ -102,6 +111,7 @@ La comprobación en dos fases requiere que use dos piezas de información de com
 3. Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Revisión del extracto de las condiciones de uso de la organización
+
 Puede elegir revisar el extracto de los términos de uso de la organización, si está disponible.
 
 1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Revisar condiciones de uso**.
@@ -113,14 +123,17 @@ Puede elegir revisar el extracto de los términos de uso de la organización, si
     Si la organización no tiene condiciones de uso, puede seleccionar **Listo** para volver a la página **Perfil**.
 
 ## <a name="sign-out-of-everywhere"></a>Cerrar todas las sesiones
+
 Puede elegir cerrar todas las sesiones en las que actualmente ha iniciado sesión con la cuenta profesional o educativa. Esto incluye todas las aplicaciones y dispositivos.
 
 ### <a name="to-sign-out-of-everywhere"></a>Para cerrar todas las sesiones
+
 1. En el área **Administrar cuenta** de la página **Perfil**, seleccione **Cerrar todas las sesiones**.
 
 2. En el cuadro de confirmación **Cerrar todas las sesiones**, seleccione **Sí** para confirmar que desea cerrar la sesión de todas las sesiones y los dispositivos. Seleccione **No** si cambia de opinión.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Después de terminar las actualizaciones en la página **Perfil**, puede:
 
 - [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).

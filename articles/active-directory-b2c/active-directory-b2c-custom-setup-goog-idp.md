@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498fe63964e44de8f9e1bc06c1740f1a9ef9b392
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510369"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654166"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Google en Azure Active Directory B2C mediante directivas personalizadas
 
@@ -30,7 +30,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 
 ## <a name="register-the-application"></a>Registro de la aplicación
 
-Para habilitar el inicio de sesión para usuarios de una cuenta de Google, deberá crear un proyecto de aplicación de Google. 
+Para habilitar el inicio de sesión para usuarios de una cuenta de Google, deberá crear un proyecto de aplicación de Google.
 
 1. Inicie sesión en la [consola de desarrolladores de Google](https://console.developers.google.com/) con las credenciales de su cuenta.
 2. Escriba un **Nombre de proyecto**, haga clic en **Crear** y asegúrese de que está usando el nuevo proyecto.
@@ -50,7 +50,7 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripciones** del menú superior y elija el directorio que contiene la suscripción.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
 7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `GoogleSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
@@ -60,7 +60,7 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Si desea que los usuarios inicien sesión con una cuenta de Google, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
+Si desea que los usuarios inicien sesión con una cuenta de Google, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Puede definir una cuenta de Google como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
@@ -152,7 +152,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
+
     Cambie el valor de **TechnicalProfileReferenceId** para el identificador del perfil técnico que creó anteriormente. Por ejemplo, `Google-OAuth`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.

@@ -1,6 +1,6 @@
 ---
 title: 'Búsqueda de una vista personalizada: Bing Custom Search'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describe cómo buscar una vista personalizada de la web.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814f57d4011823da80e53cce41ffcb523fc0bf1b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388544"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405002"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
 
@@ -35,16 +35,16 @@ A continuación, se muestran algunos parámetros importantes:
 |---------|---------|
 |Consultar     | El término de búsqueda para buscar. Solo está disponible para los puntos de conexión Web, Image, Video y Autosuggest. |
 |Custom Configuration ID (Id. de configuración personalizada) | El identificador de configuración de la instancia de Custom Search seleccionada. Este campo es de solo lectura. |
-|Mercados     | El mercado desde el que se originan los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
+|Market     | El mercado desde el que se originan los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
 |Clave de suscripción | La clave de suscripción con la que probar. Puede seleccionar una clave en la lista desplegable o escribirla manualmente.          |
 
 Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen los siguientes parámetros:  
 
 |Parámetro  |DESCRIPCIÓN  |
 |---------|---------|
-|Búsqueda segura     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
+|Safe Search     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
 |Idioma de la interfaz de usuario    | Idioma que se usa para las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.        |
-|Recuento     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
+|Count     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
 |Offset    | El número de resultados de búsqueda que se van a omitir antes de devolver los resultados. Disponible solo para los puntos de conexión Web, Image y Video.        |
     
 Tras especificar todas las opciones necesarias, haga clic en **Call** (Llamar) para ver la respuesta de JSON en el panel derecho. Si selecciona el punto de conexión Hosted UI, puede probar la experiencia de búsqueda en el panel derecho.

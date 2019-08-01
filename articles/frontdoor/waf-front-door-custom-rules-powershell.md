@@ -10,13 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: e9509172ac96a601235cc16e0d6d83c9b2f51902
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241338"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849118"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configuración de una directiva del firewall de aplicaciones web con Azure PowerShell
 Una directiva del firewall de aplicaciones web (WAF) de Azure define las inspecciones necesarias cuando llega una solicitud a Front Door.
@@ -79,7 +80,7 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 El ejemplo siguiente crea un conjunto de reglas predeterminado administrado con Azure PowerShell:
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>Configuración de una directiva de seguridad
 

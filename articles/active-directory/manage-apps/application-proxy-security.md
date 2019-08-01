@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108390"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -49,7 +49,7 @@ Aplique controles de directiva más completos antes de que se establezcan las co
 
 Con el [acceso condicional](../conditional-access/overview.md), es posible definir aún más las restricciones sobre el tráfico que se permite que tenga acceso a las aplicaciones de back-end. Puede crear directivas que restrinjan los inicios de sesión en función de la ubicación, el nivel de autenticación y el perfil de riesgo del usuario.
 
-También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](https://docs.microsoft.com/cloud-app-security/access-policy-aad)y [sesión](https://docs.microsoft.com/cloud-app-security/session-policy-aad).
+También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) y [sesión](https://docs.microsoft.com/cloud-app-security/session-policy-aad).
 
 ### <a name="traffic-termination"></a>Terminación del tráfico
 
@@ -69,7 +69,7 @@ Para más información sobre los conectores, consulte [Descripción de los conec
 
 Obtenga una protección de seguridad avanzada.
 
-Dado que forma parte de Azure Active Directory, el Proxy de aplicación puede sacar provecho de [Azure AD Identity Protection](../active-directory-identityprotection.md), con datos de Microsoft Security Response Center y Digital Crimes Unit. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección frente a inicios de sesión de alto riesgo. Tomamos en consideración diversos factores para determinar qué intentos de inicio de sesión son de alto riesgo. Estos factores incluyen el marcado de dispositivos infectados, el acceso desde redes anónimas, y ubicaciones atípicas o poco probables.
+Dado que forma parte de Azure Active Directory, el Proxy de aplicación puede sacar provecho de [Azure AD Identity Protection](../active-directory-identityprotection.md), con datos de Microsoft Security Response Center y Digital Crimes Unit. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección frente a inicios de sesión de alto riesgo. Para determinar qué intentos de inicio de sesión son de alto riesgo se tienen en cuenta diversos factores. Estos factores incluyen el marcado de dispositivos infectados, el acceso desde redes anónimas, y ubicaciones atípicas o poco probables.
 
 Muchos de estos informes y eventos ya están disponibles a través de una API para la integración con los sistemas de información de seguridad y administración de eventos (SIEM).
 
@@ -144,7 +144,7 @@ Si ha configurado la aplicación para que use el acceso directo como método de 
 
 Si la aplicación está configurada para usar la autenticación previa con Azure AD, se redirige a los usuarios a STS de Azure AD para que se autentiquen y se siguen los pasos a continuación:
 
-1. El Proxy de aplicación comprueba los requisitos de directiva de acceso condicional para la aplicación específica. Este paso garantiza que el usuario se ha asignado a la aplicación. Si se requiere la verificación en dos pasos, la secuencia de autenticación solicita al usuario un segundo método de autenticación.
+1. El proxy de aplicación comprueba los requisitos de directiva de acceso condicional para la aplicación específica. Este paso garantiza que el usuario se ha asignado a la aplicación. Si se requiere la verificación en dos pasos, la secuencia de autenticación solicita al usuario un segundo método de autenticación.
 
 2. Una vez que hayan pasado todas las comprobaciones, el STS de Azure AD emite un token firmado para la aplicación y redirige al usuario al servicio de Proxy de aplicación.
 

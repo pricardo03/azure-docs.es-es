@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 4bb72bc3fe8b85a8d2aed88e02f5f3150abb6899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493678"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250083"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
@@ -191,8 +191,10 @@ Use este cmdlet para establecer los atributos de los miembros, incluidos el nomb
 
 Los administradores del consorcio pueden establecer el valor de **DisplayName** y de **Role** de todos los miembros. Un miembro del consorcio con el rol de usuario puede cambiar solo el nombre para mostrar de su propio miembro.
 
-`Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
- -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
+ -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
@@ -217,13 +219,15 @@ Use los cmdlets de administración de invitaciones a miembros del consorcio para
 
 Use este cmdlet para invitar a nuevos miembros al consorcio.
 
-`New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
-| Rol | Rol del consorcio. Los valores pueden ser ADMIN o USER. ADMIN es el rol de administrador del consorcio. USER es el rol de miembro del consorcio. | Sí |
+| Role | Rol del consorcio. Los valores pueden ser ADMIN o USER. ADMIN es el rol de administrador del consorcio. USER es el rol de miembro del consorcio. | Sí |
 | Miembros | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
@@ -264,8 +268,10 @@ SubscriptionId                       Role CorrelationId
 
 Use este cmdlet para revocar la invitación de un miembro del consorcio.
 
-`Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
- -Web3Client <IClient>`
+```
+Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
+ -Web3Client <IClient>
+```
 
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
@@ -284,13 +290,15 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 Use este cmdlet para establecer el **rol** de una invitación existente. Solo los administradores del consorcio pueden cambiar las invitaciones.
 
-`Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parámetro | DESCRIPCIÓN | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
-| Rol | Nuevo rol del consorcio para la invitación. Los valores pueden ser **USER** o **ADMIN**. | Sí |
+| Role | Nuevo rol del consorcio para la invitación. Los valores pueden ser **USER** o **ADMIN**. | Sí |
 | Miembros |  Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |

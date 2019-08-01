@@ -1,19 +1,18 @@
 ---
 title: Administración de almacenes y servidores de Azure Recovery Services
 description: Administración de trabajos y alertas en un almacén de Azure Recovery Services.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/08/2019
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688900"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639868"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -100,7 +99,7 @@ De forma predeterminada, todos los detalles, excepto **Hora de la última repeti
 * Alerta
 * Elemento de copia de seguridad
 * Servidor protegido
-* Gravedad
+* severity
 * Duration
 * Hora de creación
 * Status
@@ -260,21 +259,6 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 * Uso de almacenamiento LRS en la nube asociado con el almacén
 * Uso de almacenamiento GRS en la nube asociado con el almacén
 
-
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>¿Cuánto tarda el estado del trabajo del agente de copia de seguridad de Azure en reflejarse en el portal?
-Azure Portal puede tardar hasta 15 minutos en reflejar el estado del trabajo del agente de copia de seguridad de Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tarda en generarse una alerta?
-Se genera una alerta en menos de 20 minutos desde que se produce el error en la copia de seguridad de Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?
-Sí. En las siguientes situaciones no se envían notificaciones.
-
-* Si se configuran las notificaciones por horas y una alerta se genera y se resuelve en menos de una hora
-* Cuando se cancela un trabajo
-* Si se produce un error en el segundo trabajo de copia de seguridad porque el original está en curso
 
 ## <a name="troubleshooting-monitoring-issues"></a>Solución de problemas de supervisión
 
