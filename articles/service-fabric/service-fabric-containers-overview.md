@@ -3,7 +3,7 @@ title: Introducción a Service Fabric y los contenedores | Microsoft Docs
 description: Información general sobre Service Fabric y el uso de contenedores para implementar aplicaciones de microservicios. Este artículo le proporciona información general de cómo se pueden utilizar los contenedores y las funcionalidades disponibles en Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo
-ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881423"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599768"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric y contenedores
 
@@ -48,7 +48,7 @@ Los contenedores se ejecutan directamente en el kernel y tienen una vista aislad
 
 En comparación con las máquinas virtuales, los contenedores ofrecen las siguientes ventajas:
 
-* **Pequeños**: usan un único espacio de almacenamiento y actualizaciones y versiones de capa para aumentar la eficacia.
+* **Pequeño**: usan un único espacio de almacenamiento y actualizaciones y versiones de capa para aumentar la eficacia.
 * **Rápidos**: no tienen que arrancar un sistema operativo entero, así que pueden iniciarse con mayor rapidez, normalmente en unos segundos.
 * **Portabilidad**: se puede portar una imagen de aplicación en contenedor para que se ejecute en la nube o localmente, en máquinas virtuales o directamente en máquinas físicas.
 * **Gobernanza de recursos**: un contenedor puede limitar los recursos físicos que puede consumir en el host.

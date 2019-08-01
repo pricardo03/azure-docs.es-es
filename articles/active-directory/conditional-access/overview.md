@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99d17b354e267d003e23e507ca190b951e3ed4a0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612614"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608096"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -73,7 +73,7 @@ Un enfoque basado en directivas para proteger el acceso a las aplicaciones en la
 
 ## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Acceso condicional de Azure AD y autenticación federada
 
-Las directivas de acceso condicional funcionan perfectamente con la [autenticación federada](../../security/azure-ad-choose-authn.md#federated-authentication). Esta compatibilidad incluye todas las condiciones y controles admitidos, y visibilidad de cómo se aplica la directiva a los inicios de sesión de usuario activos mediante las [notificaciones de Azure AD](../reports-monitoring/concept-sign-ins.md).
+Las directivas de acceso condicional funcionan perfectamente con la [autenticación federada](../../security/fundamentals/choose-ad-authn.md#federated-authentication). Esta compatibilidad incluye todas las condiciones y controles admitidos, y visibilidad de cómo se aplica la directiva a los inicios de sesión de usuario activos mediante las [notificaciones de Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 *Autenticación federada con Azure AD* significa que un servicio de autenticación de confianza controla la autenticación del usuario en Azure AD. Un servicio de autenticación de confianza como, por ejemplo, los Servicios de federación de Active Directory (AD FS), o cualquier otro servicio de federación. En esta configuración, la autenticación del usuario principal se realiza en el servicio y, después, se usa Azure AD para iniciar sesión en las aplicaciones individuales. El acceso condicional de Azure AD se aplica antes de conceder acceso a la aplicación al usuario que desea acceder. 
 
@@ -89,4 +89,4 @@ Los clientes con [licencias de Microsoft 365 Empresa](https://docs.microsoft.c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender cómo implementar el acceso condicional en su entorno, consulte [Plan de la implementación del acceso condicional a Azure Active Directory](plan-conditional-access.md).
+Para saber cómo implementar el acceso condicional en su entorno, consulte [Planeamiento de la implementación del acceso condicional en Azure Active Directory](plan-conditional-access.md).

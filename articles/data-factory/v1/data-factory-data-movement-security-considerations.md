@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487079"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610167"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -50,7 +50,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 
 ## <a name="cloud-scenarios"></a>Escenarios de nube
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
-Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../security/security-storage-overview.md).
+Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../security/fundamentals/storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
 Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS.
@@ -127,7 +127,7 @@ Una red virtual es una representación lógica de la red en la nube. Puede conec
 
 En la tabla siguiente se resumen las recomendaciones de configuración de red y puerta de enlace en función de diferentes combinaciones de ubicaciones de origen y destino para el movimiento de datos híbridos.
 
-| Origen | Destino | Network configuration (Configuración de red) | Instalación de la puerta de enlace |
+| Source | Destino | Network configuration (Configuración de red) | Instalación de la puerta de enlace |
 | ------ | ----------- | --------------------- | ------------- | 
 | Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | La puerta de enlace se puede instalare una máquina local o virtual de Azure (VM) en una red virtual | 
 | Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado) | La puerta de enlace se puede instalare una máquina local o virtual de Azure en una red virtual | 
