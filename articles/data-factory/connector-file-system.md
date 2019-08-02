@@ -108,7 +108,7 @@ Para copiar datos a y desde el sistema de archivos en **formato de texto delimit
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Tipo       | La propiedad type de `location` en el conjunto de datos se debe establecer en **FileServerLocation**. | Sí      |
+| type       | La propiedad type de `location` en el conjunto de datos se debe establecer en **FileServerLocation**. | Sí      |
 | folderPath | Ruta de acceso a la carpeta. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 | fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 
