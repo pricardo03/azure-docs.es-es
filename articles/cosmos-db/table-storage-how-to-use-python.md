@@ -10,10 +10,10 @@ author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
 ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68356272"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante Python
@@ -56,7 +56,7 @@ Cuando haya creado una cuenta de Storage, el paso siguiente consiste en instalar
 
 ## <a name="import-the-tableservice-and-entity-classes"></a>Importación de las clases Entity y TableService
 
-Para trabajar con entidades en Azure Table service de Python, use las clases [TableService][py_TableService] y and [Entity][py_Entity]. Agregue este código cerca de la parte superior del archivo de Python para importar ambos:
+Para trabajar con entidades en Azure Table service de Python, use las clases [TableService][py_TableService] y [Entity][py_Entity]. Agregue este código cerca de la parte superior del archivo de Python para importar ambos:
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
@@ -89,9 +89,9 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>Adición de una entidad a una tabla
 
-Para agregar una entidad, cree primero un objeto que la represente, pase el objeto al método [TableService.insert_entity][py_TableService]. The entity object can be a dictionary or an object of type [Entity][py_Entity] y defina los nombres y los valores de las propiedades de la entidad. Cada entidad debe incluir las propiedades [PartitionKey y RowKey](#partitionkey-and-rowkey) necesarias, además de cualquier otra propiedad que se defina para la entidad. En este ejemplo se crea un objeto de diccionario que representa una entidad y, a continuación, lo pasa al método [insert_entity][py_insert_entity] para agregarlo a la tabla:
+Para agregar una entidad, primero cree un objeto que represente la entidad y, luego, pase el objeto al [método TableService.insert_entity][py_TableService]. El objeto de la entidad puede ser un diccionario o un objeto de tipo [Entity][py_Entity] y define los nombres y los valores de propiedad de la entidad. Cada entidad debe incluir las propiedades [PartitionKey y RowKey](#partitionkey-and-rowkey) necesarias, además de cualquier otra propiedad que se defina para la entidad.
 
-En este ejemplo se crea un método [Entity][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] para agregarlo a la tabla:
+En este ejemplo se crea un objeto de diccionario que representa una entidad y, a continuación, lo pasa al método [insert_entity][py_insert_entity] para agregarlo a la tabla:
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
@@ -99,7 +99,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.insert_entity('tasktable', task)
 ```
 
-PartitionKey y RowKey
+En este ejemplo, se crea el objeto [Entity][py_Entity] y, a continuación, este se pasa al método [insert_entity][py_insert_entity] para agregarlo a la tabla:
 
 ```python
 task = Entity()
@@ -110,15 +110,15 @@ task.priority = 100
 table_service.insert_entity('tasktable', task)
 ```
 
-### <a name="partitionkey-and-rowkey"></a>Para cada entidad debe especificar una propiedad **PartitionKey** y **RowKey**.
+### <a name="partitionkey-and-rowkey"></a>PartitionKey y RowKey
 
-Estos son los identificadores únicos de las entidades y juntos forman la clave principal de una entidad. Puede realizar consultas mediante estos valores de forma mucho más rápida que si consulta cualquier otra propiedad de la entidad ya que estas propiedades son las únicas que se indexan. Table service usa **PartitionKey** para distribuir de forma inteligente las entidades de tabla entre los nodos de almacenamiento.
+Para cada entidad debe especificar una propiedad **PartitionKey** y **RowKey**. Estos son los identificadores únicos de las entidades y juntos forman la clave principal de una entidad. Puede realizar consultas mediante estos valores de forma mucho más rápida que si consulta cualquier otra propiedad de la entidad ya que estas propiedades son las únicas que se indexan.
 
-Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece. Actualización de una entidad
+Table service usa **PartitionKey** para distribuir de forma inteligente las entidades de tabla entre los nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
-## <a name="update-an-entity"></a>Para actualizar todos los valores de propiedad de una entidad, llame al método [update_entity][py_update_entity].
+## <a name="update-an-entity"></a>Actualización de una entidad
 
-Este ejemplo muestra cómo reemplazar una entidad existente con una versión actualizada: Si la entidad que se está actualizando no existe, la operación de actualización generará un error.
+Para actualizar todos los valores de propiedad de una entidad, llame al método [update_entity][py_update_entity]. Este ejemplo muestra cómo reemplazar una entidad existente con una versión actualizada:
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
@@ -126,7 +126,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.update_entity('tasktable', task)
 ```
 
-Si desea almacenar una entidad independientemente de si existe o no, use [insert_or_replace_entity][py_insert_or_replace_entity]. En el siguiente ejemplo, la primera llamada reemplazará la entidad existente. La segunda llamada insertará una nueva entidad, debido a que en la tabla no existe ninguna entidad con PartitionKey y RowKey especificados. El método [update_entity][py_update_entity] reemplaza todas las propiedades y los valores de una entidad existente y también se puede usar para quitar las propiedades de otra de ellas.
+Si la entidad que se está actualizando no existe, la operación de actualización generará un error. Si desea almacenar una entidad independientemente de si existe o no, use [insert_or_replace_entity][py_insert_or_replace_entity]. En el siguiente ejemplo, la primera llamada reemplazará la entidad existente. La segunda llamada insertará una nueva entidad, debido a que en la tabla no existe ninguna entidad con PartitionKey y RowKey especificados.
 
 ```python
 # Replace the entity created earlier
@@ -141,13 +141,13 @@ table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
-> Puede usar el método [merge_entity][py_merge_entity] para actualizar una entidad existente con valores de propiedad nuevos o modificados sin reemplazar completamente la entidad. Modificación de varias entidades
+> El método [update_entity][py_update_entity] reemplaza todas las propiedades y los valores de una entidad existente y también se puede usar para quitar las propiedades de otra de ellas. Puede usar el método [merge_entity][py_merge_entity] para actualizar una entidad existente con valores de propiedad nuevos o modificados sin reemplazar completamente la entidad.
 
-## <a name="modify-multiple-entities"></a>Para garantizar el procesamiento atómico de una solicitud por parte de Table service, puede enviar varias operaciones en un lote.
+## <a name="modify-multiple-entities"></a>Modificación de varias entidades
 
-En primer lugar, use la clase [TableBatch][py_TableBatch] para agregar varias operaciones a un único lote. A continuación, llame a [TableService][py_TableService].[commit_batch][py_commit_batch] para enviar las operaciones de una operación atómica. Todas las entidades que desea modificar del lote deben estar en la misma partición. En este ejemplo se agregan dos entidades juntas en un lote:
+Para garantizar el procesamiento atómico de una solicitud por parte de Table service, puede enviar varias operaciones en un lote. En primer lugar, use la clase [TableBatch][py_TableBatch] para agregar varias operaciones a un único lote. A continuación, llame a [TableService][py_TableService].[commit_batch][py_commit_batch] para enviar las operaciones de una operación atómica. Todas las entidades que desea modificar del lote deben estar en la misma partición.
 
-Los lotes también pueden usarse con la sintaxis de administrador de contexto:
+En este ejemplo se agregan dos entidades juntas en un lote:
 
 ```python
 from azure.cosmosdb.table.tablebatch import TableBatch
@@ -161,7 +161,7 @@ batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
 ```
 
-Consulta de una entidad
+Los lotes también pueden usarse con la sintaxis de administrador de contexto:
 
 ```python
 task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006',
@@ -174,9 +174,9 @@ with table_service.batch('tasktable') as batch:
     batch.insert_entity(task007)
 ```
 
-## <a name="query-for-an-entity"></a>Para consultar una entidad de una tabla, pase sus propiedades PartitionKey y RowKey al método [TableService][py_TableService].[get_entity][py_get_entity].
+## <a name="query-for-an-entity"></a>Consulta de una entidad
 
-Consulta de un conjunto de entidades
+Para consultar una entidad de una tabla, pase sus propiedades PartitionKey y RowKey al método [TableService][py_TableService].[get_entity][py_get_entity].
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -184,9 +184,9 @@ print(task.description)
 print(task.priority)
 ```
 
-## <a name="query-a-set-of-entities"></a>Puede consultar un conjunto de entidades proporcionando una cadena de filtro con el parámetro **filter**.
+## <a name="query-a-set-of-entities"></a>Consulta de un conjunto de entidades
 
-En este ejemplo se buscan todas las tareas en Seattle mediante la aplicación de un filtro en PartitionKey: Consulta de un subconjunto de propiedades de las entidades
+Puede consultar un conjunto de entidades proporcionando una cadena de filtro con el parámetro **filter**. En este ejemplo se buscan todas las tareas en Seattle mediante la aplicación de un filtro en PartitionKey:
 
 ```python
 tasks = table_service.query_entities(
@@ -196,14 +196,14 @@ for task in tasks:
     print(task.priority)
 ```
 
-## <a name="query-a-subset-of-entity-properties"></a>También puede restringir qué propiedades se devuelven para cada entidad en una consulta.
+## <a name="query-a-subset-of-entity-properties"></a>Consulta de un subconjunto de propiedades de las entidades
 
-Esta técnica, denominada *proyección*, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades o conjuntos de resultados de gran tamaño. Use el parámetro **select** y pase los nombres de las propiedades que desea que se devuelvan al cliente. La consulta del código siguiente devuelve solo las descripciones de las entidades de la tabla.
+También puede restringir qué propiedades se devuelven para cada entidad en una consulta. Esta técnica, denominada *proyección*, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades o conjuntos de resultados de gran tamaño. Use el parámetro **select** y pase los nombres de las propiedades que desea que se devuelvan al cliente.
 
-El siguiente fragmento de código funciona solo con Azure Storage.
+La consulta del código siguiente devuelve solo las descripciones de las entidades de la tabla.
 
 > [!NOTE]
-> Esto no es compatible con el emulador de almacenamiento. Eliminación de una entidad
+> El siguiente fragmento de código funciona solo con Azure Storage. Esto no es compatible con el emulador de almacenamiento.
 
 ```python
 tasks = table_service.query_entities(
@@ -212,29 +212,29 @@ for task in tasks:
     print(task.description)
 ```
 
-## <a name="delete-an-entity"></a>Elimine una entidad pasando sus propiedades **PartitionKey** y **RowKey** al método [delete_entity][py_delete_entity].
+## <a name="delete-an-entity"></a>Eliminación de una entidad
 
-Eliminación de una tabla
+Elimine una entidad pasando sus propiedades **PartitionKey** y **RowKey** al método [delete_entity][py_delete_entity].
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 ```
 
-## <a name="delete-a-table"></a>Si ya no necesita una tabla ni ninguna de las entidades dentro de ella, llame al método [delete_table][py_delete_table] para eliminar permanentemente la tabla de Azure Storage.
+## <a name="delete-a-table"></a>Eliminación de una tabla
 
-Pasos siguientes
+Si ya no necesita una tabla ni ninguna de las entidades dentro de ella, llame al método [delete_table][py_delete_table] para eliminar permanentemente la tabla de Azure Storage.
 
 ```python
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>[Preguntas más frecuentes sobre desarrollo con Table API](https://docs.microsoft.com/azure/cosmos-db/faq)
+## <a name="next-steps"></a>Pasos siguientes
 
+* [Preguntas más frecuentes sobre desarrollo con Table API](https://docs.microsoft.com/azure/cosmos-db/faq)
 * [Referencia de la API del SDK de Azure Cosmos DB para Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/)
 * [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md): una aplicación gratuita y multiplataforma para trabajar visualmente con datos de Azure Storage en Windows, macOS y Linux.
 * [Uso de Python en Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
-* <bpt id="p1">[</bpt>Working with Python in Visual Studio (Windows)<ept id="p1">](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)</ept>
 
 
 [py_commit_batch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
