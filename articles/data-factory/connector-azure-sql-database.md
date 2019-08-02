@@ -60,7 +60,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure SQL Databas
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
+| type | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
 | connectionString | Especifique la información necesaria para conectarse a la base de datos de Azure SQL para la propiedad **connectionString**. <br/>Marque este campo como **SecureString** para almacenarlo de forma segura en Azure Data Factory. También puede poner una contraseña o una clave de entidad de servicio Azure Key Vault. Si se trata de la autenticación de SQL, extraiga la configuración `password` de la cadena de conexión. Para más información, vea el ejemplo de JSON debajo de la tabla y [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Azure Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
