@@ -7,9 +7,7 @@
     - name: 'PowerShell: inicio rápido'
       href: quickstart-powershell.md
 - name: Características y herramientas
-  items:
-    - name: Características y herramientas
-      href: features.md
+  href: features.md
 - name: Tutoriales
   items:
     - name: Ansible
@@ -40,7 +38,7 @@
   href: troubleshooting.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure
