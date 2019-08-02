@@ -17,40 +17,41 @@ sections:
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
-        text: 'Aprenda a usar Azure Dev Spaces en AKS:'
+        text: 'Aprenda a usar Azure Dev Spaces para colaborar en microservicios en AKS:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Desarrollo como parte de un equipo
+              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
+            text: Desarrollo de microservicios como parte de un equipo
             href: quickstart-team-development.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Ejecución de una aplicación
-            href: quickstart-cli.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Ejecución de una aplicación con un archivo Dockerfile
-            href: quickstart-cli-dockerfile.md
       - type: paragraph
-        text: 'Aprenda a desarrollar iterativamente y a depurar directamente en AKS con Azure Dev Spaces:'
+        text: 'Aprenda a iterar y depurar rápidamente una experiencia de desarrollo de bucles internos con Azure Dev Spaces:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Desarrollo con Java
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Uso de Visual Studio Code y Java
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: "Desarrollo con .NET y VS\_Code"
+            text: Uso de Visual Studio Code y .NET Core
             href: quickstart-netcore.md
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: "Desarrollo con .NET y Visual\_Studio"
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Desarrollo con Node.js
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Uso de Visual Studio Code y Node.js
             href: quickstart-nodejs.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Uso de Visual Studio y .NET Core
+            href: quickstart-netcore-visualstudio.md
+      - type: paragraph
+        text: 'Aprenda a desarrollar microservicios para casi cualquier lenguaje mediante la CLI de Azure con Azure Dev Spaces:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Desarrollo mediante la CLI de Azure
+            href: quickstart-cli.md

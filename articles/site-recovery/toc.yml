@@ -179,7 +179,7 @@
           items:
             - name: Actualización de Mobility Service para máquinas virtuales de Azure
               href: azure-to-azure-autoupdate.md
-            - name: Actualizaciones en Azure Site Recovery
+            - name: Administración de actualizaciones de Site Recovery
               href: service-updates-how-to.md
             - name: Quitar servidores y deshabilitar la protección
               href: site-recovery-manage-registration-and-protection.md
@@ -263,7 +263,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Administración de servidores vCenter
               href: vmware-azure-manage-vcenter.md
-            - name: Actualizaciones en Azure Site Recovery
+            - name: Administración de actualizaciones de Site Recovery
               href: service-updates-how-to.md
             - name: Quitar servidores y deshabilitar la protección
               href: site-recovery-manage-registration-and-protection.md
@@ -281,6 +281,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: Configuración de la recuperación ante desastres
           items:
+            - name: 'Tutorial: Configuración de la recuperación ante desastres'
+              href: physical-azure-disaster-recovery.md
             - name: Configuración del entorno de origen
               href: physical-azure-set-up-source.md
             - name: Configuración del entorno de destino
@@ -293,8 +295,6 @@
                   href: vmware-azure-install-mobility-service.md
                 - name: Implementación de Mobility Service con System Center Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: 'Tutorial: Configuración de la recuperación ante desastres'
-                  href: physical-azure-disaster-recovery.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           href: physical-to-azure-failover-failback.md
         - name: administración
@@ -307,7 +307,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Quitar servidores y deshabilitar la protección
               href: site-recovery-manage-registration-and-protection.md
-            - name: Actualizaciones en Azure Site Recovery
+            - name: Administración de actualizaciones de Site Recovery
               href: service-updates-how-to.md
             - name: Eliminación de un almacén
               href: delete-vault.md
@@ -361,10 +361,12 @@
               href: upgrade-2012R2-to-2016.md
             - name: Quitar servidores y deshabilitar la protección
               href: site-recovery-manage-registration-and-protection.md
-            - name: Actualizaciones en Azure Site Recovery
+            - name: Administración de actualizaciones de Site Recovery
               href: service-updates-how-to.md
             - name: Eliminación de un almacén
               href: delete-vault.md
+            - name: Traslado a un almacén de una región diferente
+              href: move-vaults-across-regions.md
     - name: Recuperación ante desastres para aplicaciones
       items:
         - name: Configuración de la recuperación ante desastres para aplicaciones locales en Azure
@@ -423,39 +425,45 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Incorporación de runbooks de Azure Automation a los planes de recuperación para organizar la conmutación por error
       href: site-recovery-runbook-automation.md
-- name: Supervisión y solución de problemas
+- name: Supervisión
   items:
-    - name: Supervisión de Azure Site Recovery
+    - name: Preguntas habituales sobre supervisión
+      href: monitoring-common-questions.md
+    - name: Supervisión de Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Máquinas virtuales de Azure
+    - name: Supervisión de Site Recovery con registros de Azure Monitor
+      href: monitor-log-analytics.md
+    - name: Supervisión de los servidores de procesos
+      href: vmware-physical-azure-monitor-process-server.md
+- name: solución de problemas
+  items:
+    - name: Solución de problemas de máquinas virtuales de Azure
       items:
-        - name: Solución de problemas de replicación para máquinas virtuales de Azure
+        - name: Solución de problemas de replicación de máquinas virtuales de Azure
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Solución de problemas de la replicación en curso para máquinas virtuales de Azure
+        - name: Solución de problemas de la replicación en curso
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Solución de problemas de Mobility Service para máquinas virtuales de Azure
+        - name: Solución de problemas de Mobility Service
           href: site-recovery-extension-troubleshoot.md
-    - name: Servidores físicos o de VMware
+    - name: Solución de problemas de máquinas virtuales y servidores físicos de VMware
       items:
-        - name: Supervisión de los servidores de procesos
-          href: vmware-physical-azure-monitor-process-server.md
-        - name: Solución de problems de la replicación de VMware en Azure
+        - name: Solución de problemas de replicación de máquinas virtuales y servidores físicos de VMware
           href: vmware-azure-troubleshoot-replication.md
-        - name: Solución de problemas del servidor de configuración
+        - name: Solución de problemas de los servidores de configuración
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: Solución de problemas de servidores de procesos
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: Solución de problemas de instalación de inserción de Mobility service para servidores físicos o máquinas virtuales de VMware
+        - name: Solución de problemas de la instalación de inserción de Mobility Service
           href: vmware-azure-troubleshoot-push-install.md
         - name: Solución de problemas de conmutación por error en Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Solución de problemas de reprotección y conmutación por recuperación de máquinas virtuales de VMware
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Solución de problemas de actualización del proveedor de Microsoft Azure Site Recovery
+        - name: Solución de errores de actualización del proveedor
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: Solución de problemas de detección de vCenter
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Solución de problemas de Hyper-V
       items:
         - name: Solución de problemas de réplica de Hyper-V
           href: hyper-v-azure-troubleshoot.md

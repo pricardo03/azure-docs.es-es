@@ -584,6 +584,12 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Solución de problemas de ejecución de paquetes en Azure-SSIS Integration Runtime
           href: ssis-integration-runtime-ssis-activity-faq.md
+- name: Escenarios
+  items:
+    - name: Migración de datos para Data Lake y EDW
+      items:
+        - name: ¿Por qué elegir Azure Data Factory?
+          href: data-migration-guidance-overview.md
 - name: Referencia
   items:
     - name: .NET

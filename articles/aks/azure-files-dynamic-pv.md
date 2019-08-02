@@ -2,33 +2,33 @@
 title: Creación dinámica de un volumen de archivos para varios pods en Azure Kubernetes Service (AKS)
 description: Aprenda a crear un volumen persistente de forma dinámica con Azure Files para usarlo con varios pods simultáneos en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061102"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "67665966"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
 Un volumen persistente representa un fragmento de almacenamiento aprovisionado para su uso con pods de Kubernetes. Un volumen persistente puede usarse en uno o varios pods y puede aprovisionarse de forma dinámica o estática. Si varios pods necesitan acceso simultáneo al mismo volumen de almacenamiento, puede usar Azure Files para conectarse mediante el [protocolo Bloque de mensajes del servidor (SMB)][smb-overview]. Este artículo muestra cómo crear dinámicamente un recurso compartido de Azure Files para ser usado por varios pods en un clúster de Azure Kubernetes Service (AKS).
 
-Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento de aplicaciones en AKS][concepts-storage].
+Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="create-a-storage-class"></a>Creación de una clase de almacenamiento
 
-Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de archivos de Azure. En el grupo de recursos *_MC*, se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento donde van a guardarse los recursos compartidos de archivos de Azure. Seleccione una de las siguientes [redundancias de Azure Storage][storage-skus] para *skuName*:
+Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de archivos de Azure. En el [grupo de recursos node][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento donde van a guardarse los recursos compartidos de archivos de Azure. Seleccione una de las siguientes [redundancias de Azure Storage][storage-skus] para *skuName*:
 
 * *Standard_LRS*: almacenamiento estándar con redundancia local (LRS)
 * *Standard_GRS*: almacenamiento estándar con redundancia geográfica (GRS)
@@ -37,9 +37,9 @@ Una clase de almacenamiento se utiliza para definir cómo se crea un recurso com
 > [!NOTE]
 > Azure Files admite el almacenamiento premium en clústeres de AKS que ejecutan Kubernetes 1.13 o superior.
 
-Para más información sobre las clases de almacenamiento de Kubernetes para Azure Files, vea las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
+Para más información sobre las clases de almacenamiento de Kubernetes para Azure Files, consulte las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
 
-Cree un archivo denominado `azure-file-sc.yaml` y cópielo en el ejemplo siguiente de manifiesto. Para obtener más información sobre *mountOptions*, consulte la sección [Opciones de montaje][mount-options].
+Cree un archivo denominado `azure-file-sc.yaml` y cópielo en el ejemplo siguiente de manifiesto. Para más información sobre *mountOptions*, consulte la sección [Opciones de montaje][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -64,7 +64,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-cluster-role-and-binding"></a>Creación de un rol y un enlace de clúster
 
-Los clústeres AKS usan el control de acceso basado en roles (RBAC) de Kubernetes para limitar las acciones que se pueden realizar. *Roles* define los permisos para conceder, y *enlaces* los aplica a los usuarios deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para más información, consulte [Uso de la autorización de RBAC][kubernetes-rbac].
+Los clústeres AKS usan el control de acceso basado en roles (RBAC) de Kubernetes para limitar las acciones que se pueden realizar. *Roles* define los permisos para conceder, y *enlaces* los aplica a los usuarios deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para obtener más información, consulte [Uso de la autorización de RBAC][kubernetes-rbac].
 
 Para permitir que la plataforma de Azure cree los recursos de almacenamiento necesarios, cree los elementos *ClusterRole* y *ClusterRoleBinding*. Cree un archivo denominado `azure-pvc-roles.yaml` y cópielo en el siguiente código YAML:
 
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
-Una notificación de volumen persistente (PVC) usa el objeto de clase de almacenamiento para aprovisionar de forma dinámica un recurso compartido de archivos de Azure. El siguiente código de YAML puede utilizarse para crear una notificación de volumen persistente con un tamaño de *5 GB* y con acceso *ReadWriteMany*. Para obtener más información sobre los modos de acceso, consulte la documentación sobre [volúmenes persistentes de Kubernetes][access-modes].
+Una notificación de volumen persistente (PVC) usa el objeto de clase de almacenamiento para aprovisionar de forma dinámica un recurso compartido de archivos de Azure. El siguiente código de YAML puede utilizarse para crear una notificación de volumen persistente con un tamaño de *5 GB* y con acceso *ReadWriteMany*. Para más información sobre los modos de acceso, consulte la documentación sobre [volúmenes persistentes de Kubernetes][access-modes].
 
 Ahora cree un archivo denominado `azure-file-pvc.yaml` y cópielo en el siguiente código YAML. Asegúrese de que *storageClassName* coincide con la clase de almacenamiento creada en el último paso:
 
@@ -223,11 +223,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Si se usa un clúster con las versiones 1.8.0 a 1.8.4, se puede especificar un contexto de seguridad con el valor *runAsUser* definido en *0*. Para más información sobre el contexto de seguridad de pod, vea [Configure a Security Context][kubernetes-security-context] (Configuración de un contexto de seguridad).
+Si se usa un clúster con las versiones 1.8.0 a 1.8.4, se puede especificar un contexto de seguridad con el valor *runAsUser* definido en *0*. Para más información sobre el contexto de seguridad de pod, consulte [Configure a Security Context][kubernetes-security-context] (Configuración de un contexto de seguridad).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar los procedimientos recomendados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 Obtenga más información sobre los volúmenes persistentes de Kubernetes con Azure Files.
 
@@ -264,3 +264,4 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con Az
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

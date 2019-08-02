@@ -9,18 +9,18 @@
       items:
         - name: Desarrollo en equipo
           href: quickstart-team-development.md
-        - name: Ejecución de una aplicación
+        - name: Depuración e iteración
+          items:
+            - name: Uso de Visual Studio Code y Java
+              href: quickstart-java.md
+            - name: Uso de Visual Studio Code y .NET Core
+              href: quickstart-netcore.md
+            - name: Uso de Visual Studio Code y Node.js
+              href: quickstart-nodejs.md
+            - name: Uso de Visual Studio y .NET Core
+              href: quickstart-netcore-visualstudio.md
+        - name: Desarrollo mediante la CLI
           href: quickstart-cli.md
-        - name: Ejecución de una aplicación con un archivo Dockerfile
-          href: quickstart-cli-dockerfile.md
-        - name: Ejecución y depuración de Java con VS Code
-          href: quickstart-java.md
-        - name: Ejecución y depuración de .NET Core con VS Code
-          href: quickstart-netcore.md
-        - name: Ejecución y depuración de Node.js con VS Code
-          href: quickstart-nodejs.md
-        - name: Ejecución y depuración de .NET Core con Visual Studio
-          href: quickstart-netcore-visualstudio.md
     - name: Tutoriales
       items:
         - name: Java (VS Code y CLI)

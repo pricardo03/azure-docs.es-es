@@ -21,7 +21,7 @@
           href: connect-truffle.md
 - name: Tutoriales
   items:
-    - name: Envío de transacciones
+    - name: Uso de contratos inteligentes
       href: send-transaction.md
 - name: Conceptos
   items:
