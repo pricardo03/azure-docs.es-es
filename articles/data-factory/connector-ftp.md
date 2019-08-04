@@ -54,7 +54,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de FTP:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **FtpServer**. | Sí |
 | host | Especifique el nombre o dirección IP del servidor FTP. | Sí |
-| puerto | Especifique el puerto en el que se está realizando la escucha del servidor FTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **21**. | Sin |
+| port | Especifique el puerto en el que se está realizando la escucha del servidor FTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **21**. | Sin |
 | enableSsl | Especificar si desea usar FTP a través del canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin |
 | authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: **Basic**, **Anonymous** | Sí |
