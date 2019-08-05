@@ -123,7 +123,7 @@ Para copiar datos en la instancia administrada de Azure SQL Database y desde est
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en **SqlServerTable**. | Sí |
+| type | La propiedad type del conjunto de datos se debe establecer en **SqlServerTable**. | Sí |
 | tableName |Esta propiedad es el nombre de la tabla o vista de la instancia de base de datos a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 **Ejemplo**
@@ -156,7 +156,7 @@ Si va a copiar datos desde Instancia administrada de Azure SQL Database, estable
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí |
 | sqlReaderQuery |Esta propiedad usa la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. |Sin |
 | sqlReaderStoredProcedureName |Esta propiedad es el nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin |
 | storedProcedureParameters |Estos parámetros son para el procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin |
@@ -262,7 +262,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
 | writeBatchSize |Número de filas que se va a insertar en la tabla SQL *por lote*.<br/>Los valores permitidos son enteros para el número de filas. De forma predeterminada, Azure Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila.  |Sin |
 | writeBatchTimeout |Esta propiedad especifica el tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son para el intervalo de tiempo. Un ejemplo es "00:30:00", que es 30 minutos. |Sin |
 | preCopyScript |Esta propiedad especifica una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en la instancia administrada. Solo se invoca una vez por cada copia que se ejecuta. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin |
