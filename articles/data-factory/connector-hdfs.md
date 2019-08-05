@@ -122,7 +122,7 @@ Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consu
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Tipo       | La propiedad type de `location` en el conjunto de datos se debe establecer en **HdfsLocation**. | Sí      |
+| type       | La propiedad type de `location` en el conjunto de datos se debe establecer en **HdfsLocation**. | Sí      |
 | folderPath | Ruta de acceso a la carpeta. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 | fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 
