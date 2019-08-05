@@ -58,7 +58,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en: **HttpServer**. | Sí |
+| type | La propiedad **type** debe establecerse en: **HttpServer**. | Sí |
 | url | La dirección URL base para el servidor web. | Sí |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin<br /> (El valor predeterminado es: **true**) |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones que se encuentran después de esta tabla para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
