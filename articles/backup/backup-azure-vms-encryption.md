@@ -134,7 +134,7 @@ Para establecer los permisos:
 
     ![Selección del servicio Backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. En **Agregar directiva de acceso** > **	Configurar a partir de una plantilla (opcional)** , seleccione **Azure Backup**.
+6. En **Agregar directiva de acceso** > **Configurar a partir de una plantilla (opcional)** , seleccione **Azure Backup**.
     - Los permisos necesarios se rellenan previamente en **Permisos clave** y **Permisos de secretos**.
     - Si la máquina virtual está cifrada con **solo BEK**, quite la selección de **permisos de clave** puesto que solo necesita permisos para secretos.
 

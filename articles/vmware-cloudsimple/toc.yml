@@ -54,8 +54,6 @@
           href: cloudsimple-faq.md
     - name: Tutoriales
       items:
-        - name: Habilitar proveedor de recursos
-          href: enable-cloudsimple-service.md
         - name: Creación del servicio CloudSimple
           href: create-cloudsimple-service.md
         - name: Acceso al portal de CloudSimple
