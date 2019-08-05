@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Solución de problemas
       items:
+        - name: No se puede registrar en el clúster de HDInsight
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: No se pueden agregar nodos al clúster de HDInsight
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: 'InvalidNetworkSecurityGroupSecurityRules: error de creación del clúster'

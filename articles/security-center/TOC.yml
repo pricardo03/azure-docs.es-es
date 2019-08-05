@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Respuesta a los incidentes
       href: security-center-incident-response.md
+    - name: Administración entre inquilinos
+      href: security-center-cross-tenant-management.md
 - name: Guías de procedimientos
   items:
     - name: Mejora de su puntuación de seguridad
@@ -81,6 +83,8 @@
       items:
         - name: ¿Cuáles son las recomendaciones de seguridad?
           href: security-center-recommendations.md
+        - name: Corrección de recomendaciones
+          href: security-center-remediate-recommendations.md
         - name: Reforzamiento de la posición de seguridad
           href: security-center-monitoring.md
         - name: Protección de máquinas y aplicaciones

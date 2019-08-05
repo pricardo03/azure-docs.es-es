@@ -87,6 +87,8 @@
       items:
         - name: Creación de una plantilla
           href: how-to-create-template.md
+        - name: Nombre y tipo del recurso secundario
+          href: child-resource-name-type.md
         - name: Creación de grupos de recursos y otros recursos en la suscripción
           displayName: subscription level deployment
           href: deploy-to-subscription.md
