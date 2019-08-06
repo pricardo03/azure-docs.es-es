@@ -4,15 +4,15 @@ description: En este artículo se describe cómo Azure Cosmos DB ofrece una alta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305443"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467733"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -49,9 +49,9 @@ Las interrupciones regionales son algo habitual y Azure Cosmos DB garantiza que
 - Las cuentas de varias regiones configuradas con varias regiones de escritura seguirán teniendo una alta disponibilidad para las escrituras y lecturas. Las conmutaciones por error regionales son instantáneas y no requieren cambios de la aplicación.
 
 - **Cuentas de varias regiones con una sola región de escritura (interrupción de la región de escritura):** 
-  * durante una interrupción de la región de escritura, estas cuentas permanecerán con alta disponibilidad para las lecturas. En cambio, para las operaciones de escritura debe **habilitar la conmutación automática por error** en la cuenta de Cosmos para conmutar por error la región afectada a otra región. La conmutación por error se producirá en el orden de prioridad de regiones que especificó. 
-  * Cuando la región afectada vuelva a estar en línea, los datos no replicados presentes en la región de escritura afectada durante la interrupción estarán disponibles mediante la [fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed). Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en el contenedor de Cosmos según corresponda. 
-  * Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Puede volver a la región recuperada como la región de escritura. Puede cambiar las regiones con la [CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover). **No se produce ninguna pérdida de datos ni de disponibilidad** antes, durante o después de la conmutación por error manual. La aplicación sigue teniendo alta disponibilidad. 
+  * durante una interrupción de la región de escritura, estas cuentas permanecerán con alta disponibilidad para las lecturas. Para que las solicitudes de escritura se realicen correctamente, debe activar la opción **Habilitar conmutación por error automática** en su cuenta de Azure Cosmos. Al habilitar esta opción, se conmutará por error la región afectada a otra región en el orden de prioridad de región que haya especificado. 
+  * Cuando la región afectada previamente vuelva a estar en línea, los datos de escritura cuya replicación se anuló al producirse el error en la región se ponen a disposición a través de la [fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed). Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en el contenedor de Azure Cosmos según corresponda. 
+  * Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Puede volver a la región recuperada como la región de escritura. Puede cambiar las regiones con la [CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover). No se produce **ninguna pérdida de datos ni de disponibilidad** antes, durante ni después de cambiar la región de escritura, y la aplicación sigue siendo de alta disponibilidad. 
 
 - **Cuentas de varias regiones con una sola región de escritura (interrupción de la región de lectura):** 
   * durante una interrupción de la región de lectura, estas cuentas permanecerán con alta disponibilidad para lecturas y escrituras. 
@@ -78,7 +78,7 @@ Esta característica está disponible en las siguientes regiones de Azure:
 
 * Sur de Reino Unido 2
 * Sudeste asiático 
-* Este de EE. UU
+* East US
 * Este de EE. UU. 2 
 * Centro de EE. UU.
 

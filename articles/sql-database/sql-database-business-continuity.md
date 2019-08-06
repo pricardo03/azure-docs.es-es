@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228044"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569338"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -58,7 +57,23 @@ Puede usar copias de seguridad de la base de datos automáticas para restaurar u
 
 Si el período de retención de la restauración a un momento dado (PITR) máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para obtener más información, vea [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
-## <a name="recover-a-database-to-another-azure-region"></a>Recuperación de una base de datos en otra región de Azure
+## <a name="compare-geo-replication-with-failover-groups"></a>Comparación de la replicación geográfica con los grupos de conmutación por error
+
+Los [grupos de conmutación por error automática](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplifican la implementación y el uso de la [replicación geográfica](sql-database-active-geo-replication.md) y agregan las funcionalidades adicionales, como se describe en la tabla siguiente:
+
+|                                              | Replicación geográfica | Grupos de conmutación por error  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Conmutación por error automática                           |     Sin          |      Sí         |
+| Conmutación por error de varias bases de datos simultáneamente  |     Sin          |      Sí         |
+| Actualización de la cadena de conexión después de la conmutación por error      |     Sí         |      Sin          |
+| Compatibilidad con la instancia administrada                   |     Sin          |      Sí         |
+| Posibilidad de estar en la misma región que la principal             |     Sí         |      Sin          |
+| Varias réplicas                            |     Sí         |      Sin          |
+| Admisión del escalado de lectura                          |     Sí         |      Sí         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## <a name="recover-a-database-to-the-existing-server"></a>Recuperación de una base de datos en el servidor existente
 
 Aunque es poco habitual, en los centros de datos de Azure pueden producirse interrupciones. Cuando esto ocurre, provoca también una interrupción en el negocio que podría extenderse solo unos pocos minutos o, incluso, horas.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 048fe0ef88e8a79e21af7bb6e39a1d7ece3ee4ae
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277453"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314832"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen de asignación de Data Flow 
 
@@ -38,8 +38,12 @@ Data Factory tiene acceso a casi 80 conectores nativos. Para incluir datos de es
 
 Elija las opciones de muestreo y esquema para los datos.
 
-### <a name="allow-schema-drift"></a>Permitir el desfase de esquema
-Si las columnas de origen van a cambiar con frecuencia, seleccione la opción para **permitir el desfase de esquema**. Esta opción permite que todos los campos de origen entrantes fluyan hasta el receptor a través de las transformaciones.
+### <a name="schema-drift"></a>Desfase de esquema
+El [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de ADF de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
+
+* Si las columnas de origen van a cambiar con frecuencia, seleccione la opción para **permitir el desfase de esquema**. Esta opción permite que todos los campos de origen entrantes fluyan hasta el receptor a través de las transformaciones.
+
+* Al elegir **Inferir tipos de columnas desfasadas**, se indicará a ADF que defina los tipos de datos para cada nueva columna detectada. Al desactivar esta característica, ADF asumirá la cadena.
 
 ### <a name="validate-schema"></a>Validar esquema
 

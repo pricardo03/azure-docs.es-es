@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a0da8b932d2efe88391991286ede2858440e4465
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 1cc2849ffe55fff737993140a1d0f18182820eff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232640"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68498569"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -106,7 +106,7 @@ Aunque es técnicamente posible especificar un intervalo de direcciones de servi
 
 **Dirección IP del servicio DNS de Kubernetes**:  la dirección IP del servicio DNS del clúster. Esta dirección debe estar dentro del  *intervalo de direcciones del servicio Kubernetes*. No use la primera dirección IP en el intervalo de direcciones, como .1. La primera dirección del intervalo de la subred se usa para la dirección *kubernetes.default.svc.cluster.local*.
 
-**Dirección del puente de Docker**: la dirección IP y la máscara de red que se van a asignar al puente de Docker. El puente de Docker permite que los nodos de AKS se comuniquen con la plataforma de administración subyacente. Esta dirección IP no debe estar dentro del rango de direcciones IP de red virtual del clúster, y no debe superponerse con otros rangos de direcciones en uso en la red.
+**Dirección del puente de Docker**: La dirección de red del puente de Docker representa la dirección de red del puente de *docker0* predeterminada presente en todas las instalaciones de Docker. Aunque los pods o los clústeres de AKS no usan el puente de *docker0*, debe configurar esta dirección para seguir admitiendo escenarios como la *compilación de Docker* en el clúster de AKS. Es necesario seleccionar un CIDR para la dirección de red del puente de Docker, ya que, de lo contrario, Docker seleccionará automáticamente una subred que podría entrar en conflicto con otros CIDR. Debe elegir un espacio de direcciones que no entre en conflicto con el resto de los CIDR de las redes, incluidos el CIDR de servicio del clúster y el CIDR del pod.
 
 ## <a name="configure-networking---cli"></a>Configuración de redes: CLI
 
@@ -186,7 +186,7 @@ Más información acerca de las redes en AKS en los siguientes artículos:
 
 El [motor de Azure Kubernetes Service (motor de AKS)][aks-engine] es un proyecto de código abierto que genera plantillas de Azure Resource Manager que puede usar para implementar clústeres de Kubernetes en Azure.
 
-Los clústeres de Kubernetes creados con el motor de AKS admiten los complementos de [kubenet][kubenet] and [Azure CNI][cni-networking]. Por lo tanto, ambos escenarios de redes son compatibles con AKS Engine.
+Los clústeres de Kubernetes creados con AKS Engine admiten los complementos [kubenet][kubenet] y [Azure CNI][cni-networking]. Por lo tanto, ambos escenarios de redes son compatibles con AKS Engine.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png

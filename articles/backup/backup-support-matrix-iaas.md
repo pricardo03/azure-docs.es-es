@@ -1,19 +1,18 @@
 ---
 title: Matriz de compatibilidad de Azure Backup para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.author: raynew
-ms.openlocfilehash: 1be9d7ecc996063ee41319628cfc7c81f76bb8ca
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: dacurwin
+ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296772"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639603"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar copias de seguridad de cargas de trabajo y máquinas locales, y de las máquinas virtuales de Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad para realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -44,7 +43,7 @@ Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows 
 Habilitar copia de seguridad al crear una máquina virtual Linux | Compatible para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Copia de seguridad de una máquina virtual apagada o sin conexión | Se admite.<br/><br/> La instantánea es coherente solo con bloqueos, no con aplicaciones.
 Copia de seguridad de discos después de migrar a discos administrados | Se admite.<br/><br/> La copia de seguridad seguirá funcionando. no se requiere ninguna acción.
-Copia de seguridad de discos administrados después de habilitar el bloqueo del grupo de recursos | No compatible.<br/><br/> Azure Backup no puede eliminar los puntos de recursos anteriores y las copias de seguridad empezarán a generar errores cuando se alcance el límite máximo de puntos de restauración.
+Copia de seguridad de discos administrados después de habilitar el bloqueo del grupo de recursos | No compatible.<br/><br/> Azure Backup no puede eliminar los puntos de restauración anteriores y las copias de seguridad empezarán a generar errores cuando se alcance el límite máximo de puntos de restauración.
 Modificar directiva de copia de seguridad de una máquina virtual | Se admite.<br/><br/> Se realizará la copia de seguridad de la máquina virtual con la programación y la configuración de retención de la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reducen, los puntos de recuperación existentes se eliminarán en el siguiente trabajo de limpieza y, después, se eliminarán por completo.
 Cancelación de un trabajo de copia de seguridad | Compatible durante el proceso de instantáneas.<br/><br/> No se admite cuando se transfiere la instantánea al almacén.
 Copia de seguridad de la máquina virtual en otra región o suscripción |  No compatible.
@@ -144,8 +143,7 @@ Restaurar una máquina virtual en una red virtual distinta |   Se admite.<br/><b
 **Proceso** | **Soporte técnico**
 --- | ---
 Tamaño de VM |   Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM<br/><br/> [Más información.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Se admite.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
-Copia de seguridad de máquinas virtuales en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview) |  No compatible.
+Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Se admite.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
 Copia de seguridad de máquinas virtuales implementadas con la [ventaja de uso híbrido (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Se admite.
 Copia de seguridad de máquinas virtuales implementadas en un [conjunto de escalado](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  No compatible.
 Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado por Microsoft y terceros) |  Se admite.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior). No restauramos las máquinas virtuales de Azure Marketplace cuya copia de seguridad se ha realizado como de máquina virtual, ya que estas necesitan la información de compra, sino solo como discos.

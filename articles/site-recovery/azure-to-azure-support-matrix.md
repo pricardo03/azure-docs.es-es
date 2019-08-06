@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f44cb90beb7c1c544cb135f277fc12f724769b65
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846974"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406069"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure de una región a otra
 
@@ -48,7 +48,7 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 -- | --
 América | Centro de Canadá y este de Canadá, centro-sur de EE. UU., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
 Europa | Oeste de Reino Unido, Sur de Reino Unido, Europa del Norte, Europa Occidental, Centro de Francia, Sur de Francia, Oeste de Sudáfrica, Norte de Sudáfrica
-Asia | India del Sur, centro de la India, Sudeste Asiático, Asia Oriental, Japón Oriental, Japón Occidental, Corea Central, Corea del Sur
+Asia | India del Sur, Centro de la India, Oeste de la India, Sudeste Asiático, Asia Oriental, Japón Oriental, Japón Occidental, Corea Central, Sur de Corea del Sur, Centro de Emiratos Árabes, Norte de Emiratos Árabes
 Australia   | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central 
 Alemania | Centro de Alemania y Noreste de Alemania
@@ -182,7 +182,7 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 --- | --- | ---
 Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/managed-disks-overview.md) sobre discos de máquina virtual.
 Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/managed-disks-overview.md).
-Tamaño máximo del disco de datos | 4095 GB |
+Tamaño máximo del disco de datos | 8192 GB para discos administrados<br></br>4095 GB para discos no administrados|
 Tamaño mínimo del disco de datos | Sin restricción de discos no administrados. 2 GB en discos administrados | 
 Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/windows/sizes.md) sobre tamaños de máquina virtual.
 Tasa de cambio de disco de datos | Máximo de 10 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de los datos en el disco sobrepasa el máximo continuamente, la replicación no mantendrá el ritmo.<br/><br/>  Sin embargo, si se supera el máximo esporádicamente, la replicación podrá mantenerlo, aunque podría ver puntos de recuperación ligeramente retrasados.

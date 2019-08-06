@@ -4,7 +4,7 @@ description: Habilite el escalado automático en un grupo en la nube para ajusta
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b3a4401318544928f8e6d63c3460808467ecc1d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296756"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68500034"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
@@ -40,7 +40,7 @@ En este artículo se describen las distintas entidades que conforman las fórmul
 >
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
-Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalabilidad automática se asignará a la propiedad element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] del elemento [autoScaleFormula][rest_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (Batch REST) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio Batch) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Crear un grupo habilitado para el escalado automático con .NET
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Creación de un grupo habilitado para el escalado automático con SDK de Batch
+
+El escalado automático de grupos se puede configurar con cualquiera de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), la [API REST de Batch](https://docs.microsoft.com/rest/api/batchservice/), los [cmdletsde PowerShell de Batch](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md). En esta sección, puede ver ejemplos de .NET y Python.
+
+### <a name="net"></a>.NET
 
 Para crear un grupo con el escalado automático habilitado en. NET, siga estos pasos:
 
 1. Crear el grupo con [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Establecer la propiedad [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) en `true`.
-3. Establecer la propiedad [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) con la fórmula de escalado automático.
-4. (Opcional) Establecer la propiedad [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (el valor predeterminado es 15 minutos).
-5. Confirmar el grupo con [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Establecer la propiedad [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) en `true`.
+1. Establecer la propiedad [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) con la fórmula de escalado automático.
+1. (Opcional) Establecer la propiedad [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (el valor predeterminado es 15 minutos).
+1. Confirmar el grupo con [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 El fragmento de código siguiente crea un grupo habilitado para el escalado automático en .NET. La fórmula de escalado automático del grupo establece el número objetivo de nodos dedicados en 5 los lunes y en 1 los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y en otros fragmentos de código de C# de este artículo, `myBatchClient` es una instancia inicializada correctamente de la clase [BatchClient][net_batchclient].
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-Además de Batch .NET, puede usar cualquiera de los demás [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), [REST de Batch](https://docs.microsoft.com/rest/api/batchservice/), [cmdlets de PowerShell para Batch](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md) para configurar el escalado automático.
+#### <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
 
-
-### <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
 De forma predeterminada, el servicio de Batch ajusta el tamaño de un grupo según su fórmula de escalado automático cada 15 minutos. Este intervalo se puede configurar con las siguientes propiedades de grupo:
 
 * [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
@@ -405,6 +407,50 @@ Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente.
 
 > [!NOTE]
 > Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
+>
+>
+
+### <a name="python"></a>Python
+
+Del mismo modo, puede crear un grupo habilitado para el escalado automático con el SDK de Python:
+
+1. Cree un grupo y especifique su configuración.
+1. Agregue el grupo al cliente del servicio.
+1. Habilite el escalado automático en el grupo con una fórmula que escriba.
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> Puede encontrar más ejemplos del uso del SDK de Python en el [repositorio de inicio rápido de Python Batch](https://github.com/Azure-Samples/batch-python-quickstart) en GitHub.
 >
 >
 

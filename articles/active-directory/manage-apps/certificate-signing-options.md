@@ -1,5 +1,5 @@
 ---
-title: Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory | Microsoft Docs
+title: Opciones avanzadas de firma de certificados de token SAML para aplicaciones Azure AD preintegradas | Microsoft Docs
 description: Aprenda a usar opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807720"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381269"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 

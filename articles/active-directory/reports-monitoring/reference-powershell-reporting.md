@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302750"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359758"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets de Azure AD PowerShell para informes
 
-Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno. Puede recuperar los datos de los informes mediante los cmdlets de PowerShell de Azure AD para la generación de informes.
+Con los informes de Azure Active Directory (Azure AD), puede obtener detalles sobre las actividades de todas las operaciones de escritura en su dirección (registros de auditoría) y los datos de autenticación (registros de inicio de sesión). Aunque la información está disponible mediante MS Graph API, ahora puede recuperar los mismos datos usando los cmdlets de PowerShell de Azure AD para la generación de informes.
 
-En este artículo se proporciona información general sobre el cmdlet.
-
-
-
+En este artículo se ofrece información general sobre los cmdlets de PowerShell que se usan para generar los registros de auditoría y los registros de inicio de sesión.
 
 ## <a name="audit-logs"></a>Registros de auditoría
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 854fd5ca2bb6c27b7f8815bf85e19c6cf147e475
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278056"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383447"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -70,7 +70,7 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob Storage y Azure Data Lake Gen2
 
-La salida a Azure Data Lake Gen2 se ofrece como una característica en versión preliminar pública.
+La salida a Azure Data Lake Gen2 se ofrece como una característica en versión preliminar previa en regiones limitadas en todo el mundo. Puede solicitar acceso a la versión preliminar proporcionando detalles adicionales en el [formulario de solicitud](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
 
 Azure Blob Storage ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción a Blob Storage y su uso, consulte [Carga, descarga y enumeración de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -159,7 +159,7 @@ De Stream Analytics | A Power BI
 -----|-----
 bigint | Int64
 nvarchar(max) | Cadena
-Datetime | Datetime
+datetime | Datetime
 float | Double
 Matriz de registro | Tipo cadena, valor constante "IRecord" o "IArray"
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b23f9532aa1ca6f7bae914ff8cb9d7566a0fec86
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: dc7c86ff1df48f9ce96769098f7aab76d33c8822
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841534"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481574"
 ---
 Event Hubs proporciona streaming de mensajes mediante un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas.
 
@@ -26,6 +26,8 @@ Event Hubs retiene datos durante un tiempo de retención configurado que se apli
 ![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
 
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Puede aumentar el número de particiones más allá de 32 poniéndose en contacto con el equipo de Event Hubs.
+
+Es posible que quiera establecer el valor lo más alto posible, que es 32, en el momento de la creación. Recuerde que, si hay más de una partición, los eventos se enviarán a varias particiones sin conservar el orden, a menos que configure los remitentes para que solo realicen el envío a una única partición de las 32, lo que hará que las 31 restantes sean redundantes. En el primer caso, tendrá que leer eventos en las 32 particiones. En el último caso, no hay ningún costo adicional obvio aparte de la configuración adicional que debe realizar en el host del procesador de eventos.
 
 Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar las construcciones de nivel superior que se presentan en la sección [Publicador de eventos](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 

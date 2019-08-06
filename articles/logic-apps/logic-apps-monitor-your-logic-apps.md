@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e44e1980f25ede24ed31cf0d14bbe0e4157e4e45
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305600"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385531"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
 
@@ -273,25 +273,26 @@ Por ejemplo, el evento `ActionCompleted` tiene las propiedades `clientTrackingId
   Este es otro ejemplo en el que se usa la acción **Inicializar variable**. En el ejemplo se agregan propiedades controladas desde la entrada de la acción, donde la entrada es una matriz, no un registro.  
 
   ``` json
-  "actions": {
-    "type": "InitializeVariable",
-    "Initialize_variable": {
-    "inputs": {
-        "variables": [{
-              "name": "ConnectorName",
-               "type": "String",
-               "value": "SFTP-SSH"
-         }]                
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
       },
-    "trackedProperties": {
-        "Track1": "@action().inputs.variables[0].value"
-    }
-    }
-  }      
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de plantillas para administrar la implementación y liberación de aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatización de la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Escenarios B2B y comunicación con Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Supervisión de mensajes B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

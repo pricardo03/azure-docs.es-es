@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9b49926fb9a7d6a46c7dc267761835038899a77a
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 331a554332db8c05d4ece1a1df5d6557d6e86906
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226107"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310356"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -120,7 +120,7 @@ Las **regiones de Azure locales** son a las que puede acceder [ExpressRoute Loca
 | **Silicon Valley2** | Coresite | Oeste de EE. UU. | Coresite | 
 | **Singapur** | Equinix | Sudeste asiático | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon y Vodafone |
 | **Singapur2** | Modificador global | Sudeste asiático | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **Sidney** | Equinix | Este de Australia | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
+| **Sidney** | Equinix | Este de Australia | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
 | **Taipéi** | Chief Telecom | N/D | Chief Telecom, FarEasTone |
 | **Tokio** | Equinix | Este de Japón | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Centro de Canadá | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |

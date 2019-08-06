@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: d921e529140bc7446e3c9f97b33ba226431d7b91
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 7c41b09c35de7ef8694f9215b8f3dc271e243de2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143514"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780491"
 ---
 # <a name="azure-security-documentation"></a>Documentación de Azure Security Center
 
@@ -70,7 +70,7 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-infrastructure">
+        <a href="/azure/security/fundamentals/infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -114,7 +114,7 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Información al cifrado de datos</p>
+                            <p style="font-size: 1.12rem;">Introducción al cifrado de datos</p>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-encryption-atrest">
+        <a href="/azure/security/fundamentals/encryption-atrest">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -192,13 +192,13 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
                                 <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Respuesta de seguridad de Azure en la nube</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-threat-detection">Detección de amenazas avanzada de Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/threat-detection">Detección de amenazas avanzada de Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure Network Security</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Desarrollo de aplicaciones seguras en Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Desarrollo de aplicaciones seguras en Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -218,25 +218,25 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Procedimientos recomendados de seguridad para Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Seguridad de las redes</a>
+                                <a class="barLink" href="/azure/security/fundamentals/network-best-practices">Seguridad de las redes</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Seguridad de los datos</a>
+                                <a class="barLink" href="/azure/security/fundamentals/data-encryption-best-practices">Seguridad de los datos</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-best-practices-vms">Seguridad de las máquinas virtuales</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">Identidad y acceso</a>
+                                <a class="barLink" href="/azure/security/fundamentals/identity-management-best-practices">Identidad y acceso</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-iaas">Seguridad de IaaS</a>
+                                <a class="barLink" href="/azure/security/fundamentals/iaas">Seguridad de IaaS</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/security-paas-deployments">Protección de implementaciones de PaaS</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Protección de cuentas de administrador de Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/global-admin">Protección de cuentas de administrador de Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -380,7 +380,7 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-cyber-services">
+        <a href="/azure/security/fundamentals/cyber-services">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -393,12 +393,12 @@ La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ven
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-pen-testing">
+        <a href="/azure/security/fundamentals/pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Pruebas de penetración</p>
+                            <p style="font-size: 1.12rem;">Pruebas de lápiz</p>
                         </div>
                     </div>
                 </div>

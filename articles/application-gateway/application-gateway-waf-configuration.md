@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9e9472fbcd01cf40204063174b159638369d7429
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304302"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326665"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web
 
@@ -91,10 +91,10 @@ El siguiente cmdlet de Azure PowerShell excluye el parámetro user de la evaluac
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -MatchVariable "RequestArgNames" `
-   -SelectorMatchOperator "Equals" `
+   -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Por lo tanto, si se pasa la dirección URL **http://www.contoso.com/?user=fdafdasfda** al firewall, este no evaluará la cadena **fdafdasfda**.
+Por tanto, si la dirección URL **http://www.contoso.com/?user%281%29=fdafdasfda** se pasa a WAF, no evaluará la cadena **fdafdasfda**, pero sí evaluará el nombre de parámetro **user%281%29**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

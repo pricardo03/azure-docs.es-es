@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260367"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689664"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
 
@@ -1014,7 +1014,7 @@ Posteriormente, puede usar la salida de la acción en otras acciones.
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*inputs-to-compose*> | Cualquiera | Las entradas para la creación de una única salida | 
+| <*inputs-to-compose*> | Any | Las entradas para la creación de una única salida | 
 |||| 
 
 *Ejemplo 1*
@@ -1645,7 +1645,7 @@ Para especificar o personalizar los encabezados y los valores de columna, use la
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*column-name*> | Cadena | El nombre del encabezado de una columna | 
-| <*column-value*> | Cualquiera | El valor de esa columna | 
+| <*column-value*> | Any | El valor de esa columna | 
 |||| 
 
 *Ejemplo 1*
@@ -2317,7 +2317,7 @@ Esta definición de acción del bucle envía una solicitud HTTP a la dirección 
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2326,7 +2326,7 @@ Esta definición de acción del bucle envía una solicitud HTTP a la dirección 
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2380,6 +2380,7 @@ Puede cambiar el comportamiento predeterminado del runtime para los desencadenad
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entero | Establezca el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que se pueden poner en espera de ejecución en caso de que el flujo de trabajo ya esté ejecutando el número máximo de instancias simultáneas. Puede cambiar el límite de simultaneidad en la propiedad `concurrency.runs`. <p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | Todos los desencadenadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Entero | Para acciones específicas que admiten y tienen la paginación activada, este valor especifica el número *mínimo* de resultados que se van a recuperar. <p>Para activar la paginación, vea [Obtención masiva de datos, elementos o resultados mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Acción: Varía |
+| `runtimeConfiguration.secureData.properties` | Array | En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de la aplicación lógica. <p>Para proteger estos datos, consulte [Ocultar entradas y salidas del historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Mayoría de desencadenadores y acciones |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para las acciones que tienen la opción [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) activada, el objeto `staticResult` tiene estos atributos: <p>- `name`, que hace referencia al nombre de definición del resultado estático de la acción actual, que aparece dentro del atributo `staticResults` en el atributo `definition` del flujo de trabajo de la aplicación lógica. Para más información, vea [Resultados estáticos: Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica si los resultados estáticos tienen el valor `Enabled` o no para la acción actual. <p>Para activar los resultados estáticos, vea [Probar las aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md). | Acción: Varía |
 ||||| 
 

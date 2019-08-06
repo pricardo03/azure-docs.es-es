@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: e59b82c3b1000d679e6faa0fc3c55c624a255443
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 3d2aefa7040ca2082e0e584d250d99f1ca00edf7
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302534"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326421"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -52,7 +52,7 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 | Configuración |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuración |`auth.gfx.ms` | |`443` |
 | Configuración |`login.live.com` | |`443` |
-| Instalación |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (descargas de NuGet) | |`443` |
+| Instalación | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
 Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.

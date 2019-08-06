@@ -64,6 +64,8 @@
           href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Conversión del certificado de entidad de servicio
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Problemas de latido de Apache Ambari
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procedimientos
   items:
     - name: Uso del espacio aislado de Apache Hadoop

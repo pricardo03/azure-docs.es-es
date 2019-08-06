@@ -1,26 +1,26 @@
 ---
-title: Diagnóstico y solución de problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
-description: Problemas comunes, soluciones alternativas y pasos de diagnóstico cuando se usa el desencadenador de Azure Cosmos DB con Azure Functions
+title: Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
+description: Problemas comunes, soluciones alternativas y pasos de diagnóstico al usar el desencadenador de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250024"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335756"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 
-En este artículo se tratan problemas comunes, soluciones alternativas y pasos de diagnóstico cuando se usa el [desencadenador de Azure Cosmos DB](change-feed-functions.md) con Azure Functions.
+En este artículo se abordan los problemas comunes, las soluciones alternativas y los pasos de diagnóstico al usar el [desencadenador de Azure Functions para Cosmos DB](change-feed-functions.md).
 
 ## <a name="dependencies"></a>Dependencias
 
-El desencadenador de Azure Cosmos DB y los enlaces dependen de los paquetes de extensión a través del entorno de ejecución básico de Azure Functions. Mantenga siempre estos paquetes actualizados, ya que es posible que incluyan correcciones y características nuevas que puedan solucionar los posibles problemas:
+El desencadenador de Azure Functions y los enlaces para Cosmos DB dependen de los paquetes de extensión a través del entorno de ejecución básico de Azure Functions. Mantenga siempre estos paquetes actualizados, ya que es posible que incluyan correcciones y características nuevas que puedan solucionar los posibles problemas:
 
 * Para Azure Functions V2, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Para Azure Functions V1, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ En este artículo siempre se hará referencia a Azure Functions V2 cada vez que
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumo independiente del SDK de Azure Cosmos DB
 
-La funcionalidad clave del paquete de extensión consiste en proporcionar compatibilidad con el desencadenador de Azure Cosmos DB y los enlaces. También incluye el [SDK de Azure Cosmos DB .NET](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador ni enlaces.
+La funcionalidad clave del paquete de extensión consiste en proporcionar compatibilidad con el desencadenador de Azure Functions y los enlaces para Cosmos DB. También incluye el [SDK de Azure Cosmos DB .NET](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador ni enlaces.
 
 Si desea usar el SDK de Azure Cosmos DB, asegúrese de no agregar al proyecto otra referencia de paquete de NuGet. En su lugar, **permita que la referencia del SDK se resuelva mediante el paquete de extensión de Azure Functions**. Uso del SDK de Azure Cosmos DB por separado de los desencadenadores y enlaces
 
@@ -81,7 +81,7 @@ Si faltan algunos cambios en el destino, esto podría significar que se trata de
 En este escenario, la mejor forma de proceder consiste en agregar `try/catch blocks` en el código y dentro de los bucles que podrían estar procesando los cambios, para detectar errores en un subconjunto determinado de elementos y controlarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo). 
 
 > [!NOTE]
-> El desencadenador de Azure Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
+> El desencadenador de Azure Functions para Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
 
 Si aprecia que algunos cambios no se han recibido en el desencadenador, el escenario más común es que hay **otra función de Azure en ejecución**. Es posible que otra función de Azure implementada en Azure o que se ejecute localmente en la máquina del desarrollador tenga **exactamente la misma configuración** (mismos contenedores de concesión y supervisados), y esta función de Azure esté robando un subconjunto de los cambios que se espera que la función de Azure procesase.
 

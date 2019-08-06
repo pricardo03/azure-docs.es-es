@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: bdfa11b8b8d16c4d00d94cc74c8c7a0f02ad26b5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ff747e7bc3329d3665b52f6fa8e72e1ca308a87e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226133"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310344"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -83,7 +83,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Compatible |Compatible |Montreal, Toronto, Ciudad de Quebec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Compatible |Compatible |Ámsterdam, RAE de Hong Kong, Johannesburgo, Londres, Newport (Gales), Sao Paulo, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
-| **C3ntro** |Próximamente |Próximamente |Miami |
+| **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Compatible |Compatible |Miami |
 | **CDC** | Compatible | Compatible | Canberra, Canberra 2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Compatible |Compatible |Ámsterdam2, Chicago, Hong Kong, Las Vegas, Nueva York, París, San Antonio, Silicon Valley, Tokio, Toronto, Washington DC |
 | **Chief Telecom** |Compatible |Compatible |Hong Kong, Taipéi |
@@ -134,6 +134,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Compatible |Compatible |Chennai (Madrás), Mumbai (Bombay)2 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Compatible |Compatible |Singapur, Singapur2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Compatible |Compatible |Osaka, Tokyo |
+| **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Compatible |Compatible |Sidney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Compatible |Compatible |Ámsterdam, Chennai, RAE de Hong Kong, Londres, Mumbai, Sao Paulo, Silicon Valley, Singapur, Washington DC |
 | **Telecity Group** |Compatible |Compatible |Ámsterdam |

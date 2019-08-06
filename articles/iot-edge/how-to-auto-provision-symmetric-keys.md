@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275738"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414596"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica
 
-Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml), igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre el aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml), igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
 En este artículo se muestra cómo crear una inscripción individual de Device Provisioning Service mediante la atestación de clave simétrica en un dispositivo IoT Edge con los pasos siguientes:
 
@@ -165,8 +165,7 @@ Al aprovisionar el dispositivo necesitará la información siguiente:
 
 Siga las instrucciones de la arquitectura del dispositivo. Asegúrese de configurar el entorno de ejecución de IoT Edge para el aprovisionamiento automático, no manual.
 
-* [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Instalación del entorno de ejecución de Azure IoT Edge en Linux](how-to-install-iot-edge-linux.md)
 
 La sección del archivo de configuración para el aprovisionamiento de clave simétrica tiene este aspecto:
 
@@ -188,7 +187,7 @@ Reemplace los valores de marcador de posición para `{scope_id}`, `{registration
 
 Siga las instrucciones para instalar el entorno de ejecución de Azure IoT Edge en el dispositivo para el que ha generado una clave de dispositivo derivada. Asegúrese de configurar el entorno de ejecución de IoT Edge para el aprovisionamiento automático, no manual.
 
-[Instalación y aprovisionamiento automático de IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Instalación y aprovisionamiento automático de IoT Edge en Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 

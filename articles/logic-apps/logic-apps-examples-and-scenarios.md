@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 6d9a2929d7b8b1687b602093d0e9de35508dbd8c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273084"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385509"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Escenarios comunes, ejemplos, tutoriales y guías detalladas de Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) le ayuda a organizar e integrar servicios diferentes, ya que proporciona [cientos de conectores que se pueden usar en cualquier momento](../connectors/apis-list.md), que van de SQL Server o SAP locales a Microsoft Cognitive Services. El servicio Logic Apps es "sin servidor", por lo que no tiene que preocuparse de escalados o instancias. Lo único que debe hacer es definir el flujo de trabajo con un desencadenador y las acciones que realiza el flujo de trabajo. La plataforma subyacente controla la escala, la disponibilidad y el rendimiento. Logic Apps es especialmente útil para aquellos casos de uso y escenarios en los que hay que coordinar varias acciones en varios sistemas.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) le ayuda a organizar e integrar servicios diferentes, ya que proporciona [cientos de conectores que se pueden usar en cualquier momento](../connectors/apis-list.md), que van de SQL Server o SAP locales a Azure Cognitive Services. El servicio Logic Apps es "sin servidor", por lo que no tiene que preocuparse de escalados o instancias. Lo único que debe hacer es definir el flujo de trabajo con un desencadenador y las acciones que realiza el flujo de trabajo. La plataforma subyacente controla la escala, la disponibilidad y el rendimiento. Logic Apps es especialmente útil para aquellos casos de uso y escenarios en los que hay que coordinar varias acciones en varios sistemas.
 
 En este artículo se muestran ejemplos y escenarios comunes para que obtenga más información sobre los distintos patrones y funcionalidades que [Azure Logic Apps](../logic-apps/logic-apps-overview.md) admite.
 
@@ -80,7 +80,7 @@ Puede desarrollar e implementar aplicaciones lógicas completamente con Visual S
 
 * [Creación e implementación de aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Creación de una plantilla de implementación automatizada](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatización de la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de contenido, conversiones y transformaciones dentro de una ejecución
 
@@ -98,7 +98,7 @@ Las aplicaciones lógicas también ofrecen integración con muchos servicios, co
 * [Llamada a Azure Functions desde aplicaciones lógicas](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Trigger logic apps with Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md) (Tutorial: Desencadenamiento de aplicaciones lógicas con Azure Functions)
 * [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md) (Tutorial: Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Microsoft Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md) (Tutorial: Creación de una función que se integra con Azure Logic Apps y Microsoft Cognitive Services para analizar las intenciones de las publicaciones en Twitter)
+* [Tutorial: Creación de una función que se integra con Azure Logic Apps y Azure Cognitive Services para analizar las intenciones de las publicaciones en Twitter](../azure-functions/functions-twitter-email.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) (Tutorial: Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Blog: Llamada a puntos de conexión SOAP desde aplicaciones lógicas)
 

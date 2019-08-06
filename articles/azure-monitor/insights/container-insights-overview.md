@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d8fb7bc0e837ba78d86a39524d869c9bb01895d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867563"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414133"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -44,12 +44,18 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión integral 
 >La compatibilidad con Prometheus es una característica que se encuentra en versión preliminar pública en este momento.
 >
 
+Consulte el siguiente vídeo, que proporciona un análisis detallado de nivel intermedio para ayudarle a obtener información sobre cómo supervisar el clúster de AKS con Azure Monitor para contenedores.
+
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+
 ## <a name="how-do-i-access-this-feature"></a>¿Cómo se obtiene acceso a esta característica?
+
 Puede acceder a Azure Monitor para contenedores de dos maneras: desde Azure Monitor o directamente desde el clúster de AKS seleccionado. Desde Azure Monitor tiene una perspectiva global de todos los contenedores implementados, cuáles se supervisan y cuáles no. Esto le permite buscar y filtrar a través de las suscripciones y los grupos de recursos y, después, explorar en profundidad Azure Monitor para contenedores desde el contenedor seleccionado.  En caso contrario, puede acceder a la característica directamente desde un contenedor de AKS seleccionado desde la página de AKS.  
 
 ![Introducción a los métodos de acceso a Azure Monitor para contenedores](./media/container-insights-overview/azmon-containers-experience.png)
 
-Si está interesado en la supervisión y la administración de hosts de contenedor de Docker y Windows y desea más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](../../azure-monitor/insights/containers.md).
+Si le interesan la supervisión y la administración de hosts de contenedor de Docker y Windows que se ejecutan fuera de AKS y quiere más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](../../azure-monitor/insights/containers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para comenzar a supervisar el clúster de AKS, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión.  

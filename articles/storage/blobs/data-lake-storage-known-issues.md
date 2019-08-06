@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
-ms.openlocfilehash: 75e0aa0847d44df40a4823d98460b011addab4d7
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305747"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385685"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -54,20 +54,9 @@ Si se inscribe en la versión preliminar pública del acceso multiprotocolo en D
 
 En esta sección se describen los problemas y las limitaciones del uso de las API de blob y de las API de Data Lake Storage Gen2 para operar en los mismos datos.
 
-Las siguientes API REST de blob no se admiten:
-
-* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob) [Poner blob (página)]
-* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
-* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
-* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob) [Poner blob (anexar)]
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url) (Anexar bloque desde dirección URL)
-
 * No puede usar las API de blob y las API de Data Lake Storage para escribir en la misma instancia de un archivo.
 
-* Si escribe en un archivo con la API de Data Lake Storage Gen2, los bloques de ese archivo no estarán visibles para las llamadas a la API de blob [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list).
+* Si escribe en un archivo con la API de Data Lake Storage Gen2, los bloques de ese archivo no estarán visibles para las llamadas a la API de blob [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list).
 
 * Puede sobrescribir un archivo con las API de Data Lake Storage Gen2 o con las API de blob. No afectará a las propiedades del archivo.
 
@@ -78,6 +67,17 @@ Las siguientes API REST de blob no se admiten:
 * Si usa la API [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) para eliminar un directorio, solo se eliminará si está vacío.
 
   Esto significa que no puede utilizar la API de blob para eliminar los directorios de forma recursiva.
+
+Las siguientes API REST de blob no se admiten:
+
+* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob) [Poner blob (página)]
+* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
+* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
+* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
+* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob) [Poner blob (anexar)]
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url) (Anexar bloque desde dirección URL)
 
 ## <a name="issues-with-unmanaged-virtual-machine-vm-disks"></a>Problemas con los discos no administrados de máquina virtual (VM)
 
@@ -94,12 +94,13 @@ En la siguiente tabla se enumeran las demás características y herramientas que
 | **AzCopy** | Compatibilidad con versiones específicas <br><br>Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.|
 | **Directivas de administración del ciclo de vida de Azure Blob Storage** | Solo se admiten si se inscribe en la versión preliminar pública del [acceso multiprotocolo en Data Lake Storage](data-lake-storage-multi-protocol-access.md). Los niveles de acceso esporádico y de almacenamiento de archivo solo se admiten en la versión preliminar. Todavía no se admite la eliminación de instantáneas de blob. |
 | **Azure Content Delivery Network** | Todavía no se admite|
-| **Azure Search** |Todavía no se admite|
+| **Azure Search** |Solo se admiten si se inscribe en la versión preliminar pública del [acceso multiprotocolo en Data Lake Storage](data-lake-storage-multi-protocol-access.md).|
 | **Explorador de Azure Storage** | Compatibilidad con versiones específicas <br><br>Use solo la versión `1.6.0` o superior. <br>La versión `1.6.0` está disponible como [descarga gratuita](https://azure.microsoft.com/features/storage-explorer/).|
 | **Listas de control de acceso del contenedor de blobs** |Todavía no se admite|
 | **Blobfuse** |Todavía no se admite|
 | **Dominios personalizados** |Todavía no se admite|
 | **Explorador del sistema de archivos** | Compatibilidad limitada |
+| **Registro de diagnóstico** |Solo se admiten si se inscribe en la versión preliminar pública del [acceso multiprotocolo en Data Lake Storage](data-lake-storage-multi-protocol-access.md).|
 | **Almacenamiento inmutable** |Todavía no se admite <br><br>El almacenamiento inmutable ofrece la capacidad de almacenar datos en estado [WORM](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
 | **Niveles de objeto** |Los niveles de acceso esporádico y de almacenamiento de archivo solo se admiten si se inscribe en la versión preliminar del [acceso multiprotocolo en Data Lake Storage](data-lake-storage-multi-protocol-access.md). <br><br> Todavía no se admiten los demás niveles de acceso.|
 | **Compatibilidad con PowerShell y CLI** | Funcionalidad limitada <br><br>Se admiten las operaciones de administración como la creación de una cuenta. Las operaciones del plano de datos, como la carga y descarga de archivos, están en la versión preliminar pública [como parte del acceso multiprotocolo de Data Lake Storage](data-lake-storage-multi-protocol-access.md). Todavía no se admite el uso de directorios y la configuración de listas de control de acceso (ACL). |

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 3b8152bde8b7e44dde1b0b9c82216333778f83da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806022"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370385"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
 
@@ -129,7 +129,7 @@ datadrift_contribution|Importancia de las características que contribuyen al de
 
 Existen varias formas de ver las métricas de desfase:
 
-* Usar el widget de Jupyter.
+* Usar el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Usar la función [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) en cualquier objeto de ejecución de `datadrift`.
 * Ver las métricas en Azure Portal en su modelo.
 

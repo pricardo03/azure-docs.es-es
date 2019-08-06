@@ -9,13 +9,13 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/22/2019
+ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839657"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405447"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -32,40 +32,41 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 | **Región** | **Proceso inferior Gen2 disponible** | **Fecha de inicio de la actualización automática** |
 |:--- |:--- |:--- |
-| Este de Australia |Disponible |1 de junio de 2019 |
-| Sudeste de Australia |Disponible |1 de mayo de 2019 |
-| Sur de Brasil |Disponible |1 de junio de 2019 |
-| Centro de Canadá |Disponible |1 de junio de 2019 |
-| Este de Canadá |\* |\* |
-| Centro de EE. UU. |Disponible |1 de junio de 2019 |
+| Este de Australia |Disponible |Complete |
+| Sudeste de Australia |Disponible |Complete |
+| Sur de Brasil |Disponible |Complete |
+| Centro de Canadá |Disponible |Complete |
+| Este de Canadá |1 de junio de 2020 |1 de julio de 2020 |
+| Centro de EE. UU. |Disponible |Complete |
 | Este de China |\* |\* |
-| Este de China 2 |Disponible |Solo Gen2 |
+| Este de China 2 |Disponible |Complete |
 | Norte de China |\* |\* |
-| Norte de China 2 |Disponible |Solo Gen2 |
-| Asia oriental |Disponible |1 de junio de 2019 |
-| Este de EE. UU |Disponible |1 de junio de 2019 |
-| Este de EE. UU. 2 |Disponible |1 de junio de 2019 |
-| Centro de Francia |Disponible |1 de junio de 2019 |
+| Norte de China 2 |Disponible |Complete |
+| Asia oriental |Disponible |Complete |
+| East US |Disponible |Complete |
+| Este de EE. UU. 2 |Disponible |Complete |
+| Centro de Francia |Disponible |En curso |
 | Centro de Alemania |\* |\* |
-| Centro-oeste de Alemania |1 de septiembre de 2019|2 de enero de 2020 |
-| India central |Disponible |1 de junio de 2019 |
-| Sur de India |Disponible |1 de junio de 2019 |
-| Este de Japón |Disponible |1 de junio de 2019 |
-| Oeste de Japón |Disponible |1 de mayo de 2019 |
-| Corea Central |Disponible |1 de junio de 2019 |
-| Corea del Sur |Disponible |1 de mayo de 2019 |
-| Centro-Norte de EE. UU |Disponible |1 de mayo de 2019 |
-| Europa del Norte |Disponible |1 de junio de 2019 |
-| Norte de Sudáfrica |12 de julio de 2019 |Solo Gen2 |
-| Centro-Sur de EE. UU |Disponible |1 de junio de 2019 |
-| Sudeste de Asia |Disponible |1 de junio de 2019 |
-| Norte de Emiratos Árabes Unidos |20 de julio de 2019 |Solo Gen2 |
-| Sur de Reino Unido 2 |Disponible |1 de junio de 2019 |
-| Oeste de Reino Unido |Disponible |Solo Gen2 |
-| Centro occidental de EE.UU. |2 de septiembre de 2019 |2 de enero de 2020|
-| Europa occidental |Disponible |1 de junio de 2019 |
-| Oeste de EE. UU. |Disponible |1 de junio de 2019 |
-| Oeste de EE. UU. 2 |Disponible |1 de junio de 2019 |
+| Centro-oeste de Alemania |1 de septiembre de 2019|1 de octubre de 2019 |
+| India central |Disponible |Complete |
+| Sur de India |Disponible |Complete |
+| India occidental |1 de julio de 2019 |En curso |
+| Este de Japón |Disponible |Complete |
+| Oeste de Japón |Disponible |Complete |
+| Corea Central |Disponible |Complete |
+| Corea del Sur |Disponible |Complete |
+| Centro-Norte de EE. UU |Disponible |Complete |
+| Europa del Norte |Disponible |Complete |
+| Norte de Sudáfrica |12 de julio de 2019 |Complete |
+| Centro-Sur de EE. UU |Disponible |Complete |
+| Sudeste de Asia |Disponible |Complete |
+| Norte de Emiratos Árabes Unidos |20 de julio de 2019 |Complete |
+| Sur de Reino Unido 2 |Disponible |En curso |
+| Oeste de Reino Unido |Disponible |En curso |
+| Centro occidental de EE.UU. |1 de septiembre de 2019 |1 de octubre de 2019|
+| Europa occidental |Disponible |Complete |
+| Oeste de EE. UU. |Disponible |Complete |
+| Oeste de EE. UU. 2 |Disponible |Complete |
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 
