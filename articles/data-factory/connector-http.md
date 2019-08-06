@@ -171,7 +171,7 @@ Para copiar datos desde HTTP en **Formato de texto delimitado o Parquet**, consu
 
 | Propiedad    | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------- | ------------------------------------------------------------ | -------- |
-| Tipo        | La propiedad type de `location` en el conjunto de datos se debe establecer en **HttpServerLocation**. | Sí      |
+| type        | La propiedad type de `location` en el conjunto de datos se debe establecer en **HttpServerLocation**. | Sí      |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos.       | Sin       |
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Para copiar datos desde HTTP en **formato ORC, Avro, JSON o binario**, se admite
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin |
 | requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin |
@@ -279,7 +279,7 @@ Para copiar datos desde HTTP en **Formato de texto delimitado o Parquet**, consu
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| Tipo                     | La propiedad type de `storeSettings` se debe establecer en **HttpReadSetting**. | Sí      |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **HttpReadSetting**. | Sí      |
 | requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin       |
 | addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | Sin       |
 | requestBody              | Cuerpo de la solicitud HTTP.                               | Sin       |
@@ -336,7 +336,7 @@ Para copiar datos desde HTTP en **formato ORC, Avro, JSON o binario**, se admite
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
 | httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin |
 
 **Ejemplo**
