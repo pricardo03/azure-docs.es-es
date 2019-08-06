@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 903673e2c953328e90029938a9b7446271411646
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523239"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422987"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
 La aptitud de reconocimiento óptico de caracteres (OCR) reconoce texto impreso y manuscrito en archivos de imagen. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
-+ Cuando textExtractionAlgorithm está establecido en "escrito a mano", se usa la funcionalidad ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
-+ Cuando textExtractionAlgorithm está establecido en "impreso", se usa la funcionalidad ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) para todos los idiomas excepto el inglés. Para el inglés, se usa la nueva funcionalidad ["Reconocer texto"](../cognitive-services/computer-vision/concept-recognizing-text.md) para texto impreso.
++ La API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) se usa para idiomas distintos del inglés. 
++ En inglés, se usa la nueva API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api).
 
 La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos son los formatos de archivos admitidos:
 
@@ -49,8 +49,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 |--------------------|-------------|
 | detectOrientation | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
 |defaultLanguageCode | <p>  Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
-| textExtractionAlgorithm | "impreso" o "manuscrito". El algoritmo OCR de reconocimiento de texto "manuscrito" se encuentra actualmente en versión preliminar y solo se admite en inglés. |
 |lineEnding | Valor que se va a usar entre cada línea detectada. Valores posibles: 'Space','CarriageReturn','LineFeed'.  El valor predeterminado es 'Space' |
+
+Anteriormente, había un parámetro denominado "textExtractionAlgorithm" para especificar si la aptitud debe extraer texto "impreso" o "escrito a mano".  Este parámetro está en desuso y ya no es necesario, porque el algoritmo de Read API más reciente es capaz de extraer ambos tipos de texto a la vez.  Si la definición de la aptitud ya incluye este parámetro, no necesita quitarlo, pero ya no se usará y ambos tipos de texto se extraerán independientemente de su configuración.
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 

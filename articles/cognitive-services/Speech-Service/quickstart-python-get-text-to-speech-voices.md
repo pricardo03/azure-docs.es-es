@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Enumeración de voces de texto a voz (Python): servicios de voz'
+title: 'Inicio rápido: Enumeración de voces de texto a voz en Python (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 46595cdf665158d019c9b6def19ff6609db803bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602985"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559353"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Inicio rápido: Obtención de la lista de voces de texto a voz mediante Python
 
 En esta guía de inicio rápido, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones. Para ver una lista de las regiones admitidas, consulte [Regiones](regions.md).
 
-En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de los servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
+En este inicio rápido se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,9 +59,9 @@ class GetVoices(object):
 
 ## <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-Este punto de conexión requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de los servicios de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
+Este punto de conexión requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de Servicios de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
 
-En este ejemplo se da por supuesto que su suscripción de los servicios de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `fetch_token_url`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+En este ejemplo se da por supuesto que su suscripción de Servicios de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `fetch_token_url`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código en la clase `GetVoices`:
 
@@ -80,7 +80,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Realización de solicitud y guardado de la respuesta
 
-Aquí va a generar la solicitud y guardar la lista de voces devueltas. En primer lugar, deberá establecer `base_url` y `path`. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `base_url`. Para obtener más información, consulte el artículo sobre las [regiones admitidas de los servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aquí va a generar la solicitud y guardar la lista de voces devueltas. En primer lugar, deberá establecer `base_url` y `path`. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `base_url`. Para obtener más información, consulte el artículo sobre las [regiones admitidas de Servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 A continuación, agregue los encabezados necesarios para la solicitud. Por último, deberá realizar una solicitud al servicio. Si la solicitud es correcta y se devuelve un código de estado 200, la respuesta se escribe en el archivo.
 

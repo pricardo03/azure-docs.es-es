@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e4337f0593933a4e877f391df8132a9b2cd4af
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 12027581ae62588550407c8350f3b74f1e743561
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702694"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601823"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
@@ -43,7 +43,7 @@ Con la Plataforma de identidad de Microsoft, puede escribir código una vez y ll
 
 ## <a name="getting-started"></a>Introducción
 
-Trabajar con la identidad no tiene porqué ser complicado. Elija un escenario que se aplique a su trabajo: cada ruta de acceso de escenario tiene un inicio rápido y una página de introducción para ayudarlo a ponerse en marcha en cuestión de minutos:
+Trabajar con la identidad no tiene porqué ser complicado. Elija un [escenario](authentication-flows-app-scenarios.md) que se aplique a su trabajo: cada ruta de acceso de escenario tiene un inicio rápido y una página de información general para ayudarle a ponerse en marcha en cuestión de minutos:
 
 - [Compilación de una aplicación de una sola página](scenario-spa-overview.md)
 - [Compilación de una aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)
@@ -62,6 +62,7 @@ En el gráfico siguiente se describen escenarios comunes de aplicaciones de aute
 
 Si desea obtener más información sobre los conceptos de autenticación más importantes, se recomienda empezar por estos temas:
 
+- [Flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md)
 - [Conceptos básicos sobre autenticación](authentication-scenarios.md)
 - [Aplicaciones y entidades de servicio](app-objects-and-service-principals.md)
 - [Audiencias](v2-supported-account-types.md)

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105733"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515109"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Inicio rápido: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Si no tiene una cuenta de Studio, vaya a la [página principal de Studio](https:
 ## <a name="get-the-data"></a>Obtener los datos
 
 Lo primero que necesita en el aprendizaje automático son datos.
-En Studio hay varios conjuntos de datos que puede usar; otra opción es importarlos de diversos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)**, que se incluye en el área de trabajo.
+En Studio hay varios conjuntos de datos que puede usar; otra opción es importarlos de diversos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** , que se incluye en el área de trabajo.
 Este conjunto de datos incluye entradas para diversos automóviles individuales, por ejemplo, información sobre la marca, el modelo, las especificaciones técnicas y el precio.
 
 > [!TIP]
@@ -87,16 +87,16 @@ Normalmente, un conjunto de datos requiere algún procesamiento previo antes de 
 
 Primero, se agrega un módulo que quita completamente la columna **normalized-losses**. A continuación, se agrega otro módulo que quita las filas que tienen datos que faltan.
 
-1. Escriba **seleccionar columnas** en el cuadro de búsqueda de la parte superior de la paleta de módulos, y busque el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos). Después, arrastre este módulo al lienzo del experimento. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
+1. Escriba **select columns** en el cuadro de búsqueda de la parte superior de la paleta de módulos para localizar el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos). Después, arrastre este módulo al lienzo del experimento. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
 1. Conecte el puerto de salida del conjunto de datos **Automobile price data (Raw)** al puerto de entrada del módulo Select Columns in Dataset.
 
     ![Agregar el módulo "Seleccionar columnas en el conjunto de datos" al lienzo del experimento y conectarlo](./media/create-experiment/type-select-columns.png)
 
-1. Haga clic en el módulo [Select Columns in Dataset][select-columns] y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
+1. Haga clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
 
    - A la izquierda, haga clic en **Con reglas**
-   - En **Empiezan por**, haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) que pase por todas las columnas (excepto las que se van a excluir).
+   - En **Empiezan por**, haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en conjunto de datos) que pase por todas las columnas (excepto por las que estamos a punto de excluir).
    - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
    - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
 
@@ -107,11 +107,11 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
      ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] y escriba el comentario "Excluir normalized-losses".
+     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y escriba el comentario "Exclude normalized-losses" (Excluir normalized-losses).
 
      ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
-1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
+1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
     ![Establecimiento del modo de limpieza en Remove entire row (Quitar la fila entera) para el módulo Clean Missing Data (Limpiar los datos que faltan)](./media/create-experiment/set-remove-entire-row.png)
 
@@ -122,9 +122,9 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
     ![Después de ejecutarlo, el experimento debe tener un aspecto similar al siguiente:](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
-> ¿Por qué ejecutamos el experimento ahora? Al ejecutar el experimento, las definiciones de columna de nuestros datos pasan desde el conjunto de datos hasta los módulos [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] y [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data]. Esto significa que los módulos que conectamos a [Clean Missing Data][clean-missing-data] tendrán también esta misma información.
+> ¿Por qué ejecutamos el experimento ahora? Al ejecutar el experimento, las definiciones de columna de nuestros datos pasan desde el conjunto de datos hasta los módulos [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan). Esto significa que los módulos que conectamos a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) tendrán también esta misma información.
 
-Ahora tenemos datos limpios. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
+Ahora tenemos datos limpios. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
 
 Ahora los datos están limpios y ya puede especificar qué características se van a usar en el modelo predictivo.
 
@@ -138,7 +138,7 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Arrastre otro módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] al lienzo del experimento. Conecte el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] a la entrada del módulo [Select Columns in Dataset][select-columns].
+1. Arrastre otro módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) al lienzo del experimento. Conecte el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) a la entrada del módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos).
 
     ![Conexión del módulo "Seleccionar columnas en el conjunto de datos" al módulo "Limpiar los datos que faltan"](./media/create-experiment/connect-clean-to-select.png)
 
@@ -170,7 +170,7 @@ Para entrenar el modelo le proporcionamos un conjunto de datos que incluye el pr
 
 Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los dividiremos en conjuntos de datos distintos, de entrenamiento y de prueba.
 
-1. Seleccione y arrastre el módulo [Split Data][split] al lienzo del experimento y conéctelo al último módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns].
+1. Seleccione y arrastre el módulo [Split Data][split] (Dividir datos) al lienzo del experimento y conéctelo al último módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos).
 
 1. Haga clic en el módulo [Split Data][split] (Dividir datos) para seleccionarlo. Busque **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) (en el panel **Propiedades** a la derecha de lienzo) y establézcalo en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
@@ -179,11 +179,11 @@ Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los div
     > [!TIP]
     > Al cambiar el parámetro **Valor de inicialización aleatorio** , puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
-1. Ejecute el experimento. Cuando se ejecuta el experimento, los módulos [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] y [Split Data] (Dividir datos) [split] pasan las definiciones de columna a los módulos que se agregarán a continuación.  
+1. Ejecute el experimento. Cuando se ejecuta el experimento, los módulos [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y [Split Data][split] (Dividir datos) pasan las definiciones de columna a los módulos que se agregarán a continuación.  
 
-1. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Machine Learning** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático. Para este experimento, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** y arrástrelo al lienzo del experimento. (Otra forma de encontrar el módulo es escribir "regresión lineal" en el cuadro Buscar de la paleta).
+1. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Machine Learning** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático. Para este experimento, seleccione el módulo [Linear Regression][linear-regression] (Regresión lineal) en la categoría **Regression** (Regresión) y arrástrelo al lienzo del experimento. (Otra forma de encontrar el módulo es escribir "regresión lineal" en el cuadro Buscar de la paleta).
 
-1. Busque y arrastre el módulo [Train Model][train-model] (Entrenar modelo) al lienzo del experimento. Conecte la salida del módulo [Linear Regression][linear-regression] (Regresión lineal) a la entrada izquierda del módulo [Train Model][train-model] (Entrenar modelo), y conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo [Split Data][split] (Dividir datos) a la entrada derecha del módulo [Train Model][train-model].
+1. Busque y arrastre el módulo [Train Model][train-model] (Entrenar modelo) al lienzo del experimento. Conecte la salida del módulo [Linear Regression][linear-regression] (Regresión lineal) a la entrada izquierda del módulo [Train Model][train-model] (Entrenar modelo) y conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo [Split Data][split] (Dividir datos) a la entrada derecha del módulo [Train Model][train-model] (Entrenar modelo).
 
     ![Conexión del módulo "Entrenar modelo" a los módulos "Regresión lineal" y "Dividir datos"](./media/create-experiment/connect-train-model.png)
 
@@ -203,21 +203,21 @@ Ahora tenemos un modelo de regresión entrenado que puede usarse para puntuar nu
 
 Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos usarlo para puntuar el otro 25 % de los datos y ver cómo funciona el modelo.
 
-1. Busque y arrastre el módulo [Score Model] (Puntuar modelo) [score-model] al lienzo del experimento. Conecte la salida del módulo [Train Model][train-model] al puerto de entrada izquierdo de [Score Model][score-model]. Conecte la salida de datos de prueba (puerto derecho) del módulo [Split Data][split] al puerto de entrada derecho de [Score Model][score-model].
+1. Busque y arrastre el módulo [Score Model][score-model] (Puntuar modelo) al lienzo del experimento. Conecte la salida del módulo [Train Model][train-model] (Entrenar modelo) al puerto de entrada izquierdo de [Score Model][score-model] (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del módulo [Split Data][split] al puerto de entrada derecho de [Score Model][score-model].
 
     ![Conexión del módulo "Puntuar modelo" a los módulos "Entrenar modelo" y "Dividir datos"](./media/create-experiment/connect-score-model.png)
 
-1. Para ejecutar el experimento y ver la salida desde el módulo [Score Model][score-model] (Puntuar modelo), haga clic en el puerto de salida de [Score Model][score-model] y seleccione **Visualizar**. La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.  
+1. Para ejecutar el experimento y ver la salida desde el módulo [Score Model][score-model] (Puntuar modelo), haga clic en el puerto de salida de [Score Model][score-model] (Puntuar modelo) y seleccione **Visualizar**. La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.  
 
     ![Salida del módulo "Puntuar modelo"](./media/create-experiment/score-model-output.png)
 
-1. Por último, probamos la calidad de los resultados. Seleccione y arrastre el módulo [Evaluate Model][evaluate-model] al lienzo del experimento y conecte la salida del módulo [Score Model][score-model]  a la entrada izquierda del módulo [Evaluate Model][evaluate-model]. El experimento final debe tener un aspecto similar a este:
+1. Por último, probamos la calidad de los resultados. Seleccione y arrastre el módulo [Evaluate Model][evaluate-model] (Evaluar modelo) al lienzo del experimento y conecte la salida del módulo [Score Model][score-model] (Puntuar modelo) a la entrada izquierda del módulo [Evaluate Model][evaluate-model] (Evaluar modelo). El experimento final debe tener un aspecto similar a este:
 
     ![El experimento final](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Ejecute el experimento.
 
-Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar).
+Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualizar**.
 
 ![Resultados de evaluación del experimento](./media/create-experiment/evaluation-results.png)
 

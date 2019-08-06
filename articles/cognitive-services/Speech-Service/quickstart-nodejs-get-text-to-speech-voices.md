@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Enumeración de voces de texto a voz (Node.js): Servicios de voz'
+title: 'Inicio rápido: Enumeración de voces de texto a voz en Node.js (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o punto de conexión mediante Node.js. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1044519110d8b0ae7b5a50860c8116d73b6b70bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067570"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559386"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Inicio rápido: Obtención de la lista de voces de texto a voz mediante Node.js
 

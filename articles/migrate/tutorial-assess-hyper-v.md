@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 83567a45980b29931f9b68bd6d60df0d427b09de
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813015"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663795"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
 En este artículo se muestra cómo evaluar máquinas virtuales de Hyper-V locales mediante Azure Migrate: Herramienta Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayudan a detectar, evaluar y migrar aplicaciones, infraestructura y cargas de trabajo en Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detectar las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 
 
@@ -33,7 +33,7 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar máquinas vir
 > * Revisar la evaluación.
 
 > [!NOTE]
-> En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles. Para obtener instrucciones detalladas, revise los artículos de procedimientos.
+> En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles. Para obtener instrucciones detalladas, consulte los artículos acerca de los distintos procedimientos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
@@ -51,7 +51,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 2. En los resultados de la búsqueda, seleccione **Azure Migrate**.
 3. En **Información general**, en **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
 
-    ![Detección y evaluación de servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
+    ![Detectar y evaluar servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 4. En **Introducción**, haga clic en **Agregar herramientas**.
 5. En la pestaña **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos si no lo tiene.
@@ -75,7 +75,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 7. Haga clic en **Next**.
 8. En **Seleccione una herramienta de evaluación**, seleccione **Azure Migrate: Server Assessment** > **Siguiente**.
 
-    ![Creación de un proyecto de Azure Migrate](./media/tutorial-assess-hyper-v/assessment-tool.png)
+    ![Crear un proyecto de Azure Migrate](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
 9. En **Seleccione una herramienta de migración**, seleccione **Omitir por ahora la adición de una herramienta de migración** > **Siguiente**.
 10. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
@@ -110,15 +110,17 @@ Descargue la plantilla del disco duro virtual comprimido del dispositivo.
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
 1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
-2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
+2. Ejecute el siguiente comando de PowerShell para generar el código hash para el archivo ZIP
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
 3.  El código hash generado debe coincidir con esta configuración para la versión 1.19.06.27 del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | 3681F745FA2B0A0A6910707D85161EC5
+  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
 
 
 
@@ -155,12 +157,12 @@ Configure el dispositivo por primera vez.
 3. Abra un explorador en cualquier equipo que pueda conectarse a la máquina virtual y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
 
    Como alternativa, puede abrir la aplicación desde el escritorio del dispositivo, para lo que debe hacer clic en el acceso directo de la aplicación.
-1. En la aplicación web > **Configurar los requisitos previos** , realice las siguientes operaciones:
+1. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
     - **License** (Licencia): Acepte los términos de licencia y lea la información de terceros.
     - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
-        - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
-        - Especifique las credenciales si el proxy requiere autenticación.
-        - Solo se admite un proxy HTTP.
+      - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
+      - Especifique las credenciales si el proxy requiere autenticación.
+      - Solo se admite un proxy HTTP.
     - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
     - **Instalación de actualizaciones**: Azure Migrate Server Assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes.
 
@@ -178,19 +180,31 @@ Configure el dispositivo por primera vez.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegación de credenciales para discos duros virtuales de SMB
 
-Si va a ejecutar discos duros virtuales en SMB, debe habilitar la delegación de credenciales desde el dispositivo a los hosts de Hyper-V. Si no lo hizo en cada host del [tutorial anterior](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), hágalo ahora desde el dispositivo:
+Si va a ejecutar discos duros virtuales en SMB, debe habilitar la delegación de credenciales desde el dispositivo a los hosts de Hyper-V. Esto requiere lo siguiente:
 
-1. En la máquina virtual del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
+- Permita que cada host actúe como delegado para el dispositivo. Esto debió de hacerlo en el tutorial anterior, cuando preparó Hyper-V para la evaluación y la migración. Debería haber configurado CredSSP para los hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) o mediante[ la ejecución del script de configuración de requisitos previos de Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Habilite la delegación CredSSP para que el dispositivo de Azure Migrate pueda actuar como cliente y delegar las credenciales en un host.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+Habilite en el dispositivo de la manera siguiente:
 
-2. También puede hacerlo en el Editor de directivas de grupo local en el dispositivo:
-    - En **Directiva de equipo local** > **Configuración del equipo**, haga clic en **Plantillas administrativas** > **Sistema** > **Delegación de credenciales**.
-    - Haga doble clic en **Permitir delegación de credenciales nuevas** y seleccione **Habilitado**.
-    - En **Opciones**, haga clic en **Mostrar** y agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
-    - En **Delegación de credenciales**, haga doble clic en **Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor**. De nuevo, agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
+#### <a name="option-1"></a>Opción 1
+
+En la máquina virtual del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+Ejemplo: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### <a name="option-2"></a>Opción 2
+
+También puede hacerlo en el Editor de directivas de grupo local en el dispositivo:
+
+1. En **Directiva de equipo local** > **Configuración del equipo**, haga clic en **Plantillas administrativas** > **Sistema** > **Delegación de credenciales**.
+2. Haga doble clic en **Permitir delegación de credenciales nuevas** y seleccione **Habilitado**.
+3. En **Opciones**, haga clic en **Mostrar** y agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
+4. En **Delegación de credenciales**, haga doble clic en **Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor**. De nuevo, agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
 
 ## <a name="start-continuous-discovery"></a>Inicio de detección continua
 
@@ -220,7 +234,7 @@ Se pueden ejecutar dos tipos de evaluaciones mediante Azure Migrate Server Asses
 
 **Valoración** | **Detalles** | **Datos**
 --- | --- | ---
-**Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en el IOPS y en el rendimiento de los discos locales.
+**Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
 **Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
 
 
@@ -293,7 +307,7 @@ Esta vista muestra el costo estimado de almacenamiento y proceso que conlleva ej
 
 ### <a name="review-confidence-rating"></a>Examen de la clasificación de confianza
 
-Cuando se realizan evaluaciones basadas en el rendimiento, se asigna una clasificación de confianza a la evaluación.
+Cuando se realizan valoraciones basadas en el rendimiento, se asigna una clasificación de confianza a la evaluación.
 
 ![Clasificación de confianza](./media/tutorial-assess-hyper-v/confidence-rating.png)
 

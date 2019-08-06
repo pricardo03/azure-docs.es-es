@@ -3,17 +3,17 @@ title: Implementación de instancias de contenedor de Azure habilitadas para GPU
 description: Obtenga información sobre cómo implementar las instancias de contenedor de Azure para ejecutarlas en los recursos de GPU.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 300e9b82d578663a4d2ada3889a07d8b03051cc5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583845"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325946"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -22,7 +22,7 @@ Para ejecutar determinadas cargas de trabajo de proceso intensivo en Azure Conta
 En este artículo se muestra cómo agregar recursos de GPU al implementar un grupo de contenedores mediante el uso de un [archivo YAML](container-instances-multi-container-yaml.md) o una [plantilla de Resource Manager](container-instances-multi-container-group.md). También puede especificar los recursos de GPU al implementar una instancia de contenedor mediante Azure Portal.
 
 > [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
@@ -118,7 +118,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Ejemplo de plantilla de Resource Manager
 
-Otra manera de implementar un grupo de contenedores con recursos de GPU es usar una [plantilla de Resource Manager](container-instances-multi-container-group.md). Para empezar, cree un archivo llamado `gpudeploy.json` y copie el siguiente código JSON en él. Este ejemplo implementa una instancia de contenedor con una GPU V100 que ejecuta un trabajo de aprendizaje [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) en relación con el [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/). Las solicitudes de recursos son suficientes para ejecutar la carga de trabajo.
+Otra manera de implementar un grupo de contenedores con recursos de GPU es usar una [plantilla de Resource Manager](container-instances-multi-container-group.md). Para empezar, cree un archivo llamado `gpudeploy.json` y copie el siguiente código JSON en él. Este ejemplo implementa una instancia de contenedor con una GPU V100 que ejecuta un trabajo de aprendizaje [TensorFlow](https://www.tensorflow.org/) en relación con el conjunto de datos MNIST. Las solicitudes de recursos son suficientes para ejecutar la carga de trabajo.
 
 ```JSON
 {
@@ -211,7 +211,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Como el uso de recursos de GPU puede ser caro, asegúrese de que los contenedores no se ejecutan inesperadamente durante largos períodos. Supervise los contenedores en Azure Portal o consulte el estado de un grupo de contenedores con el comando [az container show][az-container-show]. Por ejemplo:
+Como el uso de recursos de GPU puede ser caro, asegúrese de que los contenedores no se ejecutan inesperadamente durante largos períodos. Supervise los contenedores en Azure Portal o consulte el estado de un grupo de contenedores con el comando [az container show][az-container-show]. Por ejemplo:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

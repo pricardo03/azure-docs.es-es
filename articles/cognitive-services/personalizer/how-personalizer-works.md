@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722360"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423245"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 
@@ -79,6 +79,8 @@ Personalizer se basa en una ciencia e investigación vanguardistas en el área d
 * **Eventos inactivos**: Un evento inactivo es aquel en el que llamó a Rank, pero no está seguro de que el usuario vea alguna vez el resultado, debido a decisiones de la aplicación cliente. Los eventos inactivos le permiten crear y almacenar resultados de la personalización y, después, decidir descartarlos más adelante sin que ello afecte al modelo de Machine Learning.
 
 * **Modelo**: los modelos de Personalizer capturan todos los datos aprendidos acerca del comportamiento del usuario y obtiene los datos de entrenamiento de la combinación de los argumentos que se envían a las llamadas a Rank y a Reward, y con un comportamiento de entrenamiento determinado por la directiva de aprendizaje. 
+
+* **Directiva de aprendizaje**: la manera en que Personalizer entrena a un modelo en cada evento la determinarán algunos metaparámetros que afectan el funcionamiento de los algoritmos del aprendizaje automático. Los nuevos bucles de Personalizer se iniciarán con una directiva de aprendizaje predeterminada que puede generar un rendimiento moderado. Cuando ejecuta las [evaluaciones](concepts-offline-evaluation.md), Personalizer puede crear directivas de aprendizaje nuevas específicamente optimizadas para los casos de uso del bucle. Personalizer tendrá un rendimiento mucho mejor con directivas optimizadas para cada bucle específico, generado durante la evaluación.
 
 ## <a name="example-use-cases-for-personalizer"></a>Ejemplos de casos de uso para Personalizer
 
@@ -182,3 +184,4 @@ Para supervisar la eficacia de Personalizer periódicamente, haz las [evaluacion
 ## <a name="next-steps"></a>Pasos siguientes
 
 Información acerca de [dónde se puede usar Personalizer](where-can-you-use-personalizer.md).
+Realización de [evaluaciones sin conexión](how-to-offline-evaluation.md)

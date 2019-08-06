@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722494"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423265"
 ---
 # <a name="offline-evaluation"></a>Evaluación sin conexión
 
@@ -48,7 +48,7 @@ Los siguientes son consideraciones importantes para una evaluación sin conexió
 
 Personalizer puede usar el proceso de evaluación sin conexión para detectar automáticamente una directiva de aprendizaje óptima.
 
-Después de realizar la evaluación sin conexión, puede ver la efectividad comparativa de Personalizer con la nueva directiva, en comparación con la directiva en línea actual. A continuación, puede aplicar dicha directiva de aprendizaje para que entre en vigor inmediatamente en Personalizer, o bien descargarla para su posterior análisis o uso.
+Después de realizar la evaluación sin conexión, puede ver la efectividad comparativa de Personalizer con la nueva directiva, en comparación con la directiva en línea actual. Después puede aplicar esa directiva de aprendizaje para que sea efectiva de inmediato en Personalizer, al descargarla y cargarla en el panel de modelos y directiva. También puede descargarla para su futuro análisis o uso.
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Información de la relevancia de los resultados de la evaluación sin conexión
 
@@ -99,3 +99,4 @@ Se recomienda mirar las evaluaciones de las características y preguntar:
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de Personalizer](how-to-settings.md)
+[Ejecución de evaluaciones sin conexión](how-to-offline-evaluation.md)[Funcionamiento de Personalizer](how-personalizer-works.md).

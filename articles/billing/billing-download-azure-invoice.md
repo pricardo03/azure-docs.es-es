@@ -10,22 +10,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/18/2019
 ms.author: banders
-ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 4dc5f88f7a5994e5bcd50d71c86bf1ba35b10734
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491367"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321766"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
 En la mayoría de las suscripciones, puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Si es cliente de Azure con un Contrato Enterprise (cliente de EA), no puede descargar las facturas de su organización. Las facturas se envían a la persona que se configuró para recibir las facturas de la inscripción.
 
-Solo determinados roles tienen permiso para ver las facturas, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
+Solo ciertos roles tienen permiso para ver las facturas. Por ejemplo, el administrador de cuenta o el administrador de empresa. Para más información sobre cómo obtener acceso a la información de facturación, consulte el artículo sobre la [administración del acceso a la facturación de Azure mediante roles](billing-manage-access.md).
 
-Si tiene un [contrato de cliente de Microsoft](#check-your-access-to-a-microsoft-customer-agreement), debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para obtener las facturas. Para obtener más información acerca de los roles de facturación para los contratos de cliente de Microsoft, consulte [Tareas y roles del perfil de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Si tiene un [contrato de cliente de Microsoft](#check-your-access-to-a-microsoft-customer-agreement), debe tener uno de los roles siguientes para obtener las facturas:
+
+- Propietario del perfil de facturación
+- Colaborador
+- Lector
+- Administrador de facturación
+
+Para más información sobre los roles de facturación para los contratos de cliente de Microsoft, consulte [Tareas y roles del perfil de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## <a name="noinvoice"></a> ¿Por qué no puede obtener una factura?
+
+Pueden existir varias razones por las que no ve una factura:
+
+- Han transcurrido menos de 30 días desde el día que se suscribió a Azure.
+
+- Azure le cobra al final del período de facturación. Por lo tanto, es posible que todavía no se haya generado una factura. Espere hasta el final del período de facturación.
+
+- No tiene permiso para ver facturas. Si tiene un contrato de cliente de Microsoft, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación. Para otras suscripciones, es posible que no vea las facturas antiguas si no es el administrador de cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
+
+- Si tiene una evaluación gratuita o un importe de crédito mensual con la suscripción, solo recibirá una factura cuando exceda el importe de crédito mensual. Si tiene un contrato de cliente de Microsoft, siempre recibirá una factura.
 
 ## <a name="download-your-azure-invoices-pdf"></a>Descarga de las facturas de Azure (.pdf)
 
@@ -88,7 +107,7 @@ Si no recibe un correo electrónico después de seguir los pasos, asegúrese de 
 
 Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar el envío de facturas por correo electrónico**. Esta opción eliminará todas las direcciones de correo electrónico configuradas para recibir las facturas por correo electrónico. Si cambia de opinión, tendrá que volver a configurar los destinatarios.
 
- ![Captura de pantalla que muestra el flujo para optar por no recibir](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Captura de pantalla que muestra el flujo para deshabilitar](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtención de las facturas del contrato de cliente de Microsoft por correo electrónico
 
@@ -109,17 +128,7 @@ Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura
 
 Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **No participar**. Todos los propietarios, colaboradores, lectores y administradores de facturación dejarán también de recibir la factura por correo electrónico. Si es lector, no puede cambiar la preferencia de factura por correo electrónico.
 
-### <a name="noinvoice"></a> ¿Por qué no veo una factura para el último período de facturación?
 
-Pueden existir varias razones por las que no ve una factura:
-
-- Han transcurrido menos de 30 días desde el día que se suscribió a Azure.
-
-- La factura no se ha generado aún. Espere hasta el final del período de facturación.
-
-- No tiene permiso para ver facturas. Si tiene un contrato de cliente de Microsoft, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación. Para otras suscripciones, es posible que no vea las facturas antiguas si no es el administrador de cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
-
-- Si tiene una evaluación gratuita o una cantidad de crédito mensual con la suscripción que no ha superado, no obtendrá una factura a menos que tenga un contrato de cliente de Microsoft.
 
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

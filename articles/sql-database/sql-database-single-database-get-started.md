@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 07/29/2019
+ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444465"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640044"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure
 
 La creación de una [base de datos única](sql-database-single-database.md) es la opción de implementación más rápida y sencilla para crear una base de datos en Azure SQL Database. En esta guía de inicio rápido se muestra cómo crear, para su posterior consulta, una base de datos única mediante Azure Portal.
 
-Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
+Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/). 
 
 Para seguir todos los pasos de este artículo de inicio rápido debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -37,7 +36,7 @@ Una base de datos única se puede crear en el nivel de proceso aprovisionado o s
 Cuando se crea una base de datos única, también se define un [servidor de SQL Database](sql-database-servers.md) para administrarla y colocarla dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) de una región determinada.
 
 > [!NOTE]
-> En este inicio rápido se usa el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) y el nivel de proceso [sin servidor](sql-database-serverless.md), pero también está disponible el [modelo de compra basado en DTU](sql-database-service-tiers-DTU.md).
+> En este inicio rápido se usa el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-DTU.md), pero también está disponible el [modelo de compra basado en DTU](sql-database-service-tiers-vcore.md).
 
 Para crear una base de datos única que contenga los datos de ejemplo de AdventureWorksLT:
 

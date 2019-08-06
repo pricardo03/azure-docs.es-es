@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: bc26cc0654aac9416bf31ffccf426648e3a8b8d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122566"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489731"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VM (versión preliminar) para un entorno híbrido
 
@@ -44,6 +44,7 @@ Los pasos necesarios para completar esta tarea se resumen como sigue:
 4. Implementar Azure Monitor para VM.
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Instalar Dependency Agent en Windows
+
 Para instalar Dependency Agent manualmente en equipos Windows, puede ejecutar `InstallDependencyAgent-Windows.exe`. Si ejecuta este archivo ejecutable sin opciones, se inicia un asistente para instalación que puede seguir para realizar la instalación del agente de forma interactiva.
 
 >[!NOTE]
@@ -61,6 +62,7 @@ Por ejemplo, para ejecutar el programa de instalación con el parámetro `/?`, e
 Los archivos de Dependency Agent para Windows se instalan en *C:\Archivos de programa\Microsoft Dependency Agent* de manera predeterminada. Si Dependency Agent no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ## <a name="install-the-dependency-agent-on-linux"></a>Instalación de Dependency Agent en Linux
+
 Dependency Agent se instala en los servidores Linux desde *InstallDependencyAgent-Linux64.bin*, un script de shell con un archivo binario autoextraíble. Puede ejecutar el archivo mediante `sh` o agregar permisos de ejecución al propio archivo.
 
 >[!NOTE]
@@ -81,7 +83,7 @@ Si Dependency Agent no se inicia, compruebe los registros para obtener informaci
 
 Los archivos de Dependency Agent se colocan en los directorios siguientes:
 
-| Archivos | Ubicación |
+| Archivos | Location |
 |:--|:--|
 | Archivos principales | /opt/microsoft/dependency-agent |
 | Archivos de registro | /var/opt/microsoft/dependency-agent/log |
@@ -89,12 +91,69 @@ Los archivos de Dependency Agent se colocan en los directorios siguientes:
 | Archivos ejecutables de servicio | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Archivos binarios de almacenamiento | /var/opt/microsoft/dependency-agent/storage |
 
+## <a name="installation-script-examples"></a>Ejemplos de script de instalación
+
+Para implementar fácilmente Dependency Agent en muchos servidores a la vez, se proporciona el siguiente script de ejemplo para descargar e instalar Dependency Agent en Windows o Linux.
+
+### <a name="powershell-script-for-windows"></a>Script de PowerShell para Windows
+
+```powershell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+### <a name="shell-script-for-linux"></a>Script de shell para Linux
+
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+sudo sh InstallDependencyAgent-Linux64.bin -s
+```
+
+## <a name="desired-state-configuration"></a>Configuración de estado deseada
+
+Para implementar Dependency Agent mediante Desired State Configuration (DSC), puede usar el módulo xPSDesiredStateConfiguration con el siguiente código de ejemplo:
+
+```powershell
+configuration ServiceMap {
+
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+    Node localhost
+    {
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
+
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
+    }
+}
+```
+
 ## <a name="enable-performance-counters"></a>Activar los contadores de rendimiento
+
 Si el área de trabajo de Log Analytics a la que la solución hace referencia no está todavía configurada para recopilar los contadores de rendimiento que la solución requiere, debe habilitarlos. Puede hacerlo de dos maneras:
 * Manualmente, según se describe en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Descargando y ejecutando un script de PowerShell que está disponible en la [Galería de Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Implementar Azure Monitor para VM
+
 Este método incluye una plantilla JSON que especifica la configuración para habilitar los componentes de la solución en el área de trabajo de Log Analytics.
 
 Si no sabe cómo implementar los recursos mediante una plantilla, consulte:
@@ -185,6 +244,35 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
     provisioningState       : Succeeded
     ```
    Después de habilitar la supervisión, pueden pasar unos 10 minutos hasta que pueda ver la métrica y el estado del equipo híbrido.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+### <a name="vm-doesnt-appear-on-the-map"></a>La VM no aparece en la asignación
+
+Si la instalación del agente de dependencia se completó correctamente, pero no ve el equipo en el mapa, siga estos pasos para diagnosticar el problema.
+
+1. ¿Se ha instalado Dependency Agent correctamente? Para validarlo, compruebe si el servicio está instalado y se ejecuta.
+
+    **Windows**: Busque el servicio llamado "Microsoft Dependency Agent". 
+
+    **Linux**: Busque el proceso en ejecución "microsoft-dependency-agent".
+
+2. ¿Está en el [plan de tarifa gratuito de Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? El plan gratuito permite hasta cinco equipos únicos. Ningún equipo posterior aparecerá en la asignación, incluso si los cinco anteriores ya no envían datos.
+
+3. ¿El equipo envía datos de registro y de rendimiento a los registros de Azure Monitor? Realice la consulta siguiente para el equipo: 
+
+    ```Kusto
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+    ¿Devolvió uno o más resultados? ¿Son los datos recientes? Si es así, el agente de Log Analytics funciona correctamente y se comunica con el servicio. Si no es así, compruebe el agente en el servidor: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) (Cómo solucionar problemas relacionados con el agente de Windows de Log Analytics) o [Cómo solucionar problemas relacionados con el agente de Linux de Log Analytics](../platform/agent-linux-troubleshoot.md).
+
+#### <a name="computer-appears-on-the-map-but-has-no-processes"></a>El equipo aparece en la asignación, pero no tiene ningún proceso
+
+Si ve el servidor en el mapa, pero no tienen datos de procesos ni de conexión, eso indica que Dependency Agent está instalado y se está ejecutando, pero el controlador del kernel no se cargó. 
+
+Revise el archivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) o el archivo /var/opt/microsoft/dependency-agent/log/service.log (Linux). Las últimas líneas del archivo deben indicar por qué no se cargó el kernel. Por ejemplo, es posible que el kernel no sea compatible con Linux si actualizó el kernel.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

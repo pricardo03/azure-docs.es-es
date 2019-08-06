@@ -2,24 +2,17 @@
 title: Qué es un modelo y un paquete de servicio en la nube en Azure | Microsoft Docs
 description: Describe el modelo (.csdef, .cscfg) y el paquete (.cspkg) de servicio en la nube en Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080758"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359557"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
 Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)* , la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)* . Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
@@ -31,7 +24,7 @@ Una vez que se ejecuta el servicio en la nube en Azure, puede volver a configura
 * Eso ya lo sé. Deme [algunos ejemplos](#next-steps) sobre lo que puedo configurar.
 * Quiero crear el archivo [ServicePackage.cspkg](#cspkg).
 * Estoy usando Visual Studio y quiero...
-  * [Crear un servicio en la nube][vs_create]
+  * [Creación de un servicio en la nube][vs_create]
   * [Volver a configurar un servicio en la nube existente][vs_reconfigure]
   * [Implementar un proyecto de servicio en la nube][vs_deploy]
   * [Escritorio remoto en una instancia de servicio en la nube][remotedesktop]

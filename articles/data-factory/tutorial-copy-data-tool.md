@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544212"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640324"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database mediante la herramienta Copy Data
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](tutorial-copy-data-tool.md)
 
@@ -39,7 +39,7 @@ En este tutorial, realizará los siguientes pasos:
 
 * **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**: use Blob Storage como almacén de datos de _origen_. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
-* **Azure SQL Database**: usa una base de datos SQL como almacén de datos _receptor_. Si no tiene una base de datos SQL, consulte las instrucciones de [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**: usa una base de datos SQL como almacén de datos _receptor_. Si no tiene una base de datos SQL, consulte las instrucciones de [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
@@ -72,7 +72,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que los servicios de Azure accedan a SQL Server. Compruebe que la configuración **Permitir el acceso a servicios de Azure** está habilitado para el servidor que ejecuta SQL Database. Esta configuración permite que Data Factory escriba datos en su instancia de base de datos. Para verificar y activar esta configuración, vaya a Azure SQL Server > **Seguridad** > **Firewalls y redes virtuales** > establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
+2. Permita que los servicios de Azure accedan a SQL Server. Compruebe que la configuración **Permitir el acceso a servicios de Azure** está habilitado para el servidor que ejecuta SQL Database. Esta configuración permite que Data Factory escriba datos en su instancia de base de datos. Para verificar y activar esta configuración, vaya a Azure SQL Server > Información general > Establecer el firewall del servidor > establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -87,11 +87,11 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
     
     ![Mensaje de error de nueva factoría de datos](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_**ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_ **ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
 1. Seleccione la **suscripción** de Azure en la que quiere crear la nueva factoría de datos.
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
     
-     a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
+    a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
 
     b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.
     
@@ -119,7 +119,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
     ![Página de propiedades](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
-     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
+    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
     ![Nuevo servicio vinculado de origen](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
@@ -137,7 +137,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
 1. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), complete los siguientes pasos:
     
-     a. Haga clic en **Examinar** para ir a la carpeta **adfv2tutorial/input**, seleccione el archivo **inputEmp.txt** y, finalmente, haga clic en **Elegir**.
+    a. Haga clic en **Examinar** para ir a la carpeta **adfv2tutorial/input**, seleccione el archivo **inputEmp.txt** y, finalmente, haga clic en **Elegir**.
 
     ![Seleccione el archivo o la carpeta de entrada.](./media/tutorial-copy-data-tool/specify-source-path.png)
 
@@ -148,7 +148,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
     ![Configuración del formato de archivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. En la página **Almacén de datos de destino**, realice los pasos siguientes:
 
-     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
+    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
     ![Nuevo servicio vinculado de receptor](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 

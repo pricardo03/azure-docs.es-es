@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871808"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358831"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creación y exploración de experimentos de aprendizaje automático automatizado en Azure Portal (versión preliminar)
 
@@ -180,7 +180,7 @@ Los trabajos de entrenamiento pueden tardar un tiempo para que cada canalizació
 
 ### <a name="view-training-run-details"></a>Ver detalles de ejecución del entrenamiento
 
-Explorar en profundidad en cualquiera de los modelos de salida para ver los detalles de ejecución del entrenamiento, como las métricas de rendimiento y los gráficos de distribución. [Más información sobre los gráficos](how-to-track-experiments.md#understanding-automated-ml-charts).
+Explorar en profundidad en cualquiera de los modelos de salida para ver los detalles de ejecución del entrenamiento, como las métricas de rendimiento y los gráficos de distribución. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
 
 ![Detalles de la iteración](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -243,4 +243,5 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md) y Azure Machine Learning.
+* [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 * [Obtenga información sobre cómo consumir un servicio web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

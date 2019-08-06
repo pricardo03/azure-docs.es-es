@@ -3,22 +3,23 @@ title: 'Plantillas de ejemplo de Azure Resource Manager: Azure Container Instanc
 description: Plantillas de ejemplo de Azure Resource Manager para Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537962"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325690"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 
 Las siguientes plantillas de ejemplo implementan instancias de contenedor en diversas configuraciones.
 
-Para opciones de implementación, consulte la sección [Implementación](#deployment). Si desea crear sus propias plantillas, la [Referencia de plantillas de Resource Manager][ref] de Azure Container Instances detalla el formato de la plantilla y las propiedades disponibles.
+Para opciones de implementación, consulte la sección [Implementación](#deployment). Si desea crear sus propias plantillas, la [Referencia de plantillas de Resource Manager][ref]de Azure Container Instances detalla el formato de la plantilla y las propiedades disponibles.
 
 ## <a name="sample-templates"></a>Plantillas de ejemplo
 
@@ -26,7 +27,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 |-|-|
 | **Aplicaciones** ||
 | [WordPress][app-wp] | Crea un sitio web de WordPress y su base de datos MySQL en un grupo de contenedores. El contenido del sitio de WordPress y la base de datos MySQL se conservan en un recurso compartido de Azure Files. También crea una instancia de puerta de enlace para exponer el acceso a la red pública de WordPress. |
-| [MS NAV con IIS y SQL Server][app-nav] | Implementa un único contenedor de Windows con un entorno de Dynamics NAV y Dynamics 365 Business Central con las características completas. |
+| [MS NAV con IIS y SQL Server][app-nav] | Implementa un único contenedor de Windows con un entorno de Dynamics NAV y Dynamics 365 Business Central con las características completas. |
 | **Volúmenes** ||
 | [emptyDir][vol-emptydir] | Implementa dos contenedores de Linux que comparten un volumen de emptyDir. |
 | [gitRepo][vol-gitrepo] | Implementa un contenedor de Linux que clona un repositorio de GitHub y lo monta como un volumen. |
@@ -36,7 +37,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 | [Contenedor de Linux con dirección IP pública][net-publicip] | Implementa un único contenedor de Linux accesible a través de una dirección IP pública. |
 | [Implementación de un contenedor de grupos con una red virtual (versión preliminar)][net-vnet] | Implementa una red virtual, subred, perfil de red y grupo de contenedores nuevos. |
 | **Recursos de Azure** ||
-| [Creación de cuenta de Azure Storage y recurso compartido de archivos][az-files] | Usa la CLI de Azure en una instancia del contenedor para crear una cuenta de almacenamiento y un recurso compartido de Azure Files.
+| [Creación de cuenta de Azure Storage y recurso compartido de archivos][az-files] | Usa la CLI de Azure en una instancia del contenedor para crear una cuenta de almacenamiento y un recurso compartido de Azure Files.
 
 ## <a name="deployment"></a>Implementación
 
@@ -48,7 +49,7 @@ Tiene varias opciones para implementar recursos con plantillas de Resource Manag
 
 [Azure Portal][deploy-portal]
 
-[API REST][deploy-rest]
+[API DE REST][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

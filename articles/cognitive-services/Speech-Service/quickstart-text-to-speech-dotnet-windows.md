@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz, .NET Framework (Windows): servicios de Voz'
+title: 'Inicio rápido: Síntesis de voz en .NET Framework para Windows (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para crear una aplicación de consola de conversión de texto a voz mediante .NET Framework para Windows y el SDK de Voz. Cuando termine, puede sintetizar la voz a partir de texto y escuchar la voz en su altavoz en tiempo real.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3c925e0160a4c57f7e43c3463fc1db7098a6e606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605022"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553603"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Inicio rápido: Síntesis la voz con el SDK de Voz para .NET Framework (Windows)
 

@@ -3,18 +3,18 @@ title: 'Recuento de estados de tareas y nodos: Azure Batch | Microsoft Docs'
 description: Realice un recuento del estado de los nodos de ejecución y las tareas de Azure Batch para ayudar a administrar y supervisar las soluciones de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 574cdea61a474dda5d20254bfae9ff2f06044cca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775379"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323539"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
 
@@ -35,7 +35,7 @@ Si usa una versión del servicio que no admite las operaciones de recuento de ta
 La operación Get Task Counts hace un recuento de las tareas por los estados siguientes:
 
 - **Activa**: una tarea que está en cola y se puede ejecutar, pero no está asignada actualmente a ningún nodo de ejecución. Una tarea también es `active` si [depende de una tarea primaria](batch-task-dependencies.md) que no se ha completado. 
-- **En ejecución**: una tarea que se ha asignado a un nodo de ejecución, pero no se ha completado. Una tarea se cuenta como `running` cuando su estado es `preparing` o `running`, tal como indica la operación [Get information about a task][rest_get_task].
+- **En ejecución**: una tarea que se ha asignado a un nodo de ejecución, pero no se ha completado. Una tarea se cuenta como `running` cuando su estado es `preparing` o `running`, tal como indica la operación [Obtener información sobre una tarea][rest_get_task].
 - **Completada**: una tarea que ya no cumple los requisitos para ejecutarse, ya que finalizó correctamente o no, y además agotó su límite de reintentos. 
 - **Correcta**: una tarea cuyo resultado de la ejecución de tarea es `success`. Batch determina si una tarea se ha realizado correctamente o no comprobando la propiedad `TaskExecutionResult` de la propiedad [executionInfo][rest_get_exec_info].
 - **Con errores**: una tarea cuyo resultado de la ejecución de tarea es `failure`.

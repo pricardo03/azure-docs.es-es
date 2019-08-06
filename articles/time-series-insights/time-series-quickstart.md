@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 415ce28a7cab77c538a7dfb8f387900ff515dd0e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 0a91db15fcf77a936905a68c6b69b507d4e32a78
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164563"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677690"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: Exploración de Azure Time Series Insights
 
@@ -26,11 +26,12 @@ Azure Time Series Insights es un servicio de análisis, almacenamiento y adminis
 
 Para mayor flexibilidad, Azure Time Series Insights se puede agregar a una aplicación existente previamente mediante sus eficaces [API REST](./time-series-insights-update-tsq.md) y [SDK de cliente](./tutorial-create-tsi-sample-spa.md). Las API se pueden usar para almacenar, consultar y consumir datos de series temporales de la aplicación cliente que prefiera. También se puede usar el SDK de cliente para agregar los componentes de la interfaz de usuario a la aplicación existente.
 
-En este inicio rápido del explorador de Time Series Insights ofrece un recorrido guiado por las características que ya están disponibles con carácter general.
+En este inicio rápido del explorador de Time Series Insights se ofrece un recorrido guiado por las características que ya están disponibles con carácter general.
+
+> [!IMPORTANT]
+> Si no tiene ninguna, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="prepare-the-demo-environment"></a>Preparación del entorno de demostración
-
-1. Si no tiene ninguna, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 1. En el explorador, vaya a la [demostración de la disponibilidad general](https://insights.timeseries.azure.com/demo).
 
@@ -79,6 +80,13 @@ En este inicio rápido del explorador de Time Series Insights ofrece un recorr
    [![Filtrar series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 Cuando termine la guía de inicio rápido, podrá experimentar con el conjunto de datos de ejemplo para crear visualizaciones distintas.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Ahora que ha completado el tutorial, limpie los recursos que ha creado:
+
+1. En el menú de la izquierda de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y busque el grupo de recursos de Azure Time Series Insights.
+1. Seleccione **Eliminar** para eliminar todo el grupo de recursos (y todos los recursos que contiene), o quite los recursos de uno en uno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

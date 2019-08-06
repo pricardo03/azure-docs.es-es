@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/27/2019
 ms.author: glenga
-ms.openlocfilehash: 8110d0a9d574c6691322df2162ca877b031cbc59
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d697334fe56fb9133a06cee79067c60bc3a37281
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442274"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639147"
 ---
-La forma más fácil de instalar extensiones de enlace es habilitar [conjuntos de extensiones](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Con los conjuntos habilitados, un conjunto predefinido de paquetes de extensiones se instala automáticamente.
+La forma más fácil de instalar extensiones de enlace es habilitar [conjuntos de extensiones](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Al habilitar agrupaciones, un conjunto predefinido de paquetes de extensiones se instala automáticamente.
 
-Para habilitar los conjuntos de extensiones, abra el archivo *host.json* y actualice su contenido para que coincida con el siguiente código:
+Para habilitar las agrupaciones de extensiones, abra el archivo host.json y actualice su contenido para que coincida con el siguiente código:
 
 ```json
 {

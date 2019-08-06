@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de un entorno de Azure Time Series Insights | Microsoft Docs'
-description: Aprenda a crear un entorno de Time Series Insights que se rellena con datos de dispositivos simulados.
+description: Tutorial para aprender a crear un entorno de Time Series Insights que se rellena con datos de dispositivos simulados.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273591"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677745"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -27,16 +27,18 @@ Este tutorial le guía a través del proceso de creación de un entorno de Azure
 > * Ejecutar de una simulación de dispositivo para transmitir en secuencias datos al entorno de Time Series Insights.
 > * Comprobar los datos de telemetría simulados.
 
+> [!IMPORTANT]
+> Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="video"></a>Vídeo
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Aprenda a usar un acelerador de soluciones de Azure IoT para generar datos y empiece a trabajar con Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
-* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="overview"></a>Información general
 

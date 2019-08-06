@@ -16,12 +16,12 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 222ded620610957e752e2081bda638d78eba4867
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617390"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619441"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configuración de una aplicación de Ruby en Linux para Azure App Service
 
@@ -122,7 +122,7 @@ Puede personalizar el proceso de inicio de las siguientes maneras:
 El servidor de Rails en el contenedor de Ruby se ejecuta en modo de producción de forma predeterminada y [da por supuesto que los recursos están precompilados y los sirve el servidor web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Para servir recursos estáticos desde el servidor de Rails, es preciso hacer dos cosas:
 
 - **Precompilar los recursos** - [precompile los recursos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e impleméntelos de forma manual. O bien, permita que el motor de implementación lo haga en su lugar (consulte [Precompilación de los recursos](#precompile-assets).
-- **Habilitar el servicio de archivos estáticos**: para servir recursos estáticos desde el contenedor de Ruby, establezca la `RAILS_SERVE_STATIC_FILES` [opción de `RAILS_SERVE_STATIC_FILES`configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en `true`. Por ejemplo:
+- **Habilitar el servicio de archivos estáticos**: para servir recursos estáticos desde el contenedor de Ruby, [establezca la opción de configuración de la aplicación `RAILS_SERVE_STATIC_FILES`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en `true`. Por ejemplo:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true

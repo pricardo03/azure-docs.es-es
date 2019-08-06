@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736129"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335885"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solución de problemas comunes de enrutamiento
 En este artículo se describe cómo solucionar algunos de los problemas comunes de enrutamiento que pueden aparecer en la configuración de Azure Front Door Service. 
@@ -62,11 +62,11 @@ Hay varias causas posibles para este síntoma:
 
 
 3. Compruebe la configuración de la regla de enrutamiento
-     - Vaya a la regla de enrutamiento que debe enrutar del nombre de host de front-end en cuestión a un grupo de back-end. Asegúrese de que los protocolos aceptados estén configurados correctamente o, si no, asegúrese de que el protocolo que usará Front Door al reenviar la solicitud esté configurado correctamente. Los _protocolos aceptados_ determinan qué solicitudes debe aceptar Front Door, y el _Protocolo de reenvío_ en la pestaña _Avanzadas_ determina qué protocolo debe usar Front Door para reenviar la solicitud al back-end.
+     - Vaya a la regla de enrutamiento que debe enrutar del nombre de host de front-end en cuestión a un grupo de back-end. Asegúrese de que los protocolos aceptados estén configurados correctamente o, si no, asegúrese de que el protocolo que usará Front Door al reenviar la solicitud esté configurado correctamente. Los _protocolos aceptados_ determinan qué solicitudes debe aceptar Front Door, y el _Protocolo de desvío_ determina qué protocolo debe usar Front Door para reenviar la solicitud al back-end.
           - Por ejemplo, si el back-end solo acepta solicitudes HTTP, las siguientes configuraciones serían válidas:
                - Los _protocolos aceptados_ son HTTP y HTTPS. El _protocolo de reenvío_ es HTTP. Confrontar solicitud no funcionará, ya que HTTPS es un protocolo permitido y, si llegó una solicitud como HTTPS, Front Door intentaría reenviarla mediante HTTPS.
 
                - Los _protocolos aceptados_ son HTTP. El _protocolo de reenvío_ es confrontar solicitud o HTTPS.
 
-   - Haga clic en la pestaña _Avanzadas_ en la parte superior del panel de configuración de la regla de enrutamiento. La opción _Reescritura de dirección URL_ está deshabilitada de manera predeterminada, y solo debería usar este campo si quiere restringir el ámbito de los recursos hospedados en back-end que quiera que estén disponibles. Cuando esté deshabilitado, Front Door reenviará la misma ruta de acceso de solicitud que reciba. Es posible que este campo esté mal configurado y Front Door esté solicitando un recurso del back-end que no está disponible; por tanto, devuelve un código de estado HTTP 404.
+   - La opción _Reescritura de dirección URL_ está deshabilitada de manera predeterminada, y solo debería usar este campo si quiere restringir el ámbito de los recursos hospedados en back-end que quiera que estén disponibles. Cuando esté deshabilitado, Front Door reenviará la misma ruta de acceso de solicitud que reciba. Es posible que este campo esté mal configurado y Front Door esté solicitando un recurso del back-end que no está disponible; por tanto, devuelve un código de estado HTTP 404.
 

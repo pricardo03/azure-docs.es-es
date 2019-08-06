@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720031"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489430"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -152,12 +152,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 La excepción se produjo debido a un problema con el Administrador de conexiones híbridas que ya se ha corregido. Asegúrese de [actualizar el Administrador de conexiones híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver este problema.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>¿Cómo se agrega o edita una regla de reescritura de direcciones URL?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>¿Cómo se agrega una regla de reescritura de direcciones URL?
 
-Para agregar o editar una regla de reescritura de direcciones URL:
-
-1. Configure el Administrador de Internet Information Services (IIS) para que se conecte a su aplicación web de App Service. Para saber cómo conectar IIS Manager a App Service, consulte [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/) (Administración remota de sitios web de Azure mediante IIS Manager).
-2. En el Administrador de IIS, agregue o edite una regla de reescritura de direcciones URL. Para saber cómo agregar o editar una regla de reescritura de direcciones URL, consulte [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo de reescritura de direcciones URL).
+Para agregar una regla de reescritura de URL, cree un archivo web.config con las entradas de configuración correspondientes en la carpeta **wwwroot**. Para más información, consulte [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/) (Azure App Services: descripción de la reescritura de URL).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>¿Cómo se controla el tráfico de entrada a App Service?
 

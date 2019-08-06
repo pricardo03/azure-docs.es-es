@@ -1,5 +1,5 @@
 ---
-title: Application Insights, Node.js
+title: 'Application Insights en Node.js: LUIS'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se agrega información de bot y Language Understanding al almacenamiento de datos de telemetría de Application Insights.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: cfed5477df75350f24e77786117e85b9c728c49a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 72ce681b6b0e4109151b987a5f8cc4bc050aafa0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657746"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563284"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Adición de resultados de LUIS a Application Insights desde un bot en Node.js
 En este tutorial se agrega información de bot y Language Understanding al almacenamiento de datos de telemetría de [Application Insights](https://azure.microsoft.com/services/application-insights/). Una vez que tengas los datos, puedes consultarlos con el lenguaje Kusto o Power BI para analizar y agregar intenciones y entidades de la expresión en tiempo real, así como para informar sobre ellas. Este análisis le ayuda a determinar si debe agregar o editar las intenciones y las entidades de la aplicación de LUIS.

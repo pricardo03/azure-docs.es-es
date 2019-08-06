@@ -6,14 +6,14 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565602"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348086"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introducción a los análisis de registros de Azure Monitor
 
@@ -178,6 +178,9 @@ Una vez creada una consulta útil, puede guardarla o compartirla. El icono **Sav
 Puede guardar la página de consulta completa o una sola consulta como función. Las funciones son consultas a las que también pueden hacer referencia otras consultas. Para guardar una consulta como función debe proporcionar un alias de función, que es el nombre que se utiliza para llamar a esta consulta cuando otras hagan referencia a ella.
 
 ![Función Guardar](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>Se admiten estas características `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` en el campo **Nombre** al guardar o editar la consulta guardada.
 
 Las consultas de Log Analytics se guardan siempre en un área de trabajo determinada y se comparten con otros usuarios de esa área de trabajo.
 

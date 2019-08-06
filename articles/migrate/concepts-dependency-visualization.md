@@ -1,37 +1,47 @@
 ---
 title: Visualización de dependencia en Azure Migrate | Microsoft Docs
-description: En este artículo se proporciona una introducción a los cálculos de evaluación del servicio Azure Migrate.
+description: En este artículo se brinda una introducción a los cálculos de evaluación del servicio Server Assessment en Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: a0ceffbf4666ebc6bb5f95a6f3e2501f86095232
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 07/18/2019
+ms.author: hamusa
+ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305674"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312219"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
-El servicio [Azure Migrate](migrate-overview.md) evalúa los grupos en las máquinas locales para su migración a Azure. Puede usar la característica de visualización de dependencias en Azure Migrate para crear grupos. En este artículo se proporciona información sobre esta característica.
+Azure Migrate: Server Assessment evalúa los grupos de las máquinas locales para su migración a Azure. Puede usar la funcionalidad de visualización de dependencias en Server Assessment para crear grupos. En este artículo se proporciona información sobre esta característica.
 
 > [!NOTE]
 > La funcionalidad de visualización de dependencias no está disponible en Azure Government.
 
 ## <a name="overview"></a>Información general
 
-Con la visualización de dependencias en Azure Migrate puede crear grupos para evaluar la migración de grupos con mayor confianza. Usar la visualización de dependencias permite ver las dependencias de red de máquinas e identificar máquinas relacionadas que es necesario migrar a Azure. Esta función es útil en situaciones donde no sabe con certeza qué máquinas constituyen la aplicación y deben migrarse juntas a Azure.
+Con la visualización de dependencias en Server Assessment puede crear grupos para evaluar la migración de grupos con mayor confianza. Usar la visualización de dependencias permite ver las dependencias de red de máquinas e identificar máquinas relacionadas que es necesario migrar a Azure. Esta función es útil en situaciones donde no sabe con certeza qué máquinas constituyen la aplicación y deben migrarse juntas a Azure.
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+- Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
+- Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Herramienta Server Assessment.
+- Compruebe que ha detectado sus máquinas en Azure Migrate; puede hacerlo, configure un dispositivo de Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: tipos de evaluaciones. [Más información](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
 Azure Migrate utiliza la solución [Service Map](../operations-management-suite/operations-management-suite-service-map.md) de los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para la visualización de dependencias.
 - Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate.
-- Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
-- Para asociar un área de trabajo de Log Analytics a un proyecto, vaya a la sección **Essentials** de la página **Introducción** del proyecto y haga clic en **Requiere configuración**.
-
-    ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+- Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de Azure Migrate.
+- Para adjuntar un área de trabajo de Log Analytics a un proyecto:
+    1. En la pestaña **Servidores**, en el icono **Azure Migrate: Server Assessment**, haga clic en **Información general**.
+    2. En **Información general**, haga clic en la flecha abajo para expandir **Información esencial**.
+    3. En **Área de trabajo de OMS**, haga clic en **Requiere configuración**.
+    4. En **Configurar área de trabajo**, especifique si quiere crear un área de trabajo nueva o utilizar una existente:
+    
+    ![Incorporación de un área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
   - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
@@ -47,15 +57,15 @@ Azure Migrate utiliza la solución [Service Map](../operations-management-suite/
 
 Para usar la visualización de dependencias, debe descargar e instalar agentes en cada máquina local que vaya a analizar.  
 
-- Es necesario tener instalado [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) en cada máquina.
-- Es necesario tener instalado [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) en cada máquina.
+- Es necesario tener instalado [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) en cada máquina. [Obtenga más información](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) sobre cómo instalar el agente MMA.
+- Es necesario tener instalado [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) en cada máquina. [Obtenga más información](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) sobre cómo instalar el agente de dependencia.
 - Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la puerta de enlace de Log Analytics.
 
 No necesita estos agentes en las máquinas que quiera evaluar a menos que esté usando la visualización de dependencias.
 
 ## <a name="do-i-need-to-pay-for-it"></a>¿Tengo qué pagar por ello?
 
-Azure Migrate está disponible sin costo adicional. Para usar la característica de visualización de dependencias en Azure Migrate se necesita Service Map y asociar un área de trabajo de Log Analytics, ya sea nueva o existente, con el proyecto de Azure Migrate. La característica de visualización de dependencias en Azure Migrate es gratuita durante los primeros 180 días de Azure Migrate.
+La característica de visualización de dependencias está disponible sin cargo adicional. Para usar la característica de visualización de dependencias en Server Assessment se necesita Service Map y asociar un área de trabajo de Log Analytics, ya sea nueva o existente, con el proyecto de Azure Migrate. La funcionalidad de visualización de dependencias en Server Assessment es gratis durante los primeros 180 días.
 
 1. Si usa cualquier solución distinta de Service Map en esta área de trabajo de Log Analytics, se cobrarán los [cargos habituales de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 2. Para admitir escenarios de migración sin costo adicional, la solución Service Map no conllevará ningún gasto durante los primeros 180 días desde la asociación del área de trabajo de Log Analytics con el proyecto de Azure Migrate. Transcurridos los 180 días, se aplicarán las tarifas normales de Log Analytics.
@@ -71,9 +81,9 @@ Al eliminar el proyecto de Azure Migrate, el área de trabajo no se elimina con 
 
 ## <a name="how-do-i-manage-the-workspace"></a>¿Cómo administro el área de trabajo?
 
-Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se elimina si se elimina el proyecto de migración en el que se creó. Si ya no necesita el área de trabajo, [elimínelo](../azure-monitor/platform/manage-access.md) manualmente.
+Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se elimina si se elimina el proyecto de Azure Migrate en el que se creó. Si ya no necesita el área de trabajo, [elimínelo](../azure-monitor/platform/manage-access.md) manualmente.
 
-No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de migración. Si lo hace, la característica de visualización de dependencias no funcionará según lo previsto.
+No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de Azure Migrate. Si lo hace, la característica de visualización de dependencias no funcionará según lo previsto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Agrupación de máquinas con dependencias de máquina](how-to-create-group-machine-dependencies.md)

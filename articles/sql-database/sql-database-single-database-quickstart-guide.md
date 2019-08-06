@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 7b52453bab661531461a2bec2f15f7659ec15a1c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/29/2019
+ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441722"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639999"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introducción a las bases de datos únicas en Azure SQL Database
 
@@ -43,6 +42,14 @@ Puede usar PowerShell o la CLI de Azure para crear, configurar y escalar la base
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migración a una base de datos única con tiempo de inactividad mínimo
 
 Estos inicios rápidos le permiten crear o importar rápidamente la base de datos a Azure mediante un archivo `.bacpac`. Los archivos `.bacpac` y `.dacpac` están diseñados para mover rápidamente las bases de datos entre las distintas versiones de SQL Server y las opciones de implementación de Azure SQL Database, o para implementar la integración continua en la canalización de DevOps. No obstante, este método no está diseñado para la migración de las bases de datos de producción con un tiempo de inactividad mínimo, ya que tendría que dejar de agregar nuevos datos, esperar a que se completara la exportación de la base de datos de origen a un archivo `.bacpac` y, finalmente, esperar a que terminara la importación en Azure SQL Database. Todo este tiempo de espera genera un tiempo de inactividad de la aplicación, especialmente en el caso de grandes bases de datos. Para mover la base de datos de producción, probablemente necesite una manera mejor de realizar la migración que garantice un tiempo de inactividad mínimo. Para ello, use [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) para migrar la base de datos con el menor tiempo de inactividad posible. DMS lo consigue mediante la inserción de forma incremental de los cambios realizados en la base de datos de origen en la base de datos única que se restaura. De este modo, puede cambiar rápidamente la aplicación de la base de datos de origen a la de destino con tiempo de inactividad mínimo.
+
+## <a name="hands-on-learning-modules"></a>Módulos de aprendizaje práctico
+
+El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre Azure SQL Database.
+
+- [Aprovisionamiento de una base de datos de Azure SQL para almacenar datos de aplicación](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
+- [Desarrollo y configuración de una aplicación de ASP.NET que consulta una instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Protección de las bases de datos de Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

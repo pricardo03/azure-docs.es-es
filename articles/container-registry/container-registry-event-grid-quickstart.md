@@ -3,17 +3,18 @@ title: 'Inicio rápido: Envío de eventos de Azure Container Registry a Event Gr
 description: En este tutorial, habilita eventos de Event Grid para el registro de contenedor, luego envía los eventos push y delete de la imagen del contenedor a una aplicación de ejemplo.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49ee9a7f12601b0d93e320ab797be4a1ada41c04
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427698"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309797"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Inicio rápido: Envío de eventos de registro de contenedor privado a Event Grid
 
@@ -23,7 +24,7 @@ Después de completar los pasos descritos en este artículo, los eventos enviado
 
 ![Explorador web que representa la aplicación web de ejemplo con tres eventos recibidos][sample-app-01]
 
-Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592619"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594545"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -26,17 +26,28 @@ Form Recognizer entrena modelos personalizados modelo para sus propios datos y s
 
 El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos. Por el contrario, los modelos de aprendizaje automático entrenados previamente requieren datos estandarizados. Son menos precisos con el material de entrada que procede de los formatos tradicionales, como formularios específicos del sector.
 
-## <a name="pre-built-receipt-model"></a>Modelo de recibo pregenerado
+## <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
 
-Form Recognizer también incluye un modelo para leer los recibos de ventas. Este modelo extrae información clave como la hora y fecha de la transacción, información del comerciante, cantidades de impuestos, totales y mucho más. Además, el modelo de recibos pregenerado se entrena para reconocer y devolver todo el texto en un recibo.
+Form Recognizer también incluye un modelo para leer los recibos de ventas. Este modelo extrae información clave como la hora y fecha de la transacción, información del comerciante, cantidades de impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo.
 
 ## <a name="what-it-includes"></a>Qué incluye
 
 Form Recognizer está disponible como una API REST. Puede crear, entrenar y puntuar un modelo personalizado o acceder al modelo pregenerado mediante la invocación de estas API. Si lo desea, puede entrenar y ejecutar modelos personalizados en un contenedor de Docker local.
 
-## <a name="input-requirements-custom-model"></a>Requisitos de entrada (modelo personalizado)
+## <a name="input-requirements"></a>Requisitos de entrada
+### <a name="custom-model"></a>Modelo personalizado
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
+
+Los requisitos de entrada para el modelo de recibo son ligeramente diferentes.
+
+* El formato debe ser JPEG, PNG, BMP, PDF (texto o escaneado) o TIFF.
+* El tamaño del archivo debe ser inferior a 20 MB.
+* Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles. 
+* Los archivos PDF deben tener unas dimensiones de 17 x 17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
+* En el caso de PDF y TIFF, solo se procesan las primeras 200 páginas (con una suscripción de nivel gratuitos, solo se procesan las dos primeras páginas).
 
 ## <a name="request-access"></a>Solicitar acceso
 

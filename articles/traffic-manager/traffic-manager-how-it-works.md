@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071186"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312146"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -69,6 +69,29 @@ Continuando a partir del ejemplo anterior, cuando un cliente solicita la página
 
 El servicio DNS recursivo almacena en la memoria caché las respuestas DNS que recibe. La resolución DNS del dispositivo cliente también almacena en caché el resultado. El almacenamiento en caché permite que las consultas DNS posteriores se respondan más rápidamente al utilizar datos de la memoria caché en lugar de consultar otros servidores DNS. La duración de la memoria caché viene determinada por la propiedad de período de vida (TTL) de cada registro DNS. Unos valores más cortos producen una expiración de caché más rápida y, por tanto, más recorridos de ida y vuelta a los servidores de nombres de Traffic Manager. Unos valores mayores significan que se puede tardar más tiempo en alejar el tráfico de un punto de conexión con error. Traffic Manager permite configurar el valor de TTL utilizado en las respuestas DNS de Traffic Manager entre 0 segundos y 2.147.483.647 segundos (el intervalo máximo compatible con [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), lo que le permite elegir el valor que responda mejor a las necesidades de su aplicación.
 
+## <a name="faqs"></a>Preguntas más frecuentes
+
+* [¿Qué dirección IP usa Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [¿Admite Traffic Manager sesiones temporales?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [¿Por qué obtengo un error HTTP al utilizar Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [¿Cómo afecta al rendimiento el uso de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [¿Qué protocolos de aplicación puedo usar con Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [¿Puedo usar Traffic Manager con un nombre de dominio desnudo?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [¿Qué es el TTL de DNS y cómo afecta a mis usuarios?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [¿Cuál es el límite superior e inferior en que puedo establecer el TTL para las respuestas de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [¿Cómo puedo comprender el volumen de las consultas que llegan a mi perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

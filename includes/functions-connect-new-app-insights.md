@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 9c519fc2db020b8df22275c6b276c6ec23d10b1c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1bbc11d7772e4f56d7dc6ead580b0a0cbd3cd8d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608359"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669820"
 ---
 Functions simplifica el proceso de agregar la integración de Application Insights a una aplicación de función desde [Azure Portal].
 
@@ -21,17 +21,17 @@ Functions simplifica el proceso de agregar la integración de Application Insigh
 
     ![Habilitación de Application Insights desde el portal](media/functions-connect-new-app-insights/enable-application-insights.png)
 
-1. Cree un recurso de Application Insights mediante la configuración especificada en la tabla que hay debajo de la imagen:
+1. Cree un recurso de Application Insights mediante la configuración especificada en la tabla que hay debajo de la imagen.
 
    ![Creación de recursos en Application Insights](media/functions-connect-new-app-insights/ai-general.png)
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre** | Nombre de aplicación único | Lo más fácil es usar el mismo nombre que usa para la aplicación de función, que debe ser único en su suscripción. | 
-    | **Ubicación** | Europa occidental | Si es posible, use la misma [región](https://azure.microsoft.com/regions/) que la de la aplicación de función, o una que esté cerca. |
+    | **Ubicación** | Europa occidental | Si es posible, use la misma [región](https://azure.microsoft.com/regions/) que la aplicación de función o una que esté cerca de esa región. |
 
-1. Elija **Aceptar**. El recurso de Application Insights se crea en el mismo grupo de recursos y suscripción que su aplicación de función. Una vez se complete la creación, cierre la ventana de Application Insights.
+1. Seleccione **Aceptar**. El recurso de Application Insights se crea en el mismo grupo de recursos y suscripción que su aplicación de función. Después de crear el recurso, cierre la ventana Application Insights.
 
-1. En la aplicación de función, seleccione **Configuración de la aplicación**y desplácese hacia abajo hasta **Configuración de la aplicación**. Cuando vea una configuración denominada `APPINSIGHTS_INSTRUMENTATIONKEY`, significa que la integración de Application Insights está habilitada para la aplicación de función que se ejecuta en Azure.
+1. De vuelta en la aplicación de función, seleccione **Configuración de la aplicación**y desplácese hacia abajo hasta **Configuración de la aplicación**. Si ve una configuración denominada `APPINSIGHTS_INSTRUMENTATIONKEY`, significa que la integración de Application Insights está habilitada para la aplicación de función que se ejecuta en Azure.
 
 [Azure Portal]: https://portal.azure.com

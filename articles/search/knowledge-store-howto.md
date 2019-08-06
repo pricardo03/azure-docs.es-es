@@ -1,5 +1,5 @@
 ---
-title: 'Introducción a la minería de conocimientos (versión preliminar): Azure Search'
+title: 'Introducción a Knowledge Store (versión preliminar): Azure Search'
 description: Aprenda los pasos para enviar documentos enriquecidos creados por canalizaciones de indexación de IA en Azure Search a un almacén de conocimiento en la cuenta de almacenamiento de Azure. Desde allí, puede ver, cambiar la forma y consumir documentos enriquecidos en Azure Search y en otras aplicaciones.
 manager: cgronlun
 author: HeidiSteen
@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551066"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641009"
 ---
-# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>Introducción a la minería de conocimientos en Azure Search
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Introducción a Knowledge Store (versión preliminar) en Azure Search
 
 > [!Note]
 > Knowledge Store se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
 >
-El [almacén de conocimiento](knowledge-store-concept-intro.md) guarda todos los documentos enriquecidos con IA creados durante la indexación en la cuenta de almacenamiento de Azure con el fin de aprovechar el conocimiento de bajada en otras aplicaciones. También puede usar enriquecimientos guardados para comprender y refinar una canalización de indexación de Azure Search. 
+El [almacén de conocimiento](knowledge-store-concept-intro.md) guarda todos los documentos enriquecidos con IA creados durante la indexación en la cuenta de almacenamiento de Azure con el fin de aprovechar los datos de bajada en otras aplicaciones. También puede usar enriquecimientos guardados para comprender y refinar una canalización de indexación de Azure Search. 
 
 Un almacén de conocimiento se define mediante un *conjunto de aptitudes* y se crea mediante un *indizador*. La expresión física de un almacén de conocimiento se especifica mediante *proyecciones* que determinan las estructuras de datos en el almacenamiento. Al acabar esta guía, habrá creado todos estos objetos y sabrá cómo funcionan juntos. 
 

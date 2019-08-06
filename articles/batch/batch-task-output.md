@@ -3,7 +3,7 @@ title: 'Almacenamiento de resultados o registros de trabajos y tareas completado
 description: Conozca las diferentes opciones para guardar los datos de salida de las tareas y los trabajos del servicio Batch. Puede almacenar datos en Azure Storage o en otro almacén de datos.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5fe15b36913106692377c483110cce2c0418a3f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549957"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322858"
 ---
 # <a name="persist-job-and-task-output"></a>Trabajo persistente y resultado de la tarea
 
@@ -53,7 +53,7 @@ Para más información sobre el almacenamiento de salidas de tareas con la API d
 
 Batch define un conjunto opcional de convenciones para nombrar los archivos de salida de tareas en Azure Storage. El [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) describe estas convenciones. El estándar de convenciones de archivos determina los nombres del contenedor de destino y la ruta de acceso del blob en Azure Storage para un archivo de salida dado según los nombres del trabajo y de la tarea.
 
-Es cosa suya si decide usar el estándar de convenciones de archivos para nombrar los archivos de datos de salida. Si lo desea, puede nombrar también el contenedor de destino y el blob. Si usa el estándar File Conventions para la denominación de archivos de salida, estos se podrán ver en [Azure Portal][portal].
+Es cosa suya si decide usar el estándar de convenciones de archivos para nombrar los archivos de datos de salida. Si lo desea, puede nombrar también el contenedor de destino y el blob. Si usa el estándar de convenciones de archivos para la denominación de archivos de salida, estos se podrán ver en [Azure Portal][portal].
 
 Los desarrolladores que compilan soluciones de Batch con C# y .NET pueden usar la [biblioteca File Conventions para .NET][nuget_package] para almacenar los datos de tareas en una cuenta de Azure Storage, de acuerdo con el [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La biblioteca File Conventions administra el movimiento de archivos de salida a Azure Storage y nombra los contenedores y blobs de destino de una manera conocida.
 
@@ -83,7 +83,7 @@ Cuando diseñe su solución de Batch, tenga en cuenta los siguientes factores re
 
 - **Recuperación de la salida**: puede recuperar la salida de tarea directamente de los nodos de proceso del grupo o desde Azure Storage u otro almacén de datos si la ha almacenado. Para recuperar la salida de una tarea directamente desde un nodo de proceso, necesita el nombre del archivo y la ubicación de la salida en el nodo. Si almacena la salida de tarea en Azure Storage, necesitará la ruta de acceso completa al archivo en Azure Storage para descargar los archivos de salida con el SDK de Azure Storage.
 
-- **Visualización de la salida**: si navega a una tarea de Batch en Azure Portal y selecciona **Archivos en el nodo**, se mostrarán todos los archivos asociados a la tarea y no solo los archivos de salida que le interesan. Es más, los archivos de un nodo de proceso solo están disponibles mientras existe el nodo y solo durante el tiempo de retención del archivo que se haya establecido para la tarea. Para ver la salida de tarea que ha almacenado en Azure Storage, puede usar Azure Portal o una aplicación cliente de Azure Storage, como el [Explorador de Azure Storage][storage_explorer]. Para ver los datos de salida en Azure Storage con el portal u otra herramienta, debe saber la ubicación del archivo y desplazarse hasta ella directamente.
+- **Visualización de la salida**: si navega a una tarea de Batch en Azure Portal y selecciona **Archivos en el nodo**, se mostrarán todos los archivos asociados a la tarea y no solo los archivos de salida que le interesan. Es más, los archivos de un nodo de proceso solo están disponibles mientras existe el nodo y solo durante el tiempo de retención del archivo que se haya establecido para la tarea. Para ver la salida de tarea que ha almacenado en Azure Storage, puede usar Azure Portal o una aplicación cliente de Azure Storage, como el [Explorador de Azure Storage][storage_explorer]. Para ver los datos de salida en Azure Storage con el portal u otra herramienta, debe saber la ubicación del archivo y desplazarse hasta ella directamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

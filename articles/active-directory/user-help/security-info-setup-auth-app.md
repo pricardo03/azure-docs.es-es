@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912bda010ddcf9b02506df14f06fb0650271a53b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475725"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382984"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configuración de la información de seguridad (versión preliminar) para usar una aplicación autenticadora
+
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y verificación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
 Si se le pide que configure esto justo después de haber iniciado sesión en su cuenta profesional o educativa, consulte los pasos detallados en el artículo de [configuración de su información de seguridad desde el símbolo del sistema de página de inicio de sesión](security-info-setup-signin.md).
@@ -30,7 +31,8 @@ Si se le pide que configure esto justo después de haber iniciado sesión en su 
 >Si no ve la opción de la aplicación autenticadora, es posible que su organización no le permita usar una aplicación autenticadora para la verificación. En este caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configuración de la aplicación Microsoft Authenticator desde la página Información de seguridad
-Dependiendo de la configuración de su organización, es posible que pueda usar una aplicación autenticadora como uno de sus métodos de información de seguridad. Si no necesita usar la aplicación Microsoft Authenticator, puede elegir una aplicación diferente durante el proceso de configuración. Sin embargo, en este artículo se usa la aplicación Microsoft Authenticator. 
+
+Dependiendo de la configuración de su organización, es posible que pueda usar una aplicación autenticadora como uno de sus métodos de información de seguridad. Si no necesita usar la aplicación Microsoft Authenticator, puede elegir una aplicación diferente durante el proceso de configuración. Sin embargo, en este artículo se usa la aplicación Microsoft Authenticator.
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Pasos para configurar la aplicación Microsoft Authenticator
 
@@ -54,7 +56,7 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
    > [!Note]
    > Si desea usar una aplicación de autenticación que no sea Microsoft Authenticator, seleccione el vínculo **Quiero usar otra aplicación de autenticación**.
-   > 
+   >
    > Si su organización le permite elegir un método que no sea la aplicación de autenticación, puede seleccionar el vínculo **I want to set up a different method** (Quiero configurar otro método).
 
 5. Permanezca en la página **Configuración de la cuenta** mientras configura la aplicación Microsoft Authenticator en el dispositivo móvil.
@@ -69,23 +71,24 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
     ![Examinar el código QA con la aplicación Authenticator](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-6. Lea el código que se proporciona, para lo que debe usar el lector de códigos QR de la aplicación Microsoft Authenticator, que apareció en el dispositivo móvil tras crear la cuenta profesional o educativa en el paso 6.
+8. Lea el código que se proporciona, para lo que debe usar el lector de códigos QR de la aplicación Microsoft Authenticator, que apareció en el dispositivo móvil tras crear la cuenta profesional o educativa en el paso 6.
 
     La aplicación de autenticación debería agregar correctamente la cuenta profesional o educativa sin solicitarle más información. No obstante, si el lector de códigos QR no lee este, puede seleccionar el vínculo **Can't scan the QR code** (No se puede leer el código QR) y especificar manualmente la dirección URL y el código en la aplicación Microsoft Authenticator. Para obtener más información sobre cómo agregar manualmente un código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
-7. Seleccione **Siguiente** en la página **Digitalización del código QR** del equipo.
+9. Seleccione **Siguiente** en la página **Digitalización del código QR** del equipo.
 
     Se envía una notificación a la aplicación Microsoft Authenticator del dispositivo móvil para que pruebe la cuenta.
 
     ![Probar la cuenta con la aplicación de autenticación](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. Apruebe la notificación en la aplicación Microsoft Authenticator y seleccione **Siguiente**.
+10. Apruebe la notificación en la aplicación Microsoft Authenticator y seleccione **Siguiente**.
 
      ![Notificación correcta, se establece la conexión entre la aplicación y su cuenta](media/security-info/securityinfo-myprofile-successauthapp.png)
 
      La información de seguridad se actualiza para usar la aplicación Microsoft Authenticator de forma predeterminada para verificar su identidad cuando se usan la verificación en dos pasos o el restablecimiento de contraseña.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Eliminación de la aplicación autenticador desde los métodos de información de seguridad
+
 Si no desea usar la aplicación autenticadora como método de información de seguridad, puede quitarla de la página **Información de seguridad**. Esto funciona con todas las aplicaciones autenticadora, no solo con la aplicación Microsoft Authenticator. Después de eliminar la aplicación, tendrá que ir a la aplicación autenticadora en el dispositivo móvil y eliminar la cuenta.
 
 >[!Important]
@@ -104,6 +107,7 @@ Si no desea usar la aplicación autenticadora como método de información de se
     La cuenta se quita completamente de la aplicación autenticadora para las solicitudes de verificación en dos fases y de restablecimiento de contraseña.
 
 ## <a name="change-your-default-security-info-method"></a>Cambio de su método de información de seguridad predeterminado
+
 Si desea que las llamadas de teléfono sean el método predeterminado usado al iniciar sesión en su cuenta profesional o educativa mediante la verificación en dos pasos o para las solicitudes de restablecimiento de contraseña, puede establecerlo en la página **Información de seguridad**.
 
 ### <a name="to-change-your-default-security-info-method"></a>Para cambiar su método de información de seguridad predeterminado
@@ -121,16 +125,19 @@ Si desea que las llamadas de teléfono sean el método predeterminado usado al i
     El método predeterminado que se usa para el inicio de sesión cambia en la aplicación Microsoft Authenticator.
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
+
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 
 - **Texto de dispositivo móvil.** Escriba el número del dispositivo móvil y obtendrá un código que podrá usar para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones detalladas sobre cómo verificar su identidad con un mensaje de texto (SMS), vea [Configuración de la información de seguridad para usar la mensajería de texto (SMS)](security-info-setup-text-msg.md).
 
 - **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con un número de teléfono, consulte [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
 
+- **Clave de seguridad.** Registre la clave de seguridad compatible con Microsoft y úsela junto con un PIN para la verificación en dos pasos o el restablecimiento de contraseña. Para instrucciones paso a paso sobre cómo comprobar su identidad con una clave de seguridad, consulte [Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md).
+
 - **Dirección de correo electrónico.** Escriba la dirección de correo electrónico profesional o educativa para recibir un correo electrónico para el restablecimiento de contraseña. Esta opción no está disponible para la verificación en dos pasos. Para obtener instrucciones detalladas sobre cómo configurar el correo electrónico, vea [Configuración de la información de seguridad para usar el correo electrónico](security-info-setup-email.md).
 
 - **Preguntas de seguridad.** Responda a algunas preguntas de seguridad creadas por el administrador para su organización. Esta opción solo está disponible para el restablecimiento de contraseña y no para la verificación en dos pasos. Para obtener instrucciones paso a paso sobre cómo configurar las preguntas de seguridad, consulte el artículo [Configuración de la información de seguridad para usar las preguntas de seguridad](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Si faltan algunas de estas opciones, lo más probable es que su organización no permita esos métodos. Si este es el caso, tendrá que elegir uno de los métodos que sí están disponibles o ponerse en contacto con su administrador para obtener más ayuda.
 

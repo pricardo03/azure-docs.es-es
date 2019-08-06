@@ -1,5 +1,6 @@
 ---
-title: Análisis de sentimiento mediante la API RES de Text Analytics desde Azure Cognitive Services | Microsoft Docs
+title: Análisis de opinión mediante la API REST de Text Analytics de Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aprenda a detectar sentimiento mediante la API REST de Text Analytics.
 services: cognitive-services
 author: aahill
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c3004dd3910dd5fdafc933efa213c9f097310e87
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68001706"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697745"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de sentimiento con Text Analytics
 
@@ -41,7 +42,7 @@ Debe tener documentos JSON en este formato: identificador, texto e idioma.
 
 El tamaño del documento debe ser inferior a 5120 caracteres por documento. Puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para el análisis de sentimiento:
 
-```
+```json
     {
         "documents": [
             {
@@ -63,7 +64,7 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Pued
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -75,13 +76,13 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Pued
 
 ## <a name="step-1-structure-the-request"></a>Paso 1: Estructurar la solicitud
 
-Para más información acerca de la definición de la solicitud, consulte [Llamada a Text Analytics API](text-analytics-how-to-call-api.md). Recapitulamos los siguientes puntos para su comodidad:
+Para obtener más información sobre la definición de la solicitud, consulte [Llamada a la API de Text Analytics](text-analytics-how-to-call-api.md). Recapitulamos los siguientes puntos para su comodidad:
 
 + Cree una solicitud POST. Para consultar la documentación de la API para esta solicitud, vea [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
 + Establezca el punto de conexión de HTTP para el análisis de sentimiento mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para más información, consulte [Búsqueda de los puntos de conexión y las claves de acceso para Text Analytics en Cognitive Services](text-analytics-how-to-access-key.md).
++ Establezca un encabezado de solicitud para incluir la [clave de acceso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para las operaciones de Text Analytics.
 
 + En el cuerpo de la solicitud, proporcione la colección de documentos JSON que preparó para este análisis.
 
@@ -90,7 +91,7 @@ Para más información acerca de la definición de la solicitud, consulte [Llama
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. Para obtener información acerca del tamaño y del número de solicitudes que puede enviar por minuto y segundo, consulte la sección acerca de los [límites de datos](../overview.md#data-limits) de la introducción.
+El análisis se realiza tras la recepción de la solicitud. Para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo, consulte la sección de [límites de datos](../overview.md#data-limits) de la introducción.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
@@ -99,46 +100,46 @@ Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuen
 
 El analizador de sentimiento clasifica el texto como predominantemente positivo o negativo. Asigna una puntuación en el rengo que oscila entre 0 y 1. Los valores próximos a 0,5 son neutros o indeterminados. Una puntuación de 0,5 indica neutralidad. Cuando el sentimiento de una cadena no se puede analizar o no tiene sentimiento, la puntuación es siempre 0,5. Por ejemplo, si se pasa una cadena de español con un código de idioma inglés, la puntuación es 0,5.
 
-La salida se devuelve inmediatamente. Puede transmitir en secuencias los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
+La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
 
 En el ejemplo siguiente se muestra la respuesta para la colección de documentos de este artículo:
 
 ```json
-{
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Versión preliminar pública de la versión 3 de Análisis de sentimiento
 
-La [siguiente versión de Análisis de sentimiento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API. 
+La [siguiente versión de Análisis de sentimiento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API.
 
 > [!NOTE]
 > * El formato de las solicitudes de la versión 3 de Análisis de sentimiento y los [límites de datos](../overview.md#data-limits) son los mismos que en la versión anterior.
-> * En este momento, la versión 3 de Análisis de sentimiento: 
->    * Actualmente solo admite el idioma inglés.  
+> * En este momento, la versión 3 de Análisis de sentimiento:
+>    * Actualmente solo admite el idioma inglés.
 >    * Está disponible en las siguientes regiones: `Central US`, `Central Canada` y `East Asia`.
 
 |Característica |DESCRIPCIÓN  |
@@ -164,20 +165,20 @@ La versión 3 de Análisis de sentimiento puede devolver las puntuaciones y etiq
 El siguiente código de JSON un ejemplo de una solicitud realizada a la nueva versión de Análisis de sentimiento. El formato de la solicitud es el mismo que en la versión anterior:
 
 ```json
-{
-  "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
+        "documents": [
+        {
+            "language": "en",
+            "id": "1",
+            "text": "Hello world. This is some input text that I love."
+        },
+        {
+            "language": "en",
+            "id": "2",
+            "text": "It's incredibly sunny outside! I'm so happy."
+        }
+        ],
     }
-  ]
-}
 ```
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Respuesta de ejemplo de la versión 3 de Análisis de sentimiento
@@ -185,73 +186,73 @@ El siguiente código de JSON un ejemplo de una solicitud realizada a la nueva ve
 Aunque el formato de la solicitud es el mismo que el de la versión anterior, el formato de respuesta ha cambiado. El siguiente JSON es un ejemplo de la respuesta de la nueva versión de la API:
 
 ```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
+    {
+        "documents": [
+            {
+                "id": "1",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.98570585250854492,
+                    "neutral": 0.0001625834556762,
+                    "negative": 0.0141316400840878
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
+                "sentences": [
+                    {
+                        "sentiment": "neutral",
+                        "sentenceScores": {
+                            "positive": 0.0785155147314072,
+                            "neutral": 0.89702343940734863,
+                            "negative": 0.0244610067456961
+                        },
+                        "offset": 0,
+                        "length": 12
                     },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.98570585250854492,
+                            "neutral": 0.0001625834556762,
+                            "negative": 0.0141316400840878
+                        },
+                        "offset": 13,
+                        "length": 36
+                    }
+                ]
             },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
+            {
+                "id": "2",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.89198976755142212,
+                    "neutral": 0.103382371366024,
+                    "negative": 0.0046278294175863
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
+                "sentences": [
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.78401315212249756,
+                            "neutral": 0.2067587077617645,
+                            "negative": 0.0092281140387058
+                        },
+                        "offset": 0,
+                        "length": 30
                     },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.99996638298034668,
+                            "neutral": 0.0000060341349126,
+                            "negative": 0.0000275444017461
+                        },
+                        "offset": 31,
+                        "length": 13
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="example-c-code"></a>Ejemplo de código C#
@@ -264,14 +265,13 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo del análisi
 
 + [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponible para determinados idiomas.
 + Los documentos JSON del cuerpo de la solicitud incluyen un identificador, un texto y el código de idioma.
-+ La solicitud POST se realiza a un punto de conexión `/sentiment`, mediante una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que sean válidos para la suscripción.
++ La solicitud POST se realiza a un punto de conexión `/sentiment`, mediante una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que sean válidos para la suscripción.
 + La salida de la respuesta, que consta de una puntuación de las opiniones de cada identificador de documento, se puede transmitir en secuencias a cualquier aplicación que acepte JSON. Entre las aplicaciones de ejemplo se incluyen Excel y Power BI, por nombrar algunas.
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Otras referencias
 
- [Información general de Text Analytics](../overview.md)  
- [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>
- [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Introducción a Text Analytics](../overview.md) [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
+ [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

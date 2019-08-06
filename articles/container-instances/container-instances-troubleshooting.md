@@ -3,18 +3,18 @@ title: Solución de problemas de Azure Container Instances
 description: Obtenga información acerca de la solución de problemas relacionados con Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070866"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325598"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo solucionar problemas habituales al administra
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
-Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para más información sobre las convenciones de nomenclatura de Azure, consulte [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de Arquitectura de Azure.
+Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para obtener más información sobre las convenciones de nomenclatura de Azure, vea [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de Arquitectura de Azure.
 
 | Ámbito | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
 | --- | --- | --- | --- | --- | --- |

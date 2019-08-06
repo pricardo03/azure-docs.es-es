@@ -9,20 +9,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: b6b61ee44d252f76cd1aa5e1790456acb3d7bae5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620907"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489532"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agregados definidos por el usuario en JavaScript para Azure Stream Analytics (versión preliminar)
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agregados definidos por el usuario en JavaScript para Azure Stream Analytics
  
 Azure Stream Analytics admite agregados definidos por el usuario (UDA) escritos en JavaScript, que le permiten implementar lógica empresarial con estado compleja. Dentro de UDA tiene control completo sobre la estructura de los datos de estado, la acumulación y desacumulación de estado y el cálculo de resultados de agregados. El artículo presenta las dos interfaces de UDA en JavaScript diferentes, los pasos para crear un UDA y cómo usar UDA con operaciones basadas en ventanas en consultas de Stream Analytics.
 
 ## <a name="javascript-user-defined-aggregates"></a>Agregados definidos por el usuario en JavaScript
 
-Los agregados definidos por el usuario se usan sobre una especificación de ventana de tiempo para agregarlos sobre los eventos de esa ventana y generar un valor con un único resultado. Actualmente hay dos tipos de interfaces de UDA que admite Stream Analytics: AccumulateOnly y AccumulateDeaccumulate. Ambos tipos de UDA se pueden usar con ventanas de saltos de tamaño constante, ventanas de salto y ventanas deslizantes. UDA AccumulateDeaccumulate funciona mejor que UDA AccumulateOnly cuando se usa en combinación con ventanas de salto y ventanas deslizantes. El tipo que elija dependerá del algoritmo que utilice.
+Los agregados definidos por el usuario se usan sobre una especificación de ventana de tiempo para agregarlos sobre los eventos de esa ventana y generar un valor con un único resultado. Actualmente hay dos tipos de interfaces de UDA que admite Stream Analytics: AccumulateOnly y AccumulateDeaccumulate. Ambos tipos de UDA se pueden usar con ventanas de saltos de tamaño constante, ventanas de salto, ventanas deslizantes y ventanas de sesión. UDA AccumulateDeaccumulate funciona mejor que UDA AccumulateOnly cuando se usa en combinación con ventanas de salto, ventanas deslizantes y ventanas de sesión. El tipo que elija dependerá del algoritmo que utilice.
 
 ### <a name="accumulateonly-aggregates"></a>Agregados de AccumulateOnly
 
@@ -92,7 +92,7 @@ Un tipo específico que admite el trabajo de Stream Analytics o "cualquiera" si 
 
 ### <a name="function-name"></a>Nombre de función
 
-El nombre de este objeto de función. El nombre de la función debe coincidir literalmente con el alias de UDA (este es el comportamiento anterior; se está considerando la posibilidad de admitir funciones anónimas cuando se encuentren disponibles con carácter general).
+El nombre de este objeto de función. El nombre de la función debe coincidir con el alias de UDA.
 
 ### <a name="method---init"></a>Método init()
 
@@ -100,11 +100,11 @@ El método init() inicializa el estado del agregado. Este método se llama cuand
 
 ### <a name="method--accumulate"></a>Método accumulate()
 
-El método accumulate() calcula el estado de UDA según el estado anterior y los valores de evento actuales. Este método se llama cuando un evento entra en una ventana de tiempo (TUMBLINGWINDOW, HOPPINGWINDOW o SLIDINGWINDOW).
+El método accumulate() calcula el estado de UDA según el estado anterior y los valores de evento actuales. Este método se llama cuando un evento entra en una ventana de tiempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ### <a name="method--deaccumulate"></a>Método deaccumulate()
 
-El método deaccumulate() vuelve a calcular el estado según el estado anterior y los valores de evento actuales. Este método se llama cuando un evento sale de una ventana SLIDINGWINDOW.
+El método deaccumulate() vuelve a calcular el estado según el estado anterior y los valores de evento actuales. Este método se llama cuando un evento sale de una ventana SLIDINGWINDOW o SESSIONWINDOW.
 
 ### <a name="method--deaccumulatestate"></a>Método deaccumulateState()
 
@@ -112,7 +112,7 @@ El método deaccumulateState() vuelve a calcular el estado según el estado ante
 
 ### <a name="method--computeresult"></a>Método computeResult()
 
-El método computeResult() devuelve resultados de agregados basados en el estado actual. Este método se llama al final de una ventana de tiempo (TUMBLINGWINDOW, HOPPINGWINDOW y SLIDINGWINDOW).
+El método computeResult() devuelve resultados de agregados basados en el estado actual. Este método se llama al final de una ventana de tiempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>Tipos de datos de entrada y salida admitidos por UDA de JavaScript
 En el caso de tipos de datos de UDA de JavaScript, consulte la sección **Conversión de tipos de Stream Analytics y JavaScript** de [Integración de las UDF de JavaScript](stream-analytics-javascript-user-defined-functions.md).

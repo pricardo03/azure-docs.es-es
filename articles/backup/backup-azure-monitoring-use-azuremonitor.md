@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Supervisión de Azure Backup con Azure Monitor'
 description: Supervise las cargas de trabajo de Azure Backup y cree alertas personalizadas mediante Azure Monitor.
-services: backup
 author: pvrk
 manager: shivamg
 keywords: Log Analytics; Azure Backup; Alertas; Configuración de diagnóstico; Grupos de acciones
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e2d4a235737789f2f5852c00218427613db3d558
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786312"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465943"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -31,7 +30,7 @@ Azure Backup proporciona [funcionalidades de supervisión y alerta integradas](b
 > [!NOTE]
 > Los datos de las copias de seguridad de VM de Azure, el agente de Azure Backup, System Center Data Protection Manager, las copias de seguridad de SQL de las VM de Azure y las copias de seguridad del recurso compartido de Azure Files se bombean al área de trabajo de Log Analytics a través de la configuración del diagnóstico. 
 
-Para supervisar a escala, necesita las funcionalidades de dos servicios de Azure. *Configuración de diagnóstico* envía datos de varios recursos de Azure Resource Manager a otro recurso. *Log Analytics* genera alertas personalizadas en las que puede usar grupos de acciones para definir otros canales de notificación. 
+Para supervisar o informar a escala, necesita las funcionalidades de dos servicios de Azure. *Configuración de diagnóstico* envía datos de varios recursos de Azure Resource Manager a otro recurso. *Log Analytics* genera alertas personalizadas en las que puede usar grupos de acciones para definir otros canales de notificación. 
 
 En las secciones siguientes se explica cómo usar Log Analytics para supervisar Azure Backup a escala.
 
@@ -50,50 +49,33 @@ Puede dirigirse a un área de trabajo de Log Analytics desde otra suscripción. 
 
 ### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Implementación de una solución en el área de trabajo de Log Analytics
 
-Una vez que los datos estén en el área de Log Analytics, [implemente una plantilla de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) en Log Analytics para visualizar los datos. Para identificar correctamente el área de trabajo, asegúrese de asignarle el mismo grupo de recursos, nombre de área de trabajo y ubicación de área de trabajo. A continuación, instale esta plantilla en el área de trabajo.
+> [!IMPORTANT]
+> Lanzamos una [plantilla](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) actualizada y de varias vistas para la supervisión y los informes basados en LA en Azure Backup. Tenga en cuenta que los usuarios que usaban la [solución anterior](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) seguirán viéndola en sus áreas de trabajo incluso después de implementar la solución nueva. Sin embargo, es posible que la solución anterior brinde resultados inexactos debido a algunos cambios de esquema menores. Por lo tanto, los usuarios deben implementar la plantilla nueva.
 
-> [!NOTE]
-> Si no tiene alertas, trabajos de copia de seguridad o trabajos de restauración en su área de trabajo de Log Analytics, es posible que vea un código de error "BadArgumentError" en el portal. Pase por alto este error y continúe usando la solución. Una vez que el tipo de datos pertinente comience a fluir en el área de trabajo, las visualizaciones reflejarán lo mismo y se dejará de ver el error.
+Una vez que los datos estén en el área de Log Analytics, [implemente una plantilla de GitHub](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) en Log Analytics para visualizar los datos. Para identificar correctamente el área de trabajo, asegúrese de asignarle el mismo grupo de recursos, nombre de área de trabajo y ubicación de área de trabajo. A continuación, instale esta plantilla en el área de trabajo.
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Visualización de los datos de Azure Backup mediante Log Analytics
 
-Una vez implementada la plantilla, la solución para supervisar Azure Backup se mostrará en la región resumen del área de trabajo. Para ir al resumen, siga una de estas rutas de acceso:
+Una vez implementada la plantilla, la solución para supervisar e informar en Azure Backup se mostrará en la región resumen del área de trabajo. Para ir al resumen, siga una de estas rutas de acceso:
 
 - **Azure Monitor**: en la sección **Insights**, seleccione **Más** y, a continuación, elija el área de trabajo pertinente.
 - **Áreas de trabajo de Log Analytics**: seleccione el área de trabajo pertinente y, a continuación, en **General**, seleccione **Resumen del área de trabajo**.
 
-![El icono de supervisión de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![Los iconos de supervisión e informes de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-Al seleccionar el icono de supervisión, la plantilla del diseñador abre una serie de gráficos acerca de los datos de supervisión básicos de Azure Backup. Estos son algunos de los gráficos que verá:
+Cuando seleccione cualquiera de los iconos de información general, podrá ver más información. Estos son algunos de los informes que verá:
 
-* Todos los trabajos de copia de seguridad
+* Trabajos sin copia de seguridad de registros
 
-   ![Gráficos de Log Analytics para los trabajos de copia de seguridad](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![Gráficos de Log Analytics para los trabajos de copia de seguridad](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Trabajos de restauración
+* Alertas de copia de seguridad de los recursos de Azure
 
-   ![Gráfico de Log Analytics para los trabajos de restauración](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![Gráfico de Log Analytics para los trabajos de restauración](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-* Alertas de Azure Backup integradas para los recursos de Azure
-
-   ![Gráfico de Log Analytics para las alertas de Azure Backup integradas para los recursos de Azure](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Alertas de Azure Backup integradas para los recursos locales
-
-   ![Gráfico de Log Analytics para las alertas de Azure Backup integradas para los recursos locales](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Orígenes de datos activos
-
-   ![Gráfico de Log Analytics para las entidades con copia de seguridad activas](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Almacenamiento en la nube del almacén de Recovery Services
-
-   ![Gráfico de Log Analytics para el almacenamiento en la nube del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
+Del mismo modo, al hacer clic en los otros iconos, podrá ver informes sobre los trabajos de restauración, el almacenamiento en la nube, los elementos de copia de seguridad, las alertas de copia de seguridad de los recursos locales y los trabajos de copia de seguridad de registros.
+ 
 Estos gráficos se proporcionan con la plantilla. Puede editar los gráficos o agregar más si es necesario.
-
-> [!IMPORTANT]
-> Al implementar la plantilla, lo que hace básicamente es crear un bloqueo de solo lectura. Para editar y guardar la plantilla, debe quitar el bloqueo. Puede quitar un bloqueo en la sección **Configuración** del área de trabajo de Log Analytics, en el panel **Bloqueos**.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Creación de alertas mediante Log Analytics
 

@@ -9,20 +9,20 @@ keywords: azure functions, funciones, procesamiento de eventos, proceso, arquite
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 966be2d16615ba120287974201de5dd264fbbbcf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872967"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594107"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creación de su primera función durable en C\#
 
 *Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
 
-En este artículo, aprenderá a usar las herramientas de Visual Studio 2019 para Azure Functions con el fin de crear y probar localmente una función durable "Hola mundo".  Esta función organiza y encadena llamadas a otras funciones. Luego, publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2019.
+En este artículo aprenderá a usar Visual Studio 2019 con el fin de crear y probar localmente una función durable "Hola mundo".  Esta función organiza y encadena llamadas a otras funciones. Luego, publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2019.
 
 ![Ejecución de una función durable en Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,9 +30,7 @@ En este artículo, aprenderá a usar las herramientas de Visual Studio 2019 para
 
 Para completar este tutorial:
 
-* Instale [Visual Studio 2019](https://azure.microsoft.com/downloads/). Asegúrese de que la carga de trabajo de **Desarrollo de Azure** también está instalada.
-
-* Asegúrese de que tiene las [herramientas de Azure Functions más recientes](../functions-develop-vs.md#check-your-tools-version).
+* Instale [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Asegúrese de que la carga de trabajo de **Desarrollo de Azure** también está instalada. Visual Studio 2017 también admite el desarrollo de Durable Functions, pero la interfaz de usuario y los pasos son distintos.
 
 * Compruebe que tiene el [Emulador de Azure Storage](../../storage/common/storage-use-emulator.md) instalado y ejecutándose.
 
@@ -44,13 +42,15 @@ La plantilla de Azure Functions crea un proyecto que se puede publicar en una ap
 
 1. En Visual Studio, seleccione **Nuevo** > **proyecto** en el menú **Archivo**.
 
-2. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Instalado**, expanda **Visual C#**  > **Nube**, seleccione **Azure Functions**, escriba un **nombre** para el proyecto y haga clic en **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
+1. En el cuadro de diálogo **Agregar un nuevo proyecto**, busque `functions`, elija la plantilla de **Azure Functions** y, a continuación, seleccione **Siguiente**. 
 
     ![Cuadro de diálogo Nuevo proyecto para crear una función en Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. Use la configuración especificada en la tabla que aparece después de la imagen.
+1. Escriba un **Nombre de proyecto** y seleccione **Aceptar**. El nombre de proyecto debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
-    ![Cuadro de diálogo de función nueva en Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. En **Crear una aplicación de Azure Functions**, use la configuración especificada en la tabla que sigue a la imagen.
+
+    ![Cuadro de diálogo Crear una aplicación de Azure Functions en Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Configuración      | Valor sugerido  | DESCRIPCIÓN                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -58,7 +58,7 @@ La plantilla de Azure Functions crea un proyecto que se puede publicar en una ap
     | **Plantilla** | Vacío | De esta forma se crea una aplicación de función vacía. |
     | **Cuenta de almacenamiento**  | Emulador de Storage | Es necesaria una cuenta de almacenamiento para la administración del estado de función durable. |
 
-4. Haga clic en **Aceptar** para crear un proyecto de función vacía. Este proyecto tiene los archivos de configuración básica necesarios para ejecutar las funciones.
+4. Haga clic en **Crear** para crear un proyecto de función vacío. Este proyecto tiene los archivos de configuración básica necesarios para ejecutar las funciones.
 
 ## <a name="add-functions-to-the-app"></a>Incorporación de funciones a la aplicación
 
@@ -68,9 +68,9 @@ En los pasos siguientes se usa una plantilla para crear el código de Durable Fu
 
     ![Incorporación de nueva función](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. Compruebe que **Función de Azure** está seleccionado en el menú Agregar y dele un nombre al archivo C#.  Presione **Agregar**.
+1. Compruebe que en el menú Agregar está seleccionado **Función de Azure**, escriba un nombre para el archivo de C# y, a continuación, seleccione **Agregar**.
 
-3. Seleccione la plantilla **Durable Functions Orchestrator** y haga clic en **Aceptar**
+1. Seleccione la plantilla **Orquestación de Durable Functions** y seleccione **Aceptar**.
 
     ![Selección de la plantilla durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

@@ -4,12 +4,15 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2018
-ms.openlocfilehash: e66f6fb7c823c0c267747ed5774aada438b490ce
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6d53d3d6e115742b7b91d9c7e5888ba2cc0478f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186587"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697207"
 ---
-Debe tener una [suscripción a Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Text Analytics API. Si no la tiene, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita. Para continuar, necesitará la clave de suscripción de Text Analytics que se proporcionó después de activar su cuenta.
+Una clave y un punto de conexión para un recurso de Text Analytics. Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Text Analytics mediante [Azure Portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) o la [CLI de Azure](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) en la máquina local. También puede:
 
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#lang) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* Ver este recurso en [Azure Portal](https://portal.azure.com/)

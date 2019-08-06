@@ -3,16 +3,17 @@ title: Procedimientos recomendados en Azure Container Registry
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787363"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309766"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
@@ -54,7 +55,7 @@ Aunque puede experimentar con un tipo de host específico, como Azure Container 
 
 Al autenticar con un registro de contenedor de Azure, hay dos escenarios principales: la autenticación individual y la autenticación de servicio (o "sin periféricos"). En la tabla siguiente se proporciona una breve descripción de estos escenarios y el método recomendado de autenticación para cada uno.
 
-| Type | Escenario de ejemplo | Método recomendado |
+| type | Escenario de ejemplo | Método recomendado |
 |---|---|---|
 | Identidad individual | Un desarrollador que extrae imágenes de su máquina de desarrollo, o las inserta en ella. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identidad de servicio o sin periféricos | Canalizaciones de compilación e implementación donde el usuario no está directamente implicado. | [Entidad de servicio](container-registry-authentication.md#service-principal) |
@@ -63,7 +64,7 @@ Para obtener información detallada acerca de la autenticación de Azure Contain
 
 ## <a name="manage-registry-size"></a>Administración del tamaño del registro
 
-Las restricciones de almacenamiento de cada [SKU del registro de contenedor][container-registry-skus] están diseñadas para adaptarse a un escenario típico: **Básico** para los primeros pasos, **Estándar** para la mayoría de las aplicaciones de producción y **Premium** para el rendimiento a gran escala y la [replicación geográfica][container-registry-geo-replication]. Durante todo el ciclo de vida del registro, debe administrar su tamaño mediante la eliminación periódica del contenido sin usar.
+Las restricciones de almacenamiento de cada [SKU del registro de contenedor][container-registry-skus] están diseñadas para adaptarse a un escenario típico: **Básico** para los primeros pasos, **Estándar** para la mayoría de las aplicaciones de producción, y **Premium** para un rendimiento a gran escala y con [replicación geográfica][container-registry-geo-replication]. Durante todo el ciclo de vida del registro, debe administrar su tamaño mediante la eliminación periódica del contenido sin usar.
 
 Use el comando [az acr show-usage][az-acr-show-usage] de la CLI de Azure para mostrar el tamaño actual del registro:
 

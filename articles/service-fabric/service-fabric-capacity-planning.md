@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701837"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335652"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planeación de la capacidad para las aplicaciones de Service Fabric
 En este documento se ofrece información sobre cómo estimar la cantidad de recursos (CPU, RAM o almacenamiento en disco) que necesita para ejecutar las aplicaciones de Azure Service Fabric. Es normal que las necesidades de recursos cambien con el paso del tiempo. Normalmente necesitará menos recursos mientras desarrolla o prueba su servicio y luego una cantidad mayor cuando pase a producción y su aplicación se vuelva cada vez más popular. Al diseñar la aplicación, piense en los requisitos a largo plazo y haga elecciones que permitan escalar el servicio para adaptarse a las elevadas exigencias de los clientes.
@@ -51,7 +51,7 @@ Resulta conveniente disponer de máquinas adicionales en cualquier momento, así
 Todo lo anterior se refiere a un único servicio con estado. Si tiene más de un servicio con estado, tendrá que agregar a la ecuación el valor de DB_Size asociado con los otros servicios. Como alternativa, puede calcular el número de nodos por separado para cada servicio con estado.  El servicio puede tener réplicas o particiones que no están equilibradas. Tenga en cuenta que hay particiones que pueden tener más datos que otras. Para más información sobre la creación de particiones, consulte el [artículo sobre la creación de particiones en los procedimientos recomendados](service-fabric-concepts-partitioning.md). Sin embargo, la ecuación anterior es independiente del número de particiones y réplicas, ya que Service Fabric se asegura de que las réplicas se distribuyan entre los nodos de una manera optimizada.
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>Uso de una hoja de cálculo para calcular costos
-A continuación vamos a usar la fórmula anterior con números reales. En la [hoja de cálculo de ejemplo](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) se muestra cómo planear la capacidad de una aplicación que contiene tres tipos de objetos de datos. Para cada objeto, estimamos su tamaño y cuántos objetos esperamos que tenga. También hemos seleccionado el número de réplicas que queremos de cada tipo de objeto. La hoja de cálculo calcula la cantidad total de memoria que se almacenará en el clúster.
+A continuación vamos a usar la fórmula anterior con números reales. En la [hoja de cálculo de ejemplo](https://github.com/Azure/service-fabric/raw/master/docs_resources/SF_VM_Cost_calculator-NEW.xlsx) se muestra cómo planear la capacidad de una aplicación que contiene tres tipos de objetos de datos. Para cada objeto, estimamos su tamaño y cuántos objetos esperamos que tenga. También hemos seleccionado el número de réplicas que queremos de cada tipo de objeto. La hoja de cálculo calcula la cantidad total de memoria que se almacenará en el clúster.
 
 A continuación, escribimos un tamaño de máquina virtual y un costo mensual. En función del tamaño de la máquina virtual, la hoja de cálculo nos dice el número mínimo de particiones entre las que debe dividir los datos para que quepan físicamente en los nodos. Puede que quiera un número mayor de particiones para adaptarse a las necesidades específicas de cálculo y tráfico de red de su aplicación. La hoja de cálculo muestra que el número de particiones que administran los objetos del perfil de usuario ha aumentado de uno a seis.
 
@@ -60,7 +60,7 @@ Ahora, en función de esta información, la hoja de cálculo muestra que podría
 ![Hoja de cálculo para calcular costos][Image1]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Creación de particiones de los servicios de Service Fabric][10] para obtener más información al respecto.
+Consulte [Creación de particiones de los servicios de Service Fabric][10] para más información al respecto.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

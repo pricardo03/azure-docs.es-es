@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311672"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335845"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 
@@ -59,7 +59,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 |Propiedad|DESCRIPCIÓN|Obligatorio|
 |---|---|---|
-|Nombre|Nombre de la actividad en la canalización.|Sí|
+|name|Nombre de la actividad en la canalización.|Sí|
 |description|Texto que describe para qué se usa la actividad.|Sin|
 |Tipo|Para la actividad Notebook de Databricks, el tipo de actividad es DatabricksNotebook.|Sí|
 |linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta el bloc de notas de Databricks. Para más información sobre este servicio vinculado, consulte el artículo  [Servicios vinculados de proceso](compute-linked-services.md) .|Sí|
@@ -70,7 +70,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks
 
-En la definición de la actividad de Databricks anterior, se especifican estos tipos de biblioteca: *jar*, *egg*, *maven*, *pypi* y *cran*.
+En la definición de la actividad de Databricks anterior, se especifican estos tiposd e biblioteca: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -80,6 +80,12 @@ En la definición de la actividad de Databricks anterior, se especifican estos t
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {

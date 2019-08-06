@@ -1,18 +1,18 @@
 ---
 title: Uso del complemento de Azure Dev Spaces para Jenkins con Azure Kubernetes Service
-description: Obtenga información sobre cómo usar el complemento de Azure Dev Spaces en una canalización de integración continua.
+description: Aprenda a usar el complemento de Azure Dev Spaces en una canalización de integración continua.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785668"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679125"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -30,7 +30,7 @@ En este tutorial va a completar estas tareas:
 > * Preparación del servidor Jenkins
 > * Uso del complemento de Azure Dev Spaces en una canalización de Jenkins para previsualizar cambios de código antes de fusionarlos en el proyecto
 
-Para este tutorial, es necesario tener un conocimiento intermedio de los servicios básicos de Azure, AKS, ACR, Azure Dev Spaces, las [canalizaciones](https://jenkins.io/doc/book/pipeline/) y los complementos de Jenkins y GitHub. También resulta útil tener un conocimiento básico de herramientas de apoyo, como kubectl y Helm.
+En este tutorial se supone que tiene un conocimiento intermedio de los servicios básicos de Azure, AKS, ACR, Azure Dev Spaces, las [canalizaciones](https://jenkins.io/doc/book/pipeline/) y los complementos de Jenkins y GitHub. También resulta útil tener un conocimiento básico de herramientas de apoyo, como kubectl y Helm.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -171,11 +171,11 @@ Para más información sobre el uso de Azure Dev Spaces y el desarrollo de vario
 
 En esta sección, preparará el servidor Jenkins para ejecutar la canalización de integración continua de ejemplo.
 
-* Instalación de complementos
+* Instalación de los complementos
 * Instalación de la CLI de Kubernetes y Helm
 * Adición de credenciales
 
-### <a name="install-plugins"></a>Instalación de complementos
+### <a name="install-plug-ins"></a>Instalación de los complementos
 
 1. Inicie sesión en el servidor Jenkins. Seleccione **Manage Jenkins > Manage Plugins** (Administrar Jenkins > Administrar complementos).
 2. En la pestaña **Available** (Disponible), seleccione los siguientes complementos:
@@ -363,7 +363,7 @@ Para completar el paso 3 de esta sección, deberá comentar parte de Jenkinsfile
 
 Al realizar una solicitud de incorporación de cambios, Jenkins crea un espacio de desarrollo secundario basado en el espacio de desarrollo compartido del equipo y ejecuta el código de la solicitud de incorporación de cambios en ese espacio de desarrollo secundario. La dirección URL al espacio de desarrollo secundario adopta la forma `http://$env.azdsprefix.<test_endpoint>`. 
 
-**devSpacesCreate** establece **$env.azdsprefix** durante la ejecución de la canalización por parte del complemento de Azure Dev Spaces:
+**$env.azdsprefix** se establece durante la ejecución de la canalización por parte del complemento de Azure Dev Spaces mediante **devSpacesCreate**:
 
 ```Groovy
 stage('create dev space') {

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Ejecución de Speech Devices SDK en Android: Servicios de voz'
+title: 'Inicio rápido: Ejecución de Speech Devices SDK en Android (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
 description: Requisitos previos e instrucciones para comenzar a usar Speech Devices SDK en Android.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072389"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559107"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Inicio rápido: Ejecución de la aplicación de ejemplo de Speech Devices SDK en Android
 

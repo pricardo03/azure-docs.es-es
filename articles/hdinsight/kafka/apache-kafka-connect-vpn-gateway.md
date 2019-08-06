@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297060"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402780"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión con Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
@@ -56,7 +56,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
      > * Cada cliente debe conectarse con un cliente de software de VPN.
      > * El cliente VPN no pasa las solicitudes de resolución de nombres a la red virtual, por lo que debe usar direcciones IP para comunicarse con Kafka. La comunicación IP exige configuración adicional en el clúster de Kafka.
 
-Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con redes virtuales de Azure](../hdinsight-extend-hadoop-virtual-network.md).
+Para más información sobre cómo usar HDInsight en una red virtual, consulte el documento sobre el [planeamiento de una red virtual para clústeres de Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Conexión a Apache Kafka desde una red local
 
@@ -368,7 +368,7 @@ Para validar la conectividad con Kafka, use los pasos siguientes para crear y ej
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo usar HDInsight con una red virtual, vea el documento [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md).
+Para más información sobre cómo usar HDInsight con una red virtual, consulte el documento sobre el [planeamiento de la implementación de una red virtual para clústeres de Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 Para más información sobre cómo crear una instancia de Azure Virtual Network con puerta de enlace de VPN de punto a sitio, consulte los documentos siguientes:
 

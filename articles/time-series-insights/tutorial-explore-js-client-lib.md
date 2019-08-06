@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights | Microsoft Docs'
-description: Obtenga información acerca de la biblioteca de cliente JavaScript de Azure Time Series Insights y el modelo de programación relacionado.
+description: Tutorial para aprender sobre la biblioteca cliente de JavaScript para Azure Time Series Insights y el modelo de programación relacionado.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: c6cfd2069851138d738b1533eaab74d9d7aedda6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243981"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677659"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -34,16 +34,18 @@ En concreto, aprenderá sobre lo siguiente:
 > * Los archivos de origen de la aplicación de ejemplo de Time Series Insights se encuentran en el [repositorio de ejemplo de GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Lea la [documentación de referencia sobre el cliente de Time Series Insights](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
+Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Este tutorial usa la característica **Herramientas de desarrollo** del explorador. Los exploradores web modernos ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) y otros) suelen proporcionar acceso a la **vista del inspector web** mediante la tecla de acceso rápido F12 del teclado. Otra forma de acceder a la vista consiste en hacer clic con el botón derecho en una página web y, a continuación, seleccionar **Inspeccionar elemento**.
+
 ## <a name="video"></a>Vídeo
 
 En este vídeo, le presentamos el SDK de JavaScript para Time Series Insights en código abierto:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-## <a name="prerequisites"></a>Requisitos previos
-
-Este tutorial usa la característica **Herramientas de desarrollo** del explorador. Los exploradores web modernos ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) y otros) suelen proporcionar acceso a la **vista del inspector web** mediante la tecla de acceso rápido F12 del teclado. Otra forma de acceder a la vista consiste en hacer clic con el botón derecho en una página web y, a continuación, seleccionar **Inspeccionar elemento**.
 
 ## <a name="time-series-insights-sample-application"></a>Aplicación de Time Series Insights de ejemplo
 
@@ -307,6 +309,13 @@ El código que sirve para ilustrar los pinceles se muestra en el ejemplo `Line C
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
 [![Gráfico de líneas con menú contextual para crear gráficos circulares o de barras mediante pinceles](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Ahora que ha completado el tutorial, limpie los recursos que ha creado:
+
+1. En el menú de la izquierda de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y busque el grupo de recursos de Azure Time Series Insights.
+1. Seleccione **Eliminar** para eliminar todo el grupo de recursos (y todos los recursos que contiene), o quite los recursos de uno en uno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

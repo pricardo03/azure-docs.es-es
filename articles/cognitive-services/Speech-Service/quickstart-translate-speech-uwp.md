@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz, C# (UWP): Servicios Voz'
+title: 'Inicio rápido: Traducción de voz, C# (UWP): Servicios de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, creará una sencilla aplicación con la Plataforma universal de Windows (UWP) para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
 services: cognitive-services
@@ -9,18 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.topic: quickstart
+ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404910"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640021"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Inicio rápido: Traducción de voz con el SDK de Voz para C# (UWP)
 
 También hay disponibles inicios rápidos para la [conversión de voz a texto](quickstart-csharp-uwp.md), la [conversión de texto a voz](quickstart-text-to-speech-csharp-uwp.md) y el [Asistente virtual por voz](quickstart-virtual-assistant-csharp-uwp.md).
 
-En este inicio rápido, creará una sencilla aplicación con la Plataforma universal de Windows (UWP) que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
+En este inicio rápido, creará una sencilla aplicación con la Plataforma universal de Windows (UWP) que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior.
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
@@ -31,7 +32,7 @@ Para obtener una lista completa de los idiomas disponibles para la traducción d
 
 Esta guía de inicio rápido requiere:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio

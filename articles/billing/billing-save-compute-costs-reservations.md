@@ -1,18 +1,18 @@
 ---
 title: ¿Qué es Azure Reservations?
-description: Obtenga información sobre Azure Reservations y precios para ahorrar en máquinas virtuales, SQL Database, Azure Cosmos DB y otros costos de recursos.
+description: Obtenga información sobre Azure Reservations y precios para ahorrar en máquinas virtuales, SQL Database, Azure Cosmos DB y otros costos de recursos.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565306"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359235"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -22,7 +22,7 @@ Puede comprar una reserva en [Azure Portal](https://ms.portal.azure.com/?microso
 
 ## <a name="why-buy-a-reservation"></a>¿Por qué comprar una reserva?
 
-Si tiene máquinas virtuales, Azure Cosmos DB o SQL Database que se ejecuten durante largos períodos, la compra de una reserva le proporcionará la opción más rentable. Por ejemplo, si ejecuta continuamente cuatro instancias de un servicio sin una reserva, se le cobra según las tarifas de pago por uso. Si compra una reserva para esos recursos, obtendrá inmediatamente el descuento por reserva. Ya no se aplicarán a los recursos las tarifas de pago por uso.
+Si tiene máquinas virtuales, Azure Cosmos DB o SQL Database que se ejecuten durante largos períodos, la compra de una reserva le proporcionará la opción más rentable. Por ejemplo, si ejecuta continuamente cuatro instancias de un servicio sin una reserva, se le cobra según las tarifas de pago por uso. Cuando compre una reserva para esos recursos, obtendrá inmediatamente el descuento por reserva. Ya no se aplicarán a los recursos las tarifas de pago por uso.
 
 ## <a name="charges-covered-by-reservation"></a>Cargos cubiertos por la reserva
 
@@ -38,9 +38,9 @@ Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos 
 
 Para comprar un plan, debe tener un rol de propietario de la suscripción en una suscripción Enterprise (MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (MS-AZR-003P o MS-AZR-0023P). Los proveedores de soluciones en la nube pueden usar Azure Portal o el  [Centro de partners](/partner-center/azure-reservations) para comprar reservas de Azure.
 
-Los clientes de Contrato Enterprise (EA) pueden limitar sus compras a los administradores de EA mediante la desactivación de la opción **Add Reserved Instances** (Agregar instancias reservadas) en EA Portal. Para poder comprar una reserva, los administradores de Contrato Enterprise deben ser propietarios de la suscripción para al menos una suscripción de Contrato Enterprise. La opción es útil para empresas que requieren un equipo centralizado para comprar reservas para distintos centros de coste. Después de la compra, los equipos centralizados pueden agregar propietarios de centros de coste a las reservas. Los propietarios pueden entonces ampliar la reserva a sus suscripciones. El equipo central no necesita tener acceso al propietario de la suscripción donde se compra la reserva.
+Los clientes de Contrato Enterprise (EA) puede limitar las compras a los administradores de EA. Para hacerlo, deshabilitan la opción **Agregar instancias reservadas** en EA Portal. Para poder comprar una reserva, los administradores de Contrato Enterprise deben ser propietarios de la suscripción para al menos una suscripción de Contrato Enterprise. La opción es útil para empresas que requieren un equipo centralizado para comprar reservas para distintos centros de coste. Después de la compra, los equipos centralizados pueden agregar propietarios de centros de coste a las reservas. Los propietarios pueden entonces ampliar la reserva a sus suscripciones. El equipo central no necesita tener acceso al propietario de la suscripción donde se compra la reserva.
 
-Un descuento por reserva se aplica solo a los recursos asociados con las suscripciones compradas a través de Enterprise, CSP y planes individuales con tarifas de pago por uso.
+Un descuento por reserva se aplica solo a los recursos asociados con las suscripciones compradas a través de Enterprise, Proveedor de soluciones en la nube (CSP) y planes individuales con tarifas de pago por uso.
 
 ## <a name="scope-reservations"></a>Ámbito de las reservas
 
@@ -66,13 +66,13 @@ Un único grupo de recursos puede obtener descuentos por reserva de varias reser
 
 Puede limitar el ámbito de la reserva a un grupo de recursos al comprar la reserva o bien hacerlo después. Para limitar el ámbito de la reserva a un grupo de recursos, debe ser el propietario de la suscripción.
 
-Para establecer el ámbito, vaya a la página [Comprar reservas](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) en Azure Portal. A continuación, seleccione el tipo de reserva que quiere comprar. En el formulario de selección **Seleccione el producto que quiere comprar**, cambie el valor de **Ámbito** a **Grupo de recursos único** y seleccione un grupo de recursos.
+Para establecer el ámbito, vaya a la página [Comprar reservas](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) en Azure Portal. Seleccione el tipo de reserva que quiere comprar. En el formulario de selección **Seleccione el producto que quiere comprar**, cambie el valor de Ámbito a Grupo de recursos único. Después, seleccione un grupo de recursos.
 
 ![Ejemplo que muestra la selección de compra de reservas de máquina virtual](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
 
 Se muestran las recomendaciones de compra del grupo de recursos en la reserva de máquina virtual. Las recomendaciones se calculan mediante el análisis del uso durante los últimos 30 días. Si el costo de la ejecución de recursos con instancias reservadas es más barato que el costo de la ejecución de recursos con tarifas de pago por uso, se realiza una recomendación de compra. Para más información sobre las recomendaciones de compra de reservas, consulte la entrada de blog [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) (Obtener recomendaciones de compra de instancias reservadas basadas en el patrón de uso).
 
-También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
+También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic en **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
 
 ![Ejemplo que muestra un cambio en el ámbito de la reserva](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
 
@@ -88,7 +88,7 @@ Si observa que el uso de la reserva con ámbito de grupo de recursos es bajo, pu
 
 Si no tiene recursos que coincidan en un grupo de recursos, la reserva estará infrautilizada. La reserva no se aplica automáticamente a un grupo de recursos o una suscripción diferentes en los que haya un uso bajo.
 
-Un ámbito de reserva no se actualiza automáticamente si se mueve el grupo de recursos de una suscripción a otra. Tendrá que volver a limitar el ámbito de la reserva. Si no, la reserva estará infrautilizada.
+Un ámbito de reserva no se actualiza automáticamente si se mueve el grupo de recursos de una suscripción a otra. El ámbito no se actualiza si se elimina el grupo de recursos. Tendrá que [volver a limitar el ámbito de la reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Si no, la reserva estará infrautilizada.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Tipos de ofertas y suscripciones con descuento
 
@@ -102,17 +102,17 @@ Los recursos que se ejecutan en una suscripción con otros tipos de oferta no re
 
 ## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva?
 
-La reserva se cobra en el método de pago vinculado a la suscripción. Si tiene una suscripción Enterprise, el costo de la reserva se deducirá del saldo del compromiso monetario. Si este no es suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta. Si se le factura por factura, verá los cargos la próxima vez que reciba una.
+La reserva se cobra en el método de pago vinculado a la suscripción. Si tiene una suscripción Enterprise, el costo de la reserva se deducirá del saldo del compromiso monetario. Cuando este no sea suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta. Cuando se le facture por factura, verá los cargos la próxima vez que reciba una.
 
 ## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-El descuento por reserva se aplica a la utilización de recursos que coincide con los atributos seleccionados al comprar la reserva. Estos atributos incluyen el ámbito en el que se ejecutan las máquinas virtuales, SQL Database, Azure Cosmos DB u otros recursos coincidentes. Por ejemplo, si quiere un descuento por reserva para las cuatro máquinas virtuales Estándar D2 en la región Oeste de EE. UU., seleccione la suscripción en la que se ejecutan las máquinas virtuales.
+El descuento por reserva se aplica a la utilización de recursos que coincide con los atributos seleccionados al comprar la reserva. Los atributos incluyen el ámbito en el que se ejecutan las máquinas virtuales, SQL Database, Azure Cosmos DB u otras ejecuciones de recursos. Por ejemplo, si quiere un descuento por reserva para las cuatro máquinas virtuales Estándar D2 en la región Oeste de EE. UU., seleccione la suscripción en la que se ejecutan las máquinas virtuales.
 
 Un descuento de reserva significa "*usarlo o perderlo*". Si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
 Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, entonces las horas reservadas se *pierden*.
 
-Por ejemplo, más adelante podría crear un recurso y tener una reserva que coincida con la que está infrautilizada. En este ejemplo, el descuento por reserva se aplica automáticamente al nuevo recurso coincidente.
+Por ejemplo, más adelante podría crear un recurso y tener una reserva que coincida con la que está infrautilizada. El descuento por reserva se aplica automáticamente al nuevo recurso coincidente.
 
 Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la reserva en varias suscripciones. También puede cambiar el ámbito después de la compra de la reserva. Para más información, consulte [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md).
 
@@ -120,7 +120,7 @@ Un descuento por reserva solo se aplica a los recursos asociados con Enterprise,
 
 ## <a name="when-the-reservation-term-expires"></a>Cuando expira el plazo de reserva
 
-Al final del plazo de reserva, el descuento en la facturación expira y la máquina virtual, SQL Database, Azure Cosmos DB u otros recursos se facturan según los precios de pago por uso. Azure Reservations no se renueva automáticamente. Para seguir disfrutando del descuento de facturación, debe comprar una reserva nueva para los servicios y el software aplicables.
+Al final del plazo de reserva, el descuento de facturación expira. La máquina virtual, la base de datos SQL y Azure Cosmos DB u otros recursos se factura según el precio de pago por uso. Azure Reservations no se renueva de manera automática. Para seguir disfrutando del descuento de facturación, debe comprar una reserva nueva para los servicios y el software aplicables.
 
 ## <a name="discount-applies-to-different-sizes"></a>El descuento se aplica a los diferentes tamaños
 
@@ -128,9 +128,31 @@ Al comprar una reserva, puede aplicar el descuento a otras instancias con atribu
 
 Planes de servicio:
 
-- Instancias reservadas de máquina virtual: al comprar la reserva y seleccionar **Optimizado para**: **flexibilidad de tamaño de instancia**, la cobertura de descuento dependerá del tamaño de máquina virtual que elija. La reserva se puede aplicar a los tamaños de máquinas virtuales (VM) en el mismo grupo de series de tamaño. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Instancias reservadas de máquina virtual: al comprar la reserva y seleccionar **Optimizado para: flexibilidad de tamaño de instancia**, la cobertura de descuento dependerá del tamaño de máquina virtual que elija. La reserva se puede aplicar a los tamaños de máquinas virtuales (VM) en el mismo grupo de series de tamaño. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - Capacidad reservada de SQL Database: la cobertura del descuento depende del nivel de rendimiento elegido. Para más información, vea [Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database](billing-understand-reservation-charges.md).
 - Capacidad reservada de Azure Cosmos DB: la cobertura del descuento depende del rendimiento aprovisionado. Para más información, vea [Aplicación del descuento por reserva a Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md).
+
+## <a name="reservation-notifications"></a>Notificaciones de reserva
+
+En función de cómo paga la suscripción de Azure, enviaremos notificaciones de reservas por correo electrónico a los siguientes usuarios de su organización. Se envían notificaciones para varios eventos, entre los que se incluyen:
+
+- Purchase
+- Próxima expiración de la reserva
+- Expiry
+- Renovación
+- Cancelación
+- Cambio de ámbito
+
+Para clientes con suscripciones de EA:
+- Se envía una notificación de compra al comprador y a los contactos de notificación de EA.
+- Otras notificaciones del ciclo de vida de la reserva solo se envían a los contactos de notificación de EA.
+- Los usuarios que se agregan a una reserva a través del permiso de RBAC (IAM) no reciben ninguna notificación por correo electrónico.
+
+Para clientes con suscripciones individuales:
+- El comprador recibe una notificación de compra.
+- En el momento de la compra, el propietario de la cuenta de facturación de suscripción recibe una notificación de compra.
+- El propietario de la cuenta recibe todas las demás notificaciones.
+
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

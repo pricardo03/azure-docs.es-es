@@ -12,23 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02f4fa45cbfa619825478520961b6411459973e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074154"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326275"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Monitor de estado v2: Instrucciones detalladas
 
 En este artículo se describe cómo incorporarse a la Galería de PowerShell y descargar el módulo ApplicationMonitor.
-Se describen los parámetros más comunes que necesitará para empezar.
-También se incluyen instrucciones manuales en caso de que no tenga acceso a Internet.
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Se incluyen los parámetros más comunes que necesitará para empezar.
+También proporcionamos instrucciones de descarga manual en caso de que no tenga acceso a Internet.
 
 ## <a name="get-an-instrumentation-key"></a>Obtención de una clave de instrumentación
 
@@ -36,11 +31,10 @@ Para empezar, necesita una clave de instrumentación. Para obtener más informac
 
 ## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Ejecución de PowerShell como administrador con una directiva de ejecución con privilegios elevados
 
-**Ejecutar como administrador**
+### <a name="run-as-admin"></a>Ejecutar como administrador
 
 PowerShell necesita permisos de nivel de administrador para hacer cambios en el equipo.
-
-**Directiva de ejecución**
+### <a name="execution-policy"></a>Directiva de ejecución
 - Description: De forma predeterminada, la ejecución de scripts de PowerShell está deshabilitada. Le recomendamos que permita los scripts de RemoteSigned solo para el ámbito actual.
 - Referencia: [Información sobre las directivas de ejecución](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) y [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
@@ -251,6 +245,6 @@ Consulte la [referencia de la API](status-monitor-v2-api-enable-monitoring.md) p
 - [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para habilitar las llamadas de seguimiento.
 - [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar llamadas de seguimiento y registro.
 
-Haga más con el Monitor de estado v2:
+Hacer más con el Monitor de estado v2:
 
 - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.

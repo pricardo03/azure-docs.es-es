@@ -8,33 +8,36 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 17b7626f79d7d356e3e8f3440e4a6526f2df776d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186084"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593278"
 ---
 La plantilla del proyecto de Azure Functions de Visual Studio crea un proyecto que se puede publicar en una aplicación de función en Azure. Puede usar una aplicación de función para agrupar funciones como una unidad lógica para la administración, la implementación y el uso compartido de recursos.
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 
-2. En el cuadro de diálogo **Nuevo proyecto** seleccione **Instalado** > **Visual C#**  > **Nube** > **Azure Functions**. Escriba el nombre del proyecto y seleccione **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
+1. En el cuadro de diálogo **Crear un proyecto**, busque `functions`, elija la plantilla de **Azure Functions** y, a continuación, seleccione **Siguiente**.
 
-    ![Cuadro de diálogo Nuevo proyecto para crear una función en Visual Studio](./media/functions-vstools-create/functions-vs-new-project.png)
+1. Escriba un nombre para el proyecto y seleccione **Crear**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
-3. Use la configuración especificada en la tabla que aparece después de la imagen.
+1. En **Crear una aplicación de Azure Functions**, utilice las siguientes opciones:
 
-    ![Cuadro de diálogo de función nueva en Visual Studio](./media/functions-vstools-create/functions-vs-new-function.png) 
+    + **Azure Functions v2 (.NET Core)** 1
+    + **desencadenador HTTP**
+    + **Storage Account** (Cuenta de almacenamiento): **Emulador de Storage**
+    + **Nivel de autorización**: **Anonymous** 
 
-    | Configuración      | Valor sugerido  | DESCRIPCIÓN                      |
+    | Opción      | Valor sugerido  | DESCRIPCIÓN                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versión** | Azure Functions 2.x <br />(.NET Core) | Este valor crea un proyecto de función que usa la versión 2.x del entorno de ejecución de Azure Functions, que es compatible con .NET Core. Azure Functions 1.x admite .NET Framework. Para más información, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](../articles/azure-functions/functions-versions.md).   |
-    | **Plantilla** | Desencadenador HTTP | Con este valor se crea una función desencadenada por una solicitud HTTP. |
-    | **Cuenta de almacenamiento**  | Emulador de Storage | Un desencadenador HTTP no usa la conexión de la cuenta de Azure Storage. Todos los demás tipos de desencadenador requieren una cadena de conexión de cuenta de Storage válida. |
-    | **Derechos de acceso** | Anónimas | Cualquier cliente puede desencadenar una función creada sin tener que proporcionar una clave. Esta configuración de autorización facilita probar la función nueva. Para más información sobre las claves y la autorización, consulte [Claves de autorización](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) en los [enlaces HTTP y de webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
+    | Sistema en tiempo de ejecución de Functions | **Azure Functions 2. x <br />(.NET Core)** | Este valor crea un proyecto de función que usa la versión 2.x del entorno de ejecución de Azure Functions, que es compatible con .NET Core. Azure Functions 1.x admite .NET Framework. Para más información, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](../articles/azure-functions/functions-versions.md).   |
+    | Plantilla de función | **desencadenador HTTP** | Con este valor se crea una función desencadenada por una solicitud HTTP. |
+    | **Storage Account**  | **Emulador de Storage** | Un desencadenador HTTP no usa la conexión de la cuenta de Azure Storage. Todos los demás tipos de desencadenador requieren una cadena de conexión de cuenta de Storage válida. Dado que Azure Functions necesita una cuenta de Storage, se asigna una o se crea al publicar el proyecto en Azure. |
+    | **Nivel de autorización** | **Anonymous** | Cualquier cliente puede desencadenar una función creada sin tener que proporcionar una clave. Esta configuración de autorización facilita probar la función nueva. Para más información sobre las claves y la autorización, consulte [Claves de autorización](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) en los [enlaces HTTP y de webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     > [!NOTE]
-    > Asegúrese de establecer los **derechos de acceso** en `Anonymous`. Al elegir el nivel predeterminado de `Function`, tiene que presentar la [tecla de función](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) en las solicitudes para acceder al punto de conexión de la función.
+    > Asegúrese de establecer el **Nivel de autorización** en `Anonymous`. Al elegir el nivel predeterminado de `Function`, tiene que presentar la [tecla de función](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) en las solicitudes para acceder al punto de conexión de la función.
     
-4. Seleccione **Aceptar** para crear el proyecto de función y la función que se desencadena mediante HTTP.
+4. Seleccione **Crear** para crear el proyecto de función y la función que se desencadena mediante HTTP.

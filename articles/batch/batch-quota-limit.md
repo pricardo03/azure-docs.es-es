@@ -4,7 +4,7 @@ description: Obtenga información sobre las restricciones, los límites y las cu
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080899"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323159"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -75,7 +75,7 @@ El servicio Batch establece límites adicionales. A diferencia de [las cuotas de
 
 ## <a name="view-batch-quotas"></a>Visualización de las cuotas de Batch
 
-Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
+Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
 
 1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
 1. Seleccione **Cuotas** en el menú de la cuenta de Batch.
@@ -85,7 +85,7 @@ Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
 
-Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch. Para solicitar un aumento de cuota, debe incluir la serie de VM para la que quiere aumentar la cuota. Cuando se aplica el aumento de cuota, se aplica a todas las series de VM.
+Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch. Para solicitar un aumento de cuota, debe incluir la serie de VM para la que quiere aumentar la cuota. Cuando se aplica el aumento de cuota, se aplica a todas las series de VM.
 
 ### <a name="increase-cores-quota-in-batch"></a>Aumentar la cuota de núcleos de Batch 
 

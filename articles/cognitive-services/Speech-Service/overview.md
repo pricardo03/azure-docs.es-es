@@ -1,7 +1,7 @@
 ---
-title: ¿Qué son los servicios de voz de Azure?
+title: ¿Qué es el servicio Voz?
 titleSuffix: Azure Cognitive Services
-description: Los servicios de voz de Azure son la unificación de voz a texto, texto a voz y traducción de voz en una sola suscripción a Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de voz, el SDK de dispositivos de voz o las API de REST. Agregue la funcionalidad de voz a un bot de chat existente, convierta texto a voz en una aplicación de traducción o transcriba grandes volúmenes de datos del centro de llamadas.
+description: Servicios de voz es la unificación de las conversiones de voz a texto o texto a voz y la traducción de voz en una sola suscripción a Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de voz, el SDK de dispositivos de voz o las API de REST. Agregue la funcionalidad de voz a un bot de chat existente, convierta texto a voz en una aplicación de traducción o transcriba grandes volúmenes de datos del centro de llamadas.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d9664ac9fb72a5f094674856a20230199270f01d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603149"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554182"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 

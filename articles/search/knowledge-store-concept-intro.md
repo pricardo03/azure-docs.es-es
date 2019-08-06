@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540751"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668278"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>¿Qué es Knowledge Store en Azure Search?
 
@@ -22,11 +22,13 @@ ms.locfileid: "65540751"
 > Knowledge Store se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
 >
 
-Knowledge Store es una característica opcional de Azure Search que guarda documentos enriquecidos y metadatos creados por una canalización de indexación basada en IA [(búsqueda cognitiva)](cognitive-search-concept-intro.md). Knowledge Store tiene el respaldo de una cuenta de Azure Storage que se configura como parte de la canalización. Cuando se habilita, el servicio de búsqueda usa esta cuenta de almacenamiento para guardar en caché una representación de cada documento enriquecido. 
+Almacén de conocimiento es una característica de Azure Search que guarda documentos enriquecidos y metadatos creados por una canalización de indexación basada en IA [(búsqueda cognitiva)](cognitive-search-concept-intro.md). Un documento enriquecido es la salida de una canalización creada a partir del contenido que se ha extraído, estructurado y analizado mediante recursos en Cognitive Services. En una canalización estándar basada en inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Con el almacén de conocimiento, los documentos se guardan para su posterior evaluación, exploración y pueden convertirse en entradas a una carga de trabajo de ciencia de datos de bajada. 
 
-Si ha usado la búsqueda cognitiva anteriormente, ya sabe que los conjuntos de aptitudes pueden usarse para mover un documento a través de una secuencia de enriquecimientos. El resultado puede ser un índice de Azure Search o (algo nuevo en esta versión preliminar) proyecciones en un almacén de conocimientos.
+Si ha usado la búsqueda cognitiva anteriormente, ya sabe que los conjuntos de aptitudes se usan para mover un documento a través de una secuencia de enriquecimientos. El resultado puede ser un índice de Azure Search o (algo nuevo en esta versión preliminar) proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son físicamente diferentes entre sí. Comparten el mismo contenido, pero se almacenan y se usan de maneras muy distintas.
 
-Las proyecciones son el mecanismo para estructurar los datos para su consumo en una aplicación de nivel inferior. Puede usar el [Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) creado para Azure Storage, o cualquier aplicación que se conecte a Azure Storage, lo que abre nuevas posibilidades para consumir documentos enriquecidos. Algunos ejemplos son canalizaciones de ciencia de datos y análisis personalizados.
+Físicamente, un almacén de información se crea en una cuenta de Azure Storage, ya sea como Azure Table Storage o Blog Storage, en función de cómo se configure la canalización. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
+
+Las proyecciones son el mecanismo para estructurar los datos en un almacén de conocimiento. Por ejemplo, a través de las proyecciones, puede elegir si la salida se guarda como un solo blob o como una colección de tablas relacionadas. Una manera sencilla de ver el contenido de un almacén de conocimiento es con el [Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) integrado para Azure Storage.
 
 ![Diagrama de Knowledge Store en una canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
@@ -120,7 +122,7 @@ Si ya está familiarizado con la indexación basada en IA, la definición de un 
 
 Para crear un almacén de conocimientos, necesita los servicios y artefactos siguientes.
 
-### <a name="1---source-data"></a>1. Datos de origen
+### <a name="1---source-data"></a>1\. Datos de origen
 
 Los datos o los documentos que quiere enriquecer deben existir en un origen de datos de Azure compatible con los indexadores de Azure Search: 
 
@@ -132,24 +134,24 @@ Los datos o los documentos que quiere enriquecer deben existir en un origen de d
 
 [Azure Table Storage](search-howto-indexing-azure-tables.md) puede usarse para datos de salida en un almacén de conocimientos, pero no puede usarse como recurso de datos de entrada a una canalización de indexación basada en IA.
 
-### <a name="2---azure-search-service"></a>2. Servicio Azure Search
+### <a name="2---azure-search-service"></a>2\. Servicio Azure Search
 
 También necesita un servicio Azure Search y la API de REST para crear y configurar objetos usados para el enriquecimiento de datos. La API de REST para crear un almacén de conocimientos es `api-version=2019-05-06-Preview`.
 
 Azure Search proporciona la característica de indexador, y los indexadores se usan para controlar el proceso completo, de un extremo a otro, lo que genera documentos enriquecidos persistentes en Azure Storage. Los indexadores usan un origen de datos, un índice y un conjunto de aptitudes, todos ellos necesarios para crear y rellenar un almacén de conocimientos.
 
-| Objeto | API DE REST | DESCRIPCIÓN |
+| Object | API DE REST | DESCRIPCIÓN |
 |--------|----------|-------------|
 | origen de datos | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de un origen de datos)  | Recurso que identifica un origen de datos de Azure externo que proporciona los datos de origen que se usan para crear documentos enriquecidos.  |
 | conjunto de aptitudes | [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que coordina el uso de las [aptitudes integradas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
 | index | [Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Esquema que expresa un índice de Azure Search. Los campos del índice se asignan a los campos de los datos de origen o a los campos fabricados durante la fase de enriquecimiento (por ejemplo, un campo para los nombres de organización creado por el reconocimiento de entidades). |
 | indexador | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. El resultado es un índice de búsqueda basado en el esquema de índice, que se rellena con datos de origen enriquecidos a través de conjuntos de aptitudes.  |
 
-### <a name="3---cognitive-services"></a>3. Cognitive Services
+### <a name="3---cognitive-services"></a>3\. Cognitive Services
 
 Los enriquecimientos especificados en un conjunto de aptitudes se basan en las características Computer Vision y Language de Cognitive Services. La funcionalidad de Cognitive Services se aprovecha durante la indexación a través del conjunto de aptitudes. Un conjunto de aptitudes es una composición de aptitudes, y las aptitudes están enlazadas a las características específicas Computer Vision y Language. Para integrar Cognitive Services, deberá [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) a un conjunto de aptitudes.
 
-### <a name="4---storage-account"></a>4. Cuenta de almacenamiento
+### <a name="4---storage-account"></a>4\. Cuenta de almacenamiento
 
 En la cuenta de Azure Storage, Azure Search crea un contenedor de blobs o tablas, según cómo configure un conjunto de aptitudes. Si los datos proceden de Azure Blob o Table Storage, ya está listo. En caso contrario, tendrá que crear una cuenta de Azure Storage. Las tablas y los objetos en Azure Storage contienen los documentos enriquecidos creados por la canalización de indexación basada en IA.
 
@@ -157,7 +159,7 @@ La cuenta de almacenamiento se especifica en el conjunto de aptitudes. En `api-v
 
 <a name="tools-and-apps"></a>
 
-### <a name="5---access-and-consume"></a>5. Acceso y consumo
+### <a name="5---access-and-consume"></a>5\. Acceso y consumo
 
 Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualquier herramienta o tecnología que se conecte a Azure Blob o Table Storage para explorar, analizar o consumir el contenido. La lista siguiente es un comienzo:
 

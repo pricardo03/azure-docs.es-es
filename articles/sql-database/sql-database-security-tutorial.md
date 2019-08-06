@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566874"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640129"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 
@@ -38,6 +38,9 @@ Azure SQL Database protege los datos de una base de datos única o agrupada al p
 > Una base de datos de Azure SQL en una instancia administrada se protege mediante reglas de seguridad de red y puntos de conexión privados, como se describe en [Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y [Arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md).
 
 Para más información, consulte los artículos [Información general sobre las funcionalidades de seguridad de Azure SQL Database](/azure/sql-database/sql-database-security-index) y [Funcionalidades](sql-database-security-overview.md).
+
+> [!TIP]
+> El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre cómo [proteger la instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

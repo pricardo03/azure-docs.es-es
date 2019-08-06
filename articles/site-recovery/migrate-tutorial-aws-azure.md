@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400047"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663496"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -96,8 +96,10 @@ Cuando se crean máquinas virtuales de Azure después de la migración (conmutac
 6. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
 7. En **Ubicación**, seleccione **Europa Occidental**.
 8. En **Subred**, mantenga los valores predeterminados de **Nombre** e **Intervalo IP**.
-9. Mantenga la opción **Puntos de conexión de servicio** deshabilitada.
-10. Seleccione **Crear** cuando haya terminado.
+9. Agregue instrucciones para la configuración de protección contra DDoS.
+10. Mantenga la opción **Puntos de conexión de servicio** deshabilitada.
+11. Agregue instrucciones para la configuración de firewall.
+12. Seleccione **Crear** cuando haya terminado.
 
 ## <a name="prepare-the-infrastructure"></a>Preparación de la infraestructura
 
@@ -115,7 +117,7 @@ Seleccione los valores siguientes en la página **Objetivo de protección**:
 
 Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente sección.
 
-### <a name="2-select-deployment-planning"></a>2. Selección de un planeamiento de implementación
+### <a name="2-select-deployment-planning"></a>2\. Selección de un planeamiento de implementación
 
 En **¿Completó el planeamiento de implementación?** , seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
 
@@ -157,7 +159,7 @@ En esta sección, debe especificar información sobre los recursos que creó en 
 
 Debe crear una directiva de replicación para poder habilitar la replicación.
 
-1. Seleccione **Replicate and Associate** (Replicar y asociar).
+1. Seleccione **Crear y asociar**.
 2. En **Nombre**, escriba **myReplicationPolicy**.
 3. Deje el resto de la configuración en los valores predeterminados y, después, seleccione **Aceptar** para crear la directiva. La nueva directiva se asocia automáticamente al servidor de configuración.
 
@@ -179,7 +181,7 @@ Habilite la replicación para cada una de las máquinas virtuales que quiera mig
      |Tipo de máquina: | Seleccione **Máquinas físicas**.|
      | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
 
-   - 2. Configuración del destino
+   - 2\. Configuración del destino
 
      |  |  |
      |-----|-----|

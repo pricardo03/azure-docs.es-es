@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core): Servicios de Voz'
+title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core): Servicios de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a sintetizar la voz en C# con .NET Core para Windows mediante el SDK de Voz.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: ccb6ec5b6f29c57a6136c571558d4126d0607710
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467197"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607679"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Inicio rápido: Síntesis de voz con el SDK de Voz para .NET Core
 
 También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-csharp-dotnetcore-windows.md) y la [traducción de voz](quickstart-translate-speech-dotnetcore-windows.md).
 
-En este artículo, creará una aplicación de consola de C# para .NET Core en Windows mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. Puede sintetizar la voz a partir de texto en tiempo real en el altavoz del equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
+En este artículo, creará una aplicación de consola de C# para .NET Core en Windows mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. Puede sintetizar la voz a partir de texto en tiempo real en el altavoz del equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior (cualquier edición).
 
 > [!NOTE]
 > .NET Core es una plataforma de .NET multiplataforma de código abierto que implementa la especificación [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -33,7 +33,7 @@ Necesita una clave de suscripción de servicios de voz para completar este Inici
 Esta guía de inicio rápido requiere:
 
 * [SDK de .NET Core](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio

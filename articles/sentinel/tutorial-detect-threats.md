@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621232"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370717"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detección de amenazas con la versión preliminar de Azure Sentinel
 
@@ -33,7 +33,7 @@ Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sen
 Este tutorial ayuda a detectar amenazas con Azure Sentinel.
 > [!div class="checklist"]
 > * Crear reglas de detección
-> * Respuesta a amenazas
+> * Automatizar las respuestas frente a amenazas
 
 ## <a name="create-detection-rules"></a>Crear reglas de detección
 
@@ -83,14 +83,24 @@ Las reglas de detección se basan en los tipos de amenazas y anomalías que quie
 
 
 
-## <a name="respond-to-threats"></a>Respuesta a amenazas
+## <a name="automate-threat-responses"></a>Automatizar las respuestas frente a amenazas
 
-Azure Sentinel ofrece dos opciones principales para responder a amenazas con cuadernos de estrategias. Puede establecer un cuaderno de estrategias para que se ejecute automáticamente cuando se desencadene una alerta, o bien ejecutar un cuaderno de estrategias manualmente como respuesta a una alerta.
+Los equipos de SIEM y SOC pueden verse inundados con alertas de seguridad periódicamente. El volumen de las alertas generadas es tan grande que los administradores de seguridad disponibles están desbordados. Esto genera, con demasiada frecuencia, situaciones en las que no se pueden investigar muchas alertas, lo que hace que la organización sea vulnerable a ataques que pasan desapercibidos. 
 
-- Establezca un cuaderno de estrategias para que se ejecute automáticamente cuando se desencadene una alerta al configurar ese cuaderno de estrategias. 
+Muchas de estas alertas, si no la mayoría, se ajustan a los patrones recurrentes que se pueden resolver mediante acciones de corrección específicas y definidas. Azure Sentinel ya le permite definir la corrección en los cuadernos de estrategias. También es posible establecer la automatización en tiempo real como parte de la definición del cuaderno de estrategias para que pueda automatizar completamente una respuesta definida ante alertas de seguridad determinadas. Con la automatización en tiempo real, los equipos de respuesta pueden reducir de forma significativa su carga de trabajo al automatizar completamente las respuestas rutinarias a tipos de alertas recurrentes, lo que le permite concentrarse más en las alertas singulares, en el analizar patrones, en la búsqueda de amenazas y mucho más.
 
-- Ejecute un cuaderno de estrategias manualmente desde la propia alerta; para ello, haga clic en **View playbooks** (Ver cuadernos de estrategias) y, después, seleccione un cuaderno de estrategias para ejecutarlo.
+Para automatizar las respuestas:
 
+1. Elija la alerta para la que quiere automatizar la respuesta.
+1. En el menú de navegación del área de trabajo de Azure Sentinel, seleccione **Análisis**.
+1. Seleccione la alerta que quiere automatizar. 
+1. En la página**Editar regla de alerta**, en **Real-time automation** (Automatización en tiempo real), elija el **Triggered playbook** (Cuaderno de estrategias desencadenado) que quiera ejecutar cuando se cumpla esta regla de alerta.
+1. Seleccione **Guardar**.
+
+   ![automatización en tiempo real](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+Además, puede corregir manualmente una alerta y ejecuta un cuaderno de estrategias desde dentro de la alerta con si hace clic en **View playbooks** (Ver cuaderno de estrategias) y, luego, selecciona un cuaderno de estrategias para ejecutarlo. Para información sobre cómo crear un cuaderno de estrategias nuevo o editar uno existente, consulte el artículo sobre cómo [trabajar con cuadernos de estrategias en Azure Sentinel](tutorial-respond-threats-playbook.md).
 
 
 

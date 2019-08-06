@@ -10,22 +10,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292822"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370681"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propiedades estándar de los registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
 
-Algunas de estas propiedades aún se encuentran en proceso de implementación, por lo que puede que las vea en algunos tipos de datos, pero aún no en otros.
+> [!NOTE]
+> Algunas de las propiedades estándar no se mostrarán en la vista de esquema ni en IntelliSense en Log Analytics y no aparecerán en los resultados de la consulta, a menos que especifique explícitamente la propiedad de la salida.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated y timestamp
-La propiedades **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que se creó el registro. Proporciona una propiedad común que se utiliza para filtrar o resumir por hora. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se usa TimeGenerated o timestamp para filtrar los resultados.
+La propiedades **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que el origen de datos creó el registro. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](data-ingestion-time.md) para más detalles.
+
+**TimeGenerated** y **timestamp** proporcionan una propiedad común para usarla para filtrar o resumir por tiempo. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se usa TimeGenerated o timestamp para filtrar los resultados. 
 
 ### <a name="examples"></a>Ejemplos
 
@@ -48,6 +51,20 @@ exceptions
 | sort by timestamp asc 
 ```
 
+## <a name="_timereceived"></a>\_TimeReceived
+La propiedad **\_TimeReceived** contiene la fecha y hora en que el punto de ingesta de Azure Monitor recibió el registro en la nube de Azure. Esto puede resultar útil para identificar problemas de latencia entre el origen de datos y la nube. Un ejemplo sería un error de red que genere un retraso con los datos que se envían desde un agente. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](data-ingestion-time.md) para más detalles.
+
+En la consulta siguiente se proporciona la latencia promedio por hora para los registros de eventos de un agente. Esto incluye el tiempo del agente a la nube y el tiempo total para que el registro esté disponible para las consultas de registro.
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
 ## <a name="type-and-itemtype"></a>Type e itemType
 Las propiedades **Type** (área de trabajo de Log Analytics) e **itemType** (aplicación de Application Insights) contienen el nombre de la tabla desde la que se recuperó el registro, que también se puede considerar como el tipo de registro. Esta propiedad es útil en las consultas que combinan registros de varias tablas, como las que utilizan el operador `search`, para distinguir entre registros de diferentes tipos. **$table** puede utilizarse en lugar de **Type** en algunos lugares.
 
@@ -58,9 +75,13 @@ La siguiente consulta devuelve el número de registros por tipo recopilados dura
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
-```
 
-## <a name="resourceid"></a>\_ResourceId
+```
+## <a name="_itemid"></a>\_ItemId
+La propiedad **\_ItemId** contiene un identificador único para el registro.
+
+
+## <a name="_resourceid"></a>\_ResourceId
 La propiedad **\_ResourceId** contiene un identificador único para el recurso con el que está asociado el registro. Esto le ofrece una propiedad estándar para usarla para definir el ámbito de la consulta a solo los registros de un recurso determinado, o para unir datos relacionados en varias tablas.
 
 En el caso de los recursos de Azure, el valor de **_ResourceId** es la [URL de id. de recurso de Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). La propiedad está actualmente limitada a los recursos de Azure, pero se extenderá a los recursos de fuera de Azure, por ejemplo, en equipos locales.
@@ -106,7 +127,7 @@ union withsource = tt *
 
 Use estas consultas `union withsource = tt *` con moderación, ya que la ejecución de exámenes entre tipos de datos es costosa.
 
-## <a name="isbillable"></a>\_IsBillable
+## <a name="_isbillable"></a>\_IsBillable
 La propiedad **\_IsBillable** especifica si los datos ingeridos son facturables. Los datos con **\_IsBillable** igual a _false_ se recopilan de forma gratuita y no se facturan en su cuenta de Azure.
 
 ### <a name="examples"></a>Ejemplos
@@ -133,8 +154,9 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 La propiedad **\_BilledSize** especifica el tamaño en bytes de los datos que se facturarán a su cuenta de Azure si **\_IsBillable** es true.
+
 
 ### <a name="examples"></a>Ejemplos
 Para ver el tamaño de los eventos facturables ingeridos por equipo, use la propiedad `_BilledSize`, que proporciona el tamaño en bytes:

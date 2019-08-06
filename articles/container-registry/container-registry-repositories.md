@@ -3,17 +3,17 @@ title: Repositorios de Azure Container Registry en Azure Portal
 description: Visualización de los repositorios de Azure Container Registry en Azure Portal.
 services: container-registry
 author: cristy
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: cristyg
-ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: 22f84efee2b3996734e8e38c73d30ba891b745d9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710190"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310578"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 
@@ -39,7 +39,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Para ver un repositorio:
 
-1. Inicie sesión en [Azure Portal][portal]
+1. Inicie sesión en el [Portal de Azure][portal]
 1. Seleccione la instancia de **Azure Container Registry** en la que insertó la imagen de Nginx
 1. Seleccione **Repositorios** para ver una lista de los repositorios que contienen las imágenes en el registro
 1. Seleccione un repositorio para ver las etiquetas de imagen dentro de ese repositorio

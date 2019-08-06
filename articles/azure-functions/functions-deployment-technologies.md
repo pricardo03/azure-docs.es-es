@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 47d8bf33fd686942326db3b1cc606978bf47a1bb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594392"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444037"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -23,8 +23,13 @@ Puede usar algunas tecnologías diferentes para implementar el código del proye
 
 ## <a name="deployment-technology-availability"></a>Disponibilidad de la tecnología de implementación
 
-> [!IMPORTANT]
-> Azure Functions admite el desarrollo local multiplataforma y hospedaje en Windows y Linux. Actualmente, hay tres planes de hospedaje disponibles: [Consumo](functions-scale.md#consumption-plan), [Premium](functions-scale.md#premium-plan) y [Dedicado (Azure App Service)](functions-scale.md#app-service-plan). Cada plan tiene diferentes comportamientos. No todas las tecnologías de implementación están disponibles para todos los tipos de instancia de Azure Functions.
+Azure Functions admite el desarrollo local multiplataforma y hospedaje en Windows y Linux. Actualmente, hay tres planes de hospedaje disponibles:
+
++ [Consumo](functions-scale.md#consumption-plan)
++ [Premium](functions-scale.md#premium-plan)
++ [Dedicado (App Service)](functions-scale.md#app-service-plan)
+
+Cada plan tiene diferentes comportamientos. No todas las tecnologías de implementación están disponibles para todos los tipos de instancia de Azure Functions. En el gráfico siguiente se muestran las tecnologías de implementación que se admiten para cada combinación de sistema operativo y plan de hospedaje:
 
 | Tecnología de implementación | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows  | Consumo para Linux (versión preliminar) | Dedicado de Linux |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
@@ -39,7 +44,7 @@ Puede usar algunas tecnologías diferentes para implementar el código del proye
 | Edición del portal |✔|✔|✔| |✔<sup>2</sup>|
 
 <sup>1</sup> Tecnología de implementación que requiere [sincronización manual de desencadenadores](#trigger-syncing).  
-<sup>2</sup> La edición del portal solo está habilitada para los desencadenadores de HTTP y de temporizador para Functions en Linux con el plan Dedicado.
+<sup>2</sup> La edición del portal solo está habilitada para los desencadenadores HTTP y de temporizador de Functions en Linux con los planes Premium y Dedicado.
 
 ## <a name="key-concepts"></a>Conceptos clave
 
@@ -75,13 +80,13 @@ Utilice la implementación de archivo ZIP para insertar un archivo ZIP que conti
 >
 >Si realiza la implementación mediante la implementación zip, puede establecer la aplicación para que se ejecute en modo de [ejecución desde el paquete](run-functions-from-deployment-package.md). Para establecer el modo de ejecución desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure.
 
->__Cuándo se debe usar__: Zip Deploy es la tecnología de implementación recomendada para la ejecución de Azure Functions en Windows y en Linux en el plan Dedicado.
+>__Cuándo se debe usar__: la implementación de un archivo ZIP es la tecnología de implementación recomendada para Functions que se ejecuta en Windows y Linux en el plan Premium o el plan Dedicado.
 
 ### <a name="docker-container"></a>Contenedor de Docker
 
 Puede implementar una imagen de contenedor de Linux que contenga la aplicación de funciones.
 
->__Cómo se debe usar:__ Cree una aplicación de funciones de Linux en el plan Dedicado y especifique desde qué imagen de contenedor se debe ejecutar. Puede hacerlo de dos maneras:
+>__Cómo se debe usar:__ Cree una aplicación de funciones de Linux en el plan Premium o el plan Dedicado y especifique desde qué imagen de contenedor se debe ejecutar. Puede hacerlo de dos maneras:
 >
 >* Cree una aplicación de funciones de Linux en un plan de Azure App Service en Azure Portal. En **Publicar**, seleccione **Imagen de Docker** y configure el contenedor. Escriba la ubicación donde se hospeda la imagen.
 >* Cree una aplicación de funciones de Linux en un plan de App Service mediante la CLI de Azure. Para obtener más información, consulte [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
@@ -104,7 +109,7 @@ Web Deploy empaqueta e implementa las aplicaciones Windows en cualquier servido
 
 Use el control de código fuente para conectar la aplicación de funciones a un repositorio de Git. Una actualización del código de ese repositorio desencadena la implementación. Para más información, vea la [wiki de Kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__Cómo se debe usar:__ Use el centro de implementación del portal de Azure Functions para configurar la publicación desde el control de código fuente. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md).
+>__Cómo se debe usar:__ Use el centro de implementación del área Functions del portal para configurar la publicación desde el control de código fuente. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md).
 
 >__Cuándo se debe usar__: El uso del control de código fuente es el procedimiento recomendado para los equipos que colaboran en sus aplicaciones de funciones. El control de código fuente es una buena opción de implementación que permite el uso de canalizaciones de implementación más sofisticadas.
 
@@ -138,26 +143,26 @@ En el editor basado en el portal, puede editar directamente los archivos que se 
 
 >__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](functions-create-first-azure-function.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`). 
 
->__Cuándo se debe usar__: El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar las herramientas de cliente:
+>__Cuándo se debe usar__: El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar una de las herramientas de cliente siguientes:
 >
->* [Introducción al uso de VS Code](functions-create-first-function-vs-code.md)
->* [Introducción al uso de Azure Functions Core Tools](functions-run-local.md)
->* [Introducción al uso de Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Azure Functions Core Tools (línea de comandos)](functions-run-local.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 La siguiente tabla muestra los sistemas operativos y lenguajes que admiten la edición del portal:
 
-| | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows | Consumo de Linux (versión preliminar) | Dedicado de Linux |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
+| | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows | Consumo para Linux (versión preliminar) | Premium para Linux (versión preliminar)| Dedicado de Linux |
+|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| Script de C# |✔|✔|✔| |✔<sup>*</sup>|
-| F# | | | | | |
-| Java | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>*</sup>|
-| Python (versión preliminar) | | | | | |
-| PowerShell (versión preliminar) |✔|✔|✔| | |
-| TypeScript (Node.js) | | | | | |
+| Script de C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| F# | | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| Python (versión preliminar) | | | | | | |
+| PowerShell (versión preliminar) |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> La edición del portal solo está habilitada para los desencadenadores de HTTP y de temporizador de Functions en Linux con el plan Dedicado.
+<sup>*</sup> La edición del portal solo está habilitada para los desencadenadores HTTP y de temporizador de Functions en Linux con los planes Premium y Dedicado.
 
 ## <a name="deployment-slots"></a>Ranuras de implementación
 
@@ -176,6 +181,7 @@ Hay dos niveles de compatibilidad para las ranuras de implementación:
 | Premium de Windows (versión preliminar) | Vista previa |
 | Dedicado de Windows | Disponibilidad general |
 | Consumo de Linux | No compatible |
+| Premium para Linux (versión preliminar) | Vista previa |
 | Dedicado de Linux | Disponibilidad general |
 
 ## <a name="next-steps"></a>Pasos siguientes

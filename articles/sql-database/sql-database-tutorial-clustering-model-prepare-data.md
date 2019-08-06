@@ -12,32 +12,34 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 83ef25f04012933c2665e63e4617d480eb336f7b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419803"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639976"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
-En la primera parte de esta serie de tutoriales de tres partes, preparará los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la primera parte de esta serie de tres tutoriales importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie usará estos datos para entrenar e implementar un modelo de Machine Learning de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
 
 La *agrupación en clústeres* consiste en organizar los datos en grupos en los que los miembros de un grupo son semejantes de alguna manera.
 Use el algoritmo **K-Means** para realizar la agrupación en clústeres de los clientes en un conjunto de datos de compras y devoluciones de productos. Mediante la agrupación en clústeres de los clientes, puede centrar los esfuerzos de marketing más eficazmente determinando varios grupos específicos como objetivo.
 La agrupación en clústeres K-Means es un algoritmo de *aprendizaje no supervisado* que busca patrones en los datos basándose en semejanzas.
 
+En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos SQL mediante procedimientos almacenados.
+
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Importar una base de datos de ejemplo en una base de datos de Azure SQL
-> * Separar clientes en diferentes dimensiones
-> * Cargar los datos de las bases de datos de Azure SQL en una trama de datos mediante R
+> * Separar clientes en diferentes dimensiones mediante R
+> * Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
 
-En la [segunda parte](sql-database-tutorial-clustering-model-build.md), aprenderá a crear y entrenar un modelo de agrupación en clústeres K-Means.
+En la [segunda parte](sql-database-tutorial-clustering-model-build.md) aprenderá a crear y entrenar un modelo de agrupación en clústeres K-Means en R.
 
-En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md), aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres basada en datos nuevos.
+En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres en R basada en datos nuevos.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -207,8 +209,8 @@ En Azure Portal, haga lo siguiente:
 En la primera parte de esta serie de tutoriales, realizó estos pasos:
 
 * Importar una base de datos de ejemplo en una base de datos de Azure SQL
-* Separar clientes en diferentes dimensiones
-* Cargar los datos de las bases de datos de Azure SQL en una trama de datos mediante R
+* Separar clientes en diferentes dimensiones mediante R
+* Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
 
 Para crear un modelo de aprendizaje automático que use datos de este cliente, siga la segunda parte de esta serie de tutoriales:
 

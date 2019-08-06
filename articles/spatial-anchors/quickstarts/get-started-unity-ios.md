@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37856c0833ecde1478d4bd588b8e3122e8eac0ca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: be478a3f77996276f248d9b385954af813ac0397
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135216"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562480"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación de Unity para iOS con Azure Spatial Anchors
 
@@ -24,7 +24,6 @@ Aprenderá a:
 > [!div class="checklist"]
 > * Crear una cuenta de Spatial Anchors
 > * Preparar la configuración de compilación de Unity
-> * Descargar e importar el complemento ARKit de Unity
 > * Configurar la clave y el identificador de la cuenta de Spatial Anchors
 > * Exportación del proyecto de Xcode
 > * Implementarlo y ejecutarlo en un dispositivo iOS
@@ -35,7 +34,7 @@ Aprenderá a:
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una máquina macOS que tenga instalados <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> y <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
+- Una máquina macOS que tenga instalados <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 o superior</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> y <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
 - GIT instalado mediante HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git`.
 - Un dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatible con ARKit</a> habilitado para el desarrollo.
 
@@ -51,7 +50,7 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 
 ## <a name="configure-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
 
-En el panel **Project** (Proyecto), vaya a `Assets/AzureSpatialAnchorsPlugin/Examples` y abra el archivo de escena `AzureSpatialAnchorsBasicDemo.unity`.
+En el panel **Project** (Proyecto), vaya a `Assets/AzureSpatialAnchors.Examples/Scenes` y abra el archivo de escena `AzureSpatialAnchorsBasicDemo.unity`.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -65,10 +64,11 @@ Para guardar la escena, seleccione **File** -> **Save** (Archivo > Guardar).
 
 Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
 
-> [!NOTE]
-> Cuando se ejecuta la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura negra, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Re-import all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
+Cuando termine, presione **Stop** (Detener) en Xcode para detener la aplicación.
 
-En Xcode, presione **Stop** (Detener) para detener la aplicación.
+## <a name="troubleshooting"></a>solución de problemas
+
+Cuando se ejecuta la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura negra, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Re-import all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

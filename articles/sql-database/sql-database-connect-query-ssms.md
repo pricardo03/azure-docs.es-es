@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 0a08ee9d38065b0dff13f68a7b5473aa93787cf5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147737"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569178"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella
 
@@ -43,7 +42,7 @@ Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos par
 
 ## <a name="install-the-latest-ssms"></a>Instalación del SSMS más reciente
 
-Antes de empezar, asegúrese de tener instala la versión más reciente de [SSMS][ssms-install-latest-84g].
+Antes de empezar, asegúrese de tener instalada la versión más reciente de [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 

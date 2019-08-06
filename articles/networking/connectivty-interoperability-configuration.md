@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 2ceb4aeac55bd555a41c29bd41b00c771490e5f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425798"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335932"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración de prueba
 
@@ -27,7 +27,7 @@ En la siguiente ilustración se muestran los detalles del emparejamiento de rede
 
 [![1]][1]
 
-En la siguiente ilustración se muestran los detalles del emparejamiento de redes virtuales del centro de conectividad. Si quiere que la red virtual de radio use las puertas de enlace del centro de conectividad, seleccione **Usar puertas de enlace remotas**.
+En la siguiente ilustración se muestran los detalles del emparejamiento de redes virtuales del centro de conectividad. Si quiere que la red virtual del centro permita que la red virtual de radio use las puertas de enlace del centro, seleccione **Allow gateway transit** (Permitir tránsito de puerta de enlace).
 
 [![2]][2]
 
@@ -188,21 +188,22 @@ En el emparejamiento de redes virtuales dentro de una región, las redes virtual
 
 You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. La solución de Azure nativa para esta configuración es la conectividad VPN de sitio a sitio mediante una VPN. Una alternativa es usar una aplicación virtual de red (NVA) para el enrutamiento en el centro de conectividad.
 
-Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementación de aplicaciones virtuales de red de alta disponibilidad][Deploy-NVA].
+Para más información, consulte [¿Qué es VPN Gateway?][VPN]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>and [Deploy a highly available NVA][Deploy-NVA].
+
+Pasos siguientes
 
 Más información acerca del [análisis del plano de control][Control-Analysis] de la configuración de prueba y de las vistas de otras redes virtuales y VLAN de la topología.
 
 Más información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
-
-Consulte [P+F de ExpressRoute][ExR-FAQ] para información acerca de:
+-   Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
--   Los límites de escala de ExpressRoute.
 
 
 <!--Image References-->
+Los límites de escala de ExpressRoute.
 [1]: ./media/backend-interoperability/SpokeVNet_peering.png "Emparejamiento de VNET de la red virtual de radio"
 [2]: ./media/backend-interoperability/HubVNet-peering.png "Emparejamiento de VNET de la red virtual del concentrador"
 [3]: ./media/backend-interoperability/BranchVNet-VPNGW.png "Configuración de la puerta de enlace de VPN de una red virtual de sucursal"
@@ -210,7 +211,6 @@ Consulte [P+F de ExpressRoute][ExR-FAQ] para información acerca de:
 [5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "Configuración de la conexión de ExpressRoute 1 a la puerta de enlace ExR del centro de conectividad"
 [6]: ./media/backend-interoperability/ExR2.png "Configuración de ExpressRoute 2"
 [7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "Configuración de la conexión de ExpressRoute 2 a la puerta de enlace ExR del centro de conectividad"
-[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Configuración de la conexión de ExpressRoute 2 a la puerta de enlace ExR de la red virtual remota"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

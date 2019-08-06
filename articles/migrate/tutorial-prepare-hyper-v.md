@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9e0d29770aa36f8e79bf08b7c5435ea2dbc4ae38
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 514905bf2db1c0c58faa131eeb916af033b2c830
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840379"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640845"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparación de la evaluación y migración de máquinas virtuales de Hyper-V a Azure
 
@@ -30,7 +30,7 @@ Este tutorial es el primero de una serie que muestra cómo evaluar máquinas vir
 
 
 > [!NOTE]
-> En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles. Para obtener instrucciones detalladas, revise los procedimientos para la evaluación y la migración de Hyper-V.
+> En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles. Para instrucciones detalladas, revise los procedimientos para la evaluación y la migración de Hyper-V.
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
@@ -40,20 +40,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ### <a name="azure-permissions"></a>Permisos de Azure
 
-Necesita un par de permisos para implementar Azure Migrate:
+Necesita configurar permisos para la implementación de Azure Migrate.
 
-- La cuenta de Azure necesita permisos para crear un proyecto de Azure Migrate para su evaluación y migración. 
-- La cuenta de Azure necesita permisos para registrar el dispositivo de Azure Migrate.
-    - Para la evaluación, Azure Migrate ejecuta un dispositivo ligero que detecta máquinas virtuales de Hyper-V y envía los metadatos y los datos de rendimiento de estas a Azure Migrate.
-    - Durante el registro del dispositivo, Azure Migrate crea dos aplicaciones Azure Active Directory (Azure AD) que identifican de forma única al dispositivo:
-        - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.
-        - La segunda aplicación accede a un almacén de claves de Azure creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
-    - Puede dar permiso a Azure Migrate para que cree estas aplicaciones de Azure AD con uno de los métodos siguientes:
-        - Un administrador de inquilinos o global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
-        - Un administrador de inquilinos o global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
-    - Merece la pena mencionar que:
-        - Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
-        - Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo. 
+- Permisos para crear un proyecto de Azure Migrate en la cuenta de Azure. 
+- Permisos en la cuenta de Azure para registrar el dispositivo de Azure Migrate. El dispositivo se usa para la detección y la migración de Hyper-V. Durante el registro del dispositivo, Azure Migrate crea dos aplicaciones Azure Active Directory (Azure AD) que identifican de forma única al dispositivo:
+    - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.
+    - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto
@@ -69,14 +62,10 @@ Compruebe que tenga permiso para crear un proyecto de Azure Migrate.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Asignación de permisos para registrar el dispositivo
 
-Si va a implementar el dispositivo de Azure Migrate para evaluar máquinas virtuales, deberá registrarlo.
+Puede asignar permisos para Azure Migrate para crear estas aplicaciones de Azure AD durante el registro del dispositivo mediante uno de los métodos siguientes:
 
-- Durante el registro del dispositivo, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD) que identifican de forma única al dispositivo.
-    - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.
-    - La segunda aplicación accede a un almacén de claves de Azure creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
-- Puede dar permiso a Azure Migrate para que cree estas aplicaciones de Azure AD con uno de los métodos siguientes:
-    - Un administrador de inquilinos o global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
-    - Un administrador de inquilinos o global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
+- Un administrador de inquilinos o administrador global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
+- Un administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
 
 Merece la pena mencionar que:
 
@@ -100,12 +89,68 @@ El administrador de inquilinos o global puede conceder permisos como se indica:
 
 #### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones 
 
-El administrador de inquilinos o global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## <a name="prepare-for-hyper-v-assessment"></a>Preparación de la evaluación de Hyper-V
 
-Para preparar la evaluación de Hyper-V, compruebe la configuración de la máquina virtual y el host de Hyper-V y compruebe la configuración de la implementación del dispositivo.
+Para prepararse para la evaluación de Hyper-V haga lo siguiente:
+
+1. Compruebe la configuración del host de Hyper-V.
+2. Configure la comunicación remota de PowerShell en cada host de modo que el dispositivo de Azure Migrate pueda ejecutar comandos de PowerShell en el host mediante una conexión de WinRM.
+3. Si los discos de máquina virtual se encuentran en almacenamiento SMB remoto, se necesita la delegación de credenciales. 
+    - Habilite la delegación CredSSP para que el dispositivo de Azure Migrate pueda actuar como cliente y delegar las credenciales en un host. T
+    - Permita que cada host actúe como delegado para el dispositivo, tal y como se describe a continuación.
+    - Más adelante, cuando configure el dispositivo, podrá habilitar en él la delegación.
+4. Revise los requisitos del dispositivo y el acceso a la dirección URL y el puerto necesarios para el dispositivo.
+5. Configure una cuenta que el dispositivo usará para detectar máquinas virtuales.
+6. Configure Hyper-V Integration Services en las máquinas virtuales que desee detectar y evaluar.
+
+
+Puede configurar estas opciones manualmente mediante los procedimientos siguientes. Como alternativa, ejecute el script de configuración de requisitos previos de Hyper-V.
+
+### <a name="hyper-v-prerequisites-configuration-script"></a>Script de configuración de requisitos previos de Hyper-V
+
+El script valida los hosts de Hyper-V y configura las opciones necesarias para detectar y evaluar las máquinas virtuales de Hyper-V. Así es cómo funciona:
+
+- Comprueba que se está ejecutando el script en una versión compatible de PowerShell.
+- Comprueba que usted (el usuario que ejecuta el script) tiene privilegios administrativos en el host de Hyper-V.
+- Permite crear una cuenta de usuario local (no administrador) que se usa para que el servicio Azure Migrate se comunique con el host de Hyper-V. Esta cuenta de usuario se agrega a estos grupos en el host:
+    - Usuarios de Administración remota
+    - Administradores de Hyper-V
+    - Usuarios de Monitor de rendimiento
+- Comprueba que el host está ejecutando una versión compatible de Hyper-V y el rol de Hyper-V.
+- Habilita el servicio WinRM y abre los puertos 5985 (HTTP) y 5986 (HTTPS) en el host (necesario para la recopilación de metadatos).
+- Habilita la comunicación remota con PowerShell en el host.
+- Comprueba que el servicio de integración de Hyper-V está habilitado en todas las máquinas virtuales administradas por el host. 
+- Habilita CredSSP en el host si es necesario.
+
+Ejecute el script como se indica a continuación:
+
+1. Asegúrese de que tiene instalada la versión de PowerShell 4.0 o posterior en el host de Hyper-V.
+2. Descargue el script del [Centro de descarga de Microsoft](https://aka.ms/migrate/script/hyperv). Microsoft firma criptográficamente el script.
+3. Valide la integridad del script mediante archivos hash MD5 o SHA256. Ejecute este comando para generar el código hash para el script:
+    ```
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Ejemplo de uso: 
+    ```
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
+    SHA256
+    ```
+    
+    Los valores de hash son:
+    Hash | Valor
+    --- | ---
+    **Hash MD5** | 0ef418f31915d01f896ac42a80dc414e
+    **Hash SHA256** | 0ef418f31915d01f896ac42a80dc414e0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+
+
+4.  Después de validar la integridad del script, ejecútelo en cada host de Hyper-V con este comando de PowerShell:
+    ```
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+
 
 ### <a name="verify-hyper-v-host-settings"></a>Comprobación de la configuración del host de Hyper-V
 
@@ -125,7 +170,12 @@ Configure la comunicación remota de PowerShell en cada host, como se indica a c
 
 ### <a name="enable-credssp-on-hosts"></a>Habilitación de CredSSP en los hosts
 
-Si los discos de las máquinas virtuales se encuentran en recursos compartidos SMB, complete este paso en cada host de Hyper-V correspondiente. Este paso se usa para detectar la información de configuración de las máquinas virtuales de Hyper-V que tienen discos en recursos compartidos SMB. Si no tiene discos de máquina virtual en recursos compartidos SMB, puede omitir el paso.
+Si el host tiene discos de las máquinas virtuales en recursos compartidos SMB, complete este paso en cada host.
+
+- Puede ejecutar este comando de forma remota en todos los hosts de Hyper-V.
+- Si agrega nuevos nodos de host en un clúster, se agregan automáticamente para la detección, pero debe habilitar CredSSP manualmente en los nuevos nodos si es necesario.
+
+Habilite de la siguiente manera:
 
 1. Identifique los hosts de Hyper-V que ejecutan máquinas virtuales de Hyper-V con discos en recursos compartidos SMB.
 2. Ejecute el siguiente comando en cada host de Hyper-V identificado:
@@ -134,9 +184,8 @@ Si los discos de las máquinas virtuales se encuentran en recursos compartidos S
     Enable-WSManCredSSP -Role Server -Force
     ```
 
-- La autenticación CredSSP permite al host de Hyper-V delegar las credenciales en nombre del cliente de Azure Migrate.
-- Puede ejecutar este comando de forma remota en todos los hosts de Hyper-V.
-- Si agrega nuevos nodos de host en un clúster, se agregan automáticamente para la detección, pero debe habilitar CredSSP manualmente en los nuevos nodos si es necesario.
+Al configurar el dispositivo, termine de configurar CredSSP mediante su [habilitación en el dispositivo](tutorial-assess-hyper-v.md#delegate-credentials-for-smb-vhds). Esto se describe en el siguiente tutorial de la serie.
+
 
 ### <a name="verify-appliance-settings"></a>Comprobación de la configuración del dispositivo
 
@@ -165,7 +214,7 @@ Azure Migrate necesita permisos para detectar máquinas virtuales locales.
 
 Integration Services debe estar habilitado en todas las máquinas virtuales para que Azure Migrate pueda capturar la información del sistema operativo de la máquina virtual.
 
-- En las máquinas virtuales que quiera detectar y evaluar, habilite [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) en cada máquina virtual. 
+En las máquinas virtuales que quiera detectar y evaluar, habilite [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) en cada máquina virtual. 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparación de la migración de Hyper-V
 

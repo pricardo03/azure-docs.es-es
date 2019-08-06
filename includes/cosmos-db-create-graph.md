@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186863"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565496"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos de grafos. 
 
@@ -28,8 +28,8 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Identificador de base de datos|sample-database|Escriba *sample-database* como nombre de la nueva base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
-    Identificador de grafo|sample-graph|Escriba *sample-graph* como nombre de la nueva colección. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
-    Capacidad de almacenamiento|Fija (10 GB)|Deje el valor predeterminado **Fija (10 GB)** . Este valor corresponde a la capacidad de almacenamiento de la base de datos.
     Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.
+    Identificador de grafo|sample-graph|Escriba *sample-graph* como nombre de la nueva colección. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
+    Partition Key| /pk |Todas las cuentas de Cosmos DB necesitan una clave de partición para escalar horizontalmente. Aprenda a seleccionar una clave de partición adecuada en el [artículo de creación de particiones de datos de Graph](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
 3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz, C++ (Windows): servicios de Voz'
+title: 'Inicio rápido: Traducción de voz, C++ (Windows): Servicios de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, creará una sencilla aplicación de C++ para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602890"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607707"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Inicio rápido: Traducción de voz con el SDK de Voz para C++
 
 También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-cpp-windows.md) y [de texto a voz](quickstart-text-to-speech-cpp-windows.md).
 
-En este inicio rápido, creará una sencilla aplicación de C++ que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
+En este inicio rápido, creará una sencilla aplicación de C++ que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior.
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
@@ -29,7 +29,7 @@ Para obtener una lista completa de los idiomas disponibles para la traducción d
 
 Esta guía de inicio rápido requiere:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio

@@ -1,6 +1,6 @@
 ---
-title: Información general sobre Advanced Data Security en Azure SQL Database | Microsoft Docs
-description: En este tema se describe la seguridad de datos avanzada de una base de datos de Azure SQL y se explica cómo funciona y en qué se diferencia de una base de datos única o agrupada de Azure SQL Database.
+title: Introducción a Instancia administrada de Azure SQL Database | Microsoft Docs
+description: En este artículo se describe Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,15 +11,15 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 06/26/2019
-ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/18/2019
+ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447782"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348113"
 ---
-# <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
+# <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
 La instancia administrada es una nueva opción de implementación de Azure SQL Database que proporciona casi un 100 % de compatibilidad con el motor de base de datos local más reciente de SQL Server (Enterprise Edition), una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. El modelo de implementación de instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, la opción de implementación de instancia administrada conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copia de seguridad automática](sql-database-automated-backups.md), [alta disponibilidad](sql-database-high-availability.md)), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
 
@@ -50,7 +50,7 @@ Una instancia administrada combina las mejores características que están dispo
 |Entorno aislado ([integración con red virtual](sql-database-managed-instance-connectivity-architecture.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure AD](sql-database-aad-authentication.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a> (**versión preliminar pública**) <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](sql-database-managed-instance-auditing.md) <br>[Detección de amenazas](sql-database-managed-instance-threat-detection.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
+> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 Las características principales de las instancias administradas se muestran en la tabla siguiente:
 
@@ -120,6 +120,70 @@ La siguiente lista describe las principales características del nivel de servic
 
 Encuentre más información sobre la diferencia entre los niveles de servicio en el artículo sobre los [límites de recursos de instancias administradas](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
+
+## <a name="managed-instance-management-operations"></a>Operaciones de administración de Instancia administrada
+
+Azure SQL Database proporciona las operaciones de administración que puede usar para implementar automáticamente instancias administradas nuevas, actualizar las propiedades de una instancia y eliminar instancias que ya no son necesarias. En esta sección se proporciona información sobre las operaciones de administración y sus duraciones típicas.
+
+Para admitir [implementaciones dentro de Azure Virtual Networks (redes virtuales)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) y brindar aislamiento y seguridad a los clientes, la instancia administrada se basa en [clústeres virtuales](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representan un conjunto dedicado de máquinas virtuales aisladas implementado dentro de la subred de la red virtual del cliente. En esencia, cada implementación de instancia administrada en una subred vacía resulta en la creación de un clúster virtual.
+
+Las operaciones subsiguientes en las instancias administradas implementadas pueden tener efecto también en su clúster virtual subyacente. Esto afecta la duración de las operaciones de administración, debido a que la implementación de las máquinas virtuales adicionales conlleva una sobrecarga que se debe considerar cuando planea implementaciones nuevas o actualizaciones de instancias administradas existentes.
+
+Todas las operaciones de administración se pueden clasificar de la siguiente manera:
+
+- Implementación de una instancia (creación de instancia nueva). 
+- Actualización de una instancia (cambio de las propiedades de una instancia, como núcleos virtuales, almacenamiento reservado, etc.).
+- Eliminación de una instancia.
+
+Por lo general, las operaciones en clústeres virtuales tardan más. La duración de las operaciones en los clústeres virtuales varía. A continuación, se muestran los valores que puede esperar habitualmente, en función de los datos de telemetría de servicio existentes:
+
+- Creación de un clúster virtual. Este es un paso sincrónico en las operaciones de administración de una instancia. **El 90 % de las operaciones finaliza en 4 horas**.
+- Cambio de tamaño del clúster virtual (expansión o reducción). La expansión es un paso sincrónico, mientras que la reducción se realiza de manera asincrónica (sin afectar la duración de las operaciones de administración de la instancia). **El 90 % de las expansiones de un clúster finaliza en menos de 2,5 horas**.
+- Eliminación de un clúster virtual. La eliminación es un paso asincrónico, pero también se puede [iniciar manualmente](sql-database-managed-instance-delete-virtual-cluster.md) en un clúster virtual vacío, en cuyo caso se ejecuta de manera sincrónica. **El 90 % de las eliminaciones de clúster virtual finaliza en 1,5 horas**.
+
+Además, la administración de las instancias también puede incluir una de las operaciones en bases de datos hospedadas, lo que genera duraciones más largas:
+
+- Adjuntar archivos de base de datos desde Azure Storage. Se trata de un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleo virtual) o de un almacenamiento en el nivel de servicio De uso general. **El 90 % de estas operaciones finaliza en 5 minutos**.
+- Inicialización de un grupos de disponibilidad AlwaysOn. Se trata de un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleo virtual) o de un almacenamiento en el nivel de servicio Crítico para la empresa, así como en el cambio del nivel de servicio de De uso general a Crítico para la empresa (o viceversa). La duración de esta operación es proporcional al tamaño total de la base de datos, así como la actividad de base de datos actual (el número de transacciones activas). La actividad de la base de datos cuando se actualiza una instancia puede introducir una varianza considerable en la duración total. **El 90 % de estas operaciones se ejecuta a 220 GB/hora o más**.
+
+En la tabla siguiente se resumen las operaciones y las duraciones generales típicas:
+
+|Categoría  |Operación  |Segmento de larga duración  |Duración estimada  |
+|---------|---------|---------|---------|
+|**Implementación** |Primera instancia en una subred vacía|Creación de un clúster virtual|El 90 % de las operaciones finaliza en 4 horas|
+|Implementación |Primera instancia de otra generación de hardware en una subred no vacía (por ejemplo, primera instancia Gen 5 en una subred con instancias Gen 4)|Creación de un clúster virtual*|El 90 % de las operaciones finaliza en 4 horas|
+|Implementación |Creación de primera instancia de 4 núcleos virtuales en una subred vacía o no vacía|Creación de un clúster virtual**|El 90 % de las operaciones finaliza en 4 horas|
+|Implementación |Creación de instancia subsiguiente dentro de la subred no vacía (segunda instancia, tercera instancia, etc.)|Cambio de tamaño de un clúster virtual|El 90 % de las operaciones finaliza en 2,5 horas|
+|**Actualizar** |Cambio de una propiedad de una instancia (contraseña de administrador, inicio de sesión de AAD, marca de Ventaja híbrida de Azure)|N/D|Hasta 1 minuto|
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas|
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
+|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas|
+|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
+|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (De uso general)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 4 horas con 5 minutos**|
+|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (De uso general)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 4 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
+|Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
+|**Eliminación**|Eliminación de una instancia|Copia del final del registro para todas las bases de datos|El 90 % de las operaciones finaliza en hasta 1 minuto.<br>Nota: Si se elimina la últimas instancia de la subred, esta operación programará la eliminación del clúster virtual después de 12 horas***|
+|Eliminación|Eliminación de un clúster virtual (como operación iniciada por el usuario)|Eliminación de un clúster virtual|El 90 % de las operaciones finaliza en hasta 1,5 hora|
+
+\* El clúster virtual se crea por generación de hardware.
+
+\*\* La opción de implementación de 4 núcleos virtuales se lanzó en junio de 2019 y requiere una versión de clúster virtual nueva. Si tenía instancias en la subred de destino creadas antes del 12 de junio, un clúster virtual nuevo se implementará automáticamente para hospedar las instancias de 4 núcleos virtuales.
+
+\*\*\* 12 horas es la configuración actual, pero eso podría cambiar en el futuro, por lo que no debe depender fuertemente de ella. Si necesita eliminar un clúster virtual anterior (por ejemplo, para liberar la subred), consulte [Eliminación de una subred después de eliminar una instancia administrada de Azure SQL Database](sql-database-managed-instance-delete-virtual-cluster.md).
+
+### <a name="instance-availability-during-management"></a>Disponibilidad de una instancia durante la administración
+
+Las instancias administradas no están disponibles para las aplicaciones cliente durante las operaciones de implementación y eliminación.
+
+Las instancias administradas están disponibles durante las operaciones de actualización, pero existe un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de las actualizaciones que, por lo general, dura hasta 10 segundos.
+
+> [!IMPORTANT]
+> La duración de una conmutación por error puede variar considerablemente en caso de transacciones de larga duración que se producen en las bases de datos debido a un [tiempo de recuperación prolongado](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Por lo tanto, no se recomienda escalar el proceso ni el almacenamiento de una instancia administrada de Azure SQL Database ni cambiar el nivel de servicio al mismo tiempo con las transacciones de larga duración (importación de datos, trabajos de procesamiento de datos, recompilación del índice, etc.). La conmutación por error de la base de datos que se realizará al final de la operación cancelará las transacciones en curso y generará un tiempo de recuperación prolongado.
+
+La [recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) no está disponible actualmente para las instancias administradas de Azure SQL Database. Una vez habilitada, esta característica reducirá considerablemente la variabilidad del tiempo de conmutación por error, incluso en caso de transacciones de larga duración.
+
+
+
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada
 
 La opción de implementación de instancia administrada combina características de seguridad avanzadas que proporciona Azure Cloud y el motor de base de datos de SQL Server.
@@ -156,7 +220,7 @@ Se admite la migración de una base de datos cifrada a una instancia administrad
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 
-La opción de implementación de instancia administrada admite los inicios de sesión tradicionales del motor de base de datos de SQL Server y los inicios de sesión integrados con Azure Active Directory (AAD). Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure Active Directory como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
+La opción de implementación de instancia administrada admite los inicios de sesión tradicionales del motor de base de datos de SQL Server y los inicios de sesión integrados con Azure Active Directory (AAD). Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure Active Directory como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
 
 Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**): **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 

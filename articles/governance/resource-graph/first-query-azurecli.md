@@ -3,17 +3,16 @@ title: Ejecución de la primera consulta con la CLI de Azure
 description: Este artículo le guiará por los pasos para habilitar la extensión Resource Graph para la CLI de Azure y ejecutar la primera consulta.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: afe32c197b5eab24ba298395bb2c9e83f847d6c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562582"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 
@@ -36,7 +35,7 @@ Para habilitar la CLI de Azure para consultar Azure Resource Graph, se debe agre
    az extension add --name resource-graph
    ```
 
-1. Compruebe que la extensión se ha instalado y que es la versión esperada (al menos la **0.1.7**):
+1. Compruebe que la extensión se ha instalado y que es la versión esperada (al menos **0.1.11**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -89,9 +88,6 @@ Si quiere quitar la extensión de Resource Graph de su entorno de la CLI de Azur
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```
-
-> [!NOTE]
-> Esto no elimina el archivo de la extensión descargado anteriormente. Solo lo quita del entorno de la CLI de Azure en ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

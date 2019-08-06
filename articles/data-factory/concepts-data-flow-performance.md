@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190630"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404611"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -127,7 +127,18 @@ Al hacer clic en ese icono se mostrará el plan de ejecución y el perfil de ren
 * Téngalo en cuenta al elegir esta opción habitual. Si combina muchos archivos de origen grandes en una única partición de archivo de salida puede quedarse sin recursos de nodo de clúster.
 * Para evitar que se agoten los recursos de nodo de proceso, puede mantener el esquema de creación de particiones predeterminado explícito en ADF, que optimiza el rendimiento, y después agregar una actividad de copia posterior en la canalización que combine todos los archivos PART de la carpeta de salida en un único archivo nuevo. En esencia, esta técnica separa la acción de transformación de la combinación de los archivos y consigue el mismo resultado que la configuración de "salida a un archivo único".
 
+### <a name="looping-through-file-lists"></a>Bucles a través de listas de archivos
+
+En la mayoría de los casos, los flujos de datos de ADF se ejecutarán mejor desde una canalización que permita la transformación del origen de Data Flow para iteración en varios archivos. En otras palabras, es preferible usar caracteres comodines o listas de archivos dentro del origen en Data Flow que iterar a través de una lista grande de archivos con ForEach en la canalización, llamando a una actividad de ejecución de Data Flow en cada iteración. El proceso de Data Flow se ejecutará más rápido si se permiten bucles dentro de Data Flow.
+
+Por ejemplo, si tengo una lista de archivos de datos de julio de 2019 que quiero procesar en una carpeta en Blob Storage, sería más eficaz llamar a una actividad de ejecución de Data Flow una vez desde la canalización y usar un carácter comodín en el origen, como este:
+
+```DateFiles/*_201907*.txt```
+
+Esto funcionará mejor que una búsqueda contra el almacén de blobs en una canalización que luego itera en todos los archivos coincidentes con ForEach que incluya una actividad de ejecución de Data Flow.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Vea el resto de artículos sobre Data Flow relacionados con el rendimiento:
 
 - [Pestaña Optimizar de la transformación de Mapping Data Flow](concepts-data-flow-optimize-tab.md)

@@ -4,7 +4,7 @@ description: Componentes y escenarios de análisis fundamentales para instancias
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427797"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565178"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>¿Qué es Data Science Virtual Machine de Azure para Linux y Windows?
 
 La máquina virtual de ciencia de datos (DSVM) es una imagen de VM personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado. Está disponible en Windows Server y en Linux. La edición de Windows de la DSVM se ofrece en Server 2016 y Server 2012. Se ofrecen las ediciones de Linux de la DSVM en Ubuntu 16.04 LTS y CentOS 7.4.
 
@@ -48,7 +48,7 @@ La exploración y el modelado de datos a gran escala o las competencias/hackatho
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Capacidad de proceso personalizada para Azure Notebooks
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Evaluación y experimentación a corto plazo
 La máquina virtual de ciencia de datos puede usarse para evaluar o aprender herramientas como Microsoft ML Server, SQL Server, herramientas de Visual Studio, Jupyter, aprendizaje profundo/kits de herramientas de ML y nuevas herramientas conocidas de la comunidad con el mínimo esfuerzo de instalación. Puesto que Data Science VM se puede configurar rápidamente, se puede aplicar en otros escenarios de uso a corto plazo. Estos escenarios incluyen la replicación de experimentos publicados, la ejecución de demostraciones, el seguimiento de tutoriales en sesiones en línea y los tutoriales de conferencia.
@@ -64,7 +64,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) con paquetes populares preinstalados   |Y                      | Y             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition incluye: <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Marco de RevoScaleR/RevoScalePy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) de alto rendimiento paralelo y distribuido (R y Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;*   [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) Nuevos algoritmos de aprendizaje automático de última generación de Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Operacionalización de R y Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus con activación compartida: Excel, Word y PowerPoint   |Y                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro Plus con activación compartida: Excel, Word y PowerPoint   |Y                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 con paquetes populares preinstalados    |Y                      |Y              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) con paquetes populares para lenguaje Julia preinstalados                         |Y                      |Y              |
 | Bases de datos relacionales                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Edición para desarrolladores (Ubuntu) |
@@ -133,7 +133,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) Standalone local | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) local | N | Y |
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 ### <a name="windows-data-science-vm"></a>Máquina virtual de ciencia de datos de Windows
 * Para más información sobre cómo crear una instancia de DSVM de Windows y utilizarla, consulte [Aprovisionamiento de Data Science Virtual Machine de Windows en Azure](provision-vm.md). Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en DSVM de Windows, consulte [Diez cosas que puede hacer en Data Science Virtual Machine](vm-do-ten-things.md).

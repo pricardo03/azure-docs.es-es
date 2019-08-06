@@ -1,34 +1,35 @@
 ---
-title: 'Creación de un clasificador: Custom Vision Service'
-titlesuffix: Azure Cognitive Services
-description: Aprenda a usar el sitio web de Custom Vision para crear un modelo de clasificación de imágenes.
+title: 'Inicio rápido: Creación de un clasificador (Custom Vision)'
+titleSuffix: Azure Cognitive Services
+description: En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear un modelo de clasificación de imágenes.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561057"
 ---
-# <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Inicio rápido: Cómo crear un clasificador con Custom Vision
 
-Para usar Custom Vision Service para la clasificación de imágenes, primero debe crear un modelo de clasificador. En esta guía, aprenderá a crear un clasificador mediante el sitio web de Custom Vision.
+En este inicio rápido aprenderá a crear un clasificador mediante el sitio web de Custom Vision. Una vez creado un modelo de clasificador, se puede usar Custom Vision para la clasificación de imágenes.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una suscripción válida a Azure. [Cree una cuenta](https://azure.microsoft.com/free/) gratis.
 - Un conjunto de imágenes con el que entrenar el clasificador. Consulte las siguientes sugerencias sobre cómo elegir imágenes.
 
-
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
-Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). De esta manera se crea un recurso de entrenamiento y predicción. 
+
+Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en Azure Portal. Rellene la ventana del cuadro de diálogo de la página [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) (Crear recurso de Custom Vision) para crear un recurso de entrenamiento y predicción. 
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
@@ -62,21 +63,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 ## <a name="choose-training-images"></a>Elección de las imágenes de entrenamiento
 
-Como mínimo, se recomienda que use 30 imágenes por etiqueta en el conjunto de entrenamiento inicial. También conviene recopilar algunas imágenes adicionales para probar el modelo una vez que está entrenado.
-
-Para entrenar el modelo de forma eficaz, use imágenes con variedad visual. Seleccione imágenes con esa variedad de:
-* ángulos de cámara
-* iluminación
-* background
-* estilo visual
-* sujetos individuales o grupos
-* size
-* Tipo
-
-Además, asegúrese de que todas las imágenes de entrenamiento cumplen los criterios siguientes:
-* tienen el formato .jpg, .png o .bmp
-* tienen menos de 6 MB de tamaño (4 MB en el caso de imágenes de predicción)
-* tienen más de 256 píxeles en el borde más corto. Custom Vision Service escalará verticalmente y de forma automática todas las imágenes que sean más cortas
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
@@ -118,9 +105,7 @@ Una vez finalizado el entrenamiento, se calcula el rendimiento del modelo y se m
 
 ### <a name="probability-threshold"></a>Probability Threshold (Umbral de probabilidad)
 
-Observe el control deslizante **Probability Threshold** (Umbral de probabilidad) situado en el panel izquierdo de la pestaña **Performance** (Rendimiento). Este es el umbral para que una probabilidad predicha se considere correcta al calcular la precisión y la coincidencia.
-
-La interpretación de las llamadas de predicción con un umbral de alta probabilidad tiende a devolver resultados con alta precisión a costa del índice de coincidencia (las clasificaciones encontradas son correctas, pero muchas no se han encontrado). Por el contrario, un umbral de baja probabilidad hace lo contrario (se encontraron la mayoría de las clasificaciones reales pero había falsos positivos en el conjunto). Teniendo esto en cuenta, debe establecer el umbral de probabilidad según las necesidades específicas de su proyecto. Posteriormente, en el lado cliente, debe usar el mismo valor de umbral de probabilidad como filtro al recibir los resultados de predicción del modelo.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Administración de iteraciones de entrenamiento
 
@@ -128,7 +113,8 @@ Cada vez que entrena al clasificador, se crea una nueva _iteración_ con sus pro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido a crear y entrenar un modelo de clasificación de imágenes mediante el sitio web de Custom Vision. A continuación, obtenga más información sobre el proceso iterativo de mejora del modelo.
+En este inicio rápido ha aprendido a crear y entrenar un modelo de clasificación de imágenes mediante el sitio web de Custom Vision. A continuación, obtenga más información sobre el proceso iterativo de mejora del modelo.
 
-[Prueba y reentrenamiento del modelo](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Prueba y reentrenamiento del modelo](test-your-model.md)
 

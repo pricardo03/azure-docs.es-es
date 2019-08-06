@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 1fe9df6378884ba55cb1017da87522ae66edaff0
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420223"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640911"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
-En la tercera parte de este tutorial de tres partes, implementará un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la tercera parte de esta serie de tres tutoriales implementará un modelo de agrupación en clústeres desarrollado en R en una base de datos SQL con Azure SQL Database Machine Learning Services (versión preliminar).
 
 Creará un procedimiento almacenado con un script de R insertado que realiza la agrupación en clústeres. Como el modelo se ejecuta en la base de datos de Azure SQL, se puede entrenar fácilmente con los datos almacenados en la base de datos.
 
@@ -33,9 +33,9 @@ En este artículo, aprenderá a:
 > * Realización de la agrupación en clústeres en SQL Database
 > * Uso de la información de agrupación en clústeres
 
-En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md), ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres en R.
+En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md) ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres.
 
-En la [segunda parte](sql-database-tutorial-clustering-model-build.md), ha aprendido a crear un modelo de K-Means para realizar la agrupación en clústeres.
+En la [segunda parte](sql-database-tutorial-clustering-model-build.md) aprendió a crear y entrenar un modelo de agrupación en clústeres K-Means en R.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -45,7 +45,7 @@ En la [segunda parte](sql-database-tutorial-clustering-model-build.md), ha apren
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Crear un procedimiento almacenado que genera el modelo
 
-Ejecute el siguiente script de T-SQL para crear el procedimiento almacenado. El procedimiento vuelve a crear los pasos que se desarrollaron en la primera y segunda parte de esta serie de tutoriales:
+Ejecute el siguiente script de T-SQL para crear el procedimiento almacenado. El procedimiento recrea los pasos que se desarrollaron en la primera y segunda parte de esta serie de tutoriales:
 
 * clasificación de los clientes según su historial de compras y devoluciones
 * generación de cuatro clústeres de clientes mediante un algoritmo K-Means

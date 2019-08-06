@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254316"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326620"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Introducción a la terminación SSL y a SSL de extremo a extremo con Application Gateway
 
@@ -92,7 +92,17 @@ Los certificados de autenticación han dejado de usarse, y se han reemplazado po
 - Los certificados firmados por autoridades de entidad de certificación conocidas cuyo CN coincida con el nombre de host de la configuración de back-end HTTP no requieren ningún paso adicional para que el SSL de extremo a extremo funcione. 
 
    Por ejemplo, si los certificados de back-end están emitidos por una entidad de certificación conocida y tienen un CN de contoso.com, y también se establece el campo de host de la configuración de HTTP de back-end en contoso.com, no se requiere ningún otro paso adicional. Puede establecer el protocolo de configuración HTTP en HTTPS y tanto el sondeo de estado como la ruta de acceso de los datos estarían habilitados para SSL. Si utiliza Azure App Service u otros servicios web de Azure como back-end, estos también serían de confianza de manera implícita y no se necesitarían pasos adicionales para SSL de un extremo a extremo.
+   
+> [!NOTE] 
+>
+> Para que un certificado SSL sea de confianza, el certificado del servidor de back-end lo debe haber emitido una CA incluida en el almacén de confianza de Application Gateway. Si el certificado no lo emitió una CA de confianza, Application Gateway comprobará si el certificado de la CA emisora lo emitió una CA de confianza y así sucesivamente hasta encontrar una CA de confianza (en cuyo punto se establecerá una conexión segura y de confianza) o hasta no encontrar una CA de confianza (en cuyo punto Application Gateway marcará el back-end como incorrecto). Por lo tanto, se recomienda que el certificado de servidor de back-end contenga tanto la CA raíz como la intermedia.
+
 - Si el certificado está autofirmado o lo han firmado intermediarios desconocidos, tendrá que definir un certificado raíz de confianza para habilitar SSL de extremo a extremo en la SKU v2. La instancia de Application Gateway se comunicará únicamente con back-ends cuyo certificado raíz del certificado del servidor coincida con alguno de la lista de certificados raíz de confianza en la configuración HTTP de back-end asociada con el grupo.
+
+> [!NOTE] 
+>
+> El certificado autofirmado debe ser parte de una cadena de certificados. La SKU v2 no admite un certificado autofirmado sin cadena.
+
 - Además de la coincidencia del certificado raíz, Application Gateway también valida si el valor de host especificado en la configuración de HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado SSL del servidor de back-end. Cuando se intenta establecer una conexión SSL con el back-end, Application Gateway establece la extensión de indicación de nombre de servidor (SNI) en el host especificado en la configuración de HTTP de back-end.
 - Si se elige la opción de **elegir el nombre de host a partir de la dirección de back-end** en lugar del campo de host en la configuración de HTTP de back-end, el encabezado SNI siempre se establece en el nombre de dominio completo del grupo del back-end y el CN del certificado SSL del servidor de back-end debe coincidir con su nombre de dominio completo. Los miembros del grupo de back-end con direcciones IP no se admiten en este escenario.
 - El certificado raíz es un certificado raíz codificado en base64 a partir de los certificados de servidor de back-end.

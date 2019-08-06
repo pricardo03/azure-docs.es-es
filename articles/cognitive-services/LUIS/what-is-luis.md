@@ -1,5 +1,6 @@
 ---
-title: 'Azure Cognitive Services: ¿Qué es Language Understanding (LUIS)? | Microsoft Docs'
+title: ¿Qué es Language Understanding (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) es un servicio de API basado en la nube que aplica inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062160"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563189"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
@@ -28,7 +29,7 @@ Una aplicación cliente para LUIS es cualquier aplicación conversacional que se
 
 <a name="Accessing-LUIS"></a>
 
-Una vez que la aplicación de LUIS esté publicada, la aplicación cliente envía expresiones (texto) a la [API][endpoint-apis] del punto de conexión de procesamiento de lenguaje natural de LUIS y recibe los resultados como respuestas en formato JSON. Una aplicación cliente común para LUIS es un bot de chat.
+Una vez que la aplicación de LUIS está publicada, la aplicación cliente envía expresiones (texto) a la [API][endpoint-apis] del punto de conexión de procesamiento de lenguaje natural de LUIS y recibe los resultados como respuestas en formato JSON. Una aplicación cliente común para LUIS es un bot de chat.
 
 
 ![Imagen conceptual del trabajo de LUIS con el bot de chat para predecir el texto del usuario con reconocimiento de lenguaje natural (NLP)](./media/luis-overview/luis-overview-process-2.png "Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP)")
@@ -101,7 +102,7 @@ LUIS proporciona herramientas, control de versiones y colaboración con otros au
 LUIS, como una API REST, se puede usar con cualquier producto, servicio o marco de trabajo que realice una solicitud HTTP. La lista siguiente contiene los principales productos y servicios de Microsoft que se utilizan con LUIS.
 
 La principal aplicación cliente para LUIS es:
-* [Bot de aplicación web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) para crear rápidamente un bot de chat habilitado para LUIS para hablar con un usuario mediante entrada de texto. Usa [Bot Framework][bot-framework] versión [4.x](https://github.com/Microsoft/botbuilder-dotnet) para una experiencia de bot completa.
+* [Bot de aplicación web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) para crear rápidamente un bot de chat habilitado para LUIS para hablar con un usuario mediante entrada de texto. Usa [Bot Framework][bot-framework] versión [4.x](https://github.com/Microsoft/botbuilder-dotnet) para una experiencia de bot completa.
 
 Herramientas para usar de forma rápida y sencilla LUIS con un bot:
 * [CLI de LUIS](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS): paquete NPM que proporciona creación y predicción mediante una herramienta independiente de la línea de comandos o como importación. 
@@ -110,7 +111,7 @@ Herramientas para usar de forma rápida y sencilla LUIS con un bot:
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown es una herramienta de la línea de comandos que ayuda a administrar los modelos de lenguaje para el bot.
 
 Otros servicios de Cognitive Services que utilizan LUIS:
-* [QnA Maker][qnamaker] permite la combinación de varios tipos de texto en una base de conocimiento de pregunta y respuesta.
+* [QnA Maker][qnamaker] permite la combinación de varios tipos de texto en una base de conocimiento de preguntas y respuestas.
 * [Bing Spell Check API](../bing-spell-check/proof-text.md) proporciona corrección de texto antes de la predicción. 
 * [Speech Service](../Speech-Service/overview.md) convierte solicitudes de lenguaje hablado en texto. 
 * [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) le permite crear conversaciones de bot más rápido con LUIS.

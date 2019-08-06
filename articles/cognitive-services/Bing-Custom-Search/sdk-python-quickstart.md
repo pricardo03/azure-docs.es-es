@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Use el SDK de Bing Custom Search para Python a fin de obtener resultados de búsquedas personalizadas.
+description: Use este inicio rápido para comenzar a solicitar los resultados de la búsqueda de la instancia de Bing Custom Search con el SDK para Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571822"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564613"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python 
 

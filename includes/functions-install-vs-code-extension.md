@@ -4,20 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 880b9f2610117d40251e7d99690889d1356980e5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 19b754b959a5c78ee2e4b78ced783e81b653b072
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186114"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669823"
 ---
-## <a name="install-the-azure-function-extension"></a>Instalación de la extensión de Azure Functions
+## <a name="install-the-azure-functions-extension"></a>Instalación de la extensión de Azure Functions
 
-La extensión de Azure Functions se usa para crear, probar e implementar funciones en Azure.
+Puede usar la extensión de Azure Functions para crear y probar funciones e implementarlas en Azure.
 
-1. En Visual Studio Code, abra **Extensiones** y busque `azure functions`, o [abra este vínculo en Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
+1. En Visual Studio Code, abra **Extensiones** y busque **azure functions** o [seleccione este vínculo en Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
 
-1. Seleccione **Instalar** para instalar la extensión en Visual Studio Code.
+1. Seleccione **Instalar** para instalar la extensión en Visual Studio Code.
 
     ![Instalación de la extensión de Azure Functions](./media/functions-install-vs-code-extension/vscode-install-extension.png)
 

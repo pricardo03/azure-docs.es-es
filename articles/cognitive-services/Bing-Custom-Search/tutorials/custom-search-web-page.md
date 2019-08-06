@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Creación de una página web de búsqueda personalizada con Bing Custom Search'
 titleSuffix: Azure Cognitive Services
-description: Se describe cómo configurar una instancia de búsqueda personalizada e integrarla en una página web.
+description: Aprenda a configurar una instancia de búsqueda personalizada de Bing e integrarla en una página web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3a8d6a831adf24212191a103dcf356bbe74d7962
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564705"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 

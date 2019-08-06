@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: be78fd35f7c4f5079b30e53c740bce91e515643a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871935"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326700"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -42,7 +42,7 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 - El equilibrio de carga de nivel 4 con conjuntos de escalado compuestos por varios grupos de selección de ubicación necesita la [SKU estándar de Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La SKU estándar de Load Balancer proporciona ventajas adicionales, como la capacidad de equilibrar la carga entre varios conjuntos de escalado. La SKU estándar también necesita que el conjunto de escalado tenga un grupo de seguridad de red asociado a ella, en caso contrario, los grupos NAT no funcionarán correctamente. Si necesita usar la SKU básica de Azure Load Balancer, asegúrese de que el conjunto de escalado está configurado para usar un único grupo de selección de ubicación, que es el valor predeterminado.
 - Se admite el equilibrio de carga de nivel 7 con Azure Application Gateway para todos los conjuntos de escalado.
 - Un conjunto de escalado se define con una sola subred; asegúrese de que la subred tenga suficiente espacio de direcciones para todas las máquinas virtuales que necesita. De forma predeterminada, un conjunto de escalado se aprovisiona en exceso (crea máquinas virtuales adicionales durante la implementación o durante el escalado horizontal, que no se le cobran) para mejorar el rendimiento y la confiabilidad de la implementación. Deje un 20 % más de espacio que el número de máquinas virtuales al que tiene pensado escalar.
-- Los dominios de error y los dominios de actualización solo son coherentes dentro de un grupo de selección de ubicación. Esta arquitectura no cambia la disponibilidad global de un conjunto de escalado, porque las máquinas virtuales se distribuyen uniformemente entre los distintos componentes de hardware físico, lo que significa que, si tiene que garantizar que dos máquinas virtuales están en un hardware diferente, debe asegurarse de que están en distintos dominios de error en el mismo grupo de selección de ubicación. Consulte este vínculo [Regiones de Azure y disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Los dominios de error y los dominios de actualización solo son coherentes dentro de un grupo de selección de ubicación. Esta arquitectura no cambia la disponibilidad global de un conjunto de escalado, porque las máquinas virtuales se distribuyen uniformemente entre los distintos componentes de hardware físico, lo que significa que, si tiene que garantizar que dos máquinas virtuales están en un hardware diferente, debe asegurarse de que están en distintos dominios de error en el mismo grupo de selección de ubicación. Consulte este vínculo [Opciones de disponibilidad para Azure](/azure/virtual-machines/windows/availability). 
 - El dominio de error y el identificador del grupo de selección de ubicación se muestran en la _vista de instancia_ de una máquina virtual del conjunto de escalado. Puede ver la vista de instancia de una máquina virtual del conjunto de escalado el [Explorador de recursos de Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Creación de un conjunto de escalado grande

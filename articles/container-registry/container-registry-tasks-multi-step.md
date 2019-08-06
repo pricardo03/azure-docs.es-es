@@ -3,23 +3,24 @@ title: Automatización de la compilación, prueba y aplicación de revisiones pa
 description: Una introducción a las tareas de varios pasos, una característica de ACR Tasks de Azure Container Registry que proporciona flujos de trabajos basados en tareas para compilar y probar imágenes de contenedor en la nube, así como aplicarles revisiones.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829589"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310563"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 
 Las tareas de varios pasos amplían la funcionalidad de inserción y compilación de una única imagen de ACR Tasks con flujos de trabajo basados en varios contenedores y varios pasos. Use tareas de varios pasos para crear e insertar varias imágenes en serie o en paralelo. A continuación, ejecute esas imágenes como comandos en la ejecución de una sola tarea. Cada paso define una operación de compilación o inserción de una imagen de contenedor, y también define la ejecución de un contenedor. Cada paso de una tarea con varios pasos usa un contenedor como entorno de ejecución.
 
 > [!IMPORTANT]
-> Si ha creado anteriormente tareas durante la vista previa con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
+> Si ha creado anteriormente tareas durante la versión preliminar con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
 
 Por ejemplo, puede ejecutar una tarea con pasos que automatice la siguiente lógica:
 

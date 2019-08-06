@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio es una herramienta de arrastrar y colocar que permite crear rápidamente modelos desde una biblioteca con elementos que están listos para usarse, como algoritmos y módulos.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4ec9cff652bf1badf526d490547ad78de31ac5da
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024221"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677998"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
@@ -40,11 +40,11 @@ No se requiere ningún tipo de programación, basta con conectar visualmente con
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Descargar el diagrama de información general de Machine Learning Studio
 Descargue el diagrama **Información general de las funcionalidades de Microsoft Azure Machine Learning Studio** y obtenga una visión de alto nivel de las funcionalidades de Machine Learning Studio. Para tenerlo a mano, puede imprimir el diagrama en tamaño tabloide (279 x 432 mm).
 
-**Descargue aquí el diagrama: [Información general de las funcionalidades de Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Descargue aquí el diagrama: [Información general de las funcionalidades de Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introducción a Machine Learning Studio
-La primera vez que entre en Machine Learning Studio, https://studio.azureml.net) verá la página **principal**. Desde aquí puede ver documentación, vídeos y seminarios web, y encontrar otros recursos valiosos.
+La primera vez que entre en [Machine Learning Studio](https://studio.azureml.net), verá la página **principal**. Desde aquí puede ver documentación, vídeos y seminarios web, y encontrar otros recursos valiosos.
 
 Haga clic en el menú de la parte superior izquierda ![Menú](./media/what-is-ml-studio/menu.png) y verá varias opciones.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -61,7 +61,7 @@ Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**.
 * **CONFIGURACIÓN** : una colección de ajustes que puede utilizar para configurar la cuenta y los recursos.
 
 ### <a name="gallery"></a>Gallery
-Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](https://gallery.azure.ai/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
+Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](https://gallery.azure.ai/)** . La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
 Para más información acerca de la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
@@ -121,9 +121,9 @@ Esta es una comparación rápida.
 |Módulos de la interfaz| Muchos | Conjunto inicial de módulos conocidos|
 |Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso con Azure Machine Learning, GPU o CPU.<br/>(Se admiten otros procesos en el SDK)|
 |Destinos de proceso de implementación| Formato del servicio web propietario, no personalizable | Opciones de seguridad de empresa y Azure Kubernetes Service. <br/>([Otros procesos](../service/how-to-deploy-and-where.md) que admite el SDK) |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizado | Sin  | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). | 
+|Entrenamiento de modelos y optimización de hiperparámetros automatizado | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). | 
 
-Pruebe la interfaz visual (versión preliminar) con [Inicio rápido: Preparación y visualización de datos sin escribir código](../service/ui-quickstart-run-experiment.md)
+Pruebe la interfaz visual (versión preliminar) con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > Azure Machine Learning Service no puede implementar ni administrar los modelos creados en Studio. Sin embargo, los modelos creados e implementados en la interfaz visual del servicio se pueden administrar mediante el área de trabajo de Azure Machine Learning Service.

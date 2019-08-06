@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad comunes de Azure Resource Manager
-description: Lista de comprobación de los atributos de seguridad comunes para evaluar Azure Resource Manager
+title: Atributos de seguridad de Azure Resource Manager
+description: Lista de comprobación de los atributos de seguridad para evaluar Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3bfb79c54ff57adfa947f2dd0100f6c05c7af9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002254"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444148"
 ---
 # <a name="security-attributes-for-azure-resource-manager"></a>Atributos de seguridad de Azure Resource Manager
 
@@ -25,8 +25,8 @@ En este artículo, se documentan los atributos de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí |  |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | HTTPS/TLS. |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)| Sí |  |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en red virtual y cifrado de red virtual a red virtual)| Sí | HTTPS/TLS. |
 | Control de clave de cifrado (CMK, BYOK, etc.)| N/D | Azure Resource Manager no almacena ningún contenido de cliente, solo los datos de control. |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | |
 | Llamadas a API cifradas| Sí | |
@@ -51,7 +51,7 @@ En este artículo, se documentan los atributos de seguridad integrados en Azure 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | Basado en [Azure Active Directory](/azure/active-directory).|
-| Autorización| Sí | |
+| Authorization| Sí | |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

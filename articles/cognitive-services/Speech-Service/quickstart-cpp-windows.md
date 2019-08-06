@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, C++ (Windows): servicios de voz'
+title: 'Inicio rápido: Reconocimiento de voz, C++ (Windows): Servicios de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en C++ para Windows mediante el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c795f1581ae36f100065c39cd47bc4efc564b9fe
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606491"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607890"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 
@@ -24,7 +24,7 @@ También hay inicios rápidos disponibles para [texto a voz](quickstart-text-to-
 Si lo desea, elija otro lenguaje de programación diferente o entorno:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo, creará una aplicación de consola de C++ para Windows. El [SDK de Voz](speech-sdk.md) de Cognitive Services se usa para transcribir la conversión de voz en texto en tiempo real desde el micrófono de un equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
+En este artículo, creará una aplicación de consola de C++ para Windows. Va a utilizar el [SDK de Voz](speech-sdk.md) de Cognitive Services para transcribir la conversión de voz en texto en tiempo real desde el micrófono de un equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior (cualquier edición).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

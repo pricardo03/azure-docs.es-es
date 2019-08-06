@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721710"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321426"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector
 
@@ -38,7 +38,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recurso de Anomaly Detector |Para usar estos contenedores, debe tener:<br><br>Un recurso de Azure _Anomaly Detector_ para obtener la clave de facturación y el URI de punto de conexión de facturación asociados. Ambos valores están disponibles en las páginas de claves y de información general de Anomaly Detector en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus2.api.cognitive.microsoft.com`|
+|Recurso de Anomaly Detector |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Anomaly Detector_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de claves y de información general de **Anomaly Detector** en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : punto de conexión tal como se proporciona en la página de **Introducción**.|
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
@@ -61,7 +61,7 @@ En la tabla siguiente se describen los núcleos de CPU y los valores de memoria 
 | QPS (Consultas por segundo) | Mínima | Recomendado |
 |-----------|---------|-------------|
 | 10 QPS | 4 núcleos, 1 GB de memoria | 8 núcleos, 2 GB de memoria |
-| 20 QPS | 8 núcleos, 2 GB de memoria | 16 núcleos, 4 Gb de memoria |
+| 20 QPS | 8 núcleos, 2 GB de memoria | 16 núcleos, 4 GB de memoria |
 
 Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 
@@ -100,8 +100,8 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Anomaly Detector de Azure Portal.  |
-|{BILLING_ENDPOINT_URI} | El valor del URI de punto de conexión de facturación está disponible en la página de información general de Anomaly Detector de Azure Portal.|
+|{API_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Anomaly Detector de Azure Portal.  |
+|{ENDPOINT_URI} | El valor del URI de punto de conexión de facturación está disponible en la página de información general de Anomaly Detector de Azure Portal.|
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 
@@ -109,8 +109,8 @@ Reemplace estos parámetros con sus propios valores en el siguiente comando `doc
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Este comando:
@@ -135,8 +135,8 @@ Ejecute el primer contenedor en el puerto 5000.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Ejecute el segundo contenedor en el puerto 5001.
@@ -146,8 +146,8 @@ Ejecute el segundo contenedor en el puerto 5001.
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Cada contenedor sucesivo debe estar en un puerto diferente. 

@@ -1,6 +1,6 @@
 ---
-title: Crear, publicar, responder
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: Creación, publicación y respuesta en QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Este tutorial basado en REST le guía mediante la creación y publicación de una base de conocimiento mediante programación y de la posterior respuesta a una pregunta desde dicha base de conocimiento.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: a14bc14e6115c1bc25582c3de71382ae17d7debd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dfd0a04da9f4f728bd43d8d3fcd4c671e9b95a47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792280"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562900"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
 
@@ -158,7 +158,7 @@ El _punto de conexión principal_ se pasa como encabezado para autenticar la sol
 
 |Nombre de encabezado|Valor de encabezado|
 |--|--|
-|Autorización|`Endpoint` + **punto de conexión principal**<br>Ejemplo: `Endpoint xxxxxxx`<br>Observe el espacio entre el texto de `Endpoint` y el valor del punto de conexión principal. 
+|Authorization|`Endpoint` + **punto de conexión principal**<br>Ejemplo: `Endpoint xxxxxxx`<br>Observe el espacio entre el texto de `Endpoint` y el valor del punto de conexión principal. 
 
 El cuerpo de la solicitud debe usar el JSON adecuado:
 

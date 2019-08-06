@@ -3,23 +3,17 @@ title: Creación e implementación de un servicio en la nube | Microsoft Docs
 description: Aprenda a crear e implementar un servicio en la nube mediante el Portal de Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433782"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359134"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -27,7 +21,7 @@ Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube:
 En este artículo se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, cómo usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando Creación personalizada.
 
 > [!NOTE]
-> Si tiene pensado publicar su servicio en la nube desde Azure DevOps, use Creación rápida y después configure la publicación Azure DevOps desde Creación rápida de Azure o en el panel. Para más información, vea [Entrega continua en Azure con Azure DevOps][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> Si tiene pensado publicar su servicio en la nube desde Azure DevOps, use Creación rápida y después configure la publicación Azure DevOps desde Creación rápida de Azure o en el panel. Para más información, consulte [Entrega continua en Azure con Azure DevOps][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 >
 >
 

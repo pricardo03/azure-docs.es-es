@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ee50603886f76b0a54cee940e7644c401804078
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141211"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610007"
 ---
 # <a name="what-is-azure-notification-hubs"></a>¿Qué es Azure Notification Hubs?
 
@@ -86,7 +86,7 @@ Notification Hubs es un motor de inserción listo para usar que presenta las sig
   - Administración de controladores de dispositivos en un único lugar.
 - **Back-ends cruzados**
   - En la nube o local
-  - .NET, Node.js, Java, etc.
+  - .NET, Node.js, Java, Python, etc.
 - **Conjunto completo de patrones de entrega**
   - Difusión para una o varias plataformas: puede difundir al instante a millones de dispositivos entre plataformas con una sola llamada API.
   - Inserción en dispositivo: puede destinar las notificaciones a dispositivos individuales.

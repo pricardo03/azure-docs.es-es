@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348388"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640769"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -41,7 +41,7 @@ Puede migrar las máquinas virtuales de VMware a Azure mediante la herramienta A
 
 Para decidir si desea utilizar la migración sin agente o basada en agente, consulte estos artículos:
 
-- [Obtenga información](server-migrate-overview.md) sobre cómo funciona la migración sin agente y [revise las limitaciones](server-migrate-overview.md#agentless-migration-limitations).
+- [Aprenda](server-migrate-overview.md) cómo funciona la migración sin agente y [compare los métodos de migración](server-migrate-overview.md#compare-migration-methods).
 - [Lea este artículo](tutorial-migrate-vmware-agent.md) si desea utilizar el método basado en agente.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -93,7 +93,7 @@ Siga las instrucciones de [este artículo](how-to-set-up-appliance-vmware.md) pa
 
 Azure Migrate requiere algunos cambios en las máquinas virtuales para asegurarse de que se pueden migrar a Azure.
 
-- En algunos [sistemas operativos](server-migrate-overview.md#agentless-migration-limitations), Azure Migrate realiza estos cambios automáticamente.
+- En algunos sistemas operativos, Azure Migrate realiza estos cambios automáticamente. [Más información](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - Si va a migrar una máquina virtual que no tiene uno de estos sistemas operativos, siga las instrucciones para preparar la máquina virtual.
 - Es importante realizar estos cambios antes de comenzar la migración. Si migra la máquina virtual antes de realizar el cambio, es posible que la máquina virtual no arranque en Azure.
 - Los cambios de configuración que realice en las máquinas virtuales locales se replican en Azure después de habilitar la replicación de la máquina virtual. Para asegurarse de que los cambios se replican, asegúrese de que el punto de recuperación que va a migrar sea posterior a la hora a la que se realizaron los cambios de configuración en el entorno local.

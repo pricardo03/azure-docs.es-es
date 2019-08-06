@@ -3,16 +3,17 @@ title: Detener o iniciar contenedores manualmente en Azure Container Instances
 description: Obtenga información sobre cómo detener o iniciar un grupo de contenedores manualmente en Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070813"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325641"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Detener o iniciar contenedores manualmente en Azure Container Instances
 
@@ -20,7 +21,7 @@ La opción [directiva de reinicio](container-instances-restart-policy.md) config
 
 ## <a name="stop"></a>Stop
 
-Detenga manualmente un grupo de contenedores en ejecución, por ejemplo, mediante el comando [az container stop][az-container-stop] o Azure Portal. En ciertas cargas de trabajo de contenedor puede que quiera detener un grupo de contenedores de ejecución prolongada después de un período definido para ahorrar en costos. 
+Detenga manualmente un grupo de contenedores en ejecución, por ejemplo, mediante el comando [az container stop][az-container-stop] o Azure Portal. En ciertas cargas de trabajo de contenedor puede que quiera detener un grupo de contenedores de ejecución prolongada después de un período definido para ahorrar en costos. 
 
 *Cuando un grupo de contenedores entra en estado detenido, finaliza y recicla todos los contenedores del grupo. No conserva el estado de los contenedores.*
 
@@ -28,7 +29,7 @@ Cuando se reciclan los contenedores, los [recursos](container-instances-containe
 
 La acción de detención no tiene ningún efecto si el grupo de contenedores ya ha finalizado (se encuentre en estado Correcto o Erróneo). Por ejemplo, un grupo de contenedores con tareas de contenedor de una sola ejecución que se haya ejecutado correctamente finaliza con el estado Correcto. Los intentos por detener el grupo en ese estado no cambian el estado. 
 
-## <a name="start"></a>Iniciar
+## <a name="start"></a>Start
 
 Cuando un grupo de contenedores está detenido, ya sea porque los contenedores finalizaron por sí mismos o porque usted detuvo manualmente el grupo, puede iniciar los contenedores. Por ejemplo, use el comando [az container start][az-container-start] o Azure Portal para iniciar manualmente los contenedores del grupo. Si se actualiza la imagen de contenedor de cualquier contenedor, se extrae una nueva imagen. 
 

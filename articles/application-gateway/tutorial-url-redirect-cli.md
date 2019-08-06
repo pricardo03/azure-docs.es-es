@@ -3,19 +3,17 @@ title: 'Tutorial: Creación de una puerta de enlace de aplicaciones con redirecc
 description: En este tutorial aprenderá a crear una puerta de enlace de aplicaciones con tráfico redirigido basado en rutas de URL con la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996405"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608056"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con redirección basada en rutas de dirección URL con la CLI de Azure
 
@@ -39,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de forma local, en este tutorial necesitará la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -72,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -299,18 +299,18 @@ Cambie la dirección URL por http://&lt;ip-address&gt;:8080/images/test.html, su
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Cambie la dirección URL por http://&lt;ip-address&gt;:8080/video/test.html, sustituyendo su dirección IP por&lt;ip-address&gt; y verá algo similar al ejemplo siguiente:
+Cambie la dirección URL por http://&lt;ip-address&gt;:8080/video/test.html, sustituyendo &lt;ip-address&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Ahora, cambie la dirección URL por http://&lt;dirección-ip&gt;:8081/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP, y debería ver el tráfico redirigido al grupo de back-end de imágenes en http://&lt;dirección-ip&gt;:8080/images.
+Ahora, cambie la dirección URL por http://&lt;ip-address&gt;:8081/images/test.htm, sustituyendo &lt;ip-address&gt; por su dirección IP, y debería ver el tráfico redirigido al grupo de back-end de imágenes en http://&lt;ip-address&gt;:8080/images.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no los necesite, quite el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 

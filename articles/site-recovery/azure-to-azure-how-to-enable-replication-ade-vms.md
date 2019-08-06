@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449213"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335702"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 
@@ -28,21 +28,17 @@ Site Recovery requiere que el usuario tenga permisos para crear el almacén de c
 Para habilitar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption desde Azure Portal, el usuario necesita los permisos siguientes:
 
 - Permisos del almacén de claves
-    - Enumerar
-    - Crear
-    - Obtener
-
--   Permisos de secretos del almacén de claves
-    - Enumerar
-    - Crear
-    - Obtener
-
+    - Lista, Creación y Obtención
+    
+- Permisos de secretos del almacén de claves
+    - Operaciones de administración de secretos
+        - Obtención, Lista y Establecimiento
+    
 - Permisos de clave del almacén de claves (necesarios solo si las máquinas virtuales usan la clave de cifrado de claves para cifrar las claves de cifrado de disco)
-    - Enumerar
-    - Obtener
-    - Crear
-    - Cifrado
-    - Descifrado
+    - Operaciones de administración de claves
+        - Obtención, Lista y Creación
+    - Operaciones criptográficas
+        - Descifrado y cifrado
 
 Para administrar permisos, vaya al recurso de almacén de claves en el portal. Agregue los permisos requeridos del usuario. El ejemplo siguiente muestra cómo se habilitan permisos para el almacén de claves *ContosoWeb2Keyvault*, que se encuentra en la región de origen.
 

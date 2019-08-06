@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420233"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640014"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Creación de un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
-En la segunda parte de esta serie de tutoriales de tres partes, deberá crear un modelo K-Means para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la segunda parte de esta serie de tres tutoriales creará un modelo de K-Means en R para realizar la agrupación en clústeres. En la siguiente parte de esta serie, implementará este modelo en una base de datos SQL con Azure SQL Database Machine Learning Services (versión preliminar).
 
 En este artículo, aprenderá a:
 
@@ -31,9 +31,9 @@ En este artículo, aprenderá a:
 > * Realizar la agrupación en clústeres
 > * Analizar los resultados
 
-En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md), ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres en R.
+En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md) ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres.
 
-En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md), aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres basada en datos nuevos.
+En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres en R basada en datos nuevos.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

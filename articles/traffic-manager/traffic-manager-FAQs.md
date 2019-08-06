@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050950"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335798"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -438,7 +438,7 @@ La configuración de supervisión de Traffic Manager se encuentra en el nivel de
 Traffic Manager permite especificar encabezados personalizados en las comprobaciones de estado de HTTP(S) que inicia en sus puntos de conexión. Si desea especificar un encabezado personalizado, puede hacerlo en el nivel de perfil (se aplica a todos los puntos de conexión) o especificarlo en el nivel del punto de conexión. Si un encabezado se define en ambos niveles, el especificado en el nivel de punto de conexión reemplazará el del perfil del nivel uno.
 Un caso de uso común para esto es la especificación de encabezados para que las solicitudes de Traffic Manager se enruten correctamente a un punto de conexión hospedado en un entorno de varios inquilinos. Otro caso de uso de esto es identificar solicitudes de Traffic Manager desde registros de solicitudes HTTP(S) de un punto de conexión
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>¿Qué encabezado host se utiliza en las comprobaciones de estado de punto de conexión?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>¿Qué encabezado host se utiliza en las comprobaciones de estado de punto de conexión?
 
 Si no se proporciona ningún valor de encabezado de host personalizado, el encabezado de host utilizado por Traffic Manager es el nombre DNS del destino del punto de conexión configurado en el perfil, si está disponible.
 
