@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702617"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478932"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
 
@@ -104,7 +104,7 @@ Para combinar dos reservas en una reserva, use la API [Reservation - Merge](/res
 
 ## <a name="change-scope-for-a-reservation"></a>Cambiar el ámbito de una reserva
 
-El ámbito de una reserva puede ser una suscripción única o todas las suscripciones del contexto de facturación. Si establece que el ámbito es una suscripción única, la reserva se corresponderá con los recursos que se ejecuten en la suscripción seleccionada. Si establece que el ámbito es compartido, Azure asociará la reserva con los recursos que se ejecuten en todas las suscripciones dentro del contexto de facturación. El contexto de facturación depende de la suscripción que se usó para comprar la reserva. Para obtener más información, consulte [Administrar reservas: cambio del ámbito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+El ámbito de una reserva puede ser una suscripción única, un grupo de recursos único o todas las suscripciones del contexto de facturación. Si establece que el ámbito es una suscripción única o un grupo de recursos único, la reserva se corresponderá con los recursos que se ejecuten en la suscripción seleccionada. Si elimina o mueve la suscripción o el grupo de recursos, no se usará la reserva.  Si establece que el ámbito es compartido, Azure asociará la reserva con los recursos que se ejecuten en todas las suscripciones dentro del contexto de facturación. El contexto de facturación depende de la suscripción que se usó para comprar la reserva. Puede seleccionar el ámbito en la compra o cambiarlo en cualquier momento después de la misma. Para obtener más información, consulte [Administrar reservas: cambio del ámbito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Para cambiar el ámbito mediante programación, use la API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 

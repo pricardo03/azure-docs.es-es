@@ -5,15 +5,15 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954399"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467942"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -56,7 +56,7 @@ En una cuenta de Azure Cosmos de varias regiones, si se produce un error en una 
 
 Si la propiedad TTL (período de vida) se establece en -1 en un elemento, la fuente de cambios se conservará para siempre. Si los datos no se eliminan, se mantendrán en la fuente de cambios.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Fuente de cambios y _etag, _lsn o _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Fuente de cambios y _etag, _lsn o _ts
 
 El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega solo para la fuente de cambios y representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
 
@@ -93,8 +93,8 @@ Los siguientes son algunos de los escenarios en los que se puede implementar fá
 
 Puede trabajar con la fuente de cambios mediante las siguientes opciones:
 
-* [Usar la fuente de cambios con Azure Functions](change-feed-functions.md)
-* [Usar la fuente de cambios con la biblioteca de procesadores de fuente de cambios](change-feed-processor.md) 
+* [Using change feed with Azure Functions](change-feed-functions.md) (Usar la fuente de cambios con Azure Functions)
+* [Usar la fuente de cambios con el procesador de fuente de cambios](change-feed-processor.md) 
 
 La fuente de cambios está disponible para cada clave de partición lógica dentro del contenedor y, por tanto, se puede distribuir entre uno o varios consumidores para el procesamiento en paralelo, tal y como se muestra en la imagen a continuación.
 
@@ -108,7 +108,7 @@ La fuente de cambios está disponible para cada clave de partición lógica dent
 
 * La fuente de cambios incluye inserciones y operaciones de actualización realizadas en los elementos dentro del contenedor. Puede capturar las eliminaciones si establece un marcador de "eliminación temporal" dentro de los elementos (tales como documentos) en lugar de eliminaciones. También pude establecer un período finito de expiración para los elementos con la [funcionalidad de período de vida](time-to-live.md). Por ejemplo, puede elegir 24 horas y usar el valor de esa propiedad para capturar las eliminaciones. Con esta solución, tiene que procesar los cambios dentro de un intervalo de tiempo más corto que el período de expiración de TTL. 
 
-* Cada cambio realizado en un elemento aparece exactamente una vez en la fuente de cambios y los clientes deben administrar la lógica de puntos de comprobación. Si quiere evitarse la complejidad de administrar los puntos de comprobación, la biblioteca de procesadores de fuentes de cambio proporciona puntos de comprobación automáticos y semántica de "al menos una vez". Consulte cómo [usar la fuente de cambios con la biblioteca de procesadores de fuente de cambios](change-feed-processor.md).
+* Cada cambio realizado en un elemento aparece exactamente una vez en la fuente de cambios y los clientes deben administrar la lógica de puntos de comprobación. Si quiere evitarse la complejidad de administrar los puntos de comprobación, el procesador de fuentes de cambio proporciona puntos de comprobación automáticos y semántica de "al menos una vez". Consulte [Usar la fuente de cambios con el procesador de fuente de cambios](change-feed-processor.md).
 
 * Solo el cambio más reciente en un elemento determinado se incluye en el registro de cambios. Puede que los cambios intermedios no estén disponibles.
 
@@ -126,4 +126,4 @@ Ahora, puede obtener más información acerca de las fuentes de cambios en los s
 
 * [Options to read change feed](read-change-feed.md) (Opciones para leer la fuente de cambios)
 * [Using change feed with Azure Functions](change-feed-functions.md) (Usar la fuente de cambios con Azure Functions)
-* [Using change feed processor library](change-feed-processor.md) (Uso de la biblioteca de procesadores de fuente de cambios)
+* [Usar el procesador de fuente de cambios](change-feed-processor.md)

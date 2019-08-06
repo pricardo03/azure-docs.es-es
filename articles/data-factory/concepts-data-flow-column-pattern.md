@@ -1,17 +1,17 @@
 ---
 title: Patrones de columna de Azure Data Factory Mapping Data Flow
-description: Obtenga información sobre cómo usar los patrones de columna de Azure Data Factory en Mapping Data Flow para crear patrones de plantilla generalizados a fin de transformar los campos de un flujo de datos sin tener en cuenta los metadatos del esquema subyacentes.
+description: Cree patrones de transformación de datos generalizados con patrones de columna de Azure Data Factory en Mapping Data Flows.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430759"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346576"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Patrones de columna de Azure Data Factory Mapping Data Flow
 
@@ -30,3 +30,13 @@ Al crear patrones de las columnas de la plantilla, use `$$` en la expresión par
 Si elige usar una de las funciones de expresión regular del Generador de expresiones, posteriormente podrá usar $1, $2, $3... para hacer referencia a los patrones secundarios que coinciden con su expresión regular.
 
 Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. Posteriormente puede usar SUM en todas las coincidencias de tipos de campos que coincidan con "integer" y, después, usar $$ para hacer referencia a cada coincidencia en la expresión.
+
+## <a name="match-columns"></a>Coincidencia de columnas
+![Tipos de patrones de columna](media/data-flow/pattern2.png "Tipos de patrones")
+
+Para crear patrones basados en columnas, puede buscar coincidencias en función del nombre, el tipo, la secuencia o la posición de la columna y usar cualquier combinación de estos con funciones de expresión y expresiones regulares.
+
+![posición de la columna](media/data-flow/position.png "Posición de la columna")
+
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre el [lenguaje de expresiones](https://aka.ms/dataflowexpressions) de Mapping Data Flow de ADF para las transformaciones de datos.

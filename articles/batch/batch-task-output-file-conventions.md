@@ -4,7 +4,7 @@ description: Aprenda a usar la biblioteca de convenciones de archivo para .NET d
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be42399d9919d0ed410f1503353568c86a75f5a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791555"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322888"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
@@ -73,7 +73,7 @@ Para más información sobre el trabajo con contenedores y blobs en Azure Storag
 
 ### <a name="create-storage-container"></a>Creación de contenedores de almacenamiento
 
-Para guardar las salidas de tareas en Azure Storage, primero cree un contenedor mediante una llamada a [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión toma un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro. Crea un contenedor denominado según el estándar File Conventions, por lo que su contenido es reconocible para Azure Portal y los métodos de recuperación que se describen más adelante en este artículo.
+Para guardar las salidas de tareas en Azure Storage, primero cree un contenedor mediante una llamada a [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión toma un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro. Crea un contenedor denominado según el estándar File Conventions, por lo que su contenido es reconocible para Azure Portal y los métodos de recuperación que se describen más adelante en este artículo.
 
 Normalmente se coloca el código para crear un contenedor en la aplicación cliente &mdash;, la aplicación que crea los grupos, los trabajos y las tareas.
 
@@ -94,7 +94,7 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 
 Ahora que ha preparado un contenedor en Azure Storage, las tareas pueden guardar las salidas en el contenedor mediante la clase [TaskOutputStorage][net_taskoutputstorage] que se encuentra en la biblioteca de convenciones de archivos.
 
-En el código de la tarea, cree primero un objeto [TaskOutputStorage][net_taskoutputstorage] y, luego, cuando la tarea haya finalizado su trabajo, llame al método [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] para guardar su salida en Azure Storage.
+En el código de la tarea, cree primero un objeto [TaskOutputStorage][net_taskoutputstorage] y, luego, cuando la tarea haya finalizado su trabajo, llame al método [TaskOutputStorage.SaveAsync][net_taskoutputstorage].[SaveAsync][net_saveasync] para guardar su salida en Azure Storage.
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -110,7 +110,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-El parámetro `kind` del método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) permite clasificar los archivos guardados. Hay cuatro tipos predefinidos de [TaskOutputKind][net_taskoutputkind]: `TaskOutput`, `TaskPreview`, `TaskLog`, y `TaskIntermediate.`. También puede definir categorías personalizadas de salida.
+El parámetro `kind` del método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) permite clasificar los archivos guardados. Hay cuatro tipos predefinidos de [TaskOutputKind][net_taskoutputkind]: `TaskOutput`, `TaskPreview`, `TaskLog` y `TaskIntermediate.`. También puede definir categorías personalizadas de salida.
 
 Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mostrar cuándo se realiza una consulta a Batch relacionada con las salidas guardadas de una tarea dada. En otras palabras, cuando muestra las salidas de una tarea, puede filtrar la lista por uno de los tipos de salida. Por ejemplo, "dame la salida *preview* de la tarea *109*". Aparece más información sobre la presentación y recuperación de salidas en la sección Recuperación de salidas más adelante en el artículo.
 
@@ -121,7 +121,7 @@ Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mos
 
 Además de almacenar las salidas de tareas, puede almacenar las salidas asociadas a un trabajo completo. Por ejemplo, en la tarea de combinación de un trabajo de representación de una película, podría guardar la película totalmente representada como una salida de trabajo. Cuando se completa el trabajo, la aplicación cliente puede mostrar y recuperar las salidas del trabajo y no es necesario consultar las tareas individuales.
 
-Almacene la salida del trabajo mediante una llamada al método [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] y especifique el [JobOutputKind][net_joboutputkind] y el nombre de archivo:
+Almacene la salida del trabajo mediante una llamada al método [JobOutputStorage.SaveAsync][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] y especifique el [JobOutputKind][net_joboutputkind] y el nombre de archivo:
 
 ```csharp
 CloudJob job = new JobOutputStorage(acct, jobId);
@@ -135,7 +135,7 @@ Al igual que con el tipo **TaskOutputKind** para las salidas de tareas, utilice 
 
 ### <a name="store-task-logs"></a>Almacenamiento de los registros de tareas
 
-Además de guardar un archivo en un almacenamiento duradero cuando se completa una tarea o trabajo, es posible que necesite guardar los archivos que se actualizan durante la ejecución de una tarea, los archivos de registro de &mdash;, o `stdout.txt` y `stderr.txt`, por ejemplo. Para ello, la biblioteca Azure Batch File Conventions proporciona el método [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Con [SaveTrackedAsync][net_savetrackedasync], puede realizar un seguimiento de las actualizaciones de un archivo del nodo (durante un intervalo especificado) y almacenar esas actualizaciones en Azure Storage.
+Además de guardar un archivo en un almacenamiento duradero cuando se completa una tarea o trabajo, es posible que necesite guardar los archivos que se actualizan durante la ejecución de una tarea, los archivos de registro de &mdash;, o `stdout.txt` y `stderr.txt`, por ejemplo. Para ello, la biblioteca Azure Batch File Conventions proporciona el método [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Con [SaveTrackedAsync][net_savetrackedasync], puede realizar un seguimiento de las actualizaciones de un archivo del nodo (durante un intervalo especificado) y guardar esas actualizaciones en Azure Storage.
 
 En el siguiente fragmento de código, utilizamos [SaveTrackedAsync][net_savetrackedasync] para actualizar `stdout.txt` en Azure Storage cada 15 segundos durante la ejecución de la tarea:
 
@@ -198,35 +198,35 @@ Azure Portal muestra los archivos de salidas y los registros de las tareas que s
 Para habilitar la presentación de los archivos de salidas en el portal, debe cumplir con los siguientes requisitos:
 
 1. Vincular una cuenta de Azure Storage a la cuenta de Batch.
-1. Cumplir las convenciones de nomenclatura predefinidas para los contenedores y archivos de almacenamiento al guardar salidas. Puede encontrar la definición de estas convenciones en el archivo [LÉAME][github_file_conventions_readme] de la biblioteca de convenciones de archivo. Si utiliza la biblioteca de [convenciones de archivo de Azure Batch][nuget_package] para guardar la salida, los archivos se guardarán según el estándar de convenciones de archivo.
+1. Cumplir las convenciones de nomenclatura predefinidas para los contenedores y archivos de almacenamiento al guardar salidas. Puede encontrar la definición de estas convenciones en la biblioteca de convenciones de archivo [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] para guardar la salida, los archivos se guardarán según el estándar de convenciones de archivo. Para ver los archivos de salidas y registros de las tareas en Azure Portal, navegue hasta la tarea en cuya salida está interesado y, después, haga clic en **Archivos de salida guardados** o **Registros guardados**.
 
-Para ver los archivos de salidas y registros de las tareas en Azure Portal, navegue hasta la tarea en cuya salida está interesado y, después, haga clic en **Archivos de salida guardados** o **Registros guardados**. Esta imagen muestra los **archivos de salida guardados** para la tarea con identificador "007":
+Esta imagen muestra los **archivos de salida guardados** para la tarea con identificador "007": ![Hoja de salidas de tareas de Azure Portal][2]
 
-![Hoja de salidas de tareas de Azure Portal][2]
+Código de ejemplo
 
-## <a name="code-sample"></a>Código de ejemplo
+## <a name="code-sample"></a>[PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] en GitHub.
 
-El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de convenciones de archivos de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
+Esta solución de Visual Studio muestra cómo utilizar la biblioteca de convenciones de archivos de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos: Abra el proyecto en **Visual Studio 2019**.
 
-1. Abra el proyecto en **Visual Studio 2019**.
-2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
-3. **Compile** (pero no ejecute) la solución. Si se le solicita, restaure los paquetes NuGet.
-4. Use el Portal de Azure para cargar un [paquete de aplicación](batch-application-packages.md) para **PersistOutputsTask**. Incluya el archivo `PersistOutputsTask.exe` y los ensamblados dependientes en el paquete zip, establezca el identificador de la aplicación en "PersistOutputsTask" y la versión del paquete de aplicación en "1.0".
-5. **Inicie** (ejecute) el proyecto**PersistOutputs**.
-6. Cuando se le solicite que elija la tecnología de guardado que desea usar para ejecutar el ejemplo, escriba **1** para ejecutarlo mediante la biblioteca de convenciones de archivo para guardar la salida de la tarea. 
+1. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
+2. **Compile** (pero no ejecute) la solución.
+3. Si se le solicita, restaure los paquetes NuGet. Use el Portal de Azure para cargar un [paquete de aplicación](batch-application-packages.md) para **PersistOutputsTask**.
+4. Incluya el archivo `PersistOutputsTask.exe` y los ensamblados dependientes en el paquete zip, establezca el identificador de la aplicación en "PersistOutputsTask" y la versión del paquete de aplicación en "1.0". **Inicie** (ejecute) el proyecto**PersistOutputs**.
+5. Cuando se le solicite que elija la tecnología de guardado que desea usar para ejecutar el ejemplo, escriba **1** para ejecutarlo mediante la biblioteca de convenciones de archivo para guardar la salida de la tarea.
+6. Pasos siguientes 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Obtención de la biblioteca de convenciones de archivo para .NET de Batch
 
-### <a name="get-the-batch-file-conventions-library-for-net"></a>Obtención de la biblioteca de convenciones de archivo para .NET de Batch
+### <a name="get-the-batch-file-conventions-library-for-net"></a>La biblioteca de convenciones de archivo para .NET de Batch está disponible en [NuGet][nuget_package]. The library extends the [CloudJob][net_cloudjob] y las clases [CloudTask][net_cloudtask] con nuevos métodos.
 
-Esta biblioteca está disponible en [NuGet][nuget_package]. La biblioteca permite extender las clases [CloudJob][net_cloudjob] y [CloudTask][net_cloudtask] con nuevos métodos. Consulte también la [documentación de referencia](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) de la biblioteca de convenciones de archivo.
+Consulte también la [documentación de referencia](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) de la biblioteca de convenciones de archivo. Puede encontrar el [código fuente][github_file_conventions] de la biblioteca de convenciones de archivo en GitHub en el repositorio del Microsoft Azure SDK para .NET. Exploración de otros métodos para guardar los datos de salida
 
-Puede encontrar el [código fuente][github_file_conventions] de la biblioteca de convenciones de archivo en GitHub en el repositorio del Microsoft Azure SDK para .NET. 
+Consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md) para obtener información general sobre cómo guardar datos de tareas y trabajos. 
 
-### <a name="explore-other-approaches-for-persisting-output-data"></a>Exploración de otros métodos para guardar los datos de salida
+### <a name="explore-other-approaches-for-persisting-output-data"></a>Consulte [Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch](batch-task-output-files.md) para aprender a usar la API del servicio Batch para guardar los datos de salida.
 
-- Consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md) para obtener información general sobre cómo guardar datos de tareas y trabajos.
-- Consulte [Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch](batch-task-output-files.md) para aprender a usar la API del servicio Batch para guardar los datos de salida.
+- [1]: ./media/batch-task-output/task-output-01.png "Selectores de archivos de salida guardados y registros guardados en el portal"
+- [2]: ./media/batch-task-output/task-output-02.png "Hoja de salidas de tareas de Azure Portal"
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -252,5 +252,5 @@ Puede encontrar el [código fuente][github_file_conventions] de la biblioteca de
 [portal]: https://portal.azure.com
 [storage_explorer]: https://storageexplorer.com/
 
-[1]: ./media/batch-task-output/task-output-01.png "Selectores de archivos de salida guardados y registros guardados en el portal"
-[2]: ./media/batch-task-output/task-output-02.png "Hoja de salidas de tareas de Azure Portal"
+<bpt id="p1">[</bpt><ept id="p1">1]: ./media/batch-task-output/task-output-01.png</ept><bpt id="p2"> "</bpt>Saved output files and Saved logs selectors in portal<ept id="p2">"</ept>
+<bpt id="p1">[</bpt><ept id="p1">2]: ./media/batch-task-output/task-output-02.png</ept><bpt id="p2"> "</bpt>Task outputs blade in the Azure portal<ept id="p2">"</ept>

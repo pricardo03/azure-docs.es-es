@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: a233299b86100c7e43291ffb6448d576ef6072f0
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326443"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -103,7 +103,7 @@ Para las aplicaciones ASP.NET, la consulta SQL completa se recopila con ayuda de
 | Plataforma | Pasos necesarios para obtener la consulta SQL completa |
 | --- | --- |
 | Aplicación web de Azure |En el panel de control de la aplicación web [abra la hoja de Application Insights](../../azure-monitor/app/azure-web-apps.md) y habilite los comandos SQL de .NET |
-| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | [Instale el Monitor de estado en el servidor donde se ejecuta la aplicación](../../azure-monitor/app/monitor-performance-live-website-now.md) y reinicie IIS.
+| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) y reiniciar IIS. |
 | Servicio en la nube de Azure | Agregue una [tarea de inicio para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional). <br> La aplicación se debe incorporar al SDK de ApplicationInsights en tiempo de compilación mediante la instalación de paquetes de NuGet para las aplicaciones de [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). |
 | IIS Express | No compatible
 

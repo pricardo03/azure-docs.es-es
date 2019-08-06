@@ -3,16 +3,17 @@ title: Automatización de la compilación y aplicación de revisiones de imágen
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147986"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311872"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -49,7 +50,7 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 | Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
 
-ACR Tasks está diseñado como un primitivo de ciclo de vida de contenedor. Por ejemplo, puede integrar ACR Tasks en su solución de CI/CD. Al ejecutar [az login][az-login] con una [entidad de servicio][az-login-service-principal], la solución de CI/CD podría emitir entonces comandos [az acr build][az-acr-build] para iniciar las compilaciones de imágenes.
+ACR Tasks está diseñado como un primitivo de ciclo de vida de contenedor. Por ejemplo, puede integrar ACR Tasks en su solución de CI/CD. Al ejecutar [az login][az-login] with a [service principal][az-login-service-principal], la solución de CI/CD podría emitir entonces comandos [az acr build] [az-acr-build] para iniciar las compilaciones de imágenes.
 
 Aprenda a usar tareas rápidas en el primer tutorial de ACR Tasks: [Compilación de imágenes de contenedor en la nube con Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
 
@@ -58,7 +59,7 @@ Aprenda a usar tareas rápidas en el primer tutorial de ACR Tasks: [Compilación
 Use ACR Tasks para desencadenar automáticamente una compilación de imágenes de contenedor cuando el código se confirme en un repositorio de Git. Las tareas de compilación, configurables con el comando [az acr-task][az-acr-task] de la CLI de Azure, le permiten especificar un repositorio de Git y, opcionalmente, una rama y un archivo Dockerfile. Cuando el equipo confirma el código en el repositorio, un webhook creado por ACR Tasks desencadena una compilación de la imagen de contenedor definida en el repositorio.
 
 > [!IMPORTANT]
-> Si ha creado anteriormente tareas durante la vista previa con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
+> Si ha creado anteriormente tareas durante la versión preliminar con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
 
 Aprenda a desencadenar compilaciones tras la confirmación del código fuente en el segundo tutorial de ACR Tasks: [Automatización de compilaciones de imágenes de contenedor con Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 

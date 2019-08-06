@@ -1,19 +1,18 @@
 ---
 title: Solución de problemas de Azure Backup Server
 description: Solucionar problemas de instalación, registro de Azure Backup Server y copia de seguridad y restauración de las cargas de trabajo de la aplicación.
-services: backup
-author: kasinh
-manager: vvithal
+author: srinathvasireddy
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.author: kasinh
-ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: srinathv
+ms.openlocfilehash: f601901ed0cb90421dbf7254d657ef80e1769541
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304337"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466091"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -119,3 +118,33 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
 | Configurar notificaciones por correo electrónico con una cuenta de Office 365 |Id. del error: 2013| **Causa:**<br> Intentar usar la cuenta de Office 365 <br>**Acción recomendada:**<ol><li> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción para el servidor DPM, está configurada en Exchange. Para obtener más información acerca de cómo configurarlo, vea [Permitir la retransmisión anónima en un conector de recepción](https://technet.microsoft.com/library/bb232021.aspx) en TechNet.</li> <li> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. Configure el servidor DPM para [retransmitir el protocolo SMTP a Office 365 con IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANTE:** Asegúrese de usar el formato user\@domain.com y *no* domain\user.<br><br><li>Apunte a DMP para usar el nombre del servidor local como servidor SMTP, puerto 587. A continuación, apunte al correo electrónico del usuario del que deberían provenir los correos electrónicos.<li> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser para una cuenta de dominio en la que el dominio DPM está habilitado. </li><br> **NOTA**: si modifica la dirección del servidor SMTP, realice el cambio en la nueva configuración, cierre el cuadro de configuración y vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para que la nueva configuración entre en vigor, de modo que se recomienda realizar esta prueba.<br><br>En cualquier momento durante este proceso, puede borrar esta configuración cerrando la consola de DPM y modificando las siguientes claves del Registro: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Elimine las claves SMTPPassword y SMTPUserName**. Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.
+
+
+## <a name="common-issues"></a>Problemas comunes
+
+En esta sección se tratan los errores que se pueden producir al usar Azure Backup Server.
+
+
+### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+Mensaje de error | Acción recomendada |
+-- | --
+No se pudo realizar la copia de seguridad porque la réplica de copia de seguridad de disco no se encuentra o no es válida. | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación: <br/> 1. Cree un punto de recuperación de disco.<br/> 2. Ejecute una comprobación de coherencia en el origen de datos. <br/> 3. Detenga la protección del origen de datos y vuelva a configurar la protección de este origen de datos.
+
+### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+Mensaje de error | Acción recomendada |
+-- | --
+Se produjo un error en la instantánea de volumen del origen debido a que los metadatos de la réplica no son válidos. | Cree un punto de recuperación de disco de este origen de datos y vuelva a intentar la copia de seguridad en línea.
+
+### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
+
+Mensaje de error | Acción recomendada |
+-- | --
+Se produjo un error en la instantánea de volumen del origen debido a una réplica de origen de datos incoherente. | Ejecute una comprobación de coherencia en este origen de datos y vuelva a intentarlo.
+
+### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
+
+Mensaje de error | Acción recomendada |
+-- | --
+No se pudo realizar la copia de seguridad porque no se pudo clonar la réplica de copia de seguridad de disco.| Asegúrese de que todos los archivos de réplica de copia de seguridad de disco (.vhdx) anteriores estén desmontados y no haya ninguna copia de seguridad de disco a disco en curso durante las copias de seguridad en línea.

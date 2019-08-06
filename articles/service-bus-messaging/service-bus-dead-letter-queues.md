@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003133"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516588"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -49,7 +49,7 @@ Las aplicaciones pueden definir sus propios códigos para la propiedad `DeadLett
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |El mensaje expiró y se consideró fallido. |
 | SubscriptionDescription.RequiresSession |El identificador de sesión es null. |La entidad habilitada por sesión no permite un mensaje cuyo identificador de sesión es null. |
-| !cola de mensajes fallidos |MaxTransferHopCountExceeded |Null |
+| !cola de mensajes fallidos | MaxTransferHopCountExceeded | Número máximo de saltos permitidos al reenviar contenido entre colas. El valor se establece en 4. |
 | Mensajes fallidos explícitos de aplicación |Especificado por la aplicación |Especificado por la aplicación |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superación de MaxDeliveryCount
@@ -108,7 +108,7 @@ Puede tener acceso a la cola de mensajes fallidos mediante la sintaxis siguiente
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
 Si usa el SDK de .NET, puede obtener la ruta de acceso para la cola de mensajes fallidos mediante el método SubscriptionClient.FormatDeadLetterPath(). Este método toma el nombre del tema o suscripción y le agrega el sufijo **/$DeadLetterQueue**.

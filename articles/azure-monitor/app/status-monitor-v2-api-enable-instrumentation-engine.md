@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1e30490dbd51f541afd0b7036769cfc638a75877
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514379"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326370"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>API del Monitor de estado v2: Enable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API del Monitor de estado v2: Enable-InstrumentationEngine
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
@@ -34,7 +29,7 @@ Habilita el motor de instrumentación mediante la definición de algunas claves 
 Reinicie IIS para aplicar los cambios.
 
 El motor de instrumentación puede complementar los datos recopilados por los SDK de .NET.
-Recopila los eventos y mensajes que describen la ejecución de un proceso administrado. Estos eventos y mensajes incluyen códigos de resultado de la dependencia, verbos HTTP y texto de comando SQL.
+Recopila los eventos y mensajes que describen la ejecución de un proceso administrado. Estos eventos y mensajes incluyen códigos de resultado de la dependencia, verbos HTTP y [texto de comando SQL](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 Habilite el motor de instrumentación si:
 - Ya ha habilitado la supervisión con el cmdlet Enable pero no ha habilitado el motor de instrumentación.
@@ -61,7 +56,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **Parámetro común.** Use este modificador para generar registros detallados.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Salida de ejemplo al habilitar correctamente el motor de instrumentación

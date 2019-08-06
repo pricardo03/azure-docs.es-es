@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 56453891289654e65f8077542fca40876099061e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672385"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347248"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
@@ -33,6 +33,9 @@ Puede enriquecer un número limitado de documentos de manera gratuita, o bien pu
 Se requiere la existencia de Azure Search y Azure Cognitive Services en la misma región. De lo contrario, recibirá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 No existe forma alguna de migrar un servicio entre regiones. Si recibe este error, debe crear un nuevo recurso de Cognitive Services en la misma región que Azure Search.
+
+> [!NOTE]
+> Algunas habilidades integradas se basan en una instancia de Cognitive Services no regional (por ejemplo, la [habilidad de traducción de texto](cognitive-search-skill-text-translation.md)). Tenga en cuenta que si agrega cualquiera de estas habilidades a su conjunto de aptitudes, no se garantiza que los datos permanezcan en la misma región que el recurso de Azure Search o Cognitive Services. Consulte la [página de estado del servicio](https://aka.ms/allinoneregioninfo) para obtener más detalles.
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 

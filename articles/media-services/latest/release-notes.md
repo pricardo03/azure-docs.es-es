@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542546"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311809"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -33,6 +33,14 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="july-2019"></a>Julio de 2019
+
+### <a name="content-protection"></a>Protección de contenido
+
+Cuando el contenido de streaming está protegido con restricción de token, los usuarios finales deben obtener un token que se envía como parte de la solicitud de entrega de claves. La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](content-protection-overview.md#token-replay-prevention).
+
+Esta característica está actualmente disponible en el centro de EE. UU. y centro-oeste de EE. UU.
 
 ## <a name="june-2019"></a>Junio de 2019
 

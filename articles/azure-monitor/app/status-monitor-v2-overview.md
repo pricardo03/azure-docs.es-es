@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734159"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333690"
 ---
 # <a name="status-monitor-v2"></a>Monitor de estado v2
 
@@ -26,14 +26,11 @@ Reemplaza al [Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/
 El módulo proporciona instrumentación sin código de aplicaciones web .NET hospedadas con IIS.
 Se envía telemetría a Azure Portal, donde puede [supervisar](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) la aplicación.
 
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="powershell-gallery"></a>Galería de PowerShell
 
-La Galería de PowerShell se encuentra aquí: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+El Monitor de estado v2 se encuentra aquí: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+
+![Galería de PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>Instrucciones
@@ -48,6 +45,7 @@ La Galería de PowerShell se encuentra aquí: https://www.powershellgallery.com/
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>solución de problemas
 - [Solución de problemas](status-monitor-v2-troubleshoot.md)
@@ -64,13 +62,13 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
   
 - ¿Cómo se puede comprobar que la habilitación se realizó correctamente?
 
-   No hay ningún cmdlet para eso.
-Se recomienda usar [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) para determinar rápidamente si la aplicación envía telemetría.
+  - Se puede usar el cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) para comprobar que la habilitación se ha realizado correctamente.
+  - Se recomienda usar [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) para determinar rápidamente si la aplicación envía telemetría.
 
-   También puede usar [Log Analytics](../log-query/get-started-portal.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - También puede usar [Log Analytics](../log-query/get-started-portal.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

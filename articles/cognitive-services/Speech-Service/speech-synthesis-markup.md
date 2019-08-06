@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604812"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501162"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -164,7 +164,7 @@ Este fragmento de SSML ilustra cómo se utiliza el elemento `<mstts:express-as>`
 Utilice el elemento `break` para insertar las pausas entre palabras, o para evitar pausas agregadas automáticamente por el servicio de texto a voz.
 
 > [!NOTE]
-> Utilice este elemento para invalidar el comportamiento predeterminado de texto a voz de una palabra o frase si el habla sintetizada de esa palabra o frase no suena natural. Establezca `strength` en `none` para evitar una pausa prosódica, que se inserta automáticamente por el servicio de texto a voz.
+> Utilice este elemento para invalidar el comportamiento predeterminado de texto a voz de una palabra o frase si el habla sintetizada de esa palabra o frase no suena natural. Establezca `strength` en `none` para evitar una pausa prosódica, que inserta automáticamente el servicio de texto a voz.
 
 **Sintaxis**
 
@@ -351,6 +351,78 @@ Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o 
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## <a name="add-recorded-audio"></a>Adición del audio grabado
+
+`audio` es un elemento opcional que le permite insertar audio MP3 en un documento SSML. El cuerpo del elemento de audio puede contener texto sin formato o marcado SSML que se lee en voz alta si el archivo de audio no está disponible o no se puede reproducir. Además, el elemento `audio` puede contener texto y los siguientes elementos: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as` y `sub`.
+
+Cualquier audio incluido en el documento SSML debe cumplir estos requisitos:
+
+* El archivo MP3 debe estar hospedado en un punto de conexión HTTPS accesible desde Internet. Se debe usar HTTPS y el dominio que hospeda el archivo MP3 debe presentar un certificado SSL válido y de confianza.
+* El archivo MP3 debe ser válido (MPEG V2).
+* La velocidad de bits debe ser de 48 kbps.
+* La frecuencia de muestreo debe ser de 16 000 Hz.
+* El tiempo total combinado de todos los archivos de texto y audio de una sola respuesta no puede superar los noventa (90) segundos.
+* El archivo MP3 no debe contener ninguna información específica del cliente ni otra que sea confidencial.
+
+**Sintaxis**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Atributos**
+
+| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+|-----------|-------------|---------------------|
+| src | Especifica la ubicación o la URL del archivo de audio. | Es obligatorio si se usa el elemento de audio en el documento SSML. |
+
+**Ejemplo**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## <a name="add-background-audio"></a>Adición de audio de fondo
+
+El elemento `mstts:backgroundaudio` permite agregar audio de fondo a los documentos SSML (o mezclar un archivo de audio con el servicio de texto a voz). Con `mstts:backgroundaudio`, puede reproducir en bucle un archivo de audio de fondo, hacer que aparezca gradualmente al principio de la conversión de texto a voz y quitarlo gradualmente al final de la conversión de texto a voz.
+
+Si el audio de fondo proporcionado dura menos que la conversión de texto a voz o el fundido de salida, se reproducirá en bucle. Si dura más que la conversión de texto a voz, se detendrá cuando finalice el fundido de salida.
+
+Solo se permite un archivo de audio de fondo por cada documento SSML. Sin embargo, puede intercalar etiquetas `audio` dentro del elemento `voice` para agregar audio adicional al documento SSML.
+
+**Sintaxis**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Atributos**
+
+| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+|-----------|-------------|---------------------|
+| src | Especifica la ubicación o la URL del archivo de audio de fondo. | Es obligatorio si se usa el audio de fondo en el documento SSML. |
+| volume | Especifica el volumen del archivo de audio de fondo. **Valores aceptados**: de `0` a `100`, ambos incluidos. El valor predeterminado es `1`. | Opcional |
+| fadein | Especifica la duración del fundido de entrada del audio de fondo. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
+| fadeout | Especifica la duración del fundido de salida del audio de fondo. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
+
+**Ejemplo**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

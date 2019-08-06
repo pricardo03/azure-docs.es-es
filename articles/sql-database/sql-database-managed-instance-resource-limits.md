@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707001"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567329"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -40,8 +39,7 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 | Número de núcleos virtuales | 8, 16, 24 núcleos virtuales | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
 | Memoria máxima (relación memoria/núcleo) | 7 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. | 5,1 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. |
 | Memoria máxima de OLTP en memoria | Límite de instancia: 3 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 8 GB por base de datos<br/> - 16 núcleos: 20 GB por base de datos<br/> - 24 núcleos: 36 GB por base de datos | Límite de instancia: 2,5 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 13 GB por base de datos<br/> - 16 núcleos: 32 GB por base de datos |
-| Almacenamiento reservado de instancia máximo (de uso general) |  8 TB | 8 TB |
-| Almacenamiento reservado de instancia máximo (crítico para la empresa) | 1 TB | 1 TB, 2 TB o 4 TB, en función del número de núcleos |
+| Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
 > Las nuevas bases de datos de Gen4 ya no se admiten en la región Este de Australia.

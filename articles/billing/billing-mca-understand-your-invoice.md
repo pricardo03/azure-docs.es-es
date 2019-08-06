@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: a5f77120c1d4e8a6721f3bc207132bee19a7772f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490638"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383544"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Términos en la factura del contrato de cliente de Microsoft
 
@@ -90,7 +90,7 @@ El importe total debido de cada familia de servicios se calcula restando *crédi
 
 ### <a name="how-to-pay"></a>Forma de pago
 
-En la parte inferior de la factura, se incluyen instrucciones para pagar la factura. Puede pagar mediante cheque, transferencia o en línea. Si paga en línea, puede usar una tarjeta de crédito o débito o créditos de Azure, si procede.
+En la parte inferior de la factura, se incluyen instrucciones para pagar la factura. Puede pagar mediante cheque, transferencia o en línea. Si paga en línea, puede usar una tarjeta de crédito o créditos de Azure, si procede.
 
 ### <a name="publisher-information"></a>Información del anunciante
 

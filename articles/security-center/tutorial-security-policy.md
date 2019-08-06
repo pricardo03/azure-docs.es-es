@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551723"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314914"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -71,7 +71,7 @@ Para ver las directivas de seguridad de Security Center:
    En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
 
    > [!NOTE]
-   > - El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
+   > El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
    >
 
 2. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
@@ -84,10 +84,10 @@ Para ver las directivas de seguridad de Security Center:
    ![pantalla de la directiva](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - Cuando vea directivas asignadas, puede ver varias asignaciones y cómo se configura cada asignación individualmente.
+> Cuando vea directivas asignadas, puede ver varias asignaciones y cómo se configura cada asignación individualmente.
 
 ## <a name="edit-security-policies"></a>Edición de directivas de seguridad
-Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones y grupos de administración de Azure en [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de la suscripción o del grupo de administración que la contiene.
+Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones y grupos de administración de Azure en [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Para modificar una directiva de seguridad, debe ser propietario o administrador de seguridad de la suscripción o del grupo de administración que la contiene.
 
 Para obtener instrucciones sobre cómo editar una directiva de seguridad en Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md).
 
@@ -145,6 +145,7 @@ En los siguientes ejemplos, reemplace estas variables:
 
 En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Center a una suscripción o grupo de administración.
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -169,6 +170,7 @@ En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Cen
     } 
 
     } 
+ ```
 
 En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Center a una suscripción, con las siguientes directivas deshabilitadas: 
 
@@ -178,10 +180,10 @@ En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Cen
 
 - Protección de extremos ("endpointProtectionMonitoringEffect") 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
-    Cuerpo de la solicitud (JSON) 
+    Request Body (JSON) 
     
     { 
     
@@ -210,12 +212,12 @@ En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Cen
      } 
     
     } 
-
+ ```
 En este ejemplo se muestra cómo quitar una asignación:
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### Referencia de los nombres de directiva <a name="policy-names"></a>
 

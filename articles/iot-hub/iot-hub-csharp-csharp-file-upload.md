@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 79288f2204030790b2308905d90ff8e035fe2dd9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621861"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403203"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
 
@@ -98,6 +98,12 @@ En esta sección, modificará la aplicación de dispositivo que creó en [Envío
 > [!NOTE]
 > Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
+
+En este artículo, creará un servicio de back-end para recibir mensajes de notificación de carga de archivos desde la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md). Para recibir mensajes de notificación de carga de archivos, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Recepción de una notificación de carga de archivos
 
 En esta sección, se escribe una aplicación de consola de .NET que recibe mensajes de notificación de carga de archivos de IoT Hub.
@@ -118,7 +124,7 @@ En esta sección, se escribe una aplicación de consola de .NET que recibe mensa
     using Microsoft.Azure.Devices;
     ```
 
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor del marcador de posición por la cadena de conexión de IoT Hub de [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md):
+5. Agregue los campos siguientes a la clase **Program** . Reemplace el valor de marcador de posición `{iot hub connection string}` por la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
     ```csharp
     static ServiceClient serviceClient;

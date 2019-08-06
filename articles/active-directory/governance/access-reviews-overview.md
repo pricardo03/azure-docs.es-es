@@ -3,8 +3,8 @@ title: ¿Qué son las revisiones de acceso? Azure Active Directory | Microsoft D
 description: Con las revisiones de acceso de Azure Active Directory, puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, de administración de riesgos y de gobernanza de su organización.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204605"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68401954"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -82,6 +82,25 @@ Estos son algunos escenarios de ejemplo que le ayudarán a determinar el número
 | Un administrador crea una revisión de acceso de un grupo con cinco usuarios y 28 usuarios invitados.<br/>Realiza una autorrevisión. | Un administrador y cinco usuarios como autorrevisores más un usuario para cubrir los usuarios invitados en la proporción 1:5 requerida | 7 |
 
 Para más información acerca de cómo asignar licencias a los usuarios, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+
+## <a name="onboard-access-reviews"></a>Incorporarse a las revisiones de acceso
+
+Para incorporar las revisiones de acceso, siga estos pasos.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) donde quiera usar las revisiones de acceso, como administrador global o administrador de usuarios.
+
+1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory**.
+
+1. En el menú izquierdo, haga clic en **Gobierno de identidades**.
+
+1. Haga clic en **Revisiones de acceso**.
+ 
+    ![Página de inicio de revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+
+1. En la página, haga clic en el botón **Incorporar ahora**.
+    
+      ![Incorporar revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+
 
 ## <a name="learn-about-access-reviews"></a>Más información sobre las revisiones de acceso
 

@@ -1,5 +1,5 @@
 ---
-title: Configuración de la aceleración automática de inicio de sesión de una aplicación mediante la directiva de detección del dominio de inicio | Microsoft Docs
+title: Configurar la aceleración automática de inicio de sesión mediante la directiva de detección del dominio de inicio | Microsoft Docs
 description: Aprenda a configurar la directiva de detección del dominio de inicio para la autenticación de Azure Active Directory para los usuarios federados, incluidas sugerencias de dominio y aceleración automática.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440365"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477217"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
-- Para obtener más información sobre el inicio de sesión único del usuario, consulte [Acceso a la aplicación e inicio de sesión único con Azure Active Directory](configure-single-sign-on-portal.md).
+- Para obtener más información sobre el inicio de sesión único del usuario, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](what-is-single-sign-on.md).
 - Consulte la [Guía del desarrollador de Active Directory](../develop/v1-overview.md) para información general sobre todo el contenido de interés para los desarrolladores.

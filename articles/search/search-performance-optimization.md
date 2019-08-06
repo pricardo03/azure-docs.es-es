@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024548"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370644"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estrategias de implementación y procedimientos recomendados para la optimización del rendimiento en Azure Search
 
@@ -49,7 +49,7 @@ Si recibe demasiadas solicitudes limitadas o se superan las tasas de latencia ob
 2. **Aumentar el nivel de búsqueda:**  Azure Search se ofrece con [diferentes niveles](https://azure.microsoft.com/pricing/details/search/), cada uno de los cuales proporciona diferentes niveles de rendimiento.  En algunos casos, el número de consultas es tan alto que su nivel actual no puede ofrecer tasas de latencia suficientemente bajas aunque se use el máximo de réplicas. En este caso, puede considerar la posibilidad de usar uno de los niveles de búsqueda más altos, como el nivel S3 de Azure Search, ideal para escenarios con un gran número de documentos y cargas de trabajo de consulta muy altas.
 
 ## <a name="scaling-for-slow-individual-queries"></a>Escalado para consultas individuales lentas
-Otro motivo para las tasas de latencia altas es una única consulta que tarda demasiado tiempo en completarse. En este caso, agregar réplicas no ayudará. A continuación, se indican dos opciones posibles que puedan ayudar:
+Otro motivo para las tasas de latencia altas es una única consulta que tarda demasiado tiempo en completarse. En este caso, agregar réplicas no ayudará. A continuación, se indican dos opciones posibles que podrían ayudar:
 
 1. **Aumentar las particiones**: Una partición es un mecanismo para dividir los datos entre recursos adicionales. Agregar una segunda partición divide los datos en dos, una tercera partición los divide en tres, y así sucesivamente. Un efecto secundario positivo es que las consultas más lentas a veces se ejecutan más rápido debido a la computación en paralelo. Se observó la paralelización de consultas de selectividad baja, como las consultas que coinciden con muchos documentos, o facetas que proporcionan recuentos a través de un gran número de documentos. Como se necesita una gran cantidad de cálculo para puntuar la relevancia de los documentos o para contar el número de documentos, agregar particiones adicionales ayuda a que las consultas se completen más rápido.  
    
@@ -88,7 +88,7 @@ Este es un objeto visual de alto nivel del aspecto que podría tener esa arquite
    ![Origen de datos único con indexador distribuido y combinaciones de servicios][2]
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Uso de las API REST para insertar actualizaciones de contenido en varios servicios
-Si usa la API REST de Azure Search para [insertar contenido en el índice de Azure Search](https://docs.microsoft.com/rest/api/searchservice/update-index) y quiere mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización. En el código, asegúrese de controlar los casos en los que una actualización en un servicio de búsqueda produce un error, pero dicho error se produce en otros servicios de búsqueda.
+Si usa la API REST de Azure Search para [insertar contenido en el índice de Azure Search](https://docs.microsoft.com/rest/api/searchservice/update-index) y quiere mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización. En el código, asegúrese de controlar los casos en los que una actualización en un servicio de búsqueda produce un error, pero se ejecuta correctamente en otros servicios de búsqueda.
 
 ## <a name="leverage-azure-traffic-manager"></a>Aprovechamiento de Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) permite enrutar solicitudes a diversos sitios web con ubicación geográfica atendidos por distintos servicios Azure Search. Una ventaja de Traffic Manager es que puede sondear Azure Search para asegurarse de que está disponible y enrutar los usuarios a servicios de búsqueda alternativos en caso de tiempo de inactividad. Además, si va a enrutar solicitudes de búsqueda a través de Azure Websites, Azure Traffic Manager permite equilibrar la carga de aquellos casos en los que el sitio web está activo pero Azure Search no. Este es un ejemplo de una arquitectura que utiliza el Administrador de tráfico.

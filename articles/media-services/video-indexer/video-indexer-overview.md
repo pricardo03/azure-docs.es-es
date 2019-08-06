@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799137"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422969"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 
@@ -38,7 +38,7 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 
 ## <a name="audio-insights"></a>Información de audio
 
-- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués brasileño y ruso. Se usará el inglés cuando el idioma no se pueda detectar.
+- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (brasileño) y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
 - **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués brasileño y ruso.
 - **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.
 - **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.

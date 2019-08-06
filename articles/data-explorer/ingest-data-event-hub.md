@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: cafceb0c7ee6b165ee03727e1dff76db00d2863b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077340"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311612"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -187,7 +187,9 @@ Con la aplicación de generación de datos, ahora puede ver el flujo de datos de
     ![Conjunto de resultados de mensajes](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar dicho proceso. La directiva está configurada en 5 minutos, por lo que puede experimentar una latencia.
+    > * Azure Data Explorer tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar dicho proceso. De forma predeterminada, la directiva está configurada en 5 minutos o 500 MB de datos, por lo que puede experimentar una latencia. Consulte la [directiva de procesamiento por lotes](/azure/kusto/concepts/batchingpolicy) para ver las opciones de agregación. 
+    > * La ingesta de datos del centro de eventos incluye el tiempo de respuesta del centro de eventos de 10 segundos o 1 MB. 
+    > * Configure la tabla para que admita el streaming y quite el retraso en el tiempo de respuesta. Consulte la [directiva de streaming](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

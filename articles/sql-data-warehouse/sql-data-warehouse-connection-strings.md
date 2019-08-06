@@ -2,7 +2,7 @@
 title: Cadenas de conexión de Azure SQL Data Warehouse | Microsoft Docs
 description: Cadenas de conexión de SQL Data Warehouse
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8f7843714395664b98383c32911de40ca064779e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873626"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68479702"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadenas de conexión de Azure SQL Data Warehouse
-Puede conectarse a SQL Data Warehouse con varios protocolos de aplicación diferentes, como [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] y [JDBC][JDBC]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo.  También puede usar el Portal de Azure para crear la cadena de conexión.  Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
+Puede conectarse a SQL Data Warehouse con varios protocolos de aplicación diferentes como [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] y [JDBC][JDBC]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo.  También puede usar el Portal de Azure para crear la cadena de conexión.  Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 ## <a name="sample-adonet-connection-string"></a>Cadena de conexión ADO.NET de ejemplo
 ```csharp
@@ -46,7 +46,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio] (Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio](Realización de consultas con Visual Studio).
 
 <!--Image references-->
 

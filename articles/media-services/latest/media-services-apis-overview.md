@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612697"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311857"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con API de Media Services v3
 
@@ -85,20 +85,26 @@ Para obtener detalles sobre cómo realizar un seguimiento de las operaciones asi
 
 Media Services tiene las siguientes operaciones de larga duración:
 
-* Crear LiveEvent
-* Actualizar LiveEvent
-* Eliminar LiveEvent
-* Iniciar LiveEvent
-* Detener LiveEvent
-* Restablecer LiveEvent
-* Crear LiveOutput
-* Eliminar LiveOutput
-* Crear StreamingEndpoint
-* Actualizar StreamingEndpoint
-* Eliminar StreamingEndpoint
-* Iniciar StreamingEndpoint
-* Detener StreamingEndpoint
-* Escalar StreamingEndpoint
+* [Crear LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Actualizar LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Eliminar LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Iniciar LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Detener LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  Use el parámetro `removeOutputsOnStop` para eliminar todos los objetos LiveOutput asociados al detener el evento.  
+* [Restablecer LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Crear LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Eliminar LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Crear StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Actualizar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Eliminar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Iniciar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Detener StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Escalar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+Si se envía correctamente una operación larga, recibirá un mensaje "202 Aceptado" y deberá sondear la finalización de la operación con el identificador de operación devuelto.
+
+Solo se admite una operación de larga duración para un LiveEvent determinado o para cualquiera de sus LiveOutput asociados. Una vez iniciada, la operación de larga duración se debe completar antes de iniciar una operación de larga duración posterior en el mismo LiveEvent o en cualquier LiveOutput asociado. En el caso de los LiveEvent con varios LiveOutput, debe esperar a que se complete una operación de larga duración en un LiveOutput antes de desencadenar una operación de larga duración en otro LiveOutput. 
 
 ## <a name="sdks"></a>SDK
 

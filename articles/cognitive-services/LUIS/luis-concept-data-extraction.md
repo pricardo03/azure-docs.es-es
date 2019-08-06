@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d10588e3df3932f5749093170e7e76fc029053ff
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150696"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479105"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -148,141 +148,15 @@ Por ejemplo, en alemán, la palabra `das Bauernbrot` se tokeniza de esta forma: 
 
 ## <a name="simple-entity-data"></a>Datos de entidad simple
 
-Una [entidad simple](luis-concept-entity-types.md) es un valor de aprendizaje automático. Puede ser una palabra o frase.
-
-`Bob Jones wants 3 meatball pho`
-
-En la expresión anterior, `Bob Jones` se etiqueta como una entidad `Customer` simple.
-
-Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad, el texto de la expresión que se ha detectado, la ubicación del texto detectado y la puntuación:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Objeto de datos|Nombre de entidad|Valor|
-|--|--|--|
-|Entidad simple|`Customer`|`bob jones`|
+Una [entidad simple](reference-entity-simple.md) es un valor de aprendizaje automático. Puede ser una palabra o frase.
 
 ## <a name="composite-entity-data"></a>Datos de entidad compuesta
-Las entidades [compuestas](luis-concept-entity-types.md) son de aprendizaje automático y pueden incluir una palabra o frase. Por ejemplo, considere una entidad compuesta de las entidades `number` y `Location::ToLocation` creadas previamente con la expresión siguiente:
 
-`book 2 tickets to paris`
-
-Fíjese en que `2`, el número, y `paris`, el valor de ToLocation, contienen palabras entre ellos que no forman parte de ninguna de las entidades. El subrayado verde, que se usa en una expresión con etiqueta en el sitio web de [LUIS](luis-reference-regions.md), indica una entidad compuesta.
-
-![Entidad compuesta](./media/luis-concept-data-extraction/composite-entity.png)
-
-Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas las entidades dentro de la composición también se devuelven en la matriz `entities`:
-
-```JSON
-
-"entities": [
-    {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
-    },
-    {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
-        "subtype": "integer",
-        "value": "2"
-    }
-    },
-    {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
-        {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
-        },
-        {
-        "type": "builtin.number",
-        "value": "2"
-        }
-    ]
-    }
-]
-```    
-
-|Objeto de datos|Nombre de entidad|Valor|
-|--|--|--|
-|Entidad creada previamente de número|"builtin.number"|"2"|
-|Entidad precompilada: GeographyV2|"Location::ToLocation"|"paris"|
+Una [entidad compuesta](reference-entity-composite.md) consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
 
 ## <a name="list-entity-data"></a>Datos de entidad de lista
 
-Una entidad de [lista](luis-concept-entity-types.md) no está relacionada con el aprendizaje automático. Es una coincidencia de texto exacta. Una lista representa elementos de la lista junto con sinónimos de esos elementos. LUIS marca todas las coincidencias de un elemento de cualquier lista como una entidad en la respuesta. Un sinónimo puede estar en más de una lista.
-
-Imagine que la aplicación tiene una lista, denominada `Cities`, que permite variaciones de nombres de ciudades, incluidos la ciudad del aeropuerto (Sea-tac), el código del aeropuerto (SEA), el código postal (98101) y el código de área telefónica (206).
-
-|Elemento de lista|Sinónimos del elemento|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
-
-`book 2 tickets to paris`
-
-En la expresión anterior, la palabra `paris` se asigna al elemento paris como parte de la entidad de lista `Cities`. La entidad de lista coincide con el nombre normalizado del elemento y con los sinónimos del elemento.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Otra expresión de ejemplo, con un sinónimo de París:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
 
 ## <a name="prebuilt-entity-data"></a>Datos de entidades creadas previamente
 Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en función de una coincidencia de expresión regular mediante el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Las entidades creadas previamente se devuelven en la matriz de entidades y usan el nombre de tipo con el prefijo `builtin::`. El texto siguiente es una expresión de ejemplo con las entidades creadas previamente devueltas:
@@ -369,35 +243,8 @@ Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en
 ```
 
 ## <a name="regular-expression-entity-data"></a>Datos de entidades de expresiones regulares
-Las entidades de [expresiones regulares](luis-concept-entity-types.md) se detectan en función de una coincidencia de expresión regular mediante una expresión que proporcione al crear la entidad. Al usar `kb[0-9]{6}` como la definición de la entidad de expresión regular, la siguiente respuesta JSON es una expresión de ejemplo con las entidades de expresión regular devueltas para la consulta `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+Una [entidad de expresión regular](reference-entity-regular-expression.md) extrae una entidad basada en un patrón de expresión regular que se proporciona.
 
 ## <a name="extracting-names"></a>Extraer nombres
 Obtener nombres de una expresión es difícil porque un nombre puede ser casi cualquier combinación de letras y palabras. En función de qué tipo de nombre vaya a extraer, tiene varias opciones. Las sugerencias siguientes no son reglas a seguir, si no más bien instrucciones.
@@ -482,49 +329,8 @@ Los roles son diferencias contextuales de entidades.
 ```
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
-Las entidades Pattern.any son entidades de longitud variable que se usan en expresiones de plantilla de un [patrón](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

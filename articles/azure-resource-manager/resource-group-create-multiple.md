@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508178"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494803"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
@@ -141,9 +141,9 @@ Crea estos nombres:
 * storagefabrikam
 * storagecoho
 
-Resource Manager crea los recursos en paralelo de forma predeterminada. No se garantiza el orden en el que se crean. Sin embargo, es posible que quiera especificar que los recursos se implementen en secuencia. Por ejemplo, al actualizar un entorno de producción, puede que quiera escalonar las actualizaciones para que solo una cantidad determinada se actualice al mismo tiempo.
+Resource Manager crea los recursos en paralelo de forma predeterminada. No se aplica ningún límite en el número de recursos implementados en paralelo, aparte del límite total de 800 recursos de la plantilla. No se garantiza el orden en el que se crean.
 
-Para implementar en serie varias instancias de un recurso, establezca `mode` en el valor **serial** y `batchSize` en el número de instancias que se implementarán a la vez. Con mode establecido en serial, Resource Manager crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
+Sin embargo, es posible que quiera especificar que los recursos se implementen en secuencia. Por ejemplo, al actualizar un entorno de producción, puede que quiera escalonar las actualizaciones para que solo una cantidad determinada se actualice al mismo tiempo. Para implementar en serie varias instancias de un recurso, establezca `mode` en el valor **serial** y `batchSize` en el número de instancias que se implementarán a la vez. Con mode establecido en serial, Resource Manager crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
 
 Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, use lo siguiente:
 

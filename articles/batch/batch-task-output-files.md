@@ -3,7 +3,7 @@ title: Guardar salidas de trabajos y tareas en Azure Storage con la API del serv
 description: Aprenda a usar la API del servicio Batch para guardar salidas de trabajos y tareas de Batch en Azure Storage.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: batch
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c113521a1828a27ce9454ea142cb1708b7c5a1b6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595278"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322836"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -178,7 +178,7 @@ Si va a desarrollar con un lenguaje distinto de C#, tendrá que implementar el e
 
 ## <a name="code-sample"></a>Código de ejemplo
 
-El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de cliente para .NET de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
+[PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] en GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de cliente para .NET de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
 
 1. Abra el proyecto en **Visual Studio 2019**.
 2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.

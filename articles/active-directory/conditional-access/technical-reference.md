@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 316c5b6b52c30b51fb2f177a0ae2bd9758fc91d9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112104"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442474"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -57,7 +57,6 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Microsoft Intune
 - Inscripción en Microsoft Intune
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Microsoft Search en Bing
 - Microsoft StaffHub
@@ -69,6 +68,7 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Servicio Power BI
 - Project Online
 - Skype Empresarial Online
 - Red privada virtual (VPN)
@@ -97,6 +97,8 @@ En una directiva de acceso condicional, puede configurar la condición de la pla
 
 ![Asociar la directiva de acceso al sistema operativo del cliente](./media/technical-reference/41.png)
 
+Si bloquea la autenticación heredada con la condición **Otros clientes**, también puede establecer la condición de la plataforma del dispositivo.
+
 ## <a name="client-apps-condition"></a>Condición de aplicaciones cliente
 
 En la directiva de acceso condicional, puede configurar la condición de las [aplicaciones cliente](conditions.md#client-apps) para asociar la directiva con la aplicación cliente que ha iniciado un intento de acceso. Si establece la condición de aplicaciones cliente, podrá conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones cliente:
@@ -114,7 +116,7 @@ En la directiva de acceso condicional, puede seleccionar **Exploradores** como a
 
 Esta configuración funciona con todos los exploradores. Sin embargo, para satisfacer una directiva de dispositivo, como un requisito de dispositivo compatible, se admiten los sistemas operativos y exploradores siguientes:
 
-| SO                     | Exploradores                                      |
+| OS                     | Exploradores                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -134,24 +136,24 @@ En Windows 7, iOS, Android y macOS, Azure AD identifica el dispositivo mediante 
 
 #### <a name="chrome-support"></a>Compatibilidad con Chrome
 
-Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale [esta extensión](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensión es necesaria cuando una directiva de acceso condicional requiere detalles específicos del dispositivo.
 
 Para implementar automáticamente esta extensión en los exploradores de Chrome, cree la siguiente clave del Registro:
 
 |    |    |
 | --- | --- |
-| Ruta de acceso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | NOMBRE | 1 |
-| Type | REG_SZ (String) |
-| Datos | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| type | REG_SZ (String) |
+| Datos | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:
 
 |    |    |
 | --- | --- |
-| Ruta de acceso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | NOMBRE | 1 |
-| Type | REG_SZ (String) |
+| type | REG_SZ (String) |
 | Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado.
@@ -202,6 +204,8 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -240,8 +244,11 @@ En la directiva de acceso condicional, puede requerir que una directiva de prote
 
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **Comentarios:**
 

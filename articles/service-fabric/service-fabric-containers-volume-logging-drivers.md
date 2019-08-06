@@ -2,44 +2,41 @@
 title: Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar) | Microsoft Docs
 description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor. Esto se encuentra actualmente en versión preliminar.
 services: service-fabric
-documentationcenter: other
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
-ms.devlang: other
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: atsenthi
+ms.openlocfilehash: 36a3bb385064009f25a585ea299558d54714fc27
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617633"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599691"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
-El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
+El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https:///azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
 
 > [!NOTE]
-> La versión 6.4.571.9590 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
+> La versión 6.5.516.9494 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
-* La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente. La versión de Linux del complemento de volúmenes de Azure Files funciona en todas las versiones de sistemas operativos admitidas por Service Fabric.
+* La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente.
+
+* La versión de Linux del complemento de volúmenes de Azure Files funciona en todas las versiones de sistemas operativos admitidas por Service Fabric.
 
 * El complemento de volúmenes de Azure Files solo funciona en Service Fabric versión 6.2 y versiones más recientes.
 
-* Siga las instrucciones en la [documentación de Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) para crear un recurso compartido de archivos para la aplicación de contenedor de Service Fabric que se usará como volumen.
+* Siga las instrucciones en la [documentación de Azure Files](https:///azure/storage/files/storage-how-to-create-file-share) para crear un recurso compartido de archivos para la aplicación de contenedor de Service Fabric que se usará como volumen.
 
-* Necesitará que [Powershell con el módulo de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) esté instalado.
+* Necesitará que [Powershell con el módulo de Service Fabric](https:///azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) esté instalado.
 
-* Si usa contenedores HyperV, hay que agregar los fragmentos de código siguientes en la sección ClusterManifest (clúster local) o fabricSettings de la plantilla ARM (clúster de Azure) o ClusterConfig.json (clúster independiente). Necesitará el nombre del volumen y el puerto en el que volumen escucha en el clúster. 
+* Si usa contenedores de Hyper-V, hay que agregar los fragmentos de código siguientes en la sección ClusterManifest (clúster local) o fabricSettings de la plantilla de Azure Resource Manager (clúster de Azure) o ClusterConfig.json (clúster independiente).
 
-En ClusterManifest, hay que agregar el siguiente código en la sección de hospedaje. En este ejemplo, el nombre del volumen es **sfazurefile** y el puerto que escucha en el clúster es **19100**.  
+En ClusterManifest, hay que agregar el siguiente código en la sección de hospedaje. En este ejemplo, el nombre del volumen es **sfazurefile** y el puerto que escucha en el clúster es **19100**. Reemplácelos por los valores correctos para el clúster.
 
 ``` xml 
 <Section Name="Hosting">
@@ -47,7 +44,7 @@ En ClusterManifest, hay que agregar el siguiente código en la sección de hospe
 </Section>
 ```
 
-En la sección fabricSettings de la plantilla ARM (para las implementaciones de Azure) o ClusterConfig.json (para las implementaciones independientes), debe agregarse el siguiente fragmento de código. 
+En la sección fabricSettings de la plantilla Azure Resource Manager (para las implementaciones de Azure) o ClusterConfig.json (para las implementaciones independientes), debe agregarse el siguiente fragmento de código. De nuevo, reemplace el nombre del volumen y los valores del puerto por los suyos.
 
 ```json
 "fabricSettings": [
@@ -66,7 +63,27 @@ En la sección fabricSettings de la plantilla ARM (para las implementaciones de 
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Implementación de la aplicación de Azure Files en Service Fabric
 
-La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse del [vínculo](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip) siguiente. La aplicación puede implementarse en el clúster mediante [API de PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o [FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Uso de Azure Resource Manager mediante el script de PowerShell proporcionado (recomendado)
+
+Si el clúster se basa en Azure, le recomendamos que implemente aplicaciones en este mediante el modelo de recursos de la aplicación de Azure Resource Manager a fin de simplificar su uso y contribuir a avanzar hacia el modelo de mantenimiento de la infraestructura como código. Este enfoque elimina la necesidad de realizar un seguimiento de la versión de la aplicación para el controlador de volumen de Azure Files. También permite mantener las plantillas de Azure Resource Manager separadas para cada sistema operativo admitido. El script da por supuesto que implementa la versión más reciente de la aplicación de Azure Files y toma parámetros del tipo de sistema operativo, el identificador de la suscripción del clúster y el grupo de recursos. Puede descargar el script desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Tenga en cuenta que esto establece automáticamente el valor de ListenPort, que es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes del demonio de Docker a 19100. Para cambiarlo, puede agregar el parámetro denominado "listenPort". Asegúrese de que el puerto no entre en conflicto con ningún otro puerto que usen el clúster o las aplicaciones.
+ 
+
+Comando de implementación de Azure Resource Manager para Windows:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
+```
+
+Comando de implementación de Azure Resource Manager para Linux:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
+```
+
+Una vez que haya ejecutado correctamente el script, puede ir directamente a la [sección de configuración de la aplicación.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+
+
+### <a name="manual-deployment-for-standalone-clusters"></a>Implementación manual de clústeres independientes
+
+La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). La aplicación puede implementarse en el clúster mediante [API de PowerShell](https:///azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o [FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Mediante la línea de comandos, cambie el directorio al directorio raíz del paquete de aplicación descargado.
 
@@ -78,7 +95,7 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
     cd ~/AzureFilesVolume
     ```
 
-2. Copie el paquete de aplicación en el almacén de imágenes. Ejecute el comando siguiente con el valor adecuado en [ApplicationPackagePath] y [ImageStoreConnectionString]:
+2. A continuación, copie el paquete de aplicación en el almacén de imágenes con los valores adecuados para [ApplicationPackagePath] y [ImageStoreConnectionString]:
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -99,32 +116,35 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Crear la aplicación En el comando para crear la aplicación siguiente, tenga en cuenta el parámetro de aplicación **ListenPort**. Este valor especificado para este parámetro de aplicación es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes desde el demonio de Docker. Es importante asegurarse de que el puerto que se proporciona a la aplicación coincida con el valor de VolumePluginPorts en ClusterManifest y no entre en conflicto con ningún otro puerto que usen el clúster o las aplicaciones.
+4. Cree la aplicación y preste mucha atención al valor del parámetro de la aplicación **ListenPort**. Este valor es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes del demonio de Docker. Asegúrese de que el puerto que se proporciona a la aplicación coincida con el valor de VolumePluginPorts en ClusterManifest y no entre en conflicto con ningún otro puerto que usen el clúster o las aplicaciones.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
 > 
-> Windows Server 2016 Datacenter no admite montajes de SMB de asignación en contenedores ([solo se admiten en Windows Server versión 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Esta restricción evita que haya asignaciones de volumen de red y controladores de volúmenes de Azure Files en versiones anteriores a 1709.
+> Windows Server 2016 Datacenter no admite montajes de SMB de asignación en contenedores ([solo se admiten en Windows Server versión 1709](https:///virtualization/windowscontainers/manage-containers/container-storage)). Esta restricción evita que haya asignaciones de volumen de red y controladores de volúmenes de Azure Files en versiones anteriores a 1709.
 
-### <a name="deploy-the-application-on-a-local-development-cluster"></a>Implementación de la aplicación en un clúster de desarrollo local
-El número de instancias de servicio predeterminado para la aplicación del complemento de volúmenes de Azure Files es -1; es decir, hay una instancia del servicio implementada en cada nodo del clúster. Sin embargo, al implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local, el recuento de instancias de servicio debe especificarse como 1. Esto puede hacerse a través del parámetro de aplicación **InstanceCount**. Por lo tanto, el comando para implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local es:
+#### <a name="deploy-the-application-on-a-local-development-cluster"></a>Implementación de la aplicación en un clúster de desarrollo local
+Siga los pasos de 1 a 3 [anteriores.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+
+ El número de instancias de servicio predeterminado para la aplicación del complemento de volúmenes de Azure Files es -1; es decir, hay una instancia del servicio implementada en cada nodo del clúster. Sin embargo, al implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local, el recuento de instancias de servicio debe especificarse como 1. Esto puede hacerse a través del parámetro de aplicación **InstanceCount**. Por lo tanto, el comando para crear la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local es:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
+
 ## <a name="configure-your-applications-to-use-the-volume"></a>Configuración de las aplicaciones para usar el volumen
-El siguiente fragmento de código muestra cómo se puede especificar un volumen basado en Azure Files en el manifiesto de aplicación de la aplicación. El elemento específico de interés es la etiqueta **Volume**:
+En el siguiente fragmento de código se muestra cómo se puede especificar un volumen basado en Azure Files en el archivo de manifiesto de aplicación de la aplicación. El elemento específico de interés es la etiqueta **Volume**:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -158,11 +178,11 @@ El siguiente fragmento de código muestra cómo se puede especificar un volumen 
 </ApplicationManifest>
 ```
 
-El nombre de controlador para el complemento de volúmenes de Azure Files es **sfazurefile**. Este valor se establece para el atributo **Driver** del elemento **Volume** en el manifiesto de aplicación.
+El nombre de controlador para el complemento de volúmenes de Azure Files es **sfazurefile**. Este valor se establece para el atributo **Driver** del elemento de la etiqueta **Volume** en el manifiesto de aplicación.
 
-En el elemento **Volume** en el fragmento de código anterior, el complemento de volúmenes de Azure Files requiere las siguientes etiquetas:
+En la etiqueta **Volume** del fragmento de código anterior, el complemento de volúmenes de Azure Files requiere los siguientes atributos:
 - **Source**: se trata del nombre del volumen. El usuario puede elegir cualquier nombre para su volumen.
-- **Destination**: esta etiqueta es la ubicación a la que se asigna el volumen dentro del contenedor en ejecución. Por lo tanto, el destino no puede ser una ubicación que ya exista dentro del contenedor.
+- **Destination**: este atributo es la ubicación a la que se asigna el volumen dentro del contenedor en ejecución. Por lo tanto, el destino no puede ser una ubicación que ya exista dentro del contenedor.
 
 Como se muestra en los elementos **DriverOption** en el fragmento de código anterior, el complemento de volúmenes de Azure Files admite las siguientes opciones de controlador:
 - **shareName**: nombre del recurso compartido de archivos de Azure Files que proporciona el volumen para el contenedor.
@@ -184,7 +204,7 @@ Como se muestra en los elementos **DriverOption** en el fragmento de código ant
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso de su propio controlador de volumen o registro
-Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
+Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](https:///azure/service-fabric/service-fabric-application-model).
 
 A continuación se muestra un ejemplo del script para instalar el [controlador de volumen de Docker para Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
 

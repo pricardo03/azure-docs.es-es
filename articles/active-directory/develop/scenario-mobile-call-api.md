@@ -3,7 +3,7 @@ title: 'Aplicación móvil que llama a las API web: llamada a una API web - Plat
 description: 'Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web: llamada a una API web'
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111172"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413578"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicación móvil que llama a las API web: llamada a una API web
 
@@ -114,17 +114,7 @@ Una vez que tiene el token de acceso, es fácil llamar a una API web. La aplicac
 
 ### <a name="xamarin"></a>Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## <a name="making-several-api-requests"></a>Realización de varias solicitudes de API
 
@@ -132,6 +122,40 @@ Si tiene que llamar varias veces a la misma API, o si debe llamar a varias API, 
 
 - **Consentimiento incremental**: La plataforma de identidad de Microsoft permite que las aplicaciones obtengan el consentimiento del usuario a medida que se necesitan los permisos, en lugar de todos al principio. Cada vez que la aplicación está lista para llamar a una API, debe solicitar solo los ámbitos que debe usar.
 - **Acceso condicional**: En determinados escenarios, podría tener requisitos adicionales de acceso condicional al realizar varias solicitudes de API. Esto puede ocurrir si la primera solicitud no tiene aplicada ninguna directiva de acceso condicional y la aplicación intenta acceder en modo silencioso a una nueva API que requiere acceso condicional. Para controlar este escenario, asegúrese de que detecta los errores de solicitudes silenciosas y prepárese para realizar una solicitud interactiva.  Para obtener más información, vea [Orientación para desarrolladores para el acceso condicional de Azure Active Directory](conditional-access-dev-guide.md).
+
+## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Llamada a varias API en Xamarin o UWP: consentimiento incremental y acceso condicional
+
+Si necesita llamar a varias API para el mismo usuario, una vez que haya adquirido un token para un usuario, puede evitar solicitar repetidamente las credenciales del usuario mediante una llamada a `AcquireTokenSilent` para obtener un token.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+Los casos donde se requiere interacción son los siguientes:
+
+- Cuando el usuario ha dado su consentimiento para la primera API, pero ahora debe dar su consentimiento para más ámbitos (consentimiento incremental).
+- Cuando la primera API no requería autenticación multifactor, pero la siguiente sí.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

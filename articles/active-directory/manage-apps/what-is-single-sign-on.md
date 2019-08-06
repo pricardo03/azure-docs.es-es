@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304831"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477172"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 
@@ -71,9 +71,9 @@ El inicio de sesión único basado en SAML es compatible con aplicaciones que us
 - SAML 2.0
 - El certificado del proveedor de identidades de WS-Federation
 
-Para configurar una aplicación SaaS para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
+Para configurar una aplicación SaaS para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-non-gallery-applications.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
 
-Para configurar una aplicación para WS-Federation, siga las mismas instrucciones que para configurar la aplicación para un inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). En el paso para configurar la aplicación para usar Azure AD, tendrá que reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+Para configurar una aplicación para WS-Federation, siga las mismas instrucciones que para configurar la aplicación para un inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-non-gallery-applications.md). En el paso para configurar la aplicación para usar Azure AD, tendrá que reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Para configurar una aplicación local para el inicio de sesión único basado en SAML, consulte [Inicio de sesión único en SAML para aplicaciones locales con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ Se admite el inicio de sesión único basado en contraseñas para cualquier apli
 - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
 - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
 
-Para configurar una aplicación en la nube para el inicio de sesión único basado en contraseñas, consulte [Configuración de la aplicación para el inicio de sesión único con contraseña](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Para configurar una aplicación en la nube para el inicio de sesión único basado en contraseñas, consulte [Configuración del inicio de sesión único con contraseña](configure-password-single-sign-on-non-gallery-applications.md).
 
 Para configurar una aplicación local para el inicio de sesión único a través del proxy de aplicación, consulte [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ Si el usuario final administra las credenciales:
 - Los administradores pueden seguir estableciendo nuevas credenciales para la aplicación.
 
 ## <a name="linked-sign-on"></a>Inicio de sesión vinculado
-
-El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La aplicación vinculada puede aparecer a los usuarios finales en el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Por ejemplo, un usuario puede iniciar una aplicación que está configurada para el inicio de sesión único en Servicios de federación de Active Directory (AD FS) 2.0 desde el portal de Office 365. También hay informes adicionales disponibles para aplicaciones vinculadas que se inician desde el portal de Office 365 o el portal Mis aplicaciones de Azure AD.
+El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La aplicación vinculada puede aparecer a los usuarios finales en el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Por ejemplo, un usuario puede iniciar una aplicación que está configurada para el inicio de sesión único en Servicios de federación de Active Directory (AD FS) 2.0 desde el portal de Office 365. También hay informes adicionales disponibles para aplicaciones vinculadas que se inician desde el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Para configurar una aplicación para el inicio de sesión vinculado, consulte [Configuración del inicio de sesión vinculado](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inicio de sesión vinculado para la migración de aplicaciones
 
@@ -189,8 +188,9 @@ Dado que este escenario se ofrece a través de una asociación entre Azure AD y 
 Para obtener más información, consulte [Ediciones de Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
-
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Tutorial para configurar el inicio de sesión único](configure-single-sign-on-portal.md)
-- [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
-- Vínculo de descarga: [Plan de implementación del inicio de sesión único](https://aka.ms/SSODeploymentPlan).
+* [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-non-gallery-applications.md)
+* [Configuración del inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md)
+* [Configuración del inicio de sesión vinculado](configure-linked-sign-on.md)
+* [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
+* Vínculo de descarga: [Plan de implementación del inicio de sesión único](https://aka.ms/SSODeploymentPlan).

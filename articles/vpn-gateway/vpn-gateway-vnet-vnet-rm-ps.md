@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ea919a4c9554584e0da79739d3465586ae43227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60456382"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385774"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
@@ -93,7 +93,7 @@ En los ejemplos usamos los siguientes valores:
 
 * Nombre de la red virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Ubicación: Este de EE. UU
+* Ubicación: East US
 * TestVNet1: 10.11.0.0/16 y 10.12.0.0/16
 * front-end: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -150,7 +150,6 @@ En los ejemplos usamos los siguientes valores:
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -167,14 +166,14 @@ En los ejemplos usamos los siguientes valores:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Cree las configuraciones de subred para TestVNet1. En este ejemplo se crea una red virtual denominada TestVNet1 y tres subredes llamadas: GatewaySubnet, FrontEnd y Backend. Al reemplazar valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
+4. Cree las configuraciones de subred para TestVNet1. En este ejemplo se crea una red virtual denominada TestVNet1 y tres subredes llamadas: GatewaySubnet, FrontEnd y Backend. Al reemplazar valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace. Por esta razón, no se asigna a través de la variable siguiente.
 
    El siguiente ejemplo usa las variables que estableció anteriormente. En este ejemplo, la subred de la puerta de enlace está usando un /27. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, se recomienda que cree una subred mayor que incluya más direcciones seleccionando al menos /28 o /27. Esto permitirá suficientes direcciones para dar cabida a posibles configuraciones adicionales que desee en el futuro.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. Cree TestVNet1.
 
@@ -218,7 +217,6 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -239,7 +237,7 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. Cree TestVNet4.
 

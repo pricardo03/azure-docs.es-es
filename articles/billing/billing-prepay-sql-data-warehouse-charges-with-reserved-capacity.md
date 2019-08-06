@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565355"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359269"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada
 
@@ -46,26 +46,26 @@ Por ejemplo, suponga que el consumo total de SQL Data Warehouse es DW3000c. Dese
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione una suscripción. Utilice la lista de suscripciones para elegir la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
-  - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
-  - Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.
+   - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
+   - Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.
 4. Seleccione un ámbito. Utilice la lista de ámbitos para elegir el ámbito de la suscripción.
-  - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
-  - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
-  - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de cuenta.
-    - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
-    - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
+   - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
+   - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
+   - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de cuenta.
+   - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
+   - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
 5. Seleccione una región para elegir una región de Azure que abarca la capacidad reservada.
 6. Elija una cantidad. Especifique la cantidad de 100 unidades de almacenamiento de datos (cDWU) que desea comprar.    
-  Por ejemplo, una cantidad de 30 le aportará 3000 cDWU de capacidad reservada cada hora.
+   Por ejemplo, una cantidad de 30 le aportará 3000 cDWU de capacidad reservada cada hora.
 7. Revise el costo de la reserva de capacidad reservada de SQL Data Warehouse en la sección **Costos**.
 8. Seleccione **Comprar**.
 9. Seleccione **Ver esta reserva** para conocer el estado de la compra.
 
 ## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
 
-Si tiene que cancelar la capacidad reservada de SQL Data Warehouse, podría aplicarse una tarifa del 12 % por terminación anticipada. Los reembolsos se basan en el precio más bajo de su precio de compra o en el precio actual de la reserva. Los reembolsos están limitados a 50 000,00 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
+Si tiene que cancelar la capacidad reservada de SQL Data Warehouse, podría aplicarse una tarifa del 12 % por terminación anticipada. Los reembolsos se basan en el precio más bajo de su precio de compra o en el precio actual de la reserva. Los reembolsos están limitados a 50 000,00 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para cancelar, vaya a la reserva en Azure Portal y seleccione **Reembolso**.
 
-Si necesita cambiar la capacidad reservada de SQL Data Warehouse a otra región o período, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva, empieza el período de 1 o 3 años. Para solicitar un intercambio, abra la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
+Si necesita cambiar la capacidad reservada de SQL Data Warehouse a otra región o período, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva, empieza el período de 1 o 3 años. Para realizar un cambio, abra la reserva en Azure Portal y seleccione **Cambio**.
 
 Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](billing-azure-reservations-self-service-exchange-and-refund.md).
 

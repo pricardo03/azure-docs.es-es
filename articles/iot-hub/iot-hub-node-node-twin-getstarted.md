@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597421"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404026"
 ---
 # <a name="get-started-with-device-twins-node"></a>Introducción a los dispositivos gemelos (Node)
 
@@ -39,11 +39,13 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperación de la cadena de conexión del centro de IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>Creación de la aplicación de servicio
 
@@ -63,7 +65,7 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
 
 3. Con un editor de texto, cree un nuevo archivo **AddTagsAndQuery.js** en la carpeta **addtagsandqueryapp**.
 
-4. Agregue el código siguiente al archivo **AddTagsAndQuery.js** y sustituya el marcador de posición **{iot hub connection string}** con la cadena de conexión de IoT Hub que copió al crear su centro:
+4. Agregue el código siguiente al archivo **AddTagsAndQuery.js** y reemplace el valor del marcador de posición **{iot hub connection string}** con la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string):
 
    ``` javascript
         'use strict';

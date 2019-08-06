@@ -1,6 +1,6 @@
 ---
-title: Atributos comunes de seguridad para Azure Event Hubs
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Event Hubs
+title: Atributos de seguridad para Azure Event Hubs
+description: Lista de comprobación de los atributos de seguridad para evaluar Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2262609de774eb2b1334215bf46968b5554ed691
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247205"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442453"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Atributos comunes de seguridad para Azure Event Hubs
+# <a name="security-attributes-for-azure-event-hubs"></a>Atributos de seguridad para Azure Event Hubs
 
-En este artículo, se explican los atributos de seguridad comunes integrados en Azure Event Hubs.
+En este artículo, se explican los atributos de seguridad integrados en Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,8 +26,8 @@ En este artículo, se explican los atributos de seguridad comunes integrados en 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  Sí | |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)|  Sí | |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | |
 | Control de clave de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí |  |
@@ -36,8 +36,8 @@ En este artículo, se explican los atributos de seguridad comunes integrados en 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sí |  |
-| Compatibilidad con inserción de red virtual| Sin | |
+| Compatibilidad con los puntos de conexión de servicio| Sí |  |
+| Compatibilidad con la inserción de redes virtuales| Sin | |
 | Compatibilidad con aislamiento de red y firewalls| Sí |  |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
@@ -52,7 +52,7 @@ En este artículo, se explican los atributos de seguridad comunes integrados en 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | |
-| Autorización|  Sí | |
+| Authorization|  Sí | |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

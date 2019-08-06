@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023444"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347749"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
@@ -32,7 +32,7 @@ La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos d
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Límites de datos
-El tamaño máximo de un registro debe tener 50 000 caracteres según lo que mida `String.Length`. Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
+El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -40,7 +40,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
-| Categorías    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
+| categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Sin usar. Reservado para uso futuro. |
 |includeTypelessEntities | Cuando se establece en true, si el texto contiene una entidad conocida, pero no se puede clasificar en una de las categorías admitidas, se devolverá como parte del campo de salida compleja `"entities"`. 
@@ -62,7 +62,7 @@ Se trata de entidades conocidas, pero no clasificadas como parte de las "categor
 | Nombre de salida     | DESCRIPCIÓN                   |
 |---------------|-------------------------------|
 | persons      | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
-| Ubicaciones  | Una matriz de cadenas donde cada cadena representa una ubicación. |
+| locations  | Una matriz de cadenas donde cada cadena representa una ubicación. |
 | organizations  | Una matriz de cadenas donde cada cadena representa una organización. |
 | quantities  | Una matriz de cadenas donde cada cadena representa una cantidad. |
 | dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |

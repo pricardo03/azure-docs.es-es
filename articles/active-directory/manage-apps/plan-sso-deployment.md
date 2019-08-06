@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164947"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477126"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planificación de una implementación de inicio de sesión único
 
@@ -39,7 +39,7 @@ Azure Marketplace tiene más de 3000 aplicaciones con conexiones de inicio de se
 ## <a name="plan-your-sso-team"></a>Planificación del equipo de inicio de sesión único
 
 - **Interactuar con las partes interesadas adecuadas**: cuando los proyectos tecnológicos fracasan, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans) y que las partes interesadas comprendan sus roles.
-- **Planificación de las comunicaciones**: la comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de forma proactiva a los usuarios cómo y cuándo va a cambiar su experiencia, y cómo obtener soporte técnico si experimentan problemas. Revise las opciones sobre [cómo accederán los usuarios finales a sus aplicaciones habilitadas para el inicio de sesión único](end-user-experiences.md) y elabore las comunicaciones de forma que coincidan con la selección. 
+- **Planificación de las comunicaciones**: la comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de forma proactiva a los usuarios cómo y cuándo va a cambiar su experiencia y cómo obtener soporte técnico si experimentan problemas. Revise las opciones sobre [cómo accederán los usuarios finales a sus aplicaciones habilitadas para el inicio de sesión único](end-user-experiences.md) y elabore las comunicaciones de forma que coincidan con la selección. 
 
 ## <a name="plan-your-sso-protocol"></a>Planificación del protocolo de inicio de sesión único
 
@@ -54,7 +54,7 @@ Hay dos formas principales de permitir a los usuarios el inicio de sesión únic
 ### <a name="considerations-for-federation-based-sso"></a>Consideraciones para el inicio de sesión único basado en federación
 
 - **Uso de OpenID Connect y OAuth**: si la aplicación a la que se va a conectar lo admite, use el método OIDC/OAuth 2.0 para habilitar el inicio de sesión único en esa aplicación. Este método requiere menos configuración y permite una experiencia del usuario más completa. Para más información, vea [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md) y la [Guía para desarrolladores de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configuraciones de punto de conexión para el inicio de sesión único basado en SAML**: si usa SAML, los desarrolladores necesitarán información específica antes de configurar la aplicación. Para más información, vea [Configuración de opciones básicas de SAML](configure-single-sign-on-portal.md).
+- **Configuraciones de punto de conexión para el inicio de sesión único basado en SAML**: si usa SAML, los desarrolladores necesitarán información específica antes de configurar la aplicación. Para obtener más información, consulte [Edición de la configuración básica de SAML](configure-single-sign-on-non-gallery-applications.md).
 - **Administración de certificados para el inicio de sesión único basado en SAML**: al habilitar el inicio de sesión único federado para la aplicación, Azure AD crea un certificado con una validez predeterminada de tres años. Si es necesario, puede personalizar la fecha de expiración de ese certificado. Asegúrese de que tiene procesos implantados para renovar los certificados antes de que caduquen. Para más información, vea [Certificados de administración de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Consideraciones para el inicio de sesión único basado en contraseña

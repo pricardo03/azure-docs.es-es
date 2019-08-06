@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 8aaaa6465b501cee83f4c2d8cb60729282651967
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797017"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384857"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -57,7 +57,7 @@ _<sup>**3**</sup> Los contratos de cliente de Microsoft comenzaron en marzo de 2
 
 _<sup>**4**</sup> Es posible que los datos históricos de las suscripciones basadas en crédito y pagadas por adelantado no coincidan con la factura. Consulte [Los datos históricos pueden no coincidir con la factura](#historical-data-might-not-match-invoice) a continuación._
 
-En la tabla siguiente se muestran las ofertas que todavía no se admiten.
+Las siguientes ofertas todavía no se admiten:
 
 | Categoría  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
@@ -92,10 +92,11 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 | Uso de la oferta de Marketplace<sup>6</sup> | Impuestos - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 | Compras de Marketplace<sup>6</sup>      | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 | Compras de reserva<sup>7</sup>      |  |
+| Amortización de las compras de reserva<sup>7</sup>      |  |
 
 _<sup>**5**</sup> El uso del servicio de Azure se basa en la reserva y la negociación de los precios._
 
-_<sup>**6**</sup> Las compras y el uso de Marketplace no están disponible para las ofertas de pago por uso, MSDN ni Visual Studio por el momento._
+_<sup>**6**</sup> Las compras de Marketplace no están disponible para las ofertas de pago por uso, MSDN ni Visual Studio por el momento._
 
 _<sup>**7**</sup> En este momento, las compras de reserva solo están disponibles para las cuentas de Contrato Enterprise (EA)._
 
@@ -124,7 +125,7 @@ Suscripciones de pago por uso: si el mes de facturación termina el 15 de mayo, 
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa las [API de Cost Management](index.yml), Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien, hasta que se cierre la factura.
+Si usa las [API de Cost Management](index.yml), Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien hasta que se cierre la factura.
 
 ## <a name="usage-data-update-frequency-varies"></a>La frecuencia de actualización de los datos de uso varía.
 

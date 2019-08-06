@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673512"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386970"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -239,7 +239,7 @@ Recuerde que los discos de Premium Storage tienen capacidades de rendimiento sup
 Las máquinas virtuales a gran escala que aprovechan Azure Premium Storage tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Premium Storage persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Premium Storage. Con la caché de disco habilitada en los discos de Premium Storage, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
 
 > [!WARNING]
-> No se admite el almacenamiento en caché de disco para discos de más de 4 TiB. Si varios discos están conectados a la máquina virtual, cada disco de 4 TiB o más pequeño será compatible con el almacenamiento en caché.
+> No se admite el almacenamiento en caché de disco para discos de 4 TiB o más. Si varios discos están conectados a la máquina virtual, cada disco de menos de 4 TiB será compatible con el almacenamiento en caché.
 >
 > Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2019
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 0f3303e7bc87ca0bd29f367405372568ed6da7a7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9bac92bc1cc94b88dc694b468b795049db4ac9df
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186470"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443973"
 ---
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ ms.locfileid: "67186470"
     | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
     | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. |
     | **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. También puede usar el valor sugerido. |
-    | **SISTEMA OPERATIVO** | Windows | El plan Premium actualmente no admite Linux. |
+    | **SISTEMA OPERATIVO** | Sistema operativo preferido | En el plan Premium se admiten tanto Linux como Windows. |
     | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. Solo se muestran los idiomas admitidos en el **SO** elegido. |
     | **[Storage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración, puede cambiar el valor de **Nuevo nombre de recurso**  o elegir otro valor en **Ubicación** en la [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) donde desee almacenar los datos. |

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: tedway
 author: tedway
-ms.date: 05/02/2019
+ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9de60fe63c936da7340e6ec540a37163216f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cec1a74938690a4f781ea7850fdd6d649550b3eb
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074971"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494911"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementación de un modelo como servicio web en una FPGA con Azure Machine Learning Service
 
@@ -30,7 +30,7 @@ Actualmente están disponibles los siguientes modelos:
   - SSD-VGG
 
 Las FPGA están disponibles en estas regiones de Azure:
-  - Este de EE. UU
+  - East US
   - Sudeste asiático
   - Europa occidental
   - Oeste de EE. UU. 2
@@ -42,18 +42,28 @@ Las FPGA están disponibles en estas regiones de Azure:
 
 - Una suscripción de Azure.  Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-- Cuota de FPGA.  Use la CLI de Azure para comprobar si dispone de cuota.
+- Cuota de FPGA. Use la CLI de Azure para comprobar si dispone de cuota:
+
     ```shell
-    az vm list-usage --location "eastus" -o table
+    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
-    Las otras ubicaciones son ``southeastasia``, ``westeurope`` y ``westus2``.
+    > [!TIP]
+    > Las otras ubicaciones posibles son ``southeastasia``, ``westeurope`` y ``westus2``.
 
-    En la columna "Name" (Nombre), busque "Standard PBS Family vCPUs" (vCPU de la familia PBS estándar) y asegúrese de que tiene al menos 6 vCPU en "CurrentValue" (Valor actual).
+    El comando devuelve un texto similar al siguiente:
 
-    Si no tiene cuota, envíe un formulario de solicitud [aquí](https://aka.ms/accelerateAI).
+    ```text
+    CurrentValue    Limit    LocalName
+    --------------  -------  -------------------------
+    0               6        Standard PBS Family vCPUs
+    ```
 
-- Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
+    Asegúrese de que tiene al menos 6 vCPU en __CurrentValue__.
+
+    Si no tiene cuota, envíe una solicitud a [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+
+- Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Para obtener más información, consulte [Create a workspace](setup-create-workspace.md) (Crear un área de trabajo).
  
 - El SDK de Python para modelos acelerados por hardware:
 
@@ -84,11 +94,11 @@ Cargue el área de trabajo de Azure ML.
 ```python
 import os
 import tensorflow as tf
- 
+
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
 ```
 
 ### <a name="preprocess-image"></a>Imagen de preprocesamiento
@@ -116,7 +126,7 @@ Inicialice el modelo y descargue un punto de control de TensorFlow de la versió
 ```python
 from azureml.accel.models import QuantizedResnet50
 save_path = os.path.expanduser('~/models')
-model_graph = QuantizedResnet50(save_path, is_frozen = True)
+model_graph = QuantizedResnet50(save_path, is_frozen=True)
 feature_tensor = model_graph.import_graph_def(image_tensors)
 print(model_graph.version)
 print(feature_tensor.name)
@@ -144,8 +154,8 @@ print("Saving model in {}".format(model_save_path))
 with tf.Session() as sess:
     model_graph.restore_weights(sess)
     tf.saved_model.simple_save(sess, model_save_path,
-                                   inputs={'images': in_images},
-                                   outputs={'output_alias': classifier_output})
+                               inputs={'images': in_images},
+                               outputs={'output_alias': classifier_output})
 ```
 
 ### <a name="save-input-and-output-tensors"></a>Guardar los tensores de entrada y salida
@@ -165,23 +175,23 @@ print(output_tensors)
 Los modelos disponibles y los tensores de salida del clasificador predeterminado correspondiente se muestran a continuación, y es lo que se usaría para la inferencia si se ha usado el clasificador predeterminado.
 
 + Resnet50, QuantizedResnet50
-  ```
+  ```python
   output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
   ```
 + Resnet152, QuantizedResnet152
-  ```
+  ```python
   output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
   ```
 + Densenet121, QuantizedDensenet121
-  ```
+  ```python
   output_tensors = "classifier/densenet121/predictions/Softmax:0"
   ```
 + Vgg16, QuantizedVgg16
-  ```
+  ```python
   output_tensors = "classifier/vgg_16/fc8/squeezed:0"
   ```
 + SsdVgg, QuantizedSsdVgg
-  ```
+  ```python
   output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
   ```
 
@@ -192,11 +202,12 @@ Los modelos disponibles y los tensores de salida del clasificador predeterminado
 ```python
 from azureml.core.model import Model
 
-registered_model = Model.register(workspace = ws,
-                                  model_path = model_save_path,
-                                  model_name = model_name)
+registered_model = Model.register(workspace=ws,
+                                  model_path=model_save_path,
+                                  model_name=model_name)
 
-print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
+print("Successfully registered: ", registered_model.name,
+      registered_model.description, registered_model.version, sep='\t')
 ```
 
 Si ya se ha registrado un modelo y quiere cargarlo, puede recuperarlo.
@@ -206,7 +217,8 @@ from azureml.core.model import Model
 model_name = "resnet50"
 # By default, the latest version is retrieved. You can specify the version, i.e. version=1
 registered_model = Model(ws, name="resnet50")
-print(registered_model.name, registered_model.description, registered_model.version, sep = '\t')
+print(registered_model.name, registered_model.description,
+      registered_model.version, sep='\t')
 ```
 
 ### <a name="convert-model"></a>Conversión del modelo
@@ -216,14 +228,15 @@ Convierta el gráfico de TensorFlow al formato de intercambio de red neuronal ab
 ```python
 from azureml.accel import AccelOnnxConverter
 
-convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensors, output_tensors)
+convert_request = AccelOnnxConverter.convert_tf_model(
+    ws, registered_model, input_tensors, output_tensors)
 
 # If it fails, you can run wait_for_completion again with show_output=True.
-convert_request.wait_for_completion(show_output = False)
+convert_request.wait_for_completion(show_output=False)
 
 # If the above call succeeded, get the converted model
 converted_model = convert_request.result
-print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version, 
+print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
       converted_model.id, converted_model.created_time, '\n')
 ```
 
@@ -239,18 +252,19 @@ image_config = AccelContainerImage.image_configuration()
 # Image name must be lowercase
 image_name = "{}-image".format(model_name)
 
-image = Image.create(name = image_name,
-                     models = [converted_model],
-                     image_config = image_config, 
-                     workspace = ws)
-image.wait_for_creation(show_output = False)
+image = Image.create(name=image_name,
+                     models=[converted_model],
+                     image_config=image_config,
+                     workspace=ws)
+image.wait_for_creation(show_output=False)
 ```
 
 Enumere las imágenes por etiqueta y obtenga los registros detallados para cualquier tipo de depuración.
 
 ```python
-for i in Image.list(workspace = ws):
-    print('{}(v.{} [{}]) stored at {} with build log {}'.format(i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
+for i in Image.list(workspace=ws):
+    print('{}(v.{} [{}]) stored at {} with build log {}'.format(
+        i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
 ## <a name="model-deployment"></a>Implementación del modelo
@@ -263,20 +277,20 @@ Para implementar el modelo como un servicio web de producción a gran escala, us
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Specify the Standard_PB6s Azure VM
-prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
-                                                    agent_count = 1)
+prov_config = AksCompute.provisioning_configuration(vm_size="Standard_PB6s",
+                                                    agent_count=1)
 
 aks_name = 'my-aks-cluster'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                  name = aks_name, 
-                                  provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 ```
 
 La implementación de AKS puede tardar unos 15 minutos.  Compruebe que la implementación se ha realizado correctamente.
 
 ```python
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
@@ -288,16 +302,16 @@ from azureml.core.webservice import Webservice, AksWebservice
 # For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                 num_replicas=1,
-                                                auth_enabled = False)
+                                                auth_enabled=False)
 
-aks_service_name ='my-aks-service'
+aks_service_name = 'my-aks-service'
 
-aks_service = Webservice.deploy_from_image(workspace = ws,
-                                           name = aks_service_name,
-                                           image = image,
-                                           deployment_config = aks_config,
-                                           deployment_target = aks_target)
-aks_service.wait_for_deployment(show_output = True)
+aks_service = Webservice.deploy_from_image(workspace=ws,
+                                           name=aks_service_name,
+                                           image=image,
+                                           deployment_config=aks_config,
+                                           deployment_target=aks_target)
+aks_service.wait_for_deployment(show_output=True)
 ```
 
 #### <a name="test-the-cloud-service"></a>Prueba del servicio en la nube
@@ -327,12 +341,13 @@ Puesto que este clasificador se ha entrenado en el conjunto de datos [ImageNet](
 
 ```python
 import requests
-classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+classes_entries = requests.get(
+    "https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 
 # Score image with input and output tensor names
-results = client.score_file(path="./snowleopardgaze.jpg", 
-                             input_name=input_tensors, 
-                             outputs=output_tensors)
+results = client.score_file(path="./snowleopardgaze.jpg",
+                            input_name=input_tensors,
+                            outputs=output_tensors)
 
 # map results [class_id] => [confidence]
 results = enumerate(results)

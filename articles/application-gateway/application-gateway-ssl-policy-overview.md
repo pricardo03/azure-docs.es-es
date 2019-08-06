@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122241"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359916"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Introducción a la directiva SSL de Application Gateway
 
@@ -101,6 +101,9 @@ Application Gateway admite los siguientes conjuntos de cifrado desde los que pue
 - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+
+> [!NOTE]
+> Los conjuntos de cifrado SSL que se usan para la conexión también se basan en el tipo de certificado que se utiliza. En las conexiones de cliente a Application Gateway, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en el agente de escucha de Application Gateway. En las conexiones de Application Gateway a grupo de back-end, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en los servidores de grupo de back-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

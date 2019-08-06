@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442520"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479218"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Vista previa: migración a la API versión 3.x para aplicaciones de LUIS
 
@@ -53,6 +53,11 @@ Se cambió el formato para la llamada HTTP al punto de conexión v3.
 |GET|https://<b>{REGIÓN}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{ID-DE-APLICACIÓN}</b>/slots/<b>{NOMBRE-DE-RANURA}</b>/predict?query=<b>{CONSULTA}</b>|
 |POST|https://<b>{REGIÓN}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{ID-DE-APLICACIÓN}</b>/slots/<b>{NOMBRE-DE-RANURA}</b>/predict|
 |||
+
+Los valores válidos para las ranuras son:
+
+* `production`
+* `staging`
 
 ## <a name="endpoint-url-changes-by-version-id"></a>Cambios en la dirección URL de punto de conexión por id. de versión
 
@@ -107,7 +112,7 @@ La API v3 tiene parámetros de cadena de consulta diferentes.
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo v3|No se requiere.|Las [listas dinámicas](#dynamic-lists-passed-in-at-prediction-time) permiten extender una entidad de lista existente entrenada y publicada, ya presente en la aplicación de LUIS.|
 |`externalEntities`|array|Solo v3|No se requiere.|Las [entidades externas](#external-entities-passed-in-at-prediction-time) permiten que la aplicación de LUIS identifique y etiquete las entidades durante el tiempo de ejecución, que pueden usarse como características para las entidades existentes. |
-|`options.datetimeReference`|string|Solo v3|Sin valor predeterminado|Permite determinar el [desplazamiento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.datetimeReference`|string|Solo v3|Sin valor predeterminado|Permite determinar el [desplazamiento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). El formato de datetimeReference es [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.overridePredictions`|boolean|Solo v3|false|Especifica si la [entidad externa (con el mismo nombre que la entidad existente)](#override-existing-model-predictions) del usuario o la entidad existente en el modelo se usa para la predicción. |
 |`query`|string|Solo v3|Necesario.|**En la versión 2**, la expresión que va a predecirse se almacena en el parámetro `q`. <br><br>**En la versión 3**, la funcionalidad se pasa en el parámetro `query`.|
 
@@ -144,6 +149,8 @@ Las principales propiedades JSON para la versión 3 son:
     }
 }
 ```
+
+`normalizedQuery` contiene correcciones ortográficas. Esto corresponde a la propiedad `alteredQuery` de la API de V2.  
 
 El objeto `intents` es una lista sin ordenar. No suponga que el primer elemento secundario en `intents` corresponde a `topIntent`. En su lugar, use el valor `topIntent` para buscar la puntuación:
 

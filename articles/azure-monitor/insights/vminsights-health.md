@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 2bf891f8cfecbb9e78e511dcee7ed1c61c170016
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340139"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602058"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -92,11 +92,13 @@ Antes de usar la característica de mantenimiento para una sola máquina virtual
 
 Para visualizar el mantenimiento de una máquina virtual de Azure, seleccione **Conclusiones (versión preliminar)** desde el panel izquierdo de la máquina virtual. En la página de conclusiones de la máquina virtual, la pestaña **Mantenimiento** se abre de forma predeterminada y se muestra la vista de mantenimiento de la máquina virtual.
 
-![Información general del estado de Azure Monitor para máquinas virtuales de una máquina virtual de Azure seleccionada](./media/vminsights-health/vminsights-directvm-health.png)
+![Información general del estado de Azure Monitor para máquinas virtuales de una máquina virtual de Azure seleccionada](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-En la pestaña **Mantenimiento**, en **Mantenimiento de la máquina virtual invitada**, la tabla muestra el estado de mantenimiento de la máquina virtual y el número total de alertas de mantenimiento de la máquina virtual generadas por un componente incorrecto.
+En la sección **Estado de la VM invitada**, la tabla incluye una consolidación del estado de los componentes de rendimiento que supervisan los criterios de mantenimiento de la VM, así como el número total de alertas de estado generadas por componentes en mal estado. Estos componentes incluyen **CPU**, **Memoria**, **Disco** y **Red**. Expanda el botón de contenido adicional al lado de Estado de la VM invitada para ver el estado de sus componentes.
 
-Para obtener más información, consulte [Alerts](#alerts) (Alertas).
+![Estado de componentes de Azure Monitor para VM de una máquina virtual de Azure seleccionada.](./media/vminsights-health/vminsights-directvm-health-02.png)
+
+Si selecciona el estado al lado del componente, se abrirá la experiencia Diagnóstico de estado en el contexto del componente seleccionado. Se muestra la composición del estado de ese componente, en la que se describe qué criterios de mantenimiento se usan para calcular el estado. Para más información, consulte [Diagnóstico de mantenimiento y trabajo con los criterios de mantenimiento](#health-diagnostics). Para obtener más información acerca de las alertas, vea [Alertas](#alerts).
 
 En la tabla siguiente se describen los estados de mantenimiento definidos para una VM:
 
@@ -156,13 +158,19 @@ Por ejemplo, para revisar todas las máquinas virtuales que ejecutan Red Hat Ent
 
 ![Ejemplo de la acumulación de VM Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
+Haga clic en la casilla **Mostrar estado** y se devolverá el estado de mantenimiento de los resultados filtrados de la tabla.  
+
+![Ejemplo de estado de mantenimiento de VM Red Hat Linux.](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
+
+Puede hacer clic en el estado de mantenimiento de cualquiera de los elementos de la lista para iniciar Diagnóstico de estado, donde se mostrará el método de evaluación del estado de la VM seleccionada. 
+
 En la página **Máquinas virtuales**, si selecciona el nombre de una máquina virtual en la columna **Nombre de máquina virtual**, se le dirige a la página **Instancia de máquina virtual**. Esta página proporciona más detalles acerca de las alertas y las incidencias de los criterios de mantenimiento que afectan a la máquina virtual seleccionada. Para filtrar los detalles del estado de mantenimiento, seleccione el icono **Estado de mantenimiento** en la esquina superior izquierda de la página para ver qué componentes están en estado incorrecto. También puede ver las alertas de mantenimiento de la máquina virtual generadas por un componente incorrecto clasificadas por gravedad de la alerta.
 
 Desde la vista **Lista de máquinas virtuales**, seleccione el nombre de una máquina virtual para abrir la página **Mantenimiento** de esa máquina virtual, de forma similar a cuando selecciona **Conclusiones (versión preliminar)** desde la máquina virtual directamente.
 
 ![Conclusiones de una máquina virtual de Azure seleccionada](./media/vminsights-health/vminsights-directvm-health.png)
 
-La página **Conclusiones (versión preliminar)** muestra un estado de mantenimiento acumulativo de la máquina virtual y las alertas. Este estado de mantenimiento se clasifica por gravedad, lo que representa las alertas de mantenimiento de la máquina virtual generadas cuando cambia el estado de mantenimiento de correcto a incorrecto en función de los criterios. Al seleccionar **Máquinas virtuales en una condición crítica** se abre una página con una lista de una o más máquinas virtuales en un estado de mantenimiento crítico.
+En la página **Virtual Machines (versión preliminar) en Azure Monitor** se muestra el estado de mantenimiento consolidado para las VM y las alertas. Este estado de mantenimiento se clasifica por gravedad, lo que representa las alertas de mantenimiento de la máquina virtual generadas cuando cambia el estado de mantenimiento de correcto a incorrecto en función de los criterios. Al seleccionar **Máquinas virtuales en una condición crítica** se abre una página con una lista de una o más máquinas virtuales en un estado de mantenimiento crítico.
 
 Al seleccionar el estado de mantenimiento de una de las máquinas virtuales de la lista, se mostrará la vista **Diagnóstico de mantenimiento** de la máquina virtual. En esta vista puede determinar qué criterios de mantenimiento reflejan una incidencia de estado de mantenimiento. Cuando se abre la página **Diagnóstico de mantenimiento**, se muestran todos los componentes de la máquina virtual y los criterios de mantenimiento asociados con el estado de mantenimiento actual.
 

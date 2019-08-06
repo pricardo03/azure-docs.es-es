@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427581"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362625"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -40,7 +40,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Bytes por objeto para objetos de canalización<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculados<sup>3</sup> | 100 KB | 2000 KB |
 | Unidades de integración de datos<sup>1</sup> por ejecución de la actividad de copia | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Llamadas API de escritura | 2500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Llamadas API de escritura | 1200/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Llamadas API de lectura | 12 500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Supervisión de consultas por minuto | 1000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operaciones CRUD de entidad por minuto | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -49,7 +49,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 <sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) está [disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los costos de salida de red reducidos. 
 
-| Grupo de regiones | Regiones | 
+| Grupo de regiones | Regions | 
 | -------- | ------ |
 | Grupo de regiones 1 | Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 |
 | Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, India central, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU., Sudeste Asiático, Centro-oeste de EE. UU. |

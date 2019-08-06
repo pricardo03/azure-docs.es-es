@@ -9,22 +9,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d8bfe92af4e8afc4edae76efb2e1cb7b287c7aa9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304828"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494498"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
 Puede supervisar una secuencia registrada de direcciones URL e interacciones con un sitio web a través de pruebas web de varios pasos. En este artículo se proporciona una guía paso a paso del proceso de creación de una prueba web de varios pasos con Visual Studio Enterprise.
 
 > [!NOTE]
-> Las pruebas web de varios pasos tienen costes adicionales asociados. Para más información, consulte la [guía oficial de precios](https://azure.microsoft.com/pricing/details/application-insights/).
+> Las pruebas web de varios pasos dependen de los archivos de pruebas web de Visual Studio. Se [anunció](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 será la última versión con la funcionalidad de prueba web. Es importante comprender que, aunque no se agregarán nuevas características, la funcionalidad de pruebas web de Visual Studio 2019 todavía se admite y se seguirá admitiendo durante el ciclo de vida de soporte técnico del producto. El equipo de productos de Azure Monitor ha abordado las preguntas sobre el futuro de las pruebas de disponibilidad de varios pasos [aquí](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
@@ -34,6 +34,9 @@ Puede supervisar una secuencia registrada de direcciones URL e interacciones con
 Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalador de Visual Studio** > **Componentes individuales** > **Depuración y pruebas**  >  **Herramientas de rendimiento web y pruebas de carga**.
 
 ![Captura de pantalla de la interfaz de usuario del instalador de Visual Studio con los componentes individuales seleccionados con una casilla situada junto al elemento de las herramientas de rendimiento Web y pruebas de carga](./media/availability-multistep/web-performance-load-testing.png)
+
+> [!NOTE]
+> Las pruebas web de varios pasos tienen costes adicionales asociados. Para más información, consulte la [guía oficial de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="record-a-multi-step-web-test"></a>Registro de una prueba web de varios pasos
 

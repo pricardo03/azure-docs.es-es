@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/18/2019
-ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.date: 07/18/2019
+ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190710"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443319"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
-Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error de un grupo de bases de datos en un servidor de SQL Database o de todas las bases de datos de una instancia administrada de otra región. Emplea la misma tecnología subyacente que la [replicación geográfica activa](sql-database-active-geo-replication.md). Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de SQL Database según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad del servicio SQL Database en la región primaria. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los servidores principales y los secundarios para las bases de datos del grupo de conmutación por error deben estar en la misma suscripción. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a un servidor secundario en otra región.
+Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error de un grupo de bases de datos en un servidor de SQL Database o de todas las bases de datos de una instancia administrada de otra región. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](sql-database-active-geo-replication.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de SQL Database según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad del servicio SQL Database en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los servidores principales y los secundarios para las bases de datos del grupo de conmutación por error deben estar en la misma suscripción. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a un servidor secundario en otra región.
 
 > [!NOTE]
 > Si trabaja con bases de datos únicas o agrupadas en un servidor de SQL Database y quiere varias bases de datos secundarias en la misma región u otra diferente, use la [replicación geográfica activa](sql-database-active-geo-replication.md).
@@ -31,7 +31,7 @@ Cuando se usan grupos de conmutación por error automática con una directiva de
 Cuando se usan grupos de conmutación por error automática con la directiva de conmutación por error automática, cualquier interrupción que afecte a las bases de datos del servidor de SQL Database o de la instancia administrada tiene como resultado la conmutación por error automática. Puede administrar el grupo de conmutación por error automática mediante:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: grupo de conmutación por error](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell: grupo de conmutación por error](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [API REST: grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups)
 
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
@@ -79,11 +79,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Agente de escucha de lectura-escritura de grupo de conmutación por error**
 
-  Un registro de CNAME de DNS formado que apunta a la dirección URL de la base de datos principal actual. Permite que las aplicaciones SQL de lectura y escritura se reconecten sin problemas a la base de datos principal cuando cambia después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor de SQL Database, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en una instancia administrada, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.database.windows.net`.
+  Un registro CNAME de DNS que apunta a la dirección URL de la base de datos principal actual. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de lectura y escritura se vuelva a conectar de forma transparente a la base de datos principal cuando cambia la principal después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor de SQL Database, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en una instancia administrada, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.database.windows.net`.
 
 - **Agente de escucha de solo lectura de grupo de conmutación por error**
 
-  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Permite que las aplicaciones SQL de solo lectura se conecten sin problemas a la base de datos secundaria mediante las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor de SQL Database, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en una instancia administrada, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.secondary.database.windows.net`.
+  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de solo lectura se vuelva a conectar de forma transparente a la secundaria con las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor de SQL Database, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en una instancia administrada, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Directiva de conmutación por error automática**
 
@@ -279,6 +279,9 @@ Esta secuencia se recomienda específicamente para evitar que la base de datos s
 > [!NOTE]
 > Si creó una base de datos secundaria como parte de la configuración del grupo de conmutación por error, no se recomienda que la degrade. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual una vez que se activa la conmutación por error.
 
+> [!IMPORTANT]
+> Actualmente no se admite la actualización ni el cambio a una versión anterior de una instancia administrada que sea miembro de un grupo de conmutación por error.
+
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitar la pérdida de datos críticos
 
 Debido a la elevada latencia de las redes de área extensa, la copia continua usa un mecanismo de replicación asincrónica. La replicación asincrónica hace inevitable la pérdida de cierta cantidad datos si se produce un error. Sin embargo, es posible que algunas aplicaciones exijan que no se pierdan datos. Para proteger estas actualizaciones críticas, un desarrollador de aplicaciones puede llamar al procedimiento del sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) inmediatamente después de confirmar la transacción. La llamada a **sp_wait_for_database_copy_sync** bloquea el subproceso de llamada hasta que se transmite la última transacción confirmada en la base de datos secundaria. Sin embargo, no espera para que las transacciones transmitidas se reproduzcan y se confirmen en la base de datos secundaria. **sp_wait_for_database_copy_sync** está dirigida a un vínculo de copia continua específico. Cualquier usuario con derechos de conexión para la base de datos principal puede llamar a este procedimiento.
@@ -307,7 +310,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 |  | |
 
 > [!IMPORTANT]
-> Para ver un script de ejemplo, consulte [Configurar y conmutar por error un grupo de conmutación por error para una sola base de datos](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> Para ver un script de ejemplo, consulte [Configurar y conmutar por error un grupo de conmutación por error para una sola base de datos](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Administración de grupos de conmutación por error con instancias administradas (versión preliminar)
@@ -368,7 +371,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 - Para los scripts de ejemplo, vea:
   - [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configuración y conmutación por error de un grupo de conmutación por error para una sola base de datos](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Configuración y conmutación por error de un grupo de conmutación por error para una sola base de datos](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
 - Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
 - Si quiere saber cómo usar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una base de datos a partir de copias de seguridad iniciadas por un servicio](sql-database-recovery-using-backups.md).

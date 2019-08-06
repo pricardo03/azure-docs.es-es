@@ -11,56 +11,64 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2018
+ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f06345995e30f4d7f165230f4292c560c89e2e8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606511"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68489766"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
 
-En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para más información acerca de cómo configurar Service Map y los agentes de incorporación, consulte [Configuración de la solución Service Map en Azure]( service-map-configure.md).
+En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para obtener información sobre la configuración de los requisitos previos para esta solución, consulte [Introducción a la habilitación de Azure Monitor para VM](vminsights-enable-overview.md#prerequisites). En resumen, necesita lo siguiente:
+
+* Un área de trabajo Log Analytics para habilitar esta solución.
+
+* El agente de Log Analytics instalado en el equipo Windows o en el servidor Linux configurado para generar informes de la misma área de trabajo con la que ha habilitado la solución.
+
+* El agente de dependencia instalado en el equipo Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md)
-
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Habilitar Service Map
-1. En Azure Portal, haga clic en **+ Crear un recurso**.
-2. En la barra de búsqueda, escriba **Service Map** y presione **ENTRAR**.
-3. En la página de resultados de la búsqueda de Marketplace, seleccione **Service Map** en la lista.<br><br> ![Seleccionar la solución Service Map en los resultados de la búsqueda en Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
-4. En el panel de información general de **Service Map**, revise los detalles de la solución y, a continuación, haga clic en **Crear** para comenzar el proceso de incorporación al área de trabajo de Log Analytics.<br><br> ![Incorpore la solución Service Map](./media/service-map/service-map-onboard.png).
-5. En el panel **Configurar una solución**, seleccione un área de trabajo de Log Analytics existente o cree uno nuevo.  Para obtener más información sobre cómo crear una nueva área de trabajo, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). Después de proporcionar la información necesaria, haga clic en **Crear**.  
 
-Mientras se comprueba la información y se implementa la solución, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
+1. Habilite la solución Service Map desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre la [adición de soluciones de supervisión desde la Galería de soluciones](solutions.md).
+1. [Instale Dependency Agent en Windows ](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows)o [en Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) en cada equipo en el que quiera obtener datos. Dependency Agent puede supervisar las conexiones a los vecinos inmediatos, por lo que es posible que no necesite un agente en cada equipo.
 
 Se puede obtener acceso a Service Map en Azure Portal desde el área de trabajo de Log Analytics, y seleccionar la opción **Soluciones** en el panel de la izquierda.<br><br> ![Seleccione la opción Soluciones en el área de trabajo](./media/service-map/select-solution-from-workspace.png).<br> En la lista de soluciones, seleccione **ServiceMap(workspaceName)** y en la página de información general de la solución Service Map, haga clic en el mosaico de resumen Service Map.<br><br> ![Mosaico de resumen Service Map](./media/service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Haga que sus procesos de TI tengan en cuenta la dependencia
 
 ### <a name="discovery"></a>Detección
+
 Mapa de servicio crea automáticamente una asignación de referencias comunes de dependencias entre servidores, procesos y servicios de terceros. Detecta y asigna todas las dependencias TCP al identificar las conexiones sorpresa, los sistemas remotos de terceros de los que depende y las dependencias con áreas oscuras tradicionales de la red, como Active Directory. Service Map detecta las conexiones de red con errores que los sistemas administrados están intentando realizar, lo que ayuda a identificar posibles errores de configuración del servidor, interrupciones de servicio y problemas de red.
 
 ### <a name="incident-management"></a>Administración de incidentes
+
 Mapa de servicio ayuda a eliminar las suposiciones de aislamiento de problemas mostrando cómo se conectan los sistemas y afectan al resto. Además de identificar las conexiones con errores, ayuda a identificar equilibradores de carga configurados incorrectamente, cargas sorprendentes o excesivas en servicios críticos y clientes no autorizados, como equipos de desarrollador que se comunican con sistemas de producción. Al usar flujos de trabajo integrados con Change Tracking, también puede ver si un evento de cambio en un servicio o máquina back-end explica la causa raíz de un incidente.
 
 ### <a name="migration-assurance"></a>Garantía de migración
+
 El empleo de Service Map permite planear, acelerar y validar de forma eficaz las migraciones de Azure, lo que ayuda a garantizar que nada se quede atrás y que no se produzcan interrupciones por sorpresa. Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos, evaluar la capacidad y la configuración del sistema e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración. Después de realizar la migración, puede ver la carga y la identidad del cliente para comprobar que los sistemas de prueba y los clientes se están conectando. Si las definiciones de firewall y planeación de la subred tienen problemas, los errores de conexión en las asignaciones de Service Map harán referencia a los sistemas que necesitan conectividad.
 
 ### <a name="business-continuity"></a>Continuidad del negocio
+
 Si utiliza Azure Site Recovery y necesita ayuda para definir la secuencia de recuperación para su entorno de aplicaciones, Mapa de servicio puede automáticamente mostrarle cómo los sistemas dependen entre sí para asegurarse de que su plan de recuperación es confiable. Al elegir un servidor o grupo crítico y ver sus clientes, puede identificar los sistemas front-end que deben recuperarse después de que el servidor esté restaurado y disponible. A la inversa, al examinar las dependencias de back-end de los servidores críticos, puede identificar aquellos sistemas que deben recuperarse antes de restaurar los sistemas de foco.
 
 ### <a name="patch-management"></a>Administración de revisiones
+
 Service Map mejora el uso de la evaluación de actualizaciones del sistema mostrando qué otros equipos y servidores dependen del servicio, por lo que puede notificarles por adelantado antes de que afecte a los sistemas para la revisión. Service Map también mejora la administración de revisiones mostrando si los servicios están disponibles y conectados correctamente después de que se revisen y se reinicien.
 
 ## <a name="mapping-overview"></a>Información general de asignación
+
 Los agentes de Service Map recopilan información acerca de todos los procesos de conexión TCP en el servidor donde están instalados, así como los detalles de las conexiones entrantes y salientes para cada proceso.
 
 En la lista del panel izquierdo, puede seleccionar equipos o grupos con agentes de Service Map para visualizar sus dependencias durante un intervalo de tiempo especificado. Las asignaciones de dependencias de equipos se centran en un equipo concreto y muestran todos los equipos que son clientes directos de TCP o servidores de ese equipo.  Las asignaciones de grupos de equipos muestran conjuntos de servidores y sus dependencias.
@@ -72,6 +80,7 @@ Las máquinas se pueden expandir en la asignación para mostrar los grupos de pr
 De forma predeterminada, las asignaciones de Service Map muestran los 30 últimos minutos de la información de dependencia. Mediante los controles de tiempo de la parte superior izquierda, se pueden consultar las asignaciones de intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio). Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificaciones de estado y colores en el borde
+
 En la parte inferior de cada servidor en el mapa puede haber una lista de notificaciones de estado que expresan información de estado acerca del servidor. Las notificaciones indican que hay cierta información pertinente para el servidor de una de las integraciones de solución. Al hacer clic en una notificación se pasa directamente a los detalles del estado en el panel derecho. Las notificaciones de estado actualmente disponibles incluyen alertas, departamento de servicios, cambios, seguridad y actualizaciones.
 
 Según la gravedad de las notificaciones de estado, los bordes del nodo de la máquina pueden ser rojos (crítico), amarillos (advertencia) o azules (informativo). El color representa el estado más grave de cualquiera de las notificaciones de estado. Un borde gris indica que un nodo no tiene indicadores de estado.
@@ -79,9 +88,11 @@ Según la gravedad de las notificaciones de estado, los bordes del nodo de la m�
 ![Notificaciones de estado](media/service-map/status-badges.png)
 
 ## <a name="process-groups"></a>Grupos de procesos
+
 Un grupo de procesos combina procesos que están asociados a un producto o servicio común de ese grupo.  Al expandirse un nodo de máquina, se muestran los procesos independientes junto con los grupos de procesos.  Si se ha producido un error de conexión entrante y saliente a un proceso en un grupo de procesos, la conexión se muestra como errónea para todo el grupo.
 
 ## <a name="machine-groups"></a>Grupos de equipos
+
 Los grupos de equipos permiten ver asignaciones centradas en torno a un conjunto de servidores, no solo uno, para que pueda ver todos los miembros de una aplicación de varios niveles o un clúster de servidores de una asignación.
 
 Los usuarios seleccionan qué servidores pertenecen a un grupo y eligen un nombre para el grupo.  Luego pueden ver el grupo con todos sus procesos y conexiones o verlo únicamente con los procesos y las conexiones que se relacionan directamente con los demás miembros del grupo.
@@ -89,6 +100,7 @@ Los usuarios seleccionan qué servidores pertenecen a un grupo y eligen un nombr
 ![Grupo de equipos](media/service-map/machine-group.png)
 
 ### <a name="creating-a-machine-group"></a>Creación de un grupo de equipos
+
 Para crear un grupo, seleccione el equipo o equipos que quiera en la lista Equipos y haga clic en **Agregar al grupo**.
 
 ![Crear grupo](media/service-map/machine-groups-create.png)
@@ -101,6 +113,7 @@ Ahí puede elegir **Crear nuevo** y proporcionarle un nombre al grupo.
 >Los grupos de máquinas están limitados a 10 servidores.
 
 ### <a name="viewing-a-group"></a>Visualización de un grupo
+
 Una vez que se han creado algunos grupos, puede verlos si elige la pestaña grupos.
 
 ![Pestaña Grupos](media/service-map/machine-groups-tab.png)
@@ -113,6 +126,7 @@ Al expandir el grupo se muestran los equipos que componen el grupo de equipos.
 ![Equipos del grupo de equipos](media/service-map/machine-groups-machines.png)
 
 ### <a name="filter-by-processes"></a>Filtrar por procesos
+
 Puede alternar la vista de la asignación entre mostrar todos los procesos y las conexiones del grupo y solo aquellos que se relacionan directamente con el grupo de equipos.  La vista predeterminada es mostrar todos los procesos.  Puede cambiar la vista si hace clic en el icono de filtro situado encima de la asignación.
 
 ![Filtrar grupo](media/service-map/machine-groups-filter.png)
@@ -126,20 +140,24 @@ Si cambia la vista para mostrar solo **procesos conectados al grupo**, la asigna
 ![Procesos filtrados del grupo de equipos](media/service-map/machine-groups-filtered.png)
  
 ### <a name="adding-machines-to-a-group"></a>Adición de equipos a un grupo
+
 Para agregar equipos a un grupo existente, active las casillas situadas junto a los equipos que quiere y luego haga clic en **Agregar al grupo**.  Luego elija el grupo al que quiere agregar los equipos.
  
 ### <a name="removing-machines-from-a-group"></a>Eliminación de equipos de un grupo
+
 En la lista de grupos, expanda el nombre del grupo para ver los equipos del grupo de equipos.  Luego haga clic en el menú de puntos suspensivos situado junto al equipo que quiere quitar y elija **Quitar**.
 
 ![Quitar equipo del grupo](media/service-map/machine-groups-remove.png)
 
 ### <a name="removing-or-renaming-a-group"></a>Eliminación o cambio del nombre de un grupo
+
 Haga clic en el menú de puntos suspensivos situado junto al nombre del grupo en la lista de grupos.
 
 ![Menú Grupo de equipos](media/service-map/machine-groups-menu.png)
 
 
 ## <a name="role-icons"></a>Iconos de rol
+
 Ciertos procesos cumplen roles determinados en los equipos: servidores web, servidores de aplicaciones, base de datos, etc. Service Map marca las casillas de proceso y máquina con iconos de rol, lo que facilita la identificación rápida del rol que desempeña un proceso o un servidor.
 
 | Icono de rol | DESCRIPCIÓN |
@@ -154,6 +172,7 @@ Ciertos procesos cumplen roles determinados en los equipos: servidores web, serv
 
 
 ## <a name="failed-connections"></a>Conexiones con errores
+
 En Service Map se muestran las conexiones con errores de procesos y equipos con una línea roja discontinua que indica que un sistema cliente no alcanza un proceso o puerto. Se informa de las conexiones erróneas de cualquier sistema con un agente de Mapa de servicio implementado si ese sistema es el que intenta establecer la conexión con errores. Service Map mide este proceso mediante la observación de los sockets TCP que no pueden establecer una conexión. Este error puede deberse a un firewall, una configuración incorrecta en el cliente o servidor o un servicio remoto que no está disponible.
 
 ![Conexiones con errores](media/service-map/failed-connections.png)
@@ -161,6 +180,7 @@ En Service Map se muestran las conexiones con errores de procesos y equipos con 
 La comprensión de las conexiones con errores pueden ayudar a solucionar problemas, a la validación de la migración, el análisis de seguridad y al entendimiento general de la arquitectura. A veces las conexiones con errores son inofensivas, pero a menudo señalan directamente un problema, como un entorno de conmutación por error que de repente se convierte en inalcanzable o dos niveles de aplicación que no pueden comunicarse después de una migración a la nube.
 
 ## <a name="client-groups"></a>Grupos de clientes
+
 Los grupos de clientes son cuadros en el mapa que representan los equipos cliente que no tienen agentes de dependencia. Un único grupo de clientes representa a los clientes de un proceso o equipo individual.
 
 ![Grupos de clientes](media/service-map/client-groups.png)
@@ -170,27 +190,33 @@ Para ver las direcciones IP de los servidores de un grupo de clientes, seleccion
 ![Propiedades del grupo de clientes](media/service-map/client-group-properties.png)
 
 ## <a name="server-port-groups"></a>Grupos de puertos de servidor
+
 Los grupos de puertos de servidor son cuadros que representan los puertos del servidor en servidores que no tienen agentes de dependencia. El cuadro contiene el puerto del servidor y un recuento del número de servidores con conexiones a ese puerto. Expanda el cuadro para ver los servidores y las conexiones individuales. Si hay un solo servidor en el cuadro, se muestra el nombre o la dirección IP.
 
 ![Grupos de puertos de servidor](media/service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menú contextual
+
 Al hacer clic en los puntos suspensivos (...) de la parte superior derecha de cualquier servidor aparece el menú contextual de ese servidor.
 
 ![Conexiones con errores](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Cargar mapa del servidor
+
 Al hacer clic en **Cargar mapa del servidor** se le remite a una nueva asignación con el servidor seleccionado como nuevo equipo de foco.
 
 ### <a name="show-self-links"></a>Mostrar autovínculos
+
 La opción **Mostrar autovínculos** vuelve a dibujar el nodo de servidor, incluidos los autovínculos, que son conexiones TCP que empiezan y acaban en procesos del servidor. Si se muestran los autovínculos, el comando de menú cambia a **Ocultar autovínculos** para que pueda desactivarlos.
 
 ## <a name="computer-summary"></a>Resumen del equipo
+
 El panel **Machine Summary** (Resumen de la máquina) incluye información general del sistema operativo de un servidor, recuentos de dependencias y datos de otras soluciones. Estos datos incluyen métricas de rendimiento, incidencias del departamento de servicios, seguimiento de cambios, seguridad y actualizaciones.
 
 ![Panel de resumen del equipo](media/service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propiedades de proceso y de equipo
+
 Al navegar por una asignación de Service Map, puede seleccionar equipos y procesos para obtener contexto adicional sobre sus propiedades. Las máquinas proporcionan información acerca del nombre DNS, las direcciones IPv4, la capacidad de CPU y memoria, el tipo de máquina virtual, el sistema operativo y la versión, la hora del último reinicio, y los identificadores de sus agentes de OMS y Service Map.
 
 ![Panel Propiedades de la máquina](media/service-map/machine-properties.png)
@@ -204,6 +230,7 @@ El panel **Resumen de proceso** proporciona información adicional sobre la cone
 ![Panel Resumen de proceso](media/service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Integración de alertas
+
 Service Map se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de **alertas del equipo** enumera las alertas.
 
 ![Panel de alertas del equipo](media/service-map/machine-alerts.png)
@@ -213,11 +240,13 @@ Para que Service Map muestre las alertas relevantes, cree una regla de alerta qu
 - Elija que se envíen alertas según las unidades métricas.
 
 ## <a name="log-events-integration"></a>Integración de eventos de registro
+
 Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento de todos los eventos de registro disponibles para el servidor seleccionado durante el intervalo de tiempo elegido. Puede hacer clic en cualquier fila de la lista de recuentos de eventos para acceder a Búsqueda de registros y ver los eventos de registro individuales.
 
 ![Panel de eventos de registro del equipo](media/service-map/log-events.png)
 
 ## <a name="service-desk-integration"></a>Integración de Service Desk
+
 La integración de Service Map con Conector de Administración de servicios de TI es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics. La integración en Service Map se denomina "Departamento de servicios". Para más información, vea [Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 El panel de **departamento de servicios del equipo** muestra todos los eventos de IT Service Management del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay elementos actuales y el panel de departamento de servicios del equipo los enumera.
@@ -230,6 +259,7 @@ Para ver los detalles del elemento en la búsqueda de registros, haga clic en **
 Las métricas de conexión se escriben en dos nuevas tablas en Log Analytics 
 
 ## <a name="change-tracking-integration"></a>Integración de Change Tracking
+
 La integración de Service Map con Change Tracking es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics.
 
 El panel de **seguimiento de cambios del equipo** muestra todos los cambios, con el más reciente en primer lugar, además de un vínculo para profundizar en la búsqueda de registros a fin de obtener más detalles.
@@ -241,6 +271,7 @@ La imagen siguiente es una vista detallada de un evento ConfigurationChange que 
 ![Evento ConfigurationChange](media/service-map/configuration-change-event-01.png)
 
 ## <a name="performance-integration"></a>Integración del rendimiento
+
 En el panel **Rendimiento de la máquina** se muestran las métricas de rendimiento estándar del servidor seleccionado. Las métricas incluyen uso de la CPU, uso de la memoria, bytes de red enviados y recibidos y una lista de los principales procesos por bytes de red enviados y recibidos.
 
 ![Panel Rendimiento de la máquina](media/service-map/machine-performance.png)
@@ -262,6 +293,7 @@ Linux:
 Para obtener los datos de rendimiento de red, también debe haber habilitado la solución Wire Data 2.0 en el área de trabajo.
  
 ## <a name="security-integration"></a>Integración de seguridad
+
 La integración de Service Map con Security and Audit es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics.
 
 En el panel **Machine Security** (Seguridad de la máquina) se muestran datos de la solución Security and Audit del servidor seleccionado. El panel muestra un resumen de los problemas de seguridad pendientes del servidor durante el intervalo de tiempo seleccionado. Al hacer clic en cualquiera de los problemas de seguridad, se profundiza en una búsqueda de registros para obtener detalles sobre ellos.
@@ -269,6 +301,7 @@ En el panel **Machine Security** (Seguridad de la máquina) se muestran datos de
 ![Panel de seguridad del equipo](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integración de actualizaciones
+
 La integración de Service Map con Update Management es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics.
 
 En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran datos de la solución Update Management del servidor seleccionado. El panel muestra un resumen de las actualizaciones que faltan en el servidor durante el intervalo de tiempo seleccionado.
@@ -276,6 +309,7 @@ En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran dat
 ![Panel de seguimiento de cambios del equipo](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
+
 Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en Service Map. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
@@ -291,6 +325,7 @@ Hay propiedades generadas internamente que puede usar para identificar los equip
 Puesto que pueden existir varios registros para un proceso y equipo especificados en un intervalo de tiempo concreto, las consultas pueden devolver más de un registro para el mismo proceso o equipo. Para incluir solo el registro más reciente agregue "| dedup ResourceId" a la consulta.
 
 ### <a name="connections"></a>Conexiones
+
 Las métricas de conexión se escriben en una nueva tabla en Log Analytics: VMConnection. Esta tabla proporciona información sobre las conexiones para una máquina (entrantes y salientes). Las métricas de conexión también se exponen a través de API que proporcionan los medios para obtener una métrica específica durante un período de tiempo.  Las conexiones TCP resultantes de *aceptar* en un socket de escucha son de entrada, mientras que, las creadas al *conectar* con un puerto e IP concretos son de salida. La dirección de una conexión se representa mediante la propiedad Direction, que se puede definir como **inbound** u **outbound**. 
 
 Los registros de estas tablas se generan a partir de los datos que notifica el agente de dependencia. Cada registro representa una observación en un intervalo de tiempo de un minuto. La propiedad TimeGenerated indica el inicio del intervalo de tiempo. Cada registro contiene información para identificar la entidad correspondiente; es decir, conexión o puerto, así como las métricas asociadas con esa entidad. Actualmente, solo se notifica la actividad de red que tiene lugar mediante TCP a través de IPv4.
@@ -341,9 +376,11 @@ A continuación se incluyen puntos importantes que debe tener en cuenta:
 4. Los puertos que están enlazados solo en una interfaz específica tienen IsWildcardBind definido como "False".
 
 #### <a name="naming-and-classification"></a>Nomenclatura y clasificación
+
 Para mayor comodidad, la dirección IP del extremo remoto de una conexión se incluye en la propiedad RemoteIp. Para las conexiones entrantes, RemoteIp coincide con SourceIp, mientras que, para las conexiones salientes, coincide con DestinationIp. La propiedad RemoteDnsCanonicalNames representa los nombres canónicos DNS que notifica la máquina para RemoteIp. Las propiedades RemoteDnsQuestions y RemoteClassification están reservadas para uso futuro. 
 
 #### <a name="geolocation"></a>Geolocalización
+
 *VMConnection* también incluye información de ubicación geográfica para el extremo remoto de cada registro de conexión en las siguientes propiedades del registro: 
 
 | Propiedad | DESCRIPCIÓN |
@@ -353,6 +390,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 | `RemoteLongitude` |Longitud de geolocalización.  Por ejemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>Direcciones IP malintencionadas
+
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
 
 | Propiedad | DESCRIPCIÓN |
@@ -369,7 +407,8 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 | `ReportReferenceLink` |Vincula a informes relacionados con un objeto observable especificado. |
 | `AdditionalInformation` |Proporciona información adicional, si procede, sobre la amenaza observada. |
 
-### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
+### <a name="servicemapcomputer_cl-records"></a>Registros de ServiceMapComputer_CL
+
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario de servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
 | Propiedad | DESCRIPCIÓN |
@@ -394,7 +433,8 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 | `VirtualMachineName_s` | Nombre de la máquina virtual |
 | `BootTime_t` | Tiempo de arranque |
 
-### <a name="servicemapprocesscl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
+### <a name="servicemapprocess_cl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
+
 Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
 | Propiedad | DESCRIPCIÓN |
@@ -422,36 +462,47 @@ Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario p
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
 ### <a name="list-all-known-machines"></a>Enumerar todas las máquinas conocidas
+
 ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumerar la capacidad de memoria física de todos los equipos administrados.
+
 ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Enumerar el nombre de equipo, DNS, IP y SO.
+
 ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Buscar todos los procesos con "sql" en la línea de comandos
+
 ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Buscar una máquina (registro más reciente) por el nombre de recurso
+
 search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Buscar un equipo (registro más reciente) por dirección IP
+
 search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos los procesos conocidos en un equipo determinado
+
 ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Enumerar todos los equipos que ejecutan SQL
+
 ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumerar todas las versiones de producto únicas de curl en mi centro de datos
+
 ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos con CentOS
+
 ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir las conexiones salientes desde un grupo de máquinas
+
 ```
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
@@ -494,21 +545,26 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="rest-api"></a>API DE REST
+
 Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
+
 Microsoft recopila automáticamente datos de uso y rendimiento a través del servicio Mapa de servicio. Microsoft usa estos datos para proporcionar calidad, seguridad e integridad en el servicio Service Map y para mejorarlas. Con el fin de proporcionar funcionalidades de solución de problemas precisas y eficientes, los datos incluyen información sobre la configuración del software, como sistema operativo y versión, dirección IP, nombre DNS y nombre de la estación de trabajo. Microsoft no recopila nombres, direcciones ni otra información de contacto.
 
 Para más información sobre el uso y la recopilación de datos, vea la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Más información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 
 ## <a name="troubleshooting"></a>solución de problemas
+
 Consulte la [sección de solución de problemas del documento de configuración de Service Map]( service-map-configure.md#troubleshooting).
 
 
 ## <a name="feedback"></a>Comentarios
+
 ¿Quiere hacernos llegar algún comentario acerca de Mapa de servicio o esta documentación?  Visite la [página UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) para sugerir características o votar sugerencias existentes.

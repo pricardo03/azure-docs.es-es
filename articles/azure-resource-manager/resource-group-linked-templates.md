@@ -4,14 +4,14 @@ description: Describe cómo usar plantillas vinculadas en una plantilla del Admi
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206432"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311702"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -90,7 +90,7 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 > ],
 > ```
 >
-> No se puede usar la función `reference` en la sección de salidas de una plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
+> No se puede usar la función `reference` en la sección de salidas de una plantilla anidada para un recurso que ha implementado en la plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
 La plantilla anidada requiere las [mismas propiedades](resource-group-authoring-templates.md) que una plantilla estándar.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722887"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314822"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desfase del esquema de Mapping Data Flow
 
@@ -25,7 +25,8 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 * Definir parámetros de transformación que pueden funcionar con modelos de datos en lugar de con campos y valores codificados de forma rígida
 * Definir expresiones que comprenden los patrones para que coincidan con los campos de entrada, en lugar de utilizar campos con nombre
 
-## <a name="how-to-implement-schema-drift"></a>Cómo implementar el desfase de esquema
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Cómo implementar el desfase de esquema en Mapping Data Flows de ADF
+ADF admite de forma nativa esquemas flexibles que cambian de una ejecución a otra, lo que le permite compilar lógica de transformación de datos genéricos sin necesidad de volver a compilar los flujos de datos.
 
 * Elija "Allow Schema Drift" (Permitir desfase de esquema) en la transformación de origen.
 
@@ -33,11 +34,13 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 
 * Cuando haya seleccionado esta opción, todos los campos de entrada se leerán desde el origen de cada ejecución de flujo de datos y se pasará a través del flujo completo al receptor.
 
-* Asegúrese de usar "Asignación automática" para asignar todos los nuevos campos en la transformación de receptor con el fin de que todos los nuevos campos se seleccionen y coloquen en el destino.
+* Todas las columnas que se acaban de detectar (columnas desfasadas) llegarán como un tipo de datos String de forma predeterminada. En la transformación de origen, seleccione "Infer drifted column types" (Inferir los tipos de las columnas desfasadas) si quiere que ADF infiera automáticamente los tipos de datos del origen.
+
+* Asegúrese de usar "Asignación automática" para asignar todos los nuevos campos en la transformación de receptor con el fin de que todos los nuevos campos se seleccionen y coloquen en el destino. Establezca también "Allow Schema Drift" (Permitir el desfase de esquema) en el receptor.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Todo funcionará correctamente cuando se introducen nuevos campos en ese escenario con una sencilla asignación origen -> receptor (también conocida como copia).
+* Todo funcionará correctamente cuando se introducen nuevos campos en ese escenario con una sencilla asignación origen -> receptor (copia).
 
 * Para agregar las transformaciones de flujo de trabajo que controla el desfase de esquema, puede usar la coincidencia de patrones para hacer coincidir las columnas por nombre, tipo y valor.
 
@@ -67,9 +70,11 @@ Puede probarlo con el ejemplo de flujo de datos de Azure Data Factory "Taxi Demo
 <img src="media/data-flow/taxidrift2.png" width="800">
 
 ## <a name="access-new-columns-downstream"></a>Acceso a nuevas columnas de nivel inferior
+Al generar nuevas columnas con patrones de columnas, puede acceder a esas columnas nuevas más tarde en las transformaciones del flujo de datos con estos métodos:
 
-Al generar nuevas columnas con patrones de columnas, puede acceder a esas columnas nuevas más tarde en las transformaciones del flujo de datos mediante la función de la expresión "byName".
+* Use "byPosition" para identificar las nuevas columnas por número de posición.
+* Use "byName" para identificar las nuevas columnas por nombre.
+* En los patrones de columna, use "Name", "Stream", "Position", "Type" o cualquier combinación de estos para buscar coincidencias con nuevas columnas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 En el [lenguaje de expresiones de Data Flow](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y desfase de esquema incluidas las funciones "byName" y "byPosition".

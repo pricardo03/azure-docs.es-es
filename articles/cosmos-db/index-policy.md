@@ -4,14 +4,14 @@ description: Obtenga información sobre la configuración y cambio de la directi
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163725"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467870"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -73,6 +73,8 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 - Excluya la ruta de acceso raíz para incluir selectivamente las rutas de acceso que se deban indexar.
 
 - Para las rutas de acceso con caracteres normales que incluyen: caracteres alfanuméricos y _ (guion bajo), no tiene que aplicar el escape a la cadena de ruta de acceso en comillas dobles (por ejemplo, "/path/?"). Para las rutas de acceso con otros caracteres especiales, necesitará aplicar el escape a la cadena de ruta de acceso en comillas dobles (por ejemplo, "/\"path-abc\"/?"). Si se esperan caracteres especiales en la ruta de acceso, puede aplicar el escape a las rutas de acceso por motivos de seguridad. Funcionalmente, no hay ninguna diferencia si aplica el escape a todas las rutas de acceso frente a aplicarlo solo a las que tienen caracteres especiales.
+
+- De forma predeterminada, la propiedad del sistema "ETag" se excluye de la indexación, a menos que la ETag se agregue a la ruta de acceso incluida para la indexación.
 
 Vea [en esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) ejemplos de directivas de indexación.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275713"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479126"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -151,13 +151,23 @@ Este error significa que Cost Management no puede llamar a la API de AWS AssumeR
 - La opción **Require MFA** (Requerir MFA) está desactivada.
 - La cuenta de AWS de confianza en el rol de AWS es _432263259397_.
 
-### <a name="collection-failed-with-access-denied"></a>Error de recopilación con acceso denegado
+### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Error de recopilación con acceso denegado: definiciones de informe CUR
 
-- **Código de error:** _AccessDeniedReportDefinitions_ 
-- **Código de error:** _AccessDeniedListReports_ 
-- **Código de error:** _AccessDeniedDownloadReport_ 
+**Código de error:** _AccessDeniedReportDefinitions_ 
 
-Estos mensajes de error significan que Cost Management no puede acceder a los archivos CUR almacenados en el cubo S3 de Amazon. Asegúrese de que la directiva JSON de AWS asociada al rol sea similar al ejemplo que se muestra en la parte inferior de la sección [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) (Creación de un rol y de una directiva en AWS).
+Este error significa que Cost Management no puede ver las definiciones de los informes de Costo y Uso. Este permiso se usa para comprobar que el valor de CUR está definido tal como se espera en Azure Cost Management. Consulte [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="collection-failed-with-access-denied---list-reports"></a>Error de recopilación con acceso denegado: enumerar informes
+
+**Código de error:** _AccessDeniedListReports_ 
+
+Este error significa que Cost Management no puede enumerar el objeto en el cubo S3 donde se encuentra CUR. La directiva IAM de AWS requiere un permiso en el cubo y en los objetos del mismo. Consulte [Crear un rol y una directiva en AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+
+### <a name="collection-failed-with-access-denied---download-report"></a>Error de recopilación con acceso denegado: descargar informe 
+
+**Código de error:** _AccessDeniedDownloadReport_ 
+
+Estos mensajes de error significan que Cost Management no puede acceder a los archivos CUR almacenados en el cubo S3 de Amazon ni descargarlos. Asegúrese de que la directiva JSON de AWS asociada al rol sea similar al ejemplo que se muestra en la parte inferior de la sección [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) (Creación de un rol y de una directiva en AWS).
 
 ### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Error en la colección porque no encontramos el informe sobre uso y costes
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 391546b4d3ac9ad3674897b39284fdd16e9025a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785571"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562273"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicación web que llama a las API web: configuración de código
 
@@ -29,6 +29,12 @@ Tal como se muestra en el [escenario de usuarios que inician sesión en la aplic
 - Permitirá a ASP.NET o ASP.NET Core solicitar un código de autorización. De este modo, ASP.NET o ASP.NET Core permitirán al usuario iniciar sesión y dar su consentimiento.
 - Deberá suscribirse a la recepción del código de autorización por parte de la aplicación web.
 - Cuando se reciba el código de autenticación, usará las bibliotecas MSAL para canjear el código y los tokens de acceso resultantes y para actualizar el almacén de tokens en la caché de tokens. A partir de entonces, la caché puede utilizarse en otras partes de la aplicación para adquirir otros tokens de forma silenciosa.
+
+> [!NOTE]
+> Los fragmentos de código de este artículo se extraen de los siguientes ejemplos de GitHub, que son totalmente funcionales:
+>
+> - [Tutorial incremental de la aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [Ejemplo de una aplicación web para ASP.NET](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotecas que admiten escenarios de aplicación web
 
@@ -42,7 +48,12 @@ Las bibliotecas que admiten el flujo de código de autorización para aplicacion
 
 ## <a name="aspnet-core-configuration"></a>Configuración de ASP.NET Core
 
-En ASP.NET Core, suceden cosas en el archivo `Startup.cs`. Deberá suscribirse al evento de Open ID Connect `OnAuthorizationCodeReceived` y, desde este evento, llamará al método de MSAL.NET `AcquireTokenFromAuthorizationCode` que tiene el efecto de almacenar en la caché de tokens, el token de acceso para los ámbitos solicitados y un token de actualización que se usará para actualizar el token de acceso cuando esté cerca de expirar o para obtener un token en nombre del mismo usuario, pero para un recurso diferente.
+En ASP.NET Core, suceden cosas en el archivo `Startup.cs`. Le recomendamos que se suscriba al evento de Open ID Connect `OnAuthorizationCodeReceived` y, desde este, llame al método de MSAL.NET `AcquireTokenFromAuthorizationCode`, que tiene el efecto de almacenar la caché de tokens, el token de acceso para el valor de `scopes` solicitado y un token de actualización que se usará para actualizar el token de acceso cuando esté a punto de expirar, o para obtener un token en nombre del mismo usuario, pero para un recurso diferente.
+
+```CSharp
+string[] scopes = new string[]{ "user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
 
 Los comentarios en el código siguiente le ayudarán a comprender algunos aspectos complejos de la configuración de MSAL.NET y ASP.NET Core. Se proporcionan detalles completos en el [tutorial incremental sobre aplicaciones web de AsP.NET Core, capítulo 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph).
 
@@ -56,7 +67,7 @@ Los comentarios en el código siguiente le ayudarán a comprender algunos aspect
    // their Microsoft personal accounts
    // (it's required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -88,7 +99,12 @@ Los comentarios en el código siguiente le ayudarán a comprender algunos aspect
    };
 ```
 
-En ASP.NET Core, la compilación de la aplicación cliente confidencial usa información que se encuentra en HttpContext. Este elemento HttpContext conoce la dirección URL de la aplicación web y el usuario con sesión iniciada (en `ClaimsPrincipal`). También usa la configuración de ASP.NET Core, que tiene una sección "AzureAD" y que está enlazada a la estructura de datos `_applicationOptions`. Por último, la aplicación debe mantener las cachés de tokens.
+En ASP.NET Core, la compilación de la aplicación cliente confidencial usa información que se encuentra en HttpContext. Este elemento `HttpContext` conoce la dirección URL de la aplicación web y el usuario con sesión iniciada (en `ClaimsPrincipal`). 
+
+También usa la configuración de ASP.NET Core, que tiene una sección "AzureAD" y que está enlazada a lo siguiente:
+
+- la estructura de datos `_applicationOptions` de tipo [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet)
+- la instancia `azureAdOptions` de tipo [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) definida en `Authentication.AzureAD.UI` de ASP.NET Core Por último, la aplicación debe mantener las cachés de tokens.
 
 ```CSharp
 /// <summary>
@@ -116,19 +132,22 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode` realmente canjea el código de autorización solicitado por ASP.NET y obtiene los tokens agregados a la caché de tokens de usuario de MSAL.NET. Desde ahí, se utilizan en los controladores de ASP.NET Core.
+Para obtener más información sobre los proveedores de caché de tokens, consulte los [tutoriales de aplicación web de ASP.NET Core Web | Cachés de tokens](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)
+
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode` realmente canjea el código de autorización solicitado por ASP.NET y obtiene los tokens agregados a la caché de tokens de usuario de MSAL.NET. Desde ahí, se utilizan en los controladores de ASP.NET Core.
 
 ## <a name="aspnet-configuration"></a>Configuración de ASP.NET Core
 
@@ -179,6 +198,9 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
                                               .ExecuteAsync();
 }
 ```
+
+Por último, en lugar de un secreto de cliente, la aplicación cliente confidencial también puede demostrar su identidad mediante un certificado de cliente o una aserción de cliente.
+El uso de aserciones de cliente es un escenario avanzado, que se detalla en [aserciones de cliente](msal-net-client-assertions.md).
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Caché de tokens MSAL.NET para una aplicación web ASP.NET (Core)
 

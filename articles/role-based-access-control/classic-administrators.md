@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924651"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444334"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -129,7 +129,7 @@ Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Az
 
 Cada suscripción está asociada a un directorio de Azure AD. Para encontrar el directorio al que está asociada la suscripción, abra **Suscripciones** en Azure Portal y, a continuación, seleccione una suscripción para ver el directorio.
 
-Si inició sesión con una cuenta profesional o educativa, puede agregar otras cuentas de su organización como administrador de servicios. Por ejemplo, abby@contoso.com puede agregar a bob@contoso.com como administrador de servicios pero no puede agregar a john@notcontoso.com a menos que john@notcontoso.com esté presente en el directorio contoso.com. Los usuarios que iniciaron sesión con cuentas profesionales o educativas pueden continuar agregando usuarios de cuentas Microsoft como administradores de servicios.
+Si inició sesión con una cuenta profesional o educativa, puede agregar otras cuentas de su organización como administrador de servicios. Por ejemplo, abby@contoso.com puede agregar a bob@contoso.com como administrador de servicios pero no puede agregar a john@notcontoso.com a menos que john@notcontoso.com esté presente en el directorio contoso.com. Los usuarios que iniciaron sesión con cuentas profesionales o educativas pueden continuar agregando usuarios de cuentas Microsoft como administradores de servicios. Solo puede haber un administrador de servicios por suscripción de Azure.
 
   | Método de inicio de sesión | ¿Agregar un usuario de cuenta Microsoft como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de la misma organización como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de otra organización como administrador de servicios? |
   | --- | --- | --- | --- |

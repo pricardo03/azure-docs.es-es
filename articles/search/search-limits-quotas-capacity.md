@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485410"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348301"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** o **Almacenamiento optimizado**.
@@ -137,7 +137,7 @@ En el caso de los niveles de Almacenamiento optimizado, debe esperar un rendimie
 
 ## <a name="data-limits-cognitive-search"></a>Límites de datos (búsqueda cognitiva)
 
-Una [canalización de búsqueda cognitiva](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento ](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe tener 50 000 caracteres según lo que mida `String.Length`. Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+Una [canalización de búsqueda cognitiva](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento ](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>Límites de solicitud de API
 * Máximo de 16 MB por solicitud <sup>1</sup>

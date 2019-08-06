@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad comunes para Azure Virtual Machine Scale Sets
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Virtual Machine Scale Sets
+title: Atributos de seguridad para Azure Virtual Machine Scale Sets
+description: Lista de comprobación de los atributos de seguridad que se usan para evaluar Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 42187ce1a3103ba037ba2e2c179c720e444ddc60
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1e96d3d8ba909afdc4bb402f95c4f482f3ddf681
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296332"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444273"
 ---
-# <a name="common-security-attributes-for-azure-virtual-machine-scale-sets"></a>Atributos de seguridad comunes para Azure Virtual Machine Scale Sets
+# <a name="security-attributes-for-azure-virtual-machine-scale-sets"></a>Atributos de seguridad para Azure Virtual Machine Scale Sets
 
-En este artículo, se explican los atributos de seguridad comunes integrados en Azure Virtual Machine Scale Sets.
+En este artículo, se explican los atributos de seguridad integrados en Azure Virtual Machine Scale Sets.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 

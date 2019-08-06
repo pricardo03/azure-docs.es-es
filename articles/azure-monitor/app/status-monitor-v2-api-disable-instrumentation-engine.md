@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 827f8555718a22979617c9b0794dce3bd92207f4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514423"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326385"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>API del Monitor de estado v2: Disable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>API del Monitor de estado v2: Disable-InstrumentationEngine
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 Deshabilita el motor de instrumentación mediante la eliminación de algunas claves del Registro.
@@ -46,7 +41,7 @@ PS C:\> Disable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **Parámetro común.** Use este modificador para generar registros detallados.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Salida de ejemplo al deshabilitar correctamente el motor de instrumentación

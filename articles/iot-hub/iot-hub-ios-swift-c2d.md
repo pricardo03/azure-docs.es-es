@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 6bb95bf887837fffc4196bca8d761239ac430a1a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620173"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404245"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envío de mensajes de nube a dispositivo con IoT Hub (iOS)
 
@@ -101,6 +101,12 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 
    ![Ejecución del proyecto](media/iot-hub-ios-swift-c2d/run-sample.png)
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
+
+En este artículo, creará un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-ios.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="simulate-a-service-device"></a>Simulación de un dispositivo de servicio
 
 En esta sección se simula un segundo dispositivo de iOS con una aplicación con Swift que envía mensajes de la nube al dispositivo mediante IoT Hub. Esta configuración es útil en escenarios de IoT donde haya un iPhone o iPad que funcione como controlador de otros dispositivos de iOS conectados a una instancia de IoT Hub.
@@ -125,31 +131,25 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 
 ### <a name="run-the-sample-service-application"></a>Ejecución de la aplicación de servicio de ejemplo
 
-1. Recupere la cadena de conexión del servicio de la instancia de IoT Hub. Puede copiarla de [Azure Portal](https://portal.azure.com), de la directiva **iothubowner** en la hoja **Directivas de acceso compartido**, o recuperarla con el siguiente comando de la CLI:  
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
-    ```
-
-2. Abra el área de trabajo de ejemplo en XCode.
+1. Abra el área de trabajo de ejemplo en XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
-3. Expanda el proyecto **AzureIoTServiceSample** y la carpeta del mismo nombre.  
+2. Expanda el proyecto **AzureIoTServiceSample** y la carpeta del mismo nombre.  
 
-4. Abra **ViewController.swift** para editar en XCode. 
+3. Abra **ViewController.swift** para editar en XCode. 
 
-5. Busque la variable **connectionString** y actualice el valor con la cadena de conexión del servicio que copió anteriormente.
+4. Busque la variable **connectionString** y actualice el valor con la cadena de conexión del servicio que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
-6. Guarde los cambios.
+5. Guarde los cambios.
 
-7. En Xcode, cambie las opciones del emulador a un dispositivo iOS diferente del que usó para ejecutar el dispositivo IoT. XCode no puede ejecutar varios emuladores del mismo tipo.
+6. En Xcode, cambie las opciones del emulador a un dispositivo iOS diferente del que usó para ejecutar el dispositivo IoT. XCode no puede ejecutar varios emuladores del mismo tipo.
 
    ![Cambio del dispositivo emulador](media/iot-hub-ios-swift-c2d/change-device.png)
 
-8. Ejecute el proyecto en el emulador de dispositivos con el botón **Build and run** (Compilar y ejecutar) o la combinación de teclas **comando + r**.
+7. Ejecute el proyecto en el emulador de dispositivos con el botón **Build and run** (Compilar y ejecutar) o la combinación de teclas **comando + r**.
 
    ![Ejecución del proyecto](media/iot-hub-ios-swift-c2d/run-app.png)
 

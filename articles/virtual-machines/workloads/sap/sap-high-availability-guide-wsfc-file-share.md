@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709054"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479187"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -292,9 +292,11 @@ Un recurso compartido de archivos de escalabilidad horizontal ofrece un recurso 
 
 Los espacios de almacenamiento directo se usan como un disco compartido para un recurso compartido de archivos de escalabilidad horizontal. Puede usar espacios de almacenamiento directo para crear almacenamiento de alta disponibilidad y escalabilidad utilizando servidores con almacenamiento local. El almacenamiento compartido que se utiliza para un recurso compartido de archivos de escalabilidad horizontal, al igual que para los archivos del host global de SAP, no es un punto único de error.
 
-> [!IMPORTANT]
->Si *no* planea configurar la recuperación ante desastres, se recomienda usar un recurso compartido de archivos de escalabilidad horizontal como una solución para un recurso compartido de archivos de alta disponibilidad en Azure.
->
+Al elegir Espacios de almacenamiento directo, tenga en cuenta estos casos de uso:
+
+- Las máquinas virtuales que se usan para compilar el clúster de Espacios de almacenamiento directo deben implementarse en un conjunto de disponibilidad de Azure.
+- Para la recuperación ante desastres de un clúster de Espacios de almacenamiento directo, puede usar [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- No se admite expandir el clúster de Espacios de almacenamiento directo entre distintas instancias de Azure Availability Zones.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Requisitos previos de SAP para recursos compartidos de archivos de escalabilidad horizontal en Azure
 
@@ -316,7 +318,6 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
     Para obtener más información, vea las especificaciones de la [serie DSv2][dv2-series] and [DS-Series][ds-series].
 * Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para obtener más información, vea [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
-* Las máquinas virtuales del recurso compartido de archivos de escalabilidad horizontal de Azure deben implementarse en su propio conjunto de disponibilidad de Azure.
 * No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<host global de SAP\>. Esto se hace para el \<nombre de host virtual ASCS/SCS\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<host global de SAP\> usa la dirección IP local para todos los nodos del clúster.
 
 
@@ -338,17 +339,11 @@ Puede implementar instancias de ASCS/SCS de SAP en un clúster, con su propio ro
 _**Ilustración 5:** Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres_
 
 > [!IMPORTANT]
-> En la nube de Azure, los clústeres que se usan para SAP y los recursos compartidos de archivos de escalabilidad horizontal deben implementarse en su propio conjunto de disponibilidad de Azure. Esto garantiza la selección de ubicación distribuida de las máquinas virtuales del clúster a través de la infraestructura subyacente de Azure.
+> En la nube de Azure, los clústeres que se usan para SAP y los recursos compartidos de archivos de escalabilidad horizontal deben implementarse en su propio conjunto de disponibilidad de Azure o entre instancias de Azure Availability Zones. Esto garantiza la selección de ubicación distribuida de las máquinas virtuales del clúster a través de la infraestructura subyacente de Azure. Las implementaciones de zonas de disponibilidad son compatibles con esta tecnología.
 >
 
 ## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Recurso compartido de archivos genérico con SIOS DataKeeper como discos compartidos de clúster
 
-
-> [!IMPORTANT]
-> Se recomienda una solución de recurso compartido de archivos de escalabilidad horizontal para un recurso compartido de archivos de alta disponibilidad.
->
-> Si va a establecer también la recuperación ante desastres para el recurso compartido de archivos de alta disponibilidad, debe usar un recurso compartido de archivos genérico y SIOS DataKeeper para los discos compartidos de clúster.
->
 
 Otra opción para conseguir un recurso compartido de archivos de alta disponibilidad es un recurso compartido de archivos genérico.
 

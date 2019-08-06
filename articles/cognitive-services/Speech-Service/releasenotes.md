@@ -3,20 +3,20 @@ title: 'Notas de la versión: servicio de voz'
 titlesuffix: Azure Cognitive Services
 description: Consulte un registro de características, mejoras, correcciones de errores y problemas conocidos para los servicios de voz de Azure.
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490186"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404836"
 ---
 # <a name="release-notes"></a>Notas de la versión
 

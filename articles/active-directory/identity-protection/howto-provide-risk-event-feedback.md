@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d53590e89afb1a903b22ff60e32871a1502ada
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bd0984a78860192f507323491952e895c8de8bf
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827911"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370202"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Instrucciones: Enviar comentarios sobre riesgo en Azure AD Identity Protection
 
@@ -33,13 +33,13 @@ La detección de Identity Protection es un indicador de actividad sospechosa des
 
 Hay varias razones por las que debería enviar comentarios sobre el riesgo de Azure AD:
 
-1. **Ha encontrado una evaluación de riesgo de inicio de sesión o usuario de Azure AD incorrecta**. Por ejemplo, un inicio de sesión que se muestra en el informe "Inicios de sesión de riesgo" era inofensivo y todas las detecciones en ese inicio de sesión eran falsos positivos.
-1. **Ha validado que la evaluación de riesgo de inicio de sesión o usuario de Azure AD era correcta**. Por ejemplo, un inicio de sesión que se muestra en el informe "Inicios de sesión de riesgo" era realmente malintencionado y quiere que Azure AD sepa que todas las detecciones en ese inicio de sesión eran verdaderos positivos.
-1. **Ha corregido el riesgo de ese usuario fuera de Azure AD Identity Protection** y quiere que el nivel de riesgo del usuario se actualice.
+- **Ha encontrado una evaluación de riesgo de inicio de sesión o usuario de Azure AD incorrecta**. Por ejemplo, un inicio de sesión que se muestra en el informe "Inicios de sesión de riesgo" era inofensivo y todas las detecciones en ese inicio de sesión eran falsos positivos.
+- **Ha validado que la evaluación de riesgo de inicio de sesión o usuario de Azure AD era correcta**. Por ejemplo, un inicio de sesión que se muestra en el informe "Inicios de sesión de riesgo" era realmente malintencionado y quiere que Azure AD sepa que todas las detecciones en ese inicio de sesión eran verdaderos positivos.
+- **Ha corregido el riesgo de ese usuario fuera de Azure AD Identity Protection** y quiere que el nivel de riesgo del usuario se actualice.
 
 ## <a name="how-does-azure-ad-use-my-risk-feedback"></a>¿Cómo usa Azure AD mis comentarios sobre riesgo?
 
-Azure AD usa sus comentarios para actualizar el riesgo del usuario o inicio de sesión subyacentes. Estos comentarios le ayudan a proteger al usuario final. Por ejemplo, después de confirmar que un inicio de sesión está en peligro, Azure AD aumenta inmediatamente el nivel de riesgo de usuario y riesgo agregado de inicio de sesión (no en tiempo real) a Alto. Si este usuario está incluido en la directiva de riesgo de usuario para forzar a los usuarios de alto riesgo a restablecer sus contraseñas de forma segura, el usuario se corregirá automáticamente la próxima vez que inicie sesión.
+Azure AD usa sus comentarios para actualizar el riesgo del usuario o inicio de sesión subyacentes y la precisión de estos eventos. Estos comentarios le ayudan a proteger al usuario final. Por ejemplo, después de confirmar que un inicio de sesión está en peligro, Azure AD aumenta inmediatamente el nivel de riesgo de usuario y riesgo agregado de inicio de sesión (no en tiempo real) a Alto. Si este usuario está incluido en la directiva de riesgo de usuario para forzar a los usuarios de alto riesgo a restablecer sus contraseñas de forma segura, el usuario se corregirá automáticamente la próxima vez que inicie sesión.
 
 ## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>¿Cómo debo enviar comentarios sobre riesgo y qué sucede en segundo plano?
 

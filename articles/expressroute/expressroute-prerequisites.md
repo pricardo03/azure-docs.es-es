@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: mialdrid
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883288"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442214"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
 Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.
@@ -50,10 +50,7 @@ Si tiene pensado habilitar Office 365 en ExpressRoute, revise los siguientes doc
 * [Vídeos sobre el aprendizaje avanzado de ExpressRoute en Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="dynamics-365"></a>Dynamics 365
-Si tiene pensado habilitar Dynamics 365 en ExpressRoute, revise los siguientes documentos para más información sobre Dynamics 365
-
-* [Documento técnico de Dynamics 365 y ExpressRoute](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [Direcciones URL de Dynamics 365](https://support.microsoft.com/kb/2655102) e [Intervalos de direcciones IP](https://support.microsoft.com/kb/2728473)
+Si tiene previsto habilitar Dynamics 365 en ExpressRoute, revise las [direcciones URL de Dynamics 365](https://support.microsoft.com/kb/2655102) y los [rangos de direcciones IP](https://support.microsoft.com/kb/2728473).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

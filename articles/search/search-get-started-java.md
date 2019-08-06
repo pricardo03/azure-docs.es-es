@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido de Java: Creación, carga y consulta de índices mediante las API REST de Azure Search - Azure Search'
+title: 'Inicio rápido: Creación de un índice de Azure Search en Java'
 description: Se explica cómo crear un índice, cargar datos y ejecutar consultas mediante Java y las API REST de Azure Search.
 services: search
 author: jj09
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450099"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489782"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Inicio rápido: Creación de un índice de Azure Search en Java
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Todas las llamadas de API REST en Azure Search requieren que proporcione la dire
 3. Seleccione el servicio que desea utilizar.
 4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
    
-      ![][3]
+      ![Captura de pantalla que muestra cómo obtener acceso a las claves de administración desde el panel de servicios][3]
 5. Copie la dirección URL del servicio y una clave de administración. Las necesitará más adelante para agregarlas al archivo **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Descarga de los archivos de ejemplo
@@ -77,10 +77,10 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 ## <a name="import-project"></a>Importación del proyecto
 1. En Eclipse, elija **Archivo** > **Importar** > **General** > **Proyectos existentes al área de trabajo**.
    
-    ![][4]
+    ![Captura de pantalla que muestra cómo importar un proyecto existente][4]
 2. En **Select root directory**(Seleccionar directorio raíz), vaya a la carpeta que contiene los archivos de ejemplo. Seleccione la carpeta que contiene la carpeta .project. El proyecto debe aparecer en la lista **Projects** (Proyectos) como elemento seleccionado.
    
-    ![][12]
+    ![Captura de pantalla que muestra la lista de proyectos en la ventana Importar proyectos][12]
 3. Haga clic en **Finalizar**
 4. Utilice **Project Explorer** (Explorador de proyectos) para ver y editar los archivos. Si aún no está abierto, haga clic en **Ventana** > **Mostrar vista** > **Explorador de proyectos** o use el método abreviado para abrirlo.
 
@@ -89,18 +89,18 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 2. Consulte los pasos anteriores de este artículo, donde encontró la dirección URL del servicio y `api-key` en [Azure Portal](https://portal.azure.com), para obtener los valores que ahora va a especificar en **config.properties**.
 3. En **config.properties**, reemplace "API Key" por la `api-key` del servicio. A continuación, el nombre de servicio (el primer componente de la dirección URL https://servicename.search.windows.net) reemplaza "nombre de servicio" en el mismo archivo.
    
-    ![][5]
+    ![Captura de pantalla que muestra cómo reemplazar la clave de API][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Configuración de los entornos de proyecto, compilación y tiempo de ejecución
 1. En Eclipse, en Project Explorer, haga clic con el botón secundario en el proyecto > **Propiedades** > **Facetas del proyecto**.
 2. Seleccione **Dynamic Web Module**, **Java** y **JavaScript**.
    
-    ![][6]
+    ![Captura de pantalla que muestra cómo seleccionar las facetas de proyecto para su proyecto][6]
 3. Haga clic en **Aplicar**.
 4. Seleccione **Ventana** > **Preferencias** > **Servidor** > **Entornos en tiempo de ejecución** > **Agregar...** .
 5. Expanda Apache y seleccione la versión del servidor Apache Tomcat que ha instalado anteriormente. En nuestro sistema, se instala la versión 8.
    
-    ![][7]
+    ![Captura de pantalla que muestra la ubicación de la ventana Runtime Environment (Entorno de tiempo de ejecución) en la que puede seleccionar la versión de Apache Tomcat][7]
 6. En la página siguiente, especifique el directorio de instalación de Tomcat. En un equipo Windows, probablemente será C:\Program Files\Apache Software Foundation\Tomcat *versión*.
 7. Haga clic en **Finalizar**
 8. Seleccione **Ventana** > **Preferencias** > **Java** > **JRE instalados** > **Agregar**.
@@ -110,17 +110,17 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 12. Vaya a **Archivos de programa** > **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
 13. En Installed JREs, elija el **JDK**. Su configuración debería ser similar a la siguiente captura de pantalla.
     
-    ![][9]
+    ![Captura de pantalla que muestra cómo seleccionar JDK como JRE instalado][9]
 14. Opcionalmente, seleccione **Ventana** > **Explorador web** > **Internet Explorer** para abrir la aplicación en una ventana del explorador externo. Utilizar un explorador externo proporciona una mejor experiencia de aplicación web.
     
-    ![][8]
+    ![Captura de pantalla que muestra cómo seleccionar Internet Explorer como una ventana de exploración externa][8]
 
 Ahora ha completado las tareas de configuración. A continuación, podrá compilar y ejecutar el proyecto.
 
 ## <a name="build-the-project"></a>Compilación del proyecto
 1. En el Explorador de proyectos, haga clic con el botón secundario en el nombre del proyecto y elija **Ejecutar como** > **Compilación de Maven...** para configurar el proyecto.
    
-    ![][10]
+    ![Captura de pantalla que muestra cómo elegir la compilación de Maven en la ventana Explorador de proyectos][10]
 2. En Edit Configuration (Editar configuración), en la sección Goals (Objetivos), escriba "clean install" y, a continuación, haga clic en **Run**(Ejecutar).
 
 Los mensajes de estado se envían a la ventana de consola. Debería ver BUILD SUCCESS, lo que indica que el proyecto se ha compilado sin errores.
@@ -147,7 +147,7 @@ El conjunto de datos de USGS incluye los registros que son relevantes para el es
 
 Escriba un término de búsqueda para que el motor de búsqueda tenga con qué trabajar. Pruebe a escribir un nombre regional. "Roger Williams" fue el primer gobernador de Rhode Island. Hay numerosos parques, edificios y escuelas que llevan su nombre.
 
-![][11]
+![Captura de pantalla que muestra cómo buscar en los datos de USGS][11]
 
 También puede probar con alguno de estos términos:
 

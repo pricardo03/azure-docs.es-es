@@ -4,14 +4,14 @@ description: Comprenda cómo funciona la indexación en Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/22/2019
 ms.author: thweiss
-ms.openlocfilehash: 633d0f619132ee93951cfe0dc329a7514a38ef57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240735"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479286"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
@@ -62,25 +62,34 @@ Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente la ruta de acc
 
 ## <a name="index-kinds"></a>Tipos de índices
 
-Actualmente, Azure Cosmos DB admite dos tipos de índices:
+Actualmente, Azure Cosmos DB admite tres tipos de índices:
 
 El tipo de índice de **rango** se usa con:
 
-- Consultas de igualdad: 
+- Consultas de igualdad:
 
-   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+    ```sql
+   SELECT * FROM container c WHERE c.property = 'value'
+    ```
 
-- Consultas por rango: 
+- Consultas por rango:
 
-   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (funciona con `>`, `<`, `>=`, `<=`, `!=`)
+   ```sql
+   SELECT * FROM container c WHERE c.property > 'value'
+   ``` 
+  (funciona para `>`, `<`, `>=`, `<=`, `!=`).
 
 - Consultas `ORDER BY`:
 
-   ```sql SELECT * FROM container c ORDER BY c.property```
+   ```sql 
+   SELECT * FROM container c ORDER BY c.property
+   ```
 
-- Consultas `JOIN`: 
+- Consultas `JOIN`:
 
-   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
+   ```sql
+   SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
+   ```
 
 Los índices de rango se pueden usar en valores escalares (cadena o número).
 
@@ -88,11 +97,15 @@ El tipo de índice **espacial** se usa con:
 
 - Consultas de distancia geoespaciales: 
 
-   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+   ```sql
+   SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
+   ```
 
 - Información geoespacial dentro de consultas: 
 
-   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
+   ```sql
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   ```
 
 Los índices espaciales pueden usarse en objetos [GeoJSON](geospatial.md) con un formato correcto. Actualmente se admiten puntos, LineStrings y polígonos.
 
@@ -100,7 +113,9 @@ El tipo de índice **compuesto** se usa con:
 
 - Consultas `ORDER BY` en varias propiedades: 
 
-   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
+   ```sql
+   SELECT * FROM container c ORDER BY c.firstName, c.lastName
+   ```
 
 ## <a name="querying-with-indexes"></a>Consultas con índices
 

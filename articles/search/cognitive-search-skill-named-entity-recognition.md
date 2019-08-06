@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4049f76fdbe4745f3c75c74bc49d8fecc43fb2cf
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952039"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347690"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Aptitud cognitiva Reconocimiento de entidades con nombre
 
@@ -35,7 +35,7 @@ La habilidad **Reconocimiento de entidades con nombre** extrae entidades con nom
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Límites de datos
-El tamaño máximo de un registro debe tener 50 000 caracteres según lo que mida `String.Length`. Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
+El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parámetros de las aptitudes
 
@@ -43,7 +43,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
-| Categorías    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"` y `"Organization"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
+| categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"` y `"Organization"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
 | minimumPrecision  | Número comprendido entre 0 y 1. Si la precisión es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0.|
 
@@ -59,7 +59,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de salida     | DESCRIPCIÓN                   |
 |---------------|-------------------------------|
 | persons      | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
-| Ubicaciones  | Una matriz de cadenas donde cada cadena representa una ubicación. |
+| locations  | Una matriz de cadenas donde cada cadena representa una ubicación. |
 | organizations  | Una matriz de cadenas donde cada cadena representa una organización. |
 | entities | Una matriz de tipos complejos. Cada tipo complejo incluye los siguientes campos: <ul><li>categoría (`"person"`, `"organization"` o `"location"`)</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (un valor entre 0 y 1 que representa esa confianza de que el valor es una entidad real)</li></ul> |
 

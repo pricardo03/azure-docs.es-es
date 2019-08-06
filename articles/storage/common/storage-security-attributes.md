@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad comunes de Azure Storage
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Storage
+title: Atributos de seguridad de Azure Storage
+description: Lista de comprobación de los atributos de seguridad para evaluar Azure Storage
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16ec2757955b53a8bfa73ba724100f7fa61d2867
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001457"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444297"
 ---
 # <a name="security-attributes-for-azure-storage"></a>Atributos de seguridad de Azure Storage
 
@@ -26,8 +26,8 @@ En este artículo, se explican los atributos de seguridad integrados en Azure St
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí |  |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Compatible con los mecanismos estándar de HTTPS/TLS.  Los usuarios también pueden cifrar datos antes de que se transmitan al servicio. |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)| Sí |  |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en red virtual y cifrado de red virtual a red virtual)| Sí | Compatible con los mecanismos estándar de HTTPS/TLS.  Los usuarios también pueden cifrar datos antes de que se transmitan al servicio. |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sí | Consulte [Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí |  |
@@ -52,7 +52,7 @@ En este artículo, se explican los atributos de seguridad integrados en Azure St
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | Azure Active Directory, clave compartida, el token de acceso compartido. |
-| Autorización| Sí | Compatible con la autorización mediante RBAC, listas de control de acceso de POSIX y tokens de SAS |
+| Authorization| Sí | Compatible con la autorización mediante RBAC, listas de control de acceso de POSIX y tokens de SAS |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3893e496b41b0f3df8dc5a580daf298888578d6e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620129"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404165"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -120,11 +120,15 @@ En esta sección, modificará la aplicación de dispositivo que creó en [Envío
     mvn clean package -DskipTests
     ```
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
+
+En este artículo, creará un servicio de back-end para recibir mensajes de notificación de carga de archivos desde la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-java.md). Para recibir mensajes de notificación de carga de archivos, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Recepción de una notificación de carga de archivos
 
 En esta sección, se crea una aplicación de consola de Java que recibe mensajes de notificación de carga de archivos de IoT Hub.
-
-Necesita la cadena de conexión **iothubowner** para que IoT Hub complete esta sección. Puede encontrar la cadena de conexión en [Azure Portal](https://portal.azure.com/) o en la hoja **Directiva de acceso compartido**.
 
 1. Cree un proyecto de Maven denominado **read-file-upload-notification** mediante el siguiente comando en el símbolo del sistema. Observe que este es un comando único y largo:
 
@@ -161,7 +165,7 @@ Necesita la cadena de conexión **iothubowner** para que IoT Hub complete esta s
     import java.util.concurrent.Executors;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App** :
+7. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace el valor de marcador de posición `{Your IoT Hub connection string}` por la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";

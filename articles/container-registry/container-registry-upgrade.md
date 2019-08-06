@@ -3,16 +3,17 @@ title: Actualización de un registro clásico de Azure Container Registry
 description: Benefíciese del conjunto de características ampliado de los registros de contenedores administrados Básico, Estándar y Premium mediante la actualización de su registro de contenedor clásico no administrado.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480357"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310372"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Actualización de un registro clásico
 
@@ -52,7 +53,7 @@ Una vez finalizada la migración, Azure Container Registry deja de usar la cuent
 
 ## <a name="how-to-upgrade"></a>Procedimiento de actualización
 
-Puede actualizar un registro clásico no administrado a una de las SKU administradas de varias maneras. En las siguientes secciones, se describe el proceso para utilizar la [CLI de Azure][azure-cli] y [Azure Portal][azure-portal].
+Puede actualizar un registro clásico no administrado a una de las SKU administradas de varias maneras. En las siguientes secciones, se describe el proceso para utilizar la [CLI de Azure][azure-cli] and the [Azure portal][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Actualización en la CLI de Azure
 

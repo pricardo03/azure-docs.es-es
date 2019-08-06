@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826372"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424090"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -36,7 +36,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Número de volúmenes por grupo de capacidad     |    500   |    Sí     |
 |  Número máximo de instantáneas por volumen       |    255     |    Sin        |
 |  Número de subredes que se delegan a Azure NetApp Files (Microsoft.NetApp/volumes) por cada red virtual de Azure    |   1   |    Sin    |
-|  Número máximo de máquinas virtuales (se incluyen las redes virtuales emparejadas) que permitan conectarse a un volumen     |    1000   |    Sin   |
+|  Número máximo de direcciones IP en uso en una red virtual (incluidas las redes virtuales emparejadas) con Azure NetApp Files    |    1000   |    Sin   |
 |  Tamaño mínimo de un único grupo de capacidades   |  4 TiB     |    Sin  |
 |  Tamaño máximo de un único grupo de capacidades    |  500 TiB   |   Sin   |
 |  Tamaño mínimo de un único volumen    |    100 GiB    |    Sin    |

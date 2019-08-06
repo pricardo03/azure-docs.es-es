@@ -1,5 +1,5 @@
 ---
-title: Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado | Microsoft Docs
+title: Problemas al iniciar sesión en una aplicación de la galería de inicio de sesión único federado | Microsoft Docs
 description: Instrucciones para resolver errores específicos al iniciar sesión en una aplicación que se ha configurado para un inicio de sesión único federado basado en SAML con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,19 +16,19 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825208"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381373"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado
 
 Para solucionar los problemas de inicio de sesión, se recomienda que siga estas sugerencias para obtener un mejor diagnóstico y automatizar los pasos de resolución:
 
-- Instale la [extensión del explorador seguro de Mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
-- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Debug SAML-based single sign-on applications](../develop/howto-v1-debug-saml-sso-issues.md) (Depuración de aplicaciones de inicio de sesión único basadas en SAML).
+- Instale la [extensión del explorador seguro de Mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
+- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](../develop/howto-v1-debug-saml-sso-issues.md).
 
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
@@ -41,13 +41,13 @@ El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud
 
 **Resolución**
 
-Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
 1.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-1.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
@@ -77,7 +77,7 @@ Asegúrese de que el valor de `AssertionConsumerServiceURL` en la solicitud SAML
 
 1.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-1.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
@@ -158,25 +158,25 @@ Azure AD no admite la solicitud SAML enviada por la aplicación para el inicio 
 
    -   [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](../develop/single-sign-on-saml-protocol.md)
 
-El proveedor de la aplicación debe validar que admite la implementación de SAML de Azure AD para inicio de sesión único.
+El proveedor de la aplicación debe validar que admite la implementación de SAML de Azure AD para inicio de sesión único.
 
 ## <a name="misconfigured-application"></a>Aplicación mal configurada
 
-*Error AADSTS650056: Aplicación mal configurada. Esto puede deberse a uno de los siguientes motivos: El cliente no ha enumerado ningún permiso para "AAD Graph" en los permisos solicitados en el registro de aplicaciones del cliente. O bien el administrador no ha dado su consentimiento en el inquilino. Compruebe también el identificador de la aplicación en la solicitud para asegurarse de que coincide con el identificador de la aplicación cliente configurada. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
+*Error AADSTS650056: Aplicación mal configurada. Esto puede deberse a uno de los siguientes motivos: El cliente no ha enumerado ningún permiso para "AAD Graph" en los permisos solicitados en el registro de aplicaciones del cliente. O bien el administrador no ha dado su consentimiento en el inquilino. Compruebe también el identificador de la aplicación en la solicitud para asegurarse de que coincide con el identificador de la aplicación cliente configurada. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
 
 **Causa posible**
 
-El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud SAML no coincide con el valor de identificador configurado para la aplicación de Azure AD.
+El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud SAML no coincide con el valor de identificador configurado para la aplicación de Azure AD.
 
 **Resolución**
 
-Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente:
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
 1.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-1.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
@@ -231,13 +231,13 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
 **Causa posible**
 
-Azure AD no podía identificar la solicitud SAML dentro de los parámetros de dirección URL en la solicitud HTTP. Esto puede ocurrir si la aplicación no usa el enlace de redirección HTTP para enviar la solicitud SAML a Azure AD.
+Azure AD no podía identificar la solicitud SAML dentro de los parámetros de dirección URL en la solicitud HTTP. Esto puede ocurrir si la aplicación no usa el enlace de redirección HTTP para enviar la solicitud SAML a Azure AD.
 
 **Resolución**
 
 La aplicación debe enviar la solicitud SAML codificada en el encabezado de ubicación mediante el enlace de redirección HTTP. Para más información sobre cómo implementarla, lea la sección Enlace de redirección HTTP del [documento de especificaciones del protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
-## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD envía el token a un punto de conexión incorrecto
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD envía el token a un punto de conexión incorrecto
 
 **Causa posible**
 
@@ -253,7 +253,7 @@ Elimine las direcciones URL de respuesta no utilizadas configuradas para la apli
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
@@ -263,7 +263,7 @@ Elimine las direcciones URL de respuesta no utilizadas configuradas para la apli
 
 6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. En **URL de respuesta** (URL del Servicio de consumidor de aserciones), elimine las direcciones URL de respuesta no utilizadas o predeterminadas creadas por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. En **URL de respuesta (URL del Servicio de consumidor de aserciones)** , elimine las direcciones URL de respuesta no utilizadas o predeterminadas creadas por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema al personalizar las notificaciones SAML que se han enviado a una aplicación
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.openlocfilehash: d6a58d144482e17f7e4b615134115d1da46af6f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/17/2019
+ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454391"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494865"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer (versión preliminar)
 
@@ -31,6 +31,9 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
 
 ## <a name="create-an-external-table"></a>Creación de una tabla externa
 
+ > [!NOTE]
+ > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage Gen2, Actualmente, los formatos de datos compatibles son json, csv, tsv y txt.
+
 1. Use el comando `.create external table` para crear una tabla externa en Azure Data Explorer. En [Comandos de tabla externa](/azure/kusto/management/externaltables) se documentan otros comandos de este tipo, como `.show`, `.drop` y `.alter`.
 
     ```Kusto
@@ -45,13 +48,37 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
 
     Esta consulta crea particiones diarias *container1/yyyy/MM/dd/all_exported_blobs.csv*. Con una creación de particiones más pormenorizada, se espera un aumento del rendimiento. Por ejemplo, las consultas en tablas externas con particiones diarias (como la anterior) tendrán un mejor rendimiento que las consultas con tablas con particiones mensuales.
 
-    > [!NOTE]
-    > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage Gen2, mientras que los formatos de datos compatibles son csv, tsv y txt.
-
 1. La tabla externa está visible en el panel izquierdo de la interfaz de usuario web.
 
     ![Tabla externa en la interfaz de usuario web](media/data-lake-query-data/external-tables-web-ui.png)
+
+### <a name="create-an-external-table-with-json-format"></a>Creación de una tabla externa con formato json
+
+Puede crear una tabla externa con formato json. Para obtener más información, consulte [Comandos de tabla externa](/azure/kusto/management/externaltables).
+
+1. Use el comando `.create external table` para crear una tabla denominada *ExternalTableJson*:
+
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
+    kind=blob
+    dataformat=json
+    ( 
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
+    )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
+    ```
  
+1. El formato json requiere un segundo paso para crear la asignación a las columnas, como se muestra a continuación. En la consulta siguiente, cree una asignación json específica denominada *mappingName*:
+
+    ```kusto
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
+    ```
+
 ### <a name="external-table-permissions"></a>Permisos de tabla externa
  
 * El usuario de la base de datos puede crear una tabla externa. El creador de la tabla se convierte automáticamente en el administrador de la tabla.
@@ -68,6 +95,14 @@ external_table("ArchivedProducts") | take 100
 
 > [!TIP]
 > IntelliSense no se admite actualmente en las consultas de tabla externa.
+
+### <a name="query-an-external-table-with-json-format"></a>Consulta de una tabla externa con formato json
+
+Para consultar una tabla externa con formato json, use la función `external_table()` y proporcione el nombre de la tabla y de la asignación como argumentos de función. En la consulta siguiente, si no se especifica *mappingName*, se usará una asignación creada anteriormente.
+
+```kusto
+external_table(‘ExternalTableJson’, ‘mappingName’)
+```
 
 ## <a name="query-external-and-ingested-data-together"></a>Consultar conjuntamente datos externos e ingeridos
 
@@ -151,7 +186,7 @@ El conjunto de datos de ejemplo *TaxiRides* contiene datos de los taxis de Nueva
     partition by bin(pickup_datetime, 1d)
     dataformat=csv
     ( 
-    h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
+        h@'http://storageaccount.blob.core.windows.net/container1;secretKey''
     )
     ```
 1. La tabla resultante se creó en el clúster *ayuda*:

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965971"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421431"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -48,7 +48,7 @@ En la figura 2 se muestra la vista lógica de la red global donde los usuarios, 
 
 ## <a name="crossregion"></a>Conectividad entre regiones
 
-Para una empresa, una huella de la nube por lo general sigue la huella física. La mayoría de las empresas accede a la nube desde una región más cercana a su sitio físico y a sus usuarios. Uno de los principios clave de la arquitectura de red global es habilitar la conectividad entre regiones entre los puntos de conexión y las entidades de red. Una huella de la nube puede abarcar varias regiones. Esto significa que el tráfico de una sucursal que está conectada a la nube en una región puede llegar a otra sucursal o a una red virtual en otra región mediante la conectividad radial, actualmente en versión preliminar.
+Para una empresa, una huella de la nube por lo general sigue la huella física. La mayoría de las empresas accede a la nube desde una región más cercana a su sitio físico y a sus usuarios. Uno de los principios clave de la arquitectura de red global es habilitar la conectividad entre regiones entre los puntos de conexión y las entidades de red. Una huella de la nube puede abarcar varias regiones. Esto significa que el tráfico de una rama que está conectada a la nube en una región puede llegar a otra rama o a una red virtual en otra región mediante la conectividad entre transformadores, que actualmente se encuentra en nuestro plan de desarrollo.
 
 ## <a name="any"></a>Conectividad universal
 
@@ -106,5 +106,4 @@ El centro de redes virtuales interconecta todo el tráfico de tránsito y, proba
 Cree una conexión mediante Virtual WAN.
 
 * [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
-* [Conexiones de punto a sitio con Virtual WAN](virtual-wan-point-to-site-portal.md)
 * [Conexiones de ExpressRoute con Virtual WAN](virtual-wan-expressroute-portal.md)

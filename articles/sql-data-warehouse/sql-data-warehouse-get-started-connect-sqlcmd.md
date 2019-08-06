@@ -2,7 +2,7 @@
 title: Conexión a Azure SQL Data Warehouse sqlcmd | Microsoft Docs
 description: Use la utilidad de línea de comandos sqlcmd para conectarse a Azure SQL Data Warehouse y realizar consultas.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873319"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479505"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conexión a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "65873319"
 Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a Azure SQL Data Warehouse y realizar consultas.  
 
 ## <a name="1-connect"></a>1. Conectar
-Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd**, seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
+Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
 
 * **Server (-S):** servidor con el formato `<`Nombre de servidor`>`.database.windows.net
 * **Database (-d):** nombre de base de datos.

@@ -1,59 +1,65 @@
 ---
-title: Escalado horizontal de un clúster de Azure Data Explorer
+title: Administración del escalado horizontal de clústeres en Azure Data Explorer para ajustarse a los cambios en la demanda
 description: En este artículo se describen los pasos para escalar y reducir horizontalmente un clúster de Azure Data Explorer en función de los cambios en la demanda.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: 29bfcc42462a667850f0b2e1bbda3d29cd1597ab
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.date: 07/14/2019
+ms.openlocfilehash: 70e6bdfcf9718244632ad02e09d3ddadee71a617
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571266"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311568"
 ---
-# <a name="manage-cluster-horizontal-scaling-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clústeres para ajustarse a los cambios en la demanda
+# <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clústeres en Azure Data Explorer para ajustarse a los cambios en la demanda
 
-Ajustar el tamaño de un clúster de forma adecuada es fundamental para el rendimiento del Explorador de datos de Azure. Pero no se puede predecir la demanda en un clúster con una precisión absoluta. El tamaño de un clúster estático puede provocar una infrautilización o sobreutilización, y ninguna de estas situaciones es la ideal.
+Ajustar el tamaño de un clúster de forma adecuada es fundamental para el rendimiento del Explorador de datos de Azure. El tamaño de un clúster estático puede provocar una infrautilización o sobreutilización, y ninguna de estas situaciones es la ideal.
 
-Un enfoque mejor es *escalar* un clúster, es decir, agregar y quitar capacidad con los cambios en la demanda. Existen dos flujos de trabajo de escalado: 
+Dado que la demanda en un clúster no se puede predecir con precisión absoluta, es mejor *escalar* el clúster mediante la adición y la eliminación de recursos de CPU y capacidad según los cambios en la demanda. 
+
+Existen dos flujos de trabajo de escalado para un clúster de Azure Data Explorer: 
+
 * Escalado horizontal, también denominado reducción horizontal.
-* Escalado vertical, también denominado reducción vertical.
+* [Escalado vertical](manage-cluster-vertical-scaling.md), también denominado reducción vertical.
 
 En este artículo se explica el flujo de trabajo del escalado horizontal.
 
-El escalado horizontal permite escalar el recuento de instancias automáticamente en función de las programaciones y reglas predefinidas. Especifique la configuración de escalabilidad automática para el clúster en Azure Portal, tal como se describe en este artículo.
+## <a name="configure-horizontal-scaling"></a>Configuración del escalado horizontal
 
-## <a name="steps-to-configure-horizontal-scaling"></a>Pasos para configurar el escalado horizontal
+El escalado horizontal permite escalar el recuento de instancias automáticamente en función de programaciones y reglas predefinidas. Para especificar la configuración de escalabilidad automática del clúster:
 
-En Azure Portal, vaya al recurso de clúster de Data Explorer. En el encabezado **Configuración**, seleccione **Escalar horizontalmente**. 
+1. En Azure Portal, vaya al recurso de clúster de Azure Data Explorer. En **Configuración**, seleccione **Escalar horizontalmente**. 
 
-Seleccione el método de escalabilidad automática deseado: **Escala manual**, **Optimized autoscale** (Escalabilidad automática optimizada) o **Custom autoscale** (Escalabilidad automática personalizada).
+2. En la ventana **Escalar horizontalmente**, seleccione el método de escalado automático que quiera: **Escala manual**, **Optimized autoscale** (Escalabilidad automática optimizada) o **Custom autoscale** (Escalabilidad automática personalizada).
 
 ### <a name="manual-scale"></a>Escala manual
 
-La escala manual es la configuración predeterminada con la creación del clúster. Significa que el clúster tiene una capacidad de clúster estática que no cambiará automáticamente. Puede elegir la capacidad estática mediante la barra y no cambiará hasta la próxima vez que modifique la configuración de escalado horizontal del clúster.
+La escala manual es la configuración predeterminada durante la creación del clúster. El clúster tiene una capacidad estática que no cambia automáticamente. Para seleccionar la capacidad estática, use la barra de **Recuento de instancias**. El escalado del clúster se mantiene en ese valor hasta que se realiza otro cambio.
 
    ![Método de escala manual](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
 ### <a name="optimized-autoscale"></a>Escalabilidad automática optimizada
 
-La escalabilidad automática optimizada es el método recomendado de escalabilidad automática. Pasos para configurar la escalabilidad automática optimizada:
+La escalabilidad automática optimizada es el método recomendado de escalabilidad automática. Este método optimiza el rendimiento y los costes del clúster. Si el clúster se acerca a un estado de infrautilización, se reducirá horizontalmente. Esta acción reduce los costes, pero mantiene el nivel de rendimiento. Si el clúster se acerca a un estado de sobreutilización, se escalará horizontalmente para mantener un rendimiento óptimo. Para configurar la escalabilidad automática optimizada:
 
-1. Seleccione la opción Optimized autoscale (Escalabilidad automática optimizada), y elija un límite inferior y un límite superior para la cantidad de instancias del clúster: la escalabilidad automática se realizará entre estos límites.
-2. Haga clic en Guardar.
+1. Seleccione **Optimized autoscale** (Escalabilidad automática optimizada). 
+
+1. Seleccione un recuento de instancias mínimo y máximo. El escalado automático del clúster oscila entre estos dos números, en función de la carga.
+
+1. Seleccione **Guardar**.
 
    ![Método de escalabilidad automática optimizada](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
-Después de hacer clic en Guardar, el mecanismo de escalabilidad automática optimizada empezará a funcionar y sus acciones estarán visibles en el registro de actividad del clúster. Este método de escalabilidad automática optimiza el rendimiento del clúster y los costos: si el clúster se acerca a un estado de infrautilización, se reducirá horizontalmente, lo que deja el rendimiento igual y reduce los costos, y si el clúster se acerca a un estado de sobreutilización, se escalará horizontalmente para asegurarse de que funcione correctamente.
+El escalado automático optimizado empieza a funcionar. Sus acciones ahora están visibles en el registro de actividad de Azure del clúster.
 
 ### <a name="custom-autoscale"></a>Escalabilidad automática personalizada
 
-Este método de escalabilidad automática personalizada le permite escalar dinámicamente el clúster en función de las métricas que especifique. El gráfico siguiente muestra el flujo y los pasos para configurar la escalabilidad automática personalizada. Más detalles después del gráfico.
+Al usar la escalabilidad automática personalizada, puede escalar dinámicamente el clúster en función de las métricas que especifique. En el gráfico siguiente se muestran el flujo y los pasos para configurar la escalabilidad automática personalizada. Más detalles después del gráfico.
 
-1. En la casilla **Nombre de ajuste de escalado automático**, escriba un nombre, como *Escalado horizontal: utilización de caché*. 
+1. En el cuadro **Nombre del ajuste de escalabilidad automática**, escriba un nombre, por ejemplo, *Scale-out: cache utilization* (Escalado horizontal: utilización de caché). 
 
    ![Regla de escalado](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
@@ -61,7 +67,7 @@ Este método de escalabilidad automática personalizada le permite escalar diná
 
 3. Seleccione **+Agregar una regla**.
 
-4. En la sección**Escalar regla** de la derecha, proporcione valores para cada ajuste.
+4. En la sección **Escalar regla** de la derecha, proporcione valores para cada opción.
 
     **Criterios**
 
@@ -86,7 +92,7 @@ Este método de escalabilidad automática personalizada le permite escalar diná
 
 5. Seleccione **Agregar**.
 
-6. En la sección **Límites de instancia** de la izquierda, indique valores para cada configuración.
+6. En la sección **Límites de instancia** de la izquierda, proporcione valores para cada opción.
 
     | Configuración | Descripción y valor |
     | --- | --- |
@@ -97,9 +103,10 @@ Este método de escalabilidad automática personalizada le permite escalar diná
 
 7. Seleccione **Guardar**.
 
-Ha configurado una operación de escalado horizontal para el clúster del Explorador de datos de Azure. Agregue otra regla para una operación de reducción horizontal. Si necesita ayuda por problemas relacionados con el escalado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Ha configurado el escalado horizontal para el clúster de Azure Data Explorer. Agregue otra regla para el escalado vertical. Si necesita ayuda por problemas relacionados con el escalado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Supervisión del rendimiento, el mantenimiento y el uso de Azure Data Explorer con métricas](using-metrics.md)
+
 * [Administración del escalado vertical de clústeres](manage-cluster-vertical-scaling.md) para ajustar correctamente el tamaño de un clúster.

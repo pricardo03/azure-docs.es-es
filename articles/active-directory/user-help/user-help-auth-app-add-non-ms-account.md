@@ -12,20 +12,22 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: effe48c859e711f0efc41c1a4d651e5d15d5ada9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473913"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382607"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adición de cuentas que no sean de Microsoft
+
 Agregue sus cuentas que no sean de Microsoft, como las de Google, Facebook o GitHub, a la aplicación Microsoft Authenticator para la verificación en dos fases. La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 
 >[!Important]
 >Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
 
 ## <a name="add-personal-accounts"></a>Adición de cuentas personales
+
 Por lo general, para todas las cuentas personales, debe realizar los siguientes pasos:
 
 1. Inicie sesión en la cuenta y, a continuación, active la verificación en dos fases con el dispositivo o su equipo.
@@ -35,6 +37,7 @@ Por lo general, para todas las cuentas personales, debe realizar los siguientes 
 Ofrecemos aquí el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para cualquier otra aplicación, como Adobe, Netflix o Instagram.
 
 ## <a name="add-your-google-account"></a>Adición de la cuenta de Google
+
 Puede agregar su cuenta de Google activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 ### <a name="turn-on-two-factor-verification"></a>Activación de la verificación en dos fases
@@ -70,6 +73,7 @@ Puede agregar su cuenta de Google activando primero la verificación en dos fase
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Google, consulte [Activar la verificación en dos pasos](https://support.google.com/accounts/answer/185839) y [Más información acerca de la verificación en dos pasos](https://www.google.com/landing/2step/help.html).
 
 ## <a name="add-your-facebook-account"></a>Adición de la cuenta de Facebook
+
 Puede agregar su cuenta de Facebook activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 ### <a name="turn-on-two-factor-verification"></a>Activación de la verificación en dos fases
@@ -109,6 +113,7 @@ Puede agregar su cuenta de Facebook activando primero la verificación en dos fa
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Facebook, consulte [¿Qué es la autenticación en dos pasos y cómo funciona?](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-github-account"></a>Adición de la cuenta de GitHub
+
 Puede agregar su cuenta de GitHub activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 ### <a name="turn-on-two-factor-verification"></a>Activación de la verificación en dos fases
@@ -137,7 +142,7 @@ Puede agregar su cuenta de GitHub activando primero la verificación en dos fase
 
 5. Escriba un **nombre de cuenta** (por ejemplo, GitHub) y escriba la **clave secreta** del paso 4; a continuación, seleccione **Finish** (Finalizar).
 
-4. En la página del **autenticador en dos fases** del equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de GitHub y, a continuación, seleccione **Enable** (Habilitar).
+6. En la página del **autenticador en dos fases** del equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de GitHub y, a continuación, seleccione **Enable** (Habilitar).
 
     En la página **Cuentas** de la aplicación aparece el nombre de su cuenta y un código de verificación de seis dígitos. Para mayor seguridad, el código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces.
 
@@ -145,6 +150,7 @@ Puede agregar su cuenta de GitHub activando primero la verificación en dos fase
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de GitHub, consulte [About two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/) (Acerca de la autenticación en dos fases).
 
 ## <a name="add-your-amazon-account"></a>Adición de la cuenta de Amazon
+
 Agregue su cuenta personal de Amazon activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 ### <a name="turn-on-two-factor-verification"></a>Activación de la verificación en dos fases
@@ -168,23 +174,22 @@ Agregue su cuenta personal de Amazon activando primero la verificación en dos f
     >[!Note]
     >Si la cámara no funciona correctamente, puede escribir manualmente la dirección URL y el código QR.
 
-5. Revise la página **Cuentas** de la aplicación Microsoft Authenticator en el dispositivo para asegurarse de que la información de la cuenta es correcta y de que hay un código de verificación de seis dígitos asociado.
+7. Revise la página **Cuentas** de la aplicación Microsoft Authenticator en el dispositivo para asegurarse de que la información de la cuenta es correcta y de que hay un código de verificación de seis dígitos asociado.
 
     Para mayor seguridad, el código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces.
 
-6. En la página **Elige la forma de recibir los códigos** del equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
+8. En la página **Elige la forma de recibir los códigos** del equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
 
-7. Complete el resto del proceso de registro, incluida la operación para agregar un método de verificación de copia de seguridad, como un mensaje de texto y, a continuación, seleccione **Enviar código**.
+9. Complete el resto del proceso de registro, incluida la operación para agregar un método de verificación de copia de seguridad, como un mensaje de texto y, a continuación, seleccione **Enviar código**.
 
-8. En la página **Add a backup verification method** (Añadir método de verificación de copia de seguridad) en el equipo, escriba el código de verificación de seis dígitos que proporciona el método de verificación de copia de seguridad para su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
+10. En la página **Add a backup verification method** (Añadir método de verificación de copia de seguridad) en el equipo, escriba el código de verificación de seis dígitos que proporciona el método de verificación de copia de seguridad para su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
 
-9. En la página Almost done (Casi hemos terminado), decida si quiere que su equipo sea un dispositivo de confianza y, a continuación, seleccione **Got it. Turn on Two-Step Verification** (Entendido. Activar la verificación en dos pasos).
+11. En la página **Ya casi estamos**, decida si quiere que su equipo sea un dispositivo de confianza y, después, seleccione **Got it. Turn on Two-Step Verification** (Entendido. Activar la verificación en dos pasos).
 
     A continuación aparecerá la página **Ajustes de seguridad avanzada**, y se mostrarán los detalles de la verificación en dos fases actualizada.
 
     >[!NOTE]
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Amazon, consulte [Acerca de Verificación en dos pasos](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e [Ingresa a tu cuenta con Verificación en dos pasos](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

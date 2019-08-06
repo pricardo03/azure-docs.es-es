@@ -3,16 +3,15 @@ title: 'Transformación Agregar en Mapping Data Flow: Azure Data Factory | Micro
 description: Aprenda cómo agregar datos a escala en Azure Data Factory con la transformación Agregar en Mapping Data Flow.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21135b26d4bc840b3fcb091e675e5e6bd24d8548
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312108"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314225"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformación Agregar en Mapping Data Flow 
 
@@ -39,6 +38,12 @@ Elija la pestaña "Agregados" para generar las expresiones de agregación. Puede
 > [!NOTE]
 > En el modo Depurar, el Generador de expresiones no puede generar vistas previas de los datos con las funciones de agregado. Para ver las vistas previas de los datos para las transformaciones Agregar, cierre el Generador de expresiones y vea los datos a través de la pestaña "Vista previa de los datos".
 
+## <a name="reconnect-rows-and-columns"></a>Reconexión de filas y columnas
+Las transformaciones Agregar son muy parecidas a las consultas de selección de agregado de SQL. Las columnas que no estén incluidas en la cláusula Group by o en las funciones de agregado no fluirán a través de la salida de la transformación Agregar. Si quiere incluir otras columnas con la salida de las filas agregadas, debe realizar una de estas dos acciones:
+
+* Usar una función de agregado para incluir esa columna adicional, como Last() o First().
+* Volver a unir las columnas antes del agregado mediante el [patrón Self Join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
--Definir un agregación basada en ventanas mediante la [transformación Ventana](data-flow-window.md)
+* Definir un agregación basada en ventanas mediante la [transformación Ventana](data-flow-window.md).

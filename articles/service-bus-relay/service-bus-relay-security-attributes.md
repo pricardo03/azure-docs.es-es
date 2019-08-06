@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad comunes para Azure Service Bus Relay
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Service Bus Relay.
+title: Atributos de seguridad para Azure Service Bus Relay
+description: Lista de comprobación de los atributos de seguridad para evaluar la retransmisión de Azure Service Bus
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2047f64914d4a286e6de38b7b2c8524d98eba562
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000146"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443881"
 ---
 # <a name="security-attributes-for-azure-service-bus-relay"></a>Atributos de seguridad para Azure Service Bus Relay
 
@@ -26,8 +26,8 @@ En este artículo, se explican los atributos de seguridad integrados en la mensa
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  N/D | La retransmisión es un socket web y no conserva los datos. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | El servicio requiere TLS. |
+| Cifrado en reposo (por ejemplo, el cifrado del lado servidor, el cifrado del lado servidor con claves administradas por el cliente y otras características de cifrado)|  N/D | La retransmisión es un socket web y no conserva los datos. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | El servicio requiere TLS. |
 | Control de clave de cifrado (CMK, BYOK, etc.)| Sin | Usa solo los certificados TLS de Microsoft.  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | HTTPS. |
@@ -51,7 +51,7 @@ En este artículo, se explican los atributos de seguridad integrados en la mensa
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | A través de SAS. |
-| Autorización|  Sí | A través de SAS. |
+| Authorization|  Sí | A través de SAS. |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

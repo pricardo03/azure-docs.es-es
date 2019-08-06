@@ -3,16 +3,17 @@ title: Uso de una identidad administrada con Azure Container Registry Tasks
 description: Asigne una identidad administrada para recursos de Azure con el fin de facilitar el acceso de una tarea de Azure Container Registry a los recursos de Azure como, por ejemplo, otros registros de contenedor privado.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 5b60727472a06aaac8ccd3dce8609461e8972311
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 46351af375ab4c6e59a3ddfba3c05c1e517fab0d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148037"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311533"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Uso de una identidad administrada de Azure en ACR Tasks 
 
@@ -25,7 +26,7 @@ En este artículo, conocerá mejor las identidades administradas y aprenderá a 
 > * Concesión de acceso de identidad a recursos de Azure, como otros registros de contenedor de Azure
 > * Uso de la identidad administrada para acceder a los recursos de una tarea 
 
-Para crear los recursos de Azure, en este artículo es necesario ejecutar la CLI de Azure versión 2.0.66 o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Para crear los recursos de Azure, en este artículo es necesario ejecutar la CLI de Azure versión 2.0.66 o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
 ## <a name="why-use-a-managed-identity"></a>¿Por qué usar una identidad administrada?
 
@@ -67,7 +68,7 @@ steps:
 
 ### <a name="create-task-with-system-assigned-identity"></a>Creación de una tarea con una identidad asignada por el sistema
 
-Cree la tarea *multiple-reg* mediante la ejecución del comando [az acr task create][az-acr-task-create] siguiente. El contexto de la tarea es la carpeta multipleRegistries del repositorio de ejemplos, y el comando hace referencia al archivo `testtask.yaml` en el repositorio. El parámetro `--assign-identity` sin valor adicional crea una identidad asignada por el sistema para la tarea. Esta tarea se configura para que haya que desencadenarla manualmente, pero puede configurarse para que se ejecute al insertar confirmaciones en el repositorio o al realizar una solicitud de incorporación de cambios. 
+Cree la tarea *multiple-reg* mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]. El contexto de la tarea es la carpeta multipleRegistries del repositorio de ejemplos, y el comando hace referencia al archivo `testtask.yaml` en el repositorio. El parámetro `--assign-identity` sin valor adicional crea una identidad asignada por el sistema para la tarea. Esta tarea se configura para que haya que desencadenarla manualmente, pero puede configurarse para que se ejecute al insertar confirmaciones en el repositorio o al realizar una solicitud de incorporación de cambios. 
 
 ```azurecli
 az acr task create \
@@ -94,7 +95,7 @@ En la salida del comando, la sección `identity` muestra que en la tarea se esta
 [...]
 ``` 
 
-Utilice el comando [az acr task show][az-acr-task-show] para almacenar `principalId` en una variable, para su uso en comandos posteriores:
+Use el comando [az acr task show][az-acr-task-show] para almacenar `principalId` en una variable, para su uso en comandos posteriores:
 
 ```azurecli
 principalID=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
@@ -104,14 +105,14 @@ principalID=$(az acr task show --name multiple-reg --registry myregistry --query
 
 En esta sección se concede a la identidad asignada por el sistema permisos de envío de cambios a los dos registros de destino llamados *customregistry1* y *customregistry2*.
 
-Utilice primero el comando [az acr show][az-acr-show] para obtener el identificador de recurso de cada registro de contenedor y almacenar los identificadores en variables:
+Use primero el comando [az acr show][az-acr-show] para obtener el identificador de recurso de cada registro y almacenar los identificadores en variables:
 
 ```azurecli
 reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Utilice el comando [az role assignment create][az-role-assignment-create] para asignar a la identidad el rol `acrpush` en cada registro. Este rol tiene permisos de extracción e inserción de imágenes en un registro de contenedor.
+Use el comando [az role assignment create][az-role-assignment-create] para asignar a la identidad el rol `acrpush` en cada registro. Este rol tiene permisos de extracción e inserción de imágenes en un registro de contenedor.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $reg1_id --role acrpush
@@ -120,7 +121,7 @@ az role assignment create --assignee $principalID --scope $reg2_id --role acrpus
 
 ### <a name="add-target-registry-credentials-to-task"></a>Incorporación de las credenciales del registro de destino a la tarea
 
-Utilice ahora el comando [az acr task credential add][az-acr-task-credential-add] para agregar las credenciales de la identidad a la tarea para que se pueda autenticar con ambos registros de destino.
+Use ahora el comando [az acr task credential add][az-acr-task-credential-add] para agregar las credenciales de la identidad a la tarea de modo que se pueda autenticar con ambos registros de destino.
 
 ```azurecli
 az acr task credential add \
@@ -225,13 +226,13 @@ En este ejemplo se crea una identidad asignada por el usuario con permisos de le
 
 ### <a name="create-a-key-vault-and-store-a-secret"></a>Creación de un almacén de claves y almacenamiento de un secreto
 
-En primer lugar, si es necesario, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create][az-group-create] siguiente:
+En primer lugar, si es necesario, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando siguiente [az group create][az-group-create]:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Utilice el comando [az keyvault create][az-keyvault-create] para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
+Use el comando [az keyvault create][az-keyvault-create] para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
 
 ```azurecli-interactive
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
@@ -277,7 +278,7 @@ Ejecute el comando [az keyvault set-policy][az-keyvault-set-policy] siguiente pa
 
 ### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Concesión de acceso de lectura de identidad en el grupo de recursos del registro
 
-Ejecute el comando [az role assignment create][az-role-assignment-create] siguiente para asignar a la identidad un rol de lector, en este caso, en el grupo de recursos que contiene el registro de origen. Este rol es necesario posteriormente para ejecutar correctamente una tarea de varios pasos.
+Ejecute el siguiente comando [az role assignment create][az-role-assignment-create] para asignar a la identidad un rol de lector, en este caso, en el grupo de recursos que contiene el registro de origen. Este rol es necesario posteriormente para ejecutar correctamente una tarea de varios pasos.
 
 ```azurecli
 az role assignment create --role reader --resource-group myResourceGroup --assignee $principalID

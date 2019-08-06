@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706186"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422961"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -36,7 +36,7 @@ El [servicio Azure Relay](relay-what-is-it.md) facilita sus aplicaciones híbrid
 Un [espacio de nombres](relay-create-namespace-portal.md) es un contenedor de ámbito que puede usar para hacer referencia a recursos de Relay dentro de la aplicación. Debe crear un espacio de nombres para utilizar Relay. Este es uno de los primeros pasos en la introducción.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>¿Qué ha ocurrido con el servicio Service Bus Relay?
-El servicio anteriormente llamado Service Bus Relay se conoce ahora como [WCF Relay](relay-wcf-dotnet-get-started.md). Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
+El servicio anteriormente llamado Service Bus Relay se conoce ahora como [WCF Relay](service-bus-relay-tutorial.md). Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
 
 ## <a name="pricing"></a>Precios
 Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede ver [Preguntas frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios de Azure. Para obtener más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview].
@@ -128,7 +128,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Para obtener una descripción de excepciones comunes y las acciones sugeridas que puede realizar, consulte [Excepciones de Azure Relay][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes puedo usar para generar una firma?
-Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información acerca de cómo generar sus propias firmas en Node, PHP, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Shared Access Signatures].
+Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información sobre cómo generar sus propias firmas en Node.js, PHP, Python, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
 Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas de autorizados de DNS.

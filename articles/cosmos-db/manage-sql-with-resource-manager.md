@@ -4,14 +4,14 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242587"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500509"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de API de Azure Cosmos DB SQL (Core) con plantillas de Azure Resource Manager
 
@@ -20,7 +20,9 @@ ms.locfileid: "66242587"
 Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos con dos contenedores que compartirán el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
 > [!NOTE]
-> Actualmente no se pueden implementar funciones definidas por el usuario (UDF), procedimientos almacenados ni desencadenadores mediante el uso de plantillas de Resource Manager. 
+>
+> - Actualmente no se pueden implementar funciones definidas por el usuario (UDF), procedimientos almacenados ni desencadenadores mediante el uso de plantillas de Resource Manager.
+> - No puede agregar ni quitar ubicaciones en una cuenta de Azure Cosmos a la vez que modifica otras propiedades. Estas acciones deben realizarse como operaciones independientes.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

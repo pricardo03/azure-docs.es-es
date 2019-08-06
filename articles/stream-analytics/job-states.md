@@ -1,6 +1,6 @@
 ---
 title: Estados de trabajo de Azure Stream Analytics
-description: En este artículo se describen los diferentes estados de un trabajo de Stream Analytics
+description: 'En este artículo se describen los cuatro estados de un trabajo de Stream Analytics: en ejecución, detenido, degradado y erróneo.'
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: bef21dc35bbd2b9b50cf7b362624321866773bfe
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c533463ff544dc315142f7fb95c34c67933f9614
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331349"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444250"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Estados de trabajo de Azure Stream Analytics
 
-Un trabajo de Stream Analytics puede estar en uno de cuatro posibles estados en un momento dado. Puede averiguar el estado de un trabajo en la página de información general del trabajo de Stream Analytics en Azure Portal. 
+Un trabajo de Stream Analytics puede encontrarse en uno de cuatro estados en un momento dado: en ejecución, detenido, degradado y erróneo. Puede averiguar el estado de un trabajo en la página de información general del trabajo de Stream Analytics en Azure Portal. 
 
 | Estado | DESCRIPCIÓN | Acciones recomendadas |
 | --- | --- | --- |

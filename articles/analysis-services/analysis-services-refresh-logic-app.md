@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142466"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311735"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
 
@@ -37,7 +37,7 @@ Para obtener información sobre cómo crear una entidad de servicio, consulte [C
 
 #### <a name="configure-permissions-in-azure-analysis-services"></a>Configuración de permisos en Azure Analysis Services
  
-La entidad de servicio que cree debe tener permisos de administrador de servidor. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
+La entidad de servicio que cree debe tener permisos de administrador de servidor en el servidor. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
 
 ### <a name="configure-the-logic-app"></a>Configuración de la aplicación lógica
 
@@ -66,7 +66,7 @@ Configure la actividad HTTP tal como se indica abajo:
 |Propiedad  |Valor  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*región del servidor*/servers/*nombre del servidor aas*/models/*nombre de la base de datos*/ <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*región del servidor*/servers/*nombre del servidor aas*/models/*nombre de la base de datos*/refreshes <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Encabezados**     |   Content-Type, application/json <br /> <br />  ![encabezados](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Cuerpo**     |   Para más información sobre la forma del cuerpo de la solicitud, consulte [Actualización asincrónica con la API de REST: POST o actualizaciones](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticación**     |Active Directory OAuth         |

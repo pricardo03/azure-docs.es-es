@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785524"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346891"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -135,7 +135,11 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
         ```
 
         > [!NOTE]
-        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication. En ese caso, use uno de los dos modos de autenticación anteriores.
+        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
+        >
+        > Puede que también vea que es necesaria la MFA si el registro de dispositivos de Azure (que usa en segundo plano la protección con contraseña de Azure AD) se ha configurado para requerir MFA de forma global. Para solucionar este problema, puede usar una cuenta diferente que admita MFA con uno de los dos modos de autenticación anteriores, o bien también puede relajar temporalmente el requisito de MFA de registro de dispositivos de Azure. Para ello, vaya al portal de administración de Azure, luego a Azure Active Directory, después a Dispositivos, a Configuración de dispositivo y, por último, establezca la opción "Requerir Multi-factor Authentication para conectar dispositivos" en No. Asegúrese de volver a configurar esta opción en Sí una vez que se haya completado el registro.
+        >
+        > Se recomienda omitir los requisitos de MFA solo con fines de prueba.
 
        Actualmente, no se requiere especificar el parámetro *-ForestCredential*, que está reservado para una futura funcionalidad.
 
@@ -156,7 +160,7 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
         ```
 
         > [!NOTE]
-        > Este modo no funcionará en sistemas operativos Server Core. En su lugar, use uno de los dos siguientes modos de autenticación. Además, es posible que se produzca un error en este modo si se habilita la configuración de seguridad mejorada de Internet Explorer. La solución alternativa consiste en deshabilitar esa configuración, registrar el servidor proxy y luego volver a habilitarla.  
+        > Este modo no funcionará en sistemas operativos Server Core. En su lugar, use uno de los dos siguientes modos de autenticación. Además, es posible que se produzca un error en este modo si se habilita la configuración de seguridad mejorada de Internet Explorer. La solución alternativa consiste en deshabilitar esa configuración, registrar el bosque y luego volver a habilitarla.  
 
      * Modo de autenticación con codificación del dispositivo:
 
@@ -175,7 +179,11 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
         ```
 
         > [!NOTE]
-        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication. En ese caso, use uno de los dos modos de autenticación anteriores.
+        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
+        >
+        > Puede que también vea que es necesaria la MFA si el registro de dispositivos de Azure (que usa en segundo plano la protección con contraseña de Azure AD) se ha configurado para requerir MFA de forma global. Para solucionar este problema, puede usar una cuenta diferente que admita MFA con uno de los dos modos de autenticación anteriores, o bien también puede relajar temporalmente el requisito de MFA de registro de dispositivos de Azure. Para ello, vaya al portal de administración de Azure, luego a Azure Active Directory, después a Dispositivos, a Configuración de dispositivo y, por último, establezca la opción "Requerir Multi-factor Authentication para conectar dispositivos" en No. Asegúrese de volver a configurar esta opción en Sí una vez que se haya completado el registro.
+        >
+        > Se recomienda omitir los requisitos de MFA solo con fines de prueba.
 
        Los ejemplos anteriores solo generarán un resultado correcto si el usuario que haya iniciado sesión también es un administrador de dominios de Active Directory para el dominio raíz. De no ser así, puede proporcionar credenciales de dominio alternativas a través del parámetro *-ForestCredential*.
 

@@ -1,5 +1,5 @@
 ---
-title: Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado | Microsoft Docs
+title: Problemas al iniciar sesión en una aplicación de inicio de sesión único federado que no es de la galería | Microsoft Docs
 description: Instrucciones para resolver problemas específicos a los que se puede enfrentar al iniciar sesión en una aplicación configurada para el inicio de sesión único federado basado en SAML con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26f52db394877cff13bf4b0b476a9603c1ddba8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825438"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381383"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 

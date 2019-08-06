@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275742"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314462"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -30,6 +30,8 @@ Un conjunto de registros de alias se admite para los siguientes tipos de registr
 ## <a name="capabilities"></a>Capacidades
 
 - **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública. El conjunto de registros de DNS cambia automáticamente si la dirección IP pública cambia o se elimina. Se evitan los registros de DNS pendientes que apuntan a direcciones IP incorrectas.
+
+   Hay un límite actual de 20 conjuntos de registros de alias por recurso.
 
 - **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede crear un conjunto de registros A/AAAA o CNAME y usar los registros de alias para apuntarlo a un perfil de Traffic Manager. Esto resulta especialmente útil si necesita enrutar el tráfico a un vértice de zona, ya que los registros CNAME tradicionales no se admiten para un vértice de zona. Por ejemplo, supongamos que su perfil de Traffic Manager es myprofile.trafficmanager.net y la zona DNS de la empresa es contoso.com. Puede crear un conjunto de registros de alias de tipo A/AAAA para contoso.com (el vértice de zona) y apuntar a myprofile.trafficmanager.net.
 - **Apunte a un punto de conexión de Azure Content Delivery Network (CDN)** . Esto es útil al crear los sitios web estáticos mediante Azure Storage y Azure CDN.

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508821"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500012"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
 
 Las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C) que utilizan el marco de experiencia de identidad proporcionan a la organización un servicio centralizado. Este servicio reduce la complejidad de la federación de identidades en una gran comunidad de interés. La complejidad se reduce a una relación de confianza única y un intercambio de metadatos único.
 
-Las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad le permiten responder a las siguientes preguntas:
+Las directivas personalizadas de Azure AD B2C usan Identity Experience Framework para permitirle responder a las siguientes preguntas:
 
 - ¿Cuáles son las directivas de seguridad, privacidad, legales y de protección de datos que es necesario cumplir?
 - ¿Quiénes son los contactos y cuáles son los procesos para convertirse en un participante acreditado?

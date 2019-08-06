@@ -3,8 +3,8 @@ title: Costos de software de las reservas para Azure | Microsoft Docs
 description: Descubra qué medidores de software no están incluidos en los costos de instancia reservada de máquina virtual de Azure.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371179"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478627"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Los costos de software no se incluyen en Azure Reserved Virtual Machine Instances.
 
-Si no dispone de la Ventaja híbrida de Azure en las instancias reservadas de máquina virtual, se le cobrará según los medidores de software que se indican en las secciones siguientes.
+Los descuentos de la instancia reservada de máquina virtual y de la capacidad reservada de SQL se aplican solo a los costos de infraestructura y no a los costos de software. Si usa VM de Windows y no dispone de la Ventaja híbrida de Azure en las instancias reservadas de máquina virtual, se le cobrará según los medidores de software que se indican en las secciones siguientes. En cuanto a las implementaciones de PaaS de SQL, el costo de IP continuará cobrándose mediante un medidor separado si la Ventaja híbrida de Azure no está seleccionada.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Medidores de software de Windows no incluidos en los costos de reservas
 

@@ -3,17 +3,18 @@ title: Implementación en Azure Container Instances desde Azure Container Regist
 description: Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante imágenes de contenedor de Azure Container Registry.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729393"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325559"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -49,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Ahora debe crear una entidad de servicio y almacenar sus credenciales en el almacén de claves.
 
-El siguiente comando usa [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para crear la entidad de servicio y [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén.
+El siguiente comando usa [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén:
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -93,7 +94,7 @@ Obtenga primero el nombre del servidor de inicio de sesión del Registro con el 
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Ejecute el comando [az container create][az-container-create] siguiente para implementar una instancia del contenedor. El comando usa las credenciales de la entidad de servicio almacenadas en Azure Key Vault para autenticarse en el registro de contenedor y da por supuesto que ha insertado previamente la imagen [aci-helloworld](container-instances-quickstart.md) en el registro. Actualice el valor `--image` si desea usar otra imagen del registro.
+Ejecute el comando [az container create][az-container-create] siguiente para implementar una instancia de contenedor. El comando usa las credenciales de la entidad de servicio almacenadas en Azure Key Vault para autenticarse en el registro de contenedor y da por supuesto que ha insertado previamente la imagen [aci-helloworld](container-instances-quickstart.md) en el registro. Actualice el valor `--image` si desea usar otra imagen del registro.
 
 ```azurecli
 az container create \

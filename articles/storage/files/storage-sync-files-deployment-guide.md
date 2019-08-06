@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240093"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371155"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,7 +25,7 @@ Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure
     - [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability) de Azure File Sync.
     - [Creación de un recurso compartido de archivos](storage-how-to-create-file-share.md) para obtener una descripción paso a paso sobre cómo crear un recurso compartido de archivos.
 * Al menos una instancia de Windows Server o un clúster de Windows Server compatible para la sincronización con Azure File Sync. Para obtener más información acerca de las versiones compatibles de Windows Server, consulte [Interoperabilidad con Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* El módulo Az PowerShell puede usarse con PowerShell 5.1 o PowerShell 6 +. Aunque puede usar el módulo Az PowerShell para Azure File Sync en cualquier sistema compatible, incluidos los sistemas que no son Windows, el cmdlet de registro de servidor siempre se debe ejecutar directamente en la instancia de Windows Server que se va a registrar. En Windows Server 2012 R2, para comprobar que se ejecuta al menos PowerShell 5.1.\* es preciso examinar el valor de la propiedad **PSVersion** del objeto **$PSVersionTable**:
+* El módulo Az PowerShell puede usarse con PowerShell 5.1 o PowerShell 6 +. Aunque puede usar el módulo Az PowerShell para Azure File Sync en cualquier sistema compatible, incluidos los sistemas que no son Windows, el cmdlet de registro de servidor siempre se debe ejecutar en la instancia de Windows Server que se va a registrar (esto se puede hacer directamente o a través de la comunicación remota de PowerShell). En Windows Server 2012 R2, para comprobar que se ejecuta al menos PowerShell 5.1.\* es preciso examinar el valor de la propiedad **PSVersion** del objeto **$PSVersionTable**:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure
     > Si tiene previsto usar la interfaz de usuario de registro del servidor, en lugar de registrar directamente desde PowerShell, debe usar PowerShell 5.1.
 
 * Si ha optado por usar PowerShell 5.1, asegúrese de que al menos .NET 4.7.2 esté instalado. Más información sobre las [versiones y dependencias de .NET Framework](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) en el sistema.
-* El módulo Az PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* El módulo Az.StorageSync, que actualmente se instala independientemente del módulo Az:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Si va a instalar .NET 4.7.2+ en Windows Server Core, debe instalarlo con las marcas `quiet` y `norestart` o se producirá un error en la instalación. Por ejemplo, si instala .NET 4,8, el comando tendría un aspecto similar al siguiente:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* El módulo Az PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > El módulo Az.StorageSync ahora se instala automáticamente al instalar el módulo Az PowerShell.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparación de Windows Server para su uso con Azure File Sync
 Para cada servidor que se va a usar con Azure File Sync, incluyendo cada nodo de servidor en un clúster de conmutación por error, deshabilite la **Configuración de seguridad mejorada de Internet Explorer**. Esto solo es necesario para el registro inicial del servidor. Se puede volver a habilitar una vez registrado el servidor.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+> [!Note]  
+> Puede omitir este paso si va a implementar Azure File Sync en Windows Server Core.
+
 1. Abra el Administrador del servidor.
 2. Haga clic en **Servidor Local**:  
     !["Servidor local" en el lado izquierdo de la interfaz de usuario Administrador del servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Para cada servidor que se va a usar con Azure File Sync, incluyendo cada nodo de
 Para deshabilitar la configuración de seguridad mejorada de Internet Explorer, ejecute lo siguiente desde una sesión de PowerShell con privilegios elevados:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Cuando haya terminado, seleccione **Crear** para implementar el servicio de sinc
 Reemplace **<Az_Region>** , **<RG_Name>** y **<my_storage_sync_service>** por sus propios valores y, luego, use los comandos siguientes para crear e implementar un servicio de sincronización de almacenamiento:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -337,6 +357,20 @@ if ($cloudTieringDesired) {
 
 ---
 
+## <a name="configure-firewall-and-virtual-network-settings"></a>Configuración de los ajustes de red virtual y del firewall
+
+### <a name="portal"></a>Portal
+Si quiere configurar Azure File Sync para que funcione con la configuración de red virtual y del firewall, haga lo siguiente:
+
+1. En Azure Portal, vaya a la cuenta de almacenamiento que quiere proteger.
+1. Haga clic en el botón **Firewalls y redes virtuales** del menú de la izquierda.
+1. Haga clic en **Redes seleccionadas** en **Permitir el acceso desde**.
+1. Asegúrese de que la dirección IP o la red virtual de los servidores aparece en la sección correspondiente.
+1. Asegúrese de que la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** está habilitada.
+1. Haga clic en **Guardar** para guardar la configuración.
+
+![Configuración de los ajustes del firewall y de la red virtual para trabajar con Azure File Sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+
 ## <a name="onboarding-with-azure-file-sync"></a>Incorporación con Azure File Sync
 Los pasos recomendados para la incorporación en Azure File Sync por primera vez con un tiempo de inactividad nulo conservando al mismo tiempo la fidelidad total en los archivos y la lista de control de acceso (ACL) son los siguientes:
  
@@ -356,12 +390,12 @@ Los pasos recomendados para la incorporación en Azure File Sync por primera vez
 Si no tiene almacenamiento adicional para la incorporación inicial y le gustaría conectarse a los recursos compartidos existentes, puede inicializar previamente los datos de los recursos compartidos de archivos de Azure. Se recomienda este enfoque si y solo si puede aceptar un tiempo de inactividad y garantiza de forma absoluta que no cambia ningún dato en los recursos compartidos del servidor durante el proceso de incorporación inicial. 
  
 1. Asegúrese que los datos no pueden cambiar en ninguno de los servidores durante el proceso de incorporación.
-2. Inicialice previamente los recursos compartidos de archivos de Azure con los datos del servidor mediante cualquier herramienta de transferencia de datos a través de SMB, p. ej. Robocopy, copia directa de SMB. Puesto que AzCopy no carga datos a través de SMB, no se puede usar para la inicialización previa.
+2. Inicialice previamente los recursos compartidos de archivos de Azure con los datos del servidor mediante cualquier herramienta de transferencia de datos a través de SMB, por ejemplo Robocopy, copia directa de SMB. Puesto que AzCopy no carga datos a través de SMB, no se puede usar para la inicialización previa.
 3. Cree la topología de Azure File Sync con los puntos de conexión de servidor que desee que apunten a los recursos compartidos existentes.
 4. Permita que la sincronización finalice el proceso de conciliación en todos los puntos de conexión. 
 5. Una vez completada la conciliación, puede abrir recursos compartidos para los cambios.
  
-Tenga en cuenta que, actualmente, el enfoque de inicialización previa tiene algunas limitaciones: 
+Actualmente, el enfoque de inicialización previa tiene algunas limitaciones: 
 - No se conserva la fidelidad total en los archivos. Por ejemplo, los archivos pierden las ACL y las marcas de tiempo.
 - Los datos cambian en el servidor antes de que la topología de sincronización esté totalmente activa y la ejecución puede producir conflictos en los puntos de conexión del servidor.  
 - Después de crearse el punto de conexión en la nube, Azure File Sync ejecuta un proceso para detectar los archivos en la nube antes de llevar a cabo la sincronización inicial. El tiempo necesario para completar este proceso depende de distintos factores, como la velocidad de la red, el ancho de banda disponible y el número de archivos y carpetas. Para una estimación aproximada del lanzamiento de la versión preliminar, el proceso de detección se ejecuta a una velocidad aproximada de diez archivos/s. Por lo tanto, incluso si la inicialización previa se ejecuta rápido, el tiempo total para obtener un sistema totalmente operativo puede ser considerablemente mayor cuando los datos se inicializan previamente en la nube.

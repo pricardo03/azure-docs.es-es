@@ -1,5 +1,5 @@
 ---
-title: Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único con contraseña | Microsoft Docs
+title: Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único | Microsoft Docs
 description: Cómo solucionar incidencias relacionadas con aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña.
 documentationcenter: ''
 author: msmimart
@@ -15,12 +15,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742df882fb64e09ff63ef2eceb5514ca070dc227
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190321"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381296"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemas de información de inicio de sesión con una aplicación de galería de Azure AD configurada para inicio de sesión único
 

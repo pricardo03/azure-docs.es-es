@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513803adec71e0e2c9578d762c5f4c110ed7086f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432966"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384501"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -72,7 +72,7 @@ El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entr
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de un servicio en la nube?
 
-Puede evitar el tráfico entrante para la dirección URL predeterminada o el nombre del servicio en la nube (por ejemplo, \*. cloudapp.net). Establezca el encabezado de host en un nombre DNS personalizado (por ejemplo, www.MiServicioEnLaNube.com) en la configuración de enlace de sitio del archivo de definición del servicio en la nube (*.csdef), como se indica a continuación:
+Puede evitar el tráfico entrante para la dirección URL predeterminada o el nombre del servicio en la nube (por ejemplo, \*. cloudapp.net). Establezca el encabezado de host en un nombre DNS personalizado (por ejemplo, www\.MiServicioEnLaNube.com) en la configuración de enlace de sitio del archivo de definición del servicio en la nube (*.csdef), como se indica a continuación:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
