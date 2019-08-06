@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479218"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667578"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Vista previa: migración a la API versión 3.x para aplicaciones de LUIS
 
@@ -150,7 +150,9 @@ Las principales propiedades JSON para la versión 3 son:
 }
 ```
 
-`normalizedQuery` contiene correcciones ortográficas. Esto corresponde a la propiedad `alteredQuery` de la API de V2.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 El objeto `intents` es una lista sin ordenar. No suponga que el primer elemento secundario en `intents` corresponde a `topIntent`. En su lugar, use el valor `topIntent` para buscar la puntuación:
 

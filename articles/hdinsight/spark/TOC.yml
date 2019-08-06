@@ -53,13 +53,7 @@
     - name: Solución de problemas
       items:
         - name: Excepción OutOfMemoryError
-          items:
-            - name: Memoria de montón insuficiente
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Espacio de montón de Java
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: No se puede iniciar el servidor Livy
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: 'Error en el trabajo de Apache Spark: NoClassDefFoundError'
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: 'Error en el trabajo de Apache Spark: InvalidClassException'

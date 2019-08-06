@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417484"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698395"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Tutorial: Envío de transacciones mediante Azure Blockchain Service
 
@@ -72,30 +72,17 @@ Mientras se aprovisionan los nodos, puede continuar con el tutorial. Cuando haya
     cd truffledemo
     ```
 
-1. Inicie la consola de desarrollo interactiva de Truffle.
+1. Use la consola de Truffle para conectarse al nodo de transacción predeterminado.
 
     ``` bash
-    truffle develop
+    truffle console --network defaultnode
     ```
 
-    Truffle crea una cadena de bloques de desarrollo local y proporciona una consola interactiva.
+    Truffle se conecta al nodo de transacción predeterminado y proporciona una consola interactiva.
 
 ## <a name="create-ethereum-account"></a>Crear una cuenta de Ethereum
 
-Use Web3 para conectarse al nodo de transacción predeterminado y crear una cuenta de Ethereum. Puede obtener la cadena de conexión de Web3 en Azure Portal.
-
-1. En Azure Portal, vaya al nodo de transacción predeterminado y seleccione **Nodos transacción > Código de ejemplo > Web3**.
-1. Copie el código de JavaScript de **HTTPS (Access key 1)** (HTTPS [clave de acceso 1]).![código de ejemplo de Web3](./media/send-transaction/web3-code.png)
-
-1. Pegue el código de JavaScript de Web3 correspondiente al nodo de transacción predeterminado en la consola de desarrollo interactiva de Truffle. El código crea un objeto web3 que está conectado a su nodo de transacción de Azure Blockchain Service.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    Puede llamar a los métodos del objeto web3 para interactuar con el nodo de transacción.
+Use Web3 para conectarse al nodo de transacción predeterminado y crear una cuenta de Ethereum. Puede llamar a los métodos del objeto web3 para interactuar con el nodo de transacción.
 
 1. Cree una cuenta en el nodo de transacción predeterminado. Reemplace el parámetro de contraseña por su propia contraseña segura.
 
@@ -159,21 +146,21 @@ Puede obtener la clave pública de la lista de nodos de transacción. Copie la c
           })(),
     
           network_id: "*",
-          gas: 0,
           gasPrice: 0,
           from: myAccount
         },
         alpha: {
           provider: new Web3.providers.HttpProvider(alpha),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         },
         beta: {
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
+        }
+      },
+      compilers: {
+        solc: {
+          evmVersion: "byzantium"
         }
       }
     }

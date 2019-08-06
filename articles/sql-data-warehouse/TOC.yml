@@ -287,8 +287,6 @@
       items:
         - name: Actualización a Gen2
           href: upgrade-to-latest-generation.md
-        - name: Restauración del almacenamiento de datos
-          href: sql-data-warehouse-restore.md
         - name: 'Supervisión de la carga de trabajo: Portal'
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 'Supervisión de la carga de trabajo: Vistas de administración dinámica'

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2018
+ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a4421b87aa094306a42212f76f7590d4f139047
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463028"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607978"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -30,6 +30,7 @@ ms.locfileid: "61463028"
 [2562184]: https://launchpad.support.sap.com/#/notes/2562184
 [2628497]: https://launchpad.support.sap.com/#/notes/2628497
 [2445033]: https://launchpad.support.sap.com/#/notes/2445033
+[2815988]: https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -226,7 +227,7 @@ Las plantillas tienen los siguientes parámetros:
 
 En los ejemplos siguientes, se da por hecho que instala SAP HANA con el identificador del sistema HN1 y el sistema SAP NetWeaver con el identificador del sistema AH1. Los nombres de host virtuales son hn1-db para la instancia de HANA, ah1-db para el inquilino de HANA usado por el sistema SAP NetWeaver, ah1-ascs para el ASCS de SAP NetWeaver y ah1-di-0 para el primer servidor de aplicaciones de SAP NetWeaver.
 
-#### <a name="install-sap-netweaver-ascs-for-sap-hana"></a>Instalación de ASCS de SAP NetWeaver para SAP HANA
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-using-azure-managed-disks"></a>Instalación de ASCS de SAP NetWeaver para SAP HANA mediante Azure Managed Disks
 
 Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la dirección IP del nombre de host virtual de ASCS. El método recomendado es usar sapacext. Si monta la dirección IP con sapacext, asegúrese de volver a montar la dirección IP después de reiniciar.
 
@@ -251,6 +252,93 @@ Agregue el siguiente parámetro de perfil al perfil de agente de host SAP, que s
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
+
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-on-azure-netappfiles-anf-beta"></a>Instalación de SAP NetWeaver ASCS para SAP HANA en Azure NetAppFiles (ANF) BETA
+
+> [!NOTE]
+> Esta funcionalidad todavía no está disponible. Para obtener más información, consulte la Nota de SAP [2815988] (solo visible para los clientes de vista previa).
+Abrir un incidente de SAP en el componente BC-VCM-LVM-HYPERV y solicitar unirse al adaptador de almacenamiento de LaMa para Azure NetApp Files (versión preliminar).
+
+ANF proporciona NFS para Azure. En el contexto de SAP LaMa, se simplifica la creación de las instancias de ABAP Central Services (ASCS) y la posterior instalación de los servidores de aplicaciones. Anteriormente, la instancia de ASCS tenía que actuar como servidor NFS y había que agregar el parámetro acosprep/nfs_paths al host_profile de SAP Hostagent.
+
+#### <a name="anf-is-currently-available-in-these-regions"></a>ANF está disponible actualmente en estas regiones:
+
+Este de Australia, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Oeste de Europa, Oeste de EE. UU. 2.
+
+#### <a name="network-requirements"></a>Requisitos de red
+
+ANF requiere una subred delegada que debe formar parte de la misma red virtual que los servidores SAP. Este es un ejemplo de este tipo de configuración:
+En esta pantalla se muestra la creación de la red virtual y la primera subred:
+
+![SAP LaMa Creación de una red virtual para Azure ANF ](media/lama/sap-lama-createvn-50.png)
+
+En el paso siguiente se crea la subred delegada para Microsoft.NetApp/volumes.
+
+![SAP LaMa Agregar subred delegada ](media/lama/sap-lama-addsubnet-50.png)
+
+![SAP LaMa Lista de subredes ](media/lama/sap-lama-subnets.png)
+
+Ahora es necesario crear una cuenta de NetApp en Azure Portal:
+
+![SAP LaMa Crear cuenta de NetApp ](media/lama/sap-lama-create-netappaccount-50.png)
+
+![SAP LaMa Cuenta de NetApp creada ](media/lama/sap-lama-netappaccount.png)
+
+Dentro de la cuenta de NetApp, el grupo de capacidad especifica el tamaño y el tipo de discos para cada grupo:
+
+![SAP LaMa Crear grupo de capacidad de NetApp ](media/lama/sap-lama-capacitypool-50.png)
+
+![SAP LaMa Grupo de capacidad de NetApp creado ](media/lama/sap-lama-capacitypool-list.png)
+
+Ahora se pueden definir los volúmenes NFS. Dado que habrá volúmenes para varios sistemas en un grupo, se debe elegir un esquema de nomenclatura autodescriptivo. Agregar el SID ayuda a agrupar los volúmenes relacionados. En el caso de la instancia de ASCS y la de AS, se necesitan los siguientes montajes: /sapmnt/\<SID\>, /usr/SAP/\<SID\> y/home/\<sid\>adm. /Usr/sap/trans opcional para el directorio central de transporte, que al menos lo utilizan todos los sistemas de un panorama.
+
+> [!NOTE]
+> Durante la fase BETA, el nombre de los volúmenes debe ser único dentro de la suscripción.
+
+![SAP LaMa Crear un volumen 1 ](media/lama/sap-lama-createvolume-80.png)
+
+![SAP LaMa Crear un volumen 2 ](media/lama/sap-lama-createvolume2-80.png)
+
+![SAP LaMa Crear un volumen 3 ](media/lama/sap-lama-createvolume3-80.png)
+
+Estos pasos deben repetirse también para los demás volúmenes.
+
+![SAP LaMa Lista de volúmenes creados ](media/lama/sap-lama-volumes.png)
+
+Ahora estos volúmenes deben montarse en los sistemas donde se realizará la instalación inicial con SAP SWPM.
+
+En primer lugar, es necesario crear los puntos de montaje. En este caso, el SID es AN1, por lo que deben ejecutarse los siguientes comandos:
+
+```bash
+mkdir -p /home/an1adm
+mkdir -p /sapmnt/AN1
+mkdir -p /usr/sap/AN1
+mkdir -p /usr/sap/trans
+```
+Después, los volúmenes de ANF se montarán con los siguientes comandos:
+
+```bash
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+```
+Los comandos de montaje también se pueden derivar del portal. Los puntos de montaje locales deben ajustarse.
+
+Use el comando df -h para comprobar.
+
+![SAP LaMa Nivel de sistema operativo de puntos de montaje ](media/lama/sap-lama-mounts.png)
+
+Ahora se debe realizar la instalación con SWPM.
+
+Se deben realizar los mismos pasos para, al menos, una instancia de AS.
+
+Después de la instalación correcta, el sistema debe detectarse dentro de SAP LaMa.
+
+Los puntos de montaje deben tener un aspecto similar al siguiente para la instancia de ASCS y la de AS:
+
+![Puntos de montaje de SAP en LaMa ](media/lama/sap-lama-ascs.png) (Este es un ejemplo. Las direcciones IP y la ruta de acceso de exportación son diferentes de las que se usaron antes)
+
 
 #### <a name="install-sap-hana"></a>Instalación de SAP HANA
 
@@ -475,7 +563,7 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
     Asegúrese de agregar una regla de host en el paso *Isolation* (Aislamiento) para permitir la comunicación de la máquina virtual al controlador de dominio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Guía de operaciones de SAP HANA en Azure][hana-ops-guide]
-* [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
+* [SAP HANA en la guía de operaciones de Azure][hana-ops-guide]
+* [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]

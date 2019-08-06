@@ -4,29 +4,30 @@ description: Obtenga información sobre cómo iniciar sesión con los distintos 
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 07/18/2019
 ms.author: lizross
-ms.custom: user-help, seo-update-azuread-jan
+ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472976"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382315"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
+
 Una vez configurada la verificación en dos pasos o la información de seguridad, podrá iniciar sesión en la cuenta con el método de autenticación que especifique.
 
 > [!Note]
 > Si sigue usando la experiencia de verificación en dos pasos, deberá configurar los métodos de autenticación siguiendo las instrucciones del artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
-> 
-> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de autenticación con estos artículos detallados:<ul><li>[Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md)</li><li>[Configuración de la información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de la información de seguridad para usar las llamadas de teléfono](security-info-setup-phone-number.md)</li></ul>
+>
+> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de autenticación con estos artículos detallados:<ul><li>[Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md)</li><li>[Configuración de la información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de la información de seguridad para usar las llamadas de teléfono](security-info-setup-phone-number.md)</li><li>[Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicio de sesión con una notificación de la aplicación Authenticator en el dispositivo móvil
 
@@ -52,7 +53,27 @@ Una vez configurada la verificación en dos pasos o la información de seguridad
 
 2. Abra el mensaje de texto y escriba el código del mensaje de texto en el cuadro **Especificar el código**.
 
+## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>Inicio de sesión con una clave de seguridad en la pantalla de bloqueo
+
+1. Una vez que registre la clave de seguridad, seleccione la imagen de la clave de seguridad en la pantalla de bloqueo de Windows 10.
+
+2. Inserte la clave de seguridad en el puerto USB del dispositivo e inicie sesión en Windows con el PIN de la clave de seguridad.
+
+    ![Inicio de sesión de una clave de seguridad en la pantalla de bloqueo de Windows 10](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>Inicio de sesión con una clave de seguridad y el explorador Microsoft Edge
+
+1. Una vez que registre la clave de seguridad, abra el explorador Microsoft Edge.
+
+2. Cuando se le pida iniciar sesión, inserte la clave de seguridad en el puerto USB del dispositivo e inicie sesión en Windows con el PIN de la clave de seguridad.
+
+    ![Inicio de sesión de una clave de seguridad con el explorador Microsoft Edge](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >Para obtener información sobre el inicio de sesión mediante la aplicación Microsoft Authenticator, vea el artículo [Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator](user-help-auth-app-sign-in.md).
+
 ## <a name="sign-in-using-another-verification-method"></a>Inicio de sesión con otro método de comprobación
+
 Si por algún motivo no puede usar su método de inicio de sesión principal, puede usar otro método de comprobación configurado previamente.
 
 1. Inicie sesión en la cuenta de la forma habitual y, luego, elija el vínculo **Sign in another way** (Iniciar sesión de otro modo) en la página **Two-step verification** (Verificación en dos pasos).
@@ -61,7 +82,7 @@ Si por algún motivo no puede usar su método de inicio de sesión principal, pu
 
     >[!Note]
     >Si no ve el vínculo **Sign in another way** (Iniciar sesión de otro modo), significa que no ha configurado ningún otro método de comprobación y que tendrá que ponerse en contacto con el administrador para solicitar ayuda para iniciar sesión en su cuenta. Después de que el administrador lo ayuda a iniciar sesión, asegúrese de agregar métodos de comprobación adicionales. Para más información sobre cómo agregar métodos de comprobación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
-    > 
+    >
     >Si ve el vínculo pero sigue sin ver ningún otro método de comprobación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
 
 2. Elija el método de comprobación alternativo y siga con el proceso de verificación en dos pasos.
@@ -72,7 +93,7 @@ Si por algún motivo no puede usar su método de inicio de sesión principal, pu
 
 - Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
 
-- Obtenga información sobre la verificación en dos pasos en el artículo [Introducción a la verificación en dos pasos](user-help-two-step-verification-overview.md). 
+- Obtenga información sobre la verificación en dos pasos en el artículo [Introducción a la verificación en dos pasos](user-help-two-step-verification-overview.md).
 
 - Si ha perdido u olvidado la contraseña, restablézcala en el [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/).
 
