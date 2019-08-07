@@ -50,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **MongoDbV2** |Sí |
 | connectionString |Especifique la cadena de conexión de MongoDB, por ejemplo `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte el [manual de MongoDB sobre cadenas de conexión](https://docs.mongodb.com/manual/reference/connection-string/) para más información. <br/><br />Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| Base de datos | Nombre de la base de datos a la que desea acceder. | Sí |
+| database | Nombre de la base de datos a la que desea acceder. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
