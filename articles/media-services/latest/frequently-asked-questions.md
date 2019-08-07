@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703892"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501254"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -60,6 +60,12 @@ Puede usar un [codificador local en directo](recommended-on-premises-live-encode
 
 ## <a name="content-protection"></a>Protección de contenido
 
+### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>¿Debo usar un cifrado de clave sin cifrado AES-128 o un sistema DRM?
+
+Los clientes suelen preguntarse si deben usar el cifrado de AES o un sistema de DRM. La diferencia principal entre los dos sistemas es que, con el cifrado de AES, la clave de contenido se transmite al cliente sobre TLS para que la clave se cifre en tránsito pero sin un cifrado adicional ("sin cifrado"). Como resultado, la clave usada para descifrar el contenido está accesible en el reproductor del cliente y se puede ver en un seguimiento de la red en el cliente en texto sin formato. Una clave sin cifrado AES-128 es adecuada para los casos de uso en los que el destinatario es una entidad de confianza (p. ej., cifrado de vídeos corporativos distribuidos dentro de una empresa para su visualización por parte de los empleados).
+
+Los sistemas DRM como PlayReady, Widevine y FairPlay proporcionan un nivel adicional de cifrado en la clave utilizada para descifrar el contenido en comparación con una clave sin cifrado AES-128. La clave de contenido se cifra en una clave protegida por el entorno de ejecución de DRM, además de cualquier cifrado a nivel de transporte proporcionado por TLS. Además, el descifrado se controla en un entorno seguro en el nivel de sistema operativo donde a un usuario malintencionado le resulta más difícil atacar. DRM se recomienda para los casos de uso en los que es posible que el destinatario no sea una entidad de confianza y usted requiere el nivel de seguridad más alto.
+
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>¿Cómo y dónde se puede obtener el token JWT antes de usarlo para solicitar la licencia o la clave?
 
 1. Para entornos de producción, deberá tener servicios de token seguro (STS) (servicio web) que emite el token JWT tras una solicitud HTTPS. Para la prueba, puede usar el código que se muestra en el método **GetTokenAsync** definido en [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
@@ -80,6 +86,30 @@ Para más información, consulte:
 
 - [Introducción a la protección de contenido](content-protection-overview.md)
 - [Diseño del sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
+
+### <a name="http-or-https"></a>¿HTTP o HTTPS?
+La aplicación de reproductor de ASP.NET MVC debe ser compatible con lo siguiente:
+
+* Autenticación de usuarios mediante Azure AD, que está en HTTPS.
+* Intercambio de tokens JWT entre el cliente y Azure AD, que debe estar en HTTPS.
+* La adquisición de licencias DRM por el cliente, que debe estar en HTTPS si Media Services proporciona la entrega de licencias. El conjunto de productos de PlayReady no impone HTTPS para la entrega de licencias. Si el servidor de licencias de PlayReady está fuera de Media Services, se podría usar HTTP o HTTPS.
+
+La aplicación de reproductor de ASP. NET utiliza HTTPS como procedimiento recomendado, por lo que Media Player se encuentra en una página en HTTPS. Sin embargo, HTTP es preferible para el streaming, por lo que se debe tener en cuenta la cuestión del contenido mixto.
+
+* El explorador no permite contenido mixto. Sin embargo, los complementos como Silverlight y OSMF para Smooth y DASH sí lo hacen. El contenido mixto es un problema de seguridad debido a la amenaza de la posibilidad de insertar JavaScript malintencionado, que puede poner en riesgo los datos del cliente. Los exploradores lo bloquean de forma predeterminada. La única manera de solucionar esto es en el servidor (origen) al permitir todos los dominios (con independencia de si son HTTPS o HTTP). Probablemente esto tampoco sea una buena idea.
+* Evite el contenido mixto. Tanto la aplicación de reproducción y Media Player deben utilizar HTTP o HTTPS. Al reproducir contenido mixto, silverlightSS tech requiere que se borre una advertencia de contenido mixto. flashSS tech controla el contenido mixto sin advertencia de contenido mixto.
+* Si su punto de conexión de streaming se ha creado antes de agosto de 2014, no admitirá HTTPS. En este caso, cree y utilice un nuevo punto de conexión de streaming para HTTPS.
+
+### <a name="what-about-live-streaming"></a>¿Y qué pasa con el streaming en vivo?
+
+Puede usar exactamente el mismo diseño y la misma implementación para proteger el streaming en vivo en Media Services, solo hay que tratar el recurso asociado a un programa como un recurso VoD. Para proporcionar una protección de varias DRM del contenido en directo, aplique la misma configuración o procesamiento al recurso como si fuera un recurso VoD antes de asociar el recurso con la salida en directo.
+
+### <a name="what-about-license-servers-outside-media-services"></a>¿Y qué sucede con los servidores de licencias que están fuera de Media Services?
+
+Con frecuencia, los clientes invierten en granjas de servidores de licencias en su propio centro de datos o en uno hospedado por proveedores de servicios DRM. Con la protección de contenido de Media Services, puede funcionar en modo híbrido. El contenido puede alojarse y protegerse dinámicamente en Media Services, mientras que las licencias DRM las entregan servidores externos a Media Services. En este caso, tenga en cuenta los siguientes cambios:
+
+* El servicio de token de seguridad debe emitir tokens que sean aceptables y que se puedan comprobar en la granja de servidores de licencias. Por ejemplo, los servidores de licencias de Widevine proporcionados por Axinom requieren un token JWT específico que contenga un mensaje de derechos. Por lo tanto, debe tener un servicio de token de seguridad para emitir dicho token JWT. 
+* Ya no necesitará configurar el servicio de entrega de licencias en Media Services. Debe proporcionar las direcciones URL de adquisición de licencias (para PlayReady, Widevine y FairPlay) cuando configura ContentKeyPolicies.
 
 ## <a name="media-services-v2-vs-v3"></a>Comparación entre las versiones v2 y v3 de Media Services 
 

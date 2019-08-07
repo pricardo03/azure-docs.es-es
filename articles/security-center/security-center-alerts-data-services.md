@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295819"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501480"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detección de amenazas en servicios de datos en Azure Security Center
 
@@ -27,6 +27,7 @@ ms.locfileid: "68295819"
 
 * [Azure SQL Database y SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Azure SQL Database y SQL Data Warehouse <a name="data-sql"></a>
 
@@ -46,7 +47,7 @@ Para más información sobre la detección de alertas por amenazas de SQL, consu
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Advanced Threat Protection para Azure Storage está actualmente disponible solo para Blob Storage. 
+> Advanced Threat Protection para Azure Storage está actualmente disponible solo para Blob Storage.
 
 Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de la seguridad.
 
@@ -70,3 +71,14 @@ Security Center analiza los registros de diagnóstico de solicitudes de lectura,
 >Advanced Threat Protection para Azure Storage no está disponible actualmente en Azure Government ni en regiones de nube soberana.
 
 Para más información acerca de las alertas de almacenamiento, consulte el artículo [Advanced Threat Protection para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) y revise la sección de alertas de protección.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+Las siguientes alertas las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de Azure Cosmos DB:
+
+|Alerta|DESCRIPCIÓN|
+|---|---|
+|**Acceso desde una ubicación inusual**|Indica que se ha producido un cambio en el patrón de acceso a una cuenta de Cosmos DB. Alguien ha tenido acceso a esta cuenta desde una dirección IP desconocida, en comparación con la actividad reciente. Un atacante ha tenido acceso a una cuenta de Cosmos DB, o bien un usuario legítimo ha tenido acceso a la cuenta de Cosmos DB desde una ubicación geográfica nueva e inusual. Por ejemplo: un nuevo mantenimiento de aplicaciones o desarrolladores desde una ubicación remota.|
+|**Filtración de datos inusual**|Indica que se ha producido un cambio en el patrón de extracción de datos desde una cuenta de Cosmos DB. Alguien ha extraído una cantidad de datos inusual en comparación con la actividad reciente. O bien un atacante ha extraído una gran cantidad de datos de una base de datos de Cosmos DB. Por ejemplo: filtración o pérdida de datos, transferencia no autorizada de datos. O una aplicación o usuario legítimo ha extraído una cantidad inusual de datos de un contenedor. Por ejemplo: actividad de copia de seguridad de mantenimiento.|
+
+Para más información, consulte [Advanced Threat Protection for Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md) (Protección contra amenazas avanzada para Azure Cosmos DB).
