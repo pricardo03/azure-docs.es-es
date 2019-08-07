@@ -197,7 +197,7 @@ Para copiar datos desde OData, establezca la propiedad **type** del conjunto de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **ODataResource**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **ODataResource**. | Sí |
 | path | Ruta de acceso al recurso de OData. | Sí |
 
 **Ejemplo**
@@ -232,7 +232,7 @@ Para copiar datos desde OData, establezca el tipo de **origen** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en: **RelationalSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **RelationalSource**. | Sí |
 | query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: el conector OData copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin |
 
 **Ejemplo**
