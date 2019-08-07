@@ -3,18 +3,18 @@ title: Representación de datos personalizados en un mapa de trama en Azure Maps
 description: Represente datos personalizados en un mapa de trama en Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/03/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734301"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638805"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -133,13 +133,27 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
     }
     ```
 
-4. Haga clic en **Send** (Enviar) y revise el encabezado de la respuesta. El encabezado de ubicación contiene el identificador URI que se usa para acceder o descargar los datos para su uso futuro. También contiene un parámetro `udId` único para los datos cargados.  
+4. Haga clic en **Send** (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado de ubicación contendrá el URI de estado para comprobar el estado actual de la solicitud de carga. El URI de estado tendría el formato siguiente.  
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Use el valor de `udId` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña del generador y escriba esta dirección URL para realizar una solicitud GET:
+5. Copie el URI de estado y anéxele el parámetro de clave de suscripción, cuyo valor es la clave de suscripción de la cuenta de Azure Maps que usó para cargar los datos. El formato del URI de estado debe ser similar al siguiente:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+6. Para obtener el UDID, abra una nueva pestaña en la aplicación Postman, seleccione el método GET HTTP en la pestaña del generador y realice una solicitud GET en el URI de estado. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de la respuesta. Copie el UDID.
+
+   ```JSON
+   {
+      "udid" : "{udId}"
+   }
+   ```
+
+7. Use el valor de `udId` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña del generador y escriba esta dirección URL para realizar una solicitud GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -161,7 +175,7 @@ Puede modificar la apariencia de un polígono mediante el uso de modificadores d
     
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
-    &subscription-key={subscription--key}
+    &subscription-key={subscription-key}
     ```
 
     Esta es la imagen de respuesta:

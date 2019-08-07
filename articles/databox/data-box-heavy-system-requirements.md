@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427747"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839778"
 ---
-# <a name="azure-data-box-heavy-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Heavy (versión preliminar)
+# <a name="azure-data-box-heavy-system-requirements"></a>Requisitos del sistema de Azure Data Box Heavy
 
 En este artículo se describen requisitos del sistema importantes tanto de Microsoft Azure Data Box Heavy como de los clientes de que se conectan al dispositivo. Se recomienda leer detenidamente la siguiente información antes de implementar Data Box Heavy y volver a consultarla según sea necesario durante la implementación y el posterior funcionamiento.
 
@@ -51,6 +51,12 @@ Los requisitos de software incluyen información acerca de los sistemas operativ
 ## <a name="networking-requirements"></a>Requisitos de red
 
 El centro de datos debe tener una red de alta velocidad. Para obtener velocidades de copia más rápidas, se pueden utilizar dos conexiones de 40-GbE (una por nodo) en paralelo. Si no dispone de una conexión de 40-GbE, le recomendamos que tenga al menos dos conexiones de 10-GbE (una por nodo).
+
+### <a name="port-requirements"></a>Requisitos de puerto
+
+En la siguiente tabla se enumeran los puertos que deben abrirse en el firewall para permitir el tráfico de SMB o NFS. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Fuera* o *saliente* hace referencia a la dirección en la que el dispositivo de Data Box Heavy envía datos externamente después de la implementación: por ejemplo, saliente a Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

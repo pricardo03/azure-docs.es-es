@@ -3,17 +3,17 @@ title: Agregar controles de mapa en Azure Maps | Microsoft Docs
 description: Cómo agregar control de zoom, control de inclinación, control de giro y un selector de estilos a un mapa en Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/08/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c1f5dd329f34d64478d605c21d229d8c75a99300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a504b8df199a3a461d5eb4e5b7238462b4c438f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108726"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638774"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Agregar controles de mapa a Azure Maps
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar controles de mapa a un mapa. También
 <iframe height='500' scrolling='no' title='Adición de un control de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> (Agregar un control de zoom) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-El primer bloque de código establece la clave de suscripción y crea un objeto de mapa sin estilo establecido previamente. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
+El primer bloque de código crea un objeto de mapa mediante el mecanismo de autenticación anónima. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
 
 El control de zoom agrega la capacidad de acercar o alegar la vista en el mapa. El segundo bloque de código crea un objeto de control de zoom mediante el atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) y lo agrega al mapa mediante el método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) del mapa. El control de zoom está en el **agente de escucha de eventos** del mapa para asegurarse de que se carga después de que el mapa se cargue completamente.
 
@@ -33,7 +33,7 @@ El control de zoom agrega la capacidad de acercar o alegar la vista en el mapa. 
 <iframe height='500' scrolling='no' title='Adición de un control de inclinación' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> (Agregar un control de inclinación) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-El primer bloque de código establece la clave de suscripción y crea un objeto de mapa sin estilo establecido previamente. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
+El primer bloque de código crea un objeto de mapa mediante el mecanismo de autenticación anónima. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
 
 El control de inclinación agrega la capacidad de cambiar la inclinación del mapa. El segundo bloque de código crea un objeto de control de inclinación mediante el atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) y lo agrega al mapa mediante el método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) del mapa. El control de inclinación está en el **agente de escucha de eventos** del mapa para asegurarse de que se carga después de que el mapa se cargue completamente.
 
@@ -42,7 +42,7 @@ El control de inclinación agrega la capacidad de cambiar la inclinación del ma
 <iframe height='500' scrolling='no' title='Adición de un control de giro' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> (Agregar un control de giro) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-El primer bloque de código establece la clave de suscripción y crea un objeto de mapa sin estilo establecido previamente. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
+El primer bloque de código crea un objeto de mapa mediante el mecanismo de autenticación anónima. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
 
 El segundo bloque de código crea un objeto de control de brújula mediante el atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol). También agrega el control de brújula al mapa mediante el método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) del mapa. El control de brújula está en el **agente de escucha de eventos** del mapa para asegurarse de que se carga después de que el mapa se cargue completamente.
 
@@ -51,7 +51,7 @@ El segundo bloque de código crea un objeto de control de brújula mediante el a
 <iframe height='500' scrolling='no' title='Mapa con todos los controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> (Mapa con todos los controles) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-El primer bloque de código establece la clave de suscripción y crea un objeto de mapa sin estilo establecido previamente. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
+El primer bloque de código crea un objeto de mapa mediante el mecanismo de autenticación anónima. Consulte [Crear un mapa](./map-create.md) para obtener instrucciones sobre cómo crear un mapa.
 
 El segundo bloque de código crea un objeto de control brújula mediante el atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) y lo agrega al mapa mediante el método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) del mapa.
 

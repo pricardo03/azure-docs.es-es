@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60926089"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638508"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de datos de telemetría y conectividad de dispositivo
 
@@ -50,7 +50,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | El identificador del dispositivo |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Valor del parámetro | Reemplazar por |
@@ -61,7 +61,7 @@ En la carga de la respuesta, copie la propiedad **connectionString** del disposi
 
 ## <a name="device-to-cloud-message"></a>Mensaje del dispositivo a la nube
 
-Puede personalizar la carga y el formato del mensaje del dispositivo para ajustarse a las necesidades de su solución. Utilice cualquier contrato de datos que se pueda serializar en una matriz de bytes o secuencia que sea compatible con la [clase de mensaje de cliente de dispositivo IoT de Azure, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). El mensaje puede estar en un formato binario personalizado de su elección, siempre que descodifique el contrato de datos en una función definida por el usuario correspondiente. Hay solo un requisito para un mensaje del dispositivo a la nube. Debe mantener un conjunto de propiedades para asegurarse de que el mensaje se enruta correctamente al motor de procesamiento.
+Puede personalizar la carga y el formato del mensaje del dispositivo para ajustarse a las necesidades de su solución. Utilice cualquier contrato de datos que se pueda serializar en una matriz de bytes o secuencia que sea compatible con la [clase de mensaje de cliente de dispositivo IoT de Azure, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). El mensaje puede estar en un formato binario personalizado de su elección, siempre que descodifique el contrato de datos en una función definida por el usuario correspondiente. Hay solo un requisito para un mensaje del dispositivo a la nube. Mantenga un conjunto de propiedades para asegurarse de que el mensaje se enruta correctamente al motor de procesamiento.
 
 ### <a name="telemetry-properties"></a>Propiedades de telemetría
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 111196388d0e17ecde8a2055959f2f573e43ade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056347"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848089"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -43,25 +43,25 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 
-    ![Cambiar al directorio de suscripción](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Filtro de directorio y suscripción con el inquilino de B2C seleccionado](./media/tutorial-create-user-flows/switch-directories.PNG)
 
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En el menú de la izquierda, en **Directivas**, seleccione **Flujos de usuario (directivas)** y **Nuevo flujo de usuario**.
 
-    ![Selección del nuevo flujo de usuario](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
 1. En la pestaña **Recomendaciones**, seleccione el flujo de usuario **Sign up and sign in** (Registro e inicio de sesión).
 
-    ![Selección de un flujo de usuario de registro e inicio de sesión](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Página Selección de un flujo de usuario con las opciones Registrarse e Iniciar sesión resaltadas](./media/tutorial-create-user-flows/signup-signin-type.png)
 
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
 1. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
 
-    ![Establecimiento de las propiedades de flujo](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![Página Creación de flujo de usuario en Azure Portal con las propiedades resaltadas](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
 1. En **Atributos y notificaciones de usuario**, elija los atributos y las notificaciones que desea recopilar y enviar al usuario durante el registro. Por ejemplo, seleccione **Mostrar más** y elija los atributos y las notificaciones de **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
 
-    ![Selección de atributos y notificaciones](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Página de selección de atributos y notificaciones con tres notificaciones seleccionadas](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
 1. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
 
@@ -71,7 +71,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 1. En **Aplicación**, seleccione la aplicación web denominada *webapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Haga clic en **Ejecutar flujo de usuario** y, a continuación, seleccione **Registrarse ahora**.
 
-    ![Ejecución del flujo de usuario](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![Página Ejecutar flujo de usuario del portal con el botón Ejecutar flujo de usuario resaltado](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Escriba una dirección de correo electrónico válida, haga clic en **Enviar código de verificación**, escriba el código de verificación que reciba y seleccione **Comprobar código**.
 1. Escriba la contraseña nueva y confírmela.

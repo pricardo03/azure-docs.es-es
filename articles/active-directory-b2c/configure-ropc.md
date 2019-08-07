@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511341"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807226"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -70,9 +70,9 @@ Use su aplicación favorita de desarrollo de API para generar una llamada API y 
 
 | Clave | Valor |
 | --- | ----- |
-| nombre de usuario | leadiocl@outlook.com |
-| contraseña | Passxword1 |
-| grant_type | contraseña |
+| username | leadiocl@outlook.com |
+| password | Passxword1 |
+| grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token del token |
@@ -135,6 +135,8 @@ Una respuesta correcta se parece al siguiente ejemplo:
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> Al crear usuarios mediante Graph API, la aplicación debe tener los permisos "openid", "offline_access" y "profile" de Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementación con su SDK nativo preferido o uso de la autenticación de la aplicación
 

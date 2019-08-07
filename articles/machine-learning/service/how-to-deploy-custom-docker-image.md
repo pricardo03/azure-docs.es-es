@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar un modelo con una imagen personalizada de Docker
+title: Implementación de modelos con una imagen de Docker personalizada
 titleSuffix: Azure Machine Learning service
 description: Aprenda a usar una imagen de Docker al implementar los modelos de Azure Machine Learning Service. Al implementar un modelo entrenado, se crea una imagen de Docker para hospedar la imagen, el servidor web y otros componentes necesarios para ejecutar el servicio. Aunque Azure Machine Learning Service proporciona una imagen predeterminada, también puede usar una propia.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840069"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638428"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar un modelo con una imagen personalizada de Docker
 

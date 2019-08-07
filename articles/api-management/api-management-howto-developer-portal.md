@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: deb3fdf3069aaad4982d71806c209fe516e3c3d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743581"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638542"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acceso y personalización del nuevo portal para desarrolladores en Azure API Management
 
@@ -26,7 +26,7 @@ Este artículo muestra cómo acceder al nuevo portal para desarrolladores de Azu
 
 ![Nuevo portal para desarrolladores de API Management](media/api-management-howto-developer-portal/cover.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a> Requisitos previos
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 - Importe y publique una instancia de Azure API Management. Para más información, consulte [Importación y publicación](import-and-publish.md).
@@ -36,25 +36,65 @@ Este artículo muestra cómo acceder al nuevo portal para desarrolladores de Azu
 > [!NOTE]
 > El nuevo portal para desarrolladores está actualmente en versión preliminar.
 
-## <a name="managed-and-self-hosted-versions"></a>Versiones administradas y autohospedadas
+## <a name="managed-vs-self-hosted"></a> Versiones administradas y autohospedadas
 
 Puede crear su portal para desarrolladores de dos maneras:
 
-- **Versión administrada**: mediante la edición y personalización del portal integrado en la instancia de API Management y accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`.
-- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. Para obtener información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1].
+- **Versión administrada**: mediante la edición y la personalización del portal, que se integra en la instancia de API Management y es accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`.
+- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. Para información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1].
 
-## <a name="access-the-managed-version-of-the-portal"></a>Acceso a la versión administrada del portal
+## <a name="managed-access"></a> Acceso a la versión administrada del portal
 
 Siga los pasos siguientes para acceder a la versión administrada del portal.
 
 1. Vaya a la instancia de servicio de API Management en Azure Portal.
 1. Haga clic en el botón **New developer portal (preview)** (Nuevo portal para desarrolladores: versión preliminar) en la barra de navegación superior. Se abrirá una nueva pestaña del explorador con una versión administrativa del portal. Si accede al portal por primera vez, se aprovisionará automáticamente el contenido predeterminado.
 
-## <a name="edit-and-customize-the-managed-version-of-the-portal"></a>Edición y personalización de la versión administrada del portal
+## <a name="managed-tutorial"></a> Edición y personalización de la versión administrada del portal
 
 En el siguiente vídeo se muestra cómo editar el contenido del portal, personalizar el aspecto del sitio web y publicar los cambios.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+
+## <a name="faq"></a> Preguntas más frecuentes
+
+En esta sección se responde a preguntas comunes sobre el nuevo portal para desarrolladores, que son de naturaleza general. Si tiene preguntas específicas de la versión autohospedada, consulte la [sección wiki del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+
+### <a name="how-can-i-migrate-content-from-the-old-developer-portal-to-the-new-one"></a>¿Cómo puedo migrar contenido del portal para desarrolladores anterior al nuevo?
+
+No puede. Los portales no son compatibles.
+
+### <a name="when-will-the-portal-become-generally-available"></a>¿Cuándo estará disponible el portal con carácter general?
+
+El portal se encuentra actualmente en versión preliminar y estará disponible con carácter general al final del año natural (2019). La versión preliminar no debe usarse con fines de producción.
+
+### <a name="will-the-old-portal-be-deprecated"></a>¿El portal antiguo quedará en desuso?
+
+Sí, quedará en desuso después de que el nuevo esté disponible con carácter general. Si tiene problemas, puede plantearlos [en un problema de GitHub dedicado](https://github.com/Azure/api-management-developer-portal/issues/121).
+
+### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>¿El nuevo portal tiene todas las características del portal anterior?
+
+El objetivo de la disponibilidad general es proporcionar una paridad de características basada en escenarios con el portal anterior. Hasta entonces, la versión preliminar podría no tener las características seleccionadas implementadas.
+
+Las excepciones son las *aplicaciones* y los *problemas* del portal anterior, que no estarán disponibles en el nuevo portal. Si usa los *problemas* del portal anterior y los necesita en el nuevo, publique un comentario en [un problema de GitHub dedicado](https://github.com/Azure/api-management-developer-portal/issues/122).
+
+### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Quiero trasladar el contenido del nuevo portal entre entornos. ¿Cómo puedo hacerlo?, ¿tengo que usar la versión autohospedada?
+
+Puede hacerlo en ambas versiones del portal: administrada y autohospedada. El nuevo portal para desarrolladores admite la extracción de contenido a través de la API de administración del servicio API Management. Las API se documentan [en la sección wiki del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/wiki/). También hemos escrito [un script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), que puede ayudarle a comenzar.
+
+Todavía estamos trabajando para alinear este proceso con el kit de recursos de DevOps de API Management.
+
+### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>¿Cómo se puede seleccionar un *diseño* al crear una *página*?
+
+Para aplicar un *diseño* a una página, se hace coincidir la plantilla de dirección URL con la dirección URL de la *página*. Por ejemplo, el *diseño* con una plantilla de dirección URL de `/wiki/*` se aplicará a cada *página* con el segmento `/wiki/`: `/wiki/getting-started`, `/wiki/styles`, y así sucesivamente.
+
+### <a name="why-doesnt-the-interactive-developer-console-work"></a>¿Por qué no funciona la consola interactiva para desarrolladores?
+
+Probablemente esté relacionado con CORS. La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Para resolver el problema de CORS, agregue [una directiva de CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) en las API. Puede especificar todos los parámetros manualmente (por ejemplo, origen como https://contoso.com) o usar un valor comodín `*` ).
+
+### <a name="where-can-i-file-bugs"></a>¿Dónde se pueden notificar los errores?
+
+[En el repositorio de GitHub](http://aka.ms/apimdevportal).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

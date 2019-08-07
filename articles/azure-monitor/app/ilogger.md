@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058597"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261755"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para los registros de ILogger de .NET Core
 
@@ -287,7 +287,7 @@ Instale este paquete adicional:
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
-En la sección siguiente se muestra cómo invalidar el valor predeterminado de TelemetryConfiguration con el método **services.Configure<TelemetryConfiguration>()** . En este ejemplo se configura `ServerTelemetryChannel` y el muestreo. Se agrega un elemento ITelemetryInitializer personalizado a TelemetryConfiguration.
+En la sección siguiente se muestra cómo invalidar el valor predeterminado de TelemetryConfiguration con el método **services.Configure\<TelemetryConfiguration>()** . En este ejemplo se configura `ServerTelemetryChannel` y el muestreo. Se agrega un elemento ITelemetryInitializer personalizado a TelemetryConfiguration.
 
 ```csharp
     // Create the DI container.

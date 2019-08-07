@@ -4,7 +4,7 @@ description: Instalación de controladores de GPU de NVIDIA para máquinas virtu
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479104"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278325"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -170,9 +170,9 @@ Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde 
 
 * **HPC basada en CentOS 7.4**: los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Instalación de controladores GRID en VM de la serie NV o NVv2
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalación de controladores GRID en VM de la serie NV o NVv3
 
-Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, establezca una conexión SSH a cada VM y siga los pasos para su distribución de Linux. 
+Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, establezca una conexión SSH a cada VM y siga los pasos para su distribución de Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,6 +188,8 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
 3. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NVv2). Para ello, cree un archivo en `/etc/modprobe.d` llamado `nouveau.conf` con el siguiente contenido:
 
@@ -226,8 +228,15 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. Reinicie la máquina virtual y continúe para comprobar la instalación.
+   
+9. Quite lo siguiente de `/etc/nvidia/gridd.conf` si está presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reinicie la máquina virtual y continúe para comprobar la instalación.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS o Red Hat Enterprise Linux 
@@ -242,6 +251,8 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
 2. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NV2). Para ello, cree un archivo en `/etc/modprobe.d` llamado `nouveau.conf` con el siguiente contenido:
@@ -290,8 +301,15 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv2, estable
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. Reinicie la máquina virtual y continúe para comprobar la instalación.
+9. Quite lo siguiente de `/etc/nvidia/gridd.conf` si está presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reinicie la máquina virtual y continúe para comprobar la instalación.
+
 
 ### <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 

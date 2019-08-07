@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 705545fd5167087be1a001c45f58907d6ff225e8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055756"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277834"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -43,7 +43,7 @@ Dado que las aplicaciones de demonio no usan permisos delegados, sino permisos d
 
 Por lo tanto, la autoridad especificada en la configuración de la aplicación debe tener inquilino (con identificador o nombre de dominio asociado a la organización).
 
-Si es ISV y desea ofrecer una herramienta para varios inquilinos, puede usar `organizations`. Pero tenga en cuenta que también deberá explicar a los clientes cómo conceder consentimiento de administrador. Consulte [Solicitud de consentimiento para un inquilino al completo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para más información. También hay actualmente una limitación en MSAL, que `organizations` solo se permite cuando las credenciales de cliente son un secreto de aplicación (no un certificado). Consulte [el error n.º 891 de MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+Si es un ISV y quiere ofrecer una herramienta para varios inquilinos, puede usar `organizations`. Aún así, tenga en cuenta que también deberá explicar a los clientes cómo conceder el consentimiento de administrador. Consulte [Solicitud de consentimiento para un inquilino al completo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para más información. También hay actualmente una limitación en MSAL, en la que `organizations` solo se permite cuando las credenciales de cliente son un secreto de aplicación (no un certificado). Consulte [el error n.º 891 de MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Creación de instancias y configuración de la aplicación
 
@@ -86,6 +86,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
+Por último, en lugar de un secreto de cliente o un certificado, las aplicaciones cliente confidenciales también pueden demostrar su identidad mediante aserciones de cliente. Este escenario avanzado se detalla en las [aserciones de cliente](msal-net-client-assertions.md).
+
 
 ### <a name="msalpython"></a>MSAL.Python
 

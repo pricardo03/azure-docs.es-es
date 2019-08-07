@@ -3,18 +3,18 @@ title: Adición de una capa de mapa térmico a Azure Maps | Microsoft Docs
 description: Cómo agregar una capa de mapa térmico al mapa de JavaScript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 82a6d6b2af7df91696844b09fb7650c547cb6bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85f184603cdcadce6bf750db5765f32a0735453d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108641"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639025"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -51,7 +51,7 @@ En el ejemplo anterior se personalizó el mapa térmico con la configuración de
 
 * `opacity`: especifica el grado de opacidad o transparencia de la capa de mapa térmico.
 * `intensity`: aplica un multiplicador a peso de cada punto de datos para aumentar la intensidad general del mapa térmico y facilita la visualización de pequeñas diferencias en el peso de los puntos de datos.
-* `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1; por lo tanto, todos los puntos de datos se ponderan equitativamente. La opción de peso actúa como un multiplicador y puede establecerse como un número o una expresión. Si el peso se establece con un número, digamos 2, equivaldría a colocar cada punto de datos dos veces en el mapa, por lo que se duplicaría la densidad. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. Sin embargo, si se usa una expresión, el peso de cada punto de datos puede basarse en las propiedades de dichos puntos de datos. Si tomamos los datos de un terremoto como ejemplo, cada punto de datos representaría un terremoto. Las métricas importantes que tenga cada punto de datos se considerarán valores de magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y casi no se sienten. Si utilizamos el valor de magnitud de una expresión para asignar el peso a cada punto de datos, conseguiremos que los terremotos más importantes se representen mejor en el mapa térmico.
+* `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1; por lo tanto, todos los puntos de datos se ponderan equitativamente. La opción de peso actúa como un multiplicador y puede establecerse como un número o una expresión. Si el peso se establece con un número, digamos 2, equivaldría a colocar cada punto de datos dos veces en el mapa, por lo que se duplicaría la densidad. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. Sin embargo, si se usa una expresión, el peso de cada punto de datos puede basarse en las propiedades de dichos puntos de datos. Si tomamos los datos de un terremoto como ejemplo, cada punto de datos representaría un terremoto. Las métricas importantes que tenga cada punto de datos se considerarán valores de magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y casi no se sienten. Si usamos el valor de magnitud de una expresión para asignar el peso a cada punto de datos, conseguiremos que los terremotos más importantes se representen mejor en el mapa térmico.
 * Además de las opciones de la capa base, el zoom mínimo y máximo, la opción Visible y el filtro, también está la opción `source` si desea actualizar el origen de datos y la opción `source-layer` si el origen de dato es un origen de corte vectorial.
 
 A continuación, se muestra una herramienta para probar las diferentes opciones de la capa de mapa térmico.
@@ -61,9 +61,9 @@ A continuación, se muestra una herramienta para probar las diferentes opciones 
 <iframe height='700' scrolling='no' title='Opciones de la capa de mapa térmico' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Opciones de la capa de mapa térmico</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="consistent-zoomable-heat-map"></a>Mapa térmico coherente al que se puede aplicar el zoom
+## <a name="consistent-zoomable-heat-map"></a>Mapa térmico con aplicación de zoom coherente
 
-De forma predeterminada, los puntos de datos representados en la capa del mapa térmico tienen un radio de píxel fijo para todos los niveles de zoom. A medida que se amplía el mapa, los datos se agregan juntos y la capa de mapa térmico parece diferente. Una expresión `zoom` puede usarse para ampliar el radio de cada nivel de zoom de forma que cada punto de datos cubra el mismo área físico del mapa. Esto hará que la capa de mapa térmico parezca más estática y coherente. Cada nivel de zoom del mapa tiene dos veces tantos píxeles vertical y horizontalmente que nivel de zoom anterior. Ampliar el radio de forma que se duplique con cada nivel de zoom creará un mapa térmico que parece coherente en todos los niveles de zoom. Esto puede realizarse mediante la expresión `zoom` con una expresión `exponential interpolation` de base 2, como se muestra en el ejemplo siguiente. Amplía el mapa para ver cómo se escala el mapa térmico con el nivel de zoom.
+De forma predeterminada, los radios de los puntos de datos representados en la capa del mapa térmico tienen un radio de píxel fijo para todos los niveles de zoom. A medida que se amplía el mapa, los datos se agregan juntos y la capa de mapa térmico parece diferente. Una expresión `zoom` puede usarse para ampliar el radio de cada nivel de zoom de forma que cada punto de datos cubra el mismo área físico del mapa. Esto hará que la capa de mapa térmico parezca más estática y coherente. Cada nivel de zoom del mapa tiene dos veces tantos píxeles vertical y horizontalmente que nivel de zoom anterior. Ampliar el radio de forma que se duplique con cada nivel de zoom creará un mapa térmico que parece coherente en todos los niveles de zoom. Esto puede realizarse mediante la expresión `zoom` con una expresión `exponential interpolation` de base 2, como se muestra en el ejemplo siguiente. Amplía el mapa para ver cómo se escala el mapa térmico con el nivel de zoom.
 
 <br/>
 

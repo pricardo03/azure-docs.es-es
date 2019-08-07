@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428371"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234327"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -48,6 +48,7 @@ Para abrir el mapa de red:
 2. En **Mapa de red**, haga clic en **Ver topología**.
  
 La vista predeterminada del mapa topológico muestra:
+
 - Suscripciones seleccionadas en Azure. El mapa admite varias suscripciones.
 - Máquinas virtuales, subredes y redes virtuales del tipo de recurso de Resource Manager (no se admiten los recursos de Azure clásico)
 - Redes virtuales emparejadas
@@ -64,6 +65,7 @@ El mapa de red puede mostrar los recursos de Azure en una vista **Topología** y
 ### <a name="the-topology-view"></a>Vista de topología
 
 En la vista **Topología** del mapa de red, puede ver la información siguiente acerca de los recursos de red:
+
 - En el círculo interior, puede ver todas las redes virtuales dentro de las suscripciones seleccionadas, el círculo siguiente son todas las subredes, el círculo exterior son todas las máquinas virtuales.
 - Las líneas que conectan los recursos en el mapa le permiten saber qué recursos se asocian entre sí, y cómo está estructurada la red de Azure. 
 - Use los indicadores de gravedad para obtener rápidamente información general acerca de qué recursos tienen recomendaciones abiertas desde Security Center.
@@ -73,6 +75,7 @@ En la vista **Topología** del mapa de red, puede ver la información siguiente 
 Dado que el mapa es interactivo y dinámico, todos los nodos son seleccionables y la vista puede cambiarse en función de los filtros:
 
 1. Puede modificar lo que ve en el mapa de red mediante el uso de los filtros situados en la parte superior. Puede centrarse en el mapa basándose en:
+
    -  **Estado de seguridad**: puede filtrar el mapa basándose en la gravedad (alta, media, baja) de los recursos de Azure.
    - **Recomendaciones**: puede seleccionar qué recursos se muestran según las recomendaciones activas en esos recursos. Por ejemplo, puede ver únicamente los recursos para los que Security Center recomienda habilitar los grupos de seguridad de red.
    - **Zonas de red**: de manera predeterminada, el mapa muestra solo recursos accesibles desde Internet, también puede seleccionar VM internas.
@@ -80,6 +83,7 @@ Dado que el mapa es interactivo y dinámico, todos los nodos son seleccionables 
 2. Puede hacer clic en **Restablecer** en la esquina superior izquierda en cualquier momento para devolver el mapa al estado predeterminado.
 
 Para explorar en profundidad un recurso:
+
 1. Al seleccionar un recurso específico en el mapa, el panel derecho se abre y le ofrece información general sobre el recurso, soluciones de seguridad conectadas (de existir) y recomendaciones relevantes para el recurso. Es el mismo tipo de comportamiento para cada tipo de recurso que seleccione. 
 2. Cuando mantiene el mouse sobre un nodo en el mapa, puede ver información general sobre el recurso, incluida la suscripción, el tipo de recurso y el grupo de recursos.
 3. Utilice el vínculo para acercar la información sobre herramientas y reorientar el mapa en ese nodo concreto. 
@@ -98,6 +102,7 @@ Por ejemplo, podría detectar dos máquinas que no sabía que se podían comunic
 ### <a name="investigate-resources"></a>Investigar los recursos
 
 Para explorar en profundidad un recurso:
+
 1. Al seleccionar un recurso específico en el mapa, el panel derecho se abre y le ofrece información general sobre el recurso, soluciones de seguridad conectadas (de existir) y recomendaciones relevantes para el recurso. Es el mismo tipo de comportamiento para cada tipo de recurso que seleccione. 
 2. Haga clic en **Tráfico** para ver la lista de posible tráfico entrante y saliente en el recurso. Se trata de una lista completa de quién puede comunicarse con el recurso y viceversa, así como a través de qué protocolos y puertos. Por ejemplo, cuando se selecciona una máquina virtual, todas las máquinas virtuales con las que puede comunicarse se muestran y, cuando se selecciona una subred, se muestran todas las subredes con las que se puede comunicar.
 
@@ -129,15 +134,20 @@ El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descr
 
 ## <a name="network-recommendations"></a>Recomendaciones de red
 
-|Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
-|----|----|----|----|
-|Máquina|40|Se debe habilitar los grupos de seguridad de red para las máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
-|Subred|35|Se debe habilitar los grupos de seguridad de red en el nivel de subred|Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
-|Máquina|30|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
-|Máquina|20|Restricción del acceso a través de puntos de conexión accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
-|Máquina|10|Agregar un firewall de próxima generación|Agregue una solución de Firewall de próxima generación (NGFW) para proteger mejor sus máquinas virtuales accesibles desde Internet.|
-|Máquina|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de su solución de firewall de próxima generación, se debe enrutar el tráfico a las máquinas virtuales accesibles desde Internet protegidas solo a través de la solución de firewall de próxima generación.|
-|VNet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
+|Nombre de la recomendación|DESCRIPCIÓN|Gravedad|Puntuación segura|Tipo de recurso|
+|----|----|----|----|----|----|
+|Se deben habilitar los grupos de seguridad de red en el nivel de subred|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.|Alta, media|30|Subred|
+|Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|Alta, media|30|Máquina virtual|
+|Se debe restringir el acceso a los grupos de seguridad de red permisivos con máquinas virtuales accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|Alta|20|Máquina virtual|
+|Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.|Alta|20|Máquina virtual|
+|Se debe restringir el acceso a App Services|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.|Alta|10|App Service|
+|Se deben cerrar los puertos de administración en las máquinas virtuales|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.|Alta|10|Máquina virtual|
+Se debe habilitar DDoS Protection estándar|Habilite el estándar del servicio de protección contra DDoS para proteger las redes virtuales que contienen aplicaciones con IP públicas. La protección contra DDoS permite mitigar los ataques volumétricos de red y protocolo.|Alta|10|Virtual network|
+|El reenvío de IP en la máquina virtual debe estar deshabilitado|Deshabilite el reenvío de IP. Cuando el reenvío de IP está habilitado en el adaptador de red de una máquina virtual, la máquina puede recibir tráfico dirigido a otros destinos. El reenvío de IP rara vez es necesario (por ejemplo, cuando se usa la máquina virtual como una aplicación virtual de red) y, por lo tanto, el equipo de seguridad de red debe revisarlo.|Mediana|10|Máquina virtual|
+|Acceso a la aplicación web solo a través de HTTPS|Habilite el acceso "Solo HTTPS" para aplicaciones web. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediana|20|Aplicación web|
+|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.|Alta|20|Máquina virtual|
+|Function App solo debería ser accesible a través de HTTPS|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediana|20|Aplicación de función|
+|Se debe habilitar la transferencia segura a las cuentas de almacenamiento|Habilite la transferencia segura para las cuentas de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|Alta|20|Cuenta de almacenamiento|
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:

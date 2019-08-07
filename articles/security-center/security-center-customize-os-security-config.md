@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551388"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662475"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center (retirado)
 
-Con esta guía detallada aprenderá a personalizar las valoraciones de configuración de seguridad del sistema operativo en Azure Security Center.
+En este tutorial se muestra cómo personalizar las valoraciones de configuración de seguridad del sistema operativo (vista previa) en Azure Security Center.
 
 > [!NOTE]
-> La capacidad de personalizar las configuraciones de seguridad del sistema operativo se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> La capacidad de personalizar las configuraciones de seguridad del sistema operativo (característica en vista previa) se retiró el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## <a name="what-are-os-security-configurations"></a>¿Cuáles son las configuraciones de seguridad del sistema operativo?
 

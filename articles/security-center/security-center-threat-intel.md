@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574355"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662334"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mapa de alertas de seguridad e información sobre amenazas
 En este artículo obtendrá ayuda para usar el mapa de alertas de seguridad y el mapa de inteligencia sobre amenazas basada en eventos de seguridad de Azure Security Center para solucionar problemas relacionados con la seguridad.
 
 > [!NOTE]
-> El botón de asignación de *eventos* de seguridad se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> El botón de asignación de *eventos* de seguridad se ha retirado el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## <a name="how-the-security-alerts-map-works"></a>Cómo funciona el mapa de alertas de seguridad
@@ -55,51 +55,6 @@ El mapa de alertas de seguridad se basa en alertas. Estas alertas se basan en la
 Las alertas en el mapa se muestran según la ubicación geográfica de donde se detecte su origen, y se codifican por color según la gravedad. 
     ![Información de inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visualización del panel de inteligencia de amenazas basadas en eventos
-Para ver el mapa de inteligencia de amenazas basadas en eventos de seguridad sin procesar, puede seguir este procedimiento. Este mapa muestra solo los eventos que implican una dirección IP que se considera de riesgo, por ejemplo, una dirección IP de una red de robots (botnet) conocida.
-
-1. Abra el panel **Security Center**.
-
-1. En el panel izquierdo, en **Protección contra amenazas**, haga clic en **Mapa de alertas de seguridad**. Se abre el mapa.
-2. En la esquina superior derecha, haga clic en **Ir al mapa de eventos de seguridad**.
-3. Seleccione el área de trabajo para la que desea ver el panel.
-4. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
-
-   > [!NOTE]
-   > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en la columna de la derecha se muestra **REQUIRES UPDATE** (ES NECESARIO ACTUALIZAR), actualice los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
-   >
-5. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
-
-    ![Información de inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. Este panel se divide en cuatro iconos:
-
-    a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
-
-    b.  **País de origen**. Agrega la cantidad de tráfico en función de su ubicación de origen.
-
-    c.  **Ubicación de la amenaza**. Le ayuda a identificar las ubicaciones actuales de todo el mundo que se comunican con su entorno. En el mapa que se muestra, las flechas naranja (entrante) y roja (saliente) identifican las direcciones del tráfico. Al seleccionar una de estas flechas, aparece el tipo de amenaza y la dirección del tráfico.
-
-    d.  **Detalles de la amenaza**. Muestra más detalles sobre la amenaza que seleccionó en el mapa.
-
-Con independencia del icono de opción que seleccione, el panel que aparece se basa en la consulta de búsqueda de registros. La única diferencia es el tipo de consulta y el resultado.
-
-### <a name="threat-types"></a>Tipos de amenaza
-Seleccione el icono **Tipos de amenazas** para abrir el panel **Búsqueda de registros**. A la izquierda aparecen las opciones de filtro y a la derecha los resultados de consulta.
-
-![Búsqueda de registros](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-El resultado de la consulta muestra las amenazas por nombre. Puede usar el panel izquierdo para seleccionar el atributo por el que quiere filtrar. Por ejemplo, para ver solo las amenazas que están conectadas actualmente a las máquinas en **SESSIONSTATE**, seleccione **Conectada** > **Aplicar**.
-
-![Estado de sesión](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-En las máquinas virtuales de Azure, solo aparecen en el panel **Inteligencia sobre amenazas** los datos de red que pasan por el agente. Los siguientes tipos de datos también se usan en la inteligencia sobre amenazas:
-
-- Datos CEF (Tipo = CommonSecurityLog)
-- WireData (Tipo = WireData)
-- Registros de IIS (Tipo = W3CIISLog)
-- Firewall de Windows (Tipo = WindowsFirewall)
-- Eventos de DNS (Tipo = DnsEvents)
 
 
 ## <a name="see-also"></a>Otras referencias

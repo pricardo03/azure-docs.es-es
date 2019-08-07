@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a872b8c34011247e68b0d459482c0599ac0426f2
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393855"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228397"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
@@ -110,12 +110,11 @@ Se recomienda traer su propia licencia de SQL a través de License Mobility para
 
 - **Cargas de trabajo con una duración y escala desconocidas**. Por ejemplo, una aplicación que sea necesaria durante todo el año y cuya demanda ya se ha previsto.
 
-Para usar BYOL con una máquina virtual con SQL Server, debe tener una licencia para SQL Server Standard o Enterprise y [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que es una opción necesaria en algunos programas de licencias por volumen y una adquisición opcional en otros. Los niveles de precios proporcionados a través de programas de licencias por volumen varían según el tipo de contrato y la cantidad y el compromiso con SQL Server. No obstante, por norma general, el modelo traiga su propia licencia para cargas de trabajo de producción continuas tiene las siguientes ventajas:
+Para usar BYOL con una máquina virtual con SQL Server, debe tener una licencia para SQL Server Standard o Enterprise y [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que es una opción necesaria en algunos programas de licencias por volumen y una adquisición opcional en otros. Los niveles de precios proporcionados a través de programas de licencias por volumen varían según el tipo de contrato y la cantidad y el compromiso con SQL Server. No obstante, por norma general, el modelo traiga su propia licencia para cargas de trabajo de producción continuas tiene las siguientes ventajas:
 
 | Ventaja de BYOL | Descripción |
 |-----|-----|
-| **Ahorros en costos** | Traer su propia licencia de SQL Server resulta más rentable que pagar por uso si una carga de trabajo ejecuta continuamente SQL Server Standard o Enterprise durante *más de diez meses*. |
-| **Ahorros a largo plazo** | Como promedio, resulta un *30 % más barato por año* comprar o renovar una licencia de SQL Server durante los tres primeros años. Además, después de tres años, ya no es necesario volver a renovar la licencia, y solo se paga por Software Assurance. En ese momento, resulta un *200 % más barato*. |
+| **Ahorros en costos** | El [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) ofrece un ahorro de hasta el 55 %. Para obtener más información, consulte el artículo [Cambiar el modelo de licencia](virtual-machines-windows-sql-ahb.md). |
 | **Réplica secundaria pasiva gratuita** | Otra ventaja que aporta traer su propia licencia es la [licencia gratuita para una réplica secundaria pasiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fines de alta disponibilidad. De esta forma, se reduce a la mitad el costo de una implementación de SQL Server de alta disponibilidad (por ejemplo, el uso de grupos de disponibilidad Always On). Los derechos para ejecutar la réplica secundaria pasiva se proporcionan con la ventaja de Software Assurance en servidores de conmutación por error. |
 
 Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas imágenes del modelo traiga su propia licencia, vea las máquinas virtuales con el prefijo "{BYOL}":

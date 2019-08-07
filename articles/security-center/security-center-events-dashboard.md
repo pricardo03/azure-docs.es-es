@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 389aaee621251890cd3f75744a94b9c9b29c5695
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573512"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662393"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Supervisión y procesamiento de eventos de seguridad en Azure Security Center
 El panel Eventos proporciona información general sobre el número de eventos de seguridad recopilados a lo largo del tiempo y una lista de eventos importantes que requieren su atención.  
 
 > [!NOTE]
-> El panel de eventos de seguridad se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_events).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> El panel de eventos de seguridad se retiró el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 ## <a name="what-is-a-security-event"></a>¿Qué es un evento de seguridad?
 Security Center usa Microsoft Monitoring Agent para recopilar distintos eventos y configuraciones relacionados con la seguridad en los equipos y almacena esos eventos en los espacios de trabajo. Algunos ejemplos de estos datos son: registros del sistema operativo (registros de eventos de Windows), procesos en ejecución y eventos de soluciones de seguridad integrados con Security Center. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo.

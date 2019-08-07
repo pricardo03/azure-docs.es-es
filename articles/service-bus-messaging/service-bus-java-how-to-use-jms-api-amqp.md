@@ -1,5 +1,5 @@
 ---
-title: Uso de AMQP 1.0 con la API de Service Bus de Java Message Service | Microsoft Docs
+title: Uso de AMQP 1.0 con la API de Java Message Service y Azure Service Bus
 description: Uso de Java Message Service (JMS) con Azure Service Bus y Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318453"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662879"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Uso de la API de Java Message Service (JMS) con Service Bus y AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
@@ -374,6 +375,7 @@ Además, Azure Service Bus divide el plano de control del plano de datos y, por 
 | createBrowser               | No se admite. Uso de la funcionalidad Peek() de la API de Service Bus                         |
 | createQueue                 | Crea una cola mediante la API de administración, herramientas o el portal.                                           | 
 | createTemporaryQueue        | Crea una cola mediante la API de administración, herramientas o el portal con *AutoDeleteOnIdle* establecido en un período de expiración. |
+| receiveNoWait               | Usa el método receive() proporcionado por el SDK de Service Bus y especifica un tiempo de expiración muy bajo o cero. |
 
 ## <a name="summary"></a>Resumen
 En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona de Service Bus (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.

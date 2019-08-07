@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 711b9152f9f3fa1b3573e39d1950f18b628c268a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce389d1f434fb0eb37413873b02e3ddfff8f7fba
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056321"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849392"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que está usando el directorio que contiene su suscripción. Haga clic en el **filtro de directorio y suscripciones** en el menú superior y seleccione el directorio que contiene su suscripción. Se trata de un directorio diferente al que contendrá al inquilino de Azure AD B2C.
 
-    ![Cambiar al directorio de suscripción](./media/tutorial-create-tenant/switch-directory-subscription.PNG)
+    ![Filtro de directorio y suscripción con el inquilino de suscripción seleccionado](./media/tutorial-create-tenant/switch-directory-subscription.PNG)
 
 3. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 4. Busque y seleccione **Active Directory B2C** y haga clic en **Crear**.
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     El nombre de dominio inicial se usa como parte del nombre de inquilino. En este ejemplo, el nombre del inquilino es *contoso0926Tenant.onmicrosoft.com*:
 
-    ![Creación de un inquilino](./media/tutorial-create-tenant/create-tenant.PNG)
+    ![Página de creación de inquilinos de B2C en Azure Portal](./media/tutorial-create-tenant/create-tenant.PNG)
 
 6. En la página **Crear nuevo inquilino B2C o vincular al inquilino existente**, elija **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure**.
 
@@ -55,7 +55,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     Si al principio no ve el nuevo inquilino de Azure B2C en la lista en la lista, actualice la ventana del explorador y seleccione el **filtro de directorio y suscripción** de nuevo en el menú superior.
 
-    ![Cambiar al directorio del inquilino](./media/tutorial-create-tenant/switch-directories.PNG)
+    ![Filtro de directorio y suscripción con el inquilino de B2C seleccionado](./media/tutorial-create-tenant/switch-directories.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

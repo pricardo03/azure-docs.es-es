@@ -3,19 +3,19 @@ title: 'Ética y uso responsable: Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Estas instrucciones están pensadas para ayudarle a implementar la personalización de forma que le ayude a generar confianza en su empresa y servicio. Tómese un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722396"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662782"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer
 
@@ -183,7 +183,7 @@ Analice la posibilidad de crear métodos para que los miembros del equipo, los u
 
 Toda persona que reflexione sobre los efectos del uso de cualquier tecnología está limitada por su perspectiva y su experiencia de vida. Aumente el número de opiniones disponibles incluyendo a voces más diversas en los equipos, grupos de usuarios o consejos consultivos y anime a los usuarios a compartir sus opiniones. Considere la posibilidad de usar materiales de formación y de aprendizaje para expandir aún más el conocimiento del equipo sobre esta materia y para agregar una funcionalidad para discutir temas complejos o confidenciales.
 
-Considere la posibilidad de tratar las tareas relacionadas con un uso responsable de la misma forma que otras tareas transversales del ciclo de vida de la aplicación como, por ejemplo, la tareas relacionadas con la experiencia, la seguridad y el desarrollo y las operaciones. Estas tareas y sus requisitos no pueden ser una idea tardía. Se debe analizar y comprobar el uso responsable a lo largo de todo el ciclo de vida de la aplicación.
+Considere la posibilidad de tratar las tareas relacionadas con un uso responsable de la misma forma que otras tareas transversales del ciclo de vida de la aplicación como, por ejemplo, la tareas relacionadas con la experiencia, la seguridad o las operaciones de desarrollo. Estas tareas y sus requisitos no pueden ser una idea tardía. Se debe analizar y comprobar el uso responsable a lo largo de todo el ciclo de vida de la aplicación.
  
 ## <a name="questions-and-feedback"></a>Preguntas y comentarios
 

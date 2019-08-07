@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511866"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847046"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El elemento **ClaimsSchema** define los tipos de notificación a los que se puede hacer referencia como parte de la directiva. El esquema de notificaciones es el lugar en el que se declaran las notificaciones. Una notificación puede ser el nombre, apellido, nombre para mostrar, número de teléfono y mucho más. El elemento ClaimsSchema contiene la lista de elementos **ClaimType**. El elemento **ClaimType** contiene el atributo **Id**, que es el nombre de la notificación. 
+El elemento **ClaimsSchema** define los tipos de notificación a los que se puede hacer referencia como parte de la directiva. El esquema de notificaciones es el lugar en el que se declaran las notificaciones. Una notificación puede ser el nombre, apellido, nombre para mostrar, número de teléfono y mucho más. El elemento ClaimsSchema contiene la lista de elementos **ClaimType**. El elemento **ClaimType** contiene el atributo **Id**, que es el nombre de la notificación.
 
 ```XML
 <BuildingBlocks>
@@ -89,7 +89,7 @@ En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa
 ```
 
 Como resultado, el token JWT emitido por Azure AD B2C emite `family_name` en lugar del nombre **surname** de ClaimType.
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -115,14 +115,14 @@ El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascar
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 El marco de experiencia de identidad representa el número de teléfono con los seis primeros dígitos ocultos:
 
-![Usar el tipo de notificación con enmascaramiento](./media/claimsschema/mask.png)
+![Notificación de número de teléfono que se muestra en el explorador con los seis primeros dígitos enmascarados con caracteres X](./media/claimsschema/mask.png)
 
 El ejemplo siguiente configura una notificación **AlternateEmail** con el enmascaramiento `Regex`:
 
@@ -137,7 +137,7 @@ El ejemplo siguiente configura una notificación **AlternateEmail** con el enmas
 
 El marco de experiencia de identidad representa solo la primera letra de la dirección de correo electrónico y el nombre de dominio del correo electrónico:
 
-![Usar el tipo de notificación con enmascaramiento](./media/claimsschema/mask-regex.png)
+![Notificación por correo electrónico que se muestra en el explorador con los caracteres enmascarados con asteriscos](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restricción
@@ -179,10 +179,10 @@ En el ejemplo siguiente se configura una notificación de lista desplegable **Ci
   </Restriction>
 </ClaimType>
 ```
+
 Lista desplegable Ciudad con un valor predeterminado establecido en Nueva York:
 
-![Lista desplegable Ciudad](./media/claimsschema/dropdownsingleselect.png)
-
+![Control desplegable representado en el explorador y que muestra el valor predeterminado](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Patrón
 
@@ -212,7 +212,7 @@ En el ejemplo siguiente se configura una notificación de **correo electrónico*
 
 El marco de experiencia de identidad presenta la notificación de dirección de correo electrónico con la validación de entrada de formato de correo electrónico:
 
-![Uso del tipo de notificación con Pattern](./media/claimsschema/pattern.png)
+![Cuadro de texto que muestra el mensaje de error que desencadena la restricción de regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ Azure AD B2C admite una serie de tipos de entrada de usuario, como una lista de 
 
 El tipo de entrada de usuario **TextBox** se usa para proporcionar un cuadro de texto de una sola línea.
 
-![Uso del tipo de notificación con TextBox](./media/claimsschema/textbox.png)
+![Cuadro de texto que muestra las propiedades especificadas en el tipo de notificación](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ El tipo de entrada de usuario **TextBox** se usa para proporcionar un cuadro de 
 
 El tipo de entrada de usuario **EmailBox** se usa para proporcionar un campo de entrada de correo electrónico básico.
 
-![Uso del tipo de notificación con EmailBox](./media/claimsschema/emailbox.png)
+![Cuadro de correo electrónico que muestra las propiedades especificadas en el tipo de notificación](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ El tipo de entrada de usuario **RadioSingleSelect** se usa para proporcionar una
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo qu
 </ClaimType>
 ```
 
-Para mostrar uno de los valores **Enumeration** en una notificación **responseMsg**, use una transformación de notificaciones `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Para más información, vea [String Claims Transformations](string-transformations.md) (Transformaciones de las notificaciones de cadena) 
+Para mostrar uno de los valores **Enumeration** en una notificación **responseMsg**, use una transformación de notificaciones `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Para más información, vea [String Claims Transformations](string-transformations.md) (Transformaciones de las notificaciones de cadena)
