@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309974"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567582"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
@@ -97,18 +96,18 @@ Implemente una instancia administrada en una subred dedicada dentro de la red vi
 
 ### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
 
-| NOMBRE       |Port                        |Protocolo|Origen           |Destino|.|
+| NOMBRE       |Port                        |Protocolo|Source           |Destino|.|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Cualquiera              |MI SUBNET  |PERMITIR |
-|mi_subnet   |Cualquiera                         |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
-|health_probe|Cualquiera                         |Cualquiera     |AzureLoadBalancer|MI SUBNET  |PERMITIR |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Allow |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
 
-| NOMBRE       |Port          |Protocolo|Origen           |Destino|.|
+| NOMBRE       |Port          |Protocolo|Source           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |PERMITIR |
-|mi_subnet   |Cualquiera           |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
+|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
 > Asegúrese de solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 80, 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`

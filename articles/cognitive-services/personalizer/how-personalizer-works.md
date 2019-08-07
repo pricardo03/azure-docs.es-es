@@ -2,19 +2,19 @@
 title: Funcionamiento de Personalizer (Personalizer)
 titleSuffix: Azure Cognitive Services
 description: Personalizer utiliza el aprendizaje automático para detectar qué acción se debe usar en un contexto. Cada bucle de aprendizaje tiene un modelo que está entrenado exclusivamente con los datos que le ha enviado a través de llamadas a Rank y a Reward. Todos los bucles de aprendizaje son completamente independientes entre sí.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423245"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663912"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 
