@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461456"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562237"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -91,13 +91,19 @@ Tiene dos opciones para buscar dispositivos registrados y unidos:
 
 Con ambas opciones, puede ir a una vista que:
 
-- Permite buscar dispositivos si se usa el nombre para mostrar como filtro.
+- Permite buscar dispositivos si se usa el nombre para mostrar o el id. de dispositivo como filtro.
 - Proporciona información general detallada de los dispositivos registrados y unidos.
 - Permite realizar tareas comunes de administración de dispositivos.
 
 ![Todos los dispositivos](./media/device-management-azure-portal/51.png)
 
-Para algunos dispositivos iOS, los nombres de dispositivos que contienen apóstrofos podrían usar caracteres diferentes similares a los apóstrofos. Por tanto, buscar esos dispositivos resulta un poco complicado. Si no ve correctamente los resultados de la búsqueda, asegúrese de que la cadena de búsqueda contiene caracteres de apóstrofo que coincidan.
+>[!TIP]
+>
+>* Si ve un dispositivo "unido a Azure AD híbrido" con un estado "Pendiente" en la columna REGISTRADO, indica que el dispositivo se ha sincronizado desde Azure AD Connect y está esperando a completar el registro del cliente. Lea más información sobre cómo [planear la implementación de la unión a Azure AD híbrido](hybrid-azuread-join-plan.md). Puede encontrar más información en el artículo [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.md).
+>
+>   ![Dispositivos pendientes](./media/device-management-azure-portal/75.png)
+>
+>* Para algunos dispositivos iOS, los nombres de dispositivos que contienen apóstrofos podrían usar caracteres diferentes similares a los apóstrofos. Por tanto, buscar esos dispositivos resulta un poco complicado. Si no ve correctamente los resultados de la búsqueda, asegúrese de que la cadena de búsqueda contiene caracteres de apóstrofo que coincidan.
 
 ## <a name="device-identity-management-tasks"></a>Tareas de administración de identidades de dispositivos
 
@@ -151,7 +157,7 @@ Para eliminar un dispositivo, tiene dos opciones:
    - Quita todos los detalles asociados al dispositivo como, por ejemplo, las claves de BitLocker de los dispositivos Windows.  
    - Representa una actividad no recuperable y no se recomienda a menos que sea necesaria.
 
-Si es otra entidad de administración la que administra un dispositivo (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD.
+Si es otra entidad de administración la que administra un dispositivo (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD. Revise cómo [administrar dispositivos obsoletos](device-management-azure-portal.md) antes de eliminar cualquier dispositivo.
 
 ### <a name="view-or-copy-device-id"></a>Ver o copiar el id. del dispositivo
 
@@ -167,11 +173,12 @@ Puede ver y copiar las claves de BitLocker para ayudar a otros usuarios a recupe
 
 Para ver o copiar las claves de BitLocker, debe ser el propietario del dispositivo, o bien un usuario que tenga al menos uno de los siguientes roles asignados:
 
+- Administrador de dispositivos en la nube
 - Administrador global
 - Administrador del departamento de soporte técnico
+- Administrador de servicios de Intune
 - Administrador de seguridad
 - Lector de seguridad
-- Administrador de servicios de Intune
 
 > [!NOTE]
 > Los dispositivos Windows 10 híbridos unidos a Azure AD no tienen un propietario. Por lo tanto, si está buscando un dispositivo por propietario y no lo encontró, busque por el identificador de dispositivo.

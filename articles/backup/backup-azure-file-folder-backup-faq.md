@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99f14b14e9149f79ae992834ae75bcb8fdc3c74b
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705091"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601992"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -88,7 +88,7 @@ Esta advertencia puede aparecer aunque se haya configurado una directiva de copi
 El tamaño de la carpeta de caché determina la cantidad de datos de los que se realiza la copia de seguridad.
 - Los volúmenes de la carpeta de caché deben tener un espacio libre equivalente, al menos, al 5-10 % del tamaño total de datos de copia de seguridad.
 - Si el volumen tiene menos del 5 % de espacio libre, aumente el tamaño del volumen o mueva la carpeta de caché a un volumen que tenga suficiente espacio libre.
-- Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de caché.
+- Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de la caché.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>¿Cómo se puede comprobar si la carpeta temporal es válida y accesible?
 
@@ -106,19 +106,22 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 
     ```PS C:\> Net stop obengine```
 
-2. No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad que tenga suficiente espacio.
-3. Actualice las siguientes entradas del Registro con la ruta de acceso de la nueva carpeta de la caché.<br/>
+2. Si ha configurado la copia de seguridad del estado del sistema, abra Administración de discos y desmonte los discos que tengan nombres con el formato `"CBSSBVol_<ID>"`.
+3. No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad que tenga suficiente espacio.
+4. Actualice las siguientes entradas del Registro con la ruta de acceso de la nueva carpeta de la caché.<br/>
 
     | Ruta de acceso del Registro | Clave del Registro | Valor |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
 
-4. Reinicie el motor de Azure Backup en una ventana del símbolo del sistema con privilegios elevados:
+5. Reinicie el motor de Azure Backup en una ventana del símbolo del sistema con privilegios elevados:
+
+    ```PS C:\> Net stop obengine```
 
     ```PS C:\> Net start obengine```
 
-5. Si la copia de seguridad finaliza correctamente con la nueva ubicación, puede quitar la carpeta de caché original.
+6. Ejecute una copia de seguridad ad-hoc. Si la copia de seguridad finaliza correctamente con la nueva ubicación, puede quitar la carpeta de caché original.
 
 
 ### <a name="where-should-the-cache-folder-be-located"></a>¿Dónde debería estar la carpeta de caché?

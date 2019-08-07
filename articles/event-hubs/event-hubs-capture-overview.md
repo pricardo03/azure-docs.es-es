@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326178"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage
@@ -73,7 +73,7 @@ Los archivos que genera Event Hubs Capture tienen el siguiente esquema de Avro:
 
 ![Esquema de Avro][3]
 
-Una manera sencilla de explorar los archivos de Avro es usar las herramientas [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] para tener una experiencia ligera controlada por SQL o [Apache Spark][Apache Spark] para realizar el procesamiento distribuido complejo en los datos ingeridos. 
+Para explorar los archivos de Avro fácilmente, utilice el archivo jar [Avro Tools][Avro Tools] desde Apache. También puede usar [Apache Drill][Apache Drill] para una experiencia sencilla con SQL o [Apache Spark][Apache Spark] para realizar un procesamiento distribuido complejo en los datos ingeridos. 
 
 ### <a name="use-apache-drill"></a>Uso de Apache Drill
 
@@ -129,7 +129,7 @@ Avro Tools también puede utilizarse para convertir el archivo al formato JSON y
 
 Para realizar un procesamiento más avanzado, descargue e instale Avro para la plataforma que desee. En el momento de redactar este artículo, existen implementaciones para C, C++, C\#, Java, NodeJS, Perl, PHP, Python y Ruby.
 
-Apache Avro tiene guías de introducción para [Java][Java] and [Python][Python]. También puede leer el artículo [Getting started with Event Hubs Capture (Introducción a Event Hubs Capture)](event-hubs-capture-python.md).
+Apache Avro tiene guías de introducción para [Java][Java] y [Python][Python] muy completas. También puede leer el artículo [Getting started with Event Hubs Capture (Introducción a Event Hubs Capture)](event-hubs-capture-python.md).
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Cómo se factura Event Hubs Capture
 

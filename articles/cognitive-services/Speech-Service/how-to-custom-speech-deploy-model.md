@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de un modelo de Custom Speech: servicios de Voz'
-titlesuffix: Azure Cognitive Services
+title: 'Implementación de un modelo de Custom Speech: servicio Voz'
+titleSuffix: Azure Cognitive Services
 description: En este documento, aprenderá a crear e implementar un punto de conexión mediante el portal de Custom Speech.
 services: cognitive-services
 author: erhopf
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f2b69bf3e5d536e7e813ef4a7c36b2937141fd43
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606624"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559671"
 ---
 # <a name="deploy-a-custom-model"></a>Implementación de un modelo personalizado
 

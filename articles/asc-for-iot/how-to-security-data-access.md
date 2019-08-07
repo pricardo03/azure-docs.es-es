@@ -1,5 +1,5 @@
 ---
-title: Acceso a datos con Azure Security Center for IoT, versión preliminar | Microsoft Docs
+title: Acceso a datos con Azure Security Center para IoT | Microsoft Docs
 description: Aprenda a obtener acceso a los datos de recomendaciones y alertas de seguridad al usar Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,41 +13,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2d3f3c6ad194ff8c9582f0c9e71a29b37ba5d967
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ddd9b2c8373746a65cd78f0a81b60d097cd9f38
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616749"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597182"
 ---
 # <a name="access-your-security-data"></a>Acceso a los datos de seguridad 
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Security Center (ASC) for IoT almacena los datos de recomendaciones y alertas de seguridad y los datos de seguridad sin procesar (si decide guardarlos) en el área de trabajo de Log Analytics.
+Azure Security Center para IoT almacena los datos de recomendaciones y alertas de seguridad y los datos de seguridad sin procesar (si decide guardarlos) en el área de trabajo de Log Analytics.
 
 ## <a name="log-analytics"></a>Log Analytics
 
 Para establecer el área de trabajo de Log Analytics que va a usar:
 
 1. Abra el IoT Hub.
-1. Haga clic en **Seguridad**.
+1. Haga clic en la hoja **Introducción** en la sección **Seguridad**.
 2. Haga clic en **Configuración** y cambie la configuración del área de trabajo de Log Analytics.
 
-Para acceder al área de trabajo de Log Analytics después de la configuración:
+Para acceder a las alertas y recomendaciones en el área de trabajo de Log Analytics después de la configuración:
 
-1. Elija una alerta o una recomendación en ASC for IoT. 
+1. Elija una alerta o una recomendación en Azure Security Center para IoT. 
 2. Haga clic en **further investigation** (Investigar más) y, luego, en **To see which devices have this alert click here and view the DeviceId column** (Para ver los dispositivos que tienen esta alerta, haga clic aquí y vea la columna DeviceId).
 
 Para obtener más información sobre cómo consultar datos de Log Analytics, vea [Introducción a las consultas en Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 
-Las alertas de seguridad se almacenan en la tabla _AzureSecurityOfThings.SecurityAlert_ del área de trabajo de Log Analytics configurada para la solución de ASC for IoT.
+Las alertas de seguridad se almacenan en la tabla _AzureSecurityOfThings.SecurityAlert_ del área de trabajo de Log Analytics configurada para la solución Azure Security Center para IoT.
 
 Hemos incluido una serie de consultas útiles que le ayudarán a empezar a explorar las alertas de seguridad.
 
@@ -78,10 +74,10 @@ SecurityAlert
 
 ### <a name="device-summary"></a>Resumen de dispositivo
 
-Seleccione un número de alertas de seguridad variadas detectadas la semana pasada por IoT Hub, dispositivo, gravedad de la alerta y tipo de alerta.
+Obtenga un número de alertas de seguridad variadas detectadas la semana pasada, agrupadas por IoT Hub, dispositivo, gravedad de la alerta y tipo de alerta.
 
 ```
-// Select number of distinct security alerts detected last week by 
+// Get the number of distinct security alerts detected in the last week, grouped by 
 //   IoT hub, device, alert severity, alert type
 //
 SecurityAlert
@@ -93,7 +89,7 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Recuento |
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Brute force attack succeeded           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Mediano        | Failed local login attempt on device  | 242 |    
@@ -126,7 +122,7 @@ SecurityAlert
 
 ## <a name="security-recommendations"></a>Recomendaciones de seguridad
 
-Las recomendaciones de seguridad se almacenan en la tabla _AzureSecurityOfThings.SecurityRecommendation_ del área de trabajo de Log Analytics configurada para la solución de ASC for IoT.
+Las recomendaciones de seguridad se almacenan en la tabla _AzureSecurityOfThings.SecurityRecommendation_ del área de trabajo de Log Analytics configurada para la solución Azure Security Center para IoT.
 
 Hemos incluido una serie de consultas útiles que le ayudarán a empezar a explorar las recomendaciones de seguridad.
 
@@ -157,10 +153,10 @@ SecurityRecommendation
 
 ### <a name="device-summary"></a>Resumen de dispositivo
 
-Seleccione un número de recomendaciones de seguridad activas variadas por IoT Hub, dispositivo, gravedad de la recomendación y tipo.
+Obtenga un número de recomendaciones de seguridad activas variadas, agrupadas por IoT Hub, dispositivo, gravedad de la recomendación y tipo.
 
 ```
-// Select number of distinct active security recommendations by 
+// Get the number of distinct active security recommendations, grouped by by 
 //   IoT hub, device, recommendation severity and type
 //
 SecurityRecommendation
@@ -170,7 +166,7 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Recuento |
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Mediano        | 1 |  
@@ -180,7 +176,7 @@ SecurityRecommendation
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea la [introducción](overview.md) a ASC for IoT
-- Obtenga información sobre la [arquitectura](architecture.md) de ASC for IoT
-- Conozca y explore las [alertas de ASC for IoT](concept-security-alerts.md)
-- Conozca y explore las [recomendaciones de ASC for IoT](concept-recommendations.md)
+- Lea la [información general](overview.md) sobre Azure Security Center para IoT.
+- Obtenga información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT.
+- Comprenda y explore las [alertas de Azure Security Center para IoT](concept-security-alerts.md).
+- Comprenda y explore las [recomendaciones de Azure Security Center para IoT](concept-recommendations.md).

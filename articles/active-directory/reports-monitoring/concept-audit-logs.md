@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827910"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618924"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -48,7 +48,7 @@ En este artículo se proporciona información general del informe de auditoría.
 
 Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**. Tenga en cuenta que los registros de auditoría pueden tener una latencia de hasta una hora, por lo que los datos de la actividad de auditoría pueden tardar tiempo en aparecer en el portal una vez que haya completado la tarea.
 
-![Registros de auditoría](./media/concept-audit-logs/61.png "Registros de auditoría")
+
 
 Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
@@ -103,7 +103,7 @@ El filtro **Service** (Servicio) le permite seleccionar los siguientes servicios
 - Invited Users (Usuarios invitados)
 - PIM
 - Self-service Group Management (Administración de grupos de autoservicio)
-- Administración de contraseñas de autoservicio
+- Self-service Password Management (Administración de contraseñas de autorservicio)
 - Términos de uso
 
 El filtro **Category** (Categoría) le permite seleccionar uno de los filtros siguientes:
@@ -127,7 +127,7 @@ El filtro **Category** (Categoría) le permite seleccionar uno de los filtros si
 
 El filtro **Activity** (Actividad) se basa en la selección de la categoría y el tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
 
-Para obtener la lista de todas las actividades de auditoría, use Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](reference-audit-activities.md).
+Puede obtener la lista de todas las actividades de auditoría mediante Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 El filtro **Status** (Estado) le permite filtrar en función del estado de una operación de auditoría. El estado puede ser uno de los siguientes:
 
@@ -149,7 +149,7 @@ Los valores posibles son:
 
 Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
 
-También puede descargar los datos filtrados, hasta 250 000 registros, si selecciona el botón **Download** (Descargar). Puede decidir descargar los registros en formato CSV o JSON. El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
+También puede descargar los datos filtrados, hasta 250 000 registros, si selecciona el botón **Download** (Descargar). Puede descargar los registros en formato CSV o JSON. El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
 
 ![Registros de auditoría](./media/concept-audit-logs/download.png "Registros de auditoría")
 
@@ -180,11 +180,11 @@ Con los informes de auditoría basadas en grupos y usuarios, puede obtener respu
 
 - ¿Qué licencias se han asignado a un grupo o un usuario?
 
-Si solo quiere revisar los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
+Si quiere revisar solo los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
 
 ![Registros de auditoría](./media/concept-audit-logs/users.png "Registros de auditoría")
 
-Si solo quiere revisar los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
+Si quiere revisar solo los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
 
 ![Registros de auditoría](./media/concept-audit-logs/groups.png "Registros de auditoría")
 
@@ -206,7 +206,7 @@ Si quiere revisar los datos de auditoría relacionados con las aplicaciones, pue
 
 Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
 
-También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

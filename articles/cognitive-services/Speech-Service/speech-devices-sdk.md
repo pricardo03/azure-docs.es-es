@@ -1,5 +1,5 @@
 ---
-title: 'Acerca del SDK de dispositivos de voz: servicios de Voz'
+title: 'Acerca del SDK de los dispositivos de voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción al SDK de dispositivos de voz. El servicio de Voz funciona con una amplia variedad de dispositivos y orígenes de audio. Ahora puede llevar las aplicaciones de voz al siguiente nivel con hardware y software coincidente. El SDK de dispositivos de voz es una biblioteca pre-ajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 341f35d04c7f3f591198acbbf05ac32afe84e95c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f2819dd2194193ffa8171034fdbe01ac4cb26174
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718543"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558923"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Introducción a Speech Devices SDK
 

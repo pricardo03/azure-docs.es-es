@@ -1,6 +1,6 @@
 ---
-title: 'Cómo usar la transcripción de lotes: servicios de Voz'
-titlesuffix: Azure Cognitive Services
+title: 'Cómo usar la transcripción de lotes: servicio Voz'
+titleSuffix: Azure Cognitive Services
 description: La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 services: cognitive-services
 author: PanosPeriorellis
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 088b6ef93631cb964979de3621453caa430c5b1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606742"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559703"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 

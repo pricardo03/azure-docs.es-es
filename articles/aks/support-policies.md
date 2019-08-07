@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786458"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596129"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -127,7 +127,7 @@ Aunque los clientes pueden iniciar sesión en los nodos de trabajo y cambiarlos,
 Como servicio administrado, AKS tiene requisitos específicos de red y de conectividad. Estos requisitos son menos flexibles que los requisitos para los componentes normales de IaaS. En AKS, las operaciones como la personalización de las reglas de los grupos de seguridad de red, el bloqueo de un puerto específico (por ejemplo, mediante reglas de firewall que bloqueen el puerto de salida 443) y las direcciones URL permitidas pueden hacer que el clúster deje de ser compatible.
 
 > [!NOTE]
-> Actualmente, AKS no permite bloquear completamente la salida desde el clúster (por ejemplo, mediante dominios explícitos o listas blancas de puertos). La lista de puertos y direcciones URL está sujeta a cambios sin previo aviso. Puede obtener la lista actualizada mediante la creación de una incidencia de soporte técnico de Azure. La lista es solo para los clientes que están dispuestos a aceptar que la disponibilidad del clúster podría verse afectada *en cualquier momento*.
+> Actualmente, AKS no permite bloquear completamente el tráfico de salida del clúster. Para controlar la lista de direcciones URL y puertos que puede usar el clúster para el tráfico saliente, vea [Limitar el tráfico de salida](limit-egress-traffic.md).
 
 ## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Características de Kubernetes alfa y beta no admitidas
 

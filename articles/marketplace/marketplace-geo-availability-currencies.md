@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938255"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619971"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
-Se pueden adquirir ofertas de Azure Marketplace en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
+Se pueden adquirir ofertas de Azure Marketplace y AppSource en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
 
 |   Nombre del país o región               |   ISO-2   |   Moneda   |
 |-------------------------------------|-----------|--------------|
@@ -76,7 +76,7 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 zonas geográficas, tal c
 | Hungría                             | HU        | EUR          |
 | Islandia                             | IS        | EUR          |
 | India                               | IN        | INR          |
-| Indonesia                           | ID        | USD          |
+| Indonesia                           | id        | USD          |
 | Iraq                                | IQ        | USD          |
 | Irlanda                             | IE        | EUR          |
 | Israel                              | IL        | USD          |

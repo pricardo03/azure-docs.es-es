@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a96d17ae7fbe94877032e7b4b2aacb63f6e070ca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254007"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562254"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Aplicación web que inicia la sesión de los usuarios: configuración del código
 
@@ -36,6 +36,8 @@ Las bibliotecas utilizadas para proteger una aplicación web (y una API web) son
 | ![.NET](media/sample-v2-code/logo_net.png) | [Extensiones de modelo de identidad para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Utilizadas directamente por ASP.NET y ASP.NET Core, Microsoft Identity Extensions para .NET propone un conjunto de DLL que se ejecutan tanto en .NET Framework como en .NET Core. Desde una aplicación web de ASP.NET o ASP.NET Core, puede controlar la validación del token mediante la clase **TokenValidationParameters** (en concreto, en algunos escenarios de ISV) |
 
 ## <a name="aspnet-core-configuration"></a>Configuración de ASP.NET Core
+
+Los fragmentos de código de este artículo y los siguientes se extraen del [capítulo 1 del tutorial incremental de aplicaciones web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Es posible que desee consultar dicho tutorial para obtener detalles completos de la implementación.
 
 ### <a name="application-configuration-files"></a>Archivos de configuración de la aplicación
 
@@ -56,7 +58,7 @@ En ASP.NET Core, una aplicación web que inicia la sesión de los usuarios con l
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -108,7 +110,7 @@ De la misma manera, el URI de cierre de sesión se establecería en `https://loc
 
 ### <a name="initialization-code"></a>Código de inicialización
 
-En Web Apps de ASP.NET Core (y las API web), el código que realiza la inicialización de la aplicación se encuentra en el archivo `Startup.cs` y, para agregar autenticación con la Plataforma de identidad de Microsoft (anteriormente Azure AD) v2.0, necesitará agregar el siguiente código. Los comentarios que se encuentren en el código deben ser claros.
+En Web Apps de ASP.NET Core y las API web, el código que realiza la inicialización de la aplicación se encuentra en el archivo `Startup.cs` y, para agregar la autenticación con la Plataforma de identidad de Microsoft (anteriormente, Azure AD v2.0), necesitará agregar el siguiente código. Los comentarios que se encuentren en el código deben ser claros.
 
   > [!NOTE]
   > Si inicia el proyecto con el proyecto web de ASP.NET Core predeterminado dentro de Visual Studio o mediante `dotnet new mvc`, el método `AddAzureAD` está disponible de forma predeterminada porque los paquetes relacionados se cargan automáticamente. Sin embargo si crea un proyecto desde cero e intenta usar el siguiente código, le recomendamos que agregue el paquete NuGet **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** al proyecto para hacer que el método `AddAzureAD` esté disponible.
@@ -120,7 +122,7 @@ En Web Apps de ASP.NET Core (y las API web), el código que realiza la inicializ
  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
  {
   // The ASP.NET core templates are currently using Azure AD v1.0, and compute
-  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft Identity Platform v2.0 endpoint
+  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft identity platform endpoint
   options.Authority = options.Authority + "/v2.0/";
 
   // If you want to restrict the users that can sign-in to specific organizations
@@ -131,7 +133,7 @@ En Web Apps de ASP.NET Core (y las API web), el código que realiza la inicializ
 
   // Set the nameClaimType to be preferred_username.
   // This change is needed because certain token claims from Azure AD v1.0 endpoint
-  // (on which the original .NET core template is based) are different in Azure AD v2.0 endpoint.
+  // (on which the original .NET core template is based) are different in Microsoft identity platform endpoint.
   // For more details see [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
   // and [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
   options.TokenValidationParameters.NameClaimType = "preferred_username";
@@ -174,7 +176,7 @@ El código relacionado con la autenticación en la aplicación web ASP.NET o las
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+     // The `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0
      // The `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
      ClientId = clientId,

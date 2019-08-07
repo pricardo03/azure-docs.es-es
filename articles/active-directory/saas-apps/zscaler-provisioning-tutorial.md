@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: dd8335442cd370e0478c029a927c71e26fe6ef1b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d88aae8887cbfd872a8d3e82fb2166043c312e5a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672857"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515397"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler para el aprovisionamiento automático de usuarios
 
@@ -30,14 +30,12 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Zscaler y A
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
-> Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-* Un inquilino de Azure AD
-* Un inquilino de Zscaler
+* Un inquilino de Azure AD.
+* Un inquilino de Zscaler.
 * Una cuenta de usuario de Zscaler con permisos de administrador.
 
 > [!NOTE]

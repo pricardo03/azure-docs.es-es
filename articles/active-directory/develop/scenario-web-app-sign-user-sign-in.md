@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074626"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562194"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Aplicación web que permite iniciar sesión a los usuarios (inicio de sesión)
 
@@ -33,9 +33,9 @@ El código incluido en el artículo anterior [configuración del código de apli
 ## <a name="what-sign-out-involves"></a>Qué implica cerrar sesión
 
 Cerrar sesión desde una aplicación web implica más que tan solo quitar la información sobre la cuenta con sesión iniciada del estado de la aplicación web.
-La aplicación web también debe redirigir al usuario al punto de conexión `logout` de la Plataforma de identidad de Microsoft v2.0 para cerrar la sesión. Cuando la aplicación web redirige al usuario a punto de conexión `logout`, este punto de conexión borra la sesión del usuario del explorador. Si la aplicación no ha ido al punto de conexión `logout`, el usuario se volvería a autenticar en su aplicación sin escribir sus credenciales de nuevo, porque tendría una sesión válida de inicio de sesión único con el punto de conexión de la Plataforma de identidad de Microsoft v2.0.
+La aplicación web también debe redirigir al usuario al punto de conexión `logout` de la Plataforma de identidad de Microsoft para cerrar la sesión. Cuando la aplicación web redirige al usuario a punto de conexión `logout`, este punto de conexión borra la sesión del usuario del explorador. Si la aplicación no ha ido al punto de conexión `logout`, el usuario se volvería a autenticar en su aplicación sin escribir sus credenciales de nuevo, porque tendría una sesión válida de inicio de sesión único con el punto de conexión de la Plataforma de identidad de Microsoft.
 
-Para obtener más información, consulte la sección [Envío de una solicitud de cierre de sesión](v2-protocols-oidc.md#send-a-sign-out-request) en la documentación conceptual de la [Plataforma de identidad de Microsoft v2.0 y protocolo OpenID Connect](v2-protocols-oidc.md).
+Para más información, consulte la sección [Envío de una solicitud de cierre de sesión](v2-protocols-oidc.md#send-a-sign-out-request) en la documentación conceptual de la [Plataforma de identidad de Microsoft y protocolo OpenID Connect](v2-protocols-oidc.md).
 
 ## <a name="application-registration"></a>Registro de la aplicación
 

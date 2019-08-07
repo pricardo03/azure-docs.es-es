@@ -3,7 +3,7 @@ title: Creación de un clúster de Service Fabric en Azure Portal | Microsoft Az
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
-ms.author: aljo
-ms.openlocfilehash: 02312a19c687908b0e1c0e6417dc6b0a9df23912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 123795730e8468591bb02fa7c756ad48222dff82
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125092"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600022"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Esta guía paso a paso le ayudará en la configuración de un clúster de Servic
 > 
 
 ## <a name="cluster-security"></a>Seguridad de clúster 
-Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para obtener más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
+Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
 Si es la primera vez que crea un clúster de Service Fabric o que implementa un clúster para las cargas de trabajo de prueba, puede ir a la sección siguiente (**Crear un clúster en Azure Portal**) y permitir que el sistema genere los certificados necesarios para los clústeres que ejecutan cargas de trabajo de prueba. Si va a configurar un clúster para las cargas de trabajo de producción, siga leyendo.
 
@@ -56,7 +56,7 @@ Para servir a estos propósitos, el certificado debe cumplir los siguientes requ
 * El nombre de **firmante del certificado debe coincidir con el nombre del dominio** usado para acceder al clúster de Service Fabric. Este es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com` . Adquiera un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado que se usó para el clúster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticación de cliente
-Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para obtener más información sobre los roles de acceso, consulte [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
+Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para obtener más información sobre los roles de acceso, vea [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
 
 No es necesario cargar los certificados de autenticación de cliente en Key Vault para trabajar con Service Fabric. Estos certificados solo se deben proporcionar a los usuarios que están autorizados para la administración del clúster. 
 
@@ -71,15 +71,15 @@ Se puede instalar un número cualquiera de certificados adicionales en un clúst
 * Cifrado y descifrado de los valores de configuración de aplicación
 * Cifrado de datos entre nodos durante la replicación 
 
-No se pueden configurar certificados de la aplicación al [crear un clúster mediante Azure Portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Para configurar certificados de aplicación en el momento de configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
+No se pueden configurar certificados de la aplicación al [crear un clúster mediante Azure Portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Para configurar certificados de aplicación en el momento de la configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Creación de un clúster en el Portal de Azure
 
-La creación de un clúster de producción para satisfacer sus necesidades de la aplicación requiere cierta planeación. Por lo tanto, se recomienda que lea y comprenda el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity]. 
+La creación de un clúster de producción para satisfacer las necesidades de la aplicación requiere cierto planeamiento. Por lo tanto, se recomienda que lea y comprenda el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity]. 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Búsqueda del recurso de clúster de Service Fabric
 
-Inicie sesión en [Azure Portal][azure-portal].
+Inicie sesión en el [Azure Portal][azure-portal].
 Haga clic en **Crear un recurso** para agregar una nueva plantilla de recursos. Busque la plantilla Clúster de Service Fabric en **Marketplace** debajo de **Todo**.
 Seleccione **Clúster de Service Fabric** en la lista.
 
@@ -115,15 +115,15 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 > 
 
 1. Elija un nombre para el tipo de nodo (con una longitud de 1 a 12 caracteres y que contenga solamente letras y números).
-2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, consulte [Elección de los niveles de durabilidad del clúster de Service Fabric][service-fabric-cluster-durability].
-3. Seleccione el **tamaño de la máquina virtual**. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No use cualquier SKU de VM que tenga núcleos parciales o menos de 10 GB de capacidad de disco disponible. Consulte el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity] para obtener ayuda con la selección del tamaño de VM.
+2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, vea [Elección de los niveles de durabilidad del clúster de Service Fabric][service-fabric-cluster-durability].
+3. Seleccione el **tamaño de la máquina virtual**. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No use cualquier SKU de VM que tenga núcleos parciales o menos de 10 GB de capacidad de disco disponible. Consulte el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity] para obtener ayuda con la selección del tamaño de la máquina virtual.
 4.  Los **clúster de un solo nodo y clústeres de tres nodos** están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
 5. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir verticalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
-6. Configure los **puntos de conexión personalizados**. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para obtener más información sobre los puntos de conexión, consulte la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
+6. Configure los **puntos de conexión personalizados**. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para más información sobre los puntos de conexión, vea la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. **Habilitación del proxy inverso**.  El [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con dichos servicios.
 8. En la hoja **Configuración del clúster**, en **+Mostrar configuración opcional**, configure el **diagnóstico** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
 9. **Inclusión del servicio DNS**.  El [servicio DNS](service-fabric-dnsservice.md) es un servicio opcional que le permite buscar otros servicios mediante el protocolo DNS.
-10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
+10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para más información sobre el modo de actualización de Service Fabric, vea el [documento de actualización de un clúster de Service Fabric][service-fabric-cluster-upgrade].
 
 > [!NOTE]
 > Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411353"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570619"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -192,7 +192,7 @@ Si necesita ejecutar la resolución de nombres de la aplicación web integrada m
 Si usa sus propios servidores DNS, Azure permite especificar varios servidores DNS por cada red virtual. También puede especificar varios servidores DNS por interfaz de red (para Azure Resource Manager) o por servicio en la nube (para el modelo de implementación clásica). Los servidores DNS especificados para una interfaz de red o un servicio en la nube tienen prioridad sobre los servidores DNS especificados para la red virtual.
 
 > [!NOTE]
-> Las propiedades de conexión de red, como las direcciones IP del servidor DNS, no deben editarse directamente dentro de máquinas virtuales Windows. Esto se debe a que podrían borrarse durante el servicio de reparación cuando se reemplaza el adaptador de la red virtual.
+> Las propiedades de conexión de red, como las direcciones IP del servidor DNS, no deben editarse directamente dentro de las máquinas virtuales. Esto se debe a que podrían borrarse durante el servicio de reparación cuando se reemplaza el adaptador de la red virtual. Esto se aplica a las máquinas virtuales Windows y Linux.
 >
 >
 

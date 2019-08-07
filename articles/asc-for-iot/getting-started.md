@@ -1,5 +1,5 @@
 ---
-title: Introducción al uso de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+title: Introducción al uso de Azure Security Center para IoT | Microsoft Docs
 description: Primeros pasos para entender el flujo de trabajo básico de las características y el servicio Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,69 +13,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 39f448f258923d23bdcba75a0a1987777ce0492e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 86c6c0bac5caae0873d0067c6abcb5a8ac864c88
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616863"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596408"
 ---
-# <a name="get-started-with-azure-security-center-for-iot"></a>Introducción a Azure Security Center for IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Introducción a Azure Security Center for IoT
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+En este artículo se explican los diferentes bloques de creación del servicio Azure Security Center para IoT. También se explica cómo empezar a usar el servicio con dos posibles opciones de implementación.  
 
-En este artículo se explican los diferentes bloques de creación del servicio Azure Security Center (ASC) for IoT. También se describen los primeros pasos para [habilitar el servicio](quickstart-onboard-iot-hub.md). 
+## <a name="deployment-options"></a>Opciones de implementación
 
-ASC for IoT se integra sin problemas en su IoT Hub para proporcionar análisis de seguridad de la configuración de IoT Hub, la identidad de dispositivos y los patrones de comunicación entre el IoT Hub y el dispositivo.
-Para lograr unas capacidades mejoradas de seguridad, ASC for IoT permite la recopilación basada en agente de datos de seguridad procedentes de dispositivos IoT.
+Elija el escenario del servicio que mejor encaje con sus requisitos de entorno y de dispositivo IoT. 
 
-## <a name="asc-for-iot-seamless-iot-hub-integration"></a>Integración perfecta de ASC for IoT e IoT Hub
+### <a name="built-in-deployment"></a>Implementación integrada
+Con la opción de la implementación integrada y directa, Azure Security Center para IoT se puede integrar rápidamente en IoT Hub y proporcionar análisis de seguridad de la configuración de IoT Hub, la identidad y administración de los dispositivos y los patrones de comunicación entre el centro y el dispositivo.
 
-Cuando se intentan proteger dispositivos IoT individuales, es necesario poder recopilar datos directamente desde los dispositivos, o bien desde la red. Para hacer esto posible, ASC for IoT ofrece un arsenal de agentes de seguridad de bajo impacto que proporcionan protección y supervisión de dispositivos.
+Inicie una [implementación integrada](iot-hub-integration.md) que ofrezca recomendaciones y supervisión de IoT Hub. 
+    <br>
 
-En ASC for IoT, versión preliminar, se proporciona arquitectura de referencia para los agentes de seguridad de Windows y Linux tanto en C# y como en C.
-Los agentes controlan la recopilación de eventos sin procesar procedentes del sistema operativo del dispositivo, la agregación de eventos para reducir el coste y la configuración a través de un módulo gemelo del dispositivo.
-Los mensajes de seguridad se envían a través del IoT Hub a los servicios de análisis de ASC for IoT.
+### <a name="enhanced-deployment"></a>Implementación mejorada
+Para mejorar las funcionalidades de seguridad, la implementación de los agentes de Azure Security Center para IoT además de habilitar la seguridad de IoT ofrece una recopilación de eventos basada en el agente, análisis y detección de amenazas de los principales datos de seguridad de sus dispositivos IoT y funcionalidades de administración de la posición completa de seguridad.
 
-## <a name="asc-for-iot-basics"></a>Conceptos básicos de ASC for IoT
-
-Elija el escenario de flujo de trabajo que mejor encaje con sus requisitos de entorno y de dispositivo IoT:
-
-### <a name="get-started-with-asc-for-iot-seamless-iot-hub-integration"></a>Introducción a la integración perfecta de ASC for IoT e IoT Hub 
-
->[!Note]
->Este flujo de trabajo permite usar el servicio prescindiendo de los agentes de seguridad de ASC for IoT. 
-
-Para permitir la supervisión de la administración de identidades de dispositivo y los patrones de comunicación entre el dispositivo y la nube y viceversa, use el siguiente flujo de trabajo básico para realizar pruebas e iniciar el servicio: 
-
-1. [Habilite el servicio ASC for IoT en IoT Hub](quickstart-onboard-iot-hub.md).
-1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos. 
-1. Defina el comportamiento normal de dispositivo y del sistema a través de [alertas personalizadas](quickstart-create-custom-alerts.md). 
-1. Realice pruebas en el sistema para comprobar el estado del servicio y del dispositivo. 
-1. Explore las [alertas](concept-security-alerts.md), las [recomendaciones](concept-recommendations.md) y [perfeccione su uso de Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
-
-
-### <a name="get-started-with-asc-for-iot-security-agents"></a>Introducción a los agentes de seguridad de ASC for IoT
-
-Haga uso de las capacidades de seguridad mejoradas de ASC for IoT, como la supervisión de conexiones remotas, aplicaciones activas, eventos de inicio de sesión y procedimientos recomendados de configuración del sistema operativo. Para ello, use el siguiente flujo de trabajo básico para probar y habilitar el servicio: 
-
-1. [Habilite el servicio ASC for IoT en IoT Hub](quickstart-onboard-iot-hub.md).
-1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos.
-1. Para instalar el agente en un dispositivo simulado de Azure en lugar de hacerlo en un dispositivo real, [prepare una máquina virtual de Azure nueva](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) en una zona de disponibilidad. 
-1. [Implemente un agente de seguridad de ASC for IoT](how-to-deploy-linux-cs.md) en el dispositivo IoT o en una máquina virtual nueva.
-1. Siga las instrucciones de [trigger_events](https://aka.ms/iot-security-github-trigger-events) para llevar a cabo una simulación de un ataque inofensivo.
-1. Compruebe las alertas de ASC for IoT en respuesta al ataque simulado del paso anterior. No las compruebe hasta que hayan transcurrido cinco minutos desde la ejecución del script.
-1. Explore las [alertas](concept-security-alerts.md), las [recomendaciones](concept-recommendations.md) y [perfeccione su uso de Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
+Inicie una [implementación mejorada](security-agents.md) que incluya una solución de administración de la posición de seguridad y la protección total de amenazas basada en un agente.
+   
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilitar [ASC for IoT](quickstart-onboard-iot-hub.md)
+- Habilitar [Azure Security Center para IoT](quickstart-onboard-iot-hub.md)
 - Configurar la [solución](quickstart-configure-your-solution.md)
 - [Creación de módulos de seguridad](quickstart-create-security-twin.md)
 - Configurar [alertas personalizadas](quickstart-create-custom-alerts.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273221"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597364"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -28,7 +28,7 @@ Una dirección IP de front-end es la dirección IP asociada con una puerta de en
 
 La SKU de Azure Application Gateway V2 se puede configurar para admitir tanto una dirección IP interna estática como una dirección IP pública estática, o solo una dirección IP pública estática. No se puede configurar para admitir solo una dirección IP estática interna.
 
-La SKU V1 se puede configurar para admitir una dirección IP interna estática y una dirección IP pública dinámica, solo una dirección IP interna estática o solo una dirección IP pública dinámica. La dirección IP dinámica de Application Gateway no cambia en una puerta de enlace en ejecución. Puede cambiar solo cuando se detiene o inicia Gateway. No cambia cuando se producen errores del sistema, actualizaciones, actualizaciones del host de Azure, etc. 
+La SKU V1 se puede configurar para admitir una dirección IP interna estática y una dirección IP pública dinámica, solo una dirección IP interna estática, solo una dirección IP pública dinámica, solo una dirección IP privada dinámica o una dirección IP pública dinámica y una dirección IP privada dinámica. La dirección IP dinámica de Application Gateway no cambia en una puerta de enlace en ejecución. Puede cambiar solo cuando se detiene o inicia Gateway. No cambia cuando se producen errores del sistema, actualizaciones, actualizaciones del host de Azure, etc. 
 
 El nombre DNS asociado a una puerta de enlace de aplicaciones no cambia durante el ciclo de vida de la puerta de enlace. Como resultado, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de aplicaciones.
 

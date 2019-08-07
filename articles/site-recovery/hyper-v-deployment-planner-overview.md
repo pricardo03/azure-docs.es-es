@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149122"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618838"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
@@ -135,7 +135,7 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
   >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
 ## <a name="version-history"></a>Historial de versiones
-La versión más reciente de la herramienta Azure Site Recovery Deployment Planner es la 2.4.
+La última versión de la herramienta Azure Site Recovery Deployment Planner es la 2.5.
 Para saber qué correcciones se han agregado en cada actualización, consulte [Historial de versiones de Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 

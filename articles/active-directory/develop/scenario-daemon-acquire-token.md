@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075376"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562357"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
@@ -61,10 +61,10 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 El ámbito usado para las credenciales del cliente siempre deben ser idRecurso+"/.default"
 
-### <a name="case-of-v10-resources"></a>El caso de los recursos v1.0
+### <a name="case-of-azure-ad-v10-resources"></a>Caso de recursos de Azure AD (v1.0)
 
 > [!IMPORTANT]
-> Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0, Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso.
+> Si MSAL (punto de conexión de la Plataforma de identidad de Microsoft) pide un token de acceso para un recurso que acepta tokens de la versión 1.0, Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso.
 > Por lo tanto, si, al igual que SQL Azure ( **https://database.windows.net** ), el recurso espera una audiencia que termina con una barra diagonal (para SQL Azure: `https://database.windows.net/` ), deberá solicitar un ámbito de `https://database.windows.net//.default` (tenga en cuenta la doble barra diagonal). Consulte también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) de MSAL.NET: falta la barra diagonal final de la dirección URL del recurso, lo que ha provocado un error de autenticación de SQL.
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
@@ -161,7 +161,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>Más información sobre el protocolo
 
-Para más información, consulte la documentación del protocolo: [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Para más información, consulte la documentación del protocolo: [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
 
 ## <a name="troubleshooting"></a>solución de problemas
 

@@ -1,5 +1,5 @@
 ---
-title: Descripción de las recomendaciones de seguridad de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+title: Descripción de las recomendaciones de seguridad de Azure Security Center para IoT | Microsoft Docs
 description: Sepa en qué consiste el concepto de recomendaciones de seguridad y cómo se usan en Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1ee71bbacdba7a14e94de41563a04be9c0f00d13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6f1efa365b4f3a1ab65cc89c84af57c88325e9d2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618407"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597289"
 ---
 # <a name="security-recommendations"></a>Recomendaciones de seguridad
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Security Center (ASC) for IoT analiza los dispositivos IoT y los recursos de Azure y hace recomendaciones de seguridad para reducir la superficie expuesta a ataques. Las recomendaciones de seguridad requieren una acción y tienen como objetivo ayudar a los clientes a cumplir los procedimientos recomendados de seguridad existentes.
+Azure Security Center para IoT analiza los dispositivos IoT y los recursos de Azure y hace recomendaciones de seguridad para reducir la superficie expuesta a ataques. Las recomendaciones de seguridad requieren una acción y tienen como objetivo ayudar a los clientes a cumplir los procedimientos recomendados de seguridad existentes.
 
 En este artículo, encontrará una lista de recomendaciones que se pueden activar en IoT Hub o en sus dispositivos IoT.
 
@@ -38,11 +34,11 @@ Las recomendaciones de dispositivo proporcionan información y sugerencias para 
 
 | severity | NOMBRE                                                      | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mediano   | Puertos abiertos en el dispositivo                                      | Agente       | Se encontró un punto de conexión de escucha en el dispositivo.                                                                                                                                                          |
+| Mediano   | Puertos abiertos en el dispositivo                                      | Agente       | Se encontró un punto de conexión de escucha en el dispositivo.                                                                                                                                                        |
 | Mediano   | Se encontró una directiva de firewall permisiva en una de las cadenas. | Agente       | Se encontró una directiva de firewall permitida en las cadenas de firewall principales (ENTRADA/SALIDA). La directiva debe denegar todo el tráfico de manera predeterminada y definir reglas para permitir la comunicación necesaria hacia y desde el dispositivo.                               |
 | Mediano   | Se encontró una regla de firewall permisiva en la cadena de entrada     | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                    |
 | Mediano   | Se encontró una regla de firewall permisiva en la cadena de salida    | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                   |
-| Mediano   | Error de validación de línea base de sistema operativo           | Agente       | El dispositivo no cumple las [pruebas comparativas de CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Mediano   | Error de validación de línea base de sistema operativo           | Agente       | El dispositivo no cumple las [pruebas comparativas de CIS Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Recomendaciones operativas para dispositivos IoT
 
@@ -50,9 +46,9 @@ Las recomendaciones operativas proporcionan información y sugerencias para mejo
 
 | severity | NOMBRE                                    | Origen de datos | DESCRIPCIÓN                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Bajo      | El agente envía mensajes sin utilizar          | Agente       | 10 % o más de los mensajes de seguridad tenían un tamaño inferior a 4 KB durante las últimas 24 horas.  |
+| Bajo      | El agente envía mensajes sin utilizar          | Agente       | 10 % o más de los mensajes de seguridad tenían un tamaño inferior a 4 KB durante las últimas 24 horas.  |
 | Bajo      | Configuración de gemelo de seguridad no óptima | Agente       | La configuración del gemelo de seguridad no es óptima.                                        |
-| Bajo      | Conflicto de configuración de gemelo de seguridad    | Agente       | Se identificaron conflictos en la configuración del gemelo de seguridad.                           |
+| Bajo      | Conflicto de configuración de gemelo de seguridad    | Agente       | Se identificaron conflictos en la configuración del gemelo de seguridad. |                          |
 
 
 ## <a name="recommendations-for-iot-hub"></a>Recomendaciones para IoT Hub
@@ -66,3 +62,9 @@ Las alertas de recomendación proporcionan información y sugerencias relativas 
 | Mediano   | La regla del filtro IP incluye un amplio intervalo de IP                   | IoT Hub     | Un intervalo IP de origen de la regla de filtro IP permitido es demasiado grande. Las reglas excesivamente permisivas podrían exponer su instancia de IoT Hub a agentes malintencionados.                                                                                       |
 | Bajo      | Habilitar registros de diagnóstico en IoT Hub                       | IoT Hub     | Habilite los registros y consérvelos por hasta un año. Conservar los registros le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red.                                       |
 |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Introducción](overview.md) al servicio Azure Security Center para IoT
+- Aprenda a [acceder a los datos de seguridad](how-to-security-data-access.md)
+- Más información sobre cómo [investigar un dispositivo](how-to-investigate-device.md)

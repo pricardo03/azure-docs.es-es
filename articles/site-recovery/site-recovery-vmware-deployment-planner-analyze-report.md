@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b63cfc67e20158e434e1a401d47144c3e0f90c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472612"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618739"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analice el informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
@@ -41,9 +41,6 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 **Observed typical data churn per day (GB)** (Renovación de datos normal observada por día [GB]): el valor medio de renovación de datos observada en todos los días de generación de perfiles. Este número se utiliza como una de las entradas para decidir el número de servidores de configuración y servidores de procesos adicionales que se usarán en la implementación.
 
 ## <a name="recommendations"></a>Recomendaciones
-
->[!Note]
->Cuando la replicación se realice directamente en discos administrados, ignore la recomendación del número de cuentas de almacenamiento.
 
 La hoja de recomendaciones del informe de VMware a Azure tiene los siguientes detalles según el RPO deseado seleccionado:
 
@@ -95,7 +92,7 @@ Si ejecuta la herramienta en un servidor de configuración o de procesos que ya 
 Para todas las implementaciones de Site Recovery que se realicen en la empresa, se recomienda usar [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Cuentas de almacenamiento requeridas
-El siguiente gráfico muestra el número total de cuentas de almacenamiento (Estándar y Premium) que se requieren para proteger todas las máquinas virtuales compatibles. Para saber qué cuenta de almacenamiento se debe usar para cada máquina virtual, consulte la sección "selección de ubicación de almacenamiento de máquina virtual".
+El siguiente gráfico muestra el número total de cuentas de almacenamiento (Estándar y Premium) que se requieren para proteger todas las máquinas virtuales compatibles. Para saber qué cuenta de almacenamiento se debe usar para cada máquina virtual, consulte la sección "selección de ubicación de almacenamiento de máquina virtual". Si usa la versión 2.5 de Deployment Planner, esta recomendación solo muestra el número de cuentas de almacenamiento en caché estándar que se necesitan para la replicación, ya que los datos se escriben directamente en Managed Disks.
 
 ![Cuentas de almacenamiento requeridas en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -160,21 +157,19 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 ## <a name="vm-storage-placement"></a>Selección de ubicación de almacenamiento de máquina virtual
 
 >[!Note]
->Cuando la replicación se realice directamente en discos administrados, no es necesario preocuparse por el número de cuentas de almacenamiento. Para el almacenamiento, use solo la recomendación sobre el tipo de almacenamiento (Estándar o Premium). El mismo tipo es aplicable a los discos administrados.
+>Deployment Planner v2.5 en adelante recomienda la colocación del almacenamiento para las máquinas que se replicarán directamente en Managed Disks.
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Disk Storage Type** (Tipo de almacenamiento en disco): cuenta de almacenamiento estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
+**Tipo de almacenamiento de replicación**: disco administrado estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
+**Tipo de cuenta de almacenamiento de registros**: todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar.
 
-**Suggested Account Name** (Nombre de cuenta sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
+**Prefijo sugerido para la cuenta de almacenamiento**: el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento en caché. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
 
-**Log Storage Account** (Cuenta de almacenamiento del registro): todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar. En el caso de las máquinas virtuales que se replican en una cuenta de almacenamiento Premium, configure una cuenta de almacenamiento Estándar adicional para el almacenamiento de registros. Varias cuentas de almacenamiento de replicación Premium puede usar una única cuenta de almacenamiento de registros Estándar. Las máquinas virtuales que se replican en las cuentas de almacenamiento Estándar usan la misma cuenta de almacenamiento para los registros.
+**Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
-**Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de registro de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
-
-**Placement Summary** (Resumen de la selección de ubicación): un resumen de la carga total de máquinas virtuales en la cuenta de almacenamiento en el momento de la replicación y la conmutación por error real o de prueba. Incluye el número total de máquinas virtuales asignadas a la cuenta de almacenamiento, el total de IOPS de lectura/escritura en todas las máquinas virtuales colocadas en esta cuenta de almacenamiento, el total de IOPS de escritura (replicación), el tamaño total configurado en todos los discos y el número total de discos.
+**Placement Summary** (Resumen de la selección de ubicación): un resumen de los discos necesarios para las máquinas virtuales protegidas por tipo de almacenamiento. Incluye el número total de máquinas virtuales, el tamaño total aprovisionado en todos los discos y el número total de discos.
 
 **Virtual Machines to Place** (Máquinas virtuales para colocar): una lista de todas las máquinas virtuales que se deben colocar en la cuenta de almacenamiento especificada para que tanto el rendimiento como el uso sean óptimos.
 
@@ -195,9 +190,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Storage Type** (Tipo de almacenamiento): estándar o premium.
 
-**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres de la cuenta de almacenamiento.
-
-**Storage Account** (Cuenta de almacenamiento): el nombre que utiliza el prefijo sugerido para la cuenta de almacenamiento.
+**Asrseeddisk (disco administrado) creado para la replicación**: el nombre del disco que se crea al habilitar la replicación. Almacena los datos y sus instantáneas en Azure.
 
 **Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de lectura/escritura de la carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
@@ -238,7 +231,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 * El valor de IOPS de origen supera el límite que admite el almacenamiento, 80 000 por máquina virtual.
 
-* La actividad de datos media supera el límite que admite Site Recovery, 10 MB/s para el tamaño medio de E/S de disco.
+* La actividad de datos media supera el límite que admite Site Recovery de 20 MB/s para el tamaño medio de E/S del disco.
 
 * La actividad de datos media supera el límite que admite Site Recovery, 25 MB/s para el tamaño medio de E/S de la máquina virtual (la suma de todas las actividades de los discos).
 

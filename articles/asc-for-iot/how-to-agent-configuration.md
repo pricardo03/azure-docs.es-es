@@ -1,5 +1,5 @@
 ---
-title: Configurar el agente de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+title: Configuración del agente de Azure Security Center para IoT | Microsoft Docs
 description: Aprenda a configurar agentes para usarlos con Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618273"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596324"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artículo se explica qué son los agentes de seguridad de Azure Security Center (ASC) for IoT, cómo cambiarlos y cómo configurarlos.
+Este artículo se explica qué son los agentes de seguridad de Azure Security Center para IoT y se ofrecen detalles sobre cómo cambiarlos y configurarlos. 
 
 > [!div class="checklist"]
 > * Configuración de agentes de seguridad
@@ -37,17 +33,17 @@ Este artículo se explica qué son los agentes de seguridad de Azure Security Ce
 
 ## <a name="agents"></a>Agentes
 
-Los agentes de seguridad de ASC for IoT recopilan datos de dispositivos IoT y llevan a cabo acciones de seguridad para mitigar las vulnerabilidades detectadas. La configuración de seguridad de los agentes se puede controlar mediante un conjunto de propiedades del módulo gemelo que se pueden personalizar. Por lo general, las actualizaciones secundarias de estas propiedades son poco frecuentes.  
+Los agentes de seguridad de Azure Security Center para IoT recopilan datos de dispositivos IoT y llevan a cabo acciones de seguridad para mitigar las vulnerabilidades detectadas. La configuración de seguridad de los agentes se puede controlar mediante un conjunto de propiedades del módulo gemelo que se pueden personalizar. Por lo general, las actualizaciones secundarias de estas propiedades son poco frecuentes.  
 
-El objeto de configuración gemelo del agente de seguridad de ASC for IoT es un objeto con formato JSON. El objeto de configuración consiste en un conjunto de propiedades controlables que se pueden definir para controlar el comportamiento del agente. 
+El objeto de configuración gemelo del agente de seguridad de Azure Security Center para IoT es un objeto con formato JSON. El objeto de configuración consiste en un conjunto de propiedades controlables que se pueden definir para controlar el comportamiento del agente. 
 
 Estas configuraciones ayudan a personalizar al agente en cada escenario donde sea necesario. Así, por ejemplo, son posibles medidas como excluir automáticamente algunos eventos o mantener el consumo de energía en un nivel mínimo si se configuran estas propiedades.  
 
-Utilice el [esquema](https://aka.ms/iot-security-github-module-schema) de configuración del agente de seguridad de ASC for IoT para realizar cambios.  
+Utilice el [esquema](https://aka.ms/iot-security-github-module-schema) de configuración del agente de seguridad de Azure Security Center para IoT para realizar cambios.  
 
 ## <a name="configuration-objects"></a>Objetos de configuración 
 
-Cada propiedad relacionada del agente de seguridad de ASC for IoT se encuentra en el objeto de configuración del agente, dentro de la sección de propiedades adecuada, del módulo **azureiotsecurity**. 
+Las propiedades relacionadas con cada agente de seguridad de Azure Security Center para IoT se encuentran en el objeto de configuración del agente, dentro de la sección de propiedades adecuada, del módulo **azureiotsecurity**. 
 
 Para modificar la configuración, cree y edite este objeto dentro de la identidad de módulo gemela de **azureiotsecurity**. 
 
@@ -55,13 +51,10 @@ Si el objeto de configuración de agente no existe en el módulo gemelo de **azu
 
 ```json
 "desired": {
-  "azureiot*com^securityAgentConfiguration^1*0*0": {
+  "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
   } 
 }
 ```
-
-Asegúrese de validar los cambios de configuración del agente con este [esquema](https://aka.ms/iot-security-github-module-schema).
-El agente no se iniciará si el objeto de configuración no coincide con el esquema.
 
 ## <a name="configuration-schema-and-validation"></a>Esquema de configuración y validación 
 
@@ -69,6 +62,21 @@ Asegúrese de validar la configuración del agente con este [esquema](https://ak
 
  
 Si, mientras el agente se ejecuta, el objeto de configuración se cambia a una configuración no válida (la configuración no coincide con el esquema), el agente pasará por alto la configuración no válida y continuará con la configuración actual. 
+
+### <a name="configuration-validation"></a>Validación de la configuración
+
+El agente de seguridad de Azure Security Center para IoT notifica su configuración actual dentro de la sección de propiedades notificadas de la identidad del módulo gemelo **azureiotsecurity**.
+El agente informa de todas las propiedades disponibles; si el usuario no ha establecido ninguna propiedad, el agente informa de la configuración predeterminada.
+
+Para validar la configuración, compare los valores establecidos en la sección deseada con los valores que se indican en la sección de informes.
+
+Si no coinciden las propiedades deseadas con las notificadas, el agente no pudo analizar la configuración.
+
+Valide las propiedades deseadas según el [esquema](https://aka.ms/iot-security-github-module-schema), corrija los errores y vuelva a establecer las propiedades que prefiera.
+
+> [!NOTE]
+> Se activará una alerta de error de configuración desde el agente en caso de que este último no pueda analizar la configuración deseada.
+> Compare la sección notificada con la deseada para saber si la alerta se sigue aplicando.
 
 ## <a name="editing-a-property"></a>Editar una propiedad 
 
@@ -79,24 +87,28 @@ Para usar un valor de propiedad predeterminado, quite la propiedad del objeto de
 
 1. En su IoT Hub, busque y seleccione el dispositivo que quiera cambiar.
 
-1. Haga clic en el dispositivo y, después, en el módulo **azureiotsecurity**.
+2. Haga clic en el dispositivo y, después, en el módulo **azureiotsecurity**.
 
-1. Haga clic en **Identidad de módulo gemela**.
+3. Haga clic en **Identidad de módulo gemela**.
 
-1. Edite las propiedades del módulo de seguridad que quiera.
+4. Edite las propiedades que desea cambiar en el módulo de seguridad.
    
    Por ejemplo, use la siguiente configuración para configurar eventos de conexión como de prioridad alta y recopilar eventos de prioridad alta cada 7 minutos.
    
    ```json
     "desired": {
-      "azureiot*com^securityAgentConfiguration^1*0*0": {
-        "highPriorityMessageFrequency": "PT7M",    
-        "eventPriorityConnectionCreate": "High" 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+        "highPriorityMessageFrequency": {
+          "value" : "PT7M"
+        },    
+        "eventPriorityConnectionCreate": {
+          "value" : "High" 
+        }
       } 
     }, 
     ```
 
-1. Haga clic en **Save**(Guardar).
+5. Haga clic en **Save**(Guardar).
 
 ### <a name="using-a-default-value"></a>Usar un valor predeterminado
 
@@ -104,15 +116,15 @@ Para usar un valor de propiedad predeterminado, quite la propiedad del objeto de
 
 ## <a name="default-properties"></a>Propiedades predeterminadas 
 
-La siguiente tabla contiene las propiedades controlables de los agentes de seguridad de ASC for IoT.
+La siguiente tabla contiene las propiedades controlables de los agentes de seguridad de Azure Security Center para IoT.
 
-Los valores predeterminados están disponibles en el esquema pertinente en [Github](https://aka.ms/iot-security-module-default).
+Los valores predeterminados están disponibles en el esquema pertinente en [GitHub](https\://aka.ms/iot-security-module-default).
 
 | NOMBRE| Status | Valores válidos| Valores predeterminados| DESCRIPCIÓN |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Requerido: false |Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT7M |Tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
+|highPriorityMessageFrequency|Requerido: false |Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT7M |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
 |lowPriorityMessageFrequency |Requerido: false|Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT5H |Tiempo máximo antes de que los mensajes de prioridad baja se envíen.| 
-|snapshotFrequency |Requerido: false|Valores válidos: Duración en formato ISO 8601 |Valor predeterminado: PT13H |Intervalo de tiempo para la creación de instantáneas de estado del dispositivo.| 
+|snapshotFrequency |Requerido: false|Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT13H |Intervalo de tiempo para la creación de instantáneas de estado del dispositivo.| 
 |maxLocalCacheSizeInBytes |Requerido: false |Valores válidos: |Valor predeterminado: 2560000, mayor que 8192 | Almacenamiento máximo (en bytes) permitido en la memoria caché de mensajes de un agente. Cantidad máxima de espacio permitido para almacenar mensajes en el dispositivo, antes de que se envíen mensajes.| 
 |maxMessageSizeInBytes |Requerido: false |Valores válidos:  Un número positivo, mayor que 8192 y menor que 262144. |Valor predeterminado: 204800 |Máximo tamaño permitido de un mensaje del agente a la nube. Esta configuración controla la cantidad de datos máxima que se envía en cada mensaje. |
 |eventPriority${EventName} |Requerido: false |Valores válidos:  Alto, Bajo, Desactivado |Valores predeterminados: |Prioridad de cada evento generado por el agente. | 
@@ -135,10 +147,11 @@ Los valores predeterminados están disponibles en el esquema pertinente en [Gith
 |Crear conexión |eventPriorityConnectionCreate|Bajo|False|Auditoría de las conexiones TCP creadas desde y hacia el dispositivo. |
 |Configuración del firewall| eventPriorityFirewallConfiguration|Bajo|True|Instantánea de configuración de firewall del dispositivo (reglas de firewall). |
 |Línea base del SO| eventPriorityOSBaseline| Bajo|True|Instantánea de la comprobación de línea base del SO.|
+|
  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Descripción de las recomendaciones de ASC for IoT](concept-recommendations.md)
-- [Explorar las alertas de ASC for IoT](concept-security-alerts.md)
+- [Descripción de las recomendaciones de Azure Security Center para IoT](concept-recommendations.md)
+- [Exploración de las alertas de Azure Security Center para IoT](concept-security-alerts.md)
 - [Acceso a datos de seguridad sin procesar](how-to-security-data-access.md)

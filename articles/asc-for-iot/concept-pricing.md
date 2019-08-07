@@ -1,6 +1,6 @@
 ---
-title: Descripción de Azure Security Center for IoT, versión preliminar | Microsoft Docs
-description: Sepa qué costes conlleva Azure Security Center for IoT y cómo puede mantenerlos a raya.
+title: Descripción de los costos de Azure Security Center para IoT | Microsoft Docs
+description: Sepa qué costos conlleva Azure Security Center para IoT y cómo mantenerlos a raya.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,39 +13,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618453"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596519"
 ---
 # <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-En este artículo se explica el modelo de precios de Azure Security Center (ASC) for IoT, se resumen todos los costes asociados y se explica cómo administrarlos.
+En este artículo se explica el modelo de precios de Azure Security Center para IoT, se resumen todos los costos asociados y se explica cómo administrarlos.
 
 ## <a name="pricing"></a>Precios
 
-El modelo de precios de Azure ASC for IoT está formado por dos partes, y se factura una vez que haya un IoT Hub [habilitado](quickstart-onboard-iot-hub.md) en ASC for IoT:
+El modelo de precios de Azure Security Center para IoT está formado por dos partes, y se factura una vez que haya un IoT Hub [habilitado](quickstart-onboard-iot-hub.md) en Azure Security Center para IoT:
 
 - Coste por dispositivo: capacidades de seguridad integradas en función de los análisis de registros de IoT Hub.
 
 - Coste por mensaje: capacidades de seguridad mejoradas en función de los mensajes de seguridad de dispositivos IoT Edge u hoja.
 
   >[!Note]
-  > Los mensajes de seguridad también comportarán un consumo de cuota en IoT Hub.
+  > Los mensajes de seguridad también comportan un consumo de cuota en IoT Hub.
 
 Para obtener más información, vea la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Costes asociados
 
-ASC for IoT tiene dos tipos de costes asociados que no forman parte de los precios directos:
+Azure Security Center para IoT tiene dos tipos de costos asociados que no forman parte de los precios directos:
 
 - Consumo de cuota de IoT Hub
 
@@ -81,6 +77,7 @@ En la siguiente tabla se proporciona un resumen de los costes asociados y lo que
 | | Se deshabilitan las alertas y recomendaciones basadas en identidades de dispositivo. |
 | _Almacenamiento de eventos de seguridad de dispositivos sin procesar_ | No hay disponible información detallada sobre las recomendaciones de línea base de sistema operativo de dispositivo. |
 | | No hay disponible información detallada sobre las investigaciones de [alertas](concept-security-alerts.md) y [recomendaciones](concept-recommendations.md). |
+|
 
 
 ## <a name="see-also"></a>Otras referencias

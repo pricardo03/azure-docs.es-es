@@ -1,6 +1,6 @@
 ---
-title: Intenciones
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Intenciones (LUIS)
+titleSuffix: Azure Cognitive Services
 description: Una intención representa una tarea o acción que el usuario quiere realizar. Es una finalidad o un objetivo que se expresa en la expresión de un usuario. Defina un conjunto de intenciones que se correspondan con las acciones que los usuarios quieren realizar en la aplicación.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813462"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619925"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceptos sobre intenciones en la aplicación de LUIS
 
@@ -42,12 +42,15 @@ Asigne una expresión a una única intención. Cuando LUIS recibe una expresión
 ## <a name="intent-compared-to-entity"></a>Comparación de intención con entidad
 La intención representa la acción que el bot de chat debe realizar para el usuario y se basa en la expresión completa. La entidad representa palabras o frases que se encuentran dentro de la expresión. Una expresión solo puede tener una intención de puntuación superior, pero puede tener muchas entidades. 
 
-<a name="how-do-intents-relate-to-entities"></a> Cree una intención cuando la _intención_ del usuario desencadenaría una acción en la aplicación cliente, como una llamada a la función checkweather(). Después, cree una entidad para representar los parámetros necesarios para ejecutar la acción. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Cree una intención cuando la _intención_ del usuario desencadenaría una acción en la aplicación cliente, como una llamada a la función checkweather(). Después, cree una entidad para representar los parámetros necesarios para ejecutar la acción. 
 
 |Intención de ejemplo   | Entidad | Entidad en las expresiones de ejemplo   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? (¿Qué tiempo hará en Seattle mañana?) |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` (Muéstrame la previsión de este fin de semana) | 
+||||
 
 ## <a name="custom-intents"></a>Intenciones personalizadas
 

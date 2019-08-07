@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4622cffedc159ce85166eafe571ccb26c2c1b4d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562306"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -43,7 +43,7 @@ Después de crear la aplicación, puede determinar o cambiar la versión del tok
 3. Si ha cambiado la versión de token, seleccione **Guardar**.
 
 > [!NOTE]
-> La API web especifica qué versión del token (v1.0 o v2.0) acepta. Cuando los clientes solicitan un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft v2.0, reciben un token que indica qué versión acepta la API web.
+> La API web especifica qué versión del token (v1.0 o v2.0) acepta. Cuando los clientes solicitan un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft (v2.0), reciben un token que indica qué versión acepta la API web.
 
 ## <a name="no-redirect-uri"></a>URI sin redireccionamiento
 

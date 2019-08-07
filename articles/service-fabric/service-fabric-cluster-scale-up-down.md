@@ -3,7 +3,7 @@ title: Escalado o reducción horizontal de un clúster de Service Fabric | Micro
 description: Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
-ms.author: aljo
-ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161800"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599898"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Escalar o reducir un clúster horizontalmente
 
@@ -63,7 +63,7 @@ Actualmente, la característica de escalado automático no depende de las cargas
 Siga estas instrucciones [para configurar el escalado automático para cada conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> En un escenario de reducción vertical, a menos que su tipo de nodo tenga un [nivel de durabilidad][durability] Gold o Silver, deberá llamar al cmdlet [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) con el nombre de nodo adecuado. La durabilidad Bronze, no se recomienda para reducir verticalmente más de un nodo a la vez.
+> En un escenario de reducción vertical, a menos que su tipo de nodo tenga un [nivel de durabilidad][durability] Oro o Plata, deberá llamar al cmdlet [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) con el nombre de nodo adecuado. La durabilidad Bronze, no se recomienda para reducir verticalmente más de un nodo a la vez.
 > 
 > 
 
@@ -107,7 +107,7 @@ Para los servicios con estado, necesita que un determinado número de nodos est�
 
 ### <a name="remove-the-service-fabric-node"></a>Eliminación del nodo de Service Fabric
 
-Los pasos para quitar manualmente el estado del nodo se aplican solo a los tipos de nodo con un nivel de durabilidad *Bronce*.  Para los niveles de durabilidad *Silver* y *Gold*, la plataforma realiza automáticamente estos pasos. Para obtener más información sobre la durabilidad, consulte [planeamiento de capacidad del clúster de Service Fabric][durability].
+Los pasos para quitar manualmente el estado del nodo se aplican solo a los tipos de nodo con un nivel de durabilidad *Bronce*.  Para los niveles de durabilidad *Silver* y *Gold*, la plataforma realiza automáticamente estos pasos. Para más información sobre la durabilidad, vea el artículo sobre el [planeamiento de capacidad del clúster de Service Fabric][durability].
 
 Para mantener los nodos del clúster distribuidos uniformemente entre los dominios de actualización y error y, por lo tanto, permitir su uso homogéneo, primero se debe quitar el nodo creado más recientemente. En otras palabras, los nodos se deben quitar en orden inverso al que se crearon. El nodo creado más recientemente es aquel con el valor de propiedad `virtual machine scale set InstanceId` más grande. Los ejemplos de código siguientes devuelven el nodo creado más recientemente.
 
@@ -133,7 +133,7 @@ sfctl: `sfctl node transition --node-transition-type Stop`
 PowerShell: `Remove-ServiceFabricNodeState`  
 sfctl: `sfctl node remove-state`
 
-Una vez que estos tres pasos se han aplicado al nodo, este último se puede quitar del conjunto de escalado. Si utiliza cualquier nivel de durabilidad además de [bronce][durability], estos pasos se realizan para cuando se quita la instancia del conjunto de escalado.
+Una vez que estos tres pasos se han aplicado al nodo, este último se puede quitar del conjunto de escalado. Si utiliza cualquier nivel de durabilidad además de [Bronce][durability], estos pasos se realizan cuando se quita la instancia del conjunto de escalado.
 
 El bloque de código siguiente obtiene el último nodo creado, deshabilita, detiene y quita el nodo del clúster.
 

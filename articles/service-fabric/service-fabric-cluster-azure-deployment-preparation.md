@@ -3,9 +3,8 @@ title: Planificación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: aljo
-ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387866"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600006"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
@@ -53,9 +52,9 @@ Consulte las recomendaciones mínimas para [tipos de nodo principales](service-f
 Los números de nodos superiores al mínimo deben basarse en el número de réplicas de la aplicación o los servicios que desee ejecutar en ese tipo de nodo.  [Planeamiento de capacidad para aplicaciones de Service Fabric](service-fabric-capacity-planning.md) le ayuda a estimar los recursos que necesita para ejecutar las aplicaciones. Siempre puede escalar o reducir verticalmente el clúster más tarde para ajustarlo a una carga de trabajo de aplicaciones cambiante. 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selección de los niveles de durabilidad y confiabilidad para el clúster
-El nivel de durabilidad se usa para indicar al sistema los privilegios que tienen las máquinas virtuales con la infraestructura subyacente de Azure. En el tipo de nodo principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, reinicio de máquina virtual, restablecimiento de la imagen inicial de máquina virtual o migración de máquina virtual) que afecte a los requisitos de quórum de los servicios del sistema y los servicios con estado. En los tipos de nodo distintos del principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, el reinicio de máquina virtual, el restablecimiento de la imagen inicial de máquina virtual o la migración de máquinas virtuales) que afecte a los requisitos de cuórum de los servicios con estado.  Para conocer las ventajas de los diferentes niveles y obtener recomendaciones sobre qué nivel usar y cuándo, consulte [Características de durabilidad del clúster][durability].
+El nivel de durabilidad se usa para indicar al sistema los privilegios que tienen las máquinas virtuales con la infraestructura subyacente de Azure. En el tipo de nodo principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, reinicio de máquina virtual, restablecimiento de la imagen inicial de máquina virtual o migración de máquina virtual) que afecte a los requisitos de quórum de los servicios del sistema y los servicios con estado. En los tipos de nodo distintos del principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, el reinicio de máquina virtual, el restablecimiento de la imagen inicial de máquina virtual o la migración de máquinas virtuales) que afecte a los requisitos de cuórum de los servicios con estado.  Para conocer las ventajas de los diferentes niveles y obtener recomendaciones sobre qué nivel usar y cuándo, vea [Características de durabilidad del clúster][durability].
 
-El nivel de confiabilidad se usa para establecer el número de réplicas de los servicios del sistema que se desea ejecutar en el tipo de nodo principal de este clúster. Cuanto mayor sea el número de réplicas, más confiables son los servicios del sistema en el clúster.  Para conocer las ventajas de los diferentes niveles y obtener recomendaciones sobre qué nivel usar y cuándo, consulte [Características de confiabilidad del clúster][reliability]. 
+El nivel de confiabilidad se usa para establecer el número de réplicas de los servicios del sistema que se desea ejecutar en el tipo de nodo principal de este clúster. Cuanto mayor sea el número de réplicas, más confiables son los servicios del sistema en el clúster.  Para conocer las ventajas de los diferentes niveles y obtener recomendaciones sobre qué nivel usar y cuándo, vea [Características de confiabilidad del clúster][reliability]. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Habilitación del proxy inverso o DNS
 Los servicios que se conectan entre sí dentro de un clúster pueden acceder, por lo general, directamente a los puntos de conexión de otros servicios ya que los nodos de un clúster se encuentran en la misma red local. Para facilitar la conexión entre servicios, Service Fabric ofrece servicios adicionales: Un [servicio DNS](service-fabric-dnsservice.md) y un [servicio de proxy inverso](service-fabric-reverseproxy.md).  Se pueden habilitar ambos servicios cuando se implementa un clúster.
