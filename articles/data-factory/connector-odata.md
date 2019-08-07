@@ -48,7 +48,7 @@ Las siguientes propiedades son compatibles con un servicio vinculado de OData:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **OData**. |Sí |
+| type | La propiedad **type** debe establecerse en **OData**. |Sí |
 | url | Dirección URL raíz del servicio de OData. |Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al origen de OData. Los valores que se permiten son: **anónima**, **básica**, **Windows**, **AadServicePrincipal** y **ManagedServiceIdentity**. No se admiten usuarios basados en OAuth. | Sí |
 | userName | Especifique **userName** si se usa la autenticación Básica o de Windows. | Sin |
