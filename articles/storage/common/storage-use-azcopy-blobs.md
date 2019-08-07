@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d1bb0dc0e5c9cca0a9570e9074a294afdeb99455
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 2ab561c387467086a40aa6676af347a107c2c452
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501370"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641121"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -42,7 +42,7 @@ Puede usar el comando `make` de AzCopy para crear un contenedor. En los ejemplos
 
 ## <a name="upload-files"></a>Carga de archivos
 
-Puede usar el comando `copy` de AzCopy para cargar archivos y directorios desde el equipo local.
+Puede usar el comando `copy` de AzCopy para cargar archivos y directorios desde la máquina local.
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -105,7 +105,7 @@ En esta sección se incluyen los ejemplos siguientes:
 
 > [!div class="checklist"]
 > * Descarga de un archivo
-> * Descarga de un directorio
+> * Descargar un directorio
 > * Descarga de archivos mediante caracteres comodín
 
 > [!NOTE]
@@ -129,7 +129,7 @@ En esta sección se incluyen los ejemplos siguientes:
 
 En este ejemplo se crea un directorio denominado `C:\myDirectory\myBlobDirectory` que contiene todos los archivos descargados.
 
-### <a name="download-the-contents-of-a-directory"></a>Descarga del contenido de un directorio
+### <a name="download-the-contents-of-a-directory"></a>Descargar el contenido de un directorio
 
 Puede descargar el contenido de un directorio sin copiar el propio directorio contenedor mediante el carácter comodín (*).
 
@@ -175,8 +175,8 @@ En esta sección se incluyen los ejemplos siguientes:
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
-| **Ejemplo** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
+| **Sintaxis** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
+| **Ejemplo** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
 ### <a name="copy-a-containers-to-another-storage-account"></a>Copia de un contenedor a otra cuenta de almacenamiento
 

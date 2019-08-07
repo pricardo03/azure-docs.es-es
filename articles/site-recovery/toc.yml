@@ -23,7 +23,7 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: Ejecución de una conmutación por recuperación
           href: azure-to-azure-tutorial-failback.md
-    - name: Traslado de máquinas virtuales de Azure
+    - name: Move
       items:
         - name: Traslado de máquinas virtuales de Azure a otra región
           href: azure-to-azure-tutorial-migrate.md
@@ -31,6 +31,8 @@
           href: move-Azure-VMs-AVset-Azone.md
         - name: Traslado de máquinas virtuales públicas entre regiones del gobierno y públicas
           href: region-move-cross-geos.md
+        - name: Traslado a un almacén de una región diferente
+          href: move-vaults-across-regions.md
     - name: Recuperación ante desastres de máquinas virtuales de VMware en Azure
       items:
         - name: Preparación de Azure
@@ -365,8 +367,6 @@
               href: service-updates-how-to.md
             - name: Eliminación de un almacén
               href: delete-vault.md
-            - name: Traslado a un almacén de una región diferente
-              href: move-vaults-across-regions.md
     - name: Recuperación ante desastres para aplicaciones
       items:
         - name: Configuración de la recuperación ante desastres para aplicaciones locales en Azure
@@ -441,6 +441,8 @@
       items:
         - name: Solución de problemas de replicación de máquinas virtuales de Azure
           href: azure-to-azure-troubleshoot-errors.md
+        - name: Solución de problemas de conectividad de máquinas virtuales de Azure
+          href: azure-to-azure-troubleshoot-network-connectivity.md
         - name: Solución de problemas de la replicación en curso
           href: azure-to-azure-troubleshoot-replication.md
         - name: Solución de problemas de Mobility Service

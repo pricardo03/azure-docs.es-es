@@ -56,14 +56,20 @@
       maintainContext: true
     - name: Solución de problemas
       items:
+        - name: 'Bloqueo flexible: CPU'
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: 'Error al crear el clúster: InvalidNetworkConfigurationErrorCode'
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: 'InvalidNetworkSecurityGroupSecurityRules: error de creación del clúster'
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: No se puede registrar en el clúster de HDInsight
           href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: No se pueden agregar nodos al clúster de HDInsight
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: 'InvalidNetworkSecurityGroupSecurityRules: error de creación del clúster'
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Conversión del certificado de entidad de servicio
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: HDFS local bloqueado en modo seguro
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemas de latido de Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procedimientos

@@ -253,6 +253,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure DevOps
               href: use-devtest-labs-build-release-pipelines.md
+        - name: Informe sobre el uso de laboratorios
+          href: report-usage-across-multiple-labs-subscriptions.md
         - name: DevTest Labs en la empresa
           items:
             - name: DevTest Labs a escala empresarial

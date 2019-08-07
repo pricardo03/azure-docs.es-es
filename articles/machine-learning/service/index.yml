@@ -27,28 +27,25 @@ abstract:
     href: 'https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/'
     width: 250
 sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: "Después de\_ <a href=\"setup-create-workspace\">crear un área de trabajo</a> para Azure Machine Learning Service, puede empezar a trabajar con estos inicios rápidos:"
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="quickstart-run-cloud-notebook">Ejecución de un experimento en la nube</a> (no requiere instalación).
-          - html: <a href="quickstart-run-local-notebook">Ejecución de un experimento con un servidor de Bloc de notas local</a> (instalación local del SDK).
   - title: Tutoriales detallados
     items:
       - type: paragraph
-        text: 'Aprenda a preparar datos, configurar experimentos, entrenar y hacer operativos los modelos de Machine Learning:'
+        text: 'Aprenda a preparar datos, configurar experimentos, entrenar y hacer operativos los modelos de Machine Learning.'
+      - type: paragraph
+        text: '<b>Use Azure Portal</b>, una interfaz sin código y fácil de utilizar para el aprendizaje automático:'
       - type: list
         style: unordered
         items:
-          - html: 'Primeros pasos: <a href="tutorial-first-experiment-automated-ml">Entrene e implemente</a> su primer modelo de Machine Learning automatizado en Azure Portal.'
-          - html: 'Primeros pasos: <a href="tutorial-1st-experiment-sdk-setup">Configure el entorno de desarrollo</a> y <a href="tutorial-1st-experiment-sdk-train">entrene su primer modelo de Machine Learning</a> mediante una instancia de Jupyter Notebook (<b>serie de dos partes</b>).'
-          - html: 'Primeros pasos: <a href="ui-tutorial-automobile-price-train-score">Entrene</a> e <a href="ui-tutorial-automobile-price-deploy">implemente</a> su primer experimento de Machine Learning con la interfaz visual para arrastrar y colocar (<b>serie de dos partes</b>).'
-          - html: <a href="tutorial-train-models-with-aml">Entrenamiento</a> e <a href="tutorial-deploy-models-with-aml">implementación</a> de modelos de clasificación de imágenes (<b>serie de dos partes</b>).
-          - html: <a href="tutorial-data-prep">Preparación de datos</a> y <a href="tutorial-auto-train-models">uso de aprendizaje automático automatizado</a> para entrenar y ajustar los modelos de regresión (<b>serie de dos partes</b>).
-          - html: <a href="ui-tutorial-automobile-price-train-score">Predicción del precio de un automóvil</a> con la interfaz visual e <a href="ui-tutorial-automobile-price-deploy">implementación</a> del modelo de regresión.
+          - html: <a href="tutorial-first-experiment-automated-ml">Entrene el primer experimento de aprendizaje automático automatizado</a>.
+          - html: <a href="ui-tutorial-automobile-price-train-score">Entrene el primer experimento en la interfaz de usuario de arrastrar y colocar de la interfaz visual.</a>
+      - type: paragraph
+        text: '<b>Use el SDK de Python</b> en scripts y cuadernos de Machine Learning:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-1st-experiment-sdk-setup">Configure su entorno y entrene su primer experimento de Machine Learning.</a>
+          - html: <a href="tutorial-train-models-with-aml">Entrene e implemente modelos de clasificación de imágenes</a>.
+          - html: <a href="tutorial-data-prep">Prepare los datos y automatice Machine Learning para predecir tarifas de taxi</b>.</a>
   - title: Ejemplos
     items:
       - type: paragraph

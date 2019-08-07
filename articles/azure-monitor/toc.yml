@@ -131,6 +131,8 @@
   items:
     - name: Administración de Azure Monitor
       items:
+        - name: Diseño de una implementación de área de trabajo
+          href: platform/design-logs-deployment.md
         - name: Permisos de roles y seguridad
           href: platform/roles-permissions-security.md
         - name: Direcciones IP
