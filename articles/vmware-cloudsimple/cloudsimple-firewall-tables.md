@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577351"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812663"
 ---
 # <a name="firewall-tables-overview"></a>Información general sobre las tablas de firewall
 
@@ -53,12 +53,12 @@ Es posible que se necesiten reglas adicionales para el flujo de tráfico en la d
 
 Las reglas predeterminadas siguientes se crean en cada tabla de firewall.
 
-|Prioridad|NOMBRE|Seguimiento de estado|Dirección|Tipo de tráfico|Protocolo|Origen|Puerto de origen|Destino|Puerto de destino|.|
+|Priority|NOMBRE|Seguimiento de estado|Dirección|Tipo de tráfico|Protocolo|Source|Puerto de origen|Destino|Puerto de destino|.|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|allow-all-to-internet|Con estado|Salida|IP pública o tráfico de Internet|Todo|Cualquiera|Cualquiera|Cualquiera|Cualquiera|PERMITIR|
-|65001|deny-all-from-internet|Con estado|Entrada|IP pública o tráfico de Internet|Todo|Cualquiera|Cualquiera|Cualquiera|Cualquiera|Denegar|
-|65002|allow-all-to-intranet|Sin estado|Salida|Nube privada interna o tráfico de VPN|Todo|Cualquiera|Cualquiera|Cualquiera|Cualquiera|PERMITIR|
-|65003|allow-all-from-intranet|Sin estado|Entrada|Nube privada interna o tráfico de VPN|Todo|Cualquiera|Cualquiera|Cualquiera|Cualquiera|PERMITIR|
+|65000|allow-all-to-internet|Con estado|Salida|IP pública o tráfico de Internet|Todo|Any|Any|Any|Any|Allow|
+|65001|deny-all-from-internet|Con estado|Entrada|IP pública o tráfico de Internet|Todo|Any|Any|Any|Any|Denegar|
+|65002|allow-all-to-intranet|Sin estado|Salida|Nube privada interna o tráfico de VPN|Todo|Any|Any|Any|Any|Allow|
+|65003|allow-all-from-intranet|Sin estado|Entrada|Nube privada interna o tráfico de VPN|Todo|Any|Any|Any|Any|Allow|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

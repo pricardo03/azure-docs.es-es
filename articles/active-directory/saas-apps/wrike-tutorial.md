@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47af0a43e4d081f50fedf685d46347f0f36233fd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086695"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integración de Azure Active Directory con Wrike
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Wrike, realice los p
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por  **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente en Azure.  
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Wrike](common/preintegrated.png)
 

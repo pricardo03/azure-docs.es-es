@@ -1,20 +1,18 @@
 ---
 title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Ruby | Microsoft Docs'
 description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Ruby a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 77e8e3dd8c32545b24230512ded00e335108d802
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150429"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726351"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 
@@ -115,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia y serán los que utilicemos en este tutorial de inicio rápido.  
 
-Para cargar un archivo en un blob, obtenga la ruta de acceso completa del archivo combinando el nombre del directorio y el nombre de archivo en la unidad local. A continuación, puede cargar el archivo en la ruta de acceso especificada con el método **create\_block\_blob()**. 
+Para cargar un archivo en un blob, obtenga la ruta de acceso completa del archivo combinando el nombre del directorio y el nombre de archivo en la unidad local. A continuación, puede cargar el archivo en la ruta de acceso especificada con el método **create\_block\_blob()** . 
 
 El código de ejemplo crea un archivo local que se usará para la carga y descarga, almacenando el archivo que se va a cargar como **file\_path\_to\_file** y el nombre del blob como **local\_file\_name**. En el ejemplo siguiente se carga el archivo al contenedor denominado **quickstartblobs**.
 
@@ -137,11 +135,11 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Para realizar una actualización parcial del contenido de un blob en bloques, utilice el método **create\_block\_list()**. Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. Los blobs en anexos deben usarse en un modelo de escritura único. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
+Para realizar una actualización parcial del contenido de un blob en bloques, utilice el método **create\_block\_list()** . Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. Los blobs en anexos deben usarse en un modelo de escritura único. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Puede obtener una lista de archivos del contenedor con el método **list\_blobs()**. El código siguiente recupera la lista de blobs, luego los recorre y se muestran los nombres de los blobs encontrados en un contenedor.  
+Puede obtener una lista de archivos del contenedor con el método **list\_blobs()** . El código siguiente recupera la lista de blobs, luego los recorre y se muestran los nombres de los blobs encontrados en un contenedor.  
 
 ```ruby
 # List the blobs in the container
@@ -158,7 +156,7 @@ end
 
 ### <a name="download-the-blobs"></a>Descarga de los blobs
 
-Descargue blobs en el disco local con el método **get\_blob()**. El código siguiente descarga el blob cargado en una sección anterior. "_DOWNLOADED" se agrega como un sufijo al nombre de blob para que pueda ver ambos archivos en el disco local. 
+Descargue blobs en el disco local con el método **get\_blob()** . El código siguiente descarga el blob cargado en una sección anterior. "_DOWNLOADED" se agrega como un sufijo al nombre de blob para que pueda ver ambos archivos en el disco local. 
 
 ```ruby
 # Download the blob(s).

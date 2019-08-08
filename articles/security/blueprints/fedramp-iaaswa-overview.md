@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586141"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778769"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web IaaS para FedRAMP
 
@@ -127,7 +127,7 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 **Administración de revisiones**: Las máquinas virtuales Windows que implementó esta instancia de Azure Security and Compliance Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation mediante la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
 
-**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Virtual Machines proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
+**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para Virtual Machines proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
 
 **Application Gateway**: La arquitectura reduce el riesgo de sufrir vulnerabilidades de seguridad, ya que usa Application Gateway con el firewall de aplicaciones web (WAF) y tiene el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
 

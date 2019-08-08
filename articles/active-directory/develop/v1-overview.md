@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545231"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834671"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Introducción a Azure Active Directory para desarrolladores (v1.0)
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) es un servicio de identidad en la nube que per
 |[Tipos de aplicaciones](app-types.md) | Una introducción a los escenarios de autenticación que se admiten en Azure AD. |
 | | |
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Las guías de inicio y tutoriales siguientes sobre v1.0 le llevan por los pasos necesarios para compilar una aplicación en su plataforma preferida mediante el SDK de la Biblioteca de autenticación de Azure AD (ADAL). Para comenzar, consulte las **guías de inicio de v1.0** y los **tutoriales de v1.0** en [Plataforma de identidad de Microsoft (Azure Active Directory para desarrolladores)](index.yml).
 

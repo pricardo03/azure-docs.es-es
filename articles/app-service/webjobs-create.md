@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 8f4689e7d8d5af1aba2f31aac0359494a3a259f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613378"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736592"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -175,7 +175,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>Expresiones CRON
 
-Puede especificar una [expresión CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) en el portal o incluir un archivo `settings.job` en la raíz del archivo *.zip* de WebJob, como en el ejemplo siguiente:
+Puede especificar una [expresión CRON](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) en el portal o incluir un archivo `settings.job` en la raíz del archivo *.zip* de WebJob, como en el ejemplo siguiente:
 
 ```json
 {

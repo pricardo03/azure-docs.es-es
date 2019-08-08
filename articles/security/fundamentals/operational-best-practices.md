@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 2acfa65ff45b94b7ca0990b79f5c3f128334829c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611523"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828731"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -117,7 +118,7 @@ La puntuación segura, que se basa en controles del Centro de seguridad de Inter
 **Detalles**: La mayoría de las organizaciones con una solución SIEM la usan como un centro de enrutamiento para las alertas de seguridad que requieren la respuesta de un analista. Los eventos procesados generados por Azure Security Center se publican en el Registro de actividad de Azure, uno de los registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Vea [Integración de soluciones de seguridad en Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obtener instrucciones. Si usa Azure Sentinel, vea [Conexión de Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Procedimiento recomendado**: Integre los registros de Azure con la solución SIEM.   
-**Detalles**: Use [Azure Monitor para recopilar y exportar datos](/azure/azure-monitor/overview.md#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).
+**Detalles**: Use [Azure Monitor para recopilar y exportar datos](/azure/azure-monitor/overview#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).
 
 **Procedimiento recomendado**: Acelere los procesos de investigación y búsqueda, y reduzca los falsos positivos mediante la integración de funciones de detección y respuesta (EDR) de puntos de conexión en la investigación del ataque.   
 **Detalles**: [Habilite la integración de ATP de Windows Defender](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) a través de la directiva de seguridad de Security Center. Considere la posibilidad de usar Azure Sentinel para la búsqueda de amenazas y la respuesta a los incidentes.

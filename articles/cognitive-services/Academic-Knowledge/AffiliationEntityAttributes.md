@@ -10,18 +10,19 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 333875472d9b859196c4d828061301b9d32c4d5a
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340526"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705112"
 ---
 # <a name="affiliation-entity"></a>Entidad de afiliación
 
 <sub> *Los atributos siguientes son específicos de la entidad de afiliación. (Ty = '5') </sub>
 
-NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
+NOMBRE    |DESCRIPCIÓN                            |type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
 AfN     |Nombre normalizado de la afiliación        |Cadena     |Equals

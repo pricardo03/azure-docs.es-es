@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435894"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772944"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -82,7 +82,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 |Malayo| `ms`    |Solo estadísticas   |Estadística|
 |Maltés|   `mt`    |Solo estadísticas|  Estadística|
 |Noruego| `nb`    |Traducción neuronal disponible|  Neuronal|
-|Persa|   `fa`    |Solo estadísticas|  Estadística|
+|Persa|   `fa`    |Traducción neuronal disponible|  Neuronal|
 |Polaco|    `pl`    |Traducción neuronal disponible|  Neuronal|
 |Portugués|    `pt`    |Traducción neuronal disponible|  Neuronal|
 |Otomí Querétaro|   `otq`   |Solo estadísticas|  Estadística|

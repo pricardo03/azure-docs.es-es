@@ -1,19 +1,17 @@
 ---
 title: Escenarios comunes de Azure Data Catalog
 description: Información general de escenarios comunes de Azure Data Catalog, entre los que se incluyen el registro y la detección de orígenes de datos de gran valor, la habilitación de inteligencia empresarial con características de autoservicio y la captura del conocimiento existente acerca de los orígenes de datos y procesos.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003963"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736460"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Escenarios comunes de Azure Data Catalog
 En artículo se muestran escenarios comunes en los que Azure Data Catalog puede ayudar a su organización a obtener más valor de sus orígenes de datos existentes.

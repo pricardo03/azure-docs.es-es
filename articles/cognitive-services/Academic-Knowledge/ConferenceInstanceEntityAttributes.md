@@ -10,18 +10,19 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37a353fbb86ca199b2316dcfba5904f4b46b0276
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498753"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705053"
 ---
 # <a name="conference-instance-entity"></a>Entidad de instancia de conferencia
 
 <sub> *Los atributos siguientes son específicos de la entidad de instancia de conferencia. (Ty = '4') </sub>
 
-NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
+NOMBRE    |DESCRIPCIÓN                            |type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
 CIN     |Nombre normalizado de instancia de conferencia ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Cadena     |Equals

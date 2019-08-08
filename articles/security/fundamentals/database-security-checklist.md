@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: bf11d7a9dbaa37db521da67deddbed977cc1d251
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611719"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780550"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
@@ -40,7 +41,7 @@ Entre ellas se incluyen las siguientes:
 La informática en la nube requiere nuevos paradigmas de seguridad que son poco conocidos para muchos usuarios de aplicaciones, administradores de bases de datos y programadores. Como resultado, algunas organizaciones dudan de si implementar una infraestructura en la nube para la administración de datos debido a los riesgos de seguridad percibidos. Sin embargo, se puede mitigar gran parte de este problema mediante una mejor comprensión de las características de seguridad integradas en Microsoft Azure y Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Lista de comprobación
-Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Azure Database](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) antes de revisar esta lista. Una vez que conozca las prácticas recomendadas, podrá obtener el máximo partido de esta lista de comprobación. A continuación, puede usarla para asegurarse de que ha abordado las cuestiones importantes de la seguridad para las bases de datos de Azure.
+Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Azure Database](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices) antes de revisar esta lista. Una vez que conozca las prácticas recomendadas, podrá obtener el máximo partido de esta lista de comprobación. A continuación, puede usarla para asegurarse de que ha abordado las cuestiones importantes de la seguridad para las bases de datos de Azure.
 
 
 |Categoría de la lista de comprobación| DESCRIPCIÓN|

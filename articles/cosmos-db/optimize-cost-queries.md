@@ -4,14 +4,14 @@ description: Aprenda a evaluar los cargos por las unidades de solicitud y a opti
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967447"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717017"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimización de los costos de consulta de Azure Cosmos DB
 

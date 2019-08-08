@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347786"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720815"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiar datos de Dynamics AX con Azure Data Factory (versión preliminar)
 
@@ -32,7 +32,7 @@ De forma específica, este conector de Dynamics AX admite la copia de datos desd
 >[!TIP]
 >También puede usar este conector para copiar los datos desde **Dynamics 365 Finance and Operations**. Consulte la [compatibilidad con OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) y el [método de autenticación](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) de Dynamics 365.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -113,6 +113,7 @@ Para copiar datos desde Dynamics AX, establezca la propiedad **type** del conjun
         "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Dynamics AX linked service name>",
             "type": "LinkedServiceReference"

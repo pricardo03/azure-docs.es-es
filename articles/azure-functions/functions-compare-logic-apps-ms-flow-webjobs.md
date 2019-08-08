@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d6abf266d4af5c79333819f5077009124fa28247
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7bfe586294aec5938e2245c38fbe88aa5e57a66c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839500"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
 
@@ -89,7 +89,7 @@ Azure Functions se basa en el SDK de WebJobs, por lo que comparte muchos desenca
 |[Precio de pago por uso](functions-scale.md#consumption-plan)|✔||
 |[Integración con Logic Apps](functions-twitter-email.md)|✔||
 | Desencadenar eventos |[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de archivos](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Idiomas admitidos  |C#<br>F#<br>JavaScript<br>Java (versión preliminar)<br>Python (versión preliminar) |C#<sup>1</sup>|
+| Idiomas admitidos  |C#<br>F#<br>JavaScript<br>Java<br>Python (versión preliminar) |C#<sup>1</sup>|
 |Administradores de paquetes|NPM y NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (sin el SDK de WebJobs) admite C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python y muchos más. Esta lista no es completa. Un WebJob puede ejecutar cualquier programa o script que se pueda ejecutar en el espacio aislado de App Service.

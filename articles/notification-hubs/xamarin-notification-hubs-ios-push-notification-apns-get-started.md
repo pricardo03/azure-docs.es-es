@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240773"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775018"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Xamarin.iOS mediante Azure Notification Hubs
 
@@ -44,7 +44,7 @@ En este tutorial, se crea o actualiza código para realizar las tareas siguiente
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure**. Si no tiene una suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * La versión más reciente de [Xcode][Install Xcode]
 * Un dispositivo compatible con iOS 10 (o una versión posterior)
 * [programa para desarrolladores de Apple](https://developer.apple.com/programs/)
@@ -56,25 +56,6 @@ En este tutorial, se crea o actualiza código para realizar las tareas siguiente
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Notification Hubs para aplicaciones Xamarin.iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configuración de un Centro de notificaciones para notificaciones push de iOS
-
-Esta sección le guía en la creación de un nuevo centro de notificaciones y la configuración de la autenticación con APNs mediante el certificado push **.p12** que creó anteriormente. Si desea usar un centro de notificaciones ya creado, puede omitir los pasos hasta el paso 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>Configuración de los valores de iOS para el Centro de notificaciones
-
-1. Seleccione **Apple (APNS)** en el grupo **NOTIFICATION SETTINGS** (CONFIGURACIÓN DE NOTIFICACIONES).
-2. Seleccione **Certificado**, haga clic en el icono de **archivo** y seleccione el archivo **.p12** que exportó anteriormente.
-3. Especifique la **contraseña** del certificado.
-4. Seleccione el modo **Espacio aislado**. Use el modo **Producción** solo si desea enviar notificaciones push a los usuarios que compraron la aplicación en la tienda.
-
-    ![Configuración de APNs en Azure Portal][6]
-
-    ![Configuración del certificado de APNs en Azure Portal][7]
-
-Su centro de notificaciones está ahora configurado para funcionar con APNs, y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones push.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Conexión de la aplicación al Centro de notificaciones
 
@@ -124,7 +105,7 @@ Su centro de notificaciones está ahora configurado para funcionar con APNs, y t
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

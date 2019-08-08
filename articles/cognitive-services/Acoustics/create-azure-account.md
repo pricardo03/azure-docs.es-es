@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: db4f96ff7c355f3582966e4daa945f54a6e5b847
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: f11dfda62ebb53aba6254f2db4eace7c524141d4
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616546"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704895"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>Configuración de la cuenta de Azure Batch para Project Acoustics
 Este procedimiento describe cómo configurar una cuenta de Azure Batch para su uso con integraciones de motores Unity y Unreal de Project Acoustics.

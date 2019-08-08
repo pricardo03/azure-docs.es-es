@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673038"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741656"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -571,12 +571,12 @@ Estos registros se crean cuando un usuario de Active Directory intenta iniciar s
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Application | La aplicación que desencadena el evento de inicio de sesión en la cuenta, como Office 15. |
-| Cliente | Detalles sobre dispositivo, sistema operativo del dispositivo y explorador del dispositivo que usó el cliente para el evento de inicio de sesión en la cuenta. |
-| LoginStatus | Esta propiedad viene directamente de OrgIdLogon.LoginStatus. Los algoritmos de alertas podrían realizar la asignación de distintos errores de inicio de sesión interesantes. |
-| UserDomain | La información de identidad del inquilino (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | La aplicación que desencadena el evento de inicio de sesión en la cuenta, como Office 15. |
+| `Client` | Detalles sobre dispositivo, sistema operativo del dispositivo y explorador del dispositivo que usó el cliente para el evento de inicio de sesión en la cuenta. |
+| `LoginStatus` | Esta propiedad viene directamente de OrgIdLogon.LoginStatus. Los algoritmos de alertas podrían realizar la asignación de distintos errores de inicio de sesión interesantes. |
+| `UserDomain` | La información de identidad del inquilino (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory

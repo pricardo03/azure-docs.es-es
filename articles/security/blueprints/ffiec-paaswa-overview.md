@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 63ad692e1050f900310f8195b79f26dd99704b93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3983b0f0be695aa97a82f30e22aed6764a89a5e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609642"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781060"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web PaaS para servicios financieros de FFIEC
 
@@ -61,7 +61,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor (registros)
+- Azure Monitor (registros)
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -81,7 +81,7 @@ En la siguiente sección se detallan los elementos de desarrollo e implementaci�
 **Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que permite a los usuarios acceder a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el grupo de seguridad de red.
 
 Esta solución crea una máquina virtual como host de tipo bastión unido mediante dominio con las siguientes configuraciones:
--   [Extensión antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [Extensión antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Extensión de Diagnósticos de Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) con Azure Key Vault
 -   Una [directiva de apagado automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reducir el consumo de recursos de la máquina virtual cuando no esté en uso.

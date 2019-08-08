@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638599"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779163"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -45,13 +45,18 @@ ms.locfileid: "68638599"
 > [!NOTE]
 > Si usa .NET Core, consulte la versión 3. x más reciente del [SDK de .NET](sql-api-sdk-dotnet-standard.md), que tiene como destino .NET Standard. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet.
+* Permite que las solicitudes de escritura se devuelvan a una región diferente si la original produce un error.
+* Agrega una directiva de reintentos de sesión para la solicitud de escritura.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Se corrige la condición de carrera de seguimiento para las consultas que causaron páginas vacías.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet
 * Mayor tamaño de precisión decimal para consultas de LINQ.
 * Incorporación de nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
 * Incorporación de TimeToLivePropertyPath a DocumentCollection
@@ -250,6 +255,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 de julio de 2019 |--- |
 | [2.4.1](#2.4.1) |20 de junio de 2019 |--- |
 | [2.4.0](#2.4.0) |5 de mayo de 2019 |--- |
 | [2.3.0](#2.3.0) |4 de abril de 2019 |--- |

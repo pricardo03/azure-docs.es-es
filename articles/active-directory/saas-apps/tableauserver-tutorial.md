@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9ef179c1a93d8b2f97c47eb4c68d0312d55d3d1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089405"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integración de Azure Active Directory con Tableau Server
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Server, siga
 
     | NOMBRE | Atributo de origen | Espacio de nombres |
     | ---------------| --------------- | ----------- |
-    | nombre de usuario | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
@@ -186,7 +186,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Server, siga
     h. Haga clic en **Guardar**
 
     > [!NOTE]
-    > El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO. Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
+    > El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO. Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

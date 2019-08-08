@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f2ab82b6c1b4b373c186019eaf96f9864861b9d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8e99da05f71cb01744111b41c301b11a0969057
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497626"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812711"
 ---
 # <a name="azure-network-connections-overview"></a>Introducción a las conexiones de red de Azure
 
@@ -25,7 +25,7 @@ Cuando se crea un servicio CloudSimple en una región, este:
 
 Características de la conexión:
 
-* Protección
+* Seguridad
 * Privada
 * Ancho de banda elevado
 * Baja latencia

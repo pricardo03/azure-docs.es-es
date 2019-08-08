@@ -3,16 +3,17 @@ title: Caja de seguridad del cliente para Microsoft Azure
 description: Introducción técnica de la Caja de seguridad del cliente de Microsoft Azure, que proporciona control sobre el acceso de proveedor en la nube cuando Microsoft necesite tener acceso a los datos del cliente.
 author: cabailey
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
 ms.date: 06/20/2019
-ms.openlocfilehash: 6aa57e7b53beda4315df2198942dce5e66aa9f09
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611191"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727513"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 

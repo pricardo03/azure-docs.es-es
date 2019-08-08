@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d628b12171cd67455ea308a2ca2b29e67855cccc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086827"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: integración de Azure Active Directory con Workteam
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Workteam, realice lo
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por  **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente en Azure.  
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Workteam](common/preintegrated.png)
 

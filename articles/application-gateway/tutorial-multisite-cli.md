@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407138"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717261"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 
@@ -227,7 +227,7 @@ No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al re
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http\://www.contoso.com.
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

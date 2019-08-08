@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0630e62a08314612cb08b5cb26b5a1563de4f40b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655939"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779701"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -111,7 +111,7 @@ Para proporcionar alta disponibilidad en caso de que el servidor principal de Az
 
 ### <a name="enable-cloud-authentication"></a>Habilitación de la autenticación en la nube
 
-Las organizaciones con una instancia local de Active Directory deben extender su directorio a Azure AD con Azure AD Connect y configurar el método de autenticación adecuado. La [elección del método de autenticación correcto](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) para su organización es el primer paso en su viaje para mover las aplicaciones a la nube. Este componente es esencial puesto que controla el acceso a todos los datos y recursos de la nube.
+Las organizaciones con una instancia local de Active Directory deben extender su directorio a Azure AD con Azure AD Connect y configurar el método de autenticación adecuado. La [elección del método de autenticación correcto](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para su organización es el primer paso en su viaje para mover las aplicaciones a la nube. Este componente es esencial puesto que controla el acceso a todos los datos y recursos de la nube.
 
 El método más sencillo y recomendado para permitir la autenticación en la nube para los objetos de directorio local en Azure AD es habilitar la [sincronización de hash de contraseña](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS). Como alternativa, algunas organizaciones pueden considerar la posibilidad de habilitar la [autenticación de paso a través](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA).
 

@@ -1,19 +1,17 @@
 ---
 title: Uso de orígenes de datos de perfiles de datos en Azure Data Catalog
 description: Este artículo de procedimientos destaca cómo incluir perfiles de datos de nivel de tabla y de columna al registrar orígenes de datos en Azure Data Catalog y cómo utilizar perfiles de datos para entender los orígenes de datos.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 0de7b6f0668c84c22b81cd9104a49599760143c1
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001726"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737042"
 ---
 # <a name="data-profile-data-sources"></a>Orígenes de datos de perfiles de datos
 ## <a name="introduction"></a>Introducción

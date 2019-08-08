@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0960862da9e65cff4d957e97a7488dc7a245651a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356053"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742120"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Cómo usar Azure Event Hubs desde una aplicación de Python
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información, consulte [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -162,7 +162,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 Para obtener un tutorial completo sobre cómo leer datos capturados de Event Hubs en un almacenamiento de blobs de Azure desde una aplicación escrita en Python, consulte [este artículo](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>Ejemplos de GitHub
-Puede encontrar más ejemplos de Python en el [repositorio de Git azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/).
+Puede encontrar más ejemplos de Python en el [repositorio de Git azure-event-hubs-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos de la sección de conceptos a partir de [Introducción a las características de Event Hubs](event-hubs-features.md).

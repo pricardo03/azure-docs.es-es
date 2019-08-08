@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407752"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780240"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -42,11 +42,11 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo. Para más información sobre la configuración de VPN Gateway en general, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nombre de la red virtual:** TestVNet1
+* **Nombre de la red virtual:** VNet1
 * **Espacio de direcciones:** 10.1.0.0/16
 * **Subscription** (Suscripción): Suscripción que desea usar.
 * **Grupo de recursos:** TestRG1
-* **Ubicación:** Este de EE. UU
+* **Ubicación:** East US
 * **Subred:** front-end: 10.1.0.0/24, back-end: 10.1.1.0/24 (opcional para este ejercicio)
 * **Nombre de la subred de puerta de enlace:** GatewaySubnet (se rellenará de forma automática en el portal)
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
@@ -66,9 +66,11 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 
 ## <a name="dns"></a>2. Especificación de un servidor DNS
 
-El DNS no es obligatorio para crear conexiones de sitio a sitio. Sin embargo, si desea tener resolución de nombres para los recursos que se implementan en su red virtual, debe especificar un servidor DNS. Esta configuración le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual. No crea un servidor DNS. Para más información acerca de la resolución de nombres, consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+El DNS no es obligatorio para crear conexiones de sitio a sitio.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+Sin embargo, si desea tener resolución de nombres para los recursos que se implementan en su red virtual, debe especificar un servidor DNS. Esta configuración le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual. No crea un servidor DNS. Para más información acerca de la resolución de nombres, consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Creación de la subred de la puerta de enlace
 

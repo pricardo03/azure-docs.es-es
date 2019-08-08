@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e795e1de32ce51d80062d30d6880abbca37f9386
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808980"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720279"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiar datos de Zoho con Azure Data Factory (versión preliminar)
 
@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Zoho:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Zoho** | Sí |
-| punto de conexión | Punto de conexión del servidor de Zoho (`crm.zoho.com/crm/private`). | Sí |
+| endpoint | Punto de conexión del servidor de Zoho (`crm.zoho.com/crm/private`). | Sí |
 | accessToken | Token de acceso para la autenticación de Zoho. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
@@ -77,7 +77,7 @@ Para copiar datos de Zoho, establezca la propiedad type del conjunto de datos en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **ZohoObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **ZohoObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -87,11 +87,12 @@ Para copiar datos de Zoho, establezca la propiedad type del conjunto de datos en
     "name": "ZohoDataset",
     "properties": {
         "type": "ZohoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Para copiar datos de Zoho, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ZohoSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **ZohoSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Accounts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

@@ -1,28 +1,26 @@
 ---
 title: Enumeración de recursos de Azure Storage con la biblioteca del cliente de Storage para C++ | Microsoft Docs
 description: Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Microsoft Azure Storage para C++ para enumerar los contenedores, blobs, colas, tablas y entidades.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 01/23/2017
 ms.author: mhopkins
-ms.reviewer: dineshm
+ms.date: 01/23/2017
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: dineshm
+ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146874"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721916"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
+
 Las operaciones de enumeración son clave para muchos escenarios de desarrollo con Azure Storage. En este artículo se describe cómo enumerar los objetos de Azure Storage de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Microsoft Azure Storage para C++.
 
 > [!NOTE]
 > Esta guía tiene como destino la biblioteca de cliente de Azure Storage para C++ versión 2.x, que está disponible a través de [NuGet](https://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
 
 La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Azure Storage. En este artículo se tratan los siguientes escenarios:
 
@@ -35,6 +33,7 @@ La biblioteca de cliente de almacenamiento proporciona una variedad de métodos 
 Cada uno de estos métodos se muestra con diferentes sobrecargas para diferentes escenarios.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrónica frente sincrónica
+
 Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), admitimos inherentemente operaciones asincrónicas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
 
 ```cpp
@@ -53,13 +52,14 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 Si está trabajando con varias aplicaciones o servicios de subprocesos, es recomendable usar las API asincrónicas directamente en lugar de crear un subproceso para llamar a las API sincrónicas, lo que afecta de forma significativa a su rendimiento.
 
 ## <a name="segmented-listing"></a>Enumeración segmentada
+
 El escalamiento del almacenamiento en la nube requiere la enumeración segmentada. Por ejemplo, puede tener más de un millón de blobs en un contenedor de blobs de Azure o más de mil millones de entidades en una tabla de Azure. Estos no son números teóricos, sino casos de uso reales de clientes.
 
 Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respuesta. En su lugar, puede enumerar objetos mediante la paginación. Cada una de las API de enumeración tienen una sobrecarga *segmentada* .
 
 La respuesta para una operación de enumeración segmentada incluye:
 
-* <i>_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
+* *_segment*, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
 * *continuation_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
 
 Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -102,6 +102,7 @@ Tenga en cuenta también que una consulta en Azure Table Storage puede no devolv
 El patrón de codificación recomendado para la mayoría de los escenarios es la enumeración segmentada, que proporciona información de progreso explícita de la enumeración o la consulta y sobre cómo responde el servicio a cada solicitud. Especialmente para las aplicaciones o servicios de C++, es posible que el control de bajo nivel de la enumeración ayude a controlar la memoria y el rendimiento.
 
 ## <a name="greedy-listing"></a>Enumeración expansiva
+
 Las versiones anteriores de la biblioteca de cliente de almacenamiento de C++ (versiones 0.5.0 de vista previa y versiones anteriores) incluyen API de enumeración no segmentadas para las tablas y colas, como en el ejemplo siguiente:
 
 ```cpp
@@ -147,6 +148,7 @@ Mediante la especificación del parámetro *max_results* del segmento, puede obt
 Además, si usa API de enumeración segmentadas, pero almacena los datos en una colección local de manera "expansiva", también es altamente recomendable refactorizar el código para controlar el almacenamiento de datos en una colección local cuidadosamente a escala.
 
 ## <a name="lazy-listing"></a>Enumeración diferida
+
 Aunque la enumeración expansiva produjo posibles problemas, es recomendable si no hay demasiados objetos en el contenedor.
 
 Si también SDK de Java de Oracle o C#, debería estar familiarizado con el modelo de programación Enumerable, que ofrece una enumeración de estilo diferido, en la que los datos con un determinado desplazamiento solo se capturan si es necesario. En C++, la plantilla de iterador también proporciona un enfoque similar.
@@ -182,6 +184,7 @@ En comparación con la enumeración expansiva, la diferida captura los datos sol
 Las API de enumeración diferida se incluyen en la biblioteca de cliente de almacenamiento de C++ en la versión 2.2.0.
 
 ## <a name="conclusion"></a>Conclusión
+
 En este artículo, hemos tratado diferentes sobrecargas para API de enumeración de varios objetos de la biblioteca de cliente de almacenamiento de C++. Resumiendo:
 
 * Se recomiendan encarecidamente las API asincrónicas en escenarios de varios subprocesos.
@@ -190,6 +193,7 @@ En este artículo, hemos tratado diferentes sobrecargas para API de enumeración
 * La enumeración expansiva no se recomienda y se ha eliminado de la biblioteca.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para obtener más información sobre Azure Storage y la biblioteca de cliente de C++, consulte los siguientes recursos.
 
 * [Cómo usar Blob Storage de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
@@ -198,4 +202,3 @@ Para obtener más información sobre Azure Storage y la biblioteca de cliente de
 * [Documentación de la Biblioteca de cliente de Azure Storage para la API de C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-

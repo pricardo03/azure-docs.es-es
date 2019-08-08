@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753862"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780670"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
@@ -95,7 +95,7 @@ Los datos en tránsito desde el exterior y entre los componentes de Azure están
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) es un consultor en la nube personalizado que le ayudará a seguir los procedimientos recomendados para optimizar las implementaciones de Azure. Analiza la configuración de recursos y la telemetría de uso, y recomienda soluciones que pueden ayudar a mejoran la rentabilidad, el rendimiento, la alta disponibilidad y la seguridad de los recursos de Azure.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Se instala en la infraestructura subyacente de máquinas virtuales de PaaS de forma predeterminada y se administra mediante el tejido de Azure de forma transparente para el cliente.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Se instala en la infraestructura subyacente de máquinas virtuales de PaaS de forma predeterminada y se administra mediante el tejido de Azure de forma transparente para el cliente.
 
 ### <a name="paas-services-in-this-blueprint"></a>Servicios de PaaS de este plano técnico
 

@@ -4,18 +4,18 @@ description: Supervise el estado, el progreso y los resultados de los indizadore
 ms.date: 06/28/2019
 author: RobDixon22
 manager: HeidiSteen
-ms.author: v-rodixo
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07b4fe2ef830c3ce09b655cf4b433d14923229a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 52e9e96598f429bcd57bba23d035d0d341731a9c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486184"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840741"
 ---
 # <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Cómo supervisar el estado y los resultados del indizador de Azure Search
 

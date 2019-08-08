@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 1dd9d9d4fc47f13f275e3be87ad282640840f873
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611623"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727073"
 ---
 # <a name="azure-infrastructure-security"></a>Seguridad de la infraestructura de Azure
 Microsoft Azure se ejecuta en centros de datos administrados y operados por Microsoft. Estos centros de datos geográficamente dispersos cumplen los estándares del sector en materia de seguridad y confiabilidad, como ISO/IEC 27001:2013 y NIST SP 800-53. El personal de operaciones de Microsoft administra y supervisa los centros de datos. El personal de operaciones tiene años de experiencia en la prestación de servicios en línea más grandes del mundo con continuidad ininterrumpida durante el día.

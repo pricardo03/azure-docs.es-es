@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133111"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775926"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -73,14 +73,14 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://www.microsoft.com/en-au/central-regions-eligibility/
+Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
 
 
 | Regiones de origen |
 |---------------------|-----------------|------------------|-----------------|
 | Centro de Australia   | EUAP del centro de EE. UU. | Corea Central    | Centro occidental de EE.UU. |
 | Centro de Australia 2 | Asia oriental       | Corea del Sur      | Europa occidental     |
-| Este de Australia      | Este de EE. UU         | Centro-Norte de EE. UU | Oeste de la India      |
+| Este de Australia      | East US         | Centro-Norte de EE. UU | Oeste de la India      |
 | Sudeste de Australia | Este de EE. UU. 2       | Europa del Norte     | Oeste de EE. UU.         |
 | Sur de Brasil        | EUAP de Este de EE. UU. 2  | Centro-Sur de EE. UU | Oeste de EE. UU. 2       |
 | Centro de Canadá      | Centro de Francia  | Sur de la India      |                 |

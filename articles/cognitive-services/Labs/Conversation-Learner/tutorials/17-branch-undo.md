@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: f4f3024451696dbd0244d9da39cba67b49447af1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389888"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703639"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Uso de las operaciones de ramificación y de deshacer
 En este tutorial, se van a analizar las operaciones de deshacer y bifurcación.

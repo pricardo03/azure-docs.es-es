@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594951"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779669"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -143,7 +143,7 @@ En el ejemplo siguiente: **Ejemplo A: directiva de CA de contingencia para resta
   * Nombre: EM001 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange SharePoint: Requerir la unión a Azure AD híbrido
   * Usuarios y grupos: Incluya a ContingencyAccess. Excluya a CoreAdmins y a EmergencyAccess
   * Aplicaciones en la nube: Exchange Online y SharePoint Online
-  * Condiciones: Cualquiera
+  * Condiciones: Any
   * Conceder control: Requerir unión a un dominio
   * Estado: Disabled
 * Directiva 2: Plataformas de bloque que no sean de Windows
@@ -210,7 +210,7 @@ El bloqueo de usuarios también puede producirse si se cumplen las siguientes co
 - Su organización usa una solución de identidad híbrida con autenticación de paso a través o federación.
 - Los sistemas de identidad local (por ejemplo, Active Directory, AD FS o un componente dependiente) no están disponibles. 
  
-Para que sea más resistente, su organización debe [habilitar la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), ya que le permite [cambiar al uso de la sincronización de hash de contraseña](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) si sus sistemas de identidad locales están inactivos.
+Para que sea más resistente, su organización debe [habilitar la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), ya que le permite [cambiar al uso de la sincronización de hash de contraseña](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) si sus sistemas de identidad locales están inactivos.
 
 #### <a name="microsoft-recommendations"></a>Recomendaciones de Microsoft
  Habilite la sincronización de hash de contraseñas mediante el Asistente de Azure AD Connect, independientemente de si su organización usa la autenticación de paso a través o la federación.

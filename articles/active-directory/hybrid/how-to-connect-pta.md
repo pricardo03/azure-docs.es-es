@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5733f43a2b2800d5eb5031dddaaeb7d59aadc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109416"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779122"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -31,7 +31,7 @@ La autenticación de paso a través de Azure Active Directory (Azure AD) permite
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Esta característica es una alternativa a la [sincronización de hash de contraseña de Azure AD](how-to-connect-password-hash-synchronization.md), que proporciona la misma ventaja de autenticación en la nube a las organizaciones. Sin embargo, las organizaciones que deseen aplicar sus directivas locales de seguridad y contraseñas de Active Directory, pueden usar la autenticación de paso a través en su lugar. Consulte [esta guía](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
+Esta característica es una alternativa a la [sincronización de hash de contraseña de Azure AD](how-to-connect-password-hash-synchronization.md), que proporciona la misma ventaja de autenticación en la nube a las organizaciones. Sin embargo, las organizaciones que deseen aplicar sus directivas locales de seguridad y contraseñas de Active Directory, pueden usar la autenticación de paso a través en su lugar. Consulte [esta guía](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
 
 ![Autenticación de paso a través de Azure AD](./media/how-to-connect-pta/pta1.png)
 

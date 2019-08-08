@@ -10,18 +10,19 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: feed324202f6a75ceb7e9089875b899c51cd8ae6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340203"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705036"
 ---
 # <a name="conference-series-entity"></a>Entidad de serie de conferencias
 
 <sub> *Los atributos siguientes son específicos de la entidad de serie de conferencias. (Ty = '3') </sub>
 
-NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
+NOMBRE    |DESCRIPCIÓN                            |type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
 CN      |Nombre normalizado de la serie de conferencias      |Cadena     |Equals

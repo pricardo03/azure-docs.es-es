@@ -1,20 +1,20 @@
 ---
 title: Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure AD | Microsoft Docs
 description: Esta guía está pensada para ayudar a los Consejeros delegados (CEO), Directores de información (CIO), Directores de seguridad de la información (CISO), Arquitectos jefe de identidad, Arquitectos de empresa y responsables de la toma de decisiones de TI a elegir un método de autenticación para su solución de identidad híbrida de Azure AD en organizaciones de tamaño medio y grande.
-services: active-directory
 keywords: ''
 author: martincoetzer
 ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 8b096720bd1f3c4d29b0077a00f887df854cc0af
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e1910348b53cf147530037283442f453edf2694f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611135"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727545"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 

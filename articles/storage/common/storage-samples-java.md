@@ -1,20 +1,18 @@
 ---
 title: Ejemplos de Azure Storage con Java | Microsoft Docs
 description: Consulte, descargue y ejecute código de ejemplo y aplicaciones para Azure Storage. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, usando las bibliotecas de cliente de almacenamiento Java.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 05/03/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: sample
+ms.openlocfilehash: 4348400e66e4b975d1eeb899cab8bb5024260149
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209804"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721831"
 ---
 # <a name="azure-storage-samples-using-java"></a>Ejemplos de Azure Storage con Java
 

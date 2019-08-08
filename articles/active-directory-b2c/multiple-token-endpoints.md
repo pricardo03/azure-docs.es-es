@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 176b6098f00a4a1cd8aac8ef7c5b8d36422cf082
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668644"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716721"
 ---
 # <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Compatibilidad con varios emisores de tokens en una aplicación web basada en OWIN
 
@@ -109,7 +109,7 @@ MSAL.NET proporciona `TokenValidationParameters` y lo consume el middleware OWIN
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 {
-    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenIDConnect metadata endpoint
+    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenID Connect metadata endpoint
     AccessTokenFormat = new JwtFormat(tvps, new tCachingSecurityTokenProvider(String.Format(AadInstance, ultPolicy)))
 });
 ```

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e28e92da319580baa9b4cadc4bc17f862b69e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68494508"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741364"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -73,7 +73,7 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
    ![Ejemplo: Página Aprovisionamiento de una aplicación en Azure Portal][2]<br/>
    *Figura 3: Configuración del aprovisionamiento en Azure Portal*
 
-1. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: https://api.contoso.com/scim/v2/
+1. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: https://api.contoso.com/scim/
 1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluye un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token que emitió Azure AD.
 1. Seleccione **Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si se produce un error en el intento, se muestra la información de error.  
 
@@ -678,7 +678,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 1. Escriba un nombre para la aplicación y seleccione **Agregar** para crear un objeto de aplicación. El objeto de la aplicación creado está diseñado para representar la aplicación de destino a la que va a aprovisionar y para la que va a implementar el inicio de sesión único, no solo el punto de conexión SCIM.
 1. En la pantalla de administración de la aplicación, seleccione **Aprovisionamiento** en el panel izquierdo.
 1. En el menú **Modo de aprovisionamiento**, seleccione **Automático**.    
-1. En el campo **URL de inquilino**, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. La entrada es algo parecido a http://testmachine.contoso.com:9000 o http://\< ip-address>:9000/, donde \< ip-address> es la dirección IP expuesta a Internet.
+1. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: https://api.contoso.com/scim/
 
 1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluye un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token que emitió Azure AD.
 1. Seleccione **Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si se produce un error en el intento, se muestra la información de error.  
@@ -834,7 +834,7 @@ Para hospedar el servicio en Internet Information Services, un desarrollador deb
 
 ### <a name="handling-endpoint-authentication"></a>Control de la autenticación de puntos de conexión
 
-Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0.   Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory para el inquilino Azure Active Directory esperado, para el acceso al servicio web Graph de Azure Active Directory.  En el token, el emisor se identifica mediante una notificación de iss; por ejemplo, "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  En este ejemplo, la dirección base del valor de notificación, https://sts.windows.net , identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, cbb1a5ac f33b 45fa 9bf5 f37db0fed422, es un identificador único del inquilino de Azure Active Directory para el que se emitió el token. La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. El identificador de la plantilla de aplicación de cada aplicación de la galería varía. Póngase en contacto con ProvisioningFeedback@microsoft.com para cuestiones relativas al identificador de la plantilla de aplicación de una aplicación de la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con las solicitudes SCIM.
+Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0.   Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory para el inquilino Azure Active Directory esperado, para el acceso al servicio web Graph de Azure Active Directory.  En el token, el emisor se identifica mediante una notificación de iss; por ejemplo, "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  En este ejemplo, la dirección base del valor de notificación, https://sts.windows.net, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, cbb1a5ac f33b 45fa 9bf5 f37db0fed422, es un identificador único del inquilino de Azure Active Directory para el que se emitió el token. La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. El identificador de la plantilla de aplicación de cada aplicación de la galería varía. Póngase en contacto con ProvisioningFeedback@microsoft.com para cuestiones relativas al identificador de la plantilla de aplicación de una aplicación de la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con las solicitudes SCIM.
 
 Los desarrolladores que usan las bibliotecas de CLI proporcionadas por Microsoft para crear un servicio SCIM pueden autenticar las solicitudes de Azure Active Directory mediante el paquete Microsoft.Owin.Security.ActiveDirectory siguiendo estos pasos: 
 

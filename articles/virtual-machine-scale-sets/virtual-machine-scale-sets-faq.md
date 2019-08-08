@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258284"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779429"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -174,7 +174,7 @@ Para el último ejemplo, utilice la siguiente instrucción de la CLI de Azure en
 az sf cluster create -h
 ```
 
-Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) y [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) y [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>¿Puedo especificar un par de claves SSH para usar en la autenticación de SSH con un conjunto de escalado de máquinas virtuales Linux desde una plantilla de Resource Manager?
 
@@ -229,7 +229,7 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 }
 ```
 
-Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
+Nombre del elemento de linuxConfiguration | Obligatorio | type | DESCRIPCIÓN
 --- | --- | --- | ---
 ssh | Sin | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
 path | Sí | Cadena | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado

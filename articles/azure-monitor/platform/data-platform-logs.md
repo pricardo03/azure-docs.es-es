@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 33d7f11842d6f22a86816b590cddd91eaf76ed72
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f6eaeb7c4a4d28fcf11ec9acda14629a79d00791
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607046"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814335"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran las distintas formas en que se pueden usar los
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>¿Cómo se estructuran los registros de Azure Monitor?
-Los datos recopilados por los registros de Azure Monitor se almacenan en un [área de trabajo de Log Analytics](../platform/manage-access.md). También puede [crear varias áreas de trabajo](manage-access.md#determine-the-number-of-workspaces-you-need) en su suscripción para administrar distintos conjuntos de datos de registro. Cada área de trabajo contiene varias tablas que almacenan datos desde un origen determinado. Aunque todas las tablas comparten [algunas propiedades comunes](log-standard-properties.md), cada una tiene un único conjunto de propiedades que dependen del tipo de datos que almacena. Una nueva área de trabajo tendrá un conjunto estándar de tablas, y las diferentes soluciones de supervisión y otros servicios que escriben en el área de trabajo agregarán más tablas.
+Los datos recopilados por los registros de Azure Monitor se almacenan en un [área de trabajo de Log Analytics](../platform/design-logs-deployment.md). Cada área de trabajo contiene varias tablas que almacenan datos desde un origen determinado. Aunque todas las tablas comparten [algunas propiedades comunes](log-standard-properties.md), cada una tiene un único conjunto de propiedades que dependen del tipo de datos que almacena. Una nueva área de trabajo tendrá un conjunto estándar de tablas, y las diferentes soluciones de supervisión y otros servicios que escriben en el área de trabajo agregarán más tablas.
 
 Los datos de registro de Application Insights utilizan el mismo motor de Log Analytics como áreas de trabajo, pero se almacenan por separado para cada aplicación supervisada. Cada aplicación tiene un conjunto estándar de tablas para almacenar datos, como solicitudes de aplicación, excepciones y vistas de página.
 

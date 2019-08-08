@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508893"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736424"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -34,7 +34,7 @@ Data Catalog está diseñado tanto para usuarios técnicos como para no técnico
 Actualmente, los servicios de Data Catalog están disponibles en los siguientes centros de datos:
 
 * Oeste de EE. UU.
-* Este de EE. UU
+* East US
 * Europa occidental
 * Europa del Norte
 * Este de Australia

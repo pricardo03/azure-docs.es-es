@@ -1,21 +1,21 @@
 ---
 title: Cinco pasos para proteger su infraestructura de identidad en Azure Active Directory
 description: En este documento se proporciona una lista de acciones importantes que los administradores deberían implementar para proteger su organización mediante las funcionalidades de Azure AD.
-services: active-directory
 author: martincoetzer
 manager: manmeetb
 tags: azuread
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 78d26dffa1d60ad41c46ed449f35d82b6dedb82e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611435"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779782"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -74,7 +74,7 @@ Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar
 Si la organización utiliza una solución de identidad híbrida con federación o autenticación de paso a través, debe habilitar la sincronización de hash de contraseñas por estos dos motivos:
 
 * El informe [Usuarios con credenciales filtradas](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) de la administración de Azure AD le advierte sobre los pares de nombre de usuario y contraseña que se expusieron en la "web oscura". Se filtra un volumen increíble de contraseñas a través del phishing, el malware y la reutilización de contraseñas en sitios de terceros que luego se vulneran. Cuando Microsoft encuentre estas credenciales filtradas, le indicará en este informe si coinciden con las credenciales de la organización; sin embargo, para ello, debe [habilitar la sincronización del hash de contraseñas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
-* Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
+* Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
 
 Obtenga más información sobre el funcionamiento de la [sincronización del hash de contraseñas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
@@ -146,7 +146,7 @@ La auditoría, el registro de eventos y las alertas relacionados con la segurida
 
 ### <a name="monitor-azure-ad"></a>Supervisar Azure AD
 
-Las características y los servicios de Microsoft Azure proporcionan opciones de seguridad de registro y auditoría que le ayudarán a identificar carencias en las directivas y mecanismos de seguridad, y a resolver esas carencias para evitar infracciones. Puede usar el [registro y auditoría de Azure](https://docs.microsoft.com/azure/security/azure-log-audit) y usar los [informes de actividades de la auditoría en el portal de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Las características y los servicios de Microsoft Azure proporcionan opciones de seguridad de registro y auditoría que le ayudarán a identificar carencias en las directivas y mecanismos de seguridad, y a resolver esas carencias para evitar infracciones. Puede usar el [registro y auditoría de Azure](https://docs.microsoft.com/azure/security/fundamentals/log-audit) y usar los [informes de actividades de la auditoría en el portal de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Supervisar Azure AD Connect Health en entornos híbridos
 

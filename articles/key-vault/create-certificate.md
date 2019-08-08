@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63768b83baafe00348a28c5c9c99e5f16619ac99
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427823"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815922"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -82,7 +82,7 @@ La creación de certificados puede completarse manualmente o con un emisor "Self
 |Proveedor|Tipo de certificado|  
 |--------------|----------------------|  
 |DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert|
-|GlobalCert|Key Vault ofrece certificados SSL OV o EV con Globaltrust |
+|GlobalSign|Key Vault ofrece certificados SSL OV o EV con GlobalSign|
 
  Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
 

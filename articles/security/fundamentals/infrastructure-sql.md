@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: d883a9672ce8e33a1c13c96bca727b925bfbd84f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610991"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727101"
 ---
 # <a name="azure-sql-database-security-features"></a>Características de seguridad de Azure SQL Database    
 Azure SQL Database ofrece un servicio de base de datos relacional en Azure. Para proteger los datos de los clientes y proporcionar características sólidas de seguridad que los clientes esperan de un servicio de base de datos relacional, SQL Database tiene sus propios conjuntos de funcionalidades de seguridad. Estas funcionalidades se basan en los controles que se heredan de Azure.

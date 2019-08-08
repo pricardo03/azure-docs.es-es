@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b6f5534bc4127e11d7be4b1a52b92a22b75cbb5a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570611"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828096"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -73,7 +73,7 @@ Azure proporciona varias ofertas de proceso PaaS, incluida la característica We
 
 #### <a name="saas-software-as-a-service"></a>SaaS: software como servicio
 
-SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
+SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
 
 Microsoft Office 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
 
@@ -101,7 +101,7 @@ Servicios para almacenar y administrar datos:
 
 - Azure Storage (consta de los servicios Azure Blob, Queue, Table y File)
 
-- Azure SQL Database
+- Azure SQL Database
 
 - Azure Cosmos DB
 
@@ -147,7 +147,7 @@ Azure es una plataforma en la nube global que está disponible con carácter gen
 
 Una de las ventajas del uso de Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Resulta óptimo elegir la región más cercana a la mayoría de sus clientes, para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países y regiones.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar los servicios y recursos de Azure. Azure Portal se encuentra en [portal.azure.com](https://portal.azure.com). Incluye un panel personalizable y herramientas para administrar los recursos de Azure. También proporciona información de suscripciones y facturación. Para más información, consulte [Información general sobre Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) y [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 

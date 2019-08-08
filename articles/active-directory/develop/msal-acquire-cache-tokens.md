@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546085"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835103"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Adquisición y almacenamiento en caché de tokens mediante MSAL
 Los [tokens de acceso](access-tokens.md) permiten a los clientes llamar a las API web protegidas por Azure de forma segura. Hay muchas maneras de adquirir un token mediante la biblioteca de autenticación de Microsoft (MSAL). Algunas de ellas requieren interacciones del usuario a través de un explorador web. Otras no. En general, la manera de adquirir un token depende de si la aplicación es una aplicación cliente pública (aplicación de escritorio o móvil) o una aplicación cliente confidencial (aplicación web, API web o aplicación de demonio como un servicio de Windows).
@@ -48,7 +48,7 @@ O también, por ejemplo, los ámbitos para una API web personalizada: `api://abs
 Solo para Microsoft Graph API, un valor de ámbito `user.read` se asigna al formato de `https://graph.microsoft.com/User.Read` y se pueden usar indistintamente.
 
 > [!NOTE]
-> Determinadas API web como la API de Azure Resource Manager (https://management.core.windows.net/)) esperan una barra diagonal final "/" en la notificación de audiencia (aud) del token de acceso. En este caso, es importante pasar el ámbito como https://management.core.windows.net//user_impersonation (observe la doble barra diagonal) para que el token sea válido en la API.
+> Determinadas API web como la API de Azure Resource Manager (https://management.core.windows.net/) ) esperan una barra diagonal final "/" en la notificación de audiencia (aud) del token de acceso. En este caso, es importante pasar el ámbito como https://management.core.windows.net//user_impersonation (observe la doble barra diagonal) para que el token sea válido en la API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitud de ámbitos dinámicos para el consentimiento incremental
 Cuando compilaba aplicaciones mediante v1.0, tenía que registrar el conjunto completo de permisos (ámbitos estáticos) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En v2.0 puede solicitar permisos adicionales según sea necesario mediante el parámetro de ámbito. Estos se denominan ámbitos dinámicos y permiten al usuario proporcionar un consentimiento incremental a los ámbitos.

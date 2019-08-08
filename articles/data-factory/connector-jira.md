@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401004"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720726"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar datos de Jira con Azure Data Factory (versión preliminar)
 
@@ -46,9 +46,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Jira:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Jira** | Sí |
 | host | Dirección IP o nombre de host del servicio de Jira. (por ejemplo, jira.example.com)  | Sí |
-| puerto | Puerto TCP que el servidor de Jira utiliza para escuchar las conexiones del cliente. El valor predeterminado es 443 si se conecta a través de HTTPS o 8080 si se conecta a través de HTTP.  | Sin |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Jira.  | Sí |
-| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| port | Puerto TCP que el servidor de Jira utiliza para escuchar las conexiones del cliente. El valor predeterminado es 443 si se conecta a través de HTTPS o 8080 si se conecta a través de HTTP.  | Sin |
+| username | Nombre de usuario que utiliza para acceder al servicio de Jira.  | Sí |
+| password | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
@@ -81,7 +81,7 @@ Para copiar datos de Jira, establezca la propiedad type del conjunto de datos en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **JiraObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **JiraObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -91,11 +91,12 @@ Para copiar datos de Jira, establezca la propiedad type del conjunto de datos en
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Para copiar datos de Jira, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **JiraSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **JiraSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

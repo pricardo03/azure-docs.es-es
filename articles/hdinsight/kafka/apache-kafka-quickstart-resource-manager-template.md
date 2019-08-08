@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137199"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780779"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Inicio rápido: Creación de clústeres de Apache Kafka en Azure HDInsight con plantillas de Resource Manager
 
@@ -41,7 +41,7 @@ Un cliente SSH. Para más información, consulte [Conexión a través de SSH con
     | Propiedad | Valor |
     | --- | --- |
     | Subscription | Su suscripción de Azure. |
-    | Grupos de recursos | Grupo de recursos en que se crea el clúster. |
+    | Resource group | Grupo de recursos en que se crea el clúster. |
     | Location | Región de Azure en que se crea el clúster. |
     | Cluster Name | El nombre del clúster de Kafka. |
     | Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster) | Nombre de cuenta que se usa para iniciar sesión en servicios basados en HTTP con host en el clúster. |
@@ -67,7 +67,7 @@ Un cliente SSH. Para más información, consulte [Conexión a través de SSH con
 
     Una vez que se haya conectado, verá información similar al texto siguiente:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ Un cliente SSH. Para más información, consulte [Conexión a través de SSH con
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Obtención de la información del host de Apache Zookeeper y del agente

@@ -10,17 +10,18 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: e63e9d3f8f17a2473caf3d31b83e318ddb132b43
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609761"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705087"
 ---
 # <a name="author-entity"></a>Entidad de autor
 <sub> *Los atributos siguientes son específicos de la entidad de autor. (Ty = "1") </sub>
 
-NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
+NOMBRE    |DESCRIPCIÓN                            |type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
 AuN     |Nombre normalizado de autor                 |Cadena     |Equals

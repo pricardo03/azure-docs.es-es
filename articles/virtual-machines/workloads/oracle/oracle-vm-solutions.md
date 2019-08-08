@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 70e87a38373688c1b364a079cd07934309662e3e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f13c7e6db2bf13c0547ee8689e22c9f04fe6d511
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707429"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826763"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
 
@@ -87,7 +87,7 @@ Oracle RAC está diseñado para mitigar el error de un único nodo en una config
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Consideraciones sobre la alta disponibilidad y la recuperación ante desastres
 Si usa bases de datos de Oracle en Azure, es responsable de implementar una solución de recuperación ante desastres y alta disponibilidad para evitar tiempo de inactividad. 
 
-La alta disponibilidad y recuperación ante desastres para Oracle Database Enterprise Edition (sin basarse en Oracle RAC) se puede lograr en Azure mediante [Protección de datos, Protección de datos activa](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) u [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate), con dos bases de datos en dos máquinas virtuales independientes. Ambas máquinas virtuales deben estar en la misma [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden acceder entre sí a través de la dirección IP privada persistente.  Además, recomendamos colocar las máquinas virtuales en el mismo conjunto de disponibilidad para permitir a Azure colocarlas en dominios de error y de actualización independientes. Si desea tener redundancia geográfica, puede configurar las dos bases de datos para que se repliquen entre dos regiones diferentes y conectar las dos instancias con una instancia de VPN Gateway.
+La alta disponibilidad y recuperación ante desastres para Oracle Database Enterprise Edition (sin basarse en Oracle RAC) se puede lograr en Azure mediante [Protección de datos, Protección de datos activa](https://www.oracle.com/database/technologies/high-availability/dataguard.html) u [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate), con dos bases de datos en dos máquinas virtuales independientes. Ambas máquinas virtuales deben estar en la misma [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden acceder entre sí a través de la dirección IP privada persistente.  Además, recomendamos colocar las máquinas virtuales en el mismo conjunto de disponibilidad para permitir a Azure colocarlas en dominios de error y de actualización independientes. Si desea tener redundancia geográfica, puede configurar las dos bases de datos para que se repliquen entre dos regiones diferentes y conectar las dos instancias con una instancia de VPN Gateway.
 
 En el tutorial [Implement Oracle DataGuard on Azure](configure-oracle-dataguard.md) (Implementación de Oracle DataGuard en Azure) se describe el procedimiento de configuración básico en Azure.  
 

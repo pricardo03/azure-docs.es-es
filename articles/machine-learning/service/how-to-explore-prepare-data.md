@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699115"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828440"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Exploración y preparación de datos con la clase Dataset (versión preliminar)
 
@@ -35,7 +35,7 @@ Para explorar y preparar los datos, necesitará:
 
 * El SDK de Azure Machine Learning para Python (versión 1.0.21 o posterior), que incluye el paquete azureml-datasets. Para instalar o actualizar a la versión más reciente del SDK, consulte [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* SDK de preparación de datos de Azure Machine Learning Para instalar o actualizar a la versión más reciente, consulte [Instalación o actualización del SDK de preparación de datos](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+* SDK de preparación de datos de Azure Machine Learning Para instalar o actualizar a la versión más reciente, consulte [Instalación o actualización del SDK de preparación de datos](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
 
 * Descargue los archivos de ejemplo para seguir los ejemplos [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) y [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4f3053063ce33d2777387da2c53effd61b05f1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e485e4fcee665e810c42bca6b38aac065ff668
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399875"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841431"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualización de datos en la versión preliminar del explorador
 

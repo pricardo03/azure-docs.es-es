@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908113"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735600"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
@@ -127,7 +127,7 @@ Ahora, puede agregar el código de función de C# que conecta con SQL Database.
 
     En la primera ejecución, debería actualizar 32 filas de datos. Las ejecuciones siguientes no actualizan ninguna fila de datos, a menos que realice cambios en los datos de la tabla SalesOrderHeader para que la instrucción `UPDATE` seleccione más filas.
 
-Si tiene previsto [publicar esta función](functions-develop-vs.md#publish-to-azure), no olvide cambiar el atributo `TimerTrigger` a una [programación cron](functions-bindings-timer.md#cron-expressions) más razonable que cada quince segundos.
+Si tiene previsto [publicar esta función](functions-develop-vs.md#publish-to-azure), no olvide cambiar el atributo `TimerTrigger` a una [programación cron](functions-bindings-timer.md#ncrontab-expressions) más razonable que cada quince segundos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

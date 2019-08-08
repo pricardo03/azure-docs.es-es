@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0279363c039e3ec3c2deac3bc7f71c32c547e9d1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475713"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703377"
 ---
 # <a name="how-to-use-version-tagging"></a>Uso del etiquetado de versiones
 

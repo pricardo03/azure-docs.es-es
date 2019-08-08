@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903407"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735671"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
@@ -43,7 +43,7 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Creación de una función desencadenada por un temporizador
 
-1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
+1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
 
    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
@@ -58,7 +58,7 @@ Después, cree una función en la nueva Function App.
     | Configuración | Valor sugerido | Descripción |
     |---|---|---|
     | **Nombre** | Valor predeterminado | Define el nombre de la función desencadenada por el temporizador. |
-    | **Programación** | 0 \*/1 \* \* \* \* | [Expresión CRON](functions-bindings-timer.md#cron-expressions) de seis campos que programa la función para que se ejecute cada minuto. |
+    | **Programación** | 0 \*/1 \* \* \* \* | [Expresión CRON](functions-bindings-timer.md#ncrontab-expressions) de seis campos que programa la función para que se ejecute cada minuto. |
 
 4. Haga clic en **Create**(Crear). Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
 

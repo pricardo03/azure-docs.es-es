@@ -7,17 +7,18 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ee5c043038fbb747e90bca9530cbe2e94c8a95c2
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144678"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728718"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Procedimientos recomendados para un desarrollo seguro en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan las fases del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft así como conceptos y preguntas de seguridad que se han de tener en cuenta durante cada fase del ciclo de vida. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse en cada fase del ciclo de vida para diseñar, desarrollar e implementar una aplicación más segura.

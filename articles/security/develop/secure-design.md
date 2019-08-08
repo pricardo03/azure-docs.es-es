@@ -7,17 +7,18 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653279"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780623"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -155,7 +156,7 @@ El modelado del diseño de aplicaciones y la enumeración de amenazas [STRIDE](h
 | Suplantación de identidad               | Authentication        | [Requiere conexiones HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Alteración de datos              | Integridad             | Valida certificados SSL/TLS. Las aplicaciones que utilizan SSL/TLS deben comprobar completamente los certificados X.509 de las entidades a las que se conectan. Usa certificados de Azure Key Vault para [administrar sus certificados x509](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Rechazo            | No rechazo       | Habilita opciones de [supervisión y diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) de Azure.|
-| Divulgación de información | Confidencialidad       | Cifra datos confidenciales [en reposo](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) y [en tránsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Divulgación de información | Confidencialidad       | Cifra datos confidenciales [en reposo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) y [en tránsito](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
 | Denegación de servicio      | Disponibilidad          | Supervisa las métricas de rendimiento de las posibles condiciones de denegación de servicio. Implementa filtros de conexión. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
 | Elevación de privilegios | Authorization         | Usa Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
@@ -266,7 +267,7 @@ Etiquete todos los datos aplicables como confidenciales al diseñar sus formatos
 #### <a name="use-encryption"></a>Uso de cifrado
 
 La protección de datos debe ser una parte esencial de su estrategia de seguridad.
-Si los datos se almacenan en una base de datos o se mueven entre ubicaciones, use el cifrado de [datos en reposo](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (mientras se encuentran en la base de datos) y el cifrado de [datos en tránsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (en su camino hacia y desde el usuario, la base de datos, una API o un punto de conexión de servicio). Se recomienda usar siempre protocolos SSL/TLS para intercambiar datos. Asegúrese de usar la versión más reciente de TLS para el cifrado (actualmente, es la versión 1.2).
+Si los datos se almacenan en una base de datos o se mueven entre ubicaciones, use el cifrado de [datos en reposo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (mientras se encuentran en la base de datos) y el cifrado de [datos en tránsito](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) (en su camino hacia y desde el usuario, la base de datos, una API o un punto de conexión de servicio). Se recomienda usar siempre protocolos SSL/TLS para intercambiar datos. Asegúrese de usar la versión más reciente de TLS para el cifrado (actualmente, es la versión 1.2).
 
 #### <a name="avoid-hard-coding"></a>Evitación del codificado de forma rígida
 

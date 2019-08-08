@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442367"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772752"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning Service?
 
@@ -30,7 +30,7 @@ El diagrama siguiente es una taxonomía del área de trabajo:
 
 En el diagrama se muestran los siguientes componentes de un área de trabajo:
 
-+ Un área de trabajo puede incluir [máquinas virtuales de Notebook](quickstart-run-cloud-notebook.md), recursos en la nube configurados con el entorno de Python necesario para ejecutar Azure Machine Learning.
++ Un área de trabajo puede incluir [máquinas virtuales de Notebook](tutorial-1st-experiment-sdk-setup.md), recursos en la nube configurados con el entorno de Python necesario para ejecutar Azure Machine Learning.
 + Los [roles de usuario](how-to-assign-roles.md) le permiten compartir su área de trabajo con otros usuarios, equipos o proyectos.
 + Los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-targets) se usan para ejecutar sus experimentos.
 + Al crear el área de trabajo, los [recursos asociados](#resources) también se crean automáticamente.

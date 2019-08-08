@@ -7,12 +7,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 83a13af1d3a17929591ac636add8d0eb7bc61ef3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699661"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704483"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -275,10 +275,6 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="where-are-snapshots-stored"></a>
  **¿Dónde se almacenan mis instantáneas de recurso compartido?**  
     Las instantáneas de recurso compartido se almacenan en la misma cuenta de almacenamiento que el recurso compartido de archivos.
-
-* <a id="snapshot-perf-impact"></a>
- **¿Afecta al rendimiento el uso de instantáneas de recurso compartido?**  
-    Las instantáneas de recurso compartido no tienen ninguna sobrecarga de rendimiento.
 
 * <a id="snapshot-consistency"></a>
  **¿Son coherentes con la aplicación las instantáneas de recurso compartido?**  

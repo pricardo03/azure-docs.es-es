@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 676b7f63b82a0e7c06264cb6dcbead8c1344a076
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60721870"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707115"
 ---
 # <a name="what-is-project-answer-search"></a>¿Qué es Project Answer Search?
 Project Answer Search API usa el punto de conexión Bing v7 para obtener respuestas a preguntas. Una pregunta como "What is the circumference of the earth?" (¿Cuál es la circunferencia de la Tierra?) devuelve una respuesta con información objetiva.  Una consulta sobre una persona, un lugar o una cosa devuelve información sobre la entidad identificada por la consulta. Estos escenarios pueden resultar útiles en aplicaciones como bots de conversaciones, aplicaciones de mensajería, lectores, etc.  

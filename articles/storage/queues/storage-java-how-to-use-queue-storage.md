@@ -1,21 +1,19 @@
 ---
 title: Uso del almacenamiento de colas de Java - Azure Storage
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Java.
-services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
 ms.subservice: queues
-ms.openlocfilehash: 3cbd1445640f37cbc63d74d1366c390c774aecd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 5d2bd94f6b95ff993ae367b99f48746c091f5739
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151111"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721431"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso del almacenamiento de colas de Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -393,7 +391,7 @@ catch (Exception e)
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 * [SDK de Azure Storage para Java][Azure Storage SDK for Java]
-* [Referencia del SDK del cliente de Azure Storage][Referencia del SDK del cliente de Azure Storage]
+* [Referencia del SDK de cliente de Azure Storage][Azure Storage Client SDK Reference]
 * [API de REST de servicios de Azure Storage][Azure Storage Services REST API]
 * [Blog del equipo de Azure Storage][Azure Storage Team Blog]
 

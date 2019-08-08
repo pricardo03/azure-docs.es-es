@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64715792"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827419"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envío de mensajes EDI por lotes a socios comerciales con Azure Logic Apps
 
@@ -114,7 +114,7 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
 
 ### <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-Para asegurarse de que la receptora de lotes funciona según lo previsto, puede agregar una acción HTTP con fines de prueba y enviar un mensaje por lotes al [servicio RequestBin](https://requestbin.fullcontact.com/). 
+Para asegurarse de que la receptora de lotes funciona según lo previsto, puede agregar una acción HTTP con fines de prueba y enviar un mensaje por lotes al [servicio RequestBin](https://requestbin.com/). 
 
 1. En la acción de codificación de X12, elija **Nuevo paso**. 
 

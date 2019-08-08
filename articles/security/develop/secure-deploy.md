@@ -7,17 +7,18 @@ ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8249113ee65c28414c79f00c53d11596673434b
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: dd86e6bf571dd67da00aee63eadff031a1040ff7
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144674"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728734"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implementación de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al implementar aplicaciones para la nube. Se tratan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de versión y de respuesta del [Ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para implementar una aplicación más segura.

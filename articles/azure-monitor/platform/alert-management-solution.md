@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60777038"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741276"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
@@ -89,26 +89,26 @@ La solución importa alertas desde System Center Operations Manager y crea un re
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |*Alerta* |
-| SourceSystem |*OpsManager* |
-| AlertContext |Detalles del elemento de datos que provocó la alerta generados en formato XML. |
-| AlertDescription |Descripción detallada de la alerta. |
-| AlertId |GUID de la alerta. |
-| AlertName |Nombre de la alerta |
-| AlertPriority |Nivel de prioridad de la alerta. |
-| AlertSeverity |Nivel de gravedad de la alerta. |
-| AlertState |Estado de resolución más reciente de la alerta. |
-| LastModifiedBy |Nombre del usuario que modificó por última vez la alerta. |
-| ManagementGroupName |Nombre del grupo de administración donde se generó la alerta. |
-| RepeatCount |Número de veces que se generó la misma alerta para el mismo objeto supervisado desde que se resolvió. |
-| ResolvedBy |Nombre del usuario que resolvió la alerta. Vacío si la alerta todavía no se ha resuelto. |
-| SourceDisplayName |Nombre para mostrar del objeto de supervisión que generó la alerta. |
-| SourceFullName |Nombre completo del objeto de supervisión que generó la alerta. |
-| TicketId |Id. de vale para la alerta si el entorno de System Center Operations Manager está integrado con un proceso para asignar vales para las alertas.  Vacío si no se asigna ningún vale. |
-| TimeGenerated |Fecha y hora en que se creó la alerta. |
-| TimeLastModified |Fecha y hora en que se cambió la alerta. |
-| TimeRaised |Fecha y hora en que se generó la alerta. |
-| TimeResolved |Fecha y hora en que se resolvió la alerta. Vacío si la alerta todavía no se ha resuelto. |
+| `Type` |*Alerta* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |Detalles del elemento de datos que provocó la alerta generados en formato XML. |
+| `AlertDescription` |Descripción detallada de la alerta. |
+| `AlertId` |GUID de la alerta. |
+| `AlertName` |Nombre de la alerta |
+| `AlertPriority` |Nivel de prioridad de la alerta. |
+| `AlertSeverity` |Nivel de gravedad de la alerta. |
+| `AlertState` |Estado de resolución más reciente de la alerta. |
+| `LastModifiedBy` |Nombre del usuario que modificó por última vez la alerta. |
+| `ManagementGroupName` |Nombre del grupo de administración donde se generó la alerta. |
+| `RepeatCount` |Número de veces que se generó la misma alerta para el mismo objeto supervisado desde que se resolvió. |
+| `ResolvedBy` |Nombre del usuario que resolvió la alerta. Vacío si la alerta todavía no se ha resuelto. |
+| `SourceDisplayName` |Nombre para mostrar del objeto de supervisión que generó la alerta. |
+| `SourceFullName` |Nombre completo del objeto de supervisión que generó la alerta. |
+| `TicketId` |Id. de vale para la alerta si el entorno de System Center Operations Manager está integrado con un proceso para asignar vales para las alertas.  Vacío si no se asigna ningún vale. |
+| `TimeGenerated` |Fecha y hora en que se creó la alerta. |
+| `TimeLastModified` |Fecha y hora en que se cambió la alerta. |
+| `TimeRaised` |Fecha y hora en que se generó la alerta. |
+| `TimeResolved` |Fecha y hora en que se resolvió la alerta. Vacío si la alerta todavía no se ha resuelto. |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 La tabla siguiente proporciona búsquedas de registros de ejemplo para los registros de alerta recopilados por esta solución: 

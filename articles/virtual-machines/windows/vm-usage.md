@@ -8,19 +8,19 @@ manager: gwallace
 editor: ''
 tags: azure-virtual-machine
 ms.assetid: ''
-ms.service: ''
+ms.service: virtual-machines
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 4cd0f27ebfeb25724bab50069344b417f62d5f50
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 303bf41d943267c42c1311d185a4ff65baf5178f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707889"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834610"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](../../billing/billing-understand-your-bill.md).
@@ -82,7 +82,7 @@ El nombre de región que se rellenó en el campo Ubicación de recurso en los de
 |    chinaeast             |    Este de China                            |
 |    chinanorth            |    Norte de China                           |
 |    eastasia              |    Asia oriental                             |
-|    estado                |    Este de EE. UU                               |
+|    estado                |    East US                               |
 |    eastus2               |    Este de EE. UU. 2                             |
 |    GermanyCentral        |    Centro de Alemania                            |
 |    GermanyNortheast      |    Nordeste de Alemania                          |

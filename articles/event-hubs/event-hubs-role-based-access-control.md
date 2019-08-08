@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448139"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816059"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -39,7 +39,7 @@ El rol [Propietario de datos de Azure Event Hubs (versión preliminar)](../role-
 
 En la siguiente sección se describen los pasos necesarios para crear y ejecutar una aplicación de ejemplo que solicita que un usuario interactivo de Azure AD inicie sesión, cómo conceder acceso a Event Hubs para esa cuenta de usuario y cómo utilizar esa identidad para acceder a Event Hubs. 
 
-En esta introducción se describe una aplicación de consola simple, y el [código para esta aplicación se encuentra en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/).
+En esta introducción se describe una aplicación de consola simple, y el [código para esta aplicación se encuentra en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK).
 
 ### <a name="create-an-active-directory-user-account"></a>Creación de una cuenta de usuario de Active Directory
 

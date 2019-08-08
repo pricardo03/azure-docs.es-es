@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011714"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735206"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registro de recursos de datos en Azure Data Catalog
 
@@ -71,7 +71,7 @@ Ahora puede registrar recursos de datos de la base de datos de Azure SQL mediant
 
     2. Seleccione **Product**, **ProductCategory**, **ProductDescription** y **ProductModel** mediante Ctrl + seleccionar.
 
-    3. Seleccione la **flecha Mover seleccionados** (**>**). Esta acción mueve todos los objetos seleccionados a la lista **Objetos que se registrarán** .
+    3. Seleccione la **flecha Mover seleccionados** ( **>** ). Esta acción mueve todos los objetos seleccionados a la lista **Objetos que se registrarán** .
 
           ![Azure Data Catalog: examen o selección de objetos](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 

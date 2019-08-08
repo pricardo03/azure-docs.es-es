@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109265"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779439"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -159,7 +159,7 @@ Para más información sobre la condición **Ubicación** en el acceso condicion
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD híbrido
 
-Al unir un dispositivo a Azure AD, puede crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Además, los usuarios pueden iniciar sesión en un dispositivo mediante una cuenta profesional o educativa en lugar de una cuenta personal. Al usar dispositivos unidos a Azure AD híbrido, puede unir a Azure AD sus dispositivos unidos a un dominio de Active Directory. Es posible que un entorno federado se haya configurado para usar esta característica.
+Al unir un dispositivo a Azure AD, puede crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Además, los usuarios pueden iniciar sesión en un dispositivo mediante una cuenta profesional o educativa en lugar de una cuenta personal. Al usar dispositivos unidos a Azure AD híbrido, puede unir a Azure AD sus dispositivos unidos a un dominio de Active Directory. Es posible que un entorno federado se haya configurado para usar esta característica.
 
 Para asegurarse de que la unión híbrida sigue funcionando en todos los dispositivos unidos al dominio una vez que los dominios se han convertido a la sincronización de hash de contraseña, para clientes de Windows 10, debe usar Azure AD Connect para sincronizar las cuentas de equipos de Active Directory con Azure AD. 
 
@@ -474,5 +474,5 @@ Para obtener más información, consulte [¿Cómo puedo implementar la clave de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre los [conceptos de diseño de Azure AD Connect](plan-connect-design-concepts.md).
-* Selección de la [autenticación adecuada](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Selección de la [autenticación adecuada](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Más información sobre las [topologías admitidas](plan-connect-design-concepts.md).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: mayg
-ms.openlocfilehash: 35fa26112a6026ab05bd59b38621de7ee802c715
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: eb29f8280ac1da3cd366b0c54cc6e2ce92b06286
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491894"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726467"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute con Azure Site Recovery
 
@@ -56,7 +56,7 @@ De forma predeterminada, para la recuperación ante desastres de máquinas virtu
 
 Si ya usa ExpressRoute para conectarse desde el centro de datos local a las máquinas virtuales de Azure en la región de origen, puede planear el restablecimiento de la conectividad de ExpressRoute en la región de destino de la conmutación por error. Puede usar el mismo circuito ExpressRoute para conectarse a la región de destino a través de una nueva conexión de red virtual o usar un circuito ExpressRoute independiente y una conexión para la recuperación ante desastres. [Aquí](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute) se describen los posibles escenarios.
 
-Puede replicar máquinas virtuales de Azure en cualquier región de Azure del mismo clúster geográfico como se detalla [aquí](../site-recovery/azure-to-azure-support-matrix.md#region-support). Si la región de Azure de destino elegida no está en la misma región geopolítica que la de origen, es posible que tenga que habilitar ExpressRoute Premium. Para obtener más información, consulte [Ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) y [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+Puede replicar máquinas virtuales de Azure en cualquier región de Azure del mismo clúster geográfico como se detalla [aquí](../site-recovery/azure-to-azure-support-matrix.md#region-support). Si la región de Azure de destino elegida no está en la misma región geopolítica que la de origen, es posible que tenga que habilitar ExpressRoute Premium. Para obtener más información, consulte [Ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md) y [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772422"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722101"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -166,7 +166,7 @@ Esta configuración ayuda a protegerse frente a errores del circuito ExpressRout
 
 En esta configuración, solo hay un circuito ExpressRoute. Aunque el circuito tiene una conexión redundante en caso de que uno deje de funcionar, un único circuito no proporciona resistencia si la región de emparejamiento deja de funcionar. Observe lo siguiente:
 
-- Puede replicar máquinas virtuales de Azure en cualquier región de Azure de la [misma ubicación geográfica](azure-to-azure-support-matrix.md#region-support). Si la región de Azure de destino no está en la misma ubicación que la de origen, deberá habilitar ExpressRoute Premium si usa un único circuito ExpressRoute. Más información sobre [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) y [precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Puede replicar máquinas virtuales de Azure en cualquier región de Azure de la [misma ubicación geográfica](azure-to-azure-support-matrix.md#region-support). Si la región de Azure de destino no está en la misma ubicación que la de origen, deberá habilitar ExpressRoute Premium si usa un único circuito ExpressRoute. Más información sobre [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md) y [precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - No podrá conectar a la vez redes virtuales de origen y destino al circuito si se usa el mismo espacio de direcciones IP en la región de destino. En este escenario:    
     -  Desconecte la conexión del lado de origen y, luego, establezca la conexión de lado de destino. Se puede generar un script con este cambio de conexión como parte de un plan de Site Recovery. Observe lo siguiente:
         - En un error regional, si la región primaria es inaccesible, la operación de desconexión podría producir error. Este error puede afectar la creación de la conexión a la región de destino.

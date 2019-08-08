@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477126"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779375"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planificación de una implementación de inicio de sesión único
 
@@ -95,7 +95,7 @@ Desde la perspectiva del inicio de sesión, las aplicaciones con cuentas compart
 
 La elección del método de autenticación correcto es una primera decisión fundamental en la configuración de una solución de identidad híbrida de Azure AD. Implemente el método de autenticación que se configura mediante Azure AD Connect, y que también aprovisionará a los usuarios en la nube.
 
-Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo. Debe elegir el que mejor coincida con el escenario concreto. Para más información, vea [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo. Debe elegir el que mejor coincida con el escenario concreto. Para más información, vea [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## <a name="plan-your-security-and-governance"></a>Planificación de la seguridad y la gobernanza 
 

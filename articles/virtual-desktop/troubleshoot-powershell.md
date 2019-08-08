@@ -2,17 +2,17 @@
 title: 'PowerShell para Windows Virtual Desktop: Azure'
 description: Cómo solucionar problemas de PowerShell al configurar un entorno de inquilinos de Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 41c3c25962d5cb0d608a226ed77408460446bfa5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 7c5a15790c3a88e9aa3921d6cc2626576aedaa64
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248197"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816371"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell para Windows Virtual Desktop
 
@@ -58,7 +58,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Causa:** Parámetro TenantName
 
-**Corrección:** Emita Get-RdsDiagnosticActivities con -TenantName \<TenantName>.
+**Solución:** Emita Get-RdsDiagnosticActivities con -TenantName \<TenantName>.
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error: Get-RdsDiagnosticActivities: User isn't authorized to query the management service (El usuario no está autorizado para consultar el servicio de administración)
 
@@ -86,7 +86,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un grupo de inquilinos y de host en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
+- Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
 - Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md).
 - Para obtener más información sobre el servicio en versión preliminar, consulte [Entorno de versión preliminar de Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

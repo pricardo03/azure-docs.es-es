@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102275"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integración de Azure Active Directory con FloQast
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con FloQast, realice los
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://go.floqast.com/login/sso`
 
-6. La aplicación FloQast espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para agregar los atributos.
+6. La aplicación FloQast espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para agregar los atributos.
 
     ![imagen](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-floqast-test-user"></a>Creación de un usuario de prueba en FloQast
 
-En esta sección, creará un usuario llamado Britta Simon en FloQast. Colabore con el  [equipo de soporte técnico de FloQast](mailto:support@floqast.com) para agregar los usuarios a la plataforma de FloQast. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en FloQast. Colabore con el [equipo de soporte técnico de FloQast](mailto:support@floqast.com) para agregar los usuarios a la plataforma de FloQast. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

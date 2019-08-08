@@ -2,17 +2,17 @@
 title: Información general, comentarios y soporte técnico para la solución de problemas de Windows Virtual Desktop (Azure)
 description: Información general para solucionar problemas al configurar un entorno de inquilinos de Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b349d7f384c801e95d745f7a18535f9f5d13cf86
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: e652c8a67db686159a2c3fd48e2ea65888bcc10d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605206"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816350"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
 

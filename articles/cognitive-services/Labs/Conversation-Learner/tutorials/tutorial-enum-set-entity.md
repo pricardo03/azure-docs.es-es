@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nolachar
-ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845964"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706973"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Cuándo usar las entidades ENUM y las acciones SET ENTITY
 
@@ -52,7 +53,7 @@ En los tutoriales anteriores, analizamos las entidades con [entrenamiento person
 
 Es en estos casos cuando debe usar las entidades ENUM y las acciones SET_ENTITY.
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>Cuándo usar acciones SET_ENTITY o ENUM
+## <a name="when-to-use-enums-or-set_entity-actions"></a>Cuándo usar acciones SET_ENTITY o ENUM
 
 Use las reglas siguientes para saber cuándo usar entidades ENUM y acciones SET_ENTITY:
 

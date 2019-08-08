@@ -10,19 +10,20 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b9431469a7925d26003ad9c34f6b401e5767f6d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875734"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704934"
 ---
 # <a name="paper-entity"></a>Entidad de documento
 
 <sub> *Los atributos siguientes son específicos de la entidad de documento. (Ty = "0") </sub>
 
 
-NOMBRE    |DESCRIPCIÓN                                        |Type       | Operaciones
+NOMBRE    |DESCRIPCIÓN                                        |type       | Operaciones
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                                          |Int64      |Equals
 Ti      |Título del documento                                        |Cadena     |Equals,<br/>StartsWith

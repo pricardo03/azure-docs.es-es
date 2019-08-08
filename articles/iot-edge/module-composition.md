@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389366"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839614"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
@@ -135,7 +135,7 @@ Las rutas se declaran en las propiedades deseadas de **$edgeHub** con la sintaxi
 Cada ruta necesita un origen y un receptor, pero la condición es una parte opcional que puede usar para filtrar los mensajes. 
 
 
-### <a name="source"></a>Origen
+### <a name="source"></a>Source
 
 El origen especifica de dónde proceden los mensajes. IoT Edge puede enrutar los mensajes desde los dispositivos de hoja o desde los módulos. 
 
@@ -143,7 +143,7 @@ Mediante el SDK de IoT, los módulos pueden declarar colas de salida específica
 
 La propiedad de origen puede ser cualquiera de los siguientes valores:
 
-| Origen | DESCRIPCIÓN |
+| Source | DESCRIPCIÓN |
 | ------ | ----------- |
 | `/*` | Todos los mensajes del dispositivo a la nube o las notificaciones de cambios de gemelos de cualquier módulo o dispositivo de hoja. |
 | `/twinChangeNotifications` | Todos los cambios de gemelos (propiedades notificadas) procedentes de todos los módulos o dispositivos de hoja. |
@@ -237,7 +237,7 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -264,7 +264,7 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {

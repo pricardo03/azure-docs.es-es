@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704802"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706619"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integración de Unreal y Wwise de Project Acoustics
 Este procedimiento proporciona pasos de integración detallados del paquete de complementos Project Acoustics en el proyecto de juegos existente de Unreal y Wwise. 

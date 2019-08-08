@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650777d849e172686e8b46502a84db8c519174e7
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415159"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775190"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Administrar un dispositivo Azure Data Box Gateway a través de Windows PowerShell
 
@@ -24,7 +24,6 @@ Este artículo se centra en las tareas que realizará mediante la interfaz de Po
 Asimismo, en este artículo se incluyen las secciones siguientes:
 
 - Conectarse a la interfaz de PowerShell
-- Iniciar una sesión de soporte
 - Crear un paquete de soporte
 - Carga del certificado
 - Arrancar en un entorno sin DHCP

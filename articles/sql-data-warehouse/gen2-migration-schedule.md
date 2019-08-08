@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405447"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827228"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -88,7 +88,7 @@ Hay dos opciones a la hora de realizar una actualización manual.  Se puede actu
 - [Actualización en contexto](upgrade-to-latest-generation.md): esta opción actualizará el almacenamiento de datos existente de Gen1 a Gen2. El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el almacenamiento de datos.  Una vez que se ha reiniciado el almacenamiento de datos, estará totalmente disponible para usarse. Si experimenta problemas durante la actualización, cree una [solicitud de soporte técnico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e indique que la posible causa es la "actualización a Gen2".
 - [Actualización desde un punto de restauración](sql-data-warehouse-restore.md): cree un punto de restauración definido por el usuario en el almacenamiento de datos actual de Gen1 y, a continuación, restaure directamente a una instancia de Gen2. El almacenamiento de datos existente de Gen1 se mantendrá en el mismo sitio. Una vez completada la restauración, el almacenamiento de datos de Gen2 estará totalmente disponible para usarse.  Una vez que haya ejecutado todos los procesos de prueba y validación en la instancia de Gen2 restaurada, se podrá eliminar la instancia original de Gen1.
 
-   - Paso 1: En Azure Portal, [cree un punto de restauración definido por el usuario](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Paso 1: En Azure Portal, [cree un punto de restauración definido por el usuario](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
    - Paso 2: Al restaurar desde el punto de restauración definido por el usuario, establezca el nivel de rendimiento en el nivel de Gen2 que prefiera.
 
 Puede experimentar un período de degradación del rendimiento mientras continúa el proceso de actualización de los archivos de datos en segundo plano. El tiempo total de esta degradación del rendimiento variará en función del tamaño de los archivos de datos.
@@ -155,6 +155,6 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 - [Supervisión del estado de los recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Revisión de antes de comenzar la migración](upgrade-to-latest-generation.md#before-you-begin)
 - [Actualización en contexto y desde un punto de restauración](upgrade-to-latest-generation.md)
-- [Creación de un punto de restauración definido por el usuario](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Información sobre cómo restaurar a Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Creación de un punto de restauración definido por el usuario](sql-data-warehouse-restore-points.md)
+- [Información sobre cómo restaurar a Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [Apertura de una solicitud de soporte técnico de SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

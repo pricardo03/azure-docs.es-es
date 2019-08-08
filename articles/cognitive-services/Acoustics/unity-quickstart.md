@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917116"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706603"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Inicio rápido de Project Acoustics con Unity
 Use el contenido de ejemplo de Project Acoustics para Unity para experimentar con los controles de diseño basado en la simulación.
@@ -70,7 +71,7 @@ Project Acoustics realiza el cálculo en un cuadro de "región de simulación" c
 * Para permitir la transmisión a través de la pared, mueva el control deslizante de **transmisión (dB)** a la posición de desactivación, su nivel más bajo. 
 
 ### <a name="modify-wetness-for-a-source"></a>Modificación del sonido con efectos de una fuente
-* Para cambiar cómo el sonido con efectos varía ligeramente con la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). **Project Acoustics** calcula los niveles de efecto a lo largo del espacio de simulación, que varía ligeramente con la distancia y proporciona indicaciones de la distancia perceptual. Al aumentar el salto de distancia se exagera este efecto ya que aumentan los niveles de efectos relacionados con la distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. Este efecto también se puede ajustar de forma más precisa mediante el ajuste del **sonido con efectos (dB)**.
+* Para cambiar cómo el sonido con efectos varía ligeramente con la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). **Project Acoustics** calcula los niveles de efecto a lo largo del espacio de simulación, que varía ligeramente con la distancia y proporciona indicaciones de la distancia perceptual. Al aumentar el salto de distancia se exagera este efecto ya que aumentan los niveles de efectos relacionados con la distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. Este efecto también se puede ajustar de forma más precisa mediante el ajuste del **sonido con efectos (dB)** .
 
 * Aumente el tiempo de decadencia a lo largo del espacio mediante el ajuste del valor **Decay Time Scale** (Escala de tiempo de decadencia). Si el resultado de la simulación de un determinado par de ubicación de oyente de origen es un tiempo de decadencia de 1,5 s y el valor **Decay Time Scale** (Escala de tiempo de decadencia) está establecido en 2, el tiempo de decadencia aplicado en el origen es 3 s.
 

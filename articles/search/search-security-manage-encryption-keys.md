@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485316"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779100"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de Azure Search mediante claves administradas por el cliente en Azure Key Vault
 
@@ -23,7 +23,7 @@ ms.locfileid: "67485316"
 >
 > Esta característica no está disponible para los servicios gratis. Debe utilizar un servicio de búsqueda facturable creado a partir del 2019-01-01-01. En este momento no es compatible con el portal.
 
-De forma predeterminada, Azure Search cifra el contenido de usuario en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
+De forma predeterminada, Azure Search cifra el contenido de usuario en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
 
 Se admite el cifrado de lado servidor mediante la integración con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves. 
 
@@ -239,4 +239,4 @@ Para crear una aplicación AAD en el portal:
 Si no está familiarizado con la arquitectura de seguridad de Azure, revise la [documentación sobre seguridad de Azure](https://docs.microsoft.com/azure/security/), y en particular, este artículo:
 
 > [!div class="nextstepaction"]
-> [Cifrado en reposo de datos](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+> [Cifrado en reposo de datos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

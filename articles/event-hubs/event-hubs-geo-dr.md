@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754752"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704374"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -84,7 +84,7 @@ Si ha cometido algún error; por ejemplo, ha emparejado regiones incorrectas dur
 
 ## <a name="samples"></a>Ejemplos
 
-En el [ejemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) se muestra cómo configurar e iniciar una conmutación por error. En este ejemplo se demuestran los siguientes conceptos:
+En el [ejemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) se muestra cómo configurar e iniciar una conmutación por error. En este ejemplo se demuestran los siguientes conceptos:
 
 - La configuración necesaria en Azure Active Directory para usar Azure Resource Manager con Event Hubs. 
 - Los pasos necesarios para ejecutar el código de ejemplo. 
@@ -115,7 +115,7 @@ Solo puede habilitar Availability Zones en los espacios de nombres nuevos median
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* El [ejemplo en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) le guía a través de un flujo de trabajo simple que crea un emparejamiento geográfico e inicia una conmutación por error para un escenario de recuperación ante desastres.
+* El [ejemplo en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) le guía a través de un flujo de trabajo simple que crea un emparejamiento geográfico e inicia una conmutación por error para un escenario de recuperación ante desastres.
 * La [referencia de la API de REST](/rest/api/eventhub/disasterrecoveryconfigs) describe las API para llevar a cabo la configuración de recuperación de desastres con localización geográfica.
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
