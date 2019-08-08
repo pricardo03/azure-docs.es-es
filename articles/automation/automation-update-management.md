@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bfec413430de588be6c4423702d41779a8426d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477977"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498412"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
 Puede usar la solución Update Management de Azure Automation para administrar las actualizaciones del sistema operativo de los equipos Windows y Linux de Azure, en entornos locales o en otros proveedores de nube. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores.
 
 Update Management se puede habilitar en máquinas virtuales directamente desde una cuenta de Azure Automation. Para aprender a habilitar Update Management en máquinas virtuales desde una cuenta de Automation, consulte [Administración de actualizaciones para varias máquinas virtuales](manage-update-multi.md). También puede habilitar Update Management para una máquina virtual desde la página de la máquina virtual en Azure Portal. Este escenario está disponible para máquinas virtuales [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) y [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
+
+> [!NOTE]
+> La solución de Update Management requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [./how-to/region-mappings.md]. Las asignaciones de regiones no afectan a la capacidad de administrar máquinas virtuales en una región independiente de la cuenta de Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,7 +57,7 @@ La solución informa del grado de actualización del equipo en función del orig
 
 Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación en equipos Windows. Solo se incluyen las actualizaciones necesarias.
 
-La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas de registros de un conjunto determinado de equipos, o una [consulta de Azure](#azure-machines) que selecciona dinámicamente máquinas virtuales de Azure en función de los criterios especificados. Estos grupos son diferentes de la [configuración de ámbito](../azure-monitor/insights/solution-targeting.md), que solo se usa para determinar qué máquinas obtienen los módulos de administración que habilitan la solución. 
+La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas de registros de un conjunto determinado de equipos, o una [consulta de Azure](#azure-machines) que selecciona dinámicamente máquinas virtuales de Azure en función de los criterios especificados. Estos grupos son diferentes de la [configuración de ámbito](../azure-monitor/insights/solution-targeting.md), que solo se usa para determinar qué máquinas obtienen los módulos de administración que habilitan la solución.
 
 También se especifica una programación para aprobar y establecer un período de tiempo durante el que se pueden instalar actualizaciones. Este período de tiempo se denomina ventana de mantenimiento. Diez minutos de la ventana de mantenimiento se reservan para reinicios, en caso de que sea necesario reiniciar y que haya seleccionado la opción de reinicio adecuada. Si la aplicación de revisiones tarda más de lo esperado y la ventana de mantenimiento dura menos de diez minutos, no se producirá un reinicio.
 
@@ -73,11 +76,14 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite evaluaciones de actualización.         |
-|Windows Server 2008 R2 SP1 y versiones posteriores (incluye Windows Server 2012 y 2016)    |Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 y posterior.  |Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere "yum" para devolver los datos de seguridad que CentOS no tiene de forma nativa. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](#linux-2).          |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |Ubuntu 14.04 LTS, 16.04 LTS y 18.04 (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
+
+> [!NOTE]
+> Los conjuntos de escalado de máquinas virtuales de Azure se pueden administrar con Update Management. Update Management funciona en las propias instancias y no en la imagen base. Deberá programar las actualizaciones de forma incremental, para no actualizar todas las instancias de la máquina virtual a la vez.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
@@ -140,7 +146,7 @@ Para empezar a aplicar revisiones a sistemas, debe habilitar la solución Update
 * [Navegando desde diferentes máquinas](automation-onboard-solutions-from-browse.md)
 * [Desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md)
 * [Con un runbook de Azure Automation](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmación de que las máquinas que no son de Azure están incorporadas
 
 Para confirmar que las máquinas conectadas directamente se comunican con los registros de Azure Monitor, después de unos minutos, puede ejecutar una de las siguientes búsquedas de registros.
@@ -282,7 +288,7 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 |Herramientas     | Utilidad o característica que ayuda a realizar una o más tareas.        |
 |Actualizaciones     | Actualización de una aplicación o archivo que están instalados actualmente.        |
 
-### <a name="linux"></a>Linux
+### <a name="linux-2"></a>Linux
 
 |clasificación  |DESCRIPCIÓN  |
 |---------|---------|

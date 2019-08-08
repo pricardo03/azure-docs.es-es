@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071205"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333826"
 ---
 # <a name="traffic-manager-endpoints"></a>Puntos de conexión del Administrador de tráfico
 
@@ -91,6 +91,17 @@ Consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manag
 
 Si se deshabilitan todos los puntos de conexión de un perfil o si se deshabilita el perfil en sí, Traffic Manager envía una respuesta "NXDOMAIN" a una nueva consulta de DNS.
 
+## <a name="faqs"></a>Preguntas más frecuentes
+
+* [¿Puedo usar el Administrador de tráfico con puntos de conexión de varias suscripciones?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [¿Puedo usar Traffic Manager con espacios de ensayo de servicio en la nube?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [¿Admite el Administrador de tráfico puntos de conexión IPv6?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [¿Cómo muevo los puntos de conexión de Azure de mi perfil de Traffic Manager a un grupo de recursos diferente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

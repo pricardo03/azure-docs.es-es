@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273222"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609856"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -25,7 +25,7 @@ Aunque Azure Logic Apps ofrece [cientos de conectores integrados](../connectors/
 * Ayudar a los clientes a utilizar su servicio para administrar tareas profesionales o personales.
 * Expandir la cobertura, la detectabilidad y el uso de su servicio.
 
-Básicamente, los conectores son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](https://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Dado que los conectores son API de REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores, como, por ejemplo, .NET, Java, o Node.js. También puede hospedar las API en [Azure App Service](../app-service/overview.md), una oferta de plataforma como servicio (PaaS) que proporciona una de las formas más eficaces, sencillas y escalables para hospedar API. 
+Básicamente, los conectores son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](https://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Dado que los conectores son API REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores, como, por ejemplo, .NET, Java, Python o Node.js. También puede hospedar las API en [Azure App Service](../app-service/overview.md), una oferta de plataforma como servicio (PaaS) que proporciona una de las formas más eficaces, sencillas y escalables para hospedar API. 
 
 Para que las API personalizadas funcionen con las aplicaciones lógicas, su API puede proporcionar [*acciones*](./logic-apps-overview.md#logic-app-concepts) que realicen tareas específicas en flujos de trabajo de aplicaciones lógicas. La API también puede actuar como un [*desencadenador*](./logic-apps-overview.md#logic-app-concepts) que inicia un flujo de trabajo de aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. En este tema se describen los patrones comunes que puede seguir para crear acciones y desencadenadores en la API, en función del comportamiento que desee que ofrezca su API.
 
@@ -45,7 +45,7 @@ Puede hospedar las API en [Azure App Service](../app-service/overview.md), una o
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>¿Cómo se diferencia las API personalizadas de los conectores personalizados?
 
-Las API personalizadas y los [conectores personalizados](../logic-apps/custom-connector-overview.md) son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](https://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Y dado que estas API y conectores son API de REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores y API personalizadas, como, .NET, Java o Node.js.
+Las API personalizadas y los [conectores personalizados](../logic-apps/custom-connector-overview.md) son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](https://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Y dado que estas API y conectores son API REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores y API personalizadas, como .NET, Java, Python o Node.js.
 
 Las API personalizadas le permiten llamar a las API que no son conectores y proporcionar puntos de conexión que puede llamar con HTTP + Swagger, Azure API Management o App Services. Los conectores personalizados funcionan como las API personalizadas, pero también tienen estos atributos:
 

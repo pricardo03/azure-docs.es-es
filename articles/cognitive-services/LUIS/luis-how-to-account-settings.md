@@ -1,6 +1,6 @@
 ---
-title: Administración de cuentas y claves
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Administración de cuentas y claves: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. La información de inicio de sesión se administra en account.microsoft.com. La clave de creación se administra en la página Settings (Configuración) del portal de LUIS.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523518"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638272"
 ---
 # <a name="manage-account-and-authoring-key"></a>Administración de cuenta y clave de creación
 

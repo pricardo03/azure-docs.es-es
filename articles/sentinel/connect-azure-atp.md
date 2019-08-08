@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 77f745f92133f4f43cd2a65f2b69ded1eff9e8ed
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6f41a5704c783ba8aeab7bc2e82ef731c6a257ac
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599156"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Conectar datos de Azure Advanced Threat Protection (ATP)
 
@@ -34,14 +34,15 @@ Se pueden transmitir registros desde [Azure Advanced Threat Protection](https://
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
-- Debe ser un cliente de la versión preliminar privada de Azure ATP.
+- Debe ser un cliente de la versión preliminar de Azure ATP.
 
 ## <a name="connect-to-azure-atp"></a>Conectar a Azure ATP
 
-Asegúrese de que la versión preliminar privada de Azure ATP está [habilitada en la red](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Asegúrese de que la versión preliminar de Azure ATP está [habilitada en la red](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
 Si Azure ATP ya está implementado e ingiriendo datos, las alertas sospechosas se pueden transmitir a Azure Sentinel muy fácilmente. Las alertas pueden tardar hasta 24 horas en empezar a transmitirse a Azure Sentinel.
 
 
+1. Para conectar Azure ATP a Azure Sentinel, primero debe habilitar la integración entre Azure ATP y Microsoft Cloud App Security. Para obtener información sobre cómo hacerlo, consulte [Integración de Azure Advanced Threat Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
 1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **Azure ATP**.
 

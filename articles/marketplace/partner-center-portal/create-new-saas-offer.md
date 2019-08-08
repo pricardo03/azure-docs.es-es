@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868722"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501301"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -114,10 +114,13 @@ La creación de una lista en Marketplace promocionará su negocio. Si selecciona
 - **¿Cómo desea que los clientes potenciales interactúen con esta oferta en la lista?**
 
 ##### <a name="get-it-now-free"></a>Obténgalo ahora (de forma gratuita)
-Presenta su oferta a los clientes de forma gratuita proporcionándoles una dirección URL válida (que comienza por http o https) desde donde pueden acceder a su aplicación.  Por ejemplo: `https://contoso.com/saas-app`
+Presente su oferta a los clientes de forma gratuita proporcionándoles una dirección URL válida (que comienza por *http* o *https*) desde donde pueden acceder a su aplicación.  Por ejemplo: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Evaluación gratuita (anuncio)
-Presente su oferta a los clientes con un vínculo a una evaluación gratuita proporcionándoles una dirección URL válida (que empiece por http o https) desde la que puedan acceder a su aplicación.  Por ejemplo: `https://contoso.com/trial/saas-app`. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
+Publique la oferta para los clientes con un vínculo a una evaluación gratuita proporcionando una dirección URL válida (que empiece por *http* o *https*), en la que pueda obtener una evaluación mediante [autenticación con un solo clic con Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Por ejemplo: `https://contoso.com/trial/saas-app`. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
+
+> [!NOTE]
+> Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure AD para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft (MSA) para la autenticación con este token.
 
 ##### <a name="contact-me"></a>Ponerse en contacto conmigo
 Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta, y el origen de Marketplace donde se encontró la oferta, se enviarán al sistema CRM que haya configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management). 
@@ -220,6 +223,92 @@ En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo 
 - **Palabras clave de búsqueda**: escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en Marketplace.
 - **Instrucciones para las Tareas iniciales**  (se requiere): se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto. 
 
+#### <a name="description"></a>**Descripción**
+
+Este campo es obligatorio. Elementos que debe incluir en la descripción: 
+
+* Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción.  
+* Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
+* No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona.  
+* Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas. 
+
+Los componentes principales de la propuesta de valor deben incluir esta información: 
+
+* Descripción del producto. 
+* Tipo de usuario que se beneficia del producto. 
+* Necesidad o preocupación del cliente que aborda el producto. 
+
+Para que la descripción de la oferta sea más atractiva, puede usar etiquetas HTML para dar formato a la descripción. 
+
+1. Si desea crear párrafos, agregue `<p>` al comienzo del texto y agregue `</p>` al final.
+
+    **Ejemplo**: 
+
+    `<p>` Este es mi primer párrafo. `</p>` <br>
+    `<p>` Este es mi segundo párrafo. `</p>` <br>
+
+    El aspecto de lo anterior debería ser parecido a este:
+
+    <p> Este es mi primer párrafo. </p>
+    <p> Este es mi segundo párrafo. </p>
+
+1. Si desea agregar una **lista con viñetas de elementos**, coloque el texto dentro de las etiquetas `<li>` siguientes. Puede copiar y pegar más elementos con viñetas (elementos entre las etiquetas `<li>` y `</li>`) dentro de las etiquetas `<ul>` y `</ul>`. Asegúrese de que agrega `<ul></ul>`. 
+
+    **Ejemplo**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    El aspecto de lo anterior debería ser parecido a este:
+    <ul> 
+        <li>agregue el texto aquí</li> 
+        <li> agregue el texto aquí </li> 
+        <li> agregue el texto aquí </li> 
+    </ul> 
+
+1. Para poner el contenido en **negrita**, agregue `<b>` al comienzo del texto que desea poner en negrita y `</b>` al final. 
+
+    **Ejemplo**: `<b>` EVALUACIÓN GRATUITA `</b>`
+    
+    Lo anterior haría que las palabras EVALUACIÓN GRATUITA estuvieran en negrita en la descripción de la oferta en el escaparate. 
+
+    **EVALUACIÓN GRATUITA**
+
+1. Para agregar **saltos de línea** en el contenido, agregue `<br>` antes del texto que desea que aparezca en una nueva línea. Si desea dejar un espacio y asegurarse de que el contenido se inicia en una nueva línea, agregue `<br><br>` antes del contenido. 
+
+    **Ejemplo**:
+
+    Esta es una línea de texto. `<br>` Esta es una línea de texto que se iniciará en una nueva línea. `<br><br>` Esta es una línea que se iniciará dos líneas más abajo. 
+
+    El aspecto de lo anterior debería ser parecido a este:
+
+    Esta es una línea de texto. <br> Esta es una línea de texto que se iniciará en una nueva línea. <br><br> Esta es una línea que se iniciará dos líneas más abajo. 
+
+1. Si desea **aumentar el tamaño del texto**, primero elija la dimensión que desea que tenga el texto. Use los siguientes ejemplos. Después de seleccionar el tamaño del texto, agregue las etiquetas `<H*></H*>` correspondientes al principio y al final del texto. 
+
+    **Ejemplo**:
+
+    `<h1>`Este es el encabezado 1`</h1>` <br>
+    `<h2>`Este es el encabezado 2`</h2>` <br>
+    `<h3>`Este es el encabezado 3`</h3>` <br>
+    `<h4>`Este es el encabezado 4`</h4>` <br>
+    `<h5>`Este es el encabezado 5`</h5>` <br>
+    `<h6>`Este es el encabezado 6`</h6>` 
+
+    El aspecto de lo anterior debería ser parecido a este:
+
+    <h1>Este es el encabezado 1</h1> 
+    <h2>Este es el encabezado 2</h2> 
+    <h3>Este es el encabezado 3</h3> 
+    <h4>Este es el encabezado 4</h4> 
+    <h5>Este es el encabezado 5</h5> 
+    <h6>Este es el encabezado 6</h6> 
+
 #### <a name="links"></a>Vínculos
 
 - **Directiva de privacidad** (se requiere): vínculo a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida
@@ -259,7 +348,7 @@ La pestaña **Versión preliminar** permite definir un **público preliminar** l
 
 - **Definición de un público preliminar: incorporación de un correo electrónico individual de la cuenta de AAD/MSA por línea, junto con una descripción opcional.**
 
-Agregue un máximo de diez (10) direcciones de correo electrónico manualmente, o veinte (20) si carga un archivo CSV, para que las cuentas existentes de Azure Active Directory (AAD) o de Microsoft (MSA) para ayudar a validar la oferta antes de publicarla. Al agregar estas cuentas, define el público al que se le proporcionará acceso preliminar a la oferta antes de que se publique en Marketplace. Aunque la oferta ya esté publicada, puede definir un público preliminar para probar los cambios o las actualizaciones que ofrece.
+Agregue un máximo de diez (10) direcciones de correo electrónico manualmente, o veinte (20) si carga un archivo CSV, para que las cuentas existentes de Azure Active Directory o de Microsoft (MSA) para ayudar a validar la oferta antes de publicarla. Al agregar estas cuentas, define el público al que se le proporcionará acceso preliminar a la oferta antes de que se publique en Marketplace. Aunque la oferta ya esté publicada, puede definir un público preliminar para probar los cambios o las actualizaciones que ofrece.
 
 > [!NOTE]
 > El público preliminar no es el mismo que un público privado. A una audiencia preliminar se le permite acceder a la oferta _antes_ de que se publique en los catálogos de soluciones. También puede elegir crear un plan y ponerlo a disposición únicamente de un público privado. En la pestaña **Lista del plan** , puede definir un público privado con la casilla **This is a private plan** (Este es un plan privado). Puede definir un público privado de hasta 20 000 clientes mediante los identificadores de los inquilinos de Azure.

@@ -1,34 +1,34 @@
 ---
-title: Creación de una cuenta de Cognitive Services en Azure Portal
+title: Creación de un recurso de Cognitive Services en Azure Portal
 titlesuffix: Azure Cognitive Services
-description: Creación de una cuenta de Azure Cognitive Services APIs en Azure Portal.
+description: Comience a usar Azure Cognitive Services mediante la creación y suscripción a un recurso en Azure Portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: b857ee0395c447c8699b8f6a812853528812a7bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445854"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334251"
 ---
-# <a name="create-a-cognitive-services-account-using-the-azure-portal"></a>Cree una cuenta de Cognitive Services mediante Azure Portal
+# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
-En este artículo de inicio rápido, aprenderá cómo suscribirse a Azure Cognitive Services y cómo crear una cuenta con una suscripción a un solo servicio o a varios servicios. Estos servicios se representan mediante los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure, que le permitirán conectarse a una o varias instancias de Cognitive Services APIs disponibles.
+Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante Azure Portal. Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción válida a Azure. [Cree una cuenta](https://azure.microsoft.com/free/) gratis.
+* Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Creación de un nuevo recurso de Azure Cognitive Services
 
-Antes de crear un recurso, debe tener un grupo de recursos de Azure. Todas las cuentas de Cognitive Services (y sus recursos de Azure asociados) deben pertenecer a un grupo de recursos de Azure. Al crear una cuenta, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
+Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos de Azure que contenga el recurso. Al crear un nuevo recurso, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **+Crear un recurso**.
 
@@ -36,7 +36,7 @@ Antes de crear un recurso, debe tener un grupo de recursos de Azure. Todas las c
 
 2. Puede encontrar los Cognitive Services disponibles con los métodos siguientes:
     * Use la barra de búsqueda y escriba el nombre del servicio al que quiere suscribirse.
-        * Para crear un recurso para una suscripción a varios servicios, escriba **Cognitive Services** en la barra de búsqueda y seleccione el recurso **Cognitive Services**.
+        * Para crear un recurso para varios servicios, escriba **Cognitive Services** en la barra de búsqueda y seleccione el recurso **Cognitive Services**.
 
         ![Búsqueda de Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
@@ -51,7 +51,7 @@ Antes de crear un recurso, debe tener un grupo de recursos de Azure. Todas las c
 
     |    |    |
     |--|--|
-    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Es recomendable usar un nombre descriptivo, por ejemplo, *MyCognitiveServicesAccount*. |
+    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *MyCognitiveServicesAccount*. |
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
     | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -60,7 +60,7 @@ Antes de crear un recurso, debe tener un grupo de recursos de Azure. Todas las c
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 
-## <a name="get-the-keys-for-your-subscription"></a>Obtención de las claves para su suscripción
+## <a name="get-the-keys-for-your-resource"></a>Obtención de las claves del recurso
 
 Después de crear el recurso, puede obtener acceso al mismo desde el panel de Azure si lo ancló allí. De lo contrario, puede encontrarlo en la opción **Grupos de recursos**. Después de seleccionar el recurso, puede obtener las claves si selecciona **Claves** en **Administración de recursos**.
 
@@ -68,7 +68,7 @@ Después de crear el recurso, puede obtener acceso al mismo desde el panel de Az
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a dicho grupo.
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos también se eliminan los demás recursos incluidos en el grupo.
 
 Para quitar un grupo de recursos desde Azure Portal:
 

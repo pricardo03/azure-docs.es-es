@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786306"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498506"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
@@ -86,10 +86,16 @@ Durante el intervalo de 30 segundos puede validar que la grabación se lleva a c
 
 #### <a name="continuous-recording"></a>Grabación continua
 
-Puede usar Zulu Flight Recorder para generar un perfil continuamente de una aplicación Java con un impacto mínimo en el rendimiento del runtime ([origen](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para ello, ejecute el siguiente comando de la CLI de Azure para crear una configuración de aplicación denominada JAVA_OPTS con la configuración necesaria. El contenido de JAVA_OPTS se usa en el comando `java` cuando se inicia la aplicación.
+Puede usar Zulu Flight Recorder para generar un perfil continuamente de una aplicación Java con un impacto mínimo en el rendimiento del runtime ([origen](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para ello, ejecute el siguiente comando de la CLI de Azure para crear una configuración de aplicación denominada JAVA_OPTS con la configuración necesaria. El contenido de la configuración de la aplicación de JAVA_OPTS se pasa al comando `java` cuando se inicia la aplicación.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Cuando se haya iniciado la grabación, puede volcar los datos de grabación actuales en cualquier momento mediante el comando `JFR.dump`.
+
+```shell
+jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
 Para más información, consulte la [referencia del comando Jcmd ](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
@@ -179,13 +185,13 @@ Para mejorar el rendimiento de las aplicaciones Tomcat, puede compilar los archi
 
 Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones.
 
-### <a name="authenticate-users"></a>Autenticación de usuarios
+### <a name="authenticate-users-easy-auth"></a>Autenticación de usuarios (autenticación sencilla)
 
 Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-#### <a name="tomcat"></a>Tomcat
+#### <a name="tomcat-and-wildfly"></a>Tomcat y Wildfly
 
-La aplicación Tomcat puede acceder a las reclamaciones del usuario directamente desde el servlet de mediante la conversión de la entidad de seguridad de objeto a un objeto del mapa. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
+La aplicación Tomcat o Wildfly puede acceder a las reclamaciones del usuario directamente desde el servlet de mediante la conversión de la entidad de seguridad de objeto a un objeto del mapa. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -205,7 +211,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para cerrar sesión los usuarios y realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
+Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
 
 ```java
 public boolean isSecure()

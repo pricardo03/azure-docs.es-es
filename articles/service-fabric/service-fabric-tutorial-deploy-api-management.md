@@ -3,7 +3,7 @@ title: Integración de API Management con Service Fabric en Azure | Microsoft Do
 description: Aprenda a usar rápidamente Azure API Management y a enrutar el tráfico a un servicio de back-end de Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428057"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598827"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -77,7 +77,7 @@ Inicie Visual Studio como administrador y cree un servicio ASP.NET Core:
  1. En Visual Studio, seleccione Archivo -> Nuevo proyecto.
  2. En Nube, seleccione la plantilla de aplicación de Service Fabric y asígnele el nombre **"ApiApplication"** .
  3. Seleccione la plantilla de servicio de ASP.NET Core sin estado y denomine al proyecto **"WebApiService"** .
- 4. Seleccione la plantilla de proyecto de ASP.NET Core 2.0 de API web.
+ 4. Seleccione la plantilla de proyecto de ASP.NET Core 2.1 de API web.
  5. Una vez creado el proyecto, abra `PackageRoot\ServiceManifest.xml` y quite los atributos `Port` de la configuración del recurso de punto de conexión:
 
     ```xml

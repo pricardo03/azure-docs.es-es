@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055372"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640618"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -180,7 +180,7 @@ Para trabajar en el back-end de la solución, el dispositivo gemelo usa las sigu
 
 * **Recibir notificaciones gemelas**. Esta operación permite que el back-end de la solución reciba una notificación cuando se modifique la gemela. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *twinChangeEvents*. De forma predeterminada, no existen previamente tales rutas, por tanto, no se envían notificaciones gemelas. Si la tasa de cambio es demasiado alta, o por otras razones, como errores internos, IoT Hub podría enviar una sola notificación que contiene todos los cambios. Por lo tanto, si la aplicación necesita registro y auditoría confiables de todos los estados intermedios, debe usar mensajes del dispositivo a la nube. El mensaje de notificaciones gemelas incluye propiedades y el cuerpo.
 
-  - Properties (Propiedades)
+  - properties (Propiedades)
 
     | NOMBRE | Valor |
     | --- | --- |
@@ -196,7 +196,7 @@ Para trabajar en el back-end de la solución, el dispositivo gemelo usa las sigu
 
     Las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
 
-  - Cuerpo
+  - Body
         
     Esta sección incluye todos los cambios gemelos en formato JSON. Se usa el mismo formato que una revisión, con la diferencia de que puede contener todas las secciones gemelas: etiquetas, propiedades notificadas, propiedades deseadas, y que contiene los elementos "$metadata". Por ejemplo,
 
@@ -231,7 +231,7 @@ Además de estas operaciones, el back-end de soluciones puede hacer lo siguiente
 
 La aplicación de dispositivo aplica las siguientes operaciones atómicas en el dispositivo gemelo:
 
-* **Recuperación del dispositivo gemelo**. Esta operación devuelve el documento del dispositivo gemelo (incluidas las etiquetas y las propiedades del sistema, deseadas y notificadas) para el dispositivo conectado actualmente.
+* **Recuperación del dispositivo gemelo**. Esta operación devuelve el documento del dispositivo gemelo (incluidas las propiedades del sistema deseadas y notificadas) para el dispositivo conectado actualmente. (Las etiquetas no son visibles para las aplicaciones de dispositivo).
 
 * **Actualizar parcialmente propiedades notificadas**. Esta operación permite la actualización parcial de las propiedades notificadas del dispositivo conectado actualmente. Esta operación usa el mismo formato de actualización JSON que el back-end de la solución usa para una actualización parcial de propiedades deseadas.
 

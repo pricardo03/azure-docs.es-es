@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621971"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479899"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
@@ -43,14 +43,24 @@ Advanced Threat Protection de Azure Storage ingiere los registros de diagnóstic
 ![Activar Protección contra amenazas avanzada de Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="using-azure-security-center"></a>Uso del Centro de seguridad de Azure
-Cuando se suscribe al nivel Estándar en Azure Security Center, se configura Advanced Threat Protection en las cuentas de almacenamiento. Para más información, consulte [Actualización al nivel Estándar de Security Center para mejorar la seguridad](https://docs.microsoft.com/azure/security-center/security-center-pricing). (Los precios de la imagen son solo para los fines de este ejemplo).
 
-![Nivel Estándar en ASC](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+Cuando se suscribe al nivel Estándar en Azure Security Center, se configura automáticamente Advanced Threat Protection en las cuentas de almacenamiento. Puede habilitar o deshabilitar Advanced Threat Protection para las cuentas de almacenamiento en una suscripción específica de la manera siguiente:
+
+1. Inicie **Azure Security Center** en [Azure Portal]([https://portal.azure.com).
+1. En el menú principal, haga clic en **Pricing & settings** (Precios y configuración).
+1. Haga clic en la suscripción que desea habilitar o deshabilitar la protección contra amenazas para las cuentas de almacenamiento.
+
+    ![Selección de la suscripción](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+
+1. Haga clic en **Plan de tarifa**.
+1. En la sección **Seleccione el plan de tarifa por tipo de recurso**, en la fila **Cuentas de almacenamiento**, haga clic en **Habilitado** o **Deshabilitado**.
+
+    ![Habilitación de ATP en Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure Storage con Advanced Threat Protection habilitada.
-Para obtener más información, consulte [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/) (Cuenta de Storage con Advanced Threat Protection).
+Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure Storage con Advanced Threat Protection habilitada. Para obtener más información, consulte [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/) (Cuenta de Storage con Advanced Threat Protection).
 
 ### <a name="using-azure-policy"></a>Uso de Azure Policy
 

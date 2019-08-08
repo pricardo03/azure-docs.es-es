@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537923"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494967"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -64,18 +64,20 @@ A partir de ahora, agregaremos más puertas de enlace en cada región y las reti
 
 | Nombre de región          | Dirección IP de la puerta de enlace | Puerta de enlace retirada </br> Dirección IP| Notas sobre la retirada | 
 | --- | --- | --- | --- |
+| Centro de Australia    | 20.36.105.0 | | |
+| Centro de Australia 2   | 20.36.113.0 | | |
 | Este de Australia       | 13.75.149.87, 40.79.161.1 | | |
 | Sudeste de Australia | 191.239.192.109, 13.73.109.251 | | |
 | Sur de Brasil         | 104.41.11.5        |                 | |
 | Centro de Canadá       | 40.85.224.249      |                 | |
 | Este de Canadá          | 40.86.226.166      |                 | |
 | Centro de EE. UU.           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Sin conexiones después del 1 de septiembre de 2019 |
-| Este de China 1         | 139.219.130.35     |                 | |
+| Este de China           | 139.219.130.35     |                 | |
 | Este de China 2         | 40.73.82.1         |                 | |
-| Norte de China 1        | 139.219.15.17      |                 | |
+| Norte de China          | 139.219.15.17      |                 | |
 | Norte de China 2        | 40.73.50.0         |                 | |
 | Asia oriental            | 191.234.2.139, 52.175.33.150 |       | |
-| Este de EE. UU. 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Sin conexiones después del 1 de septiembre de 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Sin conexiones después del 1 de septiembre de 2019 |
 | Este de EE. UU. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Sin conexiones después del 1 de septiembre de 2019 |
 | Centro de Francia       | 40.79.137.0, 40.79.129.1 |           | |
 | Centro de Alemania      | 51.4.144.100       |                 | |
@@ -89,13 +91,17 @@ A partir de ahora, agregaremos más puertas de enlace en cada región y las reti
 | Corea del Sur          | 52.231.200.86      |                 | |
 | Centro-Norte de EE. UU     | 23.96.178.199      | 23.98.55.75     | Sin conexiones después del 1 de septiembre de 2019 |
 | Europa del Norte         | 40.113.93.91       | 191.235.193.75  | Sin conexiones después del 1 de septiembre de 2019 |
+| Norte de Sudáfrica   | 102.133.152.0      |                 | |
+| Oeste de Sudáfrica    | 102.133.24.0       |                 | |
 | Centro-Sur de EE. UU     | 13.66.62.124       | 23.98.162.75    | Sin conexiones después del 1 de septiembre de 2019 |
 | Sudeste de Asia      | 104.43.15.0        | 23.100.117.95   | Sin conexiones después del 1 de septiembre de 2019 |
+| Centro de Emiratos Árabes Unidos          | 20.37.72.64        |                 | |
+| Norte de Emiratos Árabes Unidos            | 65.52.248.0        |                 | |
 | Sur de Reino Unido 2             | 51.140.184.11      |                 | |
 | Oeste de Reino Unido              | 51.141.8.11        |                 | |
 | Centro occidental de EE.UU.      | 13.78.145.25       |                 | |
-| Europa occidental          | 191.237.232.75, 40.68.37.158 |       | |
-| Oeste de EE. UU. 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Europa occidental          | 40.68.37.158       | 191.237.232.75  | Sin conexiones después del 1 de septiembre de 2019 |
+| Oeste de EE. UU.              | 104.42.238.205     | 23.99.34.75     | Sin conexiones después del 1 de septiembre de 2019 |
 | Oeste de EE. UU. 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 
@@ -110,7 +116,7 @@ Para cambiar la directiva de conexión de Azure SQL Database de un servidor de A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos. El script siguiente requiere el [módulo de Azure PowerShell](/powershell/azure/install-az-ps).
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. El script siguiente requiere el [módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 El siguiente script de PowerShell muestra cómo cambiar la directiva de conexión.
 

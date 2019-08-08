@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7cd938369cdc4f4ca711a442d89cd6ef3d6d08e8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722734"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477072"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
 
@@ -38,12 +38,15 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 
 Las VM de generación 1 son compatibles con todos los tamaños de máquina virtual en Azure. Azure ahora ofrece compatibilidad de generación 2 en vista previa para las siguientes series de VM seleccionadas:
 
+* [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) y [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
 * [Serie GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) y [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
+* [Serie NCv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) y [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
+* [Serie ND](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
 

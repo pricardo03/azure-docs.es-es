@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726827"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377245"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar las aplicaciones de Spark
 
@@ -319,7 +319,7 @@ Si quiere actualizar con la revisión, use el siguiente script que actualizará 
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-1.  Actualmente, solo funciona para el clúster de Spark 2.3.
+1.  Actualmente, solo funciona para el clúster de Spark 2.3 y 2.4.
 
 2.  Los datos de entrada y salida que usan RDD no se muestran en la pestaña de datos.
 

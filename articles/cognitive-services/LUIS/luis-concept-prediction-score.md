@@ -1,6 +1,6 @@
 ---
-title: Puntuaciones de predicción
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Puntuaciones de predicción: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Una puntuación de predicción indica el grado de confianza que tiene el servicio API de LUIS en los resultados de predicción, según una expresión del usuario.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813997"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638363"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Las puntuaciones de predicción indican la precisión de la predicción de las intenciones y las entidades.
 
@@ -69,7 +69,7 @@ Las puntuaciones de predicción pueden usar la notación exponencial, de forma q
 
 ## <a name="punctuation"></a>Signos de puntuación
 
-Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes. Asegúrese de que el modelo controla los signos de puntuación, ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que los tengan o no) o en los [patrones](luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
+[Obtenga más información](luis-concept-utterance.md#punctuation-marks) sobre cómo usar o ignorar la puntuación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

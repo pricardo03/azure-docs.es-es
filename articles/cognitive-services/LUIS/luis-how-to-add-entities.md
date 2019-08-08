@@ -1,6 +1,6 @@
 ---
-title: agregar entidades
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Agregar entidades: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Cree entidades para extraer datos clave de las expresiones de usuario de las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148727"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638238"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
@@ -114,13 +114,13 @@ En la expresión `Where is Request relocation from employee new to the company o
 
 Un rol es un subtipo con nombre basado en el contexto. Está disponible en todas las entidades, incluidas las entidades precompiladas y las entidades que no son de aprendizaje automático. 
 
-La sintaxis de un rol es **`{Entityname:Rolename}`** , donde el nombre de la entidad va seguido por dos puntos y, luego, el nombre del rol. Por ejemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintaxis de un rol es **`{Entityname:Rolename}`** , donde el nombre de la entidad va seguido por dos puntos y, luego, el nombre del rol. Por ejemplo, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. En la sección **Build** (Compilar), seleccione **Entities** (Entidades) en el panel de la izquierda.
 
-1. Haga clic en **Crear nueva entidad**. Escriba el nombre de `LocationUsingRoles`. Seleccione el tipo **Simple** y seleccione **Done** (Listo). 
+1. Haga clic en **Crear nueva entidad**. Escriba el nombre de `Location`. Seleccione el tipo **Simple** y seleccione **Done** (Listo). 
 
-1. Seleccione **Entities** (Entidades) en el panel de la izquierda y luego seleccione la nueva entidad **LocationUsingRoles** creada en el paso anterior.
+1. Seleccione **Entidades** en el panel de la izquierda y luego seleccione la nueva entidad **Location** creada en el paso anterior.
 
 1. En el cuadro de texto **Role name** (Nombre del rol), escriba el nombre del rol `Origin` y presione ENTRAR. Agregue un segundo nombre de rol de `Destination`. 
 

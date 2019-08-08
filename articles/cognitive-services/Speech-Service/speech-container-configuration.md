@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072437"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321368"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
 
@@ -94,8 +94,8 @@ Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | La clave de punto de conexión del recurso de Speech. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación, incluida la región.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|{API_KEY} | La clave de API del recurso de Voz. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | El valor del punto de conexión, incluida la región.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing-configuration-setting).
@@ -111,8 +111,8 @@ En los siguientes ejemplos de Docker encontrará el contenedor de Speech.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### <a name="basic-example-for-text-to-speech"></a>Ejemplo básico de texto a voz
@@ -121,8 +121,8 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### <a name="logging-example-for-speech-to-text"></a>Ejemplo de registro de voz a texto
@@ -131,9 +131,9 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ### <a name="logging-example-for-text-to-speech"></a>Ejemplo de registro de texto a voz
@@ -142,9 +142,9 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

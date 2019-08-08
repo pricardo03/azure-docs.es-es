@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60329758"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357229"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
-En este artículo se describe cómo solucionar problemas de un perfil de Azure Traffic Manager que muestra un estado degradado. Para este escenario, considere que ha configurado un perfil de Traffic Manager orientado a algunos de sus servicios hospedados cloudapp.net. Si el estado de su instancia de Traffic Manager muestra **Degradado**, entonces el estado de uno o varios puntos de conexión puede ser **Degradado**:
+En este artículo se describe cómo solucionar problemas de un perfil de Azure Traffic Manager que muestra un estado degradado. El primer paso en la solución de un estado degradado de Azure Traffic Manager es habilitar el registro de diagnóstico.  Para más información, consulte [Habilitación de los registros de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Para este escenario, considere que ha configurado un perfil de Traffic Manager orientado a algunos de sus servicios hospedados cloudapp.net. Si el estado de su instancia de Traffic Manager muestra **Degradado**, entonces el estado de uno o varios puntos de conexión puede ser **Degradado**:
 
 ![estado de punto de conexión degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -90,6 +90,6 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets de Azure Traffic Manager][1]
+[Cmdlets del Administrador de tráfico de Azure][1]
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

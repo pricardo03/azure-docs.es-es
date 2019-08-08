@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Solución de problemas
       items:
+        - name: Espacio en disco insuficiente
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: 'Bloqueo flexible: CPU'
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: 'Error al crear el clúster: InvalidNetworkConfigurationErrorCode'
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemas de latido de Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari muestra los hosts y servicios inactivos
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procedimientos
   items:
     - name: Uso del espacio aislado de Apache Hadoop

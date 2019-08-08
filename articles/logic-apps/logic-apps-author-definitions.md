@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 89a77c25c75617be0e1ef92b73eec28263f53f82
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296115"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385574"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
 
@@ -62,108 +62,21 @@ En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas 
 
 ## <a name="parameters"></a>Parámetros
 
-Los parámetros le permite volver a usar los valores en toda la aplicación lógica y son adecuados para reemplazar los valores que podría cambiar con frecuencia. Por ejemplo, si tiene una dirección de correo electrónico que desea usar en varios lugares, debe definirla como un parámetro.
+Por lo general, el ciclo de vida de una implementación tiene distintos entornos para el desarrollo, las pruebas, el almacenamiento provisional y la producción. Cuando tenga valores que desee reutilizar en la aplicación lógica sin codificar o que varían en función de sus necesidades de implementación, puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para la definición de flujo de trabajo, con el fin de que también pueda automatizar la implementación de aplicaciones lógicas. 
 
-Los parámetros también resultan útiles cuando es necesario reemplazar los parámetros de varios entornos. Obtenga más información sobre los [parámetros para implementación](#deployment-parameters) y la [documentación de API de REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic).
+Siga estos pasos generales para *parametrizar*, o definir y usar parámetros para esos valores en su lugar. Después, puede proporcionar los valores en un archivo de parámetros independiente que pase esos valores a la plantilla. De esa forma puede cambiar estos valores más fácilmente sin tener que actualizar y volver a implementar la aplicación lógica. Para más información, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-> [!NOTE]
-> Los parámetros solo están disponibles en la vista de código.
+1. En la plantilla, defina los parámetros de la plantilla y los parámetros de la definición del flujo de trabajo para aceptar los valores que se van a usar tanto en la implementación como en el runtime, respectivamente.
 
-En la [primera aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md), creó un flujo de trabajo que envía correos electrónicos cuando aparecen publicaciones nuevas en la fuente RSS de un sitio web. La dirección URL de la fuente está codificada de manera rígida, por lo que este ejemplo muestra cómo reemplazar el valor de la consulta por un parámetro para que sea más sencillo cambiar la dirección URL de la fuente.
+   Los parámetros de la plantilla se definen en una sección de parámetros que está fuera de la definición del flujo de trabajo, mientras que los parámetros de la definición del flujo de trabajo se definen en una sección de parámetros que está dentro de la definición del flujo de trabajo.
 
-1. En la vista de código, busque el objeto `parameters : {}` y agregue un objeto `currentFeedUrl`:
+1. Reemplace los valores codificados por expresiones que hagan referencia a estos parámetros. Las expresiones de plantilla usan una sintaxis distinta de las expresiones de definición del flujo de trabajo.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Evite complicar el código por la falta de uso de expresiones de plantilla, que se evalúan en la implementación, dentro de las expresiones de definición de flujo de trabajo, que se evalúan en el runtime. Use solo expresiones de plantilla fuera de la definición de flujo de trabajo. Use solo expresiones de definición de flujo de trabajo dentro de la definición de flujo de trabajo.
 
-2. En la acción `When_a_feed-item_is_published`, busque la sección `queries` y reemplace el valor de la consulta por `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+   Al especificar los valores de los parámetros de la definición de flujo de trabajo, puede hacer referencia a los parámetros de plantilla mediante el uso de la sección de parámetros que está fuera de la definición de flujo de trabajo, pero dentro de la definición de recurso de su aplicación lógica. De este modo, podrá pasar valores de parámetros de plantilla a los parámetros de definición de flujo de trabajo.
 
-   **Antes**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **Después**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   Para combinar dos o más cadenas, también puede usar la función `concat`. 
-   Por ejemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona igual que en el ejemplo anterior.
-
-3.  Cuando termine, seleccione **Guardar**.
-
-Ahora puede cambiar la fuente RSS del sitio web pasando una dirección URL diferente a través del objeto `currentFeedURL`.
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>Parámetros de implementación para entornos diferentes
-
-Por lo general, un ciclo de vida de implementación tiene entornos de desarrollo, de ensayo y de producción. Por ejemplo, puede usar la misma definición de aplicación lógica en todos estos entornos, pero usar bases de datos distintas. Del mismo modo, es posible que desee usar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica use la base de datos de esa región.
-
-> [!NOTE]
-> Este escenario no tiene nada que ver con tomar parámetros en *entorno de tiempo de ejecución* donde debería usar la función `trigger()` en su lugar.
-
-Esta es una definición básica:
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-En la solicitud `PUT` real para las aplicaciones lógicas, puede proporcionar el parámetro `uri`. En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. Dado que ya no existe un valor predeterminado, la carga útil de la aplicación lógica requiere este parámetro:
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-Para más información, consulte la [documentación de API de REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+1. Almacene los valores de los parámetros en un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) independiente e inclúyalo en la implementación.
 
 ## <a name="process-strings-with-functions"></a>Procesamiento de cadenas con funciones
 

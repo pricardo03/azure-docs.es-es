@@ -1,6 +1,6 @@
 ---
-title: Planeamiento de la aplicación
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Planificación de la aplicación: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Resuma las intenciones y entidades de aplicación relevantes y cree los planes de aplicación en Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196242"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638314"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planificación de la aplicación LUIS con el dominio del tema, las intenciones y las entidades
 
-Es importante planear la aplicación. Identifique el dominio, incluidas posibles intenciones y entidades que sean pertinentes para la aplicación.  
+Para planificar la aplicación, identifique el dominio del área de asunto. Esto incluye posibles intenciones y entidades que sean pertinentes para la aplicación.  
 
 ## <a name="identify-your-domain"></a>Identificar el dominio
 
@@ -39,11 +39,13 @@ Piense en las [intenciones](luis-concept-intent.md) que son importantes para la 
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creación de expresiones de ejemplo para cada intención
 
-Cuando haya determinado las intenciones, cree 10 o 15 expresiones de ejemplo para cada intención. Para empezar, no tenga un número menor a este ni cree muchas expresiones para cada intención. Cada expresión debe ser diferente de la expresión anterior. Una buena variedad de expresiones incluye el recuento total de palabras, la elección de palabras, el tiempo verbal y la puntuación. 
+Cuando haya determinado las intenciones, cree 15 o 30 expresiones de ejemplo para cada intención. Para empezar, no tenga un número menor a este ni cree demasiadas expresiones para cada intención. Cada expresión debe ser diferente de la expresión anterior. Una buena variedad de expresiones incluye el recuento total de palabras, la elección de palabras, el tiempo verbal y la puntuación. 
+
+Revise las [expresiones](luis-concept-utterance.md) para obtener más información.
 
 ## <a name="identify-your-entities"></a>Identificar las entidades
 
-En las expresiones de ejemplo, identifique las entidades que desea extraer. Para reservar un vuelo necesita cierta información, como el destino, la fecha, la aerolínea, el tipo de billete y la clase del viaje. Crea las entidades para estos tipos de datos y, a continuación, marca las [entidades](luis-concept-entity-types.md) en las expresiones de ejemplo, ya que son importantes para llevar a cabo una intención. 
+En las expresiones de ejemplo, identifique las entidades que desea extraer. Para reservar un vuelo necesita información como el destino, la fecha, la aerolínea, el tipo de billete y la clase del viaje. Cree las entidades para estos tipos de datos y, a continuación, marque las [entidades](luis-concept-entity-types.md) en las expresiones de ejemplo, ya que son importantes para llevar a cabo una intención. 
 
 A la hora de determinar las entidades que va a usar en la aplicación, tenga en cuenta que hay distintos tipos de entidades para capturar las relaciones entre los tipos de objetos. [Las entidades de LUIS](luis-concept-entity-types.md) proporcionan más detalles sobre los distintos tipos.
 

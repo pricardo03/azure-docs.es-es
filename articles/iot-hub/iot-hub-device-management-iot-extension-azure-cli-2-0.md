@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93efd6e53470fb78bb6d823652437e7a37c33732
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399630"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640576"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub
 
@@ -49,7 +49,7 @@ Deberá ejecutar la CLI de Azure y la extensión de IoT de la CLI de Azure con v
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales de dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
+* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos elementos abarcan los requisitos siguientes:
 
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
@@ -59,11 +59,14 @@ Deberá ejecutar la CLI de Azure y la extensión de IoT de la CLI de Azure con v
 
 * [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
-* La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versión mínima de la CLI de Azure es la 2.0.24. Use `az –version` para asegurarse. 
+<!-- I'm not sure we need all this info, so comment out this include for now. Robin 7.26.2019
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)] -->
+
+* La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versión mínima de la CLI de Azure es la 2.0.24. Use `az –version` para asegurarse.
 
 * Instale la extensión de IoT. La manera más sencilla es ejecutar `az extension add --name azure-cli-iot-ext`. En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) se describen varias maneras de instalarla.
 
-## <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
+## <a name="sign-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure.
 
 Inicie sesión en la cuenta de Azure mediante el siguiente comando:
 
@@ -99,7 +102,7 @@ Obtenga las propiedades notificadas del dispositivo mediante la ejecución del c
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-Una de las propiedades notificadas gemelas es $metadata.$lastUpdated que muestra la última vez que la aplicación para dispositivos actualizó su conjunto de propiedades notificadas.
+Una de las propiedades notificadas gemelas es $metadata.$lastUpdated, que muestra la última vez que la aplicación para dispositivos actualizó su conjunto de propiedades notificadas.
 
 ## <a name="device-twin-tags"></a>Etiquetas de dispositivos gemelos
 

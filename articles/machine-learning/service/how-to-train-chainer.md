@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 06/15/2019
-ms.openlocfilehash: 8ecefccbdf5f02652e935858b6ae8fb4cdfde640
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840036"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618329"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning Service
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ejecute este código en uno de estos entornos:
+Ejecute este código en cualquiera de estos entornos:
 
 - Máquina virtual de cuadernos de Azure Machine Learning: no se necesitan descargas ni instalación
 
@@ -62,7 +62,7 @@ print("SDK version:", azureml.core.VERSION)
 
 El [área de trabajo de Azure Machine Learning Service](concept-workspace.md) es el recurso de nivel superior del servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
-Cree un objeto de área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
+Cree un objeto de área de trabajo mediante la lectura del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites):
 
 ```Python
 ws = Workspace.from_config()
@@ -82,7 +82,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 En este tutorial, el script de entrenamiento **chainer_mnist.py** ya se proporciona. En la práctica, debería poder usar cualquier script de entrenamiento personalizado tal cual y ejecutarlo con Azure Machine Learning sin tener que modificar el código.
 
-Para usar las funcionalidades de seguimiento y métricas de Azure Machine Learning, deberá agregar una pequeña cantidad de código de Azure Machine Learning dentro del script de entrenamiento.  El script de entrenamiento **chainer_mnist.py** muestra cómo registrar algunas métricas para la ejecución de Azure Machine Learning. Para ello, debe acceder al objeto `Run` de Azure Machine Learning dentro del script.
+Para usar las funcionalidades de seguimiento y métricas de Azure Machine Learning, agregue una pequeña cantidad de código de Azure Machine Learning dentro del script de entrenamiento.  El script de entrenamiento **chainer_mnist.py** muestra cómo registrar algunas métricas para la ejecución de Azure Machine Learning mediante el objeto `Run` en el script.
+
+El script de entrenamiento proporcionado usa datos de ejemplo de la función `datasets.mnist.get_mnist` de Chainer.  Para sus propios datos, puede que necesite realizar pasos como [cargar el conjunto de datos y los scripts](how-to-train-keras.md#upload-dataset-and-scripts) para que los datos estén disponibles durante el entrenamiento.
 
 Copie el script de entrenamiento **chainer_mnist.py** en el directorio del proyecto.
 
@@ -94,7 +96,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-an-experiment"></a>Creación de un experimento
 
-Cree un experimento y una carpeta para almacenar los scripts de entrenamiento. En este ejemplo, cree un experimento denominado "chainer-mnist".
+Cree un experimento. En este ejemplo, cree un experimento denominado "chainer-mnist".
 
 ```
 from azureml.core import Experiment
@@ -106,9 +108,9 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## <a name="create-or-get-a-compute-target"></a>Creación u obtención de un destino de proceso
 
-Para entrenar el modelo, necesitará un [destino de proceso](concept-compute-target.md). En este tutorial, usará el proceso administrado de Azure Machine Learning (AmlCompute) el recurso de proceso de entrenamiento remoto.
+Para entrenar el modelo, necesita un [destino de proceso](concept-compute-target.md). En este ejemplo, usará el proceso administrado de Azure Machine Learning (AmlCompute) para el recurso de proceso de entrenamiento remoto.
 
-**La creación de AmlCompute tarda aproximadamente 5 minutos**. Si el AmlCompute con ese nombre ya está en el área de trabajo, este código omitirá el proceso de creación.  
+**La creación de AmlCompute tarda aproximadamente 5 minutos**. Si el AmlCompute con ese nombre ya está en el área de trabajo, este código omite el proceso de creación.  
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -134,7 +136,7 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-Para obtener más información sobre los destinos de proceso, consulte el artículo [¿Qué es un destino de proceso?](concept-compute-target.md)
+Para más información sobre los destinos de proceso, vea el artículo [¿Qué es un destino de proceso?](concept-compute-target.md)
 
 ## <a name="create-a-chainer-estimator"></a>Creación de un estimador de Chainer
 
@@ -172,7 +174,7 @@ Durante la ejecución de Run, pasa por las fases siguientes:
 
 - **Preparando**: se crea una imagen de Docker según el estimador de Chainer. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso.
 
-- **Escalado**: el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles.
+- **Escalado**: el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
 
 - **Running**: todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta entry_script. Las salidas de stdout y la carpeta ./logs se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
 
@@ -180,21 +182,30 @@ Durante la ejecución de Run, pasa por las fases siguientes:
 
 ## <a name="save-and-register-the-model"></a>Guardado y registro del modelo
 
-Una vez que haya entrenado el modelo, puede guardarlo y registrarlo en el área de trabajo. El registro del modelo permite almacenar y crear versiones de los modelos en el área de trabajo para simplificar la [administración e implementación de modelos](concept-model-management-and-deployment.md).
+Una vez que haya entrenado el modelo, puede guardarlo y registrarlo en el área de trabajo. El registro del modelo permite almacenar los modelos y crear versiones de ellos en el área de trabajo para simplificar la [administración e implementación de modelos](concept-model-management-and-deployment.md).
 
-Para guardar el modelo, agregue el código siguiente al script de entrenamiento, **chainer_mnist.py**. 
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
-```
-
-Registre el modelo al área de trabajo con el código siguiente.
+Tras completar el entrenamiento del modelo, regístrelo en el área de trabajo con el código siguiente.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+> [!TIP]
+> Si recibe un error que indica que no se encuentra el modelo, espere un minuto y vuelva a intentarlo.  A veces hay un pequeño intervalo entre el final de la ejecución de entrenamiento y la disponibilidad del modelo en el directorio de resultados.
 
+También puede descargar una copia local del modelo. Esto puede ser útil para realizar trabajos de validación de modelo adicionales de forma local. En el script de entrenamiento, `chainer_mnist.py`, un objeto de protector guarda el modelo en una carpeta local (local para el destino de proceso). Puede usar el objeto Run para descargar una copia del almacén de datos.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

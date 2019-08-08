@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e53f8dd832b7f19692b9095e913330848e5b0330
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435949"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385766"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -213,7 +213,7 @@ Una vez que haya habilitado las métricas, las estadísticas de tráfico de los 
 
    ![Nombre de API de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. Marque la casilla junto a **GetWebContent** en el selector *Valores* para completar el informe de métricas.
+7. Active la casilla junto a **GetWebContent** en el selector *Valores* para completar el informe de métricas.
 
    ![GetWebContent de métricas de sitios web de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 

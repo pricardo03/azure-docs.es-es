@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 608338c628232f7f67ea6f6b7ba15e6bb1c3b315
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9dc4909db5560be6eb082dbad85d4b2d42113bdd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698658"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828693"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
 
@@ -164,7 +164,7 @@ az resource delete \
 ```
 
 ## <a name="start-the-image-build"></a>Iniciar la generación de imágenes
-Inicie el proceso de compilación de la imagen con [az resource invoke-action](/cli/azure/resourceaz-resource-invoke-action).
+Inicie el proceso de compilación de la imagen con [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \

@@ -4,17 +4,17 @@ description: Desarrollo de módulos personalizados para Azure IoT Edge que puede
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/25/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833440"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414407"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desarrollar sus propios módulos de IoT Edge
 
@@ -62,6 +62,33 @@ La conexión al centro de IoT Edge local desde un módulo implica dos pasos:
 
 Crear una instancia de ModuleClient para conectar el módulo al centro de IoT Edge que se ejecuta en el dispositivo, de forma similar a cómo las instancias de DeviceClient conectan dispositivos IoT a IoT Hub. Para más información sobre la clase ModuleClient y sus métodos de comunicación, consulte la referencia de API de su lenguaje preferido para el SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C y Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
+## <a name="language-and-architecture-support"></a>Compatibilidad de idiomas y arquitecturas
+
+IoT Edge admite varios sistemas operativos, arquitecturas de dispositivos y lenguajes de desarrollo para que pueda crear el escenario que más se ajuste a sus necesidades. Use esta sección para conocer las distintas opciones para desarrollar módulos de IoT Edge personalizados. Puede obtener más información acerca la compatibilidad de las herramientas y de los requisitos de cada lenguaje en [Preparación del entorno de desarrollo y prueba para IoT Edge](development-environment.md).
+
+### <a name="linux"></a>Linux
+
+En todos los idiomas de la tabla siguiente, IoT Edge admite el desarrollo para dispositivos Linux AMD64 y ARM32. 
+
+| Lenguaje de desarrollo | Herramientas de desarrollo |
+| -------------------- | ----------------- |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| Python | Visual Studio Code |
+
+>[!NOTE]
+>El soporte técnico del desarrollo y depuración para dispositivos Linux ARM64 está en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
+### <a name="windows"></a>Windows
+
+En todos los idiomas de la tabla siguiente, IoT Edge admite el desarrollo para dispositivos Windows AMD64.
+
+| Lenguaje de desarrollo | Herramientas de desarrollo |
+| -------------------- | ----------------- |
+| C | Visual Studio 2017/2019 |
+| C# | Visual Studio Code (sin funcionalidades de depuración)<br>Visual Studio 2017/2019 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -71,3 +98,4 @@ Crear una instancia de ModuleClient para conectar el módulo al centro de IoT Ed
 
 [Uso de Visual Studio Code para desarrollar módulos para IoT Edge](how-to-vs-code-develop-module.md)
 
+[Información y uso de los SDK de Azure IoT Hub](/iot-hub/iot-hub-devguide-sdks.md)

@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 4511510dec6f488e1a6ea9a6842b771d2a298fec
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295186"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640666"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
@@ -86,7 +86,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
    - Reemplace `<storage directory bind>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El enlace del directorio de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.
 
      - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento>: /blobroot*. Por ejemplo, **/srv/containerdata:/blobroot** o **mi-volumen:/blobroot**.
-     - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento>:C:/BlobRoot*. Por ejemplo, **C:/ContainerData:C:/BlobRoot** o **mi-volumen:C:/blobroot**.
+     - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento>:C:/BlobRoot*. Por ejemplo, **C:/ContainerData:C:/BlobRoot** o **mi-volumen:C:/blobroot**. En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > No cambie la segunda mitad del valor del enlace del directorio de almacenamiento, que señala a una ubicación específica del módulo. El enlace del directorio de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
@@ -194,7 +194,7 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 1. Reemplace `<storage directory bind>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El enlace del directorio de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 
       - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento>: /blobroot*. Por ejemplo, **/srv/containerdata:/blobroot** o **mi-volumen:/blobroot**.
-      - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento>:C:/BlobRoot*. Por ejemplo, **C:/ContainerData:C:/BlobRoot** o **mi-volumen:C:/blobroot**.
+      - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento>:C:/BlobRoot*. Por ejemplo, **C:/ContainerData:C:/BlobRoot** o **mi-volumen:C:/blobroot**.  En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
       > [!IMPORTANT]
       > No cambie la segunda mitad del valor del enlace del directorio de almacenamiento, que señala a una ubicación específica del módulo. El enlace del directorio de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
@@ -249,5 +249,8 @@ Edite el campo **Opciones de creación del contenedor** (en Azure Portal) o **cr
 Cuando se conecta a módulos de Blob Storage adicionales, cambie el punto de conexión para que apunte al puerto de host actualizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre [Azure Blob Storage en IoT Edge](how-to-store-data-blob.md).
+
+Permanezca actualizado con los anuncios y actualizaciones recientes de [Azure Blob Storage en el blog de IoT Edge](https://aka.ms/abs-iot-blogpost).
 
 Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).

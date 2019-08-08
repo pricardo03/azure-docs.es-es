@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485278"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663582"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Reglas de alerta personalizadas en Azure Security Center (versión preliminar)
-Este documento le ayuda a crear reglas de alerta personalizadas en Azure Security Center.
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Reglas de alerta personalizadas en Azure Security Center (retirado)
+Este documento le ayuda a crear reglas de alerta personalizadas (versión preliminar) en Azure Security Center.
 
 > [!NOTE]
-> Se han retirado las alertas personalizadas de Security Center. 
+> Las alertas personalizadas se retiraron de Azure Security Center el 30 de junio de 2019. 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Retirada de las reglas de alertas personalizadas en Azure Security Center
 
-La experiencia de alertas personalizadas se ha retirado el 30 de junio de 2019, debido a la retirada de la infraestructura subyacente en la que se basa. Todas las alertas personalizadas que se definieron antes de la retirada han dejado de surtir efecto y las alertas de seguridad basadas en esas reglas de alertas personalizadas ya no se generan. Aún puede ver las consultas de reglas de alertas personalizadas en Security Center para volver a crearlas mediante alguna de las alternativas que se mencionan a continuación:
+La experiencia de alertas personalizadas se retiró el 30 de junio de 2019 debido a la retirada de la infraestructura subyacente en la que se basa. Todas las alertas personalizadas que se definieron antes de la retirada han dejado de surtir efecto y las alertas de seguridad basadas en esas reglas de alertas personalizadas ya no se generan. Aún puede ver las consultas de reglas de alertas personalizadas en Security Center para volver a crearlas mediante alguna de las alternativas que se mencionan a continuación:
 
 Se aconseja a los usuarios que:
 - Habiliten [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) y usen la función [analítica](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) integrada para volver a crear sus reglas de alertas.
@@ -40,7 +40,7 @@ Para mantener las alertas existentes y volver a crearlas en Azure Sentinel, [ini
 > [!NOTE]
 > Las alertas personalizadas en las que se usan consultas de instrucciones de [búsqueda](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) o [unión](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) no se admiten en Azure Sentinel. Modifique estas alertas antes de realizar la migración.
 
-Para volver a crear las alertas mediante alertas de registro de Azure Monitor, vea lo siguiente: [Creación, visualización y administración de alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para obtener instrucciones sobre cómo crear alertas de registro. Para obtener información general de las alertas de registro en Azure Monitor, haga clic [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Para obtener información sobre cómo volver a crear las alertas mediante alertas de registro de Azure Monitor, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log). Para obtener información general, consulte [Alertas de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>¿Qué son las reglas de alerta personalizadas en Security Center?
 

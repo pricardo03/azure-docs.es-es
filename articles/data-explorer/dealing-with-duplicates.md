@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445777"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608235"
 ---
 # <a name="handle-duplicate-data-in-azure-data-explorer"></a>Control de datos duplicados en Azure Data Explorer
 
@@ -70,7 +70,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Solución 3: Filtrar duplicados durante el proceso de ingesta
 
-Otra solución consiste en filtrar duplicados durante el proceso de ingesta. El sistema ignora los datos duplicados durante la ingesta en tablas Kusto. Los datos se ingieren en una tabla de almacenamiento provisional y se copian en otra tabla después de eliminar las filas duplicadas. La ventaja de esta solución es que el rendimiento de las consultas mejora drásticamente en comparación con la solución anterior. Entre sus desventajas se incluyen un mayor tiempo de ingesta y costos adicionales de almacenamiento de datos.
+Otra solución consiste en filtrar duplicados durante el proceso de ingesta. El sistema ignora los datos duplicados durante la ingesta en tablas Kusto. Los datos se ingieren en una tabla de almacenamiento provisional y se copian en otra tabla después de eliminar las filas duplicadas. La ventaja de esta solución es que el rendimiento de las consultas mejora drásticamente en comparación con la solución anterior. Entre sus desventajas se incluyen un mayor tiempo de ingesta y costos adicionales de almacenamiento de datos. Además, esta solución solo funciona si las réplicas no se ingieren simultáneamente. Si hay varias ingestas simultáneas que contienen registros duplicados, se pueden ingerir todos los registros, ya que el proceso de desduplicación no encontrará ningún registro coincidente existente en la tabla.    
 
 El siguiente ejemplo describe este método:
 

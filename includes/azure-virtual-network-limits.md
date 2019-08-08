@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457536"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481559"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -29,6 +29,8 @@ ms.locfileid: "67457536"
 | Direcciones IP privadas por red virtual |65 536 |
 | Direcciones IP privadas por interfaz de red |256 |
 | Direcciones IP privadas por máquina virtual |256 |
+| Direcciones IP públicas por interfaz de red |256 |
+| Direcciones IP públicas por máquina virtual |256 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500.000 |
 | Tarjetas adaptadoras de red |65 536 |
 | Grupos de seguridad de red |5\.000 |

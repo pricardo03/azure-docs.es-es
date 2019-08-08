@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: allensu
-ms.openlocfilehash: 6623b3e679faaa73f18c0f6b376de101113bcbdb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274554"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385546"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -42,25 +42,25 @@ Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/a
 
 | SKU | Escenario | Método | Protocolos IP | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| Nivel Estándar o Básico | [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, también deben usarse las [reglas de salida](load-balancer-outbound-rules-overview.md) para definir explícitamente la conectividad saliente |
-| Nivel Estándar o Básico | [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública de nivel de instancia en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
-| Ninguna o nivel Básico | [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública en el nivel de instancia)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Este es un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
+| Nivel Estándar o Básico | [1. Máquina virtual con dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, también deben usarse las [reglas de salida](load-balancer-outbound-rules-overview.md) para definir explícitamente la conectividad saliente |
+| Nivel Estándar o Básico | [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
+| Ninguna o nivel Básico | [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Este es un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
 
 Si no quiere que una máquina virtual se comunique con puntos de conexión situados fuera de Azure en el espacio de direcciones IP públicas, puede usar grupos de seguridad de red (NSG) para bloquear el acceso según sea necesario. En la sección [Impedir la conectividad saliente](#preventoutbound) se proporciona información sobre los grupos de seguridad de red. Las instrucciones sobre cómo diseñar, implementar y administrar una red virtual sin acceso de salida escapan del ámbito de este artículo.
 
-### <a name="ilpip"></a>Escenario 1: Máquina virtual con una dirección IP pública de nivel de instancia
+### <a name="ilpip"></a>Escenario 1: Máquina virtual con dirección IP pública
 
-En este escenario, la máquina virtual tiene una dirección IP pública a nivel de instancia (ILPIP) asignada. En lo que se refiere a las conexiones salientes, no importa si la máquina virtual tiene la carga equilibrada o no. Este escenario tiene prioridad sobre las demás. Cuando se usa una ILPIP, la máquina virtual la usa en todos los flujos de salida.  
+En este escenario, la máquina virtual tiene una dirección IP pública asignada. En lo que se refiere a las conexiones salientes, no importa si la máquina virtual tiene la carga equilibrada o no. Este escenario tiene prioridad sobre las demás. Cuando se usa una dirección IP pública, la máquina virtual usa la dirección IP pública para todos los flujos salientes.  
 
 Una dirección IP pública asignada a una máquina virtual es una relación 1:1 (en lugar de 1:muchos) y se implementa como NAT de 1:1 sin estado.  No se usa el enmascaramiento de puertos (PAT) y la máquina dispone de todos los puertos efímeros para su uso.
 
-Si la aplicación inicia muchos flujos de salida y experimenta el agotamiento de puertos SNAT, considere la posibilidad de asignar una [ILPIP para mitigar las restricciones de SNAT](#assignilpip). Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) en su totalidad.
+Si la aplicación inicia muchos flujos de salida y experimenta el agotamiento de puertos SNAT, considere la posibilidad de asignar una [dirección IP pública para mitigar las restricciones de SNAT](#assignilpip). Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) en su totalidad.
 
-### <a name="lb"></a>Escenario 2: máquina virtual de carga equilibrada sin dirección IP pública en el nivel de instancia
+### <a name="lb"></a>Escenario 2: máquina virtual de carga equilibrada sin dirección IP pública
 
 En este escenario, la máquina virtual forma parte de un grupo de servidores back-end de Load Balancer. La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Load Balancer debe configurarse con una regla de equilibrador de carga que cree un vínculo entre el front-end de dirección IP pública y el grupo de back-end.
 
-Si no lleva a cabo esta configuración de reglas, el comportamiento es tal y como se describe en la sección para [Máquina virtual independiente sin dirección IP pública en el nivel de instancia](#defaultsnat). No es necesario que la regla tenga un agente de escucha en funcionamiento en el grupo de servidores back-end o que el sondeo de mantenimiento sea correcto.
+Si no lleva a cabo esta configuración de reglas, el comportamiento es tal y como se describe en la sección para [Máquina virtual independiente sin dirección IP pública](#defaultsnat). No es necesario que la regla tenga un agente de escucha en funcionamiento en el grupo de servidores back-end o que el sondeo de mantenimiento sea correcto.
 
 Cuando la máquina virtual de carga equilibrada crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP pública del front-end público de Load Balancer. Azure usa SNAT para realizar esta función. También usa [PAT](#pat) para enmascarar varias direcciones IP privadas detrás de una dirección IP pública. 
 
@@ -72,9 +72,9 @@ Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](l
 
 Para supervisar el mantenimiento de las conexiones salientes con Load Balancer básico, puede usar los [logs de Azure Monitor para Load Balancer](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log).
 
-### <a name="defaultsnat"></a>Escenario 3: máquina virtual independiente sin una dirección IP pública en el nivel de instancia
+### <a name="defaultsnat"></a>Escenario 3: Máquina virtual independiente sin dirección IP pública
 
-En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Load Balancer estándar interno) y no tiene asignada una dirección ILPIP. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Esta dirección IP pública no le pertenece y no se puede reservar. Si vuelve a implementar la máquina virtual, el conjunto de disponibilidad o el conjunto de escalado de máquinas virtuales, esta dirección IP pública se publicará y se solicitará una nueva dirección IP pública. No use este escenario para direcciones IP permitidas. En su lugar, utilice uno de los otros dos escenarios en el que declare explícitamente el escenario de salida y la dirección IP pública que se utilizará para la conectividad de salida.
+En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Standard Load Balancer interno) y no tiene asignada una dirección IP pública. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Esta dirección IP pública no le pertenece y no se puede reservar. Si vuelve a implementar la máquina virtual, el conjunto de disponibilidad o el conjunto de escalado de máquinas virtuales, esta dirección IP pública se publicará y se solicitará una nueva dirección IP pública. No use este escenario para direcciones IP permitidas. En su lugar, utilice uno de los otros dos escenarios en el que declare explícitamente el escenario de salida y la dirección IP pública que se utilizará para la conectividad de salida.
 
 >[!IMPORTANT] 
 >Este escenario también se aplica cuando __solo__ se asocia una instancia de Load Balancer básico interna. El escenario 3 __no está disponible__ cuando se asocia una instancia de Load Balancer estándar interna a una máquina virtual.  Debe crear explícitamente el [escenario 1](#ilpip) o el [escenario 2](#lb) además de usar una instancia de Load Balancer estándar interna.
@@ -189,7 +189,7 @@ Las asignaciones de puertos SNAT son específicas del protocolo de transporte IP
 Esta sección está diseñada para ayudar a mitigar el agotamiento de SNAT, que puede producirse con las conexiones salientes en Azure.
 
 ### <a name="snatexhaust"></a>Administración del agotamiento de puertos SNAT (PAT)
-Los [puertos efímeros](#preallocatedports) usados para [PAT](#pat) son un recurso agotable, como se describe en [Máquina virtual independiente sin una dirección IP pública en el nivel de instancia](#defaultsnat) y [Máquina virtual de carga equilibrada sin dirección IP pública en el nivel de instancia](#lb).
+Los [puertos efímeros](#preallocatedports) usados para [PAT](#pat) son un recurso agotable, como se describe en [Máquina virtual independiente sin una dirección IP pública](#defaultsnat) y [Máquina virtual de carga equilibrada sin dirección IP pública](#lb).
 
 Si sabe que se van a iniciar muchas conexiones TCP o UDP salientes a la misma dirección IP y puerto de destino, y observa errores en las conexiones salientes, o el soporte técnico está avisando del agotamiento de los puertos SNAT ([puertos efímeros](#preallocatedports) asignados previamente usados por [PAT](#pat)), dispone de varias opciones generales para mitigar este problema. Revise estas opciones y vea cuál está disponible y resulta mejor para su escenario. Es posible que una o varias de ellas puedan ayudar a administrar este escenario.
 
@@ -210,8 +210,8 @@ Cuando se agotan los [puertos efímeros asignados previamente](#preallocatedport
 
 Los puertos efímeros tienen un tiempo de inactividad de 4 minutos (no ajustable). Si los reintentos son demasiado agresivos, el agotamiento no tiene ninguna oportunidad de solucionarlo por sí mismo. Por lo tanto, una parte fundamental del diseño es considerar cómo y con qué frecuencia la aplicación vuelve a intentar las transacciones.
 
-#### <a name="assignilpip"></a>Asignación de una dirección IP pública en el nivel de instancia a cada máquina virtual
-La asignación de una ILPIP cambia el escenario a [Dirección IP pública en el nivel de instancia para una máquina virtual](#ilpip). Todos los puertos efímeros de la dirección IP pública que se usan para cada máquina virtual están disponibles para la máquina virtual. (En contraste con los escenarios donde los puertos efímeros de una dirección IP pública se comparten con todas las máquinas virtuales asociadas al grupo back-end respectivo). Existen ventajas e inconvenientes que deben considerarse, como el costo adicional de las direcciones IP públicas y el posible impacto de la creación de listas de permitidos con un gran número de direcciones IP individuales.
+#### <a name="assignilpip"></a>Asignación de una IP pública a cada máquina virtual
+La asignación de una dirección IP pública cambia el escenario a [IP pública a una máquina virtual](#ilpip). Todos los puertos efímeros de la dirección IP pública que se usan para cada máquina virtual están disponibles para la máquina virtual. (En contraste con los escenarios donde los puertos efímeros de una dirección IP pública se comparten con todas las máquinas virtuales asociadas al grupo back-end respectivo). Existen ventajas e inconvenientes que deben considerarse, como el costo adicional de las direcciones IP públicas y el posible impacto de la creación de listas de permitidos con un gran número de direcciones IP individuales.
 
 >[!NOTE] 
 >Esta opción no está disponible para roles de trabajo web.

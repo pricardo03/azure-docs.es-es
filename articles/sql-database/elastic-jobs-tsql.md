@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568271"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641043"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -1195,7 +1194,7 @@ Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-d
 
 |Ver  |DESCRIPCIÓN  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Muestra el historial de ejecuciones de trabajos.      |
+|[job_executions](#job_executions-view)     |  Muestra el historial de ejecuciones de trabajos.      |
 |[jobs](#jobs-view)     |   Muestra todos los trabajos.      |
 |[job_versions](#job_versions-view)     |   Muestra todas las versiones del trabajo.      |
 |[jobsteps](#jobsteps-view)     |     Muestra todos los pasos de la versión actual de cada trabajo.    |
@@ -1204,9 +1203,9 @@ Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-d
 |[target_group_members](#target_groups_members-view)     |   Muestra todos los miembros de todos los grupos de destino.      |
 
 
-### <a name="jobs_executions-view"></a>vista jobs_executions
+### <a name="job_executions-view"></a>vista de job_executions
 
-[jobs].[jobs_executions]
+[jobs].[job_executions]
 
 Muestra el historial de ejecuciones de trabajos.
 

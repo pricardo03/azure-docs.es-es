@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25434360bcc0155411451dbac065e0b7fad9c3bf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c1ea306d8a6b5c1876ac6a9288820e1592dbfda6
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617481"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498528"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -35,7 +35,7 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 Para editar `server.xml` de Tomcat u otros archivos de configuración, en primer lugar anote su versión principal de Tomcat en el portal.
 
 1. Encuentre el directorio principal de Tomcat de su versión ejecutando el comando `env`. Busque la variable de entorno que comienza por `AZURE_TOMCAT` y coincide con la versión principal. Por ejemplo, `AZURE_TOMCAT85_HOME` señala al directorio de Tomcat para Tomcat 8.5.
-1. Una vez que haya identificado el directorio principal de Tomcat para su versión, copie el directorio de configuración para `D:\home`. Por ejemplo, si `AZURE_TOMCAT85_HOME` tuviera un valor de `D:\Program Files (x86)\apache-tomcat-8.5.37`, la ruta de acceso completa del directorio de configuración copiado sería `D:\home\tomcat\conf`.
+1. Una vez que haya identificado el directorio principal de Tomcat para su versión, copie el directorio de configuración para `D:\home`. Por ejemplo, si `AZURE_TOMCAT85_HOME` tuviera un valor de `D:\Program Files (x86)\apache-tomcat-8.5.37`, la nueva ruta de acceso del directorio de configuración copiado sería `D:\home\apache-tomcat-8.5.37`.
 
 Finalmente, reinicie App Service. Las implementaciones deben ir a `D:\home\site\wwwroot\webapps` igual que antes.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial de entidad compuesta
+title: 'Tutorial de entidad compuesta: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610a7ee677771777c9bd88e5747ff766f284ae3e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073701"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637921"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.

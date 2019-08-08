@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441225"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402308"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub con un dispositivo de Python y un servidor back-end de Python
 
@@ -35,15 +35,21 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
-* Una instancia de IoT Hub.
-
 * Instale el [SDK de Python](https://github.com/Azure/azure-iot-sdk-python) más reciente.
 
-Ya se creó IoT Hub y ya tiene el nombre de host y la cadena de conexión de IoT Hub que necesita para completar el resto del tutorial.
+## <a name="create-an-iot-hub"></a>Crear un centro de IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Crear una identidad del dispositivo y una identidad de módulo en IoT Hub
 
-En esta sección se crea una aplicación de Python que crea a su vez una identidad de dispositivo y otra de módulo en el registro de identidades de la instancia de IoT Hub. No se puede conectar un dispositivo o un módulo a IoT Hub a menos que tenga una entrada en el registro de identidades. Para más información, consulte la sección "Registro de identidades" de la [Guía para desarrolladores de IoT Hub](iot-hub-devguide-identity-registry.md). Cuando se ejecuta esta aplicación de consola, genera una clave y un identificador únicos para el dispositivo y el módulo. El dispositivo y el módulo usan estos valores para identificarse al enviar mensajes del dispositivo a la nube a IoT Hub. Los identificadores distinguen mayúsculas de minúsculas.
+En esta sección se crea una aplicación de Python que crea a su vez una identidad de dispositivo y otra de módulo en el registro de identidades de la instancia de IoT Hub. No se puede conectar un dispositivo o un módulo a IoT Hub a menos que tenga una entrada en el registro de identidades. Para más información, consulte la sección "Registro de identidades" de la [guía para desarrolladores de IoT Hub](iot-hub-devguide-identity-registry.md). Cuando se ejecuta esta aplicación de consola, genera una clave y un identificador únicos para el dispositivo y el módulo. El dispositivo y el módulo usan estos valores para identificarse al enviar mensajes del dispositivo a la nube a IoT Hub. Los identificadores distinguen mayúsculas de minúsculas.
 
 Agregue el siguiente código al archivo de Python:
 
@@ -64,17 +70,21 @@ try:
     primary_key = ""
     secondary_key = ""
     auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID + "> has primary key = " + new_device.primaryKey)
+    new_device = iothub_registry_manager.create_device(
+        DEVICE_ID, primary_key, secondary_key, auth_method)
+    print("new_device <" + DEVICE_ID +
+          "> has primary key = " + new_device.primaryKey)
 
     # CreateModule
-    new_module = iothub_registry_manager.create_module(DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID + "> has primary key = " + new_module.primaryKey)
+    new_module = iothub_registry_manager.create_module(
+        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
+    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
+          "> has primary key = " + new_module.primaryKey)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "IoTHubRegistryManager sample stopped" )
+    print("IoTHubRegistryManager sample stopped")
 ```
 
 Esta aplicación crea una identidad del dispositivo con el identificador **myFirstDevice** y una de módulo con el identificador **myFirstModule** en el dispositivo **myFirstDevice**. (Si el identificador de módulo ya existe en el Registro de identidad, el código simplemente recupera la información existente del módulo). A continuación, la aplicación muestra la clave principal de esa identidad. Esta clave se usará en la aplicación de módulo simulado para conectarse a IoT Hub.
@@ -141,26 +151,28 @@ from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransport
 PROTOCOL = IoTHubTransportProvider.AMQP
 CONNECTION_STRING = ""
 
+
 def module_twin_callback(update_state, payload, user_context):
-    print ("")
-    print ("Twin callback called with:")
-    print ("updateStatus: %s" % update_state )
-    print ("context: %s" % user_context )
-    print ("payload: %s" % payload )
+    print("")
+    print("Twin callback called with:")
+    print("updateStatus: %s" % update_state)
+    print("context: %s" % user_context)
+    print("payload: %s" % payload)
+
 
 try:
     module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
     module_client.set_module_twin_callback(module_twin_callback, 1234)
 
-    print ("Waiting for incoming twin messages.  Hit Control-C to exit.")
+    print("Waiting for incoming twin messages.  Hit Control-C to exit.")
     while True:
 
         time.sleep(1000000)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "module client sample stopped" )
+    print("module client sample stopped")
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

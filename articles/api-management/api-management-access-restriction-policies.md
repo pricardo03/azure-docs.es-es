@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921219"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442415"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -78,7 +78,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Secciones de la directiva:** entrante y saliente
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción
 
@@ -122,7 +122,7 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | set-limit | Elemento raíz.                                                                                                                                                                                                                                                                                            | Sí      |
 | api       | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | Sin       |
-| operación | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
+| operation | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -138,7 +138,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Secciones de la directiva:** inbound (entrada)
 
--   **Ámbitos de la directiva:** producto
+-   **Ámbitos de la directiva:** product, api, operation (producto, API, operación)
 
 ## <a name="LimitCallRateByKey"></a> Limitar la tasa de llamadas por clave
 
@@ -200,9 +200,9 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante
+-   **Secciones de la directiva:** inbound (entrada)
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="RestrictCallerIPs"></a> Restringir IP de autor de llamada
 
@@ -247,8 +247,8 @@ En el siguiente ejemplo, la directiva solo permite solicitudes provenientes de l
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Secciones de la directiva:** inbound (entrada)
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="SetUsageQuota"></a> Establecer cuota de uso por suscripción
 
@@ -289,7 +289,7 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raíz.                                                                                                                                                                                                                                                                                | Sí      |
 | api       | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | Sin       |
-| operación | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
+| operation | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -365,8 +365,8 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Secciones de la directiva:** inbound (entrada)
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="ValidateJWT"></a> Validación de JWT
 
@@ -552,8 +552,8 @@ output-token-variable-name|String. Nombre de la variable de contexto que recibir
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Secciones de la directiva:** inbound (entrada)
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="next-steps"></a>Pasos siguientes
 

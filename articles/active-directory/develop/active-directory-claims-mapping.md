@@ -1,24 +1,26 @@
 ---
-title: Personalice las notificaciones emitidas en tokens para una determinada aplicación de un inquilino de Azure AD (versión preliminar pública)
+title: Personalización de notificaciones para una aplicación de un inquilino de Azure AD (Versión preliminar pública)
 description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546198"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835456"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -142,7 +144,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| contraseña |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -177,7 +179,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| nombre de usuario |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,7 +286,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 
-| Origen | ID | DESCRIPCIÓN |
+| Source | id | DESCRIPCIÓN |
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
@@ -319,7 +321,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | extensionattribute14 | Atributo de extensión 14 |
 | Usuario | extensionattribute15 | Atributo de extensión 15 |
 | Usuario | othermail | Otro correo |
-| Usuario | country | País |
+| Usuario | country | Country |
 | Usuario | city | City |
 | Usuario | state | Estado |
 | Usuario | jobtitle | Puesto |
@@ -384,7 +386,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
 
-|Origen|ID|DESCRIPCIÓN|
+|Source|id|DESCRIPCIÓN|
 |-----|-----|-----|
 | Usuario | mail|Dirección de correo electrónico|
 | Usuario | userprincipalname|Nombre principal de usuario|

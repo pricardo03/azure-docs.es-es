@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: API, SDK y recursos de .NET para Bulk Executor'
-description: Obtenga toda la información sobre la API y el SDK de .NET para Bulk Executor, incluidas la fechas de lanzamiento, las fechas de retirada y los cambios realizados entre las versiones del SDK de .NET para Bulk Executor de Azure Cosmos DB.
+description: Obtenga toda la información sobre la API y el SDK de .NET para BulkExecutor, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de .NET para BulkExecutor de Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 989d52e773ed01a8fd1f4d383c42d7628e196a60
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471427"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814724"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Biblioteca BulkExecutor para .NET: Información de descarga 
+# <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -33,11 +33,11 @@ ms.locfileid: "66471427"
 
 | |  |
 |---|---|
-| **Descripción**| La biblioteca Bulk Executor permite a las aplicaciones cliente realizar operaciones en bloque en las cuentas de Azure Cosmos DB. La biblioteca Bulk Executor proporciona los espacios de nombres BulkImport, BulkUpdate y BulkDelete. El módulo BulkImport puede ingerir documentos en masa de forma optimizada, de tal forma que la capacidad de proceso aprovisionada para una colección se consuma en el máximo nivel posible. El módulo BulkUpdate puede actualizar en masa los datos existentes en los contenedores de Azure Cosmos DB como revisiones. El módulo BulkDelete puede eliminar documentos en masa de forma optimizada, de tal forma que el rendimiento aprovisionado para una colección se consuma en el máximo nivel posible.|
+| **Descripción**| La biblioteca Bulk Executor .NET permite a las aplicaciones cliente realizar operaciones en bloque en las cuentas de Azure Cosmos DB. Esta biblioteca proporciona los espacios de nombres BulkImport, BulkUpdate y BulkDelete. El módulo BulkImport puede ingerir documentos en masa de forma optimizada, de tal forma que la capacidad de proceso aprovisionada para una colección se consuma en el máximo nivel posible. El módulo BulkUpdate puede actualizar en masa los datos existentes en los contenedores de Azure Cosmos DB como revisiones. El módulo BulkDelete puede eliminar documentos en masa de forma optimizada, de tal forma que el rendimiento aprovisionado para una colección se consuma en el máximo nivel posible.|
 |**Descarga del SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca de BulkExecutor en GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentación de la API**|[Documentación de referencia de API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Primeros pasos**|[Introducción al SDK de .NET para la biblioteca Bulk Executor](bulk-executor-dot-net.md)|
+|**Primeros pasos**|[Introducción al SDK de .NET para la biblioteca BulkExecutor](bulk-executor-dot-net.md)|
 | **Plataforma admitida actualmente**| Microsoft .NET Framework 4.5.2, 4.6.1 y .NET Standard 2.0 |
 
 ## <a name="release-notes"></a>Notas de la versión
@@ -64,7 +64,7 @@ ms.locfileid: "66471427"
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* Se ha actualizado el ejecutor en masa para usar la versión más reciente del SDK de .NET de Azure Cosmos DB (2.4.0).
+* Se ha actualizado Bulk Executor para usar la versión más reciente del SDK de .NET de Azure Cosmos DB (2.4.0).
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 

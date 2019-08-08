@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275100"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639931"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Creación de aplicaciones en tiempo real con Azure Functions y Azure SignalR Service
 
@@ -22,7 +22,7 @@ Dado que Azure SignalR Service y Azure Functions son servicios altamente escalab
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrar las comunicaciones en tiempo real con los servicios de Azure
 
-Azure Functions le permite escribir código en [varios lenguajes](../azure-functions/supported-languages.md), incluyendo JavaScript, C# y Java, y que se activa cada vez que se producen eventos en la nube. Los ejemplos de estos eventos incluyen:
+Azure Functions le permite escribir código en [varios lenguajes](../azure-functions/supported-languages.md), incluyendo JavaScript, Python, C# y Java, y se activa cada vez que se producen eventos en la nube. Los ejemplos de estos eventos incluyen:
 
 * Solicitudes de HTTP y webhook
 * Temporizadores periódicos

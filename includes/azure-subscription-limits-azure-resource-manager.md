@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/22/2019
+ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186674"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426954"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "67186674"
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Implementaciones de nivel de suscripción](../articles/azure-resource-manager/deploy-to-subscription.md) por ubicación | 800<sup>4</sup> | 800 |
 
-<sup>1</sup>Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso y serie, como Dv2, F y G.
+<sup>1</sup>Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso y por serie, como Dv2, F y G. Por ejemplo, el valor predeterminado de la suscripción Contrato Enterprise es 350.
 
 <sup>2</sup>Puede aplicar un número ilimitado de etiquetas por suscripción. El máximo de etiquetas por recurso o grupo de recursos es 15. Resource Manager devuelve una [lista de valores y nombres de etiqueta únicos](/rest/api/resources/tags) para la suscripción solo cuando el número de etiquetas es 10 000 o menos. Sin embargo, todavía puede encontrar un recurso por etiqueta cuando el número sea mayor que 10 000.  
 

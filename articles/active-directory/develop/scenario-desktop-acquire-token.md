@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111268"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488856"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de escritorio que llama a las API web: adquisición de un token
 
@@ -58,7 +58,7 @@ A continuación se exponen los detalles de las distintas formas de adquirir toke
 El ejemplo siguiente muestra un código mínimo para obtener un token de forma interactiva para leer el perfil del usuario con Microsoft Graph.
 
 ```CSharp
-string[] scopes = new string["user.read"];
+string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -179,7 +179,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 - IWA es para las aplicaciones escritas para las plataformas .NET Framework, .NET Core y UWP.
 - IWA no omite la MFA (autenticación multifactor). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
   > [!NOTE]
-  > Esto es complicado. IWA no es interactiva, pero 2FA requiere interactividad del usuario. Usted no controla cuándo el proveedor de identidades solicita que se realice 2FA, el administrador de inquilinos sí. Por lo que se ha observado, 2FA se requiere al iniciar sesión desde un país o región diferente, cuando no está conectado a través de una VPN a una red corporativa y, a veces, incluso cuando se conecta a través de una VPN. No espere un conjunto de reglas determinista, Azure Active Directory usa la inteligencia artificial para aprender continuamente si se requiere 2FA. Si se produce un error de IWA, debería recurrir a una solicitud de usuario (autenticación interactiva o flujo de código de dispositivo).
+  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no controla cuándo el proveedor de identidades solicita que se realice MFA, el administrador de inquilinos sí. Por lo que se ha observado, MFA se requiere al iniciar sesión desde un país o región diferente, cuando no está conectado a través de una VPN a una red corporativa y, a veces, incluso cuando se conecta a través de una VPN. No espere un conjunto de reglas determinista, Azure Active Directory usa la inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, debería recurrir a una solicitud de usuario (autenticación interactiva o flujo de código de dispositivo).
 
 - La autoridad que se pasa en `PublicClientApplicationBuilder` debe ser:
   - Con inquilino (del tipo `https://login.microsoftonline.com/{tenant}/` donde `tenant` es el GUID que representa el identificador del inquilino o un dominio asociado con el inquilino).
@@ -293,8 +293,9 @@ También puede adquirir un token proporcionando el nombre de usuario y la contra
 
 **No se recomienda** este flujo porque no es seguro que la aplicación le pida al usuario la contraseña. Para obtener más información sobre este problema, consulte [este artículo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). En caso contrario, también puede usar el [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
 
+> [!NOTE] 
 > Aunque esto es útil en algunos casos (escenarios de DevOps), si quiere usar el nombre de usuario y contraseña en escenarios interactivos donde proporciona su propia interfaz de usuario, debería pensar cómo evitarlo. A usar el nombre de usuario y contraseña se están descuidando varias cosas:
-
+>
 > - Inquilinos principales de identidad moderna: se busca y se reproduce la contraseña. Dado que tenemos este concepto de un secreto compartido que se puede interceptar,
 > es incompatible con el inicio de sesión sin contraseña.
 > - Los usuarios que necesitan realizar MFA no podrán iniciar sesión (ya que no hay ninguna interacción).
@@ -324,7 +325,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
        .WithAuthority(authority)
        .Build();
  var accounts = await app.GetAccountsAsync();
@@ -365,7 +366,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
                                    .WithAuthority(authority)
                                    .Build();
  var accounts = await app.GetAccountsAsync();
@@ -649,9 +650,9 @@ Las clases e interfaces implicadas en la serialización de la caché de tokens s
   ![imagen](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET crea automáticamente las cachés de tokens y le ofrece la caché de `IToken` cuando se llama a los métodos `GetUserTokenCache` y `GetAppTokenCache` de una aplicación. Se supone que no va a implementar la interfaz usted mismo. Su responsabilidad al implementar una serialización de caché de tokens personalizada es:
+> MSAL.NET crea automáticamente las cachés de tokens y le ofrece la caché de `IToken` cuando se llama a las propiedades `UserTokenCache` y `AppTokenCache` de una aplicación. Se supone que no va a implementar la interfaz usted mismo. Su responsabilidad al implementar una serialización de caché de tokens personalizada es:
 >
-> - Reaccionar a los "eventos" `BeforeAccess` y `AfterAccess`. El delegado de `BeforeAccess` es el responsable de deserializar la memoria caché, mientras que `AfterAccess` es el de serializarla.
+> - Reaccione ante "eventos" `BeforeAccess` y `AfterAccess` (o sus homólogos *asincrónicos*). El delegado de `BeforeAccess` es el responsable de deserializar la memoria caché, mientras que `AfterAccess` es el de serializarla.
 > - Una parte de estos eventos almacena o carga blobs, que se pasan a través del argumento del evento al almacenamiento que se desee.
 
 Las estrategias son diferentes en función de si se escribe una serialización de la caché de tokens para un aplicación cliente pública (escritorio) o un aplicación cliente confidencial (aplicación web/API web o aplicación de demonio).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Hay una versión preliminar de un serializador basado en archivos de la caché de tokens con calidad de producto para aplicaciones cliente públicas (para aplicaciones de escritorio que se ejecutan en Windows, Mac y Linux) disponible en la biblioteca de código abierto [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). La puede incluir en sus aplicaciones desde el siguiente paquete NuGet: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Declinación de responsabilidades. La biblioteca Microsoft.Identity.Client.Extensions.Msal es una extensión sobre MSAL.NET. Las clases de estas bibliotecas podrían llegar a MSAL.NET en el futuro, tal como están o con cambios importantes.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Serialización de la caché de tokens dual (caché unificada de MSAL y ADAL V3)
@@ -775,18 +777,12 @@ namespace CommonCacheMsalV3
   /// <returns></returns>
   public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   cache.SetBeforeAccess(BeforeAccessNotification);
+   cache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: d69861beb5848679aa00c8b39f0caa84c7c5d847
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f27dfd1f907d106ddb3b1b9dd7534d56380149c2
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986787"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385502"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -193,9 +193,9 @@ Para controlar el acceso a las entradas y salidas del historial de ejecución de
 
   Esta opción le permite proteger el acceso al historial de ejecución en función de las solicitudes de un intervalo de direcciones IP específico.
 
-* [Ocultar entradas y salidas del historial de ejecución mediante la ofuscación](#obfuscate).
+* [Oculte los datos del historial de ejecución mediante ofuscación](#obfuscate).
 
-  Esta opción permite ocultar entradas y salidas en el historial de ejecución en función del desencadenador o la acción.
+  En muchos desencadenadores y acciones, puede ocultar las entradas, salidas o ambas del historial de ejecución de una aplicación lógica.
 
 <a name="restrict-ip"></a>
 
@@ -258,7 +258,11 @@ Si automatiza las implementaciones de aplicaciones lógicas mediante una [planti
 
 <a name="obfuscate"></a>
 
-### <a name="hide-inputs-and-outputs-in-run-history-by-using-obfuscation"></a>Ocultar entradas y salidas del historial de ejecución mediante la ofuscación
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Oculte los datos del historial de ejecución mediante ofuscación.
+
+En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de una aplicación lógica. Estas son algunas [consideraciones que se deben tener en cuenta](#obfuscation-considerations) al usar esta configuración para proteger los datos.
+
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Protección de entradas y salidas en el diseñador
 
 1. Si la aplicación lógica aún no está abierta en [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el diseñador de aplicaciones lógicas.
 
@@ -290,9 +294,38 @@ Si automatiza las implementaciones de aplicaciones lógicas mediante una [planti
 
       ![Datos ocultos en el historial de ejecución](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
+<a name="secure-data-code-view"></a>
+
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>Protección de entradas y salidas en la vista Código
+
+En la definición de desencadenador o acción subyacente, agregue o actualice la matriz `runtimeConfiguration.secureData.properties` con uno de estos valores o con ambos:
+
+* `"inputs"`: Protege las entradas en el historial de ejecución.
+* `"outputs"`: Protege las salidas en el historial de ejecución.
+
+Estas son algunas [consideraciones que se deben tener en cuenta](#obfuscation-considerations) al usar esta configuración para proteger los datos.
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Consideraciones a la hora de proteger las entradas y salidas
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Consideraciones a la hora de ocultar las entradas y salidas
 
 * Cuando se protegen las entradas o salidas de un desencadenador o una acción, Logic Apps no envía los datos protegidos a Azure Log Analytics. Además, no se pueden agregar [propiedades con seguimiento](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) al desencadenador o acción para su supervisión.
 
@@ -564,3 +597,4 @@ Estas son algunas de las maneras de proteger los puntos de conexión en que la a
 * [Crear plantillas de implementación](logic-apps-create-deploy-template.md)  
 * [Supervisar las aplicaciones lógicas](logic-apps-monitor-your-logic-apps.md)  
 * [Diagnóstico de errores y problemas de las aplicaciones lógicas](logic-apps-diagnosing-failures.md)  
+* [Automatización de la implementación de aplicaciones lógicas](logic-apps-azure-resource-manager-templates-overview.md)

@@ -3,19 +3,19 @@ title: 'Características: Acción y contexto (Personalizer)'
 titleSuffix: Azure Cognitive Services
 description: Personalizer usa características, información acerca de las acciones y del contexto, para realizar sugerencias para mejorar la clasificación. Las características pueden ser genéricas o específicas de un elemento.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: diberry
+ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253581"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663839"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -34,8 +34,8 @@ Personalizer no prescribe, limita ni corrige las características que puede envi
 * Puede enviar algunas características a unas acciones y no a otras, en caso de que no las tenga. Por ejemplo, las series de televisión pueden tener atributos que no tienen las películas.
 * Es posible que algunas características estén disponibles solo en algunas ocasiones. Por ejemplo, una aplicación móvil puede proporcionar más información que una página web. 
 * Con el tiempo puede agregar y quitar características acerca del contexto y de las acciones. Personalizer sigue aprendiendo de la información disponible.
-* Debe haber al menos una característica para el contexto. Personalizer no admite un contexto vacío. Si solo envía un contexto fijo cada vez, Personalizer elegirá la acción para las calificaciones teniendo en cuenta solo las características de las acciones. 
-* Personalizer intentará elegir las acciones que mejor funcionen para todos en cualquier momento.
+* Debe haber al menos una característica para el contexto. Personalizer no admite un contexto vacío. Si solo envía un contexto fijo cada vez, Personalizer elegirá la acción para las calificaciones teniendo en cuenta solo las características de las acciones.
+* En el caso de las características de categorías, no es necesario definir los valores posibles ni definir previamente los rangos para los valores numéricos.
 
 ## <a name="supported-feature-types"></a>Tipos de características que se admiten
 

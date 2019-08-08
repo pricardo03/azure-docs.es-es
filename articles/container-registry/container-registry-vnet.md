@@ -3,26 +3,30 @@ title: Restricción del acceso a un registro de contenedor de Azure desde una re
 description: Permita el acceso a un registro de contenedor de Azure solo desde recursos que estén en una red virtual de Azure o desde intervalos de direcciones IP públicas.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806591"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619883"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restricción del acceso a un registro de contenedor de Azure mediante una red virtual de Azure o reglas de firewall
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) proporciona acceso de red seguro y privado a los recursos locales y de Azure. Al limitar el acceso a su registro de contenedor de Azure privado desde una red virtual de Azure, se asegura de que solo acceden al registro los recursos de la red virtual. En los escenarios entre locales, también puede configurar reglas de firewall para permitir el acceso al registro solo desde determinadas direcciones IP.
 
-En este artículo se muestran dos escenarios para crear reglas de acceso a la red para limitar el acceso a un registro de contenedor de Azure: desde una máquina virtual implementada en una red virtual, o desde la dirección IP pública de una máquina virtual.
+En este artículo se muestran dos escenarios para configurar reglas de acceso a la red de entrada en un registro de contenedor: desde una máquina virtual implementada en una red virtual, o desde la dirección IP pública de una VM.
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 >
+
+Si, en su lugar, necesita configurar reglas de acceso para que los recursos lleguen a un registro de contenedor desde detrás de un firewall, consulte [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md) (Configuración de reglas para tener acceso a un registro de contenedor de Azure detrás de un firewall).
+
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
@@ -38,7 +42,7 @@ En este artículo se muestran dos escenarios para crear reglas de acceso a la re
 
 * Para usar los pasos de la CLI de Azure de este artículo, se requieren la versión 2.0.58 de la CLI de Azure, o cualquier versión posterior. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
-* Si aún no tiene un registro de contenedor, créelo (se requiere una SKU Premium) e inserte una imagen de ejemplo, como `hello-world`, desde Docker Hub. Por ejemplo, use [Azure Portal][quickstart-portal] or the [Azure CLI][quickstart-cli]para crear un registro. 
+* Si aún no tiene un registro de contenedor, créelo (se requiere una SKU Premium) e inserte una imagen de ejemplo, como `hello-world`, desde Docker Hub. Por ejemplo, use [Azure Portal][quickstart-portal] o la [CLI de Azure][quickstart-cli] para crear un registro. 
 
 * Si quiere restringir el acceso al Registro mediante una red virtual en otra suscripción de Azure, tiene que registrar el proveedor de recursos para Azure Container Registry en esa suscripción. Por ejemplo:
 

@@ -1,32 +1,32 @@
 ---
-title: Tipos de aplicaciones que se pueden usar en Azure Active Directory B2C | Microsoft Docs
-description: Obtenga información sobre los tipos de aplicaciones que puede usar en Azure Active Directory B2C.
+title: Tipos de aplicaciones que se pueden usar en Azure Active Directory B2C
+description: Más información sobre los tipos de aplicaciones que puede usar en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051730"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369403"
 ---
-# <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
+# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C admite la autenticación para una diversas arquitecturas de aplicaciones modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0](active-directory-b2c-reference-protocols.md) u [OpenID Connect](active-directory-b2c-reference-protocols.md). Este documento describe los tipos de aplicaciones que puede compilar, independientemente del lenguaje o la plataforma que prefiera. También ayuda a entender los escenarios de alto nivel antes de empezar a compilar aplicaciones.
+Azure Active Directory (Azure AD) B2C admite la autenticación para una diversas arquitecturas de aplicaciones modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0](active-directory-b2c-reference-protocols.md) u [OpenID Connect](active-directory-b2c-reference-protocols.md). Este artículo describe los tipos de aplicaciones que puede compilar, independientemente del lenguaje o la plataforma que prefiera. También ayuda a entender los escenarios de alto nivel antes de empezar a compilar aplicaciones.
 
 Toda aplicación que use Azure AD B2C debe estar registrada en su [inquilino de Azure AD B2C](active-directory-b2c-get-started.md) que use [Azure Portal](https://portal.azure.com/). El proceso de registro de la aplicación recopila y asigna valores, tales como:
 
 * Un **identificador de la aplicación** que identifica la aplicación de forma única.
 * Un **URI de redirección** que puede usarse para devolver las respuestas a la aplicación.
 
-Cada solicitud que se envía a Azure AD B2C especifica un **flujo de usuario**, que es una directiva que controla el comportamiento de Azure AD. También puede utilizar estos puntos de conexión para crear un conjunto de experiencias de usuario muy personalizable. Ofrecemos un conjunto de flujos de usuario que lo ayudarán a configurar directivas comunes, incluidas las de registro, de inicio de sesión y de edición de perfiles. También se pueden crear directivas personalizadas. Si no está familiarizado con las directivas, debe leer acerca del [marco de directiva extensible](active-directory-b2c-reference-policies.md) de Azure AD B2C antes de continuar.
+Cada solicitud que se envía a Azure AD B2C especifica un **flujo de usuario** (una directiva integrada) o una **directiva personalizada** que controla el comportamiento de Azure AD B2C. Ambos tipos de directiva le permiten crear un conjunto altamente personalizable de experiencias de usuario.
 
 La interacción de cada aplicación sigue un patrón de nivel alto similar:
 
@@ -43,7 +43,7 @@ Estos pasos pueden diferir ligeramente según el tipo de aplicación que está c
 
 Para las aplicaciones web (incluidas .NET, PHP, Java, Ruby, Python y Node.js) que se hospedan en un servidor y a las que se tiene acceso a través de un explorador, Azure AD B2C admite [OpenID Connect](active-directory-b2c-reference-protocols.md) para todas las experiencias de usuario. En la implementación de OpenID Connect de Azure AD B2C, su aplicación web inicia las experiencias de usuario mediante la emisión de solicitudes de autenticación a Azure AD. El resultado de la solicitud es un elemento `id_token`. Este token de seguridad representa la identidad del usuario. También proporciona información sobre el usuario en forma de notificaciones:
 
-```
+```json
 // Partial raw id_token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -106,19 +106,19 @@ Para más información sobre cómo proteger una API web con Azure AD B2C, consul
 
 ## <a name="mobile-and-native-applications"></a>Aplicaciones móviles y aplicaciones nativas
 
-Las aplicaciones instaladas en dispositivos, como aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web en nombre de los usuarios. Puede agregar experiencias de administración de identidades personalizadas a sus aplicaciones nativas y llamar de forma segura a servicios back-end con Azure AD B2C y el [flujo de código de autorización de OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
+Las aplicaciones instaladas en dispositivos, como aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web en nombre de los usuarios. Puede agregar experiencias de administración de identidades personalizadas a sus aplicaciones nativas y llamar de forma segura a servicios back-end con Azure AD B2C y el [flujo de código de autorización de OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
 En este flujo, la aplicación ejecuta [directivas](active-directory-b2c-reference-policies.md) y recibe un elemento `authorization_code` de Azure AD después de que el usuario complete la directiva. El elemento `authorization_code` representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el elemento `authorization_code` en segundo plano para `access_token` y `refresh_token`.  La aplicación puede usar el elemento `access_token` para autenticarse en una API web de back-end en las solicitudes HTTP. También puede usar el elemento `refresh_token` para obtener un nuevo `access_token` cuando caduca uno más antiguo.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-### <a name="application-not-supported"></a>Aplicación no admitida 
+### <a name="unsupported-application-types"></a>Tipos de aplicación no admitidos
 
 #### <a name="daemonsserver-side-applications"></a>Demonios o aplicaciones del lado del servidor
 
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a los recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) mediante el flujo de credenciales de cliente de OAuth 2.0. El flujo de credenciales de cliente no es igual al flujo en nombre de y este no se debe usar para la autenticación de servidor a servidor.
 
-Si bien Azure AD B2C no admite actualmente el flujo de credenciales de cliente, puede configurar el flujo de credenciales de cliente mediante Azure AD. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.  El flujo de credenciales de cliente se admite con la funcionalidad de Azure AD que tiene el inquilino de Azure AD B2C. 
+Si bien Azure AD B2C no admite actualmente el flujo de credenciales de cliente, puede configurar el flujo de credenciales de cliente mediante Azure AD. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.  El flujo de credenciales de cliente se admite con la funcionalidad de Azure AD que tiene el inquilino de Azure AD B2C.
 
 Para configurar el flujo de credenciales de cliente, consulte [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Una autenticación correcta genera la recepción de un token con formato para que Azure AD lo pueda usar tal como se describe en [Referencia de tokens de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -139,3 +139,6 @@ Si edita la aplicación de Azure AD B2C fuera de Azure Portal, se convierte en u
 
 Para eliminar la aplicación, vaya al [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/) y elimínela desde allí. Para que la aplicación esté visible, debe ser el propietario de la misma (y no solo un administrador del inquilino).
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga más información sobre las directivas integradas proporcionadas. Para ello, consulte [Flujos de usuario en Azure Active Directory B2C](active-directory-b2c-reference-policies.md).

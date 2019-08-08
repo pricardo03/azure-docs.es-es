@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ba8a8e5922c012b93ab19a5859aab5c31d35b2b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831799"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424149"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -171,6 +171,7 @@ public static void Run(
 
 El atributo `QueueTrigger` indica al entorno de ejecución que llame a la función cada vez que aparece un mensaje de la cola en la cola `myqueue-items`. El atributo `Blob` indica al tiempo de ejecución que use el mensaje de la cola para leer un blob en el contenedor *sample-workitems*. El contenido del mensaje de la cola, pasado a la función en el parámetro `myQueueItem`, es el nombre del blob.
 
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="manual-triggers"></a>Desencadenadores manuales
 
@@ -370,7 +371,7 @@ Puede configurar los enlaces siguientes:
 
 * [Desencadenador de Azure CosmosDB](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Desencadenador de Event Hubs](#event-hubs-trigger-configuration-version-3x)
-* Desencadenador de Queue Storage
+* [Desencadenador de Queue Storage](#queue-storage-trigger-configuration)
 * [Enlace de SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Desencadenador de Service Bus](#service-bus-trigger-configuration-version-3x)
 
@@ -837,7 +838,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Información | 2 |
+|Information | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |

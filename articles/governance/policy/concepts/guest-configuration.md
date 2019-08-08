@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137435"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326879"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -118,6 +118,10 @@ Azure Policy usa la propiedad **complianceStatus** de los proveedores de recurso
 > Sin **DeployIfNotExists**, la directiva **Audit** muestra "0 de 0" recursos como estado.
 
 Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: Configuración de seguridad de la contraseña de la auditoría dentro de máquinas virtuales Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **Audit** para Windows y tres pares para Linux. En cada caso, la lógica dentro de la definición valida que solo el sistema operativo de destino se evalúa según definición de la [regla de directiva](definition-structure.md#policy-rule).
+
+## <a name="multiple-assignments"></a>Asignaciones múltiples
+
+Actualmente, las directivas de configuración de invitado solo admiten la asignación de la misma asignación de invitado una vez por cada máquina virtual, incluso si la asignación de directiva usa parámetros diferentes.
 
 ## <a name="client-log-files"></a>Archivos de registro de cliente
 

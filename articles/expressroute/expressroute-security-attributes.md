@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad comunes de Azure ExpressRoute
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure ExpressRoute
+title: Atributos de seguridad de Azure ExpressRoute
+description: Lista de comprobación de los atributos de seguridad que se utilizan para evaluar Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6156715fb87831d465197fd8eec59d245221e48
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9a46497c18b99ad7774036fd92e63d024b47045
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082213"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442196"
 ---
-# <a name="common-security-attributes-for-azure-expressroute"></a>Atributos de seguridad comunes de Azure ExpressRoute
+# <a name="security-attributes-for-azure-expressroute"></a>Atributos de seguridad de Azure ExpressRoute
 
-La seguridad está integrada en todos los aspectos de los servicios de Azure. En este artículo, se explican los atributos de seguridad comunes integrados en Azure ExpressRoute.
+En este artículo, se explican los atributos de seguridad integrados en Azure ExpressRoute.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,8 +26,8 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. En
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  N/D | ExpressRoute no almacena datos de clientes. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin | |
+| Cifrado en reposo (por ejemplo, el cifrado del lado servidor, el cifrado del lado servidor con claves administradas por el cliente y otras características de cifrado)|  N/D | ExpressRoute no almacena datos de clientes. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sin | |
 | Control de claves de cifrado (CMK, BYOK, etc.)| N/D |  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Mediante [Azure Resource Manager](../azure-resource-manager/index.yml) y HTTPS. |
@@ -52,7 +52,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. En
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | Cuenta de servicio de Gateway for Microsoft (GWM) (controlador); acceso Just-in-Time (JIT) para desarrollo y operaciones. |
-| Autorización|  Sí |Cuenta de servicio de Gateway for Microsoft (GWM) (controlador); acceso Just-in-Time (JIT) para desarrollo y operaciones. |
+| Authorization|  Sí |Cuenta de servicio de Gateway for Microsoft (GWM) (controlador); acceso Just-in-Time (JIT) para desarrollo y operaciones. |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

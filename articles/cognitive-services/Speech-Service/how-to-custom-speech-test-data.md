@@ -1,6 +1,6 @@
 ---
-title: 'Preparación de los datos de prueba para Custom Speech: Servicios de voz'
-titlesuffix: Azure Cognitive Services
+title: 'Preparación de los datos de prueba para Custom Speech: Servicio de voz'
+titleSuffix: Azure Cognitive Services
 description: Tanto si prueba la precisión del reconocimiento de voz de Microsoft como si entrena sus propios modelos, necesitará datos (en forma de audio o texto). En esta página, veremos los tipos de datos, cómo se usan y cómo administrar cada uno de ellos.
 services: cognitive-services
 author: erhopf
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137254"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663595"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
 
@@ -29,7 +29,7 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | Sin | N/a |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 1000 horas de audio |
-| [Texto relacionado](##related-text-data-for-training) | Sin | N/a | Sí | De 1 a 200 MB de texto relacionado |
+| [Texto relacionado](#related-text-data-for-training) | Sin | N/a | Sí | De 1 a 200 MB de texto relacionado |
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 

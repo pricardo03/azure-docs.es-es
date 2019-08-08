@@ -1,6 +1,6 @@
 ---
 title: Atributos de seguridad de Azure API Management
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar API Management
+description: Lista de comprobación de los atributos de seguridad que se utilizan para evaluar API Management
 services: api-management
 author: msmbaldwin
 manager: barbkess
@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2049e2349e3a25ebd4d3f4db19ec47bbaeb067de
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001088"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442273"
 ---
 # <a name="security-attributes-for-api-management"></a>Atributos de seguridad de API Management
 
@@ -25,8 +25,8 @@ En este artículo, se explican los atributos de seguridad integrados en API Mana
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí (solo cifrado del servicio) | Los datos confidenciales, como certificados, claves y valores con nombre secreto, se cifran con claves que administra el servicio por instancia de servicio. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | El cifrado de [ExpressRoute](../expressroute/index.yml) y de red virtual lo proporcionan las [redes de Azure](../virtual-network/index.yml). |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)| Sí (solo cifrado del servicio) | Los datos confidenciales, como certificados, claves y valores con nombre secreto, se cifran con claves que administra el servicio por instancia de servicio. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | El cifrado de [ExpressRoute](../expressroute/index.yml) y de red virtual lo proporcionan las [redes de Azure](../virtual-network/index.yml). |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sin | Todas las claves de cifrado son por instancia de servicio y las administra el servicio. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Las llamadas del plano de administración se hacen mediante [Azure Resource Manager](../azure-resource-manager/index.yml) con TLS. Se requiere un token web de JSON (JWT) válido.  Las llamadas del plano de datos pueden estar protegidas con TLS y uno de los mecanismos de autenticación admitidos (por ejemplo, el certificado de cliente o JWT).
@@ -52,7 +52,7 @@ En este artículo, se explican los atributos de seguridad integrados en API Mana
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | |
-| Autorización| Sí | |
+| Authorization| Sí | |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

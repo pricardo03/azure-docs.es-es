@@ -8,16 +8,16 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1892b918ed35221bc73d5070d5a73ecc359aa4c2
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7d40618d5f4fde4a2b3fdfbde8a6de0a049ce3b6
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799861"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440863"
 ---
 # <a name="security-attributes-for-azure-load-balancer"></a>Atributos de seguridad de Azure Load Balancer
 
-En este artículo, se explican los atributos de seguridad comunes integrados en Azure Load Balancer.
+En este artículo, se explican los atributos de seguridad integrados en Azure Load Balancer.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -58,7 +58,7 @@ En este artículo, se explican los atributos de seguridad comunes integrados en 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Registro y auditoría de plano de administración y de control| Sí | Consulte [Registros de Azure Monitor para el equilibrador de carga básica público](load-balancer-monitor-log.md). |
+| Registro y auditoría del plano de administración y de control| Sí | Consulte [Registros de Azure Monitor para el equilibrador de carga básica público](load-balancer-monitor-log.md). |
 | Registro y auditoría del plano de datos | N/D |  |
 
 ## <a name="configuration-management"></a>Administración de configuración

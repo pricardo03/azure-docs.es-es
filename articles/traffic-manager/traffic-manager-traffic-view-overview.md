@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070945"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333701"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -68,6 +68,25 @@ Puede ver los datos de Vista de tráfico en un formato tabular en Azure Portal. 
 
 Cuando use Traffic View, se le facturará en función del número de puntos de datos utilizados para crear la información de detalle presentada. Actualmente, el único tipo de punto de datos utilizado son las consultas que recibe el perfil de Traffic Manager. Para más detalles sobre los precios, visite la [página de precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## <a name="faqs"></a>Preguntas más frecuentes
+
+* [¿Cómo funciona Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [¿Cuál es el beneficio de usar Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [¿En qué se diferencia Traffic View de las métricas de Traffic Manager disponibles mediante Azure Monitor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [¿Usa Traffic View información de subred de cliente de EDNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [¿Cuántos días de datos usa Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [¿Cómo controla Traffic View los puntos de conexión externos?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [¿Es necesario habilitar Traffic View en cada perfil de la suscripción?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [¿Cómo se desactiva Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [¿Cómo funciona la facturación de Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

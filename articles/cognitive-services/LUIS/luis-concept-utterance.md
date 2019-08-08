@@ -1,6 +1,6 @@
 ---
-title: Expresiones de ejemplo correctas
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Expresiones de ejemplo correctas: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Las expresiones son datos proporcionados por el usuario que la aplicación necesita interpretar. Recopile frases que crea que los usuarios pueden escribir. Incluya expresiones que signifiquen lo mismo, pero que se construyan de forma diferente tanto en longitud de palabras como en el orden de las palabras.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073152"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638334"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -108,7 +108,11 @@ La normalización no significa que deje de ver la puntuación y los signos diacr
 
 ### <a name="punctuation-marks"></a>Signos de puntuación
 
+Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes. 
+
 Si la puntuación no se normaliza, LUIS tiene en cuenta los signos de puntuación de forma predeterminada, ya que es posible que estos signos tengan una mayor importancia en algunas aplicaciones cliente. Asegúrese de que haya expresiones de ejemplo con y sin signos de puntuación ellos para que los dos estilos devuelvan los mismos resultados relativos. 
+
+Asegúrese de que el modelo controla los signos de puntuación, ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que los tengan o no) o en los [patrones](luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
 
 Si la puntuación no tiene un significado concreto en la aplicación cliente, podría [omitir la puntuación](#utterance-normalization) mediante la normalización de la puntuación. 
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f16c2ad6fdeeb47b747eab24587b43f3df5130
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494606"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355944"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 
@@ -22,7 +22,6 @@ ms.locfileid: "66494606"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
 
 Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este artículo, se crean un clúster y una base de datos con C#.
 
@@ -42,25 +41,25 @@ Azure Data Explorer es un servicio de análisis de datos rápido y totalmente ad
 
 1. Cree el clúster mediante el siguiente código:
 
-    ```C#-interactive
-    string resourceGroupName = "testrg";    
-    string clusterName = "mykustocluster";
-    string location = "Central US";
-    AzureSku sku = new AzureSku("D13_v2", 5);
-    Cluster cluster = new Cluster(location, sku);
-    
+    ```csharp
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var sku = new AzureSku("D13_v2", 5);
+    var cluster = new Cluster(location, sku);
+
     var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
-    var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
-    
+    var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
-     
-    KustoManagementClient KustoManagementClient = new KustoManagementClient(credentials)
+
+    var kustoManagementClient = new KustoManagementClient(credentials)
     {
         SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
     };
 
-    KustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
     ```
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
@@ -75,8 +74,8 @@ Azure Data Explorer es un servicio de análisis de datos rápido y totalmente ad
 
 1. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
 
-    ```C#-interactive
-    KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
+    ```csharp
+    kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
 Si el resultado contiene `ProvisioningState` con el valor `Succeeded`, significa que el clúster se ha creado correctamente.
@@ -85,13 +84,13 @@ Si el resultado contiene `ProvisioningState` con el valor `Succeeded`, significa
 
 1. Cree la base de datos mediante el siguiente código:
 
-    ```c#-interactive
-    TimeSpan hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
-    TimeSpan softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
-    string databaseName = "mykustodatabase";
-    Database database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
-    
-    KustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    ```csharp
+    var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
+    var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
+    var databaseName = "mykustodatabase";
+    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+
+    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
@@ -104,8 +103,8 @@ Si el resultado contiene `ProvisioningState` con el valor `Succeeded`, significa
 
 2. Ejecute el siguiente comando para ver la base de datos que ha creado:
 
-    ```c#-interactive
-    KustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    ```csharp
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
     ```
 
 Ahora cuenta con un clúster y una base de datos.
@@ -115,8 +114,8 @@ Ahora cuenta con un clúster y una base de datos.
 * Si tiene previsto seguir nuestros otros artículos, conserve los recursos que creó.
 * Para limpiar los recursos, elimine el clúster. Cuando se elimina un clúster, también se eliminan todas las bases de datos en él. Use el siguiente comando para eliminar el clúster:
 
-    ```C#-interactive
-    KustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
+    ```csharp
+    kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

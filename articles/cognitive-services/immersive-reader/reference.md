@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718391"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488831"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Referencia del SDK del Lector inmersivo
 
@@ -23,22 +23,22 @@ El SDK del Lector inmersivo es una biblioteca de JavaScript que permite integrar
 
 ## <a name="functions"></a>Functions
 
-El SDK expone una sola función: `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
+El SDK expone una sola función: `ImmersiveReader.launchAsync(token, subdomain, content, options)`.
 
 ### <a name="launchasync"></a>launchAsync
 
 Inicia el Lector inmersivo dentro de un `iframe` en la aplicación web.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### <a name="parameters"></a>Parámetros
 
 | NOMBRE | type | DESCRIPCIÓN |
 | ---- | ---- |------------ |
-| `token` | string | El token de acceso obtenido de la llamada al punto de conexión `issueToken`. |
-| `resourceName` | string | Reservado. Se debe establecer en `null`. |
+| `token` | string | Token de autenticación de Azure AD Consulte el [procedimiento de autenticación de Azure AD](./azure-active-directory-authentication.md). |
+| `subdomain` | string | El subdominio personalizado del recurso Lector inmersivo en Azure. Consulte el [procedimiento de autenticación de Azure AD](./azure-active-directory-authentication.md). |
 | `content` | [Contenido](#content) | Un objeto que contiene el contenido que se mostrará en el Lector inmersivo. |
 | `options` | [Opciones](#options) | Opciones para configurar ciertos comportamientos del Lector inmersivo. Opcional. |
 

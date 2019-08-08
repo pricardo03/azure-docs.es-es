@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 34ab49378f9237a42bed869a6f6d67249b5238f9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508796"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464692"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -28,7 +28,7 @@ Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (lo
 > [!IMPORTANT]  
 > Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
 
-Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Planeamiento de una red virtual para HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="public-ports"></a>Puertos públicos
 
@@ -105,7 +105,7 @@ Ejemplos:
 | NodeManager |Todos los nodos de trabajo |30050 |&nbsp; |La dirección del administrador de contenedores |
 | Interfaz de usuario web de NodeManager |Todos los nodos de trabajo |30060 |HTTP |Interfaz de Resource Manager |
 | Dirección de escala de tiempo |Nodos principales |10200 |RPC |El servicio RPC del servicio de escala de tiempo. |
-| Interfaz de usuario web de escala de tiempo |Nodos principales |8181 |HTTP |La interfaz de usuario web del servicio de escala de tiempo |
+| Interfaz de usuario web de escala de tiempo |Nodos principales |8188 |HTTP |La interfaz de usuario web del servicio de escala de tiempo |
 
 ### <a name="hive-ports"></a>Puertos de Hive
 

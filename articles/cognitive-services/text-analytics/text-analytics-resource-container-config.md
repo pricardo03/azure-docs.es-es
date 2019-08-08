@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 604b17bc3d4696ff0bf2be1759a53927a531fe13
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296018"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356938"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
@@ -31,11 +31,11 @@ Text Analytics proporciona a cada contenedor un marco de configuración común, 
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
-La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Cognitive Services_ especificado para la opción de configuración [`Billing`](#billing-configuration-setting).
+La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Text Analytics_ especificado para la opción de configuración [`Billing`](#billing-configuration-setting).
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Administración de recursos de **Cognitivas Services**, en **Claves**
+* Azure Portal: Administración de recursos de **Text Analytics**, en **Claves**
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -43,17 +43,15 @@ Este valor se puede encontrar en el siguiente lugar:
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de _Cognitive Services_ que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración que debe ser un URI de punto de conexión válido para un recurso de _Cognitive Services_ en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
+La opción `Billing` especifica el identificador URI del punto de conexión del recurso de _Text Analytics_ en Azure que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de punto de conexión válido para un recurso de _Text Analytics_ en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
-
-Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.
+* Azure Portal: Introducción a **Text Analytics**, con la etiqueta `Endpoint`
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación requerido |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -91,18 +89,16 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 * **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
 * **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
-Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.
-
 Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | La clave del punto de conexión del recurso `Cognitive Services` disponible en la página Claves de Azure `Cognitive Services`. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Cognitive Services`.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{API_KEY} | La clave del punto de conexión del recurso `Text Analytics` disponible en la página Claves de Azure `Text Analytics`. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+|{ENDPOINT_URI} | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Text Analytics`.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
-> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Cognitive Services`. 
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Text Analytics`. 
 
 ## <a name="key-phrase-extraction-container-docker-examples"></a>Ejemplos de docker del contenedor de extracción de frases clave
 
@@ -111,13 +107,13 @@ Los siguientes ejemplos de docker son para el contenedor de extracción de frase
 ### <a name="basic-example"></a>Ejemplo básico 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Ejemplo de registro 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="language-detection-container-docker-examples"></a>Ejemplos de docker de contenedor de detección de idioma.
@@ -127,13 +123,13 @@ Los siguientes ejemplos de docker son para el contenedor de detección de idioma
 ### <a name="basic-example"></a>Ejemplo básico
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Ejemplo de registro
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
  
 ## <a name="sentiment-analysis-container-docker-examples"></a>Ejemplos de docker de contenedor de Análisis de sentimiento
@@ -143,13 +139,13 @@ Los siguientes ejemplos de docker son para el contenedor de análisis de sentimi
 ### <a name="basic-example"></a>Ejemplo básico
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Ejemplo de registro
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Pasos siguientes

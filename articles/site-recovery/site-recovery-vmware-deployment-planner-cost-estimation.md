@@ -5,26 +5,21 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471128"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620077"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Revisión del informe de estimación de costos en Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
 El informe de Deployment Planner ofrece un resumen de la estimación de costos incluida en las hojas de [Recomendaciones](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) y del análisis detallado de los costos en la hoja Estimación de costos. Incluye el análisis detallado del costo por máquina virtual. 
 
 >[!Note]
->La versión actual de la herramienta Deployment Planner no proporciona la estimación de costos de las VM que se replican en Managed Disks.
->* Las estimaciones de costos de simulacro de recuperación ante desastres son los mismos para las cuentas de almacenamiento y los discos administrados, cuando el parámetro "Usar Managed Disks" se establece en "Sí" en la hoja "Proceso y red".
->* Para obtener una estimación del costo anual aproximado de la replicación, realice la siguiente configuración temporal en la hoja **Cost Estimation** (Estimación de costos):
->    * Establezca el parámetro "Cost duration" (Duración del costo) de la tabla **Configuración** en "Año".
->    * En la tabla **Detailed cost analysis** (Análisis de costos detallado), establezca la columna "Number of DR-Drills in a year" (Número de simulacros de recuperación ante desastres en un año) en 12 y "Each DR-Drill duration (Days)" (Duración de cada simulacro de recuperación ante desastres [días]) en 30. 
->    * El costo de replicación será similar al costo rellenado en la columna “R”, es decir, DR-Drill storage cost per year (Costo anual de almacenamiento del simulacro de recuperación ante desastres) de la subsección **DR-Drill cost per year** (Costo anual del simulacro de recuperación ante desastres).
+>La versión actual de la herramienta Deployment Planner v2.5 proporciona la estimación de costos de las VM que se replican en Managed Disks.
 
 ### <a name="cost-estimation-summary"></a>Resumen de la estimación de costos 
 En el gráfico siguiente se muestra la vista de resumen del costo total estimado de la recuperación ante desastres en Azure de la región de destino elegida y en la moneda que ha especificado para generar el informe.
@@ -94,7 +89,6 @@ Si es un asociado o un cliente de Azure y tiene derecho a un descuento sobre el 
 Esta tabla muestra el número de máquinas virtuales Windows y no Windows, y el costo de los servicios de proceso para la recuperación ante desastres de las mismas.
 
 ### <a name="settings"></a>Configuración 
-**Using managed disk** (Uso de disco administrado): especifica si se está usando un disco administrado en el momento del simulacro de recuperación ante desastres. El valor predeterminado es "yes" (sí). Si ha configurado -UseManagedDisks en No, usa el precio de los discos no administrados para el cálculo de los costos.
 
 **Moneda**: la moneda en la que se genera el informe. Duración del costo:  puede ver todos los costos del mes o de todo el año. 
 
@@ -107,7 +101,7 @@ Para agregar las máquinas virtuales manualmente:
 
 * Number of VMs (Número de máquinas virtuales), IaaS size (Tamaño de IaaS): valor que elija
 * Storage Type (Standard/Premium) [Tipo de almacenamiento (Estándar/Premium)]
-* VM total storage size (GB) [Tamaño de almacenamiento total de máquinas virtuales (GB)]
+* Tamaño total de almacenamiento de VM (GB) de la máquina de origen
 * Number of DR drills in a year (Número de simulacros de recuperación ante desastres en un año) 
 * Each DR drill duration (Days) [Duración de cada simulacro de recuperación ante desastres (días)] 
 * OS Type (Tipo de SO)
@@ -128,9 +122,9 @@ Para agregar las máquinas virtuales manualmente:
 
 **Storage type** (Tipo de almacenamiento): tipo del almacenamiento que usa la máquina virtual. Puede ser almacenamiento estándar o premium.
 
-**VM total storage size (GB)** (Tamaño de almacenamiento total de máquinas virtuales [GB]): el almacenamiento total de la máquina virtual.
+**VM total storage size (GB)** (Tamaño de almacenamiento total de máquina virtual [GB]): Almacenamiento total de la VM de origen.
 
-**Number of DR drills in a year** (Número de simulacros de recuperación ante desastres en un año): el número de veces que se realizan los simulacros de recuperación ante desastres en un año. De forma predeterminada, es 4 veces en un año. Puede modificar el período para máquinas virtuales específicas o aplicar el nuevo valor a todas las máquinas virtuales. Para ello, escriba el nuevo valor en la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres realizados en un año y de la duración de cada uno de ellos.  
+**Number of DR-Drills in a year** (Número de simulacros de recuperación ante desastres en un año): el número de veces que se realizan los simulacros de recuperación ante desastres en un año. De forma predeterminada, es 4 veces en un año. Puede modificar el período para máquinas virtuales específicas o aplicar el nuevo valor a todas las máquinas virtuales. Para ello, escriba el nuevo valor en la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres realizados en un año y de la duración de cada uno de ellos.  
 
 **Each DR drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días]): la duración de cada simulacro de recuperación ante desastres. De forma predeterminada, es de 7 días cada 90 días según la [ventaja Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Puede modificar el período para máquinas virtuales específicas o puede aplicar un nuevo valor a todas las máquinas virtuales. Para ello, escriba el nuevo valor en la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres en un año y la duración de cada uno de ellos.
   

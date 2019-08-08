@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0ec64a5ae412fb4a1900021fefcb7d9112b1b019
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255340"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68360253"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -30,17 +30,16 @@ El panel Métricas muestra el conjunto predeterminado de contadores de rendimien
 ![Contadores de rendimiento notificados en Application Insights](./media/performance-counters/performance-counters.png)
 
 Los contadores predeterminados actuales que se configuran para la recopilación para aplicaciones web de ASP.NET/ASP.NET Core son los siguientes:
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
+- % de Proceso\\Tiempo de procesador
+- % de Proceso\\Tiempo de procesador normalizado
+- Memoria\\Bytes disponibles
+- Solicitudes de ASP.NET/segundo
+- Excepciones de .NET CLR iniciadas/segundo
+- Tiempo de ejecución de solicitudes de aplicaciones ASP.NET
+- Proceso\\Bytes privados
+- Proceso\\Bytes de datos de E/S por segundo
+- Aplicaciones ASP.NET\\Solicitudes en la cola de aplicaciones
+- Procesador(_Total)\\% de tiempo del procesador
 
 ## <a name="add-counters"></a>Adición de contadores
 
@@ -56,16 +55,15 @@ Si el contador de rendimiento que quiere no está incluido en la lista de métri
    * Si agrega Application Insights a la aplicación durante el desarrollo, edite ApplicationInsights.config en el proyecto y vuelva a implementarlo en los servidores.
 3. Edite la directiva del recopilador de rendimiento:
 
-```XML
+    ```XML
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
-
-```
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
 
 > [!NOTE]
 > Las aplicaciones de ASP.NET Core no tienen `ApplicationInsights.config` y, por lo tanto, el método anterior no es válido para las aplicaciones de ASP.NET Core.
@@ -82,8 +80,7 @@ Si especifica una instancia, se recopilará como una dimensión "CounterInstance
 Para recopilar contadores de rendimiento del sistema y enviarlos a Application Insights, puede adaptar el siguiente fragmento:
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
@@ -92,7 +89,7 @@ Para recopilar contadores de rendimiento del sistema y enviarlos a Application I
 
 También puede hacer lo mismo con las métricas personalizadas que haya creado:
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));

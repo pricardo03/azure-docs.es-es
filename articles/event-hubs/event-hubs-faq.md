@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476117"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479147"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -61,7 +61,7 @@ El nivel Event Hubs estándar admite actualmente un período de retención máxi
 Event Hubs emite métricas exhaustivas que proporcionan el estado de los recursos a [Azure Monitor](../azure-monitor/overview.md). También permite evaluar el estado general del servicio Event Hubs, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Obtenga información sobre la supervisión que se ofrece para [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
-Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
+Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
@@ -76,14 +76,14 @@ Consulte en la siguiente tabla los puertos de salida que se deben abrir para usa
 | Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP es necesario incluir en la lista de permitidas?
-Para buscar las direcciones IP correctas que incluir en la lista de direcciones permitidas para las conexiones, siga estos pasos:
+Para buscar las direcciones IP correctas para incluirlas en la lista de direcciones permitidas para las conexiones, siga estos pasos:
 
 1. Ejecute el siguiente comando desde el símbolo del sistema: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
+2. Anote la dirección IP devuelta en `Non-authoritative answer`. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
 
 Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
 
@@ -185,8 +185,9 @@ Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
 ### <a name="how-many-partitions-do-i-need"></a>¿Cuántas particiones necesito?
+El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
 
-El número de particiones de un centro de eventos no se puede modificar después de la configuración. Por lo tanto, es importante considerar cuántas particiones necesita antes de comenzar. 
+Es posible que quiera establecer el valor lo más alto posible, que es 32, en el momento de la creación. Recuerde que, si hay más de una partición, los eventos se enviarán a varias particiones sin conservar el orden, a menos que configure los remitentes para que solo realicen el envío a una única partición de las 32, lo que hará que las 31 restantes sean redundantes. En el primer caso, tendrá que leer eventos en las 32 particiones. En el último caso, no hay ningún costo adicional obvio aparte de la configuración adicional que debe realizar en el host del procesador de eventos.
 
 Event Hubs está diseñado para permitir un lector de partición única por grupo de consumidores. En la mayoría de los casos de uso, el valor predeterminado de cuatro particiones es suficiente. Si desea escalar el procesamiento de eventos, tal vez desee agregar particiones adicionales. No hay ningún límite de procesamiento específico en una partición; pero el número total de unidades de procesamiento limita el procesamiento agregado en el espacio de nombres. A medida que aumenta el número de unidades de procesamiento en el espacio de nombres, puede que necesite particiones adicionales para permitir que los lectores simultáneos logren su propio procesamiento máximo.
 

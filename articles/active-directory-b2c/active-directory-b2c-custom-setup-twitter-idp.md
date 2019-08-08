@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc657e079949b8217031906efeb84049217d6493
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 557d25c4921c9906be75bce03c326903e63432de
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510251"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464791"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Twitter mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Debe almacenar la clave del secreto que haya registrado previamente en el inquil
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripciones** del menú superior y elija el directorio que contiene la suscripción.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
 7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `TwitterSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
@@ -58,7 +58,7 @@ Debe almacenar la clave del secreto que haya registrado previamente en el inquil
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Si desea que los usuarios inicien sesión con una cuenta de Twitter, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
+Si desea que los usuarios inicien sesión con una cuenta de Twitter, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Puede definir una cuenta de Twitter como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
@@ -110,7 +110,7 @@ Puede definir una cuenta de Twitter como proveedor de notificaciones; para ello,
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 
-Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta de LinkedIn. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
+Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta de Twitter. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
 1. En la página **Directivas personalizadas** del inquilino de Azure AD B2C, seleccione **Cargar directiva**.
 2. Habilite **Sobrescribir la directiva, si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
@@ -147,7 +147,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
-    
+
     Cambie el valor de **TechnicalProfileReferenceId** para el identificador del perfil técnico que creó anteriormente. Por ejemplo, `Twitter-OAUTH1`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.

@@ -2,7 +2,7 @@
 title: Conexión a Azure SQL Data Warehouse | Microsoft Docs
 description: Conéctese a Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873668"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479748"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conexión a Azure SQL Data Warehouse
 Conéctese a Azure SQL Data Warehouse.
@@ -69,7 +69,7 @@ SQL Data Warehouse normaliza algunas opciones de configuración durante la conex
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para conectarse y realizar consultas con Visual Studio, consulte [Conexión a SQL Data Warehouse con Visual Studio y SSDT][Query with Visual Studio]. Para más información acerca de las opciones de autenticación, consulte [Autenticación en Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
+Para conectarse y realizar consultas con Visual Studio, consulte [Consulta con Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]. To learn more about authentication options, see <bpt id="p1">[</bpt>Authentication to Azure SQL Data Warehouse<ept id="p1">][Authentication to Azure SQL Data Warehouse]</ept>.
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

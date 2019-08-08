@@ -1,6 +1,6 @@
 ---
 title: Prueba de la aplicación en el portal de LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199166"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638038"
 ---
+<a name="train-your-app"></a>
+
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
-La <a name="train-your-app"></a>
-[prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
+
+La [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ La <a name="train-your-app"></a>
 
 1. Acceda a la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**. 
 
-2. Para acceder al panel deslizante **Prueba**, seleccione **Prueba** en el panel superior de la aplicación.
+1. Para acceder al panel deslizante **Prueba**, seleccione **Prueba** en el panel superior de la aplicación.
 
     ![Página de entrenamiento y prueba de la aplicación](./media/luis-how-to-interactive-test/test.png)
 
-3. Escriba una expresión en el cuadro de texto y presione Entrar. Puede escribir tantas expresiones de prueba como quiera en **Prueba**, pero solo una expresión cada vez.
+1. Escriba una expresión en el cuadro de texto y presione Entrar. Puede escribir tantas expresiones de prueba como quiera en **Prueba**, pero solo una expresión cada vez.
 
-4. La expresión, su intención superior y la puntuación se agregan a la lista de expresiones bajo el cuadro de texto.
+1. La expresión, su intención superior y la puntuación se agregan a la lista de expresiones bajo el cuadro de texto.
 
     ![Las pruebas interactivas identifican la intención incorrecta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspe
 
     ![Seleccione el botón Inspeccionar para ver más detalles acerca de los resultados de la prueba.](./media/luis-how-to-interactive-test/inspect.png)
 
-2. Aparece el panel **Inspección**. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
+1. Aparece el panel **Inspección**. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
 
     ![El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspe
 
 1. Si la intención de mayor puntuación es incorrecta, haga clic en el botón **Editar**.
 
-2.  En la lista desplegable, seleccione la intención correcta de la expresión.
+1.  En la lista desplegable, seleccione la intención correcta de la expresión.
 
     ![Seleccionar la intención correcta](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 
 1. En el panel **Prueba**, escriba una expresión. Cuando se haya predicho la expresión, haga clic en **[Inspeccionar](#inspect-score)** debajo de la expresión especificada. 
 
-2. Cuando se abra el panel **Inspeccionar**, seleccione **[Comparar con el publicado](#compare-with-published-version)** . 
+1. Cuando se abra el panel **Inspeccionar**, seleccione **[Comparar con el publicado](#compare-with-published-version)** . 
 
-3. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)** .
+1. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)** .
 
-4. En el cuadro de diálogo emergente, escriba su clave de servicio de **Bing Spell Check**. 
-    ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. En el cuadro de diálogo emergente, seleccione **Habilitar Bing Spell Check**, escriba la clave y, a continuación, seleccione **Listo**. 
+    ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Escriba una consulta con una ortografía incorrecta, como `book flite to seattle` y presione Entrar. La ortografía incorrecta de la palabra `flite` se sustituye en la consulta enviada a LUIS y el JSON resultante muestra la consulta original, como `query`, y la ortografía corregida en la consulta, como `alteredQuery`.
-
-    ![JSON con la ortografía corregida](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Escriba una consulta con una ortografía incorrecta, como `book flite to seattle` y presione Entrar. La ortografía incorrecta de la palabra `flite` se sustituye en la consulta enviada a LUIS y el JSON resultante muestra la consulta original, como `query`, y la ortografía corregida en la consulta, como `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

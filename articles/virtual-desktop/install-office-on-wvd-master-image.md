@@ -2,17 +2,17 @@
 title: 'Instalación de Office en la imagen de un disco duro virtual maestro: Azure'
 description: Cómo instalar y personalizar Office en una imagen maestra de Windows Virtual Desktop (versión preliminar) en Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620464"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816432"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalación de Office en la imagen de un disco duro virtual principal
 

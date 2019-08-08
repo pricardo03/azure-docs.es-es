@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67770661f0660b9a84d16bbbc7d86cfcbca2cfdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511588"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464744"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -67,6 +67,8 @@ El elemento **BuildingBlocks** contiene los siguientes elementos que deben espec
     - Crear una notificación de cadena a partir del parámetro proporcionado en la directiva.
     - Crear una cadena aleatoria mediante el generador de números aleatorios.
     - Dar formato a una notificación de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método `String.Format` de C#.
+    
+- InputValidation: este elemento le permite realizar agregaciones booleanas similares a *and* y *or*.
 
 - [ContentDefinitions](contentdefinitions.md): contiene las URL para las plantillas HTML5 que va a usar en su recorrido del usuario. En una directiva personalizada, una definición de contenido define el identificador URI de la página HTML5 que se usa en un paso concreto del recorrido del usuario. Por ejemplo, páginas de error, de registro o inicio de sesión, o de restablecimiento de contraseña. Para modificar la apariencia, invalide el elemento LoadUri del archivo HTML5. También puede crear nuevas definiciones de contenido según sus necesidades. Este elemento puede contener una referencia a recursos localizados mediante un identificador de localización.
 

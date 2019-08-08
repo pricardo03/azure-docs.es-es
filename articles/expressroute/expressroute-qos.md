@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712314"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385128"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos de QoS ExpressRoute
 Skype Empresarial tiene varias cargas de trabajo que requieren tratamiento diferenciado de QoS. Si piensa consumir servicios de voz a través de ExpressRoute, debe cumplir los requisitos descritos a continuación.
@@ -29,7 +29,7 @@ En la tabla siguiente se proporciona una lista de las marcas de DSCP que usan Mi
 
 | **Clase de tráfico** | **Tratamiento (marcado de DSCP)** | **Cargas de trabajo de Microsoft Teams y Skype Empresarial** |
 | --- | --- | --- |
-| **Voz** |EF (46) |Voz de Skype o Lync |
+| **Voz** |EF (46) |Skype/Microsoft Teams/Lync Voice |
 | **Interactivo** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Uso compartido de aplicaciones | 
 | **Valor predeterminado** |AF11 (10) |Transferencia de archivos |

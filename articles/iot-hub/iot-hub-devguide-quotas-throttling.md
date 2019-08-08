@@ -7,15 +7,17 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
-ms.openlocfilehash: e4e1634c7180c7099f23915026d807a1e380a091
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.date: 07/17/2019
+ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277352"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326738"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
+
+En este artículo se explican las cuotas para una instancia de IoT Hub y se proporciona información para ayudarle a entender cómo funciona la limitación.
 
 ## <a name="quotas-and-throttling"></a>Cuotas y limitación
 
@@ -35,9 +37,9 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | -------- | ------- | ------- | ------- |
 | [Operaciones de registro de identidad](#identity-registry-operations-throttle) (crear, recuperar, enumerar, actualizar y eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/m/unidad) |
 | [Nuevas conexiones de dispositivo](#device-connections-throttle) (este límite se aplica a la velocidad de las _nuevas conexiones_, no al número total de conexiones) | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 son 2\*12 = 24 nuevas conexiones por segundo, pero dispone de al menos 100 nuevas conexiones por segundo entre todas las unidades. Con nueve unidades S1 tiene 108 nuevas conexiones por segundo (9\*12) entre todas las unidades. | 120 conexiones nuevas por segundo por unidad | 6000 conexiones nuevas por segundo por unidad |
-| Envíos de dispositivo a nube | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9\*12) en las unidades. | 120/s/unidad | 6000/s/unidad |
-| Envíos de nube a dispositivo<sup>1</sup> | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/m/unidad) |
-| Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67/s/unidad (1000/m/unidad) | 16,67/s/unidad (1000/m/unidad) | 833,33/s/unidad (50 000/m/unidad) |
+| Envíos de dispositivo a nube | Más de 100 operaciones de envío por segundo o 12 operaciones de envío por segundo por unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100 operaciones de envío por segundo en todas las unidades. Con nueve unidades S1, tiene 108 nuevas operaciones de envío por segundo (9\*12) entre todas las unidades. | 120 operaciones de envío por segundo por unidad | 6000 operaciones de envío por segundo por unidad |
+| Envíos de nube a dispositivo<sup>1</sup> | 1,67 operaciones de envío por segundo por unidad (100 mensajes por minuto por unidad) | 1,67 operaciones de envío por segundo por unidad (100 operaciones de envío por minuto por unidad) | 83,33 operaciones de envío por segundo por unidad (5000 operaciones de envío por minuto por unidad) |
+| Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 833,33 operaciones de envío por segundo por unidad (50 000 operaciones de recepción por minuto por unidad) |
 | Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/m/unidad) |
 | Métodos directos<sup>1</sup> | 160 MB/s/unidad<sup>2</sup> | 480 MB/s/unidad<sup>2</sup> | 24 MB/s/unidad<sup>2</sup> | 
 | Consultas | 20/m/unidad | 20/m/unidad | 1000/m/unidad |
@@ -52,9 +54,25 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>2</sup>El tamaño del medidor de limitación es de 4 KB.
 
+### <a name="throttling-details"></a>Detalles de la limitación
+
+* El tamaño del medidor determina en qué incrementos se consume el límite de la limitación. Si la carga de la llamada directa está entre 0 y 4 KB, se cuentan como 4 KB. Puede realizar hasta 40 llamadas por segundo por unidad antes de alcanzar el límite de 160 KB/s/unidad.
+
+   Del mismo modo, si la carga se encuentra entre 4 y 8 KB, cada llamada tiene 8 KB y puede realizar hasta 20 llamadas por segundo por unidad antes de alcanzar el límite máximo.
+
+   Por último, si el tamaño de la carga se encuentra entre 156 y 160 KB, solo podrá realizar una llamada por segundo por unidad en el centro antes de alcanzar el límite de 160 KB/s/unidad.
+
+*  Para *operaciones de dispositivos de trabajo (actualizar dispositivo, invocar método directo)* para el nivel S2, el límite de 50/s/unidad solo se aplica cuando invoca métodos mediante trabajos. Si invoca directamente métodos directos, se aplica el límite original de 24 MB/s/unidad (para S2).
+
+*  **Cuota** es el número agregado de mensajes que se pueden enviar en el centro *por día*. Puede encontrar el límite de cuota del centro en la columna **número total de mensajes/día** en la [página de precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+
+*  Sus limitaciones de la nube al dispositivo y del dispositivo a la nube determinan la *velocidad máxima* a la que puede enviar mensajes: número de mensajes con independencia de los fragmentos de 4 KB. Cada mensaje puede tener hasta 256 KB, que es el [tamaño máximo del mensaje](iot-hub-devguide-quotas-throttling.md#other-limits).
+
+*  Se recomienda limitar las llamadas para que no alcancen o superen los límites. Si alcanza el límite, IoT Hub responde con el código de error 429 y el cliente debería interrumpirse y volver a iniciarse. Estos límites son por centro (o en algunos casos por centro por unidad). Para más información, consulte [Administración de la conectividad y de los patrones de mensajería confiable y de reintento](iot-hub-reliability-features-in-sdks.md#retry-patterns).
+
 ### <a name="traffic-shaping"></a>Modelado del tráfico
 
-Para dar cabida al tráfico por ráfagas, IoT Hub acepta solicitudes por encima de la limitación durante un tiempo limitado. Las primeras solicitudes se procesan inmediatamente. Pero si el número de solicitudes sigue infringiendo la limitación, IoT Hub empieza a colocar las solicitudes en una cola y las procesa según la tarifa límite de IoT Hub. Este efecto se conoce como *modelado del tráfico*. Además, el tamaño de esta cola es limitado. Si se sigue produciendo una infracción de limitación, la cola acaba llenándose y IoT Hub empieza a rechazar solicitudes con `429 ThrottlingException`. 
+Para dar cabida al tráfico por ráfagas, IoT Hub acepta solicitudes por encima de la limitación durante un tiempo limitado. Las primeras solicitudes se procesan inmediatamente. Pero si el número de solicitudes sigue infringiendo la limitación, IoT Hub empieza a colocar las solicitudes en una cola y las procesa según la tarifa límite de IoT Hub. Este efecto se conoce como *modelado del tráfico*. Además, el tamaño de esta cola es limitado. Si se sigue produciendo una infracción de limitación, la cola acaba llenándose y IoT Hub empieza a rechazar solicitudes con `429 ThrottlingException`.
 
 Por ejemplo, imagine que usa un dispositivo simulado para enviar 200 mensajes de dispositivo a nube por segundo a S1 IoT Hub (que tiene un límite 100/s envíos D2C.). Durante el primer minuto o dos, los mensajes se procesan inmediatamente. Pero como el dispositivo sigue enviando más mensajes que el límite, IoT Hub empieza a procesar solo 100 mensajes por segundo y pone el resto en cola. Se empieza a notar una mayor latencia. Por último, empieza a recibir `429 ThrottlingException` a medida que se llena la cola y el "número de errores de limitación" en [métricas de IoT Hub](iot-hub-metrics.md) empieza a aumentar.
 
@@ -68,15 +86,14 @@ La limitación de las *conexiones de dispositivo* determina la velocidad a la qu
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Así que para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad.
 
-
 ## <a name="other-limits"></a>Otros límites
 
 IoT Hub exige otros límites operativos:
 
 | Operación | Límite |
 | --------- | ----- |
-| Dispositivos | El número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 1 000 000. La única manera de aumentar este límite es ponerse en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).| 
-| URI de carga de archivos | 10 000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| Dispositivos | El número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 1 000 000. La única manera de aumentar este límite es ponerse en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).|
+| Cargas de archivos | 10 cargas de archivos simultáneas por dispositivo. |
 | Trabajos<sup>1</sup> | El número máximo de trabajos simultáneos es 1 para gratuitos y S1, 5 para S2 y 10 para S3. No obstante, el número máximo de [trabajos de importación/exportación de dispositivo](iot-hub-bulk-identity-mgmt.md) simultáneos es 1 para todos los niveles. <br/>El historial de trabajos se conserva durante 30 días como máximo. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |

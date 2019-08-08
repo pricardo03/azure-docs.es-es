@@ -11,36 +11,37 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46f4e1b3df5f1c77a57d432297685d6d1a0a14a8
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241687"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405806"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
-En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre. 
 
-Cada instancia del servicio de API Management tiene una colección de propiedades de pares clave-valor, que se denominan valores con nombre y que son globales para la instancia del servicio. Estos valores con nombre se pueden usar para administrar valores de cadena constantes en todas las directivas y la configuración de API. Cada propiedad puede tener también los siguientes atributos:
+En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre.
 
-| Atributo | Type | DESCRIPCIÓN |
-| --- | --- | --- |
-| `Display name` |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
-| `Value`        |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
-| `Secret`       |boolean|Determina si el valor es secreto y si se debe cifrar.|
-| `Tags`         |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
+Cada instancia del servicio de API Management tiene una colección de propiedades de pares clave-valor, que se denominan valores con nombre y que son globales para la instancia del servicio. No se impone ningún límite en el número de elementos de la colección. Los valores con nombre se pueden usar para administrar valores de cadena constantes en todas las directivas y la configuración de API. Cada valor con nombre puede tener los siguientes atributos:
+
+| Atributo      | type            | DESCRIPCIÓN                                                                                                                         |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | string          | Se usa para hacer referencia a la propiedad en las directivas. Una cadena que contenga entre 1 y 256 caracteres. Solo se permiten letras, números, punto y guión. |
+| `Value`        | string          | Valor real. No debe estar vacío ni contener solo espacios en blanco. 4096 caracteres como máximo.                                     |
+| `Secret`       | boolean         | Determina si el valor es secreto y si se debe cifrar.                                                            |
+| `Tags`         | matriz de cadena | Se utiliza para filtrar la lista de propiedades. Hasta 32 etiquetas.                                                                                    |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
-Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
+Los valores con nombre pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `Expression` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. El valor con nombre `Credential` está marcado como secreto, por lo que su valor no se muestra de forma predeterminada.
 
-| NOMBRE | Valor | Secret | Etiquetas |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| NOMBRE       | Valor                      | Secret | Etiquetas          |
+| ---------- | -------------------------- | ------ | ------------- |
+| Valor      | 42                         | False  | vital-numbers |
+| Credential: | ••••••••••••••••••••••     | True   | security      |
+| Expression | @(DateTime.Now.ToString()) | False  |               |
 
 ## <a name="to-add-and-edit-a-property"></a>Incorporación y edición de una propiedad
 
@@ -50,7 +51,8 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 2. Seleccione **Valores con nombre**.
 3. Presione **+Agregar**.
 
-   Los campos Nombre y Valor son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla Este valor es un secreto. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
+    Los campos Nombre y Valor son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla Este valor es un secreto. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
+
 4. Haga clic en **Create**(Crear).
 
 Una vez creada la propiedad, es posible editarla haciendo clic en ella. Si cambia el nombre de propiedad, las directivas que hagan referencia a esa propiedad se actualizarán automáticamente para utilizar el nuevo nombre.
@@ -63,8 +65,6 @@ Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propi
 
 > [!IMPORTANT]
 > Si se hace referencia a la propiedad mediante alguna directiva, podrá eliminarla correctamente hasta que quite la propiedad de todas las directivas que la utilicen.
-> 
-> 
 
 Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](/rest/api/apimanagement/2019-01-01/property/delete)(Eliminación de una propiedad mediante la API de REST).
 
@@ -109,12 +109,12 @@ Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector
 Aunque los valores de propiedad pueden contener expresiones de directiva, no pueden contener otros valores con nombre. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre cómo trabajar con directivas
-  * [Directivas de Azure API Management](api-management-howto-policies.md)
-  * [Referencia de directiva](/azure/api-management/api-management-policies)
-  * [Expresiones de directiva](/azure/api-management/api-management-policy-expressions)
+
+-   Obtenga más información sobre cómo trabajar con directivas
+    -   [Directivas de Azure API Management](api-management-howto-policies.md)
+    -   [Referencia de directiva](/azure/api-management/api-management-policies)
+    -   [Expresiones de directiva](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-

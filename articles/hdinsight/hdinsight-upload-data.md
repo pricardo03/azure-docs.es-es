@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: fceea6273f00fdf16d8934533f08bc3494795bc4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f75933940aa97606ca33ab6bfc18fe5871811eef
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433280"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441971"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
@@ -56,12 +56,12 @@ Para poder usar el comando de Hadoop, primero debe conectarse al nodo principal 
 Una vez conectado, puede utilizar la siguiente sintaxis para cargar un archivo al almacenamiento.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 Por ejemplo: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Como el sistema de archivos predeterminado de HDInsight está en Azure Storage, /example/data.txt está en realidad en Azure Storage. También puede referirse al archivo como:
+Como el sistema de archivos predeterminado de HDInsight está en Azure Storage, /example/data/data.txt está en realidad en Azure Storage. También puede referirse al archivo como:
 
     wasbs:///example/data/data.txt
 

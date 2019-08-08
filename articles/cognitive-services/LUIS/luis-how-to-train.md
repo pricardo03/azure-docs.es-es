@@ -1,6 +1,6 @@
 ---
-title: Entrenamiento de la aplicación
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Entrenamiento de aplicaciones: LUIS'
+titleSuffix: Azure Cognitive Services
 description: El entrenamiento es el proceso de enseñar a la versión de la aplicación de Language Understanding (LUIS) a mejorar su comprensión del lenguaje natural. Entrene la aplicación de LUIS después de realizar actualizaciones en el modelo, como la adición, la edición, el etiquetado o la eliminación de entidades, intenciones o expresiones.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d85aee498f178fa708d3997c65509e2f7241157
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195865"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637903"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entrenamiento de la versión activa de la aplicación de LUIS 
 

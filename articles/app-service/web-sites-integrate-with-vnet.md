@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147299"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498433"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
-En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
+En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
 
-Azure App Service adopta dos formas. 
+Azure App Service adopta dos variantes. 
 
 1. Los sistemas multiinquilino que admiten la gama completa de planes de precios, excepto Aislado.
 2. App Service Environment (ASE), que se implementa en la red virtual y admite aplicaciones de planes de precios aislados.
@@ -34,7 +34,7 @@ Este documento pasa por las dos características Integración con red virtual, p
 La característica Integración con red virtual presenta dos formas.
 
 1. Una versión permite la integración con redes virtuales en la misma región. Esta forma de la característica requiere que haya una subred en una red virtual en la misma región. Esta característica está aún en versión preliminar, pero se admite en cargas de trabajo de producción de aplicaciones Windows con las correspondientes salvedades señaladas en cada caso.
-2. La otra versión permite la integración con redes virtuales en otras regiones o con redes virtuales clásicas. Esta versión de la característica requiere la implementación de una puerta de enlace de red virtual en la red virtual. Se trata de la característica basada en VPN de punto a sitio.
+2. La otra versión permite la integración con redes virtuales en otras regiones o con redes virtuales clásicas. Esta versión de la característica requiere la implementación de una puerta de enlace de red virtual en la red virtual. Esta es la característica basada en VPN de punto a sitio y solo es compatible con aplicaciones de Windows.
 
 Una aplicación puede usar solo una forma de la característica Integración con red virtual a la vez. La incógnita, pues, es qué característica usar. Puede usar cada una de ellas para muchas cosas. Estas son las diferencias más patentes entre ambas:
 
@@ -78,12 +78,16 @@ Esta característica está en versión preliminar, pero se admite en cargas de t
 * No se puede tener acceso a los recursos en conexiones de emparejamiento global.
 * No se pueden establecer rutas en el tráfico procedente de la aplicación a la red virtual.
 * La característica solo está disponible en las unidades de escalado de App Service más recientes que admiten planes PremiumV2 de App Service.
+* La subred de integración solo se puede usar en un plan de App Service.
 * Las aplicaciones de plan Aislado que estén en un App Service Environment no pueden usar la característica.
-* La característica requiere una subred sin usar con un mínimo de 32 direcciones en la red virtual de Resource Manager.
+* La característica requiere una subred sin usar que sea un /27 con un mínimo de 32 direcciones en la red virtual de Resource Manager.
 * La aplicación y la red virtual deben estar en la misma región
-* Se usa una dirección para cada instancia del plan de App Service. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, use una subred que pueda cubrir un tamaño mayor al de su escala máxima. El tamaño /27 con 32 direcciones es el recomendado, ya podría dar cabida a un plan de App Service escalado a 20 instancias.
 * No puede eliminar una red virtual con una aplicación integrada. Para ello, antes debe quitar la integración. 
 * Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual. 
+
+Se usa una dirección para cada instancia del plan de App Service. Si ha escalado la aplicación a cinco instancias, se usan cinco direcciones. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, debe usar una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. El tamaño /27 con 32 direcciones es el recomendado, ya que podría dar cabida a un plan de App Service Premium escalado a 20 instancias.
+
+Si desea que las aplicaciones de otro plan de App Service lleguen a una red virtual a la que están conectadas las aplicaciones en otro plan de App Service, debe seleccionar una subred diferente de la usada por la integración de red virtual existente.  
 
 La característica se encuentra también en versión preliminar para Linux. Para usar la característica Integración con red virtual con una red virtual de Resource Manager en la misma región:
 
@@ -101,11 +105,15 @@ Una vez que la aplicación esté integrada con la red virtual, usará el mismo s
 
 Para desconectar la aplicación de la red virtual, seleccione **Desconectar**. Esta acción reiniciará la aplicación web. 
 
-La nueva característica Integración con red virtual le permite usar puntos de conexión de servicio.  Para usar puntos de conexión de servicio con la aplicación, use la nueva integración con red virtual para conectarse a una red virtual seleccionada y, a continuación, configure los puntos de conexión de servicio en la subred que usó para la integración. 
 
 #### <a name="web-app-for-containers"></a>Web App for Containers
 
 Si usa App Service en Linux con las imágenes integradas, la característica Integración con red virtual regional funciona sin más cambios. Si usa Web App for Containers, deberá modificar la imagen de Docker para poder usar Integración de red virtual. En la imagen de Docker, use la variable de entorno PORT como puerto de escucha del servidor web principal en lugar de un número de puerto codificado de forma rígida. La variable de entorno PORT la establece automáticamente la plataforma de App Service en el momento de inicio del contenedor.
+
+### <a name="service-endpoints"></a>Puntos de conexión de servicio
+
+La nueva característica Integración con red virtual le permite usar puntos de conexión de servicio.  Para usar puntos de conexión de servicio con la aplicación, use la nueva integración con red virtual para conectarse a una red virtual seleccionada y, a continuación, configure los puntos de conexión de servicio en la subred que usó para la integración. 
+
 
 ### <a name="how-vnet-integration-works"></a>Funcionamiento de la integración con red virtual
 
@@ -113,7 +121,7 @@ Las aplicaciones en App Service se hospedan en roles de trabajo. Los planes de p
 
 ![Integración con red virtual](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
-Cuando Integración con red virtual se habilite, la aplicación seguirá realizando llamadas salientes a Internet a través de los mismos canales, como habitualmente. Las direcciones salientes que se muestran en el portal de propiedades de la aplicación siguen siendo las direcciones usadas por la aplicación. Lo que es distinto para la aplicación es que las llamadas a servicios protegidos de punto de conexión de servicio o direcciones de RFC 1918 tienen lugar en la red virtual. 
+Cuando Integración con red virtual se habilite, la aplicación seguirá realizando llamadas salientes a Internet a través de los mismos canales, como habitualmente. Las direcciones salientes que se muestran en el portal de propiedades de la aplicación siguen siendo las direcciones usadas por la aplicación. Lo que es distinto para la aplicación es que las llamadas a servicios protegidos de punto de conexión de servicio o direcciones de RFC 1918 tienen lugar en la red virtual. 
 
 La característica solo admite una interfaz virtual por trabajo.  Una interfaz virtual por trabajo significa una característica Integración con red virtual regional por plan de App Service. Todas las aplicaciones en el mismo plan de App Service pueden usar la misma característica Integración con red virtual, pero si necesita que una aplicación se conecte a otra red virtual, deberá crear otro plan de App Service. La interfaz virtual utilizada no es un recurso al que los clientes tengan acceso directo.
 
@@ -217,7 +225,7 @@ Las aplicaciones pueden acceder a los recursos locales mediante la integración 
 No hay ninguna configuración adicional necesaria para que la característica Integración con red virtual regional acceda a la red virtual y al entorno local. Basta con conectar la red virtual al entorno local mediante ExpressRoute o una VPN de sitio a sitio. 
 
 > [!NOTE]
-> La característica Integración con red virtual con requisito de puerta de enlace no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Aunque la puerta de enlace de ExpressRoute esté configurada en [modo de coexistencia][VPNERCoex], la integración con red virtual no funcionará. Si necesita acceder a los recursos mediante una conexión de ExpressRoute, puede utilizar la característica Integración con red virtual regional o un [App Service Environment][ASE] que se ejecute en la red virtual. 
+> La característica Integración con red virtual con requisito de puerta de enlace no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Aunque la puerta de enlace de ExpressRoute esté configurada en [modo de coexistencia][VPNERCoex], la integración con red virtual no funcionará. Si necesita acceder a los recursos mediante una conexión de ExpressRoute, puede utilizar la característica Integración con red virtual regional o un entorno [App Service Environment][ASE] que se ejecute en la red virtual. 
 > 
 > 
 
@@ -236,8 +244,8 @@ La característica Integración con red virtual regional no tiene ningún cargo 
 
 Hay tres cargos relacionados con el uso de la característica Integración con red virtual con requisito de puerta de enlace:
 
-* Cargos del plan de tarifa de ASP: las aplicaciones deben estar en un plan de App Service Estándar, Premium o PremiumV2. Puede ver más detalles sobre esos costos aquí: [Precios de App Service][ASPricing]. 
-* Costos de transferencias de datos: se aplica un cargo de salida de datos, aunque la red virtual esté en el mismo centro de datos. Estos cargos se describen en la página de [detalles de precios de transferencia de datos][DataPricing]. 
+* Cargos del plan de tarifa de ASP: las aplicaciones deben estar en un plan de App Service Estándar, Premium o PremiumV2. Puede ver más detalles sobre esos costos aquí: [Precios de App Service][ASPricing] 
+* Costos de transferencias de datos: se aplica un cargo de salida de datos, aunque la red virtual esté en el mismo centro de datos. Estos cargos se describen en la página de [detalles de precios de Transferencia de datos][DataPricing]. 
 * Costos de puerta de enlace de red virtual: existe un costo para la puerta de enlace de red virtual necesaria para la VPN de punto a sitio. Encontrará los detalles en la página [Precios de VPN Gateway][VNETPricing].
 
 

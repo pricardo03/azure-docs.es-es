@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797648"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479789"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -97,50 +97,46 @@ Ejemplos:
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Capturar datos para ejecutar un experimento en el proceso remoto
 
-Si usa un proceso remoto para ejecutar el experimento, se debe ajustar la operación de captura de datos en un script de python independiente `get_data()`. Este script se ejecuta en el proceso remoto donde se ejecuta el experimento de aprendizaje automático automatizado. `get_data` elimina la necesidad de capturar los datos a través del cable para cada iteración. Sin `get_data`, el experimento generará un error cuando se ejecute en el proceso remoto.
+En el caso de las ejecuciones remotas, debe hacer que los datos sean accesibles desde el proceso remoto. Para hacerlo, cargue los datos en el almacén de datos.
 
-A continuación se incluye un ejemplo de `get_data`:
-
-```python
-%%writefile $project_folder/get_data.py
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-def get_data(): # Burning man 2016 data
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    le = LabelEncoder()
-    le.fit(df["Label"].values)
-    y = le.transform(df["Label"].values)
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
-    return { "X" : df, "y" : y }
-```
-
-En su objeto `AutoMLConfig`, especifique el parámetro `data_script` y proporcione la ruta de acceso al archivo de script `get_data`, como se indica a continuación:
+A continuación se muestra un ejemplo del uso de `datastore`:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
+    import pandas as pd
+    from sklearn import datasets
+    
+    data_train = datasets.load_digits()
+
+    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+
+    ds = ws.get_default_datastore()
+    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-El script `get_data` puede devolver:
+### <a name="define-deprep-references"></a>Definición de las referencias de dprep
 
-Clave | type | Se excluye mutuamente con    | DESCRIPCIÓN
----|---|---|---
-X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
-y | Dataframe de Pandas o matriz de Numpy |   label   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
-X_valid | Dataframe de Pandas o matriz de Numpy   | data_train, label | _Opcional_ Datos de características que forman el conjunto de validación. Si no se especifica, X se divide entre "train" y "validate"
-y_valid |   Dataframe de Pandas o matriz de Numpy | data_train, label | _Opcional_ Los datos de etiqueta con los que se va a validar. Si no se especifica, Y se divide entre "train" y "validate"
-sample_weight | Dataframe de Pandas o matriz de Numpy |   data_train, label, columns| _Opcional_ Un valor de ponderación para cada ejemplo. Se usa cuando se quieren asignar ponderaciones distintas a los puntos de datos
-sample_weight_valid | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |    _Opcional_ Un valor de ponderación para cada ejemplo de validación. Si no se especifica, sample_weight se divide entre "train" y "validate"
-data_train |    Dataframe de Pandas |  X, y, X_valid, y_valid |    Todos los datos (características y etiqueta) que se usarán para el aprendizaje
-label | string  | X, y, X_valid, y_valid |  Qué columna de data_train representa la etiqueta
-columnas | Matriz de cadenas  ||  _Opcional_ Lista blanca de columnas que se usarán para las características
-cv_splits_indices   | Matriz de enteros ||  _Opcional_ Lista de índices para dividir los datos para la validación cruzada
+Defina X e y como referencia de dprep, que se pasará a un objeto automatizado `AutoMLConfig` de aprendizaje automático similar al siguiente:
+
+```python
+
+    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
+    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
+    
+    
+    automl_config = AutoMLConfig(task = 'classification',
+                                 debug_log = 'automl_errors.log',
+                                 path = project_folder,
+                                 run_configuration=conda_run_config,
+                                 X = X,
+                                 y = y,
+                                 **automl_settings
+                                )
+```
 
 ## <a name="train-and-validation-data"></a>Datos de entrenamiento y validación
 
-Puede especificar un conjunto distinto de entrenamiento y validación mediante get_data() o, directamente, en el método `AutoMLConfig`.
+Puede especificar un conjunto distinto de entrenamiento y validación en el método `AutoMLConfig`.
 
 ### <a name="k-folds-cross-validation"></a>Validación cruzada de K iteraciones
 
@@ -392,17 +388,21 @@ Para obtener más información, use esta función auxiliar que se muestra en [es
 
 ```python
 from pprint import pprint
+
+
 def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0]+ ' - ')
+                print_model(estimator[1], estimator[0] + ' - ')
         else:
             pprint(step[1].get_params())
             print()
+
 
 print_model(fitted_model)
 ```
@@ -492,12 +492,19 @@ Hay dos maneras de generar la importancia de características.
     print(per_class_summary)
     ```
 
-Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. El gráfico también se muestra al usar el widget de Jupyter en un cuaderno. Para más información sobre los gráficos, consulte el artículo [Cuadernos de ejemplo de Azure Machine Learning Service](samples-notebooks.md).
+Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. Muestre la dirección URL mediante el objeto de ejecución:
+
+```
+automl_run.get_portal_url()
+```
+
+Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. El gráfico también se muestra al usar el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` en un cuaderno. Para más información sobre los gráficos, consulte [Descripción de los resultados del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
-RunDetails(local_run).show()
+RunDetails(automl_run).show()
 ```
+
 ![Gráfico de importancia de características](./media/how-to-configure-auto-train/feature-importance.png)
 
 Para obtener más información sobre cómo se pueden habilitar las explicaciones del modelo y la importancia de las características en otras áreas del SDK fuera del aprendizaje automático automatizado, consulte el artículo de [conceptos](machine-learning-interpretability-explainability.md) sobre la interpretabilidad.

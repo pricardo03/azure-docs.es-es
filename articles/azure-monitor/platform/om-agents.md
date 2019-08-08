@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445317"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663732"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
@@ -54,7 +54,7 @@ Antes de comenzar, revise los siguientes requisitos.
     - Centro occidental de EE.UU.
     - Sudeste de Australia
     - Europa occidental
-    - Este de EE. UU
+    - East US
     - Sudeste de Asia
     - Este de Japón
     - Sur de Reino Unido 2
@@ -143,7 +143,7 @@ Después de configurar la integración con el área de trabajo de Log Analytics,
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
 1. Expanda el nodo de Operations Management Suite y haga clic en **Conexión**.
 1. Haga clic en el vínculo **Agregar un equipo/grupo** debajo del título Acciones en el lado derecho del panel.
-1. En el cuadro de diálogo **Búsqueda de equipos**, puede buscar equipos o grupos supervisados por Operations Manager. Seleccione los equipos o grupos para incorporarlos a Azure Monitor, haga clic en **Agregar** y, a continuación, en **Aceptar**.
+1. En el cuadro de diálogo **Búsqueda de equipos**, puede buscar equipos o grupos supervisados por Operations Manager. Seleccione equipos o grupos, incluido el servidor de administración de Operations Manager que se va a incorporar a Azure Monitor, haga clic en **Agregar** y, a continuación, haga clic en **Aceptar**.
 
 Puede ver los equipos y grupos configurados para recopilar datos desde el nodo Equipos administrados de Operations Management Suite en el área de trabajo **Administración** de la consola de Operations. Desde aquí puede agregar o quitar equipos y grupos según sea necesario.
 

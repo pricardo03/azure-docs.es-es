@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483320"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499876"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -28,6 +28,8 @@ El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash
 
  > [!NOTE]
  > La funcionalidad de seguimiento de hash no está disponible para los clientes con la autenticación de paso a través habilitada, ya que la autenticación se produce en el entorno local y no en la nube.
+
+Las implementaciones federadas que usan AD FS 2016 y AF FS 2019 pueden habilitar ventajas similares mediante el [bloqueo de extranet de AD FS y el bloqueo inteligente de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
 El bloqueo inteligente está siempre activado para todos los clientes de Azure AD con la configuración predeterminada que ofrece la combinación correcta de seguridad y facilidad de uso. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan una licencia de Azure AD Basic o superior.
 

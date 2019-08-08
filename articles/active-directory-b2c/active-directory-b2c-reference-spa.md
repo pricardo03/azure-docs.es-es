@@ -1,5 +1,5 @@
 ---
-title: Inicio de sesión de página única mediante un flujo implícito - Azure Active Directory B2C | Microsoft Docs
+title: 'Inicio de sesión de página única mediante un flujo implícito: Azure Active Directory B2C'
 description: Obtenga información sobre cómo agregar el inicio de sesión de página única usando el flujo implícito de OAuth 2.0 con Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,31 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154030"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377323"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
-Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, la aplicación se escribe con un marco como React, Angular o Vue.js. Las aplicaciones de una sola página y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador tienen algunos retos adicionales para la autenticación:
+Muchas aplicaciones modernas tienen un front-end de aplicación de página única escrito principalmente en JavaScript. A menudo, la aplicación se escribe con una plataforma como React, Angular o Vue.js. Las aplicaciones de una sola página y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador tienen algunos retos adicionales para la autenticación:
 
 - Las características de seguridad de estas aplicaciones son diferentes de las de las aplicaciones web tradicionales basadas en el servidor.
 - Muchos proveedores de identidades y servidores de autorización no admiten solicitudes de uso compartido de recursos entre orígenes (CORS).
 - Los redireccionamientos del explorador a una página completa fuera de la aplicación pueden ser invasivos para la experiencia del usuario.
 
-Para admitir estas aplicaciones, Azure Active Directory B2C (Azure AD B2C) usa el flujo implícito de OAuth 2.0. El flujo de concesión implícito de autorización de OAuth 2.0 se describe en la [sección 4.2 de la especificación de este protocolo](https://tools.ietf.org/html/rfc6749). En el flujo implícito, la aplicación recibe tokens directamente del punto de conexión de autorización de Azure Active Directory (Azure AD), sin ningún intercambio de servidor a servidor. La lógica de autenticación y el control de sesiones tienen lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
+Para admitir estas aplicaciones, Azure Active Directory B2C (Azure AD B2C) usa el flujo implícito de OAuth 2.0. El flujo de concesión implícito de autorización de OAuth 2.0 se describe en la [sección 4.2 de la especificación de este protocolo](https://tools.ietf.org/html/rfc6749). En el flujo implícito, la aplicación recibe tokens directamente del punto de conexión de autorización de Azure Active Directory (Azure AD), sin ningún intercambio de servidor a servidor. La lógica de autenticación y el control de sesiones tienen lugar por completo en el cliente de JavaScript con un redireccionamiento de página o un cuadro emergente.
 
 Azure AD B2C extiende el flujo implícito de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Azure AD B2C presenta el [parámetro de directiva](active-directory-b2c-reference-policies.md). Con el parámetro de directiva, puede usar OAuth 2.0 para agregar políticas a su aplicación, como registro, inicio de sesión y flujos de usuario de administración de perfiles. En las solicitudes HTTP de ejemplo de este artículo se usa **fabrikamb2c.onmicrosoft.com** como ejemplo. Puede reemplazar `fabrikamb2c` por el nombre de su inquilino si tiene uno y ha creado un flujo de usuario.
 
 El flujo de inicio de sesión implícito tiene un aspecto similar al de la figura siguiente. Cada paso se describe con detalle más adelante en este artículo.
 
-![Calles OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Diagrama de estilo carril que muestra el flujo implícito de OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Envío de solicitudes de autenticación
 
@@ -173,10 +173,9 @@ Si lo único que sus aplicaciones web necesitan hacer es ejecutar flujos de usua
 
 Ahora que ha iniciado la sesión del usuario en su aplicación de una página, puede obtener tokens de acceso para llamar a las API web que están protegidas por Azure AD. Incluso si ya ha recibido un token mediante el tipo de respuesta `token`, puede usar este método para adquirir tokens para recursos adicionales sin redirigir al usuario para que vuelva a iniciar sesión.
 
-En el flujo de aplicación web normal, realizaríamos una solicitud al punto de conexión `/token`. En cambio, el punto de conexión no admite solicitudes CORS, así que las llamadas a AJAX para obtener y actualizar los tokens no son una opción. En su lugar, puede usar el flujo implícito en un elemento iframe HTML oculto para obtener nuevos tokens para otras API web. Aquí se muestra un ejemplo, con saltos de línea por motivos de legibilidad:
+En el flujo de aplicación web normal, realizaríamos una solicitud al punto de conexión `/token`. Sin embargo, el punto de conexión no admite solicitudes CORS, por lo que las llamadas a AJAX para obtener un token de actualización no son una opción. En su lugar, puede usar el flujo implícito en un elemento iframe HTML oculto para obtener nuevos tokens para otras API web. Aquí se muestra un ejemplo, con saltos de línea por motivos de legibilidad:
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -186,8 +185,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
@@ -201,8 +198,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | state |Recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token.  Puede ser una cadena de cualquier contenido que quiera usar.  Se suele usar un valor único generado de manera aleatoria para evitar los ataques de falsificación de solicitudes entre sitios.  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación. Por ejemplo, la página o la vista en la que ha estado el usuario. |
 | valor de seguridad |Obligatorio |Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el token de identificador resultante como una notificación.  La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede identificar el origen de la solicitud. |
 | símbolo del sistema |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, use `prompt=none` para asegurarse de que el iframe no se bloquea en la página de inicio de sesión y se devuelve inmediatamente. |
-| login_hint |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, incluya el nombre de usuario del usuario en esta sugerencia para distinguir entre varias sesiones que el usuario pueda tener en un momento dado. Puede extraer el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
-| domain_hint |Obligatorio |Puede ser `consumers` o `organizations`.  Para actualizar y obtener tokens en un iframe oculto, incluya el valor `domain_hint` en la solicitud.  Extraiga la notificación `tid` del token de identificador de un inicio de sesión anterior para determinar qué valor va a usar.  Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`.  De lo contrario, use `domain_hint=organizations`. |
+| login_hint |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, incluya el nombre de usuario del usuario en esta sugerencia para distinguir entre varias sesiones que el usuario pueda tener en un momento dado. Puede extraer el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username` (el ámbito `profile` es obligatorio para recibir la notificación `preferred_username`). |
+| domain_hint |Obligatorio |Puede ser `consumers` o `organizations`.  Para actualizar y obtener tokens en un iframe oculto, incluya el valor `domain_hint` en la solicitud.  Extraiga la notificación `tid` del token de identificador de un inicio de sesión anterior para determinar qué valor usar (el ámbito `profile` es obligatorio para recibir la notificación `tid`). Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`.  De lo contrario, use `domain_hint=organizations`. |
 
 Al establecer el parámetro `prompt=none`, esta solicitud se realiza correctamente o produce un error inmediatamente, y vuelve a la aplicación.  Se envía una respuesta correcta a la aplicación en el URI de redireccionamiento indicado, mediante el método especificado en el parámetro `response_mode`.
 
@@ -263,5 +260,16 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Al dirigir al usuario a `end_session_endpoint` se borra parte del estado del inicio de sesión único del usuario con Azure AD B2C. En cambio, no cierra la sesión del proveedor de identidades sociales del usuario. Si el usuario selecciona el mismo proveedor de identidades durante un inicio de sesión posterior, este se vuelve a autenticar sin especificar sus credenciales. Si un usuario quiere cerrar sesión en su aplicación de Azure AD B2C, eso no significa necesariamente que quiera cerrar sesión completamente en su cuenta de Facebook, por ejemplo. En cambio, para las cuentas locales, la sesión del usuario se terminará correctamente.
-> 
+>
 
+## <a name="next-steps"></a>Pasos siguientes
+
+### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>Ejemplo de código: hello.js con Azure AD B2C
+
+[Aplicación de página única creada a partir de hello.js con Azure AD B2C][github-hello-js-example] (GitHub)
+
+Este ejemplo de GitHub está pensado para ayudarle a empezar a trabajar con Azure AD B2C en una aplicación web simple basada en [hello.js][github-hello-js] y con autenticación de estilo emergente.
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

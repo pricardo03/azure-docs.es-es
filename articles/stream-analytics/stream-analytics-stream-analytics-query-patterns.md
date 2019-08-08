@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620816"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413368"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -121,7 +121,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -157,7 +157,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida2**:
 
-| Asegúrese | Hora | Recuento |
+| Asegúrese | Hora | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -173,7 +173,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -231,7 +231,7 @@ Por ejemplo:
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -379,10 +379,9 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Explicación**: Hay dos pasos en la consulta. El primero consiste en buscar la última marca de tiempo en ventanas de diez minutos. El segundo paso combina los resultados de la primera consulta con el flujo original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Ejemplo de consulta: Detección de la ausencia de eventos
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>Ejemplo de consulta: ubicar eventos correlacionados en un flujo de datos
 
-**Descripción**: Compruebe que un flujo no tiene ningún valor que cumpla un criterio determinado.
-Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la autopista de peaje durante los últimos noventa segundos?
+**Descripción**: buscar eventos correlacionados en un flujo de datos. Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la autopista de peaje durante los últimos noventa segundos?
 
 **Entrada**:
 
@@ -632,7 +631,7 @@ WHERE
 
 **Salida**:
 
-| TollId | Recuento |
+| TollId | Count |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |

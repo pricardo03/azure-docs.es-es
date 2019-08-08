@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754548"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377198"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
 
@@ -35,9 +35,14 @@ El valor puede ser cualquiera de los ejemplos siguientes:
 
 * Cualquier cadena estática. No se permiten valores dinámicos como condiciones, lógica, operaciones y funciones. Por ejemplo, si desarrolla una aplicación SaaS que la utilizan varios clientes, puede asignar un identificador a cada cliente y hacer que ese identificador esté disponible en la aplicación. Cuando se ejecuta la aplicación, IoT Hub marcará los mensajes de telemetría de los dispositivos con el identificador del cliente, haciendo posible procesar los mensajes de forma diferente para cada cliente.
 
+* El nombre del centro de IoT que envía el mensaje. Este valor es *$iothubname*.
+
 * Información del dispositivo gemelo, como la ruta de acceso. Algunos ejemplos serían *$twin.tags.field* y *$twin.tags.latitude*.
 
-* El nombre del centro de IoT que envía el mensaje. Este valor es *$iothubname*.
+   > [!NOTE]
+   > En este momento, solo se admiten las variables $iothubname, $twin.tags, $twin.properties.desired y $twin.properties.reported para el enriquecimiento de mensajes.
+
+Los enriquecimientos de mensajes se agregan como propiedades de la aplicación a los mensajes enviados a los puntos de conexión elegidos.  
 
 ## <a name="applying-enrichments"></a>Aplicación de enriquecimientos
 

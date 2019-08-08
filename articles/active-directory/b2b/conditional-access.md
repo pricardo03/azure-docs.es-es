@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113156"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357120"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -92,6 +92,10 @@ Por lo tanto, la recomendación de MFA en usuarios de B2B es exigir siempre MFA 
 Cuando Contoso habilita las directivas de acceso condicional basado en el dispositivo para sus datos corporativos, se impide el acceso desde dispositivos no administrados por Contoso y que no cumplen estas directivas de dispositivo.
 
 Si el dispositivo del usuario de B2B no está administrado por Contoso, el acceso de usuarios de B2B de las organizaciones asociadas se bloqueará en el contexto en que se apliquen estas directivas. Sin embargo, Contoso puede crear listas de exclusión que contengan usuarios asociados específicos para excluirlos de la directiva de acceso condicional basado en el dispositivo.
+
+#### <a name="mobile-application-management-policies-for-b2b"></a>Directivas de administración de aplicaciones móviles para B2B
+
+Las directivas de protección de aplicaciones de acceso condicional no se pueden aplicar a usuarios de B2B porque la organización que invita no tiene visibilidad en la organización principal del usuario de B2B.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Acceso condicional basado en ubicación para B2B
 

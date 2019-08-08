@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 9a02a56df85c5c6aa9fd177ad42a2f9bfb303e44
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: efa8a92ca9861c0280237ba07f4304b5c7dbbb88
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491950"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609997"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -32,8 +32,8 @@ Análisis de tráfico es una solución basada en la nube, que proporciona visibi
 
 ### <a name="data-aggregation"></a>Agregación de datos
 
-1. Todos los registros de flujo en un NSG entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" se capturan en intervalos de un minuto en la cuenta de almacenamiento como blobs antes de que el Análisis de tráfico los procese.
-2. El intervalo de procesamiento predeterminado de Análisis de tráfico es 60 minutos. Esto significa que cada 60 minutos, Análisis de tráfico elige blobs del almacenamiento para la agregación.
+1. Todos los registros de flujo en un NSG entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" se capturan en intervalos de un minuto en la cuenta de almacenamiento como blobs antes de que el Análisis de tráfico los procese. 
+2. El intervalo de procesamiento predeterminado de Análisis de tráfico es 60 minutos. Esto significa que cada 60 minutos, Análisis de tráfico elige blobs del almacenamiento para la agregación. Si el intervalo de procesamiento elegido es de 10 minutos, Análisis de tráfico seleccionará los blobs de la cuenta de almacenamiento después de cada 10 minutos.
 3. El Análisis de tráfico agrupa en un único flujo los flujos que tengan la misma IP de origen, IP de destino, puerto de destino, nombre NSG, regla NSG, dirección de flujo y protocolo de capa de transporte (TCP o UDP) (Nota: el puerto de origen se excluye para la agregación).
 4. El Análisis de tráfico rellena este registro único (más detalles en la sección siguiente) y lo ingesta en Log Analytics. Este proceso puede tardar hasta una hora.
 5. El campo FlowStartTime_t indica la primera aparición de este tipo de flujo agregado (misma tupla de cuatro) en el intervalo de procesamiento de registros de flujos entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t".
@@ -94,7 +94,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabla para los datos de Análisis de tráfico.
 | SubType_s | FlowLog | Subtipo para los registros de flujo. Usar solo "FlowLog"; otros valores de SubType_s son para el funcionamiento interno del producto. |
-| FASchemaVersion_s |   1   | Versión del esquema. No refleja la versión del registro de flujo de NSG. |
+| FASchemaVersion_s |   1   | Versión de esquema. No refleja la versión del registro de flujo de NSG. |
 | TimeProcessed_t   | Fecha y hora en UTC  | Hora a la que el Análisis de tráfico procesó los registros de flujo sin formato desde la cuenta de almacenamiento. |
 | FlowIntervalStartTime_t | Fecha y hora en UTC |  Hora de inicio del intervalo de procesamiento de registros de flujo. Se trata de la hora desde la que se mide el intervalo de flujos. |
 | FlowIntervalEndTime_t | Fecha y hora en UTC | Hora de finalización del intervalo de procesamiento de registros de flujo. |

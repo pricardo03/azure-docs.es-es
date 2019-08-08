@@ -1,6 +1,6 @@
 ---
-title: Conversión de datos
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Conversión de datos: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo se pueden modificar las expresiones antes de las predicciones en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,19 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a148c849d0935978f049e01dd254c4c18800ee3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeb9094db83b14af988f70485788934a7854200c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496985"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619792"
 ---
 # <a name="convert-data-format-of-utterances"></a>Conversión del formato de datos de expresiones
-LUIS usa el servicio Speech de Cognitive Services para convertir las expresiones de voz en texto antes de la predicción. 
+LUIS proporciona las siguientes conversiones de una expresión de usuario antes de la predicción.
 
-## <a name="speech-to-intent-conversion-concepts"></a>Conceptos de la conversión de voz en intención
+* Conversión de voz en texto mediante el servicio [Speech de Cognitive Services](../Speech-Service/overview.md). 
+
+## <a name="speech-to-text"></a>Conversión de voz en texto
+
+La conversión de voz en texto se proporciona como una integración con LUIS. 
+
+### <a name="intent-conversion-concepts"></a>Conceptos de la conversión en intención
 La conversión de voz en texto en LUIS permite enviar expresiones de voz a un punto de conexión y recibir una respuesta de predicción de LUIS. El proceso consiste en integrar el servicio [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) con LUIS. Más información sobre la conversión de voz en intención con un [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Requisitos principales

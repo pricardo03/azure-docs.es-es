@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449725"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334586"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -23,8 +23,6 @@ Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permi
 Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada en la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
 
 > [!IMPORTANT]
-> Azure File Sync aún no admite firewalls ni redes virtuales. Si está usando Azure File Sync en la cuenta de almacenamiento y habilita estas, Azure File Sync no se sincronizará.
->
 > La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una red virtual (VNet) de Azure. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc.
 >
 > Puede conceder acceso a los servicios de Azure que funcionan desde una VNet al permitir la subred de la instancia de servicio. Habilite un número limitado de escenarios mediante el mecanismo [Excepciones](#exceptions) que se describe en la sección siguiente. Para acceder a Azure Portal, deberá estar en una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
@@ -357,6 +355,7 @@ Si habilita la excepción **Permitir que los servicios de Microsoft de confianza
 |Azure DevTest Labs|Microsoft.DevTestLab|Creación de imagen personalizada e instalación de artefactos. [Más información](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Habilite la publicación de eventos de Blob Storage y permita que Event Grid publique en las colas de almacenamiento. Obtenga información sobre los [eventos de Blob Storage](/azure/event-grid/event-sources) y la [publicación en las colas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture. [Más información](/azure/event-hubs/event-hubs-capture-overview).|
+| Azure File Sync| Microsoft.StorageSync| Permite transformar el servidor de archivos local en una memoria caché para recursos compartidos de archivos de Azure. Permite la sincronización de varios sitios, la recuperación rápida ante desastres y la copia de seguridad en la nube. [Más información](../files/storage-sync-files-planning.md)|
 |HDInsight de Azure|Microsoft.HDInsight|Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Permite la escritura de los datos de supervisión en una cuenta segura de almacenamiento. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Conexión a Azure|Microsoft.Network|Almacenamiento y análisis de los registros de tráfico de red. [Más información](/azure/network-watcher/network-watcher-packet-capture-overview).|

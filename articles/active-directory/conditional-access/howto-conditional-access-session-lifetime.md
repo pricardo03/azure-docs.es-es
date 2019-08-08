@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112336"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499850"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -39,7 +39,7 @@ La configuración predeterminada de Azure Active Directory (Azure AD) para la f
 
 Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión durante 90 días; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
-La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OATH2 o OIDC de acuerdo con los estándares. La mayoría de las aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles cumplen con la configuración.
+La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de las aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles cumplen con la configuración.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistencia de las sesiones de exploración
 

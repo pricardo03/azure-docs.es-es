@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbfc8cc61571de8b76ef1f7f0216501ef6d2cdee
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075420"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377476"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores 
 Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Azure Kubernetes Service (AKS) desde dos perspectivas: directamente desde un clúster de AKS o en todos los clústeres de AKS de una suscripción desde Azure Monitor. La visualización de Azure Container Instances (ACI) también es posible cuando se supervisa un clúster de AKS concreto.
@@ -31,16 +31,18 @@ Azure Monitor proporciona una vista de varios clústeres que muestra el estado d
 
 Estás son las principales diferencias en la supervisión de un clúster de Windows Server con Azure Monitor para contenedores en comparación con un clúster de Linux:
 
-- La métrica RSS de memoria no está disponible para los contenedores y nodos de Windows 
-- La información de la capacidad de almacenamiento del disco no está disponible para los nodos de Windows
+- La métrica RSS de memoria no está disponible para los contenedores y nodos de Windows.
+- La información de la capacidad de almacenamiento del disco no está disponible para los nodos de Windows.
 - La compatibilidad con registros dinámicos está disponible, con la excepción de los registros de contenedores de Windows.
 - Solo se supervisan los entornos de pods, no los entornos de Docker.
 - Con la versión preliminar, se admite un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores de Linux.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+
 Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
-## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de varios clústeres desde Azure Monitor 
+## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de varios clústeres desde Azure Monitor
+
 Para ver el estado de mantenimiento de todos los clústeres de AKS implementados, seleccione **Supervisar** en el panel izquierdo de Azure Portal.  En la sección **Insights**  (Conclusiones), seleccione **Contenedores**.  
 
 ![Ejemplo del panel de varios clústeres de Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
@@ -89,6 +91,7 @@ En la tabla siguiente se proporciona un desglose del cálculo que controla los e
 En la lista de clústeres, puede explorar en profundidad la página **Clúster** (para ello, haga clic en el nombre del clúster), la página de rendimiento **Nodos** (para ello, haga clic en la acumulación de nodos en la columna **Nodos** de ese clúster específico) o bien la página de rendimiento **Controladores** (para ello, haga clic en la acumulación de la columna **User pods** [Pods de usuario] o **System pods** [Pods del sistema]).   
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>Vista del rendimiento directamente desde un clúster de AKS
+
 El acceso a Azure Monitor para contenedores está disponible directamente desde un clúster de AKS mediante la selección de la opción **Insights** (Conclusiones) del panel izquierdo. La vista de información sobre el clúster de AKS está organizada en cuatro perspectivas:
 
 - Clúster
@@ -112,6 +115,7 @@ Puede usar las teclas de dirección izquierda y derecha para desplazarse por cad
 Azure Monitor para contenedores también es compatible con el [Explorador de métricas](../platform/metrics-getting-started.md) de Azure Monitor, donde puede crear sus propios gráficos de diagrama, poner en correlación e investigar tendencias y realizar el anclaje en paneles. Desde el Explorador de métricas también se pueden usar los criterios que se han establecido para visualizar las métricas como la base de una [regla de alertas basada en métricas](../platform/alerts-metric.md).  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Visualización de métricas de contenedor en el Explorador de métricas
+
 En el Explorador de métricas se pueden ver el nodo agregado y las métricas de utilización de pods de Azure Monitor para contenedores. En la tabla siguiente se resumen los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
 
 |Espacio de nombres | Métrica |
@@ -163,7 +167,9 @@ Los nodos virtuales de Azure Container Instances que se ejecutan en el sistema o
 En un nodo expandido, puede explorar en profundidad desde el pod o contenedor que se ejecuta en el nodo hasta el controlador para ver los datos de rendimiento filtrados por ese controlador. Haga clic en el valor de la columna de **controladores** del nodo específico.   
 ![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Puede seleccionar los controladores o los contenedores en la parte superior de la página y revisar el estado y el uso de recursos de dichos objetos.  Si prefiere revisar el uso de memoria, en la lista desplegable **Metric** (Métrica), seleccione **Memory RSS** (RSS de memoria) o **Memory working set** (Espacio de trabajo de memoria). **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable. 
+Puede seleccionar los controladores o los contenedores en la parte superior de la página y revisar el estado y el uso de recursos de dichos objetos.  Si prefiere revisar el uso de memoria, en la lista desplegable **Metric** (Métrica), seleccione **Memory RSS** (RSS de memoria) o **Memory working set** (Espacio de trabajo de memoria). **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
+
+El espacio de trabajo de memoria muestra la memoria residente y la memoria virtual (caché) incluidas, y es el total de lo que está usando la aplicación. RSS de memoria muestra solo la memoria principal que es la memoria residente. Esta métrica muestra la capacidad real de la memoria disponible.
 
 ![Vista de rendimiento de los nodos del contenedor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -200,7 +206,7 @@ En el selector, elija **Controllers** (Controladores).
 
 Aquí puede ver el estado de rendimiento de los controladores y de los controladores del nodo virtual de ACI o los pods de nodo virtual no conectados a un controlador.
 
-![Vista de rendimiento de los controladores <nombre>](./media/container-insights-analyze/containers-controllers-view.png)
+![\<Vista de rendimiento de los controladores <nombre>](./media/container-insights-analyze/containers-controllers-view.png)
 
 La jerarquía de filas comienza con un controlador y, al expandir un controlador, se ven uno o varios pods.  Expanda un pod y la última fila mostrará el contenedor agrupado en el pod. Desde un controlador expandido, puede explorar en profundidad hasta el nodo en que se ejecuta para ver los datos de rendimiento filtrados por ese nodo. Los pods de ACI no conectados a un controlador se enumeran los últimos en la lista.
 
@@ -241,7 +247,7 @@ En el selector, elija **Containers** (Contenedores).
 
 Aquí puede ver el estado del rendimiento de los contenedores de Azure Container Instances y Azure Kubernetes.  
 
-![Vista de rendimiento de los controladores <nombre>](./media/container-insights-analyze/containers-containers-view.png)
+![\<Vista de rendimiento de los controladores <nombre>](./media/container-insights-analyze/containers-containers-view.png)
 
 En un contenedor, puede explorar en profundidad un pod o un nodo para ver los datos de rendimiento filtrados por ese objeto. Haga clic en el valor de la columna de **pods** o de **nodos** del contenedor específico.   
 
@@ -271,20 +277,36 @@ Los iconos en el campo de estado indican los estados en línea de los pods, tal 
 | ![Icono de estado finalizado](./media/container-insights-analyze/containers-terminated-icon.png) | Se detuvo correctamente o no se pudo detener|  
 | ![Icono de estado de error](./media/container-insights-analyze/containers-failed-icon.png) | Estado de error |  
 
-## <a name="disk-capacity-workbook"></a>Libro Capacidad de disco
+## <a name="workbooks"></a>Workbooks
+
 Los libros combinan texto, [consultas de registros](../log-query/query-language.md), [métricas ](../platform/data-platform-metrics.md)y parámetros para crear informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
 
-Azure Monitor para contenedores incluye un libro introductorio, **Capacidad de disco**.  Dicho libro presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
+Azure Monitor para contenedores incluye cuatro libros introductorios:
 
-- Porcentaje de uso de disco (para todos los discos)
-- Espacio libre en disco (para todos los discos)
-- Una tabla que muestra el disco de cada nodo, su porcentaje de espacio usado, la tendencia de porcentaje de espacio usado, el espacio libre en el disco (GiB) y la tendencia de espacio libre en el disco (GiB). Cuando se selecciona una fila de la tabla, a continuación se muestran el porcentaje de espacio usado y el espacio libre en el disco (GiB) 
+- **Capacidad de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
 
-Para acceder a este libro, seleccione **Capacidad de disco** en la lista desplegable **Ver libros**.  
+    - Porcentaje de uso de disco (para todos los discos)
+    - Espacio libre en disco (para todos los discos)
+    - Una cuadrícula que muestra el disco de cada nodo, su porcentaje de espacio usado, la tendencia del porcentaje de espacio usado, el espacio libre en el disco (GiB) y la tendencia de espacio libre en el disco (GiB). Cuando se selecciona una fila de la tabla, a continuación se muestran el porcentaje de espacio usado y el espacio libre en el disco (GiB) 
+
+- **E/S de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
+
+    - Resumen de E/S de disco en todos los discos por bytes de lectura por segundo, bytes de escritura por segundo y tendencias de lectura y escritura en bytes por segundo. 
+    - Ocho gráficos de rendimiento que muestran indicadores clave de rendimiento que le ayudarán a medir e identificar los cuellos de botella de E/S de disco.
+
+- **Kubelet**: incluye dos cuadrículas que muestran las estadísticas operativas del nodo principal:
+
+    - La información general sobre la cuadrícula de nodos resume el número total de operaciones, errores y operaciones correctas en porcentaje, junto con la tendencia de cada nodo.
+    - La información general por tipo de operación resume para cada operación el número total de operaciones, de errores y de operaciones correctas en porcentaje, y la tendencia.
+
+- **Network** (Red): Presenta gráficos interactivos de uso de red para cada adaptador de red de nodos y una cuadrícula que presenta los indicadores clave de rendimiento para ayudar a medir el rendimiento de los adaptadores de red.  
+
+Para acceder a estos libros, seleccione cada uno de ellos en la lista desplegable **Ver libros**.  
 
 ![Lista desplegable Ver libros](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](container-insights-alerts.md) para aprender a crear alertas si se produce un uso elevado de la CPU y la memoria, con el fin de permitir sus DevOps o sus procesos y procedimientos operativos. 
+
 - En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.

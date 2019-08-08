@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073472"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609971"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor
 
@@ -59,7 +59,7 @@ El panel de Seguridad de conexión tiene el botón **Activado/Desactivado** con 
 
 El firewall de Azure Database for PostgreSQL le permite especificar los intervalos de direcciones IP desde los que se aceptan las comunicaciones en Azure Database for PostgreSQL Database. Este enfoque es preciso para las direcciones IP estables que están fuera de la red privada de Azure. Sin embargo, muchos nodos de dentro de la red privada de Azure se configuran con direcciones IP *dinámicas*. Es posible que las direcciones IP dinámicas cambien, por ejemplo, cuando se reinicia la máquina virtual. Sería una locura especificar una dirección IP dinámica en una regla de firewall, en un entorno de producción.
 
-Para recuperar la opción de IP, puede obtener una dirección IP *estática* para la máquina virtual. Para obtener detalles, consulte [Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Para recuperar la opción de IP, puede obtener una dirección IP *estática* para la máquina virtual. Para más información, consulte [Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala. Las reglas de red virtual son más sencillas de establecer y administrar.
 
@@ -96,12 +96,13 @@ Existe una separación de los roles de seguridad en la administración de puntos
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
-Si quiere, puede optar por la opción de usar el [control de acceso basado en rol (RBAC)] [ rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de capacidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
+Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
 > [!NOTE]
 > En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
 > - Ambas suscripciones deben estar en el mismo inquilino de Azure Active Directory.
 > - El usuario tiene los permisos necesarios para iniciar operaciones como habilitar los puntos de conexión de servicio y agregar una subred de red virtual al servidor especificado.
+> - Asegúrese de que la suscripción tenga el proveedor de recursos **Microsoft.Sql** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -113,7 +114,7 @@ Para Azure Database for PostgreSQL, la característica de las reglas de red virt
 
 - Cada servidor de Azure Database for PostgreSQL puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
-- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
+- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
 
 - Al activar los puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 
@@ -159,3 +160,5 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

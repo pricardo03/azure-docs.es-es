@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154778"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717463"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -50,6 +50,7 @@ Si aún no tiene una referencia en el SDK de Application Insights:
 * Agregue el SDK de Application Insights a su proyecto:
 
   * [Proyecto de ASP.NET](../../azure-monitor/app/asp-net.md)
+  * [Proyecto de ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
   * [Proyecto de Java](../../azure-monitor/app/java-get-started.md)
   * [Proyecto de Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript en cada página web](../../azure-monitor/app/javascript.md) 
@@ -162,8 +163,6 @@ Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propie
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -950,7 +949,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();

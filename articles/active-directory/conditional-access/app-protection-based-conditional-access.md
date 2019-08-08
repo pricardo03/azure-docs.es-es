@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2e43f13352c56f947f5e560049ab0acf871599
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3e8b7cc1f3a8431986ffbaac604ec5863236f112
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509479"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357111"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Uso obligatorio de directivas de protección de aplicaciones para el acceso a aplicaciones en la nube con acceso condicional en Azure Active Directory (versión preliminar)
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo configurar directivas de acceso condicional q
 
 ## <a name="overview"></a>Información general
 
-Con el [acceso condicional de Azure AD](overview.md), puede ajustar el modo en que los usuarios autorizados pueden tener acceso a sus recursos. Por ejemplo, puede limitar el acceso de los dispositivos de confianza a las aplicaciones en la nube.
+Con el [acceso condicional de Azure AD](overview.md), puede ajustar el modo en que los usuarios autorizados pueden acceder a sus recursos. Por ejemplo, puede limitar el acceso de los dispositivos de confianza a las aplicaciones en la nube.
 
 Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía. Las directivas de protección de aplicaciones de Intune no requieren una solución de administración de dispositivos móviles (MDM). Puede proteger los datos de la empresa con o sin inscripción de dispositivos en una solución de administración de dispositivos.
 
@@ -39,6 +39,9 @@ En la terminología del acceso condicional, estas aplicaciones cliente se conoce
 Para obtener una lista de aplicaciones cliente protegidas por directivas, consulte [Requisito de directiva de protección de aplicaciones](technical-reference.md#approved-client-app-requirement).
 
 Puede combinar directivas de acceso condicional basado en la protección de aplicaciones con otras directivas, como [directivas de acceso condicional basado en dispositivos](require-managed-devices.md). De este modo, puede proporcionar flexibilidad acerca de cómo proteger los datos de dispositivos personales y corporativos.
+
+> [!NOTE]
+> Las directivas de protección de aplicaciones de acceso condicional no se pueden aplicar a usuarios de B2B porque la organización que invita no tiene visibilidad en la organización principal del usuario de B2B.
 
 ## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Ventajas del requisito de acceso condicional basado en la protección de aplicaciones
 
@@ -54,7 +57,7 @@ En este artículo se da por hecho que está familiarizado con:
 
 - La referencia técnica del [requisito de directiva de protección de aplicaciones](technical-reference.md#app-protection-policy-requirement).
 - La referencia técnica del [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
-- Los conceptos básicos del [Acceso condicional en Azure Active Directory](overview.md).
+- Los conceptos básicos del [acceso condicional en Azure Active Directory](overview.md).
 - La [configuración de la directiva de acceso condicional](app-based-mfa.md).
 
 ## <a name="prerequisites"></a>Requisitos previos

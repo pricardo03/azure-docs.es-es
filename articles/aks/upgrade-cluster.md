@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 2ed58846b9e7816092f0fc0787204921071d75e9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614065"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498554"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -23,6 +23,9 @@ Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows S
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+> [!WARNING]
+> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización.  Consulte el [aumento de cuotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para más información.
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
@@ -47,7 +50,7 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
 
-Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] uno de los nodos anteriores para minimizar las interrupciones en las aplicaciones en ejecución. Cuando se confirma que el nuevo nodo ejecuta pods de aplicación, el anterior se elimina. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster.
+Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. En el proceso de actualización, AKS agrega un nuevo nodo al clúster que ejecuta la versión de Kubernetes especificada y después [acordona y purga][kubernetes-drain] uno de los nodos antiguos para minimizar las interrupciones de las aplicaciones en ejecución. Cuando se confirma que el nuevo nodo ejecuta pods de aplicación, el anterior se elimina. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster.
 
 En el ejemplo siguientes se actualiza un clúster a la versión *1.12.8*:
 

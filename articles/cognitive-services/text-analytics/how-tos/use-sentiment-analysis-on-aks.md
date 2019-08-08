@@ -1,7 +1,7 @@
 ---
-title: Ejecución de Azure Kubernetes Services
+title: Ejecución de Azure Kubernetes Service
 titleSuffix: Text Analytics - Azure Cognitive Services
-description: Implemente los contenedores de Text Analytics con la imagen de Análisis de sentimiento en Azure Kubernetes Services y pruébelos en un explorador web.
+description: Implemente los contenedores de Text Analytics con la imagen de análisis de opiniones en Azure Kubernetes Service y pruébelos en un explorador web.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: a419ed3b9c0d2c4db9c552642dc5c662786f6730
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561248"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377412"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>Implementación de un contenedor de Análisis de sentimiento en Azure Kubernetes Services (AKS)
+# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Implementación de un contenedor de análisis de opiniones en Azure Kubernetes Service
 
-Aprenda cómo implementar el contenedor de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) de Cognitive Services con la imagen de Análisis de sentimiento en Azure Kubernetes Services (AKS). Este procedimiento ejemplifica la creación de un recurso de Text Analytics y la creación de una imagen de Análisis de sentimiento asociada, así como la posibilidad de utilizar esta orquestación de ambas acciones desde un explorador. El uso de contenedores puede desviar la atención de los desarrolladores de la gestión de la infraestructura y llevarles a centrarse en el desarrollo de aplicaciones.
+Aprenda cómo implementar el contenedor de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) de Azure Cognitive Services con la imagen de análisis de opiniones en Azure Kubernetes Service (AKS). Este procedimiento muestra cómo crear un recurso de Text Analytics, cómo crear una imagen de análisis de opiniones asociada y cómo efectuar la orquestación de ambos elementos desde un explorador. El uso de contenedores puede desviar la atención de la administración de la infraestructura y centrarla en el desarrollo de aplicaciones.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente. No use Azure Cloud Shell.
+Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente. No use Azure Cloud Shell. Necesita lo siguiente:
 
-* Use una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Use un editor de texto, como [Visual Studio Code](https://code.visualstudio.com/download)
-* Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Instale la [CLI de Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Un editor de texto; por ejemplo, [Visual Studio Code](https://code.visualstudio.com/download).
+* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
+* La [CLI de Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalada.
 * Un recurso de Azure con el plan de tarifa correcto. No todos los planes de tarifa funcionan con este contenedor:
-    * El recurso **Text Analytics** solo con los planes de tarifas estándar o F0.
-    * El recurso **Cognitive Services** con el plan de tarifas S0.
+    * El recurso **Azure Text Analytics** solo con los planes de tarifas Estándar o F0.
+    * El recurso **Azure Cognitive Services** con el plan de tarifa S0.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Kubernetes Services (AKS)](../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-## <a name="deploy-text-analytics-container-to-an-aks-cluster"></a>Implementación del contenedor de Text Analytics en un clúster de AKS
+## <a name="deploy-a-text-analytics-container-to-an-aks-cluster"></a>Implementación de un contenedor de Text Analytics en un clúster de AKS
 
 1. Abra la CLI de Azure e inicie sesión en Azure.
 
@@ -45,7 +45,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
     az login
     ```
 
-1. Inicie sesión en el clúster de AKS (reemplace `your-cluster-name` y `your-resource-group` con los valores adecuados).
+1. Inicie sesión en el clúster de AKS. Reemplace `your-cluster-name` y `your-resource-group` por los valores adecuados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -58,18 +58,18 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
     ```
 
     > [!WARNING]
-    > Si tiene varias suscripciones disponibles en su cuenta de Azure y el comando `az aks get-credentials` devuelve un error, puede deberse a un problema común de uso de la suscripción incorrecta. Basta con establecer el contexto de la sesión de la CLI de Azure para usar la misma suscripción con la que creó los recursos y volver a intentarlo.
+    > Si tiene varias suscripciones disponibles en su cuenta de Azure y el comando `az aks get-credentials` devuelve un error, puede deberse a un problema común de uso de la suscripción incorrecta. Establezca el contexto de la sesión de la CLI de Azure para usar la misma suscripción con la que creó los recursos y vuelva a intentarlo.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Abra el editor de texto que prefiera, (en este ejemplo se usa __Visual Studio Code__):
+1. Abra el editor de texto que prefiera. En este ejemplo se utiliza Visual Studio Code.
 
     ```azurecli
     code .
     ```
 
-1. En el editor de texto, cree un nuevo archivo denominado _sentiment.yaml_ y pegue el siguiente código YAML en él. Asegúrese de reemplazar `billing/value` y `apikey/value` por sus propios valores.
+1. En el editor de texto, cree un nuevo archivo llamado _sentiment.yaml_ y pegue el siguiente código YAML en él. Asegúrese de reemplazar `billing/value` y `apikey/value` por su propia información.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -121,26 +121,26 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Compruebe que el POD esté implementado:
+1. Compruebe que el pod está implementado:
 
     ```console
     kubectl get pods
     ```
 
-    Se mostrará el estado de ejecución del POD:
+    La salida del estado de ejecución del pod:
 
     ```
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. Compruebe que el servicio está disponible y obtiene la dirección IP:
+1. Compruebe que el servicio está disponible y obtenga la dirección IP.
 
     ```console
     kubectl get services
     ```
 
-    Se mostrará el estado de ejecución del servicio de _opinión_ en el POD:
+    La salida del estado de ejecución del servicio de _opiniones_ en el pod:
 
     ```
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
@@ -148,9 +148,9 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the sentiment analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Uso de [Contenedores de Cognitive Services](../../cognitive-services-container-support.md)
+* Uso de otros [contenedores de Cognitive Services](../../cognitive-services-container-support.md)
 * Uso del [servicio conectado de Text Analytics](../vs-text-connected-service.md)

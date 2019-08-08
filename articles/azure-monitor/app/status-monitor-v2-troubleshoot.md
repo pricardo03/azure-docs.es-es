@@ -12,24 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: df59766ce38ac81568570cd6544ee28808ff8249
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807028"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424105"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Solución de problemas del Monitor de estado v2
 
 Cuando se habilita la supervisión, podría experimentar problemas que impidan la recopilación de datos.
 En este artículo se enumeran todos los problemas conocidos y se proporcionan ejemplos de solución de problemas.
 Si encuentra un problema que no aparece aquí, puede ponerse en contacto con nosotros en [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
-
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -81,6 +75,19 @@ Después de ejecutar el comando Enable, siga estos pasos:
         <add name="ManagedHttpModuleHelper" type="Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler,runtimeVersionv4.0" />
     </modules>
     ```
+
+### <a name="iis-nested-applications"></a>Aplicaciones anidadas en IIS
+
+En la versión 1.0 so se instrumentan aplicaciones anidadas en IIS.
+[Aquí](https://github.com/microsoft/ApplicationInsights-Home/issues/369) puede ver el seguimiento de este problema.
+
+### <a name="advanced-sdk-configuration-isnt-available"></a>La configuración avanzada del SDK no está disponible.
+
+La configuración del SDK no se muestra al usuario final en la versión 1.0.
+[Aquí](https://github.com/microsoft/ApplicationInsights-Home/issues/375) puede ver el seguimiento de este problema.
+
+    
+    
 ## <a name="troubleshooting"></a>solución de problemas
     
 ### <a name="troubleshooting-powershell"></a>Solución de problemas de PowerShell
@@ -111,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Determine la versión actual del módulo del Monitor de estado v2
-Ejecute el comando `Get-ApplicationInsightsMonitoringStatus` para mostrar la siguiente información sobre el módulo:
+Ejecute el comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` para mostrar la siguiente información sobre el módulo:
    - Versión del módulo de PowerShell
    - Versión del SDK de Application Insights
    - Rutas de acceso de los archivos del módulo de PowerShell

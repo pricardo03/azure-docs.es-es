@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f7b1b294e9500ef9e0aadd24cfe3cd4e61fddda1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186897"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426955"
 ---
 > [!IMPORTANT]
 > **Habilite la sincronización de hash de contraseña con Azure AD Domain Services, antes de completar las tareas de este artículo.**
 >
-> Siga las instrucciones que aparecen a continuación, en función del tipo de usuarios de su directorio de Azure AD. Complete ambos conjuntos de instrucciones si tiene una combinación de cuentas de usuario solo en la nube y sincronizados en su directorio de Azure AD. Es posible que no pueda llevar a cabo las siguientes operaciones en caso de que intente usar una cuenta de invitado B2B (ejemplo, su cuenta de Gmail o MSA de un proveedor de identidad distinto permitido por nosotros) porque no tenemos la contraseña para estos usuarios sincronizada con el dominio administrado, ya que estas son cuentas de invitado en el directorio. La información completa sobre estas cuentas, incluidas sus contraseñas, queda fuera del alcance de Azure AD y dado que esta información no está en Azure AD, no se sincroniza con el dominio administrado. 
+> Siga las instrucciones que aparecen a continuación, en función del tipo de usuarios de su directorio de Azure AD. Complete ambos conjuntos de instrucciones si tiene una combinación de cuentas de usuario solo en la nube y sincronizados en su directorio de Azure AD. Es posible que no pueda realizar las siguientes operaciones si intenta usar una cuenta de invitado B2B (por ejemplo, su cuenta de Gmail o MSA de otro proveedor de identidades que permitamos) porque no tenemos la contraseña de estos usuarios sincronizada con el dominio administrado, ya que estas son cuentas de invitado en el directorio. La información completa sobre estas cuentas, incluidas sus contraseñas, queda fuera del alcance de Azure AD y dado que esta información no está en Azure AD, no se sincroniza con el dominio administrado. 
 > - [Instrucciones para cuentas de usuario solo en la nube](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instrucciones para cuentas de usuario sincronizados desde un directorio local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

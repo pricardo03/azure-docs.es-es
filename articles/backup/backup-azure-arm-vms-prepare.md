@@ -2,18 +2,18 @@
 title: Copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 service: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: raynew
-ms.openlocfilehash: 0835c3af52a16e7549698e35b3fded0f64c71dc4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: dacurwin
+ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447710"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663702"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -228,9 +228,9 @@ Si un NSG administra el acceso a la VM, permita el acceso de salida para el alma
 4. En **Rangos de puertos de origen**, escriba un asterisco (*) para permitir el acceso de salida desde cualquier puerto.
 5. En **Destino**, seleccione **Etiqueta de servicio**. En la lista, seleccione **Storage.region**. La región es donde se encuentran el almacén y las VM de las que quiere realizar una copia de seguridad.
 6. En **Intervalos de puertos de destino** , seleccione el puerto.
-    - Máquina virtual no administrada con una cuenta de almacenamiento sin cifrar: 80
-    - Máquina virtual no administrada con una cuenta de almacenamiento cifrada: 443 (configuración predeterminada)
-    - Máquina virtual administrada: 8443.
+    - VM con discos no administrados con una cuenta de almacenamiento sin cifrar: 80
+    - VM con discos no administrados con una cuenta de almacenamiento cifrada: 443 (configuración predeterminada)
+    - VM con discos administrados: 8443.
 7. En **Protocolo**: seleccione **TCP**.
 8. En **Prioridad**, especifique un valor de prioridad inferior a las reglas de denegación elevadas.
 

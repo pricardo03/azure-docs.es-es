@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 97a4bc20394553b97211763cedaa76c3711306f2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269303"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319324"
 ---
 # <a name="access-data-from-your-datastores"></a>Datos de acceso desde almacenes de datos
 
@@ -240,6 +240,18 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
+## <a name="access-datastores-during-for-scoring"></a>Acceso al almacén de datos durante la puntuación
+
+Azure Machine Learning Service dispone de varios métodos para usar los modelos para puntuación. Algunos de estos métodos no proporcionan acceso a los almacenes de datos. Use la tabla siguiente para saber qué métodos le permiten acceder a los almacenes de datos durante la puntuación:
+
+| Método | Acceso a almacén de datos | DESCRIPCIÓN |
+| ----- | :-----: | ----- |
+| [Predicción por lotes](how-to-run-batch-predictions.md) | ✔ | Realice predicciones sobre grandes cantidades de datos asincrónicamente. |
+| [Servicio web](how-to-deploy-and-where.md) | &nbsp; | Implemente modelos como un servicio web. |
+| [Módulo IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implemente modelos en dispositivos IoT Edge. |
+
+En situaciones en las que el SDK no proporciona acceso a los almacenes de datos, es posible que pueda crear código personalizado mediante el SDK de Azure correspondiente para acceder a los datos. Por ejemplo, el uso [del SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python) para acceder a los datos almacenados en blobs.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

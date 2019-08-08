@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9faa261f4b6293d778c5da685f630a21fd88f600
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cd4500b4ef6492f0b6499bb1e9aa1a773313e860
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478577"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498367"
 ---
 # <a name="workspace-mappings"></a>Asignaciones de áreas de trabajo
 
@@ -66,7 +66,7 @@ Si ha usado la solución de administración de actualizaciones, también puede q
 
 * Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
 
-* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker creados para la solución: cada uno de ellos tendrá un nombre similar a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`.
 
 Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 

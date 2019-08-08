@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051627"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610253"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -68,7 +68,7 @@ Si no se muestra ninguna salida, póngase en contacto con el administrador de la
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 - Centro de Canadá
 - Centro occidental de EE.UU.
-- Este de EE. UU
+- East US
 - Este de EE. UU. 2
 - Centro-Norte de EE. UU
 - Centro-Sur de EE. UU
@@ -99,7 +99,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Oeste de EE. UU. 2
 - Centro-Sur de EE. UU
 - Centro de EE. UU.
-- Este de EE. UU
+- East US
 - Este de EE. UU. 2
 - Centro de Francia
 - Europa occidental

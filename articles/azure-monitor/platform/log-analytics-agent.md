@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 653355af7dcb0b30c3deb444fcfe4b4ff76e7e77
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514106"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424122"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Log Analytics
 
 El agente de Azure Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA) o agente Linux de OMS, se desarrolló para lograr una administración completa en las máquinas locales, en los equipos que supervisaba [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) y en las máquinas virtuales de cualquier nube. Los agentes de Windows y Linux se asocian a Azure Monitor y almacenan los datos de registro recopilados de diferentes orígenes en el área de trabajo de Log Analytics, así como cualquier registro o métrica únicos, tal como se define en una solución de supervisión. 
 
-En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.   
+En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.
 
 ## <a name="overview"></a>Información general
 
@@ -45,10 +45,14 @@ Las siguientes versiones del sistema operativo Windows son compatibles oficialme
 
 * Windows Server 2019
 * Windows Server 2008 R2, 2012, 2012 R2, 2016, versión 1709 y 1803
-* Windows 7 SP1 y versiones posteriores
+* Windows 7 SP1, Windows 8 Enterprise y Pro, y Windows 10 Enterprise y Pro
+
+>[!NOTE]
+>Aunque el agente de Log Analytics para Windows se diseñó para admitir escenarios de supervisión de servidor, se puede ejecutar el cliente de Windows para admitir las cargas de trabajo configuradas y optimizadas para el sistema operativo del servidor. El agente es compatible con el cliente de Windows, pero nuestras soluciones de supervisión no se centran en escenarios de supervisión de cliente, salvo se indique explícitamente.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
-En esta sección se ofrecen detalles sobre las distribuciones de Linux compatibles.    
+
+En esta sección se ofrecen detalles sobre las distribuciones de Linux compatibles.
 
 A partir de las versiones publicadas después de agosto de 2018, hemos realizado los siguientes cambios en nuestro modelo de soporte técnico:  
 
@@ -90,9 +94,11 @@ En la tabla siguiente se indican los paquetes necesarios para las distribuciones
 >Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
+
 Para garantizar la seguridad de los datos en tránsito a registros de Azure Monitor, se recomienda encarecidamente configurar el agente para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
+
 A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Windows y Linux se comunique con los registros de Azure Monitor.  
 
 |Recurso del agente|Puertos |Dirección |Omitir inspección de HTTPS|
@@ -121,14 +127,15 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 |user | Nombre de usuario opcional para la autenticación de proxy |
 |contraseña | Contraseña opcional para la autenticación de proxy |
 |proxyhost | Dirección o nombre de dominio completo (FQDN) del servidor proxy o la puerta de enlace de Log Analytics |
-|puerto | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
+|port | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
 
 Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Si usa caracteres especiales como "\@" en la contraseña, recibirá un error de conexión de proxy porque el valor no se analiza correctamente.  Para solucionar este problema, codifique la contraseña en la dirección URL con una herramienta como [URLDecode](https://www.urldecoder.org/).  
 
-## <a name="install-and-configure-agent"></a>Instalación y configuración del agente 
+## <a name="install-and-configure-agent"></a>Instalación y configuración del agente
+
 La conexión de máquinas en la suscripción de Azure o el entorno híbrido directamente con registros de Azure Monitor se puede lograr mediante diferentes métodos según sus requisitos. En la tabla siguiente se resalta cada método para determinar cuál funciona mejor en su organización.
 
 |Origen | Método | DESCRIPCIÓN|

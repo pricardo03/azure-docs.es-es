@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cfbbd0b353699c4b04ede07df0450e66bd59612f
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357178"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311965"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
@@ -36,7 +36,7 @@ La operación de lectura mantiene las agrupaciones de líneas originales de pala
 Read API funciona con imágenes que cumplan los requisitos siguientes:
 
 - La imagen debe estar en formato JPEG, PNG, BMP, PDF o TIFF.
-- El tamaño de la imagen debe estar entre 50 x 50 y 4200 x 4200 píxeles. Las páginas PDF deben ser de 17 x 17 pulgadas o más pequeñas.
+- El tamaño de la imagen debe estar entre 50 x 50 y 10 000 x 10 000 píxeles. Las páginas PDF deben ser de 17 x 17 pulgadas o más pequeñas.
 - El tamaño del archivo de la imagen debe ser menor de 20 megabytes (MB).
 
 ### <a name="limitations"></a>Limitaciones

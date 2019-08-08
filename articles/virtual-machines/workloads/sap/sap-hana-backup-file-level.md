@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 02ee65020f72fb9c3262db82e035e628f780e2cf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 86a0633a433623c2b43bb26721e5fcee08d4301f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709994"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640815"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Azure Backup de SAP HANA en el nivel de archivo
 
@@ -50,7 +50,7 @@ Una solución alternativa es copiar primero archivos de copia de seguridad de SA
 
 ## <a name="azure-blobxfer-utility-details"></a>Detalles de la utilidad bloxfer de Azure
 
-Para almacenar directorios y archivos en Azure Storage, puede usar CLI o PowerShell, o desarrollar una herramienta mediante uno de los [Azure SDK](https://azure.microsoft.com/downloads/). También hay una utilidad lista para usar, AzCopy, para copiar datos a Azure Storage, pero es solo para Windows (vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](../../../storage/common/storage-use-azcopy.md)).
+Para almacenar directorios y archivos en Azure Storage, puede usar CLI o PowerShell, o desarrollar una herramienta mediante uno de los [Azure SDK](https://azure.microsoft.com/downloads/). También hay una utilidad lista para usar, AzCopy, para copiar datos en Azure Storage. (consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](../../../storage/common/storage-use-azcopy.md)).
 
 Por tanto, se usó blobxfer para copiar los archivos de copia de seguridad de SAP HANA. Se trata de código abierto, que usan muchos clientes en entornos de producción, y que está disponible en [GitHub](https://github.com/Azure/blobxfer). Esta herramienta permite copiar datos directamente a Azure Blob Storage o al recurso compartido de archivos de Azure. También ofrece una gama de características útiles, como hash md5 o paralelismo automático al copiar un directorio con varios archivos.
 

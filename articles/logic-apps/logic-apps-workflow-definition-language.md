@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
-ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84791cb30622350b3e6d6356abd4580636c4ddf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596765"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385352"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -45,7 +45,7 @@ Esta es la estructura de alto nivel de una definición de flujo de trabajo:
 | `actions` | Sin | Las definiciones de una o varias acciones que se van a ejecutar en el tiempo de ejecución del flujo de trabajo. Para más información, vea [Desencadenadores y acciones](#triggers-actions). <p><p>Máximo de acciones: 250 |
 | `contentVersion` | Sin | El número de versión de la definición de flujo de trabajo, que es "1.0.0.0" de forma predeterminada. Para ayudar a identificar y confirmar la definición correcta al implementar un flujo de trabajo, especifique el valor que usará. |
 | `outputs` | Sin | Las definiciones de las salidas que se devuelven de la ejecución de un flujo de trabajo. Para más información, vea [Salidas](#outputs). <p><p>Máximo de salidas: 10 |
-| `parameters` | Sin | Las definiciones de uno o varios parámetros que pasan datos al flujo de trabajo. Para más información, vea [Parámetros](#parameters). <p><p>Máximo de parámetros: 50 |
+| `parameters` | Sin | Las definiciones de uno o varios parámetros que pasan los valores que se usan en el runtime de una aplicación lógica. Para más información, vea [Parámetros](#parameters). <p><p>Máximo de parámetros: 50 |
 | `staticResults` | Sin | Las definiciones de uno o varios resultados estáticos devueltos por las acciones como salidas ficticias cuando se habilitan los resultados estáticos en esas acciones. En cada definición de acción, el atributo `runtimeConfiguration.staticResult.name` hace referencia a la definición correspondiente dentro de `staticResults`. Para más información, vea [Resultados estáticos](#static-results). |
 | `triggers` | Sin | Las definiciones de uno o varios desencadenadores que crean una instancia del flujo de trabajo. Puede definir más de un desencadenador, pero solo con el lenguaje de definición de flujo de trabajo, no visualmente mediante el Diseñador de aplicaciones lógicas. Para más información, vea [Desencadenadores y acciones](#triggers-actions). <p><p>Máximo de desencadenadores: 10 |
 ||||
@@ -56,65 +56,37 @@ Esta es la estructura de alto nivel de una definición de flujo de trabajo:
 
 En una definición de flujo de trabajo, las secciones `triggers` y `actions` definen las llamadas que se producen durante la ejecución del flujo de trabajo. Para más información sobre estas secciones y la sintaxis, consulte [Desencadenadores y acciones para flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-<a name="outputs"></a>
-
-## <a name="outputs"></a>Salidas
-
-En la sección `outputs`, defina los datos que puede devolver el flujo de trabajo cuando termine de ejecutarse. Por ejemplo, para realizar el seguimiento de un estado o valor específico de cada ejecución, especifique que la salida del flujo de trabajo devuelva esos datos.
-
-> [!NOTE]
-> Al responder a las solicitudes entrantes de la API REST de un servicio, no use `outputs`. En su lugar, use el tipo de acción `Response`. Para más información, consulte [Desencadenadores y acciones para flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Esta es la estructura general de una definición de salida:
-
-```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
-}
-```
-
-| Atributo | Obligatorio | Type | DESCRIPCIÓN |
-|-----------|----------|------|-------------|
-| <*key-name*> | Sí | Cadena | El nombre de clave del valor devuelto de salida. |
-| <*key-type*> | Sí | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. |
-| <*key-value*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
-|||||
-
-Para obtener la salida de una ejecución de flujo de trabajo, revise el historial y los detalles de ejecución de la aplicación lógica en Azure Portal o use la [API REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.
-
 <a name="parameters"></a>
 
 ## <a name="parameters"></a>Parámetros
 
-En la sección `parameters`, defina todos los parámetros de flujo de trabajo que se usan en la definición del flujo de trabajo en la implementación para aceptar entradas. Tanto las declaraciones de parámetros como los valores de parámetros son necesarios en la implementación. Antes de poder usar estos parámetros en otras secciones del flujo de trabajo, asegúrese de declarar todos los parámetros en las siguientes secciones. 
+Por lo general, el ciclo de vida de una implementación tiene distintos entornos para el desarrollo, las pruebas, el almacenamiento provisional y la producción. Al implementar aplicaciones lógicas en varios entornos, es probable que desee usar valores diferentes, como cadenas de conexión, en función de sus necesidades de implementación. O bien, puede que tenga valores que desee reutilizar en la aplicación lógica sin codificar o que cambian con frecuencia. En la sección de `parameters` definición del flujo de trabajo, puede definir o editar los parámetros de los valores que la aplicación lógica usa en el runtime. Estos parámetros deben definirse antes para poder hacer referencia a ellos en cualquier otra parte de la definición del flujo de trabajo.
 
 Esta es la estructura general de una definición de parámetro:
 
 ```json
 "parameters": {
-  "<parameter-name>": {
-    "type": "<parameter-type>",
-    "defaultValue": "<default-parameter-value>",
-    "allowedValues": [ <array-with-permitted-parameter-values> ],
-    "metadata": {
-      "key": {
-        "name": "<key-value>"
+   "<parameter-name>": {
+      "type": "<parameter-type>",
+      "defaultValue": <default-parameter-value>,
+      "allowedValues": [ <array-with-permitted-parameter-values> ],
+      "metadata": {
+         "description": "<parameter-description>"
       }
-    }
-  }
+   }
 },
 ```
 
-| Atributo | Obligatorio | Type | DESCRIPCIÓN |
+| Atributo | Obligatorio | type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. Para más información sobre cómo proteger los parámetros, vea [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | El tipo del parámetro. |
-| <*default-parameter-values*> | Sí | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
+| <*parameter-name*> | Sí | Cadena | Nombre del parámetro que desea definir |
+| <*parameter-type*> | Sí | int, float, string, bool, array, object, securestring, secureobject <p><p>**Nota**: En todas las contraseñas, claves y secretos use los tipos `securestring` o `secureobject` porque la operación `GET` no los devuelve. Para más información acerca de la protección de parámetros, consulte [Recomendaciones de seguridad para los parámetros de acción y de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | El tipo del parámetro. |
+| <*default-parameter-value*> | Sí | Igual que `type`. | El valor de parámetro predeterminado que se usa si no se especifica ningún valor al crear una instancia del flujo de trabajo. El atributo `defaultValue` es necesario para que el Diseñador de aplicación lógica pueda mostrar correctamente el parámetro, pero puede especificar un valor vacío. |
 | <*matriz_con_valores_de_parámetro_permitidos*> | Sin | Array | Una matriz con valores que puede aceptar el parámetro. |
-| `metadata` | Sin | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica o el flujo, o bien los datos de tiempo de diseño que usa Visual Studio u otras herramientas. |
+| <*parameter-description*> | Sin | Objeto JSON | Cualquier otro detalle del parámetro, como una descripción del parámetro |
 ||||
+
+Después, cree una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para la definición del flujo de trabajo, defina parámetros de la plantilla que acepten los valores que desea en la implementación, reemplace los valores codificados por referencias a la plantilla o a los parámetros de definición del flujo de trabajo, según corresponda, y almacene los valores que se van a usar en la implementación en un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) independiente. De esta forma puede cambiar estos valores más fácilmente a través del archivo de parámetros sin tener que actualizar y volver a implementar la aplicación lógica. En el caso de información que sea confidencial o que deba protegerse, como nombres de usuario, contraseñas y secretos, puede almacenar los valores en Azure Key Vault y hacer que el archivo de parámetros recupere los valores de ahí. Para más información y ejemplos acerca de cómo definir parámetros en los niveles de definición de plantilla y flujo de trabajo, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -143,7 +115,7 @@ En el atributo `staticResults`, defina los valores ficticios `outputs` y `status
 }
 ```
 
-| Atributo | Obligatorio | Type | DESCRIPCIÓN |
+| Atributo | Obligatorio | type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
 | <*static-result-definition-name*> | Sí | Cadena | El nombre de una definición de resultado estático a la que una definición de acción puede hacer referencia a través de un objeto `runtimeConfiguration.staticResult`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Puede usar el nombre único que quiera. De forma predeterminada, este nombre único se anexa con un número, que se incrementa según sea necesario. |
 | <*output-attributes-and-values-returned*> | Sí | Varía | Los requisitos para estos atributos varían en función de diferentes condiciones. Por ejemplo, cuando `status` es `Succeeded`, el atributo `outputs` incluye los atributos y valores devueltos como salidas ficticias por la acción. Si `status` es `Failed`, el atributo `outputs` incluye el atributo `errors`, que es una matriz con uno o varios objetos `message` de error que tienen información del error. |
@@ -286,13 +258,42 @@ Cuando haya terminado, la expresión aparece en la propiedad correspondiente en 
 },
 ```
 
+<a name="outputs"></a>
+
+## <a name="outputs"></a>Salidas
+
+En la sección `outputs`, defina los datos que puede devolver el flujo de trabajo cuando termine de ejecutarse. Por ejemplo, para realizar el seguimiento de un estado o valor específico de cada ejecución, especifique que la salida del flujo de trabajo devuelva esos datos.
+
+> [!NOTE]
+> Al responder a las solicitudes entrantes de la API REST de un servicio, no use `outputs`. En su lugar, use el tipo de acción `Response`. Para más información, consulte [Desencadenadores y acciones para flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Esta es la estructura general de una definición de salida:
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Atributo | Obligatorio | type | DESCRIPCIÓN |
+|-----------|----------|------|-------------|
+| <*key-name*> | Sí | Cadena | El nombre de clave del valor devuelto de salida. |
+| <*key-type*> | Sí | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. |
+| <*key-value*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
+|||||
+
+Para obtener la salida de una ejecución de flujo de trabajo, revise el historial y los detalles de ejecución de la aplicación lógica en Azure Portal o use la [API REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.
+
 <a name="operators"></a>
 
 ## <a name="operators"></a>Operadores
 
 En [expresiones](#expressions) y [funciones](#functions), los operadores realizan tareas específicas, como hacer referencia a una propiedad o un valor en una matriz.
 
-| Operador | Tarea |
+| Operator | Tarea |
 |----------|------|
 | ' | Para usar un literal de cadena como entrada o en expresiones y funciones, encapsule la cadena solo con comillas sencillas, por ejemplo, `'<myString>'`. No use comillas dobles (""), ya que entran en conflicto con el formato JSON que rodea una expresión entera. Por ejemplo: <p>**Sí**: length('Hello') </br>**No**: length("Hello") <p>Al pasar matrices o números, no es necesario encapsular los signos de puntuación. Por ejemplo: <p>**Sí**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
 | [] | Para hacer referencia a un valor en una posición concreta (índice) de una matriz, use corchetes. Por ejemplo, para obtener el segundo elemento de una matriz: <p>`myArray[1]` |

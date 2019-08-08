@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596267"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640286"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
 
@@ -27,7 +27,7 @@ Para recibir todos los campos de entrada, active **Asignación automática**. Pa
 
 ![Opciones de la pestaña Asignación](media/data-flow/sink2.png "receptor 2")
 
-## <a name="output"></a>Salida 
+## <a name="output"></a>Output 
 En los tipos de receptor de Azure Blob Storage o Data Lake Storage, genere la salida de los datos transformados en una carpeta. Spark genera los archivos de datos de salida con particiones según el esquema de partición que se usa en la transformación del receptor. 
 
 Puede establecer el esquema de partición en la pestaña **Optimizar**. Si quiere que Data Factory combine la salida en un solo archivo, seleccione **Partición única**.
@@ -35,8 +35,7 @@ Puede establecer el esquema de partición en la pestaña **Optimizar**. Si quier
 ![Opciones de la pestaña Optimizar](media/data-flow/opt001.png "opciones de receptor")
 
 ## <a name="field-mapping"></a>Asignación de campos
-
-En la pestaña **Asignación** de la transformación del receptor, puede asignar las columnas de entrada de la izquierda a los destinos de la derecha. Cuando recibe los flujos de datos en los archivos, Data Factory siempre escribe nuevos archivos en una carpeta. Cuando realiza una asignación a un conjunto de datos de base de datos, puede generar una nueva tabla que use este esquema mediante el establecimiento de **Guardar directiva** en **Sobrescribir**. También puede insertar nuevas filas en una tabla existente y, después, asignar los campos al esquema existente. 
+En la pestaña **Asignación** de la transformación del receptor, puede asignar las columnas de entrada de la izquierda a los destinos de la derecha. Cuando recibe los flujos de datos en los archivos, Data Factory siempre escribe nuevos archivos en una carpeta. Cuando se asigna un conjunto de datos de base de datos, se eligen las opciones de operaciones de la tabla de la base de datos para insertar, actualizar, upsert o eliminar.
 
 ![Pestaña Asignación](media/data-flow/sink2.png "Receptores")
 
@@ -53,6 +52,15 @@ Para restablecer las asignaciones de columna, seleccione **Re-map** (Reasignar).
 Seleccione **Validar esquema** para que se genere un error en el receptor si el esquema cambia.
 
 Seleccione **Clear the folder** (Borrar la carpeta) para truncar el contenido de la carpeta del receptor antes de escribir los archivos de destino en esa carpeta de destino.
+
+## <a name="rule-based-mapping"></a>Asignación basada en reglas
+Al desactivar la asignación automática, tendrá la opción de agregar una asignación basada en columnas (asignación fija) o basada en reglas. La asignación basada en reglas le permitirá escribir expresiones con coincidencia de patrones. 
+
+![Asignación basada en reglas](media/data-flow/rules4.png "Asignación basada en reglas")
+
+Al elegir la asignación basada en reglas, se indica a ADF que evalúe la expresión coincidente para que coincida con las reglas de patrón de entrada y que defina los nombres de los campos salientes. Puede agregar cualquier combinación de asignaciones basadas en campos y en reglas. A continuación, el ADF genera los nombres de campo en el entorno en tiempo de ejecución en función de los metadatos entrantes del origen. Puede ver los nombres de los campos generados durante la depuración y mediante el panel de vista previa de los datos.
+
+Los detalles sobre la coincidencia de patrones se encuentran en la [documentación del patrón de columnas](concepts-data-flow-column-pattern.md).
 
 ## <a name="file-name-options"></a>Opciones de nombre de archivo
 
@@ -88,5 +96,4 @@ Seleccione los valores de configuración de la base de datos:
 > Al actualizar o eliminar filas en el receptor de base de datos, debe establecer la columna de clave. Esta opción permite que la transformación de alteración de fila determine la fila única en la biblioteca de movimiento de datos (DML).
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Ahora que ha creado el flujo de datos, agregue una [actividad de Data Flow a la canalización](concepts-data-flow-overview.md).

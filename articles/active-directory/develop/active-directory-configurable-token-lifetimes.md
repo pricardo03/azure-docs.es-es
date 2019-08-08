@@ -8,28 +8,29 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/15/2019
+ms.topic: conceptual
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ddb4db501808a2866e3697064e6527b8bf62bb
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111804"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835433"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
 
 > [!IMPORTANT]
-> Después de escuchar a los clientes durante la versión preliminar, hemos reemplazado la característica de vigencia del token configurable con [funcionalidades de administración de sesiones de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en el acceso condicional de Azure AD. Esta característica estará en desuso el 1 de noviembre de 2019. Si usa la directiva de duración del token configurable, cambie a la nueva característica de acceso condicional. 
+> Después de escuchar a los clientes durante la versión preliminar, hemos implementado las [funcionalidades de administración de sesiones de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión. A partir del 1 de noviembre de 2019, no podrá usar la directiva de vigencia de token configurable para configurar tokens de actualización, pero todavía podrá usarla para configurar los tokens de acceso.
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
@@ -39,6 +40,7 @@ Puede designar una directiva como la directiva predeterminada para su organizaci
 > La directiva de duración del token configurable no es compatible con SharePoint Online.  Incluso si tiene la capacidad de crear esta directiva a través de PowerShell, SharePoint Online no reconocerá esta directiva. Consulte el [blog de SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para más información sobre cómo configurar los tiempos de expiración de sesiones inactivas.
 >* La duración predeterminada para el token de acceso de SharePoint Online es de 1 hora. 
 >* El tiempo de inactividad máximo predeterminado del token de actualización de SharePoint Online es de 90 días.
+
 
 ## <a name="token-types"></a>Tipos de token
 
@@ -79,7 +81,7 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 ### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
 | Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
 | --- | --- | --- | --- | --- | --- |
-| Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
+| Vigencia del token de acceso |AccessTokenLifetime<sup>4</sup> |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
 | Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
@@ -87,6 +89,7 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
+* <sup>4</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
 
 ### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |

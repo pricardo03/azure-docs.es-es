@@ -24,10 +24,10 @@
       maintainContext: true
     - name: Solución de problemas
       items:
-        - name: Excepción OutOfMemoryError
-          items:
-            - name: Límite de sobrecarga de recolección de elementos no utilizados superado
-              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Límite de sobrecarga de recolección de elementos no utilizados superado
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez View se carga lentamente
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: No aparece el mensaje de error en la vista de Apache Hive
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: La vista de Apache Hive no está accesible

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: ca53d85a09727b75f68da8d049ac3fcd6723a041
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302265"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498403"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -67,7 +67,7 @@ Si administra un conjunto de escalado de máquinas virtuales, vea la plantilla d
 
 ### <a name="powershell"></a>PowerShell
 
-El cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
+El cmdlet [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) sirve para incorporar máquinas virtuales en Azure Portal por medio de PowerShell.
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registro de máquinas virtuales entre suscripciones de Azure
 
@@ -269,11 +269,11 @@ Para incorporar de forma genérica cualquier máquina a Azure Automation State C
 Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que ambas extraigan de Azure Automation State Configuration y notifiquen allí, los cmdlets de Azure Automation ofrecen un método simplificado de generar las configuraciones de DSC necesarias:
 
 1. Abra la consola de PowerShell o VSCode como administrador en una máquina de su entorno local.
-2. Conéctese a Azure Resource Manager con `Connect-AzureRmAccount`
+2. Conéctese a Azure Resource Manager con `Connect-AzAccount`
 3. Descargue las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar desde la cuenta de Automation a la que quiere incorporar nodos:
 
    ```powershell
-   # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+   # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
        ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
@@ -282,7 +282,7 @@ Si los valores predeterminados del Administrador de configuración local de DSC 
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
    # For more info about splatting, run: Get-Help -Name about_Splatting
-   Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+   Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
 1. Ahora debería tener una carpeta llamada ***DscMetaConfigs***, que contenga las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar (como administrador):
@@ -326,6 +326,6 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 
 - Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md)
 - Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md)
-- Para la referencia de cmdlets de PowerShell, consulte [cmdlets de Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
+- Para la referencia de cmdlets de PowerShell, consulte [cmdlets de Azure Automation State Configuration](/powershell/module/az.automation#automation)
 - Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, consulte [Implementación continua mediante Azure Automation State Configuration y Chocolatey](automation-dsc-cd-chocolatey.md)

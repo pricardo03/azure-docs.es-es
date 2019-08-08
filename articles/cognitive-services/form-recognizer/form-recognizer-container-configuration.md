@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718452"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348690"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 
@@ -90,8 +90,8 @@ Reemplace {_argument_name_} en la tabla siguiente por sus propios valores:
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | La clave que se usa para iniciar el contenedor. Está disponible en la página de claves de Form Recognizer de Azure Portal.  |
-|{BILLING_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Form Recognizer.|
+|{FORM_RECOGNIZER_API_KEY} | La clave que se usa para iniciar el contenedor. Está disponible en la página de claves de Form Recognizer de Azure Portal.  |
+|{FORM_RECOGNIZER_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Form Recognizer.|
 |{COMPUTER_VISION_API_KEY}| La clave está disponible en la página Claves de Computer Vision API de Azure Portal.|
 |{COMPUTER_VISION_ENDPOINT_URI}|El punto de conexión de facturación. Si usa un recurso de Computer Vision de la nube, el valor del URI está disponible en la página de información general de Computer Vision API de Azure Portal. Si usa un contenedor *cognitive-services-recognize-text*, utilice la dirección URL del punto de conexión de facturación que se pasa al contenedor en el comando `docker run`.|
 
@@ -113,8 +113,8 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
@@ -127,13 +127,12 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489200"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618374"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar y administrar un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -38,7 +38,7 @@ En este artículo se describe cómo editar y administrar los paquetes de acceso 
 
 Un rol de recursos es una colección de permisos asociados a un recurso. Para hacer que los usuarios puedan solicitar los recursos es necesario agregar roles de recursos al paquete de acceso. Puede agregar roles de recursos para grupos, aplicaciones y sitios de SharePoint.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -62,7 +62,7 @@ Puede hacer que la administración de derechos agregue usuarios automáticamente
 Puede seleccionar cualquier grupo de seguridad de Office 365 o de Azure AD.  Los administradores pueden agregar cualquier grupo a un catálogo; los propietarios de catálogos pueden agregar cualquier grupo al catálogo si son los propietarios del grupo. Tenga en cuenta las siguientes restricciones de Azure AD al seleccionar un grupo:
 
 - Cuando se agrega como miembro a un usuario, incluido un invitado, a un grupo, puede ver a los demás miembros de ese grupo.
-- Azure AD no puede cambiar la pertenencia de un grupo que se ha sincronizado desde Windows Server Active Directory con Azure AD Connect.  
+- Azure AD no puede cambiar la pertenencia de un grupo que se ha sincronizado desde Windows Server Active Directory con Azure AD Connect o que se ha creado en Exchange Online como grupo de distribución.  
 - No se puede actualizar la pertenencia a grupos dinámicos agregando o eliminando a un miembro, por lo que las pertenencias a grupos dinámicos no son adecuadas para su uso con la administración de derechos.
 
 1. En la página **Agregar roles de recursos al paquete de acceso**, haga clic en **Grupos** para abrir el panel Seleccionar grupos.
@@ -136,7 +136,7 @@ Azure AD puede asignar automáticamente a los usuarios acceso a un sitio de Shar
 
 ## <a name="remove-resource-roles"></a>Eliminar roles de recursos
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -158,7 +158,7 @@ En el siguiente diagrama se muestra el proceso general para crear una directiva 
 
 ![Proceso de creación de una directiva](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -178,7 +178,7 @@ En el siguiente diagrama se muestra el proceso general para crear una directiva 
 
 Puede editar una directiva en cualquier momento. Si cambia la fecha de expiración para una directiva, la fecha de expiración para las solicitudes que ya están aprobadas o en un estado de aprobación pendiente no cambiará.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -200,7 +200,7 @@ Puede editar una directiva en cualquier momento. Si cambia la fecha de expiraci�
 
 En algunos casos, es posible que quiera asignar directamente usuarios específicos a un paquete de acceso para que los usuarios no tengan que pasar por el proceso de solicitar el paquete de acceso. Para asignar directamente usuarios, el paquete de acceso debe tener una directiva que permita las asignaciones directas de administrador.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -228,7 +228,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 ## <a name="view-who-has-an-assignment"></a>Ver quién tiene una asignación
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -248,7 +248,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 ## <a name="view-requests"></a>Ver solicitudes
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -260,7 +260,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 ## <a name="view-a-requests-delivery-errors"></a>Visualización de errores de entrega de una solicitud
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -280,7 +280,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 Solo se puede cancelar una solicitud pendiente que aún no se haya entregado.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -296,7 +296,7 @@ Solo se puede cancelar una solicitud pendiente que aún no se haya entregado.
 
 La mayoría de los usuarios del directorio pueden iniciar sesión en el portal Mi acceso y ver automáticamente una lista de paquetes de acceso que pueden solicitar. Pero para los usuarios de socios comerciales externos que aún no están en el directorio, deberá enviarles un vínculo que pueden usar para solicitar un paquete de acceso. Siempre que el paquete de acceso esté habilitado para los usuarios externos y tenga una directiva para el directorio del usuario externo, este puede utilizar el vínculo del portal Mi acceso para solicitar el paquete de acceso.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -312,7 +312,7 @@ La mayoría de los usuarios del directorio pueden iniciar sesión en el portal M
 
 De forma predeterminada, los paquetes de acceso son detectables. Esto significa que si una directiva permite que un usuario solicite el paquete de acceso, verá automáticamente que el paquete de acceso se muestra en el portal Mi acceso.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -330,7 +330,7 @@ De forma predeterminada, los paquetes de acceso son detectables. Esto significa 
 
 Solo se puede eliminar un paquete de acceso si no tiene ninguna asignación de usuarios activa.
 
-**Rol necesario:** Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 

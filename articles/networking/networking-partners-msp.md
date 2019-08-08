@@ -2,17 +2,17 @@
 title: 'Asociados de redes: Redes de Azure | Microsoft Docs'
 description: En este artículo se proporciona una lista de asociados de redes de MSP
 services: networking
-author: cherylmc
+author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.author: cherylmc
-ms.openlocfilehash: a28f787ba7796185112b7293b91688d2572f5e22
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/22/2019
+ms.author: sukishen
+ms.openlocfilehash: ffcfd48d9a93ee7c73e2597ff9bea704e0378440
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799945"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385202"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Acerca de los asociados de MSP de redes de Azure
 
@@ -28,7 +28,7 @@ Los clientes pueden adquirir ofertas de servicios administrados de MSP en Azure 
 
 Use los vínculos de esta sección para obtener más información acerca los servicios administrados de redes en la nube ofrecidos por los asociados de MSP de redes de Azure. Si el asociado de servicios de redes en la nube no aparece en la sección siguiente, pida a su proveedor que se ponga en contacto con nosotros. Para ello, debe enviarnos un correo electrónico a ManagedVirtualWAN@microsoft.com. 
 
-[Aryka](https://www.aryaka.com/)
+[Aryaka Networks](https://www.aryaka.com/)
 
 [BT](https://www.bt.com/)
 
@@ -38,7 +38,7 @@ Use los vínculos de esta sección para obtener más información acerca los ser
 
 [InterCloud](https://www.intercloud.com/)
 
-[IIJ](https://www.riverbed.com/go/steelconnect-azurewan.html)
+[IIJ](https://www.iij.ad.jp/en/)
 
 [Megaport](https://www.megaport.com/)
 

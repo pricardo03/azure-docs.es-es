@@ -1,21 +1,21 @@
 ---
-title: Entidades de coincidencia de texto extracto
+title: 'Entidades de coincidencia de texto extracto: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Información sobre cómo agregar una entidad de lista para ayudar a LUIS a etiquetar variaciones de una palabra o frase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117455"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637835"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
 En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  

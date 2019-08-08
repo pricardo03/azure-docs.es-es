@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 743f15c13a2e4fe7215229145b49fd87a32a1f18
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073238"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663275"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -51,7 +51,7 @@ Puede analizar la telemetría resultante ejecutando una consulta:
 
 En los resultados, observe que todos los elementos de telemetría comparten la raíz `operation_Id`. Cuando se realiza una llamada Ajax desde la página, se asigna un nuevo identificador único (`qJSXU`) a la telemetría de dependencia y el identificador de pageView se usa como `operation_ParentId`. La solicitud al servidor utiliza después el identificador de Ajax como `operation_ParentId`.
 
-| itemType   | Nombre                      | ID           | operation_ParentId | operation_Id |
+| itemType   | Nombre                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -85,6 +85,14 @@ De forma predeterminada, está deshabilitada. Para habilitarla, cambie `Applicat
 
 - En `RequestTrackingTelemetryModule` agregue el elemento `EnableW3CHeadersExtraction` con el valor establecido en `true`.
 - En `DependencyTrackingTelemetryModule` agregue el elemento `EnableW3CHeadersInjection` con el valor establecido en `true`.
+- Agregue `W3COperationCorrelationTelemetryInitializer` en el valor de `TelemetryInitializers` similar a 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de ASP.NET Core
 

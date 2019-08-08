@@ -8,16 +8,16 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0e58e7b3f77d9bb673e300aa60ad07ca9dba5153
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c355f70975f441609304a4c9ee2ead75f0e0ce25
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082169"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444597"
 ---
 # <a name="security-attributes-for-azure-vpn-gateway"></a>Atributos de seguridad de Azure VPN Gateway
 
-En este artículo se documentan los atributos de seguridad comunes integrados en Azure VPN Gateway.
+En este artículo, se explican los atributos de seguridad integrados en Azure VPN Gateway.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -52,7 +52,7 @@ En este artículo se documentan los atributos de seguridad comunes integrados en
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) para administrar el servicio y configurar Azure VPN Gateway. |
-| Autorización| Sí | Admitir la autorización a través de [RBAC](../role-based-access-control/overview.md). |
+| Authorization| Sí | Admitir la autorización a través de [RBAC](../role-based-access-control/overview.md). |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría

@@ -4,14 +4,14 @@ description: En este artículo se describen las diferentes opciones disponibles 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: e008b44ee2859f319d0250658d7c2beb190af1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967162"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467665"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante cualquiera d
 
 ## <a name="using-azure-functions"></a>Uso de Azure Functions
 
-Azure Functions es la opción más sencilla y recomendada. Cuando cree un desencadenador de Azure Cosmos DB en una aplicación de Azure Functions, puede seleccionar el contenedor al que conectarse, y la función se desencadenará siempre que se realice un cambio en el contenedor. Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación con SDK. Visual Studio y VS Code proporcionan compatibilidad para escribir funciones de Azure Functions e incluso puede usar la CLI de Azure Functions para el desarrollo multiplataforma. Puede escribir y depurar el código en el escritorio y, luego, implementar la función con un solo clic. Consulte los artículos [Informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md) y [Using change feed with Azure Functions](change-feed-functions.md) (Uso de la fuente de cambios con Azure Functions) para obtener más información.
+Azure Functions es la opción más sencilla y recomendada. Cuando cree un desencadenador de Azure Functions, puede seleccionar el contenedor al que conectarse, y la función se desencadenará siempre que se realice un cambio en el contenedor. Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación con SDK. Visual Studio y VS Code proporcionan compatibilidad para escribir funciones de Azure Functions e incluso puede usar la CLI de Azure Functions para el desarrollo multiplataforma. Puede escribir y depurar el código en el escritorio y, luego, implementar la función con un solo clic. Consulte los artículos [Informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md) y [Using change feed with Azure Functions](change-feed-functions.md) (Uso de la fuente de cambios con Azure Functions) para obtener más información.
 
 ## <a name="using-the-change-feed-processor-library"></a>Uso de la biblioteca de procesadores de fuente de cambios
 

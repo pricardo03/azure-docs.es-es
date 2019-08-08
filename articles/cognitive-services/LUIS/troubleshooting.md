@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes
+title: 'Preguntas más frecuentes (P+F): LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
 author: diberry
@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204099"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609764"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo?
-Siga las [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) en la siguiente pregunta frecuente para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
+Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>¿Cómo se protege el punto de conexión de LUIS?
 Consulte [Securing the endpoint](luis-concept-security.md#securing-the-endpoint) (Proteger el punto de conexión).

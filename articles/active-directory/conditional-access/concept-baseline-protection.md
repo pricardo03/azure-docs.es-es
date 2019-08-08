@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440799"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608172"
 ---
 # <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
@@ -58,9 +58,12 @@ Si su organización usa estas cuentas en scripts o código, piense en la posibil
 
 Los administradores con privilegios elevados no son los únicos blancos de los ataques. Los delincuentes tienden a dirigirse a usuarios normales. Después de obtener acceso, estos delincuentes pueden solicitar acceso a información privilegiada en nombre del titular original de la cuenta o descargar todo el directorio y realizar un ataque de suplantación de identidad en toda la organización. Un método común para mejorar la protección de todos los usuarios es exigir una forma más estricta de verificación de cuentas cuando se detecta un inicio de sesión de riesgo.
 
-**Protección del usuario final (versión preliminar)** es una directiva de base de referencia que protege a todos los usuarios en un directorio. Habilitar esta directiva requiere que todos los usuarios se registren en Azure Multi-factor Authentication en el plazo de 14 días. Una vez registrados, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablece la contraseña y se descarta el riesgo.
+**Protección del usuario final (versión preliminar)** es una directiva de base de referencia que protege a todos los usuarios en un directorio. Habilitar esta directiva requiere que todos los usuarios se registren en Azure Multi-factor Authentication en el plazo de 14 días. Una vez registrados, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablece la contraseña y se descarta el riesgo. 
 
-### <a name="block-legacy-authentication-preview"></a>Bloquear la autenticación heredada (versión preliminar)
+[!NOTE]
+Los usuarios marcados anteriormente como de riesgo se bloquean hasta que se restablezca la contraseña y se descarte el riesgo tras la activación de la directiva.
+
+### <a name="block-legacy-authentication-preview"></a>bloqueo de la autenticación heredada (versión preliminar)
 
 Los protocolos de autenticación heredados (p. ej.: IMAP, SMTP, POP3) son protocolos usados normalmente por los clientes de correo electrónico más antiguos para autenticarse. Los protocolos heredados no admiten la autenticación multifactor. Incluso si tiene una directiva que exige la autenticación multifactor para su directorio, un delincuente puede autenticarse con uno de estos protocolos heredados y omitir la autenticación multifactor.
 
@@ -94,7 +97,7 @@ Para habilitar una directiva de base de referencia:
 
 Para más información, consulte:
 
-* [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
+* [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
 * [Requerir MFA para administradores (versión preliminar)](howto-baseline-protect-administrators.md)
 * [Protección del usuario final (versión preliminar)](howto-baseline-protect-end-users.md)

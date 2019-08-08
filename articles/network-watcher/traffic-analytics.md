@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;kumud
-ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: yagup
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051665"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620125"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -54,13 +55,13 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 
 ![Flujo de datos del procesamiento de registros de flujo del grupo de seguridad de red](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>Regiones admitidas
+## <a name="supported-regions-nsg"></a>Regiones admitidas: Grupo de seguridad de red 
 
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 
 * Centro de Canadá
 * Centro occidental de EE.UU.
-* Este de EE. UU
+* East US
 * Este de EE. UU. 2
 * Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
@@ -84,10 +85,12 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 * Oeste de Japón
 * Gobierno de EE. UU. - Virginia
 
+## <a name="supported-regions-log-analytics-workspaces"></a>Regiones admitidas: Áreas de trabajo de Log Analytics
+
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Centro de Canadá
 * Centro occidental de EE.UU.
-* Este de EE. UU
+* East US
 * Este de EE. UU. 2
 * Centro-Sur de EE. UU
 * Oeste de EE. UU.
@@ -112,7 +115,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 
 La cuenta debe ser miembro de uno de los siguientes [roles integrados](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) de Azure:
 
-|Modelo de implementación   | Rol                   |
+|Modelo de implementación   | Role                   |
 |---------          |---------               |
 |Resource Manager   | Propietario                  |
 |                   | Colaborador            |
@@ -136,7 +139,7 @@ Para información sobre cómo comprobar los permisos de acceso de usuario, consu
 
 ### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
-Para analizar el tráfico, debe tener una instancia de Network Watcher existente, o [habilitar una instancia de Network Watcher](network-watcher-create.md) en cada región en la que haya grupos de seguridad de red donde desee analizar el tráfico. Análisis de tráfico se puede habilitar para los grupos de seguridad de red hospedados en cualquiera de las [regiones admitidas](#supported-regions).
+Para analizar el tráfico, debe tener una instancia de Network Watcher existente, o [habilitar una instancia de Network Watcher](network-watcher-create.md) en cada región en la que haya grupos de seguridad de red donde desee analizar el tráfico. Análisis de tráfico se puede habilitar para los grupos de seguridad de red hospedados en cualquiera de las [regiones admitidas](#supported-regions-nsg).
 
 ### <a name="select-a-network-security-group"></a>Selección de un grupo de seguridad de red
 
@@ -146,7 +149,7 @@ En el lado izquierdo de Azure Portal, seleccione **Monitor** y, a continuación,
 
 ![Selección de los grupos de seguridad de red que requieren la habilitación del registro de flujos de NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Si intenta habilitar Análisis de tráfico para un grupo de seguridad de red que se hospeda en una región distinta de las [regiones admitidas](#supported-regions), recibirá un error "No encontrado".
+Si intenta habilitar Análisis de tráfico para un grupo de seguridad de red que se hospeda en una región distinta de las [regiones admitidas](#supported-regions-nsg), recibirá un error "No encontrado".
 
 ## <a name="enable-flow-log-settings"></a>Habilitación de la configuración del flujo de registros
 
@@ -173,17 +176,18 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
 1. En *Estado*, seleccione **Activo**.
 2. En *Versión de los registros de flujo*, seleccione **Versión 2**. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
-3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento.
+3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento. Asegúrese de que el almacenamiento no tenga el "espacio de nombres jerárquico de Data Lake Storage Gen2 habilitado" establecido en true. Además, los registros de flujos de los grupos de seguridad de red no se pueden almacenar en una cuenta de Storage con un firewall. 
 4. Establezca **Retención** en el número de días que desea almacenar los datos.
 5. Seleccione *Activo* en **Estado de Análisis de tráfico**.
-6. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#supported-regions) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+6. Seleccione el intervalo de procesamiento. En función de su elección, los registros de flujos se recopilan de la cuenta de almacenamiento y se procesan mediante Análisis de tráfico. Puede elegir el intervalo de procesamiento de cada hora o cada 10 minutos.
+7. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#supported-regions-log-analytics-workspaces) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
-7. Seleccione **Guardar**.
+8. Seleccione **Guardar**.
 
-    ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y los reglamentos locales de su país o región permiten el almacenamiento de datos en la región donde existe el área de trabajo.
+Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo. Si ha establecido intervalos de procesamiento diferentes para NSG diferentes, los datos se recopilarán en distintos intervalos. Por ejemplo:  Puede optar por habilitar el intervalo de procesamiento de 10 minutos para redes virtuales críticas y el de una hora para redes virtuales no críticas.
 
 También puede configurar el análisis de tráfico mediante el cmdlet [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) de PowerShell en Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 

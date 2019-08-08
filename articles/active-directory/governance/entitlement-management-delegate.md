@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: e4e21fdef5be09148f001ab6f66f87dd270ccf54
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618270"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegación de tareas en Administración de derechos de Azure AD (versión preliminar)
 
@@ -136,7 +136,7 @@ Si desea delegar la creación del catálogo, agregue usuarios al rol de creador 
 
 Si desea delegar la administración de un catálogo o de paquetes de acceso del catálogo, agregue usuarios a los roles de propietario del catálogo o de administrador de paquetes de acceso. Quien crea un catálogo se convierte en el primer propietario del catálogo. Siga estos pasos para asignar un usuario al rol de propietario del catálogo o de administrador de paquetes de acceso.
 
-**Rol necesario:** administrador de usuarios o propietario del catálogo
+**Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 0fc1b65a4ba1c8a3d76b48206d6a4703035e05bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055332"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335736"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envío de mensajes de la nube al dispositivo desde un centro de IoT
 
@@ -43,7 +43,7 @@ Un dispositivo también puede:
 
 * *Abandonar* el mensaje, lo que hace que el centro de IoT vuelva a ponerlo en la cola con el estado *Enqueued* (En cola). Los dispositivos que se conectan mediante el protocolo MQTT no pueden abandonar mensajes de la nube al dispositivo.
 
-Podría producirse un error en el subproceso al procesar un mensaje sin notificar al centro de IoT. En este caso, los mensajes pasan automáticamente del estado *Invisible* al estado *Enqueued* (En cola) después de un tiempo de espera de *visibilidad* (o de *bloqueo*). El valor predeterminado de este tiempo de espera es un minuto.
+Podría producirse un error en el subproceso al procesar un mensaje sin notificar al centro de IoT. En este caso, los mensajes pasan automáticamente del estado *Invisible* al estado *Enqueued* (En cola) después de un tiempo de espera de *visibilidad* (o de *bloqueo*). El valor de este tiempo de espera es de un minuto y no se puede cambiar.
 
 La propiedad **max delivery count** en el centro de IoT determina el número máximo de veces que un mensaje puede cambiar del estado *Enqueued* (En cola) a *Invisible* y viceversa. Después de ese número de transiciones, el centro de IoT establece el estado del mensaje en *En cola de mensajes fallidos*. De igual forma, el centro de IoT establece el estado de un mensaje en *En cola de mensajes fallidos* después de su fecha de expiración. Para más información, consulte [Período de vida](#message-expiration-time-to-live).
 

@@ -1,32 +1,32 @@
 ---
-title: Glosario
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Glosario: LUIS'
+titleSuffix: Azure Cognitive Services
 description: En el glosario se explican los términos que puede encontrar cuando use el servicio de API de LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302522"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638295"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
 
 ## <a name="active-version"></a>Versión activa
 
-La versión activa de LUIS es la versión que recibe los cambios que se hagan en el modelo. En el sitio web de [LUIS](luis-reference-regions.md), si quiere realizar cambios en una versión que no sea la versión activa, primero debe establecer esa versión como activa.
+La versión activa de LUIS es la versión que recibe los cambios que se hagan en el modelo. En el portal de [LUIS](luis-reference-regions.md), si quiere realizar cambios en una versión que no sea la versión activa, primero debe establecer esa versión como activa.
 
 ## <a name="authoring"></a>Creación
 
-La creación es la capacidad de crear, administrar e implementar una [aplicación de LUIS](#luis-app), ya sea mediante el sitio web de [LUIS](luis-reference-regions.md) o las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087).
+La creación es la capacidad de crear, administrar e implementar una [aplicación de LUIS](#luis-app), ya sea mediante el portal de [LUIS](luis-reference-regions.md) o las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Clave de creación
 
@@ -34,30 +34,12 @@ Antes se denominaba clave "de programación". Se usa para crear la aplicación. 
 
 ## <a name="batch-test-json-file"></a>Archivo JSON de texto por lotes
 
-El archivo por lotes es una matriz JSON. Cada elemento de la matriz tiene tres propiedades: `text`, `intent` y `entities`. La propiedad `entities` es una matriz. La matriz puede estar vacía. Si la matriz `entities` no está vacía, necesita identificar las entidades con precisión.
+Las pruebas por lotes son la capacidad de validar el modelo de la aplicación de LUIS actual con un conjunto de pruebas coherente y conocido de expresiones del usuario. La prueba por lotes se define en un [archivo con formato JSON](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Consulte también: 
+* [Conceptos](luis-concept-batch-test.md)
+* [Procedimiento](luis-how-to-batch-test.md)
+* [Tutorial]luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Colaborador
@@ -114,7 +96,7 @@ Una [intención](luis-concept-intent.md) representa una tarea o acción que el u
 
 ## <a name="labeling"></a>Etiquetado
 
-El etiquetado es el proceso de asociar una palabra o frase en la [expresión](#utterance) de una intención con una [entidad](#entity) (tipo de datos).
+El etiquetado (o marcado) es el proceso de asociar una palabra o frase en la [expresión](#utterance) de una intención con una [entidad](#entity) (tipo de datos).
 
 ## <a name="luis-app"></a>Aplicación de LUIS
 

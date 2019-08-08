@@ -1,5 +1,5 @@
 ---
-title: Intenciones creadas previamente
+title: Intenciones creadas previamente para Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS incluye un conjunto de intenciones creadas previamente para agregar rápidamente escenarios de usuario comunes y de conversación.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8e11b6d5a9c9df10e789c8e0be3a90d94ecf3d23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb9d9b366dd9c4dbb02e9c79a908ba3b1bf1e3f0
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505689"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637879"
 ---
 # <a name="add-prebuilt-intents-for-common-intents"></a>Agregar intenciones creadas previamente a las intenciones comunes 
 

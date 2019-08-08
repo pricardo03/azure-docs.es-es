@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363605"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68377213"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de pruebas para la replicación de Hyper-V a un sitio secundario
 
@@ -108,7 +108,7 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 
 | Server | RAM | Modelo | Procesador | Número de procesadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V en clúster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tiene 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
+| Servidores de Hyper-V en clúster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tiene 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sitio secundario
@@ -133,11 +133,11 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 
 | Carga de trabajo | Tamaño de E/S (KB) | % de acceso | % de lectura | Operaciones de E/s pendientes | Patrón de E/S |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de archivos |48163264 |60% 20 %5 %5% 10% |80% de 80 80% 80% 80% |88888 |Todos 100% aleatorios |
-| SQL Server (volumen 1) SQL Server (volumen 2) |864 |100% 100% |70% %0 |88 |100% aleatorio 100% secuencial |
+| Servidor de archivos |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5 %<br />5 %<br />10% |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |Todos 100% aleatorios |
+| SQL Server (volumen 1)<br />SQL Server (volumen 2) |8<br />64 |100%<br />100% |70%<br />0 % |8<br />8 |100% aleatorio<br />100 % secuencial |
 | Exchange |32 |100% |67% |8 |100% aleatorio |
-| Estación de trabajo/VDI |464 |66% 34% |70% 95% |11 |Los dos 100% aleatorios |
-| Servidor de archivos web |4864 |33% 34% 33% |95% 95 95% |888 |Todos 75% aleatorios |
+| Estación de trabajo/VDI |4<br />64 |66 %<br />34 % |70%<br />95 % |1<br />1 |Los dos 100% aleatorios |
+| Servidor de archivos web |4<br />8<br />64 |33 %<br />34 %<br />33 % |95 %<br />95 %<br />95 % |8<br />8<br />8 |Todos 75% aleatorios |
 
 ### <a name="vm-configuration"></a>Configuración de VM
 

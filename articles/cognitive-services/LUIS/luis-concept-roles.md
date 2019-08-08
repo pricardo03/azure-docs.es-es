@@ -1,5 +1,5 @@
 ---
-title: Roles para entidades
+title: 'Roles para entidades: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Los roles son subtipos contextuales con nombre de una entidad que solo se usa en patrones. Por ejemplo, en la expresión `buy a ticket from New York to London`, New York (Nueva York) y London (Londres) son ciudades, pero cada una tiene un significado diferente en la frase. New York (Nueva York) es la ciudad de origen y London (Londres) es la de destino.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073026"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638335"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Roles de entidad para subtipos contextuales
 
@@ -35,10 +35,10 @@ buy a ticket from New York to London
 
 Los roles dan un nombre a esas diferencias:
 
-|Tipo de entidad|Nombre de entidad|Rol|Propósito|
+|Tipo de entidad|Nombre de entidad|Role|Propósito|
 |--|--|--|--|
-|Simple|Ubicación|origin|De dónde sale el avión|
-|Simple|Ubicación|de destino|En dónde aterriza el avión|
+|Simple|Location|origin|De dónde sale el avión|
+|Simple|Location|de destino|En dónde aterriza el avión|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Ejemplo de entidad que no es de aprendizaje automático de roles
 

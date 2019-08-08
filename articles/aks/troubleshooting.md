@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966383"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381949"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -65,7 +65,7 @@ Si no ve el panel de Kubernetes, compruebe que el pod `kube-proxy` se está ejec
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp…" ¿Cuál debo hacer?
 
-Asegúrese de que el grupo de seguridad de red predeterminado no se ha modificado y que el puerto 22 está abierto para la conexión al servidor de API. Compruebe si el pod `tunnelfront` se ejecuta en el espacio de nombres *kube-system* con el comando `kubectl get pods --namespace kube-system`. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
+Asegúrese de que el grupo de seguridad de red predeterminado no se ha modificado y que los puertos 22 y 9000 están abiertos para la conexión al servidor de API. Compruebe si el pod `tunnelfront` se ejecuta en el espacio de nombres *kube-system* con el comando `kubectl get pods --namespace kube-system`. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el mensaje "message: Changing property 'imageReference' is not allowed" ("mensaje: No se permite cambiar la propiedad 'imageReference'"). ¿Cómo se corrige este problema?
 

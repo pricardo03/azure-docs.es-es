@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257096"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637780"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Información general sobre la biblioteca BulkExecutor de Azure Cosmos DB
  
@@ -44,11 +44,11 @@ Cuando se desencadena una operación en masa para importar o actualizar document
 
 ![Arquitectura del ejecutor en masa](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La biblioteca de BulkExecutor se asegura de la máxima utilización de la capacidad de proceso asignada a una colección. Usa un  [mecanismo de control de la congestión del estilo de AIMD](https://tools.ietf.org/html/rfc5681) para que cada rango con clave de particiones de Azure Cosmos DB controle con eficacia las limitaciones de velocidad y los tiempos de espera. 
+La biblioteca Bulk Executor se asegura de la máxima utilización de la capacidad de proceso asignada a una colección. Usa un  [mecanismo de control de la congestión del estilo de AIMD](https://tools.ietf.org/html/rfc5681) para que cada rango con clave de particiones de Azure Cosmos DB controle con eficacia las limitaciones de velocidad y los tiempos de espera. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
   
-* Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca de BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md).  
+* Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca Bulk Executor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md).  
 * Consulte la información sobre el SDK y las notas de la versión de BulkExecutor en [.NET](sql-api-sdk-bulk-executor-dot-net.md) y [Java](sql-api-sdk-bulk-executor-java.md).
-* La biblioteca de BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
+* La biblioteca Bulk Executor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
 * La biblioteca de BulkExecutor también está integrada en una nueva versión del [conector de Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) para que Azure Data Factory copie datos.

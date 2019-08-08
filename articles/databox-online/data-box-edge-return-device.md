@@ -1,23 +1,23 @@
 ---
-title: Devolución del dispositivo Azure Data Box Edge| Microsoft Docs
-description: Describe cómo devolver el dispositivo Azure Data Box Edge y eliminar el pedido del dispositivo.
+title: Devolución o sustitución del dispositivo Azure Data Box Edge | Microsoft Docs
+description: Describe cómo devolver o reemplazar el dispositivo Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 07/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468610"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356146"
 ---
-# <a name="return-your-azure-data-box-edge-device"></a>Devolución del dispositivo Azure Data Box Edge
+# <a name="return-or-replace-your-azure-data-box-edge-device"></a>Devolución o sustitución del dispositivo Azure Data Box Edge
 
-En este artículo se describe cómo borrar los datos y, a continuación, devolver el dispositivo Azure Data Box Edge. Una vez que haya devuelto el dispositivo, también puede eliminar el recurso asociado al dispositivo.
+En este artículo se describe cómo borrar los datos y, a continuación, devolver el dispositivo Azure Data Box Edge. Una vez que haya devuelto el dispositivo, también puede eliminar el recurso asociado al dispositivo o solicitar un dispositivo de sustitución.
 
 En este artículo, aprenderá a:
 
@@ -26,6 +26,7 @@ En este artículo, aprenderá a:
 > * Abrir una incidencia de soporte técnico para devolver el dispositivo
 > * Empaquetar el dispositivo y programar una recogida
 > * Eliminar el recurso en Azure Portal
+> * Obtener un dispositivo de sustitución
 
 ## <a name="erase-data-from-the-device"></a>Borrar los datos del dispositivo
 
@@ -105,6 +106,21 @@ Siga estos pasos para eliminar el dispositivo y el recurso en Azure Portal.
     ![Confirmar eliminación](media/data-box-edge-return-device/delete-resource-2.png)
 
 Se le notificará una vez el dispositivo y el recurso asociado se hayan eliminado correctamente.
+
+## <a name="get-a-replacement-device"></a>Obtener un dispositivo de sustitución
+
+Se necesita un dispositivo de sustitución cuando el dispositivo existente tiene un error de hardware o necesita una actualización. Siga estos pasos cuando el dispositivo tenga un problema de hardware:
+
+1. [Abra una incidencia de soporte técnico para el problema de hardware](#open-a-support-ticket). El equipo de Soporte técnico de Microsoft determinará si no está disponible para esta instancia una unidad de reemplazo de campo (FRU) o si el dispositivo necesita una actualización de hardware. En cualquier caso, el equipo de soporte técnico pedirá un dispositivo de sustitución.
+2. [Cree un nuevo recurso](data-box-edge-deploy-prep.md#create-a-new-resource) para el dispositivo de sustitución. Asegúrese de activar la casilla **Tengo un dispositivo Data Box Edge**. 
+3. Después de recibir un dispositivo de sustitución, [instale](data-box-edge-deploy-install.md) y [active](data-box-edge-deploy-connect-setup-activate.md) el dispositivo de sustitución en el nuevo recurso.
+4. Siga todos los pasos para devolver el dispositivo original:
+    1. Abra otra incidencia de soporte técnico para devolver el dispositivo original.
+    2. [Borre los datos del dispositivo](#erase-data-from-the-device).
+    3. [Programe una recogida](#schedule-a-pickup).
+    5. [Elimine el recurso](#delete-the-resource) asociado al dispositivo devuelto.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107666"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619262"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -89,18 +89,11 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 > Los clientes ahora pueden solucionar problemas de directivas de acceso condicional con todos los informes de inicios de sesión. Al hacer clic en la pestaña **Acceso condicional** de un registro de inicio de sesión, los clientes pueden revisar el estado de acceso condicional y profundizar en los detalles de las directivas que se aplican al inicio de sesión y del resultado de cada directiva.
 > Para más información, vea las [preguntas más frecuentes sobre la información de acceso condicional en todos los inicios de sesión](reports-faq.md#conditional-access).
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/ConditionalAccess.png "Actividad de inicio de sesión")
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión
 
-Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de inicio de sesión con los siguientes campos predeterminados:
-
-- Usuario
-- Application
-- Estado de inicio de sesión
-- Acceso condicional
-- Date
+Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de inicio de sesión con el campo de fecha como filtro predeterminado. Además, Azure AD proporciona una amplia gama de filtros adicionales que puede establecer.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
 
@@ -196,7 +189,7 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Identificador de aplicación
 - Application
 - Cliente
-- Ubicación
+- Location
 - Dirección IP
 - Date
 - Se requiere MFA

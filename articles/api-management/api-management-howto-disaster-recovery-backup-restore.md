@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6507c39faecfa0e56fc19597e414e9d25d368567
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460869"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498588"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -178,7 +178,8 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 -   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 -   La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
-
+-   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage. El cliente debe abrir el siguiente conjunto de direcciones IP de entrada en la cuenta de almacenamiento para la copia de seguridad. 
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 ### <a name="step2"></a>Restaurar el servicio Administración de API
 
 Para restaurar el servicio API Management de una copia de seguridad anterior, realice esta solicitud HTTP:

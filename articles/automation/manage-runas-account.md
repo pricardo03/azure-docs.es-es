@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798477"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498392"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -34,7 +34,7 @@ Existen dos tipos de cuentas de ejecución:
   * Crea un recurso de certificado de Automation llamado *AzureClassicRunAsCertificate* en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que usa el certificado de administración.
   * Crea un recurso de conexión de Automation llamado *AzureClassicRunAsConnection* en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
   * Debe ser coadministrador de la suscripción para crear o renovar.
-  
+
   > [!NOTE]
   > Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción a CSP la Cuenta de ejecución de Azure clásico no se crea. Se sigue creando la Cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
@@ -64,14 +64,14 @@ Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Creación de una cuenta de ejecución en el portal
 
-En esta sección, realizará los pasos que se describen a continuación para actualizar su cuenta de Azure Automation en Azure Portal. Las cuentas de ejecución y de ejecución clásica se crean de forma individual. Si no es necesario administrar los recursos clásicos, basta con crear la cuenta de ejecución de Azure.  
+En esta sección, realizará los pasos que se describen a continuación para actualizar su cuenta de Azure Automation en Azure Portal. Las cuentas de ejecución y de ejecución clásica se crean de forma individual. Si no es necesario administrar los recursos clásicos, basta con crear la cuenta de ejecución de Azure.
 
 1. Inicie sesión en Azure Portal con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
 2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
 3. En la página **Cuentas de Automation**, seleccione su cuenta de Automation en la lista Cuentas de Automation.
-4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.  
-5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**, aparece el panel. Revise la información general y haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.  
-6. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. Este proceso puede tardar unos minutos en completarse.  
+4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.
+5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**, aparece el panel. Revise la información general y haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.
+6. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. Este proceso puede tardar unos minutos en completarse.
 
 ## <a name="create-run-as-account-using-powershell"></a>Creación de una cuenta de ejecución con PowerShell
 
@@ -87,7 +87,7 @@ En la lista siguiente se proporcionan los requisitos para crear una cuenta de ej
 Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccountName*, que son parámetros necesarios para el script, siga estos pasos:
 
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
-1. En la página Cuenta de Automation, seleccione su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Propiedades**.  
+1. En la página Cuenta de Automation, seleccione su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Propiedades**.
 1. Anote los valores de **Id. de suscripción**, **Nombre** y **Grupo de recursos** en la página **Propiedades**.
 
    ![Página "Propiedades" de la cuenta de Automation](media/manage-runas-account/automation-account-properties.png)
@@ -158,18 +158,18 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
         Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
     }
 
-    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
+    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
         $keyId = (New-Guid).Guid
 
         # Create an Azure AD application, AD App Credential, AD ServicePrincipal
 
         # Requires Application Developer Role, but works with Application administrator or GLOBAL ADMIN
-        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
+        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId)
         # Requires Application administrator or GLOBAL ADMIN
         $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $PfxCert.NotBefore -EndDate $PfxCert.NotAfter
         # Requires Application administrator or GLOBAL ADMIN
-        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
         # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
@@ -187,7 +187,7 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
     }
 
     function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName, [string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
-        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force   
+        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force
         Remove-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
         New-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
     }
@@ -212,7 +212,7 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
     # Enable-AzureRmAlias
 
 
-    Connect-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     # Create a Run As account by using a service principal
@@ -289,29 +289,29 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
     > **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount** o [actualizar los módulos](automation-update-azure-modules.md) en su cuenta de Automation.
 
 1. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** con permisos de usuario elevados.
-1. Desde el shell de línea de comandos con privilegios elevados, vaya a la carpeta que contiene el script que creó en el paso 1.  
+1. Desde el shell de línea de comandos con privilegios elevados, vaya a la carpeta que contiene el script que creó en el paso 1.
 1. Ejecute el script mediante los valores de parámetro de la configuración que necesita.
 
-    **Creación de una cuenta de ejecución mediante un certificado autofirmado**  
+    **Creación de una cuenta de ejecución mediante un certificado autofirmado**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
     ```
 
-    **Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado**  
+    **Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
     ```
 
-    **Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado de empresa**  
+    **Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado de empresa**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
     ```
 
     **Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado en la nube de Azure Government**
-  
+
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
     ```
@@ -368,9 +368,46 @@ Para renovar el certificado, realice estos pasos:
 
 1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**.
 
+## <a name="auto-cert-renewal"></a>Configuración de la renovación automática de certificados con un runbook de Automation
+
+Para renovar los certificados automáticamente, puede usar un runbook de Automation. El siguiente script en [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) habilita esta funcionalidad en la cuenta de Automation.
+
+- El script `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` crea una programación semanal para renovar los certificados de la cuenta de ejecución.
+- El script agrega el runbook **Update-AutomationRunAsCredential** a la cuenta de Automation.
+  - También puede ver el código de runbook en GitHub, en el script: [Update-AutomationRunAsCredential.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
+  - Asimismo puede usar el código de PowerShell en el archivo para renovar los certificados manualmente según sea necesario.
+
+Para probar el proceso de renovación de inmediato, siga estos pasos:
+
+1. Edite el runbook **Update-AutomationRunAsCredential** y coloque un carácter de comentario (`#`) en la línea 122, delante del comando `Exit(1)`, como se muestra a continuación.
+
+   ```powershell
+   #Exit(1)
+   ```
+
+2. Publique el runbook.
+3. Inicie el runbook.
+4. Compruebe la renovación correcta con el código siguiente:
+
+   ```powershell
+   (Get-AzAutomationCertificate -AutomationAccountName TestAA
+                                -Name AzureRunAsCertificate
+                                -ResourceGroupName TestAutomation).ExpiryTime.DateTime
+   ```
+
+   ```Output
+   Thursday, November 7, 2019 7:00:00 PM
+   ```
+
+5. Después de la prueba, edite el runbook y quite el carácter de comentario que ha agregado en el **paso 1**.
+6. **Publique** el runbook.
+
+> [!NOTE]
+> Debe ser un **administrador global** o un **administrador de empresa** en Azure Active Directory para ejecutar el script.
+
 ## <a name="limiting-run-as-account-permissions"></a>Limitación de los permisos de las cuentas de ejecución
 
-Para controlar el destino de la automatización en los recursos de Azure, puede ejecutar el script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) en la galería de PowerShell para cambiar la entidad de servicio de la cuenta de ejecución existente para crear y usar una definición de roles personalizada. Este rol tendrá permisos para todos los recursos excepto para [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
+Para controlar el destino de la automatización en los recursos de Azure, puede ejecutar el script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) en la galería de PowerShell para cambiar la entidad de servicio de la cuenta de ejecución existente para crear y usar una definición de roles personalizada. Este rol tendrá permisos para todos los recursos excepto para [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 > [!IMPORTANT]
 > Después de ejecutar el script `Update-AutomationRunAsAccountRoleAssignments.ps1`, los runbooks que acceden a Key Vault mediante el uso de cuentas de ejecución dejarán de funcionar. Debe revisar los runbooks de su cuenta para las llamadas a Azure Key Vault.
@@ -385,7 +422,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-Para determinar si la entidad de servicio que la cuenta de ejecución usa está en el rol **Colaborador** o en una definición de roles personalizada, vaya a su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución** > **Cuenta de ejecución de Azure**. En **Rol** encontrará la definición de roles que se está usando. 
+Para determinar si la entidad de servicio que la cuenta de ejecución usa está en el rol **Colaborador** o en una definición de roles personalizada, vaya a su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución** > **Cuenta de ejecución de Azure**. En **Rol** encontrará la definición de roles que se está usando.
 
 [![](media/manage-runas-account/verify-role.png "Comprobación del rol de la cuenta de ejecución")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 

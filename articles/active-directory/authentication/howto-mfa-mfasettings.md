@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113452"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499897"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -143,6 +143,31 @@ Por ejemplo, si hay solo un mensaje personalizado en alemán:
 1. Elija el idioma.
 1. Seleccione un archivo de sonido. mp3 o .wav para cargar.
 1. Seleccione **Agregar**.
+
+### <a name="custom-voice-message-defaults"></a>Valores predeterminados de los mensajes de voz personalizados
+
+Scripts de ejemplo para crear mensajes personalizados.
+
+| Nombre del mensaje | Script |
+| --- | --- |
+| Autenticación correcta | Su inicio de sesión se comprobó correctamente. Adiós. |
+| Solicitud de extensión | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para continuar. |
+| Confirmación de fraude | Se ha enviado una alerta de fraude. Para desbloquear su cuenta, póngase en contacto con el departamento de soporte técnico de TI de su empresa. |
+| Saludo de fraude (Estándar) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. Si no inició esta comprobación, es posible que otra persona esté intentando acceder a su cuenta. Presione cero para enviar una alerta de fraude. Se enviará una notificación al equipo de TI de su empresa y se bloqueará cualquier otro intento de comprobación. |
+| Fraude notificado: se ha enviado una alerta de fraude. | Para desbloquear su cuenta, póngase en contacto con el departamento de soporte técnico de TI de su empresa. |
+| Activación | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. |
+| Reintento tras denegación de autenticación | Comprobación denegada. |
+| Reintento (Estándar) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. |
+| Saludo (Estándar) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. |
+| Saludo (PIN) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Escriba el PIN seguido de la tecla almohadilla para finalizar la comprobación. |
+| Saludo de fraude (PIN) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft.  Escriba el PIN seguido de la tecla almohadilla para finalizar la comprobación. Si no inició esta comprobación, es posible que otra persona esté intentando acceder a su cuenta. Presione cero para enviar una alerta de fraude. Se enviará una notificación al equipo de TI de su empresa y se bloqueará cualquier otro intento de comprobación. |
+| Reintento (PIN) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Escriba el PIN seguido de la tecla almohadilla para finalizar la comprobación. |
+| Solicitud de extensión tras dígitos | Si ya se encuentra conectado a esta extensión, presione la tecla almohadilla para continuar. |
+| Autenticación denegada | Lo sentimos, no puede iniciar sesión en este momento. Inténtelo de nuevo más tarde. |
+| Saludo de activación (Estándar) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. |
+| Reintento de activación (Estándar) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Presione la tecla almohadilla para finalizar la comprobación. |
+| Saludo de activación (PIN) | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Escriba el PIN seguido de la tecla almohadilla para finalizar la comprobación. |
+| Solicitud de extensión antes de dígitos | Gracias por usar el sistema de comprobación de inicio de sesión de Microsoft. Transfiera esta llamada a la extensión… |
 
 ## <a name="one-time-bypass"></a>Omisión por única vez
 

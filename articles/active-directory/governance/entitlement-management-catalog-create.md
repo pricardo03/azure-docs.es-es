@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489087"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618319"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Creación y administración de un catálogo en la administración de derechos de Azure AD (versión preliminar)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489087"
 
 Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. Quien cree el catálogo se convertirá en su primer propietario. El propietario de un catálogo puede agregar otros propietarios.
 
-**Rol necesario:** administrador de usuarios o creador de catálogos
+**Rol necesario:** Administrador global, administrador de usuarios o creador de catálogos.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -102,7 +102,7 @@ Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un cat
 
 Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta información en los detalles de un paquete de acceso.
 
-**Rol necesario:** administrador de usuarios o propietario del catálogo
+**Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 
@@ -118,7 +118,7 @@ Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta 
 
 Puede eliminar un catálogo, pero solo si no tiene ningún paquete de acceso.
 
-**Rol necesario:** administrador de usuarios o propietario del catálogo
+**Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 

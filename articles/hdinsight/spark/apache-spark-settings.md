@@ -1,19 +1,19 @@
 ---
 title: 'Configuración de las opciones de Spark: Azure HDInsight'
 description: Cómo configurar Spark para un clúster de Azure HDInsight.
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d5dca3f4517f3d24b765652f420a38c258ad9a2e
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190914"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441930"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 
@@ -57,7 +57,7 @@ El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco par�
 
 ## <a name="view-cluster-configuration-settings"></a>Visualización de las opciones de configuración del clúster
 
-Compruebe las opciones de configuración actuales del clúster de HDInsight antes de realizar la optimización del rendimiento en el clúster. Para iniciar el panel de HDInsight desde Azure Portal, haga clic en el vínculo **Panel** en el panel del clúster de Spark. Inicie sesión en el nombre de usuario y la contraseña del administrador del clúster.
+Compruebe las opciones de configuración actuales del clúster de HDInsight antes de realizar la optimización del rendimiento en el clúster. Para iniciar el panel de HDInsight desde Azure Portal, haga clic en el vínculo **Panel** en el panel del clúster de Spark. Inicie sesión con el nombre de usuario y la contraseña del administrador del clúster.
 
 Aparece la interfaz de usuario web de Apache Ambari, con una vista del panel de las principales métricas de utilización de los recursos del clúster.  El panel de Ambari muestra la configuración de Apache Spark, así como los otros servicios que haya instalado. El panel incluye una pestaña con el **historial de configuración**, donde puede ver información de configuración de todos los servicios instalados, incluido Spark.
 

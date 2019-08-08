@@ -1,18 +1,18 @@
 ---
 title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: Obtenga información sobre la copia de seguridad de máquina virtual de Azure y tenga en cuenta algunos procedimientos recomendados.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465230"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639733"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
 
@@ -111,8 +111,8 @@ Estos escenarios comunes pueden afectar al tiempo total de copia de seguridad:
 Al configurar las copias de seguridad de VM, se recomienda seguir estos procedimientos recomendados:
 
 - Modificar las horas de programación predeterminadas que se establecen en una directiva. Por ejemplo, si la hora predeterminada en la directiva es 00:00 h, incremente el tiempo en varios minutos para que los recursos se usen de forma óptima.
-- Para la copia de seguridad de VM que usan almacenamiento premium, recomendamos ejecutar la versión más reciente de Azure Backup ([restauración instantánea](backup-instant-restore-capability.md)). Si no ejecuta la versión más reciente, Azure Backup asigna aproximadamente un 50 % del espacio de almacenamiento total. El servicio de copia de seguridad requiere este espacio para copiar la instantánea en la misma cuenta de almacenamiento y para transferirla al almacén.
 - Si va a restaurar las VM desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
+- Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 - Las restauraciones de una capa de almacenamiento de uso general v1 (instantánea) se completará en cuestión de minutos, porque la instantánea está en la misma cuenta de almacenamiento. Las restauraciones de la capa de almacenamiento de uso general v2 (almacén) pueden tardar horas. En los casos en los que los datos están disponibles en el almacenamiento de uso general v1, recomendamos que use la característica de [restauración instantánea](backup-instant-restore-capability.md) para lograr restauraciones más rápidas. (Si los datos deben restaurarse desde un almacén, se tardará más tiempo).
 - El límite del número de discos por cuenta de almacenamiento es relativo a la frecuencia de acceso a los discos de parte de las aplicaciones que se ejecutan en una VM de infraestructura como servicio (IaaS). Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, mueva algunos discos a cuentas de almacenamiento separadas para equilibrar la carga.
 

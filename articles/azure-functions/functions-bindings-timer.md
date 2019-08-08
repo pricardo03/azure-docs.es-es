@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508292"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377333"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -223,7 +223,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
 |**schedule**|**ScheduleExpression**|Una [expresión CRON](#cron-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%** , como en este ejemplo: "%ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** muy pocas veces, si acaso, se debe establecer en `true`, especialmente en producción. |
@@ -319,7 +319,8 @@ Expresado como una cadena, el formato `TimeSpan` es `hh:mm:ss` cuando `hh` es me
 |---------|---------|
 |"01:00:00" | Cada hora        |
 |"00:01:00"|Cada minuto         |
-|"24:00:00" | Todos los días        |
+|"24:00:00" | Cada 24 días        |
+|"1.00:00:00" | Todos los días        |
 
 ## <a name="scale-out"></a>Escalado horizontal
 

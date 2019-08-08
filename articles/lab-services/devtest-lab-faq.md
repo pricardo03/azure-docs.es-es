@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244401"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565326"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -46,7 +46,7 @@ Nuestro identificador de Twitter: [@azlabservices](https://twitter.com/azlabserv
 ### <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
-- Publique una pregunta al final de este documento. Póngase en contacto con el equipo de Azure Cache y otros miembros de la comunidad sobre este artículo.
+- Publique una pregunta al final de este documento. 
 - Para llegar a un público más amplio, publique una pregunta en el [foro de MSDN de Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Póngase en contacto con el equipo de Azure DevTest Labs y otros miembros de la comunidad.
 - Para solicitudes de características, envíe sus solicitudes e ideas al sitio [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
@@ -390,6 +390,19 @@ Los errores de implementación de máquinas virtuales se capturan en los registr
 
 En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
 
+### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>¿Por qué aparece el error "la ubicación no está disponible para el tipo de recurso" al intentar crear un laboratorio?
+Es posible que vea un mensaje de error similar al siguiente al intentar crear un laboratorio: 
 
+```
+The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
+```
+
+Puede resolver este error realizando uno de los siguientes pasos:
+
+#### <a name="option-1"></a>Opción 1
+Compruebe la disponibilidad del tipo de recurso en las regiones de Azure en la página de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Si el tipo de recurso no está disponible en una región determinada, DevTest Labs no admitirá la creación de un laboratorio en esa región. Seleccione otra región al crear el laboratorio. 
+
+#### <a name="option-2"></a>Opción 2
+Si el tipo de recurso está disponible en su región, compruebe si está registrado con su suscripción. Se puede realizar en el nivel de propietario de la suscripción como se muestra en [este artículo](../azure-resource-manager/resource-manager-supported-services.md). 
 
 

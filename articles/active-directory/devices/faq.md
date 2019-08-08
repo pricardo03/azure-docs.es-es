@@ -9,14 +9,14 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481747"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499795"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -48,23 +48,50 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 
 ---
 
-### <a name="q-i-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered"></a>P: Eliminé mi dispositivo de Azure Portal o mediante Windows PowerShell, pero el estado local del dispositivo indica que todavía está registrado.
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>P: ¿Por qué mis usuarios ven un mensaje de error que dice "Su organización ha eliminado el dispositivo" o "Su organización ha deshabilitado el dispositivo" en los dispositivos de Windows 10?
 
-**R:** Esta operación es así por diseño. El dispositivo no tiene acceso a los recursos en la nube. 
+**R:** En los dispositivos de Windows 10 conectados o registrados con Azure AD, se emite un [token de actualización principal (PRT)](concept-primary-refresh-token.md) que permite el inicio de sesión único. La validez de dicho token se basa en la validez del mismo dispositivo. Los usuarios verán este mensaje si el dispositivo se ha eliminado o deshabilitado en Azure AD sin iniciar la acción desde el propio dispositivo. Un dispositivo se puede eliminar o deshabilitar en Azure AD uno de los siguientes escenarios: 
 
-Si quiere volver a registrar el dispositivo, deberá realizar algunas acciones manualmente en él. 
+- El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
+- Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
+- Solo unido a Azure AD híbrido: Un administrador quita la unidad organizativa de los dispositivos del ámbito de sincronización, lo que da lugar a la eliminación de los dispositivos de Azure AD.
 
-Para anular el estado de unión de los dispositivos Windows 10 y Windows Server 2016 unidos a un dominio de Active Directory local, realice las siguientes acciones:
+Vea a continuación cómo se pueden rectificar estas acciones.
 
-1. Abra el símbolo del sistema como administrador.
-1. Escriba `dsregcmd.exe /debug /leave`.
-1. Cierre la sesión y luego iníciela para desencadenar la tarea programada que registra de nuevo el dispositivo con Azure AD. 
+---
 
-Para las versiones anteriores del sistema operativo Windows que estén unidas a un dominio de Active Directory local, realice las siguientes acciones:
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>P: He deshabilitado o eliminado mi dispositivo de Azure Portal o mediante Windows PowerShell, pero el estado local del dispositivo indica que todavía está registrado. ¿Cuál debo hacer?
 
-1. Abra el símbolo del sistema como administrador.
-1. Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-1. Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+**R:** Esta operación es así por diseño. En este caso, el dispositivo no tiene acceso a los recursos en la nube. Los administradores pueden realizar esta acción en dispositivos obsoletos, perdidos o robados para evitar el acceso no autorizado. Si esta acción se realiza de forma no intencionada, deberá volver a habilitar o volver a registrar el dispositivo, tal y como se describe a continuación.
+
+- Si el dispositivo se deshabilitó en Azure AD, un administrador con suficientes privilegios puede habilitarlo desde el portal de Azure AD.  
+
+ - Si el dispositivo se elimina en Azure AD, debe volver a registrar el dispositivo. Para volver a registrar el dispositivo, deberá realizar algunas acciones manualmente en él. Consulte a continuación las instrucciones para volver a registrar en función del estado del dispositivo. 
+
+      Para volver a registrar los dispositivos unidos a Azure AD híbrido para Windows 10 y Windows Server 2016/2019, siga estos pasos:
+
+      1. Abra el símbolo del sistema como administrador.
+      1. Escriba `dsregcmd.exe /debug /leave`.
+      1. Cierre la sesión y luego iníciela para desencadenar la tarea programada que registra de nuevo el dispositivo con Azure AD. 
+
+      Para las versiones anteriores del sistema operativo Windows que estén unidas a Azure AD híbrido, realice los pasos siguientes:
+
+      1. Abra el símbolo del sistema como administrador.
+      1. Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+      En los dispositivos de Windows 10 para dispositivos unidos a Azure AD, siga estos pasos:
+
+      1. Abra el símbolo del sistema como administrador.
+      1. Escriba `dsregcmd /forcerecovery` (Nota: Debe ser administrador para realizar esta acción).
+      1. Haga clic en "Iniciar sesión" en el cuadro de diálogo que se abre y continúe con el proceso de inicio de sesión.
+      1. Cierre la sesión y vuelva a iniciarla en el dispositivo para completar la recuperación.
+
+      En el caso de los dispositivos de Windows 10 registrados en Azure AD, realice los pasos siguientes:
+
+      1. Vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. 
+      1. Seleccione la cuenta y después **Desconectar**.
+      1. Haga clic en "+ Conectar" y vuelva a registrar el dispositivo. Para ello, pase por el proceso de inicio de sesión.
 
 ---
 

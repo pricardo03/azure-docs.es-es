@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704926"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405997"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
@@ -94,7 +94,7 @@ Puede conectarse a los nodos que no son accesibles directamente a través de Int
 
 * **Tunelización SSH**: si tiene que acceder a un servicio web hospedado en uno de los nodos que no está expuesto a Internet, debe usar un túnel SSH. Para más información, vea el documento [Uso de un túnel SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Azure Virtual Network**: si el clúster de HDInsight forma parte de una instancia de Azure Virtual Network, cualquier recurso en la misma red virtual puede acceder directamente a todos los nodos del clúster. Para más información, vea el documento [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+* **Azure Virtual Network**: si el clúster de HDInsight forma parte de una instancia de Azure Virtual Network, cualquier recurso en la misma red virtual puede acceder directamente a todos los nodos del clúster. Para más información, consulte el documento [Planeamiento de una red virtual para HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="how-to-check-on-a-service-status"></a>Cómo comprobar el estado del servicio
 
@@ -247,7 +247,7 @@ En la interfaz de usuario web de Ambari, seleccione el servicio para el que dese
 
 El tamaño de un nodo solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight en la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Al crear un clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante [Azure Portal][preview-portal], el [módulo Az de Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]:
+Al crear un clúster, puede especificar el tamaño de los nodos. La siguiente información indica cómo especificar el tamaño mediante [Azure Portal][preview-portal], [Azure PowerShell module Az][azure-powershell] y la [CLI de Azure][azure-cli]:
 
 * **Portal de Azure**: al crear un clúster, puede establecer el tamaño de los nodos que usa el clúster:
 

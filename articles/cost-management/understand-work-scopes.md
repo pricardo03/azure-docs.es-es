@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490107"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479973"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -141,6 +141,18 @@ Los ámbitos de facturación de los contratos de cliente admiten los siguientes 
 Las suscripciones de Azure están anidadas en las secciones de la factura, al igual que lo están en las cuentas de las inscripciones de EA. Los usuarios de facturación tienen acceso a los datos de costo de las suscripciones y grupos de recursos que están bajo sus respectivos ámbitos. Sin embargo, no tienen acceso para ver ni administrar recursos en Azure Portal. Para que los usuarios de facturación puedan ver los costos, deben ir a **Administración de costos + facturación** en la lista de servicios de Azure Portal. Después, pueden filtrar los costos de las suscripciones y grupos de recursos específicos sobre los cuales deben informar.
 
 Los usuarios de facturación no tienen acceso a los grupos de administración ya que no están explícitamente incluidos en una cuenta de facturación. No obstante, cuando se habilitan los grupos de administración para la organización, todos los costos de suscripción se incluyen en la cuenta de facturación y en el grupo de administración raíz ya que ambos están limitados a un único directorio. Los grupos de administración solo incluyen compras basadas en el uso. Las compras como las reservas y las ofertas de Marketplace de terceros no están incluidas en los grupos de administración. Por lo tanto, puede que la cuenta de facturación y el grupo de administración raíz notifiquen totales diferentes. Para ver estos costos, use la cuenta de facturación o el perfil de facturación correspondiente.
+
+## <a name="aws-scopes"></a>Ámbitos de AWS
+
+Una vez completada la integración de AWS, consulte [Instalación y configuración de la integración de AWS](aws-integration-set-up-configure.md). Están disponibles los ámbitos siguientes:
+
+- **Cuenta de facturación externa**: representa un contrato de cliente con un proveedor de terceros. Es similar a la cuenta de facturación del Contrato Enterprise.
+
+    Tipo de recurso: `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **Suscripción externa**: representa una cuenta operativa del cliente con un proveedor de terceros. Es similar a una suscripción de Azure.
+
+    Tipo de recurso: `Microsoft.CostManagement/externalSubscriptions`
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Ámbitos de Proveedor de soluciones en la nube (CSP)
 

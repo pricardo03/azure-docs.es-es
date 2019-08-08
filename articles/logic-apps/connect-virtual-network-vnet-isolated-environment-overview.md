@@ -8,19 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/19/2019
+ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441577"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325407"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
 A veces, sus cuentas de integración y aplicaciones lógicas necesitan tener acceso a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para configurar este acceso, puede [crear un *Entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) en el que ejecutar las aplicaciones lógicas y crear las cuentas de integración.
 
-Al crear una instancia de ISE, Azure implementa una instancia aislada y privada del servicio Logic Apps en su red de Azure Virtual Network. La instancia privada usa recursos dedicados, como almacenamiento, y se ejecuta aparte del servicio Logic Apps público "global". El hecho de separar la instancia privada aislada y la instancia global pública también ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Cuando crea un ISE, Azure *inserta* ese ISE en la red virtual de Azure que, luego, implementa una instancia privada y aislada del servicio Logic Apps en la red virtual de Azure. La instancia privada usa recursos dedicados, como almacenamiento, y se ejecuta aparte del servicio Logic Apps público "global". El hecho de separar la instancia privada aislada y la instancia global pública también ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
 Después de crear el ISE, cuando vaya a crear la aplicación lógica o la cuenta de integración, puede seleccionar el ISE como ubicación de la aplicación lógica o la cuenta de integración:
 
@@ -34,8 +34,11 @@ Ahora, la aplicación lógica puede acceder directamente a los sistemas que est�
 
 En esta introducción se describen más detalles sobre cómo un ISE proporciona a las aplicaciones lógicas y las cuentas de integración acceso directo a la red de Azure Virtual Network y se comparan las diferencias entre un ISE y el servicio Logic Apps global.
 
-> [!NOTE]
-> Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Precios de Logic Apps](../logic-apps/logic-apps-pricing.md). El ISE también ha aumentado los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
+> [!IMPORTANT]
+> Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+>
+> El ISE también ha aumentado los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. 
+> Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -63,7 +66,25 @@ La diferencia entre los conectores de ISE y de otro tipo radica en las ubicacion
 
 Un ISE también proporciona mayores límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
 
-### <a name="access-to-on-premises-data-sources"></a>Acceso a orígenes de datos locales
+<a name="ise-level"></a>
+
+## <a name="ise-skus"></a>SKU de ISE
+
+Al crear el ISE, puede seleccionar la SKU de desarrollador o SKU Premium. Las diferencias entre estas SKU son las siguientes:
+
+* **Developer**
+
+  Proporciona un ISE de menor costo que puede usar para experimentación, desarrollo y pruebas, pero no para producción ni para pruebas de rendimiento. La SKU de desarrollador incluye desencadenadores y acciones integrados, conectores estándar, conectores empresariales y una sola cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) por un precio mensual fijo. Sin embargo, esta SKU no incluye ningún contrato de nivel de servicio (SLA), opciones para escalar verticalmente la capacidad o redundancia durante el reciclaje, lo que significa que puede experimentar retrasos o tiempos de inactividad.
+
+* **Premium**
+
+  Proporciona un ISE que puede usar para producción y que incluye soporte de SLA, desencadenadores y acciones integrados, conectores estándar, conectores empresariales, una sola cuenta de integración de [nivel Estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), opciones para el escalado vertical de la capacidad y redundancia durante el reciclaje por un precio fijo al mes.
+
+Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="on-premises"></a>
+
+## <a name="access-to-on-premises-data-sources"></a>Acceso a orígenes de datos locales
 
 En lo que respecta a los sistemas locales conectados a una red de Azure Virtual Network, inserte un ISE en esa red para que las aplicaciones lógicas puedan acceder directamente a esos sistemas mediante cualquiera de estos elementos:
 
@@ -81,7 +102,7 @@ En el caso de los sistemas locales que no están conectados a una red virtual o 
 
 ## <a name="integration-accounts-with-ise"></a>Cuentas de integración con ISE
 
-Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración.
+Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración. Para saber cómo funcionan los precios y la facturación de las cuentas de integración con un ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

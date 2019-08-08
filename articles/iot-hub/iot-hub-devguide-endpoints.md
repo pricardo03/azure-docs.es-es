@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055345"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640604"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -104,3 +104,4 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 * [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md)
 * [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md)
 * [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md)
+* [Información sobre la dirección IP de IoT Hub](iot-hub-understand-ip-address.md)

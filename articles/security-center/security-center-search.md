@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574139"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662926"
 ---
-# <a name="azure-security-center-search"></a>Búsqueda de registros en Azure Security Center
+# <a name="azure-security-center-search-retired"></a>Búsqueda en Azure Security Center (retirada)
 
 > [!NOTE]
-> El panel de búsqueda de Security Center se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_search).
+> El panel de búsqueda de Security Center se retiró el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_search).
 
 Azure Security Center usa la [búsqueda de registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar y analizar los datos de seguridad. Los registros de Azure Monitor incluyen un lenguaje de consulta para recuperar y consolidar rápidamente los datos. Desde Security Center, puede utilizar la búsqueda de registros de Azure Monitor para construir consultas y analizar los datos recopilados.
 

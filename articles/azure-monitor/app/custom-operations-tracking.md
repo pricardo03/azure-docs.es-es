@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798342"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498345"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -484,6 +484,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operaciones de ApplicationInsights frente a System.Diagnostics.Activity
+`System.Diagnostics.Activity` representa el contexto de seguimiento distribuido y lo utilizan las plataformas y las bibliotecas para crear y propagar el contexto dentro y fuera del proceso, así como correlacionar los elementos de telemetría. La actividad funciona junto `System.Diagnostics.DiagnosticSource`, que es el mecanismo de notificación entre la plataforma o la biblioteca para notificar de eventos interesantes (solicitudes entrantes o salientes, excepciones, etc.).
+
+Las actividades son los ciudadanos de primera clase en Application Insights y la recopilación automática de dependencias y solicitudes se basa en gran medida en ellas junto con los eventos `DiagnosticSource`. Si crea una actividad en la aplicación, no se producirá la creación de telemetría de Application Insights. Application Insights debe recibir los eventos de DiagnosticSource y conocer los nombres y las cargas de los eventos para convertir la actividad en telemetría.
+
+Cada operación de Application Insights (solicitud o dependencia) implica `Activity`; cuando se llama a `StartOperation`, se crea la actividad subyacente. `StartOperation` es el método recomendado para realizar el seguimiento de las telemetrías de solicitudes o de dependencias manualmente y asegurarse de que todo está correlacionado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

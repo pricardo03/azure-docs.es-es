@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871949"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639960"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
-Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
+Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales y con esta opción seleccionada, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
 
 También puede considerar la alineación del número de dominios de error del conjunto de escalado con el número de dominios de error de Managed Disks. Esta alineación puede ayudar a evitar la pérdida de cuórum si todo un dominio de error de Managed Disks deja de funcionar. El recuento de FD puede establecerse como menor o igual al número de dominios de error de Managed Disks disponibles en cada una de las regiones. Consulte este [documento](../virtual-machines/windows/manage-availability.md) para obtener información sobre el número de dominios de error de Managed Disks por región.
 

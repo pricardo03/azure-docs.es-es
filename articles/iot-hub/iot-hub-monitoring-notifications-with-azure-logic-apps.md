@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719340"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385718"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
@@ -30,7 +30,25 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
 El código de cliente que se ejecuta en el dispositivo establece una propiedad de aplicación, `temperatureAlert`, en cada mensaje de telemetría que le envía al centro de IoT. Cuando el código de cliente detecta una temperatura superior a 30 C, establece esta propiedad en `true`; en caso contrario, la establece en `false`.
 
-En este tema, se configura el enrutamiento en el centro de IoT para enviar mensajes en que `temperatureAlert = true` a un punto de conexión de Service Bus y configura una aplicación lógica que se desencadena cuando los mensajes llegan al punto de conexión de Service Bus y envía una notificación por correo electrónico.
+Los mensajes que llegan a IoT Hub son similares al siguiente, con los datos de telemetría en el cuerpo y la propiedad `temperatureAlert` en las propiedades de la aplicación (no se muestran las propiedades del sistema):
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+Para más información acerca del formato de los mensajes de IoT Hub, consulte [Creación y lectura de mensajes de IoT Hub](iot-hub-devguide-messages-construct.md).
+
+En este tema, se configura el enrutamiento en IoT Hub para enviar mensajes en los que la propiedad `temperatureAlert` es `true` en un punto de conexión de Service Bus. Después, se configura una aplicación lógica que se desencadena en los mensajes que llegan al punto de conexión de Service Bus y le envía una notificación por correo electrónico.
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
@@ -40,7 +58,7 @@ En este tema, se configura el enrutamiento en el centro de IoT para enviar mensa
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales de dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
+* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
 
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.

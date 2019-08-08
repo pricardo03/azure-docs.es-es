@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c2c9ca3082aa9c2067a63f8d6304e8a229dac14a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810115"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663461"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -32,7 +32,7 @@ Máquina virtual de Hyper-V | Evaluación de VM de Hyper-V con la herramienta de
 
 ## <a name="appliance-access"></a>Acceso al dispositivo
 
-Después de configurar el dispositivo, puede acceder de forma remota a la VM del dispositivo a través del puerto TCP 3389. También puede acceder de forma remota a la aplicación de administración web para el dispositivo, en el puerto 44368 con la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```.
+Después de configurar el dispositivo, puede acceder de forma remota a la VM del dispositivo a través del puerto TCP 3389. También puede acceder de forma remota a la aplicación de administración web para el dispositivo, en el puerto 44368 con la dirección URL: `https://<appliance-ip-or-name>:44368`.
 
 ## <a name="appliance-license"></a>Licencia del dispositivo
 El dispositivo viene con una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la VM del dispositivo.
@@ -152,7 +152,7 @@ Versión de VM | Msvm_ProcessorSettingData | VirtualQuantity
 Memoria (bytes) | Msvm_MemorySettingData | VirtualQuantity
 Memoria máxima que se puede consumir por VM | Msvm_MemorySettingData | Límite
 Memoria dinámica habilitada | Msvm_MemorySettingData | DynamicMemoryEnabled
-Nombre/versión/FQDN del sistema operativo | Msvm_KvpExchangeComponent | Datos de nombre de GuestIntrinsciExchangeItems
+Nombre/versión/FQDN del sistema operativo | Msvm_KvpExchangeComponent | Datos de nombre de GuestIntrinsicExchangeItems
 Estado de energía de VM | Msvm_ComputerSystem | EnabledState
 **Detalles por disco** | 
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId

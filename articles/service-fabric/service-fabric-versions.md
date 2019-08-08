@@ -3,7 +3,7 @@ title: Versiones de clúster admitidas en Azure Service Fabric | Microsoft Docs
 description: Información sobre las versiones de clúster de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
-ms.author: aljo
-ms.openlocfilehash: 8a548bce6da8b3bae004b0be4f6e8f09c9894025
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/03/2019
+ms.author: atsenthi
+ms.openlocfilehash: 4ed076792e8b55661df2e5309f08391cf1e75013
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060349"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598729"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -104,4 +104,6 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | N/D |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.4 CU8 | 6.4.670.9590 | N/D |
 | 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
+| 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |

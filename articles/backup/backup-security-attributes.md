@@ -1,19 +1,19 @@
 ---
-title: Atributos de seguridad comunes de Azure Backup
-description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Backup
-services: backup
-author: utraghuv
-manager: barbkess
+title: Atributos de seguridad de Azure Backup
+description: Lista de comprobación de los atributos de seguridad para evaluar Azure Backup
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 595cc4eff70e2df4cb6d7f1d6a0c1a2748b34bf2
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.author: dacurwin
+ms.openlocfilehash: e6ea701840b201c2794d81be5019d57ca531cd00
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565634"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688504"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Atributos de seguridad de Azure Backup
 
@@ -25,9 +25,9 @@ En este artículo, se explican los atributos de seguridad integrados en Azure Ba
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin | Se usa HTTPS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sin |  |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sin | Se usa HTTPS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sin |  |
 | Llamadas API cifradas| Sí |  |
 
@@ -35,9 +35,9 @@ En este artículo, se explican los atributos de seguridad integrados en Azure Ba
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sin |  |
-| Compatibilidad con inserción de red virtual| Sin |  |
-| Compatibilidad con aislamiento de red y firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
+| Compatibilidad con puntos de conexión de servicio| Sin |  |
+| Compatibilidad con la inserción de redes virtuales| Sin |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ## <a name="detection"></a>Detección

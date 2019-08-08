@@ -1,20 +1,19 @@
 ---
 title: Administración del ciclo de vida de Azure Storage
 description: Aprenda a crear reglas de directiva de ciclo de vida para realizar la transición de datos antiguos del nivel de almacenamiento de acceso frecuente al nivel de almacenamiento de acceso esporádico y al nivel de almacenamiento de archivo.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: cd02051c0ef1dfe93b1ee67a0a9605e1611f336b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: conceptual
+ms.reviewer: yzheng
+ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565973"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722093"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 

@@ -6,14 +6,14 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ms.author: bwren
-ms.openlocfilehash: a948b80f6524339f0908a2fb19c4a83d70b3b140
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e67dcb1236fd5ef113835dfe99de444fc2594481
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296823"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405750"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
 Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](get-started-portal.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
@@ -32,7 +32,7 @@ El ámbito lo determina el método que se utiliza para iniciar Log Analytics y, 
 |:---|:---|:---|:---|
 | Área de trabajo de Log Analytics | Todos los registros del área de trabajo de Log Analytics. | Seleccione **Registros** en el menú **Azure Monitor** o el menú **Áreas de trabajo de Log Analytics**.  | Puede cambiar el ámbito a cualquier otro tipo de recurso. |
 | Aplicación de Application Insights | Todos los registros de la aplicación de Application Insights. | Seleccione **Analytics** en la página **Introducción** de Application Insights. | Solo se puede cambiar el ámbito a otra aplicación de Application Insights. |
-| Grupos de recursos | Recursos creados por todos los recursos del grupo de recursos. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de grupo de recursos. | No se puede cambiar el ámbito.|
+| Resource group | Recursos creados por todos los recursos del grupo de recursos. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de grupo de recursos. | No se puede cambiar el ámbito.|
 | Subscription | Registros creados por todos los recursos de la suscripción. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de la suscripción.   | No se puede cambiar el ámbito. |
 | Otros recursos de Azure | Registros creados por el recurso. Puede incluir datos de varias áreas de trabajo de Log Analytics.  | Seleccione **Registros** en el menú de recursos.<br>OR<br>Seleccione **Registros** en el menú **Azure Monitor** y luego seleccione un nuevo ámbito. | Solo se puede cambiar el ámbito al mismo tipo de recurso. |
 
@@ -49,6 +49,19 @@ No se pueden usar los siguientes comandos en una consulta cuando el ámbito se a
 - [app](app-expression.md)
 - [workspace](workspace-expression.md)
  
+
+## <a name="query-limits"></a>Límites de la consulta
+Puede tener requisitos empresariales para que un recurso de Azure escriba datos en varias áreas de trabajo de Log Analytics. No es necesario que el área de trabajo esté en la misma región que el recurso y una sola área de trabajo puede recopilar datos de recursos de varias regiones.  
+
+El establecimiento del ámbito en un recurso o un conjunto de recursos es una característica especialmente eficaz de Log Analytics, ya que permite consolidar automáticamente los datos distribuidos en una sola consulta. No obstante, al rendimiento puede resultar considerablemente afectado si es necesario recuperar los datos de las áreas de trabajo de varias regiones de Azure.
+
+Log Analytics ayuda a protegerse frente a una sobrecarga excesiva de las consultas que abarcan las áreas de trabajo de varias regiones mediante la generación de una advertencia o un error cuando se utiliza un determinado número de regiones. La consulta recibirá una advertencia si el ámbito incluye áreas de trabajo de cinco, o más, regiones. Se ejecutará, pero es posible que tarde demasiado tiempo en completarse.
+
+![Advertencia de consulta](media/scope/query-warning.png)
+
+Se bloqueará la ejecución de la consulta si el ámbito incluye áreas de trabajo de 20, o más, regiones. En este caso, se le pedirá que reduzca el número de regiones del área de trabajo y que intente volver a ejecutar la consulta. La lista desplegable mostrará todas las regiones del ámbito de la consulta, y debe reducir el número de regiones antes de intentar volver a ejecutar la consulta.
+
+![Error en la consulta](media/scope/query-failed.png)
 
 
 ## <a name="time-range"></a>Intervalo de tiempo

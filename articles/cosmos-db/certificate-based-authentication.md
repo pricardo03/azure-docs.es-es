@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: eb8c98df0f015244adf06a9b57f2223509f1f081
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d06cf334f08ba6ec9c47450d21d33733900ebe5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082117"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356581"
 ---
-# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos
+# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
 La autenticación basada en certificados permite que una aplicación cliente se autentique mediante Azure Active Directory (Azure AD) con un certificado de cliente. La autenticación basada en certificados se puede realizar en cualquier equipo en que se necesite una identidad, como un equipo local o una máquina virtual de Azure. A partir de ese momento, la aplicación puede leer las claves de Azure Cosmos DB sin tenerlas directamente en la aplicación. En este artículo se describe cómo crear una aplicación de Azure AD de ejemplo, configurarla para la autenticación basada en certificados, iniciar sesión en Azure mediante la nueva identidad de aplicación y, posteriormente, recuperar las claves de una cuenta de Azure Cosmos. En este artículo se usa Azure PowerShell para configurar las identidades y se proporciona una aplicación en C# de ejemplo que autentica las claves y accede a ellas desde su cuenta de Azure Cosmos.  
 
@@ -26,7 +26,7 @@ La autenticación basada en certificados permite que una aplicación cliente se 
 
 ## <a name="register-an-app-in-azure-ad"></a>Registro de una aplicación en Azure AD
 
-En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azure AD. Esta aplicación se utilizará más adelante para leer las claves de su cuenta de Azure Cosmos. Para registrar una aplicación, siga estos pasos: 
+En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azure AD. Esta aplicación se utilizará más adelante para leer las claves de su cuenta de Azure Cosmos DB. Para registrar una aplicación, siga estos pasos: 
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
@@ -197,7 +197,6 @@ namespace TodoListDaemonWithCert
             Console.WriteLine("Got result {0} and keys {1}", response.StatusCode.ToString(), response.Content.ReadAsStringAsync().Result);
         }
  
- 
         /// <summary>
         /// Reads the certificate
         /// </summary>
@@ -218,52 +217,6 @@ namespace TodoListDaemonWithCert
             cert = signingCert.OfType<X509Certificate2>().OrderByDescending(c => c.NotBefore).FirstOrDefault();
             store.Close();
             return cert;
-        }
- 
- 
-        /// <summary>
-        /// Get an access token from Azure AD using client credentials.
-        /// If the attempt to get a token fails because the server is unavailable, retry twice after 3 seconds each
-        /// </summary>
-        private static async Task<AuthenticationResult> GetAccessToken(AuthenticationContext authContext, string resourceUri, ClientAssertionCertificate cert)
-        {
-            //
-            // Get an access token from Azure AD using client credentials.
-            // If the attempt to get a token fails because the server is unavailable, retry twice after 3 seconds each.
-            //
-            AuthenticationResult result = null;
-            int retryCount = 0;
-            bool retry = false;
- 
-            do
-            {
-                retry = false;
-                errorCode = 0;
- 
-                try
-                {
-                    result = await authContext.AcquireTokenAsync(resourceUri, cert);
-                }
-                catch (AdalException ex)
-                {
-                    if (ex.ErrorCode == "temporarily_unavailable")
-                    {
-                        retry = true;
-                        retryCount++;
-                        Thread.Sleep(3000);
-                    }
- 
-                    Console.WriteLine(
-                        String.Format("An error occurred while acquiring a token\nTime: {0}\nError: {1}\nRetry: {2}\n",
-                        DateTime.Now.ToString(),
-                        ex.ToString(),
-                        retry.ToString()));
- 
-                    errorCode = -1;
-                }
- 
-            } while ((retry == true) && (retryCount < 3));
-            return result;
         }
     }
 }

@@ -10,71 +10,70 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447727"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593270"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
-Herramientas de Azure Functions es una extensión para Visual Studio que le permite desarrollar, probar e implementar funciones de C# en Azure. Si esta es su primera experiencia con Azure Functions, puede obtener más información en [Introducción a Azure Functions](functions-overview.md).
+Visual Studio le permite desarrollar, probar e implementar funciones de la biblioteca de clases C# en Azure. Si esta es su primera experiencia con Azure Functions, puede obtener más información en [Introducción a Azure Functions](functions-overview.md).
 
-Herramientas de Azure Functions proporciona los siguientes beneficios: 
+Visual Studio proporcionan las siguientes ventajas al desarrollar funciones: 
 
 * Editar, compilar y ejecutar funciones en el equipo de desarrollo local. 
-* Publicar su proyecto de Azure Functions directamente en Azure. 
-* Usar atributos de WebJobs para declarar los enlaces de función directamente en el código C# en lugar de mantener un function.json separado para enlazar definiciones.
+* Publique su proyecto de Azure Functions directamente en Azure y cree recursos de Azure según sea necesario. 
+* Use atributos de C# para declarar enlaces de función directamente en el código de C#.
 * Desarrollar e implementar funciones de C# compiladas previamente. Las funciones compiladas previamente proporcionan un mejor rendimiento de arranque en frío que las funciones basadas en scripts de C#. 
 * Programar las funciones en C# a la vez que se tienen todos los beneficios del desarrollo de Visual Studio. 
 
-En este artículo se dan detalles sobre cómo usar las herramientas de Azure Functions para Visual Studio 2019 para desarrollar funciones de C# y publicarlas en Azure. Antes de leer este artículo, debe completar la [guía de inicio rápido de Functions para Visual Studio](functions-create-your-first-function-visual-studio.md). 
+En este artículo se dan detalles sobre cómo usar Visual Studio para desarrollar funciones de biblioteca de clases C# y publicarlas en Azure. Antes de leer este artículo, debe completar la [guía de inicio rápido de Functions para Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-> [!IMPORTANT]
-> No mezcle el desarrollo local con el desarrollo del portal en la misma aplicación de función. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
+A menos que se indique lo contrario, los procedimientos y los ejemplos que se muestran son para Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las herramientas de Azure Functions forman parte de la carga de trabajo de desarrollo de Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/) o una versión posterior. Asegúrese de incluir la carga de trabajo de **desarrollo de Azure** en la instalación de Visual Studio 2019:
-
-![Instale Visual Studio 2019 con la carga de trabajo de desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-Asegúrese de que su versión de Visual Studio está actualizada y de que está usando la [versión más reciente](#check-your-tools-version) de las herramientas de Azure Functions.
-
-### <a name="azure-resources"></a>Recursos de Azure
+Las herramientas de Azure Functions forman parte de la carga de trabajo de desarrollo de Azure de Visual Studio a partir de Visual Studio 2017. Asegúrese de incluir la carga de trabajo de **desarrollo de Azure** en la instalación de Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 Los demás recursos que necesita, como una cuenta de Azure Storage, se crean en la suscripción durante el proceso de publicación.
 
-### <a name="check-your-tools-version"></a>Comprobación de la versión de herramientas
+> [!NOTE]
+> En Visual Studio 2017, la carga de trabajo de desarrollo de Azure instala las herramientas de Azure Functions como una extensión independiente. Al actualizar Visual Studio 2017, también debe asegurarse de que está usando la [versión más reciente](#check-your-tools-version) de las herramientas de Azure Functions. En las secciones siguientes se muestra cómo comprobar y, si es necesario, actualizar la extensión de herramientas de Azure Functions en Visual Studio 2017. 
+
+### <a name="check-your-tools-version"></a>Comprobar la versión de las herramientas en Visual Studio 2017
 
 1. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**. Expanda **Herramientas** > **instaladas** y elija **Azure Functions and Web Jobs Tools**.
 
     ![Comprobación de la versión de herramientas de Functions](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
-2. Observe la **versión** instalada. Puede comparar esta versión con la versión más reciente que aparece [en las notas de la versión](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+1. Observe la **versión** instalada. Puede comparar esta versión con la versión más reciente que aparece [en las notas de la versión](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
 
-3. Si su versión es anterior, actualice las herramientas en Visual Studio como se muestra en la siguiente sección.
+1. Si su versión es anterior, actualice las herramientas en Visual Studio como se muestra en la siguiente sección.
 
-### <a name="update-your-tools"></a>Actualización de las herramientas
+### <a name="update-your-tools-in-visual-studio-2017"></a>Actualización de las herramientas en Visual Studio 2017
 
 1. En el cuadro de diálogo **Extensiones y actualizaciones**, expanda **Actualizaciones** > **Visual Studio Marketplace**, elija **Azure Functions and Web Jobs Tools** y seleccione **Actualizar**.
 
     ![Actualización de la versión de herramientas de Functions](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-2. Después de descargar la actualización de las herramientas, cierre Visual Studio para desencadenar la actualización de las herramientas mediante el programa de instalación de VSIX.
+1. Después de descargar la actualización de las herramientas, cierre Visual Studio para desencadenar la actualización de las herramientas mediante el programa de instalación de VSIX.
 
-3. En el programa de instalación, elija **Aceptar** para iniciar y, a continuación, **Modificar** para actualizar las herramientas. 
+1. En el programa de instalación, elija **Aceptar** para iniciar y, a continuación, **Modificar** para actualizar las herramientas. 
 
-4. Una vez completada la actualización, elija **Cerrar** y reinicie Visual Studio.
+1. Una vez completada la actualización, elija **Cerrar** y reinicie Visual Studio.
+
+> [!NOTE]  
+En Visual Studio 2019 y versiones posteriores, la extensión de herramientas de Azure Functions se actualiza como parte de Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-La plantilla de proyecto crea un proyecto de C#, instala el paquete NuGet `Microsoft.NET.Sdk.Functions` y establece la plataforma de destino. Functions 1.x tiene como destino .NET Framework y Functions 2.x tiene como destino .NET Standard. El proyecto nuevo contiene los archivos siguientes:
+La plantilla de proyecto crea un proyecto de C#, instala el paquete NuGet `Microsoft.NET.Sdk.Functions` y establece la plataforma de destino. El proyecto nuevo contiene los archivos siguientes:
 
 * **host.json**: permite configurar el host de Functions. Esta configuración se aplica tanto cuando se ejecuta localmente como en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
 
@@ -95,19 +94,19 @@ Esta configuración de la aplicación de función también se puede leer en el c
 
 ## <a name="configure-the-project-for-local-development"></a>Configuración del proyecto para el desarrollo local
 
-El entorno de tiempo de ejecución de Functions usa internamente una cuenta de Azure Storage. Para todos los tipos de desencadenadores distintos de HTTP y webhooks, debe establecer la clave **Values.AzureWebJobsStorage** en una cadena de conexión de cuenta de Azure Storage válida. La aplicación de función puede usar el [Emulador de Azure Storage](../storage/common/storage-use-emulator.md) para la configuración de conexión **AzureWebJobsStorage** que el proyecto requiere. Para usar el emulador, establezca el valor de **AzureWebJobsStorage** en `UseDevelopmentStorage=true`. Cambie esta configuración a una conexión de almacenamiento real antes de la implementación.
+El entorno de tiempo de ejecución de Functions usa internamente una cuenta de Azure Storage. Para todos los tipos de desencadenadores distintos de HTTP y webhooks, debe establecer la clave **Values.AzureWebJobsStorage** en una cadena de conexión de cuenta de Azure Storage válida. La aplicación de función puede usar el [Emulador de Azure Storage](../storage/common/storage-use-emulator.md) para la configuración de conexión **AzureWebJobsStorage** que el proyecto requiere. Para usar el emulador, establezca el valor de **AzureWebJobsStorage** en `UseDevelopmentStorage=true`. Cambie esta configuración a una cadena de conexión de la cuenta de almacenamiento real antes de la implementación.
 
 Para establecer la cadena de conexión de cuenta de almacenamiento:
 
-1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor **Cadena de conexión principal**.
+1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y, a continuación, en la pestaña **Propiedades**, copie el valor **Cadena de conexión principal**.
 
 2. En el proyecto, abra el archivo local.settings.json y establezca el valor de la clave **AzureWebJobsStorage** en la cadena de conexión que copió.
 
-3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.
+3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones. 
 
 ## <a name="add-a-function-to-your-project"></a>Incorporación de una función al proyecto
 
-En las funciones compiladas previamente, los enlaces que la función usa se definen mediante la aplicación de atributos en el código. Cuando usa Herramientas de Azure Functions para crear las funciones a partir de las plantillas proporcionadas, estos atributos se aplican automáticamente. 
+En las funciones de biblioteca de clases C#, los enlaces que la función usa se definen mediante la aplicación de atributos en el código. Al crear los desencadenadores de funciones a partir de las plantillas proporcionadas, los atributos del desencadenador se aplican automáticamente. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Función de Azure**, escriba un **nombre** para la clase y, luego, haga clic en **Agregar**.
 
@@ -132,7 +131,8 @@ En las funciones compiladas previamente, los enlaces que la función usa se defi
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
+            public static void Run([QueueTrigger("myqueue-items", 
+                Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
                 log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }

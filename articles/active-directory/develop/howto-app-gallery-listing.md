@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482947"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477055"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedimientos para: Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -49,6 +49,8 @@ En este artículo se explica el proceso para mostrar una aplicación en la galer
 - Para que el SSO de contraseña, asegúrese de que la aplicación admita la autenticación por formulario para que se pueda realizar el almacenamiento de contraseña y hacer que el inicio de sesión único funcione del modo previsto.
 
 - Para las solicitudes de aprovisionamiento automático de usuarios, la aplicación debe figurar en la galería con la característica de inicio de sesión único habilitada mediante SAML 2.0/WS-Fed. Puede solicitar SSO y aprovisionamiento de usuario juntos en el portal, si aún no aparecen.
+
+- Necesita una cuenta permanente para las pruebas con al menos dos usuarios registrados.
 
 >[!NOTE]
 >Estamos recibiendo un gran número de solicitudes del conector de SCIM, por lo que hemos dejado de aceptar nuevas solicitudes en el portal. No envíe solicitudes hasta nuevo aviso. Lamentamos este retraso y las molestias que pueda haberle causado.

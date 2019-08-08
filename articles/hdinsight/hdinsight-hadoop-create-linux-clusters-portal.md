@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4593cd3602c5324e9cffd5eff8564c09aceaf46
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393992"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406281"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -69,7 +69,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
     * Seleccione **Siguiente** para ir a la página siguiente.
 
-4. En **2 Seguridad y redes**, puede conectar el clúster a una red virtual mediante el menú desplegable proporcionado. Seleccione una red virtual de Azure y la subred si quiere colocar el clúster en una red virtual. Para información sobre cómo usar HDInsight con una red virtual, consulte el artículo sobre la [Extensión de las funcionalidades de HDInsight mediante una red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md). El artículo incluye los requisitos de configuración específicos de la red virtual. 
+4. En **2 Seguridad y redes**, puede conectar el clúster a una red virtual mediante el menú desplegable proporcionado. Seleccione una red virtual de Azure y la subred si quiere colocar el clúster en una red virtual. Para más información acerca del uso de HDInsight con una red virtual, consulte [Planeamiento de la implementación de una red virtual para clústeres de Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). El artículo incluye los requisitos de configuración específicos de la red virtual. 
 
     Si quiere usar **Enterprise Security Package**, siga estas instrucciones: [Configuración de un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/17/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 6dbc855fb1eb2ee9bcd292c896706b31f819aa5a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 239998f29ac9a578174c5dba547bb24ba0755505
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253128"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318183"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuración de reglas de aplicación de Azure Firewall con nombres de dominio completos de SQL
 
@@ -32,8 +32,7 @@ Con los FQDN de SQL, puede filtrar el tráfico:
 Durante la versión preliminar pública, el filtrado por nombre de dominio completo de SQL se admite solo en [modo de proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (puerto 1433). Si usa SQL en el modo de redirección predeterminado, puede filtrar el acceso mediante la etiqueta de servicio de SQL como parte de [reglas de red](overview.md#network-traffic-filtering-rules).
 Si usa puertos no predeterminados para el tráfico de SQL IaaS, puede configurar esos puertos en las reglas de aplicación del firewall.
 
-> [!NOTE]
-> Las reglas de aplicación con FQDN de SQL están disponibles actualmente en todas las regiones a través de la CLI de Azure, REST y plantillas. La interfaz de usuario del portal se va a agregar a las regiones de forma progresiva y va a estar disponible en todas las regiones cuando se complete el lanzamiento.
+Las reglas de aplicación con FQDN de SQL están disponibles actualmente en todas las regiones a través de Azure Portal, la CLI de Azure, REST y plantillas.
 
 ## <a name="configure-using-azure-cli"></a>Configuración mediante la CLI de Azure
 
