@@ -119,7 +119,7 @@ Para copiar datos de Office 365, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | Sí |
 | tableName | Nombre del conjunto de datos para extraer de Office 365. Haga clic [aquí](https://docs.microsoft.com/graph/data-connect-datasets#datasets) para obtener la lista de conjuntos de datos de Office 365 disponibles para la extracción. | Sí |
 | allowedGroups | Predicado de la selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si no se especifica ningún grupo, se devolverán datos para toda la organización. | Sin |
 | userScopeFilterUri | Cuando la propiedad `allowedGroups` no se especifica, puede usar una expresión de predicado que se aplica en todo el inquilino para filtrar las filas específicas que extraer de Office 365. El formato de predicado debe coincidir con el formato de consultas de las API de Microsoft Graph, por ejemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Sin |
