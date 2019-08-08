@@ -6,19 +6,20 @@ documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: caac311930f2ce4e0ecdf89b5e3a980019e38381
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611771"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828771"
 ---
 # <a name="security-attributes-for-azure-services"></a>Atributos de seguridad para los servicios de Azure
 
-En este artículo se recopilan los atributos de seguridad para los servicios de Azure seleccionados. Un atributo de seguridad es una calidad o característica de un servicio de Azure. Contribuye a la capacidad del servicio de evitar, detectar y responder a las vulnerabilidades de seguridad.
+En este artículo se recopilan los atributos de seguridad para los servicios de Azure seleccionados. Un atributo de seguridad es una calidad o característica de un servicio de Azure. Contribuye a la capacidad del servicio para evitar, detectar y responder a las vulnerabilidades de seguridad.
 
 Los atributos de seguridad se clasifican en las siguientes categorías:
 * Prevención
@@ -29,7 +30,7 @@ Los atributos de seguridad se clasifican en las siguientes categorías:
 * Controles de acceso (si se utilizan)
 * Administración de la configuración (si se utiliza)
 
-En cada categoría, se muestra "Sí" o "No" para indicar si se usa un atributo. En algunos servicios, se muestra "N/D" para un atributo que no es aplicable. También se puede proporcionar una nota o un vínculo para aportar más información sobre un atributo.
+En cada categoría, se muestra "Sí" o "No" para indicar si se usa un atributo. En algunos servicios, se muestra "N/D" para indicar que un atributo no es aplicable. También se puede proporcionar una nota o un vínculo para aportar más información sobre un atributo.
 
 ## <a name="api-managementazureapi-managementapi-management-security-attributes"></a>[API Management](/azure/api-management/api-management-security-attributes)
 
@@ -38,7 +39,7 @@ En cada categoría, se muestra "Sí" o "No" para indicar si se usa un atributo. 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Los datos confidenciales, como certificados, claves y valores con nombre secreto, se cifran con claves que administra el servicio por instancia de servicio. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | El cifrado de [ExpressRoute](/azure/expressroute/index) y de red virtual lo proporcionan las [redes de Azure](/azure/virtual-network/index). |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | El cifrado de [ExpressRoute](/azure/expressroute/index) y de red virtual lo proporcionan las [redes de Azure](/azure/virtual-network/index). |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sin | Todas las claves de cifrado son por instancia de servicio y las administra el servicio. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Las llamadas del plano de administración se hacen mediante [Azure Resource Manager](/azure/azure-resource-manager/index) con TLS. Se requiere un token web de JSON (JWT) válido.  Las llamadas del plano de datos pueden estar protegidas con TLS y uno de los mecanismos de autenticación admitidos (por ejemplo, el certificado de cliente o JWT).
@@ -48,9 +49,9 @@ En cada categoría, se muestra "Sí" o "No" para indicar si se usa un atributo. 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sin | |
-| Compatibilidad con inserción de red virtual| Sí | |
-| Compatibilidad con aislamiento de red y firewalls| Sí | Se usan grupos de seguridad de red (NSG) y Azure Application Gateway (u otro dispositivo de software), respectivamente. |
+| Compatibilidad con puntos de conexión de servicio| Sin | |
+| Compatibilidad con la inserción de redes virtuales| Sí | |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | Se usan grupos de seguridad de red (NSG) y Azure Application Gateway (u otro dispositivo de software), respectivamente. |
 | Compatibilidad con la tunelización forzada| Sí | Las redes de Azure proporcionan la tunelización forzada. |
 
 ### <a name="detection"></a>Detección
@@ -96,7 +97,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | El contenido de los archivos de sitio web se almacena en Azure Storage, que cifra automáticamente el contenido en reposo. Consulte [Cifrado de Azure Storage para datos en reposo](/azure/storage/common/storage-service-encryption).<br><br>Los secretos suministrados por el cliente se cifran en reposo. Los secretos se cifran en reposo mientras se almacenan en las bases de datos de configuración de App Service.<br><br>Los sitios web pueden utilizar los discos conectados localmente como almacenamiento temporal (D:\local y %TMP%). Los discos conectados localmente no se cifran en reposo. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | Los clientes pueden configurar los sitios web para que exijan y usen HTTPS para el tráfico entrante. Consulte la entrada de blog [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (Cómo hacer que Azure App Service use solo HTTPS). |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | Los clientes pueden configurar los sitios web para que exijan y usen HTTPS para el tráfico entrante. Consulte la entrada de blog [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (Cómo hacer que Azure App Service use solo HTTPS). |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sí | Los clientes pueden elegir almacenar secretos de aplicación en Key Vault y recuperarlos en el entorno en tiempo de ejecución. Consulte [Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)](/azure/app-service/app-service-key-vault-references).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Las llamadas de administración para configurar App Service se realizan mediante llamadas de [Azure Resource Manager](/azure/azure-resource-manager/index) con HTTPS. |
@@ -105,7 +106,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí | Disponible actualmente en versión preliminar para App Service. Consulte [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restrictions). |
+| Compatibilidad con el punto de conexión de servicio| Sí | Disponible actualmente en versión preliminar para App Service. Consulte [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restrictions). |
 | Compatibilidad con la inserción de redes virtuales| Sí | App Service Environment son implementaciones privadas de App Service dedicadas a un solo cliente insertado en una red virtual del cliente. Consulte [Introducción a App Service Environment](/azure/app-service/environment/intro). |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | En la variación pública de varios inquilinos de App Service, los clientes pueden configurar las ACL (restricciones de IP) para bloquear el tráfico entrante permitido.  Consulte [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restrictions).  App Service Environment se implementa directamente en las redes virtuales y, por tanto, se puede proteger con NSG. |
 | Compatibilidad con la tunelización forzada| Sí | App Service Environment se puede implementar en la red virtual de un cliente que tenga configurada la tunelización forzada. Los clientes tienen que seguir las instrucciones de [Configuración de App Service Environment con tunelización forzada](/azure/app-service/environment/forced-tunnel-support). |
@@ -146,8 +147,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí |  |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | HTTPS/TLS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| N/D | Azure Resource Manager no almacena ningún contenido de cliente, solo los datos de control. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | HTTPS/TLS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| N/D | Azure Resource Manager no almacena ningún contenido de cliente, solo los datos de control. |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | |
 | Llamadas a API cifradas| Sí | |
 
@@ -155,22 +156,22 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sin | |
-| Compatibilidad con inserción de red virtual| Sí | |
-| Compatibilidad con aislamiento de red y firewalls| Sin |  |
+| Compatibilidad con puntos de conexión de servicio| Sin | |
+| Compatibilidad con la inserción de redes virtuales| Sí | |
+| Compatibilidad con el aislamiento de red y los firewalls| Sin |  |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ### <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con supervisión de Azure (Log Analytics, Application Insights, etc.)| Sin | |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sin | |
 
 ### <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Authentication| Sí | Basado en [Azure Active Directory](/azure/active-directory).|
+| Authentication| Sí | Basado en [Azure Active Directory](/azure/active-directory).|
 | Authorization| Sí | |
 
 
@@ -195,8 +196,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado)| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sin | Se usa HTTPS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sin |  |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sin | Se usa HTTPS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sin |  |
 | Llamadas API cifradas| Sí |  |
 
@@ -204,9 +205,9 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sin |  |
-| Compatibilidad con inserción de red virtual| Sin |  |
-| Compatibilidad con aislamiento de red y firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
+| Compatibilidad con puntos de conexión de servicio| Sin |  |
+| Compatibilidad con la inserción de redes virtuales| Sin |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ### <a name="detection"></a>Detección
@@ -243,7 +244,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/no | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Todas las bases de datos de Cosmos DB y las copias de seguridad se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest). No se admite el cifrado del servidor con claves administradas por el cliente. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | Solo en las instancias de Table API Premium. No todas las API admiten esta característica. Consulte [Introducción a Azure Cosmos DB: Table API](/azure/cosmos-db/table-introduction). |
 | Llamadas a API cifradas| Sí | Todas las conexiones a Azure Cosmos DB admiten HTTPS. Azure Cosmos DB también admite las conexiones TLS 1.2, pero esto no es obligatorio todavía. Si los clientes desactivan la conexión TLS de nivel inferior por su parte, pueden garantizar la conexión a Cosmos DB.  |
@@ -252,8 +253,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/no | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí |  |
-| Compatibilidad con inserción de red virtual| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall.  Consulte [Acceso a Azure Cosmos DB desde redes virtuales](/azure/cosmos-db/vnet-service-endpoint) |
+| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con la inserción de redes virtuales| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall.  Consulte [Acceso a Azure Cosmos DB desde redes virtuales](/azure/cosmos-db/vnet-service-endpoint) |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Gracias a la compatibilidad con el firewall, puede configurar su cuenta de Azure Cosmos para permitir el acceso solo desde un conjunto de direcciones IP aprobado, un intervalo de direcciones IP o servicios en la nube. Consulte [Configuración del firewall de IP en Azure Cosmos DB](/azure/cosmos-db/how-to-configure-firewall).|
 | Compatibilidad con la tunelización forzada| Sí | Se puede configurar en el cliente en la red virtual donde se encuentran las máquinas virtuales.   |
 
@@ -297,7 +298,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) |  Sí | |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | |
 | Control de clave de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí |  |
@@ -306,9 +307,9 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí |  |
+| Compatibilidad con el punto de conexión de servicio| Sí |  |
 | Compatibilidad con la inserción de redes virtuales| Sin | |
-| Compatibilidad con aislamiento de red y firewalls| Sí |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí |  |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ### <a name="detection"></a>Detección
@@ -346,7 +347,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, el cifrado del lado servidor, el cifrado del lado servidor con claves administradas por el cliente y otras características de cifrado) |  N/D | ExpressRoute no almacena datos de clientes. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sin | |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sin | |
 | Control de claves de cifrado (CMK, BYOK, etc.)| N/D |  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Mediante [Azure Resource Manager](/azure/azure-resource-manager/index) y HTTPS. |
@@ -395,8 +396,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Se cifran todos los objetos. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | Toda la comunicación se realiza a través de llamadas a API cifradas |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sí | El cliente controla todas las claves de su almacén de claves. Cuando se especifican claves con el respaldo del módulo de seguridad de hardware (HSM), un HSM de nivel 2 de FIPS protege la clave, el certificado o el secreto. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | Toda la comunicación se realiza a través de llamadas a API cifradas |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sí | El cliente controla todas las claves de su almacén de claves. Cuando se especifican claves con el respaldo del módulo de seguridad de hardware (HSM), un HSM de nivel 2 de FIPS protege la clave, el certificado o el secreto. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí | Se usa HTTPS. |
 
@@ -404,9 +405,9 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí | Se usan puntos de conexión de servicio de Virtual Network (VNet). |
-| Compatibilidad con inserción de red virtual| Sin |  |
-| Compatibilidad con aislamiento de red y firewalls| Sí | Se usan reglas de firewall de red virtual. |
+| Compatibilidad con el punto de conexión de servicio| Sí | Se usan puntos de conexión de servicio de red virtual (VNet). |
+| Compatibilidad con la inserción de redes virtuales| Sin |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | Se usan reglas de firewall de red virtual. |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ### <a name="detection"></a>Detección
@@ -489,47 +490,47 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) |  Sí para el cifrado en reposo del lado servidor de forma predeterminada. | No se admiten todavía claves administradas por el cliente y BYOK. El cifrado del lado cliente es responsabilidad del cliente. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | Es compatible con el mecanismo estándar de HTTPS/TLS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sin |   |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) |  Sí, para el cifrado en reposo en el servidor, de forma predeterminada. | No se admiten todavía claves administradas por el cliente ni BYOK. El cifrado del lado del cliente es responsabilidad de este. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | Compatible con el mecanismo estándar de HTTPS/TLS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sin |   |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
-| Llamadas a API cifradas| Sí | Las llamadas de API se hacen a través de [Azure Resource Manager](/azure/azure-resource-manager/index) y HTTPS. |
+| Llamadas a API cifradas| Sí | Las llamadas de API se realizan mediante [Azure Resource Manager](/azure/azure-resource-manager/index) y HTTPS. |
 
 ### <a name="network-segmentation"></a>Segmentación de red
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sí (nivel Premium solo) | Se admiten los puntos de conexión de servicio de red virtual solo para el [nivel Premium de Service Bus](/azure/service-bus-messaging/service-bus-premium-messaging). |
-| Compatibilidad con inserción de red virtual| Sin | |
-| Compatibilidad con aislamiento de red y firewalls| Sí (nivel Premium solo) |  |
+| Compatibilidad con los puntos de conexión de servicio| Sí (solo el nivel Premium) | Se admiten los puntos de conexión de servicio de red virtual solo para el [nivel Premium de Service Bus](/azure/service-bus-messaging/service-bus-premium-messaging). |
+| Compatibilidad con la inserción de redes virtuales| Sin | |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí (solo el nivel Premium) |  |
 | Compatibilidad con la tunelización forzada| Sin |  |
 
 ### <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Compatible a través de [Azure Monitor y alertas](/azure/service-bus-messaging/service-bus-metrics-azure-monitor). |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Compatible mediante [Azure Monitor y las alertas](/azure/service-bus-messaging/service-bus-metrics-azure-monitor). |
 
 ### <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Authentication| Sí | Administrada a través de [Azure Active Directory Managed Service Identity](/azure/service-bus-messaging/service-bus-managed-service-identity); vea [Autenticación y autorización de Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization).|
-| Authorization| Sí | Admite la autorización a través de [RBAC](/azure/service-bus-messaging/service-bus-role-based-access-control) (versión preliminar) y el token de SAS; vea [Autenticación y autorización de Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization). |
+| Authentication| Sí | Administrada mediante [Managed Service Identity de Azure Active Directory](/azure/service-bus-messaging/service-bus-managed-service-identity); consulte [Autenticación y autorización de Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization).|
+| Authorization| Sí | Admite la autorización mediante [RBAC](/azure/service-bus-messaging/service-bus-role-based-access-control) (versión preliminar) y el token de SAS; consulte [Autenticación y autorización de Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization). |
 
 
 ### <a name="audit-trail"></a>Pista de auditoría
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Registro y auditoría del plano de administración y de control| Sí | Están disponibles los registros de operaciones; consulte [Registros de diagnóstico de Service Bus](/azure/service-bus-messaging/service-bus-diagnostic-logs).  |
+| Registro y auditoría del plano de administración y de control| Sí | Están disponibles los registros de las operaciones; consulte [Registros de diagnóstico de Service Bus](/azure/service-bus-messaging/service-bus-diagnostic-logs).  |
 | Registro y auditoría del plano de datos| Sin |  |
 
 ### <a name="configuration-management"></a>Administración de configuración
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sí | Es compatible con versiones del proveedor de recursos a través de la [API de Azure Resource Manager](/rest/api/resources/).|
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sí | Compatible con el control de versiones del proveedor de recursos mediante la [API de Azure Resource Manager](/rest/api/resources/).|
 
 
 ## <a name="service-bus-relayazureservice-bus-relayservice-bus-relay-security-attributes"></a>[Service Bus Relay](/azure/service-bus-relay/service-bus-relay-security-attributes)
@@ -539,8 +540,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, el cifrado del lado servidor, el cifrado del lado servidor con claves administradas por el cliente y otras características de cifrado) |  N/D | La retransmisión es un socket web y no conserva los datos. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | El servicio requiere TLS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sin | Usa solo los certificados TLS de Microsoft.  |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | El servicio requiere TLS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sin | Usa solo los certificados TLS de Microsoft.  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | HTTPS. |
 
@@ -548,8 +549,8 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sin |  |
-| Compatibilidad con aislamiento de red y firewalls| Sin |  |
+| Compatibilidad con puntos de conexión de servicio| Sin |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sin |  |
 | Compatibilidad con la tunelización forzada| N/D | La retransmisión es el túnel de TLS  |
 
 ### <a name="detection"></a>Detección
@@ -562,15 +563,15 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Authentication| Sí | A través de SAS. |
-| Authorization|  Sí | A través de SAS. |
+| Authentication| Sí | Mediante SAS. |
+| Authorization|  Sí | Mediante SAS. |
 
 ### <a name="audit-trail"></a>Pista de auditoría
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Registro y auditoría del plano de administración y de control| Sí | Mediante [Azure Resource Manager](/azure/azure-resource-manager/index). |
-| Registro y auditoría del plano de datos| Sí | Conexión correcta o con errores y errores y registros.  |
+| Registro y auditoría del plano de datos| Sí | Conexión correcta o con errores, y errores y registros.  |
 
 ### <a name="configuration-management"></a>Administración de configuración
 
@@ -585,7 +586,7 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | El cliente posee el clúster y el conjunto de escalado de máquinas virtuales en el que se basa el clúster. El cifrado de discos de Azure se puede habilitar en el conjunto de escalado de máquinas virtuales. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | El cliente posee el clúster y el conjunto de escalado de máquinas virtuales en el que se basa el clúster. El cifrado de discos de Azure se puede habilitar en el conjunto de escalado de máquinas virtuales. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | El cliente posee el clúster y el conjunto de escalado de máquinas virtuales en el que se basa el clúster. El cifrado de discos de Azure se puede habilitar en el conjunto de escalado de máquinas virtuales. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí | Las llamadas de API de Service Fabric se hacen a través de Azure Resource Manager. Se requiere un token web de JSON (JWT) válido. |
 
@@ -593,16 +594,16 @@ Esta sección documenta las vulnerabilidades más comunes, que no afectan a Azur
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí |  |
-| Compatibilidad con inserción de red virtual| Sí |  |
-| Compatibilidad con aislamiento de red y firewalls| Sí | Usando grupos de seguridad de red (NSG). |
+| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con la inserción de redes virtuales| Sí |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | Usando grupos de seguridad de red (NSG). |
 | Compatibilidad con la tunelización forzada| Sí | Las redes de Azure proporcionan la tunelización forzada. |
 
 ### <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Utilizando la compatibilidad de supervisión de Azure y la compatibilidad de las soluciones de terceros. |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Con la compatibilidad de supervisión de Azure y la compatibilidad de las soluciones de terceros. |
 
 ### <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -633,7 +634,7 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Se denomina "cifrado en uso", tal y como se describe en el artículo [Always Encrypted](/azure/sql-database/sql-database-always-encrypted). El cifrado del servidor usa el [cifrado de datos transparente](/azure/sql-database/transparent-data-encryption-azure-sql).|
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | Se usa HTTPS. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | Se usa HTTPS. |
 | Control de claves de cifrado, como CMK o BYOK| Sí | Se ofrece control de claves tanto administradas por el servicio como por el cliente. Este último se ofrece mediante [Azure Key Vault](/azure/key-vault/index). |
 | Cifrado de nivel de columna proporcionado por Azure Data Services| Sí | Mediante [Always Encrypted](/azure/sql-database/sql-database-always-encrypted). |
 | Llamadas a API cifradas| Sí | Con HTTPS/SSL. |
@@ -642,10 +643,10 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí | Se aplica solo a las [bases de datos únicas](/azure/sql-database/sql-database-single-index). |
+| Compatibilidad con el punto de conexión de servicio| Sí | Se aplica solo a las [bases de datos únicas](/azure/sql-database/sql-database-single-index). |
 | Compatibilidad con la inserción de Azure Virtual Network| Sí | Se aplica solo a las [instancias administradas](/azure/sql-database/sql-database-managed-instance). |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Firewall en el nivel de base de datos y de servidor. El aislamiento de red es solo para [instancias administradas](/azure/sql-database/sql-database-managed-instance). |
-| Compatibilidad con la tunelización forzada| Sí | [Instancia administrada](/azure/sql-database/sql-database-managed-instance) mediante VPN de [ExpressRoute](/azure/expressroute/index.yml). |
+| Compatibilidad con la tunelización forzada| Sí | [Instancia administrada](/azure/sql-database/sql-database-managed-instance) mediante VPN de [ExpressRoute](/azure/expressroute/index). |
 
 ### <a name="detection"></a>Detección
 
@@ -679,7 +680,7 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 |---|---|--|
 | Preventivo: evaluación de vulnerabilidad | Sí | Consulte [El servicio de evaluación de vulnerabilidad de SQL le ayuda a identificar los puntos vulnerables de la base de datos](/azure/sql-database/sql-vulnerability-assessment). |
 | Preventivo: detección y clasificación de datos  | Sí | Consulte [Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse](/azure/sql-database/sql-database-data-discovery-and-classification). |
-| Detección: detección de amenazas | Sí | Consulte [Advanced Threat Protection en Azure SQL Database](/azure/sql-database/sql-database-threat-detection-overview). |
+| Detección: detección de amenazas | Sí | Consulte [Advanced Threat Protection en Azure SQL Database](/azure/sql-database/sql-database-threat-detection-overview). |
 
 
 ## <a name="storageazurestoragecommonstorage-security-attributes"></a>[Storage](/azure/storage/common/storage-security-attributes)
@@ -689,7 +690,7 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí |  |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual) | Sí | Compatible con los mecanismos estándar de HTTPS/TLS.  Los usuarios también pueden cifrar datos antes de que se transmitan al servicio. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual) | Sí | Compatible con los mecanismos estándar de HTTPS/TLS.  Los usuarios también pueden cifrar datos antes de que se transmitan al servicio. |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sí | Consulte [Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](/azure/storage/common/storage-service-encryption-customer-managed-keys?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí |  |
@@ -698,7 +699,7 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí |  |
+| Compatibilidad con el punto de conexión de servicio| Sí |  |
 | Compatibilidad con la inserción de redes virtuales| N/D |  |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | |
 | Compatibilidad con la tunelización forzada| N/D |  |
@@ -748,8 +749,8 @@ SQL Database incluye una [base de datos única](/azure/sql-database/sql-database
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí | |
-| Compatibilidad con inserción de red virtual| Sí | . |
+| Compatibilidad con el punto de conexión de servicio| Sí | |
+| Compatibilidad con la inserción de redes virtuales| Sí | . |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí |  |
 | Compatibilidad con la tunelización forzada| Sí | Consulte [Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 

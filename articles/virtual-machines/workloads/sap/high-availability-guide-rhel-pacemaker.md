@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992148"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570561"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -28,19 +28,17 @@ ms.locfileid: "65992148"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!NOTE]
-> Pacemaker en Red Hat Enterprise Linux usa al agente de delimitación de Azure para delimitar un nodo de clúster si es necesario. Una conmutación por error puede tardar hasta 15 minutos si se produce un error en una detención de recursos o se interrumpe la comunicación entre los nodos del clúster. Para obtener más información, lea [la máquina virtual de Azure que se ejecuta como un miembro del clúster de alta disponibilidad de RHEL tarda mucho tiempo en delimitarse, ocurre un error en la delimitación o se agota el tiempo de espera antes de que la máquina virtual se apague](https://access.redhat.com/solutions/3408711)
 
 Lea primero las notas y los documentos de SAP siguientes:
 
@@ -68,12 +66,13 @@ Lea primero las notas y los documentos de SAP siguientes:
 * Documentación de RHEL específica para Azure:
   * [Directivas de compatibilidad para clústeres de alta disponibilidad RHEL: instancias de Microsoft Azure Virtual Machines como miembros del clúster](https://access.redhat.com/articles/3131341)
   * [Instalación y configuración de un clúster de alta disponibilidad de Red Hat Enterprise Linux 7.4 (y versiones posteriores) en Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Configuración de SAP S/4HANA ASCS/ERS con el servidor 2 de puesta en cola independiente (ENSA2) en Pacemaker en RHEL 7.6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalación del clúster
 
 ![Información general de Pacemaker en RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
 1. **[A]** Registro
 
@@ -85,7 +84,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Tenga en cuenta que adjuntando un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, estará eficazmente factura de doble para el uso RHEL: una vez para la imagen PAYG y otra para el derecho de RHEL en el grupo al que adjunta. Para mitigar esto, Azure proporciona ahora BYOS RHEL imágenes. Encontrará más información [aquí](https://aka.ms/rhel-byos).
+   Tenga en cuenta que si adjunta un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, se le facturará el doble por el uso de RHEL, una vez por la imagen de pago por uso y otra, por el derecho de RHEL en el grupo que adjunta. Para mitigar esto, Azure ahora proporciona imágenes de RHEL de BYOS. Puede encontrar más información disponible [aquí](https://aka.ms/rhel-byos).
 
 1. **[A]** Habilitación de RHEL para los repositorios SAP
 
@@ -94,12 +93,25 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
 1. **[A]** Instalación del complemento de alta disponibilidad de RHEL
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   </code></pre>
+
+   > [!IMPORTANT]
+   > Se recomiendan las siguientes versiones del agente de delimitación de Azure (o posterior) para que los clientes puedan beneficiarse de un tiempo de conmutación por error más rápido, si se produce un error en la detención de un recurso o los nodos del clúster no pueden comunicarse entre sí:  
+   > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
+   > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
+   > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
+   > Para más información, consulte [la máquina virtual de Azure que se ejecuta como un miembro del clúster de alta disponibilidad de RHEL tarda mucho tiempo en delimitarse, ocurre un error en la delimitación o se agota el tiempo de espera antes de que la máquina virtual se apague](https://access.redhat.com/solutions/3408711)
+
+   Compruebe la versión del agente de delimitación de Azure. Si es necesario, actualícelo a una versión igual o posterior a la indicada anteriormente.
+   <pre><code># Check the version of the Azure Fence Agent
+    sudo yum info fence-agents-azure-arm
    </code></pre>
 
 1. **[A]** Configure la resolución nombres de host
@@ -141,7 +153,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[1]** Creación del clúster de Pacemaker
 
-   Ejecute los comandos siguientes para autenticar los nodos y crear el clúster. Establezca el token en 30000 para permitir el mantenimiento con conservación de memoria. Para obtener más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance].
+   Ejecute los comandos siguientes para autenticar los nodos y crear el clúster. Establezca el token en 30000 para permitir el mantenimiento con conservación de memoria. Para más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance].
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -181,19 +193,21 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
 
 1. Vaya a <https://portal.azure.com>.
-1. Abra la hoja de Azure Active Directory vaya a propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
+1. Abra la hoja Azure Active Directory  
+   Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
-1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación Web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en crear
-1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
-1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
-1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar
+1. Haga clic en Nuevo registro.
+1. Escriba un nombre y seleccione "Solo las cuentas de este directorio organizativo". 
+2. Seleccione el tipo de aplicación "Web", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en Agregar.  
+   La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
+1. Seleccione Certificados y secretos y luego haga clic en Nuevo secreto de cliente.
+1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Agregar
 1. Anote el valor. Se utiliza como **contraseña** para la entidad de servicio
-1. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
+1. Seleccione Información general. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creación de un rol personalizado para el agente de barrera
 
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (apagar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 
 Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el contenido a sus suscripciones; esto es, reemplace c276fc76-9cd4-44c9-99a7-4fd71546436e y e91d47c4-76f3-4271-a796-21b4ecfe3624 por los identificadores de su suscripción. Si solo tiene una suscripción, quite la segunda entrada en AssignableScopes.
 
@@ -202,10 +216,10 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
   "Name": "Linux Fence Agent Role",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
+  "Description": "Allows to power-off and start virtual machines",
   "Actions": [
     "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
+    "Microsoft.Compute/virtualMachines/powerOff/action",
     "Microsoft.Compute/virtualMachines/start/action"
   ],
   "NotActions": [
@@ -254,7 +268,7 @@ Para configurar al agente de delimitación, use el comando siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
+* [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
-* Para información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure][sap-hana-ha]
+* Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales de Azure][sap-hana-ha].

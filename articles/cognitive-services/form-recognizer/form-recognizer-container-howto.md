@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: d03abee7c7a4adb65e1d6146501ee5b7d9e1534c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3db63be8856b5bd57323ecd0be767d09032404e9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348669"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741885"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalación y ejecución de contenedores de Form Recognizer
 
@@ -95,9 +95,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
 
-Cuando el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
+Cuando el contenedor esté en el [equipo host](#the-host-computer), use el siguiente proceso para trabajar con el contenedor.
 
-1. [Ejecute el contenedor](#run-the-container-by-using-the-docker-run-command) con la configuración de facturación requerida pero no utilizada. Hay más [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
+1. [Ejecute el contenedor](#run-the-container-by-using-the-docker-run-command) con la configuración de facturación requerida. Hay más [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
 1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Ejecución del contenedor mediante el comando docker run

@@ -4,15 +4,15 @@ description: En este artículo se explica cómo entender la factura de Azure Cos
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621287"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717519"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -238,7 +238,7 @@ La factura total (sin capacidad reservada) sería (suponiendo 30 días o 720 hor
 
 |**Región**| **Precio por hora por 100 RU/s**|**Unidades (RU/s)**|**Importe facturado (por hora)**| **Importe facturado (mensual)**|
 |----|----|----|----|----|
-|Este de EE. UU|0,008 USD |50 000|4 USD|2880 USD |
+|East US|0,008 USD |50 000|4 USD|2880 USD |
 |Este de Japón|0,009 USD |50 000| 4,50 USD |3240 USD |
 |Total|||8,50 USD|6120 USD |
 
@@ -252,7 +252,7 @@ Lo que realmente ha comprado es un crédito de 8 USD por hora, para 100 000 RU
 
 |**Región**| **Precio por hora por 100 RU/s**|**Unidades (RU/s)**| **Importe facturado (por hora)**| **Importe facturado (mensual)**|
 |----|----|----|----|----|
-|Este de EE. UU|0,008 USD |50 000|4 USD|2880 USD |
+|East US|0,008 USD |50 000|4 USD|2880 USD |
 |Este de Japón|0,009 USD |50 000| 4,50 USD |3240 USD |
 |||Pago por uso|8,50 USD|6120 USD|
 |Capacidad reservada adquirida|0,0064 USD (20 % de descuento) |100 RU/s o 8 USD de capacidad comprada previamente |-8 USD|-5760 USD |

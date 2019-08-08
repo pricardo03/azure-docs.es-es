@@ -11,42 +11,136 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 8/2/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.openlocfilehash: 534a77ad29338ca1cdba22a3adeb8113521a6246
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743048"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780092"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
-En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="july-2019-guest-os"></a>SO invitado de julio de 2019
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506966]  |  Seguridad de .NET 4.5.2   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506976]  |  Seguridad de .NET 3.5.1   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507456]  |  Seguridad de Windows   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506965]  |  Seguridad de .NET 4.5.2   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506974]  |  Seguridad de .NET 3.5   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507464]  |  Seguridad de Windows   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506964]  |  Seguridad de .NET 4.5.2   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506977]  |  Seguridad de .NET 3.5   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507457]  |  Seguridad de Windows   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507460]  |  Seguridad de Windows   |  5.33  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506998]  |  Seguridad de .NET 3.5 y 4.7.2   |  6.9  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507469]  |  Seguridad de Windows   |  6.9  |  9 de julio de 2019  |
+|  N/D  |  [4503537]  |  Actualización de la pila de servicios de junio de 2019 (Server 2016)   |  5.33  |  14 de mayo de 2019  |
+|  N/D  |  [4504369]  |  Actualización de la pila de servicios de junio de 2019 (Server 2019)   |  6.9  |  14 de mayo de 2019  |
+|  N/D  |  [4503292]  |  No seguridad de junio de 2019 (Server 2008 R2)   |  2,88  |  20 de mayo de 2019  |
+|  N/D  |  [4503285]  |  No seguridad de junio de 2019 (Server 2012)   |  3,75  |  14 de mayo de 2019  |
+|  N/D  |  [4503276]  |  No seguridad de junio de 2019 (Server 2012 R2)   |  4.68  |  14 de mayo de 2019  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## <a name="june-2019-guest-os"></a>SO invitado de junio de 2019
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 19-06   |  [4503327]  |  Seguridad de Windows 10   |  6,8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503267]  |  Seguridad de Windows 10   |  5.32  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503290]  |  Seguridad de Windows   |  4.67  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503263]  |  Seguridad de Windows   |  3.74  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503269]  |  Seguridad de Windows   |  2.87  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4494174]  |  Actualización de microcódigo   |  6,8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4494175]  |  Actualización de microcódigo   |  5.32  |  3 de junio de 2019  |
+|  Versión 19-06   |  [4503308]  |  Intermitente   |  3.74, 4.67, 5.32, 6.8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junio de 2019  |
+|  N/D  |  [4499164]  |  Mayo de 2019, no de seguridad  |  2.87  |  14 de mayo de 2019  |
+|  N/D  |  [4495606]  |  Mayo de 2019, .NET 3.5, no de seguridad  |  2.87  |  14 de mayo de 2019  |
+|  N/D  |  [4495596]  |  Mayo de 2019, .NET 4.5, no de seguridad  |  2.87  |  20 de mayo de 2019  |
+|  N/D  |  [4499171]  |  Mayo de 2019, no de seguridad  |  3.74  |  14 de mayo de 2019  |
+|  N/D  |  [4495602]  |  Mayo de 2019, .NET 3.5, no de seguridad  |  3.74  |  14 de mayo de 2019  |
+|  N/D  |  [4495594]  |  Mayo de 2019, .NET 4.x, no de seguridad  |  4.67  |  14 de mayo de 2019  |
+|  N/D  |  [4499151]  |  Mayo de 2019, no de seguridad  |  4.67  |  14 de mayo de 2019  |
+|  N/D  |  [4495608]  |  Mayo de 2019, .NET 3.5, no de seguridad  |  4.67  |  14 de mayo de 2019  |
+|  N/D  |  [4495592]  |  Mayo de 2019, .NET 4.5.2, no de seguridad  |  4.67  |  14 de mayo de 2019  |
+|  N/D  |  [4495610]  |  Mayo de 2019, .NET 4.8, no de seguridad  |  6,8  |  14 de mayo de 2019  |
+|  N/D  |  [4495618]  |  Mayo de 2019, .NET 4.8, acumulativa  |  6,8  |  14 de mayo de 2019  |
+|  N/D  |  [4501226]  |  Actualizaciones de zona horaria de horario de verano de Marruecos y la Autoridad Palestina  |  2.87, 3.74, 4.67  |  23 de mayo de 2019  |
+|  N/D  |  [4490128]  |  Actualizaciones de zona horaria de horario de verano de Santo Tomé y Príncipe y Qyzylorda  |  2.87, 3.74, 4.67  |  17 de abril de 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>SO invitado de mayo de 2019
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Rel 19: 05   |  [4498206]  |  Es posible que el paquete acumulativo de actualizaciones de Internet Explorer   |  2,86, 3.73, 4.66  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4505050]  |  Es posible que el paquete acumulativo de actualizaciones de Internet Explorer   |  2,86, 3.73, 4.66  |  18 de mayo de 2019  |
-|  Rel 19: 05   |  [4497932]  |  Es posible que Flash Update   |  3.73, 4.66, 5.31  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4499175]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad   |  2.86  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495612]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 3.5   |  2.86  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495593]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 4.5.2   |  2.86  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4499158]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad   |  3.73  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495607]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 3.5   |  3.73  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495591]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 4.5.2   |  3.73  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4492872]  |  Paquete acumulativo de actualizaciones de Internet Explorer   |  3.73  |  16 de abril de 2019  |
-|  Rel 19: 05   |  [4499165]  |  Paquete acumulativo de actualizaciones de seguridad de marzo   |  4.66  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495615]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 3.5   |  4.66  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495589]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET 4.5.2   |  4.66  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4498947]  |  SSU de mayo   |  5.31  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4494175]  |  Actualización de microcódigo de mayo   |  5.31  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4505052]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad   |  5.31  |  19 de mayo de 2019  |
-|  Rel 19: 05   |  [4499728]  |  SSU de mayo   |  6.7  |  19 de mayo de 2019  |
-|  Rel 19: 05   |  [4505056]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad   |  6.7  |  19 de mayo de 2019  |
-|  Rel 19: 05   |  [4494174]  |  Actualización de microcódigo de mayo   |  6.7  |  14 de mayo de 2019  |
-|  Rel 19: 05   |  [4495590]  |  Es posible que el paquete acumulativo de actualizaciones de seguridad .NET   |  6.7  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4498206]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4505050]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  18 de mayo de 2019  |
+|  Versión 19-05   |  [4497932]  |  Actualización de Flash de mayo   |  3,73, 4,66, 5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4499175]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495612]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495593]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4499158]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495607]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495591]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4492872]  |  Paquete acumulativo de actualizaciones de Internet Explorer   |  3.73  |  16 de abril de 2019  |
+|  Versión 19-05   |  [4499165]  |  Paquete acumulativo de actualizaciones de seguridad, marzo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495615]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495589]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4498947]  |  SSU de mayo   |  5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4494175]  |  Actualización de microcódigo de mayo   |  5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4505052]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  5,31  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4499728]  |  SSU de mayo   |  6.7  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4505056]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  6.7  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4494174]  |  Actualización de microcódigo de mayo   |  6.7  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495590]  |  Paquete acumulativo de actualizaciones de seguridad para .NET, mayo   |  6.7  |  14 de mayo de 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -74,18 +168,18 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-| Rel 04-19 | [4493509] | Seguridad de Windows 10 | 6.6 | 9 de abril de 2019 |
-| Rel 04-19 | [4493470] | Seguridad de Windows 10 | 5.30 | 9 de abril de 2019 |
-| Rel 04-19 | [4493467] | Seguridad de Windows | 4.65 | 9 de abril de 2019 |
-| Rel 04-19 | [4493450] | Seguridad de Windows | 3.72 | 9 de abril de 2019 |
-| Rel 04-19 | [4493448] | Seguridad de Windows | 2.85 | 9 de abril de 2019 |
-| Rel 04-19 | [4493478] | Intermitente | 3.72, 4.65, 5.30, 6.6 | 9 de abril de 2019 |
-| Rel 04-19 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 de abril de 2019 |
-| Rel 04-19 | [4490628] | Actualización de la pila de servicio | 2.85 | 12 de marzo de 2019 |
-| Rel 04-19 | [4474419] | Soporte técnico de SHA2 | 2.85 | 12 de marzo de 2019 |
-| Rel 04-19 | [4489878] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 2.85 | 12 de marzo de 2019 |
-| Rel 04-19 | [4489891] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 3.72 | 12 de marzo de 2019 |
-| Rel 04-19 | [4489881] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 4.65 | 12 de marzo de 2019 |
+| Versión 19-04 | [4493509] | Seguridad de Windows 10 | 6.6 | 9 de abril de 2019 |
+| Versión 19-04 | [4493470] | Seguridad de Windows 10 | 5,30 | 9 de abril de 2019 |
+| Versión 19-04 | [4493467] | Seguridad de Windows | 4.65 | 9 de abril de 2019 |
+| Versión 19-04 | [4493450] | Seguridad de Windows | 3.72 | 9 de abril de 2019 |
+| Versión 19-04 | [4493448] | Seguridad de Windows | 2,85 | 9 de abril de 2019 |
+| Versión 19-04 | [4493478] | Intermitente | 3,72, 4,65, 5,30, 6,6 | 9 de abril de 2019 |
+| Versión 19-04 | [4493435] | Internet Explorer | 2,85, 3,72, 4,65 | 9 de abril de 2019 |
+| Versión 19-04 | [4490628] | Actualización de la pila de servicio | 2,85 | 12 de marzo de 2019 |
+| Versión 19-04 | [4474419] | Compatibilidad con SHA2 | 2,85 | 12 de marzo de 2019 |
+| Versión 19-04 | [4489878] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 2,85 | 12 de marzo de 2019 |
+| Versión 19-04 | [4489891] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 3.72 | 12 de marzo de 2019 |
+| Versión 19-04 | [4489881] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 4.65 | 12 de marzo de 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -104,24 +198,24 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489907] | Intermitente | 3.71, 4.64, 5.29, 6.5 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489885] | Seguridad de Windows | 2.84 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489884] | Seguridad de Windows | 3.71 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489883] | Seguridad de Windows | 4.64 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489882] | Seguridad de Windows 10 | 5.29 | 12 de marzo de 2019 |
-| Rel 19-03 | [4489899] | Seguridad de Windows 10 | 6.5 | 12 de marzo de 2019 |
-| Rel 19-03 | [4486563] | Paquete acumulativo de actualizaciones de seguridad de que no son de febrero | 2.84 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483458] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 3.x | 2.84 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483455] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 4.x | 2.84 | 12 de febrero de 2019 |
-| Rel 19-03 | [4487025] | Paquete acumulativo de actualizaciones de seguridad de que no son de febrero | 3.71 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483456] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 3.x | 3.71 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483454] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 4.x | 3.71 | 12 de febrero de 2019 |
-| Rel 19-03 | [4487000] | Paquete acumulativo de actualizaciones de seguridad de que no son de febrero | 4.64 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483459] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 3.x | 4.64 | 12 de febrero de 2019 |
-| Rel 19-03 | [4483453] | Paquete acumulativo de actualizaciones de febrero no relacionadas con la seguridad .NET 4.x | 4.64 | 12 de febrero de 2019 |
-| Rel 19-03 | [4485447] | Actualización de la pila de mantenimiento de febrero | 5.29 | 12 de febrero de 2019 |
-| Rel 19-03 | [4486459] | Actualización de zona horaria | 2.84, 3.71, 4.64 | 12 de febrero de 2019 |
+| Versión 19-03 | [4489873] | Internet Explorer | 2,84, 3,71, 4,64 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489907] | Intermitente | 3,71, 4,64, 5,29, 6,5 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489885] | Seguridad de Windows | 2,84 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489884] | Seguridad de Windows | 3,71 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489883] | Seguridad de Windows | 4,64 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489882] | Seguridad de Windows 10 | 5,29 | 12 de marzo de 2019 |
+| Versión 19-03 | [4489899] | Seguridad de Windows 10 | 6.5 | 12 de marzo de 2019 |
+| Versión 19-03 | [4486563] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, febrero | 2,84 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483458] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 3.x, febrero | 2,84 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483455] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 4.x, febrero | 2,84 | 12 de febrero de 2019 |
+| Versión 19-03 | [4487025] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, febrero | 3,71 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483456] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 3.x, febrero | 3,71 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483454] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 4.x, febrero | 3,71 | 12 de febrero de 2019 |
+| Versión 19-03 | [4487000] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, febrero | 4,64 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483459] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 3.x, febrero | 4,64 | 12 de febrero de 2019 |
+| Versión 19-03 | [4483453] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET 4.x, febrero | 4,64 | 12 de febrero de 2019 |
+| Versión 19-03 | [4485447] | Actualización de la pila de servicio, febrero | 5,29 | 12 de febrero de 2019 |
+| Versión 19-03 | [4486459] | Actualización de zona horaria | 2,84, 3,71, 4,64 | 12 de febrero de 2019 |
 
 [4489873]: https://support.microsoft.com/kb/4489873
 [4489907]: https://support.microsoft.com/kb/4489907
@@ -146,29 +240,29 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 de febrero de 2019 |
-| Rel 19-02 | [4487038] | Intermitente | 3.70, 4.63, 5.28, 6.4 | 12 de febrero de 2019 |
-| Rel 19-02 | [4486564] | Seguridad de Windows | 2.83 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483483] | .NET 3.5.1 seguridad | 2.83 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483474] | .NET 4.5.2 seguridad | 2.83 | 12 de febrero de 2019 |
-| Rel 19-02 | [4486993] | Seguridad de Windows | 3.70 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483481] | .NET 3.5 seguridad | 3.70 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483473] | .NET 4.5.2 seguridad | 3.70 | 12 de febrero de 2019 |
-| Rel 19-02 | [4487028] | Seguridad de Windows | 4.63 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483484] | .NET 3.5 seguridad | 4.63 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483472] | .NET 4.5.2 seguridad | 4.63 | 12 de febrero de 2019 |
-| Rel 19-02 | [4487026] | Seguridad de Windows | 5.28 | 12 de febrero de 2019 |
-| Rel 19-02 | [4487044] | Seguridad de Windows | 6.4 | 12 de febrero de 2019 |
-| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 seguridad | 6.4 | 12 de febrero de 2019 |
-| N/D | [4480970] | Paquete acumulativo de actualizaciones de seguridad que no son de enero | 2.83 | 8 de enero de 2019 |
-| N/D | [4483483] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 3.5.1  | 2.83 | 8 de enero de 2019 |
-| N/D | [4480059] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 4.5.2  | 2.83 | 8 de enero de 2019 |
-| N/D | [4480975] | Paquete acumulativo de actualizaciones de seguridad que no son de enero | 3.70 | 8 de enero de 2019 |
-| N/D | [4480061] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 3.5 | 3.70 | 8 de enero de 2019 |
-| N/D | [4480058] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 4.5.2 | 3.70 | 8 de enero de 2019 |
-| N/D | [4480963] | Paquete acumulativo de actualizaciones de seguridad que no son de enero | 4.63 | 8 de enero de 2019 |
-| N/D | [4480064] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 3.5 | 4.63 | 8 de enero de 2019 |
-| N/D | [4480057] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 4.5.2 | 4.63 | 8 de enero de 2019 |
+| Versión 19-02 | [4486474] | Internet Explorer | 2,83, 3,70, 4,63 | 12 de febrero de 2019 |
+| Versión 19-02 | [4487038] | Intermitente | 3,70, 4,63, 5,28, 6,4 | 12 de febrero de 2019 |
+| Versión 19-02 | [4486564] | Seguridad de Windows | 2,83 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483483] | Seguridad de .NET 3.5.1 | 2,83 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483474] | Seguridad de .NET 4.5.2 | 2,83 | 12 de febrero de 2019 |
+| Versión 19-02 | [4486993] | Seguridad de Windows | 3,70 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483481] | Seguridad de .NET 3.5 | 3,70 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483473] | Seguridad de .NET 4.5.2 | 3,70 | 12 de febrero de 2019 |
+| Versión 19-02 | [4487028] | Seguridad de Windows | 4,63 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483484] | Seguridad de .NET 3.5 | 4,63 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483472] | Seguridad de .NET 4.5.2 | 4,63 | 12 de febrero de 2019 |
+| Versión 19-02 | [4487026] | Seguridad de Windows | 5.28 | 12 de febrero de 2019 |
+| Versión 19-02 | [4487044] | Seguridad de Windows | 6.4. | 12 de febrero de 2019 |
+| Versión 19-02 | [4483452] | Seguridad de .NET 3.5, 4.7.2 | 6.4. | 12 de febrero de 2019 |
+| N/D | [4480970] | Paquete acumulativo no relacionado con la seguridad, enero | 2,83 | 8 de enero de 2019 |
+| N/D | [4483483] | Paquete acumulativo no relacionado con la seguridad de .NET 3.5.1, enero  | 2,83 | 8 de enero de 2019 |
+| N/D | [4480059] | Paquete acumulativo no relacionado con la seguridad de .NET 4.5.2, enero  | 2,83 | 8 de enero de 2019 |
+| N/D | [4480975] | Paquete acumulativo no relacionado con la seguridad, enero | 3,70 | 8 de enero de 2019 |
+| N/D | [4480061] | Paquete acumulativo no relacionado con la seguridad de .NET 3.5, enero | 3,70 | 8 de enero de 2019 |
+| N/D | [4480058] | Paquete acumulativo no relacionado con la seguridad de .NET 4.5.2, enero | 3,70 | 8 de enero de 2019 |
+| N/D | [4480963] | Paquete acumulativo no relacionado con la seguridad, enero | 4,63 | 8 de enero de 2019 |
+| N/D | [4480064] | Paquete acumulativo no relacionado con la seguridad de .NET 3.5, enero | 4,63 | 8 de enero de 2019 |
+| N/D | [4480057] | Paquete acumulativo no relacionado con la seguridad de .NET 4.5.2, enero | 4,63 | 8 de enero de 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -204,12 +298,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 19-01 | [4480972] | Seguridad de Windows | 3.69 | 8 de enero de 2019 |
 | Versión 19-01 | [4480960] | Seguridad de Windows | 2.82 | 8 de enero de 2019 |
 | Versión 19-01 | [4480056] | Seguridad de .NET | 6.3 | 8 de enero de 2019 |
-| Versión 19-01 | [4480074] | .NET 4.x Security | 4.62 | 8 de enero de 2019 |
-| Versión 19-01 | [4480075] | .NET 4.x Security | 3.69 | 8 de enero de 2019 |
-| Versión 19-01 | [4480076] | .NET 4.x Security | 2.82 | 8 de enero de 2019 |
-| Versión 19-01 | [4480086] | .NET 3.x Security | 4.62 | 8 de enero de 2019 |
-| Versión 19-01 | [4480083] | .NET 3.x Security | 3.69 | 8 de enero de 2019 |
-| Versión 19-01 | [4480085] | .NET 3.x Security | 2.82 | 8 de enero de 2019 |
+| Versión 19-01 | [4480074] | Seguridad de .NET 4.x | 4.62 | 8 de enero de 2019 |
+| Versión 19-01 | [4480075] | Seguridad de .NET 4.x | 3.69 | 8 de enero de 2019 |
+| Versión 19-01 | [4480076] | Seguridad de .NET 4.x | 2.82 | 8 de enero de 2019 |
+| Versión 19-01 | [4480086] | Seguridad de .NET 3.x | 4.62 | 8 de enero de 2019 |
+| Versión 19-01 | [4480083] | Seguridad de .NET 3.x | 3.69 | 8 de enero de 2019 |
+| Versión 19-01 | [4480085] | Seguridad de .NET 3.x | 2.82 | 8 de enero de 2019 |
 | Versión 19-01 | [4480979] | Intermitente | 3.69, 4.62, 5.27, 6.3 | 8 de enero de 2019 |
 | Versión 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de enero de 2019 |
 | N/D | [4471318] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre | 2.82 | 11 de diciembre de 2018 |
@@ -254,12 +348,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 18-12 | [4471328] | Seguridad de Windows   | 2.81 | 11 de diciembre de 2018 |
 | Versión 18-12 | [4471326] | Seguridad de Windows   | 3.68 | 11 de diciembre de 2018 |
 | Versión 18-12 | [4471322] | Seguridad de Windows   | 4.61 | 11 de diciembre de 2018 |
-| Versión 18-12 | [4470600] | .NET 3.x Security  | 2.81 | 11 de diciembre de 2018 |
-| Versión 18-12 | [4470601] | .NET 3.x Security  | 3.68 | 11 de diciembre de 2018|
-| Versión 18-12 | [4470602] | .NET 3.x Security  | 4.61 | 11 de diciembre de 2018 |
-| Versión 18-12 | [4470493] | .NET 4.x Security  | 2.81 | 11 de diciembre de 2018 |
-| Versión 18-12 | [4470492] | .NET 4.x Security  | 3.68 | 11 de diciembre de 2018 |
-| Versión 18-12 | [4470491] | .NET 4.x Security  | 4.61| 11 de diciembre de 2018 |
+| Versión 18-12 | [4470600] | Seguridad de .NET 3.x  | 2.81 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470601] | Seguridad de .NET 3.x  | 3.68 | 11 de diciembre de 2018|
+| Versión 18-12 | [4470602] | Seguridad de .NET 3.x  | 4.61 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470493] | Seguridad de .NET 4.x  | 2.81 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470492] | Seguridad de .NET 4.x  | 3.68 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470491] | Seguridad de .NET 4.x  | 4.61| 11 de diciembre de 2018 |
 | Versión 18-12 | [4471331] | Intermitente  | 3.68, 4.61, 5.26 | 5 de diciembre de 2018  |
 | Versión 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de diciembre de 2018 |
 | N/D | [4468323] | Actualización de zona horaria    | 2.81, 3.68, 4.61 | 13 de diciembre de 2018 |
@@ -631,22 +725,22 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Rel 17-05 | [4019472] |Mejoras de calidad del SO WS 2016 |5.7 | 9 de mayo de 2017 |
 | Rel 17-05 | [4019263] |Indicador de seguridad de Windows |2.62 | 9 de mayo de 2017 |
 | Rel 17-05 | [4019213] |Indicador de seguridad de Windows |4.42 | 9 de mayo de 2017 |
-| Rel 17-05 | [4019214] |Indicador de seguridad de Windows |3,49 | 9 de mayo de 2017 |
+| Rel 17-05 | [4019214] |Indicador de seguridad de Windows |3.49 | 9 de mayo de 2017 |
 | Rel 17-05 | [4018271] |Actualización de seguridad acumulativa para Internet Explorer |3.49 | 9 de mayo de 2017 |
 | Rel 17-05 | [4010323] |Aviso de SHA1 |2.62, 4.42, 5.7 | 9 de mayo de 2017 |
 | Rel 17-05 | [4022344] |Documento informativo sobre seguridad de Microsoft |5.7 | 9 de mayo de 2017 |
 | Rel 17-05 | [4022345] |Documento informativo sobre seguridad de Microsoft |5.7 | 9 de mayo de 2017 |
-| Rel 17-05 | [4021279] |Aviso de .NET /ASP.NET core |2.62, 3.49, 4.42, 5.7 | 9 de mayo de 2017 |
+| Rel 17-05 | [4021279] |Aviso de .Net/ASP.Net Core |2.62, 3.49, 4.42, 5.7 | 9 de mayo de 2017 |
 | N/D | [4012864] |Actualización de zona horaria |2.62, 3.49, 4.42 | 9 de mayo de 2017 |
 | N/D | [4014565] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 11 de abril de 2017 |
 | N/D | [4014559] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 11 de abril de 2017 |
 | N/D | [4015549] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |2.62 | 11 de abril de 2017 |
-| N/D | [4019990] |Actualización de D3DCompiler, requisito de .NET 4.7 |3,49 | 9 de mayo de 2017 |
-| N/D | [4014563] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
-| N/D | [4014557] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
-| N/D | [4014545] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
-| N/D | [4014548] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
-| N/D | [4015551] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |3,49 | 11 de abril de 2017 |
+| N/D | [4019990] |Actualización de D3DCompiler, requisito de .NET 4.7 |3.49 | 9 de mayo de 2017 |
+| N/D | [4014563] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014557] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014545] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014548] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
+| N/D | [4015551] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |3.49 | 11 de abril de 2017 |
 | N/D | [3173424] |Actualización de la pila de servicio  |4.42 | 12 de julio de 2016 |
 | N/D | [4014555] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril  |4.42 | 11 de abril de 2017 |
 | N/D | [4014567] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |4.42 | 11 de abril de 2017 |
@@ -1715,36 +1809,36 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13a4831d946eb7e25e586cafae4cae51b49fd8a7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713500"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780773"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solución de problemas de Apache HBase mediante Azure HDInsight
 
@@ -68,7 +68,7 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 El error que puede ver al intentar ejecutar el comando tiene el siguiente aspecto:
 
 ```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -132,7 +132,7 @@ El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nod
    ```
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
    Safe mode is ON
    Configured Capacity: 3372381241344 (3.07 TB)
    Present Capacity: 3138625077248 (2.85 TB)
@@ -169,7 +169,7 @@ El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nod
 2. También puede comprobar la integridad del HDFS en el clúster de HDInsight mediante los siguientes comandos:
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
    ```
 
    ```apache
@@ -219,7 +219,7 @@ Para conectar con Apache Phoenix, debe proporcionar la dirección IP del nodo ac
    ```
 
    > [!Note] 
-   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)** > **ZK\* (Active)** > **Zookeeper Info (Información de Zookeeper)**. 
+   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)**  > **ZK\* (Active)**  > **Zookeeper Info (Información de Zookeeper)** . 
 
 3. Si sqlline.py se conecta a Phoenix y no supera el tiempo de espera, ejecute el siguiente comando para validar la disponibilidad y el estado de Phoenix:
 
@@ -277,7 +277,7 @@ En los registros de servidores de la región, intente identificar la escala de t
 
 Compruebe la pila de llamadas e intente determinar qué carpeta puede ser la causante del problema (por ejemplo, puede ser la carpeta de WAL o la carpeta .tmp). Después, en Cloud Explorer o mediante los comandos de HDFS, pruebe a buscar el archivo problemático. Normalmente, es un archivo \*-renamePending.json. (\*-renamePending.json es un archivo de diario que se utiliza para implementar la operación de cambio de nombre atómico en el controlador WASB. Debido a los errores de esta implementación, estos archivos se pueden dejar después de que el proceso se bloquea, y así sucesivamente). Fuerce la eliminación de este archivo en Cloud Explorer o mediante los comandos de HDFS. 
 
-En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$*. Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
+En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$* . Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
 
 Una vez que haya ejecutado estos comandos, HMaster debería iniciarse de inmediato. 
 

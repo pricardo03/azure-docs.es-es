@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492756"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618399"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -91,7 +91,7 @@ La tabla siguiente muestra los tipos de operaciones de blob que se deshabilitan 
 - En el caso de una cuenta de almacenamiento, el número máximo de contenedores con directivas inmutables con duración definida bloqueadas es 1000.
 - El intervalo de retención mínimo es un día. El máximo es 146 000 días (400 años).
 - Para un contenedor, el número máximo de modificaciones para ampliar un intervalo de retención para las directivas inmutables con duración definida bloqueadas es 5.
-- Para un contenedor, se conservan hasta siete registros de auditoría de directiva de retención con duración definida lo que dura la directiva.
+- En el caso de un contenedor, se retiene un máximo de siete registros de auditoría de la directiva de retención con duración definida para una directiva bloqueada.
 
 ### <a name="legal-hold"></a>Suspensión legal
 - En el caso de una cuenta de almacenamiento, el número máximo de contenedores con un valor de suspensión legal es 1.000.
@@ -144,7 +144,7 @@ Las versiones más recientes de [Azure Portal](https://portal.azure.com), la [CL
 
 9. Para borrar una suspensión legal, basta con quitar la etiqueta de identificador de suspensión legal aplicada.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 La característica se incluye en los siguientes grupos de comandos: `az storage container immutability-policy` y `az storage container legal-hold`. Ejecute `-h` en ellos para ver los comandos.
 
