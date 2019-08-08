@@ -165,7 +165,7 @@ Para copiar datos con Oracle como origen o destino, establezca la propiedad type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
+| type | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
 | tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. | Sí |
 
 **Ejemplo:**
@@ -208,7 +208,7 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 | partitionNames | Lista de particiones físicas que deben copiarse. <br>Se aplica cuando la opción de partición es `PhysicalPartitionsOfTable`. Si usa la consulta para recuperar datos de origen, enlace `?AdfTabularPartitionName` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
 | partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionColumnName` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
 | partitionUpperBound | Valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
-| PartitionLowerBound | Valor mínimo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
+| partitionLowerBound | Valor mínimo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
 
 **Ejemplo: copiar datos mediante una consulta básica sin partición**
 
