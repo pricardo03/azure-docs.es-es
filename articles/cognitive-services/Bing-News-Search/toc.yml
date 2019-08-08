@@ -47,7 +47,8 @@
 - name: Guías de procedimientos
   items:
     - name: Controlar resaltado de referencias
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Noticias de página
       href: paging-news.md
     - name: Cambio de tamaño y recorte de miniaturas
