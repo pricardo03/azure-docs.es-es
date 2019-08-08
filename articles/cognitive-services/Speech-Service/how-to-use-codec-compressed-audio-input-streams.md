@@ -1,5 +1,5 @@
 ---
-title: 'Hacer streaming de audio comprimido con códec mediante el SDK de voz: Servicios de voz'
+title: 'Streaming de audio comprimido con códec mediante el SDK de voz: Servicio de Voz'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo hacer streaming de audio comprimido a Servicios de voz de Azure con el SDK de voz. Disponible para C++, C# y Java para Linux.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073056"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559550"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso de entradas de audio comprimido con códec con el SDK de voz
 

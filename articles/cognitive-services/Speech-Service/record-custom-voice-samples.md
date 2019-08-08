@@ -1,5 +1,5 @@
 ---
-title: 'Grabación de ejemplos de voz personalizada: servicios de Voz'
+title: 'Grabación de ejemplos de voz personalizada: servicio de Voz'
 titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954642"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559185"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -33,7 +32,7 @@ Muchos detalles pequeños pero importantes intervienen en la creación de una gr
 
 En un proyecto de grabación de voz personalizada hay cuatro roles básicos:
 
-Rol|Propósito
+Role|Propósito
 -|-
 Actor de voz        |La voz de esta persona constituirá la base de la voz personalizada.
 Ingeniero de grabación  |Supervisa los aspectos técnicos de la grabación y usa el equipo de grabación.

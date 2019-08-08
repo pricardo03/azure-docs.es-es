@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304194"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697839"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
-[Named Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) toma texto no estructurado y, para cada documento JSON, devuelve una lista de entidades sin ambigüedad con vínculos a más información en la web (Wikipedia y Bing). 
+[Named Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) toma texto no estructurado y, para cada documento JSON, devuelve una lista de entidades sin ambigüedad con vínculos a más información en la web (Wikipedia y Bing).
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculación de entidad y reconocimiento de entidades con nombre
 
@@ -31,7 +31,7 @@ La vinculación de entidad es la capacidad de identificar y desambiguar la ident
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
 
-En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER) para varios idiomas. Consulte el artículo sobre la [compatibilidad con idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para más información. 
+En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER) para varios idiomas. Consulte el artículo sobre la [compatibilidad con idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para más información.
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -44,22 +44,22 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
 | Location      | N/D\*         | "Redmond, Washington", "París"  |
 | Organización  | N/D\*         | "Microsoft"   |
-| Cantidad      | Number        | "6", "seis"     | 
-| Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"| 
-| Cantidad      | Ordinal       | "2.º", "segundo"     | 
-| Cantidad      | NumberRange   | "De 4 a 8"     | 
-| Cantidad      | Edad           | "90 días","30 años"    | 
-| Cantidad      | Moneda      | "10,99 $"     | 
-| Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
+| Cantidad      | Number        | "6", "seis"     |
+| Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"|
+| Cantidad      | Ordinal       | "2.º", "segundo"     |
+| Cantidad      | NumberRange   | "De 4 a 8"     |
+| Cantidad      | Edad           | "90 días","30 años"    |
+| Cantidad      | Moneda      | "10,99 $"     |
+| Cantidad      | Dimension Data     | "10 millas", "40 cm"     |
 | Cantidad      | Temperatura   | "32 grados"    |
-| Datetime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
-| Datetime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
-| Datetime      | Hora          | "8 a. m.", "8:00"  | 
-| Datetime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
-| Datetime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| Datetime      | Duration      | "1 minuto y 45 segundos"   | 
-| Datetime      | Set           | "Todos los martes"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      |
+| DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   |
+| DateTime      | Hora          | "8 a. m.", "8:00"  |
+| DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    |
+| DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     |
+| DateTime      | Duration      | "1 minuto y 45 segundos"   |
+| DateTime      | Set           | "Todos los martes"     |
+| DateTime      | TimeZone      |    |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -75,28 +75,32 @@ Para conocer los idiomas admitidos actualmente, consulte [esta lista](../text-an
 
 El tamaño del documento debe ser inferior a 5120 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar al extremo de la vinculación de entidad.
 
-```
-{"documents": [{"id": "1",
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
                 "language": "en",
                 "text": "Jeff bought three dozen eggs because there was a 50% discount."
-                },
-               {"id": "2",
+            },
+            {
+                "id": "2",
                 "language": "en",
                 "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-                }
-               ]
-}
-```    
-    
+            }
+        ]
+    }
+```
+
 ## <a name="step-1-structure-the-request"></a>Paso 1: Estructurar la solicitud
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-+ Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para obtener más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
++ Establezca un encabezado de solicitud para incluir la [clave de acceso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para las operaciones de Text Analytics.
 
 + En el cuerpo de la solicitud, proporcione la colección de documentos JSON que preparó para este análisis.
 
@@ -105,7 +109,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
+El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites de datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
@@ -118,161 +122,160 @@ La salida se devuelve inmediatamente. Puede transmitir los resultados a una apli
 A continuación se muestra un ejemplo de la salida de la vinculación de entidad:
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
-}
+    {
+        "Documents": [
+            {
+                "Id": "1",
+                "Entities": [
+                    {
+                        "Name": "Jeff",
+                        "Matches": [
+                            {
+                                "Text": "Jeff",
+                                "Offset": 0,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "Person"
+                    },
+                    {
+                        "Name": "three dozen",
+                        "Matches": [
+                            {
+                                "Text": "three dozen",
+                                "Offset": 12,
+                                "Length": 11
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50",
+                        "Matches": [
+                            {
+                                "Text": "50",
+                                "Offset": 49,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50%",
+                        "Matches": [
+                            {
+                                "Text": "50%",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            },
+            {
+                "Id": "2",
+                "Entities": [
+                    {
+                        "Name": "Great Depression",
+                        "Matches": [
+                            {
+                                "Text": "The Great Depression",
+                                "Offset": 0,
+                                "Length": 20
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Great Depression",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                        "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                    },
+                    {
+                        "Name": "1929",
+                        "Matches": [
+                            {
+                                "Text": "1929",
+                                "Offset": 30,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "By 1933",
+                        "Matches": [
+                            {
+                                "Text": "By 1933",
+                                "Offset": 36,
+                                "Length": 7
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "Gross domestic product",
+                        "Matches": [
+                            {
+                                "Text": "GDP",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Gross domestic product",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                        "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                    },
+                    {
+                        "Name": "United States",
+                        "Matches": [
+                            {
+                                "Text": "America",
+                                "Offset": 56,
+                                "Length": 7
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "United States",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                        "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                        "Type": "Location"
+                    },
+                    {
+                        "Name": "25",
+                        "Matches": [
+                            {
+                                "Text": "25",
+                                "Offset": 72,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "25%",
+                        "Matches": [
+                            {
+                                "Text": "25%",
+                                "Offset": 72,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            }
+        ],
+        "Errors": []
+    }
 ```
-
 
 ## <a name="summary"></a>Resumen
 
@@ -280,7 +283,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) está disponible para los idiomas seleccionados.
 + Los documentos JSON del cuerpo de la solicitud incluyen un identificador, un texto y el código de idioma.
-+ La solicitud POST se realiza a un punto de conexión `/entities`, con una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que son válidos para la suscripción.
++ La solicitud POST se realiza a un punto de conexión `/entities`, con una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que son válidos para la suscripción.
 + La salida de respuesta, que consta de entidades vinculadas (incluidas las puntuaciones de confianza, los desplazamientos y los vínculos web de cada id. de documento) se puede usar en cualquier aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -288,6 +291,6 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 > [!div class="nextstepaction"]
 > [Text Analytics API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-* [Información general de Text Analytics](../overview.md)  
+* [Información general de Text Analytics](../overview.md)
 * [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>
-* [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712) 
+* [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)

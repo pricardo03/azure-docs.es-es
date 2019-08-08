@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234652"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678155"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
@@ -90,7 +90,7 @@ Con un paquete de acceso y sus directivas, el administrador de paquetes de acces
 
 - Recursos
 - Roles que los usuarios necesitan para los recursos
-- Usuarios internos y externos que pueden solicitar acceso
+- Usuarios internos y organizaciones de partners de usuarios externos que pueden solicitar acceso
 - Proceso de aprobación y los usuarios que pueden aprobar o denegar el acceso
 - Duración del acceso del usuario
 
@@ -123,11 +123,11 @@ Para conocer mejor la administración de derechos y su documentación, debe revi
 | policy | Un conjunto de reglas que define el ciclo de vida del acceso, como por ejemplo, cómo los usuarios obtienen acceso, quién puede aprobarlo y cuánto tiempo tienen acceso. Algunos ejemplos de directivas incluyen el acceso de los empleados y el acceso externo. |
 | catálogo | Un contenedor de recursos relacionados y paquetes de acceso. |
 | Catálogo general | Un catálogo integrado que siempre está disponible. Para agregar los recursos al catálogo general, se requieren determinados permisos. |
-| resource | Un activo o servicio (como un grupo, aplicación o sitio) al que se le pueden otorgar permisos a un usuario. |
+| resource | Un recurso o servicio (por ejemplo, un grupo de Office, un grupo de seguridad, una aplicación o un sitio de SharePoint Online) al que se puede conceder permisos a un usuario. |
 | tipo de recurso | El tipo de recurso, que incluye grupos, aplicaciones y sitios de SharePoint Online. |
 | rol de recurso | Una colección de permisos asociados a un recurso. |
 | directorio de recursos | Un directorio que tiene uno o más recursos para compartir. |
-| usuarios asignados | Una asignación de un paquete de acceso a un usuario o grupo. |
+| usuarios asignados | Una asignación de un paquete de acceso a un usuario, de modo que el usuario tenga todos los roles de recursos de ese paquete de acceso. |
 | enable | El proceso de poner un paquete de acceso a disposición de los usuarios para que lo soliciten. |
 
 ## <a name="license-requirements"></a>Requisitos de licencia

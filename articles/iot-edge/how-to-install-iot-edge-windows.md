@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 7f20e04fa65d0266d9e77b8bbcf2e2c4b1fd9eab
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227450"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677462"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -90,7 +90,7 @@ En este ejemplo se muestra una instalación manual con contenedores Windows:
    Deploy-IoTEdge
    ```
 
-4. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que otros dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora. Una vez que el dispositivo esté listo, vuelva a ejecutar PowerShell como administrador.
+4. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que otros dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora. Una vez que el dispositivo esté listo, vuelva a ejecutar PowerShell como administrador.
 
 5. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. 
 
@@ -140,25 +140,23 @@ En el siguiente ejemplo se muestra una instalación automática con contenedores
    Deploy-IoTEdge
    ```
 
-1. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que otros dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora. Una vez que el dispositivo esté listo, vuelva a ejecutar PowerShell como administrador.
+1. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que otros dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora. Una vez que el dispositivo esté listo, vuelva a ejecutar PowerShell como administrador.
 
-1. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. Utilice la marca `-Dps` para usar Device Provisioning Service, en lugar del aprovisionamiento manual.
+1. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. Utilice la marca `-Dps` para usar Device Provisioning Service, en lugar del aprovisionamiento manual. Sustituya `{scope ID}` por el identificador de ámbito de Device Provisioning Service y `{registration ID}` por el identificador de registro del dispositivo, que debería haber recuperado en el paso 1.
 
    Utilice el comando **Initialize-IoTEdge** para usar DPS con la atestación de TPM:
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
    Utilice el comando **Initialize-IoTEdge** para usar DPS con la atestación de clave simétrica. Reemplace `{symmetric key}` por una clave de dispositivo.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
-
-1. Cuando se le solicite, especifique el identificador de ámbito de Device Provisioning Service y el identificador de registro del dispositivo, que debería haber recuperado en el paso 1.
 
 1. Siga los pasos de [Comprobación de instalación correcta](#verify-successful-installation) para comprobar el estado de IoT Edge en el dispositivo. 
 
@@ -297,7 +295,7 @@ El comando Initialize-IoTEdge configura IoT Edge con su cadena de conexión del 
 | **Dps** | None | **Parámetro de modificador**. Si no se especifica ningún tipo de aprovisionamiento, el valor predeterminado es manual.<br><br>Declara que usted proporcionará un Id. de ámbito de Device Provisioning Service (DPS) y el Id. de registro del dispositivo para aprovisionar a través de DPS.  |
 | **DeviceConnectionString** | Una cadena de conexión desde un dispositivo de IoT Edge registrado en IoT Hub, entre comillas simples | **Obligatorio** para la instalación manual. Si no proporciona una cadena de conexión en los parámetros del script, se le pedirá una durante la instalación. |
 | **ScopeId** | Un Id. de ámbito de una instancia de Device Provisioning Service asociada con IoT Hub. | **Obligatorio** para la instalación de DPS. Si no proporciona un Id. de ámbito en los parámetros del script, se le pedirá uno durante la instalación. |
-| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para la instalación de DPS. Si no proporciona un Id. de registro en los parámetros del script, se le pedirá uno durante la instalación. |
+| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para la instalación de DPS. |
 | **SymmetricKey** | La clave simétrica usada para aprovisionar la identidad del dispositivo de IoT Edge al usar DPS | **Obligatorio** para la instalación de DPS si se usa la atestación de clave simétrica. |
 | **ContainerOs** | **Windows** o **Linux** | Si no se especifica el sistema operativo del contenedor, el valor predeterminado es Windows.<br><br>En el caso de los contenedores Windows, IoT Edge usa el motor de contenedor de Moby que se incluye en la instalación. Para los contenedores de Linux, deberá instalar un motor de contenedor antes de iniciar la instalación. |
 | **InvokeWebRequestParameters** | Tabla de hash de parámetros y valores | Durante la instalación se realizan varias solicitudes web. Utilice este campo para definir parámetros para esas solicitudes web. Este parámetro es útil para configurar las credenciales para los servidores proxy. Para más información, consulte [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md). |

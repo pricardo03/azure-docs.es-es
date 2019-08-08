@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
+title: 'Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas: Azure Active Directory B2C'
 description: Configuración del inicio de sesión con una cuenta de LinkedIn en Azure Active Directory B2C mediante directivas personalizadas
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510416"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693343"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -26,25 +26,34 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Si aún no tiene una cuenta de LinkedIn, créela en la [página de registro de LinkedIn](https://www.linkedin.com/start/join).
-- Una aplicación de LinkedIn requiere que proporcione una imagen de logotipo de 80 X 80 píxeles para representar la aplicación.
+- Cuenta de LinkedIn: si no tiene una, [cree una cuenta](https://www.linkedin.com/start/join).
+- Página de LinkedIn: necesitará una [página de LinkedIn](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) para asociarla a la aplicación LinkedIn que creará en la sección siguiente.
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 
 Para usar LinkedIn como proveedor de identidades en Azure AD B2C, tiene que crear una aplicación de LinkedIn.
 
+### <a name="create-app"></a>Creación de una aplicación
+
 1. Inicie sesión en el sitio web de [administración de aplicaciones de LinkedIn](https://www.linkedin.com/secure/developer?newapp=) con las credenciales de su cuenta de LinkedIn.
-2. Seleccione **Create Application** (Crear aplicación).
-3. Escriba el **nombre de empresa**, un **nombre de aplicación** y una **descripción de la aplicación**.
-4. Cargue el **logotipo de la aplicación** que ha creado.
-5. Elija un **uso de la aplicación** en la lista proporcionada.
-6. En **Website URL** (Dirección URL del sitio web), escriba `https://your-tenant.b2clogin.com`.  Reemplace `your-tenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, contoso.b2clogin.com.
-7. Escriba la dirección de **correo electrónico de la empresa** y el número de **teléfono de la empresa**.
-8. En la parte inferior de la página, lea y acepte los términos de uso, y haga clic en **Submit** (Enviar).
-9. Seleccione **Authentication** (Autenticación) y, después, anote los valores de **Client ID** (Id. del cliente) y **Client Secret** (Secreto del cliente) para usarlos más tarde.
-10. En **Authorized Redirect URLs** (Direcciones URL de redirección autorizadas), escriba `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C. 
-11. Seleccione **Actualizar**.
-12. Seleccione **Settings** (Configuración), cambie el valor de **Application status** (Estado de la aplicación) a **Live** (Activada) y, después, seleccione **Update** (Actualizar).
+1. Seleccione **Crear aplicación**.
+1. Escriba un **Nombre de aplicación**.
+1. Escriba un nombre de **Compañía** correspondiente a un nombre de página de LinkedIn. Cree una página de LinkedIn si aún no tiene una.
+1. (Opcional) Escriba una **Dirección URL de la directiva de privacidad**. Debe ser una dirección URL válida, pero no es necesario que sea un punto de conexión accesible.
+1. Escriba un **Correo electrónico de trabajo**.
+1. Cargue una imagen de **Logotipo de la aplicación**. La imagen del logotipo debe ser cuadrada y sus dimensiones deben ser de al menos 100×100 píxeles.
+1. Deje la configuración predeterminada en la sección **Productos**.
+1. Revise la información presentada en los **Términos legales**. Si acepta los términos, marque la casilla.
+1. Seleccione **Crear aplicación**.
+
+### <a name="configure-auth"></a>Configuración de la autenticación
+
+1. Seleccione la pestaña **Autenticación**.
+1. Registre el **Id. de cliente**.
+1. Revele y registre el **Secreto de cliente**.
+1. En **Configuración de OAuth 2.0**, agregue la siguiente **Dirección URL de redireccionamiento**. Reemplace `your-tenant` por el nombre del inquilino. Cuando escriba el nombre de inquilino, escriba **todas las letras en minúscula**, aunque se haya definido con letras en mayúscula en Azure AD B2C.
+
+    `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
@@ -56,20 +65,20 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
-7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `LinkedInSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `LinkedInSecret`. Se agregará el prefijo *B2C_1A_* automáticamente al nombre de la clave.
 8. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
 9. En **Uso de claves**, seleccione `Signature`.
 10. Haga clic en **Create**(Crear).
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Si desea que los usuarios inicien sesión con una cuenta de LinkedIn, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
+Si desea que los usuarios inicien sesión con una cuenta de LinkedIn, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
-Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
+Defina una cuenta de LinkedIn como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
-1. Abra el archivo *TrustFrameworkExtensions.xml*.
-2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
-3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
+1. Abra el archivo *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** en el editor. Este archivo se encuentra en el [paquete de inicio de directivas personalizadas][starter-pack] que descargó como parte de uno de los requisitos previos.
+1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
+1. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
     ```xml
     <ClaimsProvider>
@@ -84,6 +93,8 @@ Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
             <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="scope">r_emailaddress r_liteprofile</Item>
+            <Item Key="HttpBinding">POST</Item>
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -93,12 +104,13 @@ Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_LinkedInSecret" />
           </CryptographicKeys>
+          <InputClaims />
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
@@ -114,14 +126,14 @@ Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello
     </ClaimsProvider>
     ```
 
-4. Reemplace el valor de **client_id** con el identificador de cliente que haya registrado previamente.
-5. Guarde el archivo.
+1. Reemplace el valor de **client_id** por el id. de cliente de la aplicación de LinkedIn que haya registrado previamente.
+1. Guarde el archivo.
 
 ### <a name="add-the-claims-transformations"></a>Adición de transformaciones de notificaciones
 
-El perfil técnico de LinkedIn requiere agregar las transformaciones de notificaciones **ExtractGivenNameFromLinkedInResponse** y **ExtractSurNameFromLinkedInResponse** a la lista de ClaimsTransformations. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**. 
+El perfil técnico de LinkedIn requiere agregar las transformaciones de notificaciones **ExtractGivenNameFromLinkedInResponse** y **ExtractSurNameFromLinkedInResponse** a la lista de ClaimsTransformations. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**.
 
-El elemento **BuildingBlocks** se debe agregar cerca de la parte superior del archivo. Consulte *TrustframeworkBase.xml* como ejemplo.
+Agregue el elemento **BuildingBlocks** cerca de la parte superior del archivo *TrustFrameworkExtensions.xml*. Consulte *TrustFrameworkBase.xml* para ver un ejemplo.
 
 ```XML
 <BuildingBlocks>
@@ -158,9 +170,10 @@ El elemento **BuildingBlocks** se debe agregar cerca de la parte superior del ar
   </ClaimsTransformations>
 </BuildingBlocks>
 ```
+
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 
-Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta de LinkedIn. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
+Ahora tiene configurado una directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta de LinkedIn. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
 1. En la página **Directivas personalizadas** del inquilino de Azure AD B2C, seleccione **Cargar directiva**.
 2. Habilite **Sobrescribir la directiva, si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
@@ -170,7 +183,7 @@ Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo com
 
 En este punto, el proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro o de inicio de sesión. Para que esté disponible, creará un duplicado de un recorrido del usuario de plantilla existente y, después, lo modificará para que también tenga el proveedor de identidades de LinkedIn.
 
-1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
+1. Abra el archivo *TrustFrameworkBase.xml* en el paquete de inicio.
 2. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
 3. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
 4. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
@@ -181,7 +194,7 @@ En este punto, el proveedor de identidades ya se ha configurado, pero no está d
 El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de LinkedIn, se muestra un nuevo botón cuando un usuario llega a la página.
 
 1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
-2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `LinkedInExchange`:
+2. En **ClaimsProviderSelections**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `LinkedInExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
@@ -197,7 +210,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
-    
+
     Cambie el valor de **TechnicalProfileReferenceId** para el identificador del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
@@ -227,7 +240,7 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 
 ## <a name="migration-from-v10-to-v20"></a>Migración desde la versión 1.0 a la 2.0
 
-LinkedIn [ha actualizado recientemente sus API de la versión 1.0 a la 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar la configuración existente a la nueva configuración, use la información de las secciones siguientes para actualizar los elementos del perfil técnico.
+Recientemente, LinkedIn [actualizó sus API de la versión 1.0 a 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar la configuración existente a la nueva configuración, use la información de las secciones siguientes para actualizar los elementos del perfil técnico.
 
 ### <a name="replace-items-in-the-metadata"></a>Sustitución de los elementos en los metadatos
 
@@ -282,7 +295,7 @@ En el elemento **OutputClaimsTransformations** de **TechnicalProfile**, agregue 
 
 ### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definición de las nuevas transformaciones de notificaciones y del tipo de notificación
 
-En el último paso, ha agregado nuevas transformaciones de notificaciones que se deben definir. Para definir las transformaciones de notificaciones, debe agregarlas a la lista de **ClaimsTransformations**. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**. 
+En el último paso, ha agregado nuevas transformaciones de notificaciones que se deben definir. Para definir las transformaciones de notificaciones, debe agregarlas a la lista de **ClaimsTransformations**. Si no tiene definido el elemento **ClaimsTransformations** en el archivo, agregue los elementos XML primarios tal como se muestra a continuación. Las transformaciones de notificaciones también necesitan un nuevo tipo de notificación denominado **nullStringClaim**.
 
 El elemento **BuildingBlocks** se debe agregar cerca de la parte superior del archivo. Consulte *TrustframeworkBase.xml* como ejemplo.
 
@@ -331,7 +344,7 @@ Como parte de la migración de LinkedIn desde la versión 1.0 a la 2.0, se requi
 3. Agregue el siguiente proveedor de notificaciones que realiza la solicitud a la API `/emailAddress` de LinkedIn. Para autorizar esta solicitud, necesita el token de acceso de LinkedIn.
 
     ```XML
-    <ClaimsProvider> 
+    <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="API-LinkedInEmail">
@@ -381,3 +394,6 @@ Como parte de la migración de LinkedIn desde la versión 1.0 a la 2.0, se requi
 La obtención de la dirección de correo electrónico de LinkedIn durante el registro es opcional. Si decide no obtener la dirección de correo electrónico de LinkedIn, pero si requiere una durante el registro, el usuario deberá escribir manualmente la dirección de correo electrónico y validarla.
 
 Para ver un ejemplo completo de una directiva que usa el proveedor de identidades de LinkedIn, consulte el [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+
+<!-- Links - EXTERNAL -->
+[starter-pack]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

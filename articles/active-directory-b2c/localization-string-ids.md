@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510923"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67846850"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -27,7 +27,7 @@ El elemento **Localization** permite la compatibilidad con varios idiomas o conf
 
 Los siguientes identificadores sirven para una definición de contenido con el identificador `api.signuporsignin`.
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **local_intro_email** | Inicie sesión con su cuenta existente. |
 | **logonIdentifier_email** | Dirección de correo electrónico |
@@ -81,21 +81,21 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 ## <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Parece que no encontramos su cuenta. |
-| **UserMessageIfOldPasswordUsed** | Parece que ha usado una contraseña antigua. |  
-| **DefaultMessage** | Nombre de usuario o contraseña no válidos. |  
-| **UserMessageIfUserAccountDisabled** | Su cuenta se ha bloqueado. Contacte con la persona responsable de soporte técnico para desbloquearla y vuelva a intentarlo. |  
-| **UserMessageIfUserAccountLocked** | Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Inténtelo de nuevo más tarde. |  
-| **AADRequestsThrottled** | Hay demasiadas solicitudes en este momento. Espere un poco y vuelva a intentarlo. |  
+| **UserMessageIfOldPasswordUsed** | Parece que ha usado una contraseña antigua. |
+| **DefaultMessage** | Nombre de usuario o contraseña no válidos. |
+| **UserMessageIfUserAccountDisabled** | Su cuenta se ha bloqueado. Contacte con la persona responsable de soporte técnico para desbloquearla y vuelva a intentarlo. |
+| **UserMessageIfUserAccountLocked** | Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Inténtelo de nuevo más tarde. |
+| **AADRequestsThrottled** | Hay demasiadas solicitudes en este momento. Espere un poco y vuelva a intentarlo. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de la interfaz de usuario de páginas autoafirmadas o de registro
 
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.localaccountsignup` o a cualquier definición de contenido que empiece con `api.selfasserted`, como `api.selfasserted.profileupdate` y `api.localaccountpasswordreset`.
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **ver_sent** | Se ha enviado el código de verificación a: |
 | **ver_but_default** | Valor predeterminado |
@@ -134,7 +134,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ## <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -146,7 +146,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 En el ejemplo siguiente se muestra el uso de algunos de los elementos de la interfaz de usuario en la página de registro:
 
-![Elementos de la experiencia de usuario de la página de registro](./media/localization-string-ids/localization-sign-up.png)
+![Página de registro con los nombres de los elementos de la interfaz de usuario etiquetados](./media/localization-string-ids/localization-sign-up.png)
 
 En el ejemplo siguiente se muestra el uso de algunos de los elementos de la interfaz de usuario en la página de registro después de que el usuario haga clic en el botón para enviar el código de verificación:
 
@@ -155,9 +155,9 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementos de la interfaz de usuario en la página de autenticación por teléfono
 
-Los siguientes identificadores sirven para una definición de contenido con el identificador `api.phonefactor`. 
+Los siguientes identificadores sirven para una definición de contenido con el identificador `api.phonefactor`.
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **button_verify** | Llamarme |
 | **country_code_label** | Código de país |

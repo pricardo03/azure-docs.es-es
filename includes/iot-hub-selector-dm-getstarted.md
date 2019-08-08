@@ -4,20 +4,20 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186419"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667981"
 ---
 > [!div class="op_single_selector"]
-> * [Dispositivo: Servicio Node.js: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Dispositivo: Servicio C#: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Dispositivo: Servicio Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [Dispositivo: Servicio de Python: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-Las aplicaciones back-end pueden usar primitivos de Azure IoT Hub, por ejemplo, [dispositivos gemelos][lnk-devtwin] y [métodos directos][lnk-c2dmethod], para iniciar y supervisar de forma remota las acciones de administración de dispositivos en los dispositivos. Este tutorial muestra cómo una aplicación back-end y un dispositivo pueden trabajar juntos para iniciar y supervisar el reinicio remoto de un dispositivo mediante IoT Hub.
+Las aplicaciones de back-end pueden usar primitivos de Azure IoT Hub, por ejemplo, [dispositivos gemelos][lnk-devtwin] y [métodos directos][lnk-c2dmethod], para iniciar y supervisar de forma remota las acciones de administración de dispositivos en los dispositivos. Este tutorial muestra cómo una aplicación back-end y un dispositivo pueden trabajar juntos para iniciar y supervisar el reinicio remoto de un dispositivo mediante IoT Hub.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 

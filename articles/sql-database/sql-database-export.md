@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 03/11/2019
-ms.openlocfilehash: c87979760730cbe8f57d8f65463c94d08888aa2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/16/2019
+ms.openlocfilehash: 9b4770f565f256d444ab6a6f06bb369b8417eb18
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762754"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568251"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 
@@ -40,14 +39,16 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Exportar a un archivo BACPAC mediante Azure Portal
 
+Actualmente, no se admite la exportación de un archivo BACPAC de una base de datos de una [instancia administrada](sql-database-managed-instance.md) mediante Azure PowerShell. Use SQL Server Management Studio o SQLPackage en su lugar.
+
 > [!NOTE]
-> [Una instancia administrada](sql-database-managed-instance.md) no admite actualmente la exportación de una base de datos a un archivo BACPAC mediante Azure Portal. Para exportar una instancia administrada a un archivo BACPAC, utilice SQL Server Management Studio o SQLPackage.
+> Los equipos que procesan las solicitudes de importación o exportación que se envían a través de Azure Portal o PowerShell deben almacenar el archivo BACPAC, así como los archivos temporales generados por Data-Tier Application Framework (DacFX). El espacio en disco necesario varía considerablemente entre las bases de datos del mismo tamaño y puede requerir un espacio en disco de hasta tres veces el tamaño de la base de datos. Los equipos que ejecutan la solicitud de importación o exportación solo tienen 450 GB de espacio en disco local. Como resultado, puede que es produzca el error `There is not enough space on the disk` en algunas solicitudes. En este caso, la solución alternativa es ejecutar sqlpackage.exe en un equipo con suficiente espacio en disco local. Se recomienda usar [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) para importar o exportar bases de datos superiores a 150 GB para evitar este problema.
 
 1. Para exportar una base de datos mediante [Azure Portal](https://portal.azure.com), abra la página de la base de datos y haga clic en **Exportar** en la barra de herramientas.
 
    ![Exportación de base de datos](./media/sql-database-export/database-export1.png)
 
-2. Especifique el nombre de archivo BACPAC, seleccione una cuenta de Azure Storage existente y el contenedor para la exportación, y escriba las credenciales correspondientes para acceder a la base de datos de origen.
+2. Especifique el nombre de archivo BACPAC, seleccione una cuenta de Azure Storage existente y el contenedor para la exportación, y escriba las credenciales correspondientes para acceder a la base de datos de origen. En este caso, necesitará un **inicio de sesión de administrador de SQL Server** aunque sea administrador de Azure, ya que serlo no implica tener permisos de administrador de SQL Server.
 
     ![Exportación de base de datos](./media/sql-database-export/database-export2.png)
 

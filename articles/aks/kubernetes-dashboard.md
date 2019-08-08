@@ -2,29 +2,29 @@
 title: Administración de un clúster de Azure Kubernetes Service con el panel web
 description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes para administrar un clúster de Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: twhitney
-ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304538"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615234"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
 Kubernetes incluye un panel web que se puede usar para operaciones básicas de administración. Este panel le permite ver el estado de mantenimiento básico y las métricas para sus aplicaciones, crear e implementar servicios, y modificar las aplicaciones existentes. Este artículo muestra cómo acceder al panel de Kubernetes mediante la CLI de Azure y luego lo guía por algunas operaciones básicas del panel.
 
-Para más información sobre el panel de Kubernetes, consulte [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
+Para más información sobre el panel de Kubernetes, consulte la información sobre el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En los pasos que se detallan en este documento se da por hecho que ha creado un clúster de AKS y que ha establecido una conexión `kubectl` con dicho clúster. Si necesita crear un clúster de AKS, consulte el [inicio rápido de AKS][aks-quickstart].
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="start-the-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
 
@@ -105,7 +105,7 @@ Se tarda unos minutos en que los nuevos pods se creen dentro de un conjunto de r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el panel de Kubernetes, vea el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard].
+Para más información sobre el panel de Kubernetes, consulte el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

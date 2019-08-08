@@ -3,34 +3,23 @@ title: Restricción del tráfico web con un firewall de aplicaciones web - Azure
 description: Obtenga información sobre cómo restringir el tráfico web con un firewall de aplicaciones web en una puerta de enlace de aplicaciones mediante Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e962d76bc82edabf750af52c50ec45ed9ed76e17
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 219c2a36d1a241db8361ae1f8f2f74b9a68780ca
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596839"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688262"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Habilitación de un firewall de aplicaciones web con Azure PowerShell
 
-> [!div class="op_single_selector"]
->
-> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [CLI de Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
-
 Puede restringir el tráfico en una [puerta de enlace de aplicaciones](overview.md) con un [firewall de aplicaciones web](waf-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión. 
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -40,7 +29,7 @@ En este tutorial, aprenderá a:
 
 ![Ejemplo de firewall de aplicaciones web](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-Si lo prefiere, puede realizar los pasos de este tutorial mediante la [CLI de Azure](tutorial-restrict-web-traffic-cli.md).
+Si lo prefiere, puede completar este artículo con la [Azure Portal](application-gateway-web-application-firewall-portal.md) o la [CLI de Azure](tutorial-restrict-web-traffic-cli.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -48,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, la versión del módulo de Azure PowerShell que necesita este artículo es la 1.0.0 u otra posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -82,12 +71,13 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará, junto con un WAF. Los recursos creados incluyen:
+En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará, junto con un WAF. Los recursos que cree incluirán lo siguiente:
 
 - *Configuraciones IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y se asigna un puerto que se usará para tener acceso a esta.
 - *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
@@ -160,8 +150,8 @@ Ahora que ha creado los recursos complementarios necesarios, especifique los par
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -256,9 +246,9 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creación de una cuenta de almacenamiento y configuración de los diagnósticos
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar los registros de Azure Monitor o una instancia de Event Hubs para registrar los datos.
+En este artículo, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar los registros de Azure Monitor o una instancia de Event Hubs para registrar los datos.
 
 ### <a name="create-the-storage-account"></a>Creación de la cuenta de almacenamiento
 
@@ -314,13 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear una puerta de enlace de aplicaciones con WAF habilitado
-> * Crear un conjunto de escalado de máquinas virtuales
-> * Crear una cuenta de almacenamiento y configurar los diagnósticos
-
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones con terminación SSL](./tutorial-ssl-powershell.md)
+[Crear una puerta de enlace de aplicaciones con terminación SSL](./tutorial-ssl-powershell.md)

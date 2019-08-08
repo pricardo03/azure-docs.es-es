@@ -2,17 +2,17 @@
 title: Limitación del acceso a kubeconfig en Azure Kubernetes Service (AKS)
 description: Aprenda a controlar el acceso al archivo de configuración de Kubernetes (kubeconfig) de los administradores y los usuarios de los clústeres
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475604"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615666"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso de los controles de acceso basados en roles de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ En este artículo se muestra cómo asignar roles RBAC que limiten quién puede o
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-En este artículo también se requiere que ejecute la versión 2.0.65 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+En este artículo también se requiere que ejecute la versión 2.0.65 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Permisos de los roles de clúster disponibles
 
@@ -48,8 +48,8 @@ Estos roles RBAC pueden aplicarse a un grupo o usuario de Azure Active Directory
 Para asignar uno de los roles disponibles, debe obtener el identificador de recurso del clúster de AKS y el del grupo o de la cuenta de usuario de Azure AD. Los siguientes comandos de ejemplo:
 
 * Obtienen el identificador de recurso del clúster mediante el comando [az aks show][az-aks-show] para el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup*. Proporcione los nombres de su propio clúster y grupo de recursos según proceda.
-* Usa los comandos [az account show][az-account-show] y [az ad user show][az-ad-user-show] para obtener el identificador de usuario.
-* Por último, asignan un rol mediante el comando [az role assignment create][az-role-assignment-create].
+* Usa los comandos [az account show][az-account-show] and [az ad user show][az-ad-user-show] para obtener el identificador de usuario.
+* Por último, asigna un rol mediante el comando [az role assignment create][az-role-assignment-create].
 
 En el ejemplo siguiente se asigna el *rol de administrador de clústeres de Azure Kubernetes Service* a una cuenta de usuario individual:
 
@@ -96,7 +96,7 @@ Con los roles RBAC asignados, use el comando [az aks get-credentials][az-aks-get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-A continuación, puede usar el comando [kubectl config view][kubectl-config-view] para verificar que el *contexto* del clúster muestra que se ha aplicado la información de configuración del administrador:
+A continuación, puede usar el comando [kubectl config view][kubectl-config-view] para comprobar que el *contexto* del clúster muestra que se ha aplicado la información de configuración del administrador:
 
 ```
 $ kubectl config view

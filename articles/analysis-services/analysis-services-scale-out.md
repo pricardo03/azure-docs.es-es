@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192313"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696398"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -73,7 +73,7 @@ Para más información, vea [Supervisión de las métricas del servidor](analysi
 
 ### <a name="in-azure-portal"></a>En Azure Portal
 
-1. En Azure Portal, haga clic en **Escalabilidad horizontal**. Utilice el control deslizante para seleccionar el número de servidores de réplica de consulta. El número de réplicas elegido se suma al servidor existente.
+1. En Azure Portal, haga clic en **Escalabilidad horizontal**. Utilice el control deslizante para seleccionar el número de servidores de réplica de consulta. El número de réplicas elegido se suma al servidor existente.  
 
 2. En **Separar el servidor de procesamiento del grupo de consultas**, seleccione Sí para excluir el servidor de procesamiento de los servidores de consulta. Las [conexiones](#connections) de cliente mediante la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas del grupo de consultas. 
 
@@ -142,6 +142,10 @@ Para las conexiones de cliente para el usuario final como Power BI Desktop, Exce
 Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure Functions y AMO usan el **nombre del servidor de administración**. El nombre del servidor de administración incluye un calificador especial `:rw` (lectura y escritura). Todas las operaciones de procesamiento se producen en el servidor de administración (principal).
 
 ![Nombres de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="scale-up--down-vs-scale-out"></a>Escalado y reducción vertical frente a Escalado horizontal
+
+Puede cambiar el plan de tarifa del servidor en el servidor con varias réplicas. El mismo plan de tarifa se aplica a todas las réplicas. En primer lugar, la operación de escalado vertical y reducción vertical desactiva todas las réplicas a la vez y, luego, mostrará todas las réplicas en el nuevo plan de tarifa.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

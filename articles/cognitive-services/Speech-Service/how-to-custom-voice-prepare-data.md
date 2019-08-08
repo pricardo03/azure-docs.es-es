@@ -1,21 +1,21 @@
 ---
-title: 'Preparación de los datos para la voz personalizada: Servicios de voz'
-titlesuffix: Azure Cognitive Services
-description: Cree una voz personalizada para su marca con Servicios de voz de Azure. Proporcione grabaciones en estudio y los scripts asociados y el servicio generará un modelo de voz único adaptado a la voz grabada. Use esta voz para realizar la síntesis de voz en sus productos, herramientas y aplicaciones.
+title: 'Preparación de los datos para la voz personalizada: servicio de Voz'
+titleSuffix: Azure Cognitive Services
+description: Cree una voz personalizada para su marca con el servicio de Voz. Proporcione grabaciones en estudio y los scripts asociados y el servicio generará un modelo de voz único adaptado a la voz grabada. Use esta voz para realizar la síntesis de voz en sus productos, herramientas y aplicaciones.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559592"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
 

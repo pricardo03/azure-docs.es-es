@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2c0fcb748262b20fd4550d08d74056c0219dbc09
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702702"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693997"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -93,7 +93,7 @@ El ámbito `email` puede usarse con el ámbito `openid` y cualquier otro. Propor
 
 El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a una cantidad considerable de información sobre el usuario. Por ejemplo, el nombre propio del usuario, el apellido, el nombre de usuario preferido o el id. de objeto, entre otros datos. Para ver una lista completa de las notificaciones de perfil disponibles en el parámetro id_tokens para un usuario específico, consulte la [`id_tokens`referencia](id-tokens.md).
 
-### <a name="offlineaccess"></a>offline_access
+### <a name="offline_access"></a>offline_access
 
 El ámbito [`offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento, este ámbito aparece como el permiso "Mantener el acceso a los datos a los que le ha dado acceso". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token de la Plataforma de identidad de Microsoft. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
 
@@ -153,6 +153,9 @@ Si la aplicación solicita permisos delegados con altos privilegios y un adminis
 Si la aplicación solicita permisos de aplicación y un administrador los concede a través del punto de conexión de consentimiento del administrador, esta concesión no se realiza en nombre de un usuario específico. En su lugar, a la aplicación cliente se le conceden los permisos *directamente*. Estos tipos de permisos solo se usan en servicios de demonio y otras aplicaciones no interactivas que se ejecutan en segundo plano.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso del punto de conexión de consentimiento del administrador
+
+> [!NOTE] 
+> Tenga en cuenta que, después de conceder el consentimiento del administrador mediante el punto de conexión de consentimiento del administrador, habrá terminado de conceder el consentimiento del administrador y los usuarios no tendrán que completar ninguna acción adicional. Después de conceder el consentimiento del administrador, los usuarios pueden obtener un token de acceso a través de un flujo de autenticación típico, y el token de acceso resultante tendrá los permisos concedidos. 
 
 Cuando el administrador de una empresa use la aplicación y se dirija al punto de conexión de autorización, la plataforma de identidad de Microsoft detectará el rol del usuario y le preguntará si desea dar el consentimiento en nombre del inquilino completo para los permisos que se hayan solicitado. Sin embargo, también hay un punto de conexión de consentimiento de administrador dedicado que puede usar si desea solicitar de forma proactiva que un administrador conceda permiso en nombre de todo el inquilino. El uso de este punto de conexión también es necesario para solicitar permisos de aplicación (que no se pueden solicitar mediante el punto de conexión de autorización).
 

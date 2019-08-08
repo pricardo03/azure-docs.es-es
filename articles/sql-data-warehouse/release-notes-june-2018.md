@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912233"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67626150"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Junio de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en junio de 2018. 
@@ -51,7 +51,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
+## <a name="object_schema_name"></a>OBJECT_SCHEMA_NAME
 La función [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) devuelve el nombre de esquema de base de datos para los objetos de ámbito de esquema. Esta función se ha convertido en habitual en las herramientas ETL al hacer la validación del esquema de objetos. 
 
 ```sql
@@ -72,7 +72,7 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>Compatibilidad con la vista sys.time_zone_info
+## <a name="support-for-the-systime_zone_info-view"></a>Compatibilidad con la vista sys.time_zone_info
 La vista [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) devuelve información acerca de las zonas horarias compatibles dentro de Azure SQL Data Warehouse.
 
 ```sql
@@ -89,9 +89,9 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Las operaciones de Auto Stats aparecen en sys.dm_pdw_exec_requests (cambio de comportamiento)
+## <a name="auto-stats-operations-appear-in-sysdm_pdw_exec_requests-behavior-change"></a>Las operaciones de Auto Stats aparecen en sys.dm_pdw_exec_requests (cambio de comportamiento)
 
-Con la introducción de la opción de [creación automática de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics), Azure SQL Data Warehouse generará las estadísticas para optimizar la ejecución de consultas. La versión de junio de 2018 agrega la capacidad para supervisar cuándo se generan automáticamente estadísticas incorporando un registro en la vista [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) cada vez que se ejecuta alguna operación [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql).
+Con la introducción de la opción de [creación automática de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse generará las estadísticas para optimizar la ejecución de consultas. La versión de junio de 2018 agrega la capacidad para supervisar cuándo se generan automáticamente estadísticas incorporando un registro en la vista [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) cada vez que se ejecuta alguna operación [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql).
 
 ```sql
 SELECT

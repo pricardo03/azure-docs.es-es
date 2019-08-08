@@ -4,16 +4,16 @@ description: En este artículo aprenderá a redirigir el tráfico web en base a 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955544"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688173"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>Creación de la puerta de enlace de aplicaciones con una asignación de direcciones URL
 
-Use `az network application-gateway create` para crear una puerta de enlace de aplicaciones denominada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente.
+Use `az network application-gateway create` para crear una puerta de enlace de aplicaciones denominada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a *myAGSubnet* y *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -180,7 +182,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
+## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
 En este artículo, creará tres conjuntos de escalado de máquinas virtuales que admitan los tres grupos de back-end que ha creado. Cree los conjuntos de escalado denominados *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
 
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Cambie la dirección URL por http://&lt;ip-address&gt;:8080/images/test.html, sustituyendo &lt;ip-address&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/images/test.html, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Cambie la dirección URL por http://&lt;ip-address&gt;:8080/video/test.html, sustituyendo su dirección IP por &lt;ip-address&gt; y verá algo similar al ejemplo siguiente.
+Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.html, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente.
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ Cambie la dirección URL por http://&lt;ip-address&gt;:8080/video/test.html, sus
 Cuando ya no los necesite, quite el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](./tutorial-url-redirect-cli.md)
+[Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](./tutorial-url-redirect-cli.md)

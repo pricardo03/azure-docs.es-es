@@ -1,6 +1,6 @@
 ---
-title: Configuración del contenedor de Docker
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Configuración del contenedor de Docker: LUIS'
+titleSuffix: Azure Cognitive Services
 description: El entorno en tiempo de ejecución del contenedor de LUIS se configura mediante los argumentos del comando `docker run`. LUIS tiene varias opciones necesarias, junto con algunas opciones de configuración opcionales.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 4a9f7762b7960c74acad8203f70bc1e7c7cbd90f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063224"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560621"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
 
@@ -77,7 +77,6 @@ No olvide incluir la ruta `luis/v2.0` en la dirección URL como se muestra en la
 
 ## <a name="fluentd-settings"></a>Opción de configuración Fluentd
 
-
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
@@ -87,7 +86,6 @@ No olvide incluir la ruta `luis/v2.0` en la dirección URL como se muestra en la
 ## <a name="logging-settings"></a>Opción de configuración Logging
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
-
 
 ## <a name="mount-settings"></a>Configuración de montaje
 
@@ -118,8 +116,8 @@ Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{ENDPOINT_KEY} | Clave del punto de conexión de la aplicación de LUIS entrenada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Cognitive Services`. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{API_KEY} | Clave del punto de conexión de la aplicación de LUIS entrenada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URL} | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Cognitive Services`. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](luis-container-howto.md#billing).
@@ -135,8 +133,8 @@ docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
 --mount type=bind,src=c:\output,target=/output ^
 mcr.microsoft.com/azure-cognitive-services/luis:latest ^
 Eula=accept ^
-Billing={BILLING_ENDPOINT} ^
-ApiKey={ENDPOINT_KEY}
+Billing={ENDPOINT_URL} ^
+ApiKey={API_KEY}
 ```
 
 ### <a name="applicationinsights-example"></a>Ejemplo de ApplicationInsights
@@ -149,8 +147,8 @@ docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
 --mount type=bind,src=c:\output,target=/output ^
 mcr.microsoft.com/azure-cognitive-services/luis:latest ^
 Eula=accept ^
-Billing={BILLING_ENDPOINT} ^
-ApiKey={ENDPOINT_KEY} ^
+Billing={ENDPOINT_URL} ^
+ApiKey={API_KEY} ^
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
@@ -164,8 +162,8 @@ docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
 --mount type=bind,src=c:\output,target=/output ^
 mcr.microsoft.com/azure-cognitive-services/luis:latest ^
 Eula=accept ^
-Billing={BILLING_ENDPOINT} ^
-ApiKey={ENDPOINT_KEY} ^
+Billing={ENDPOINT_URL} ^
+ApiKey={API_KEY} ^
 Logging:Console:LogLevel:Default=Information
 ```
 

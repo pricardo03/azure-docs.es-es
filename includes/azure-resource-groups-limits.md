@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/12/2019
+ms.date: 07/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5e251402a89f84a0aa67eee676c1794207dd24fb
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869883"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698265"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |Varía por tipo de recurso |
+| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |Algunos tipos de recursos pueden superar el límite de 800. Consulte [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/resources-without-rg-limit.md) (Recursos no limitados a 800 instancias por grupo de recursos). |
 | Implementaciones por grupo de recursos en el historial de implementaciones |800<sup>1</sup> |800 |
 | Recursos por implementación |800 |800 |
 | Bloqueos de administración por ámbito único |20 |20 |

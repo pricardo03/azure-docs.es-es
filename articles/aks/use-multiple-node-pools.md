@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68478337"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -32,7 +32,7 @@ Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azu
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para usar grupos de varios nodos, necesitará la versión 0.4.1 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]:
+Para usar grupos de varios nodos, necesitará la versión 0.4.1 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.5*. Vamos a actualizar *mynodepool* a Kubernetes *1.13.7*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
+Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.5*. De este modo, se establece la versión de Kubernetes para el plano de control y el grupo de nodos inicial. Hay distintos comandos para actualizar la versión de Kubernetes del plano de control y el grupo de nodos. El comando `az aks upgrade` se usa para actualizar el plano de control, mientras que `az aks nodepool upgrade` se usa para actualizar un grupo de nodos individual.
+
+Vamos a actualizar *mynodepool* a Kubernetes *1.13.7*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> Para actualizar el plano de control a *1.13.7*, ejecute `az aks upgrade -k 1.13.7`.
 
 Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.7*:
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 Tarda unos minutos en actualizar los nodos a la versión especificada.
 
 Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la misma versión de Kubernetes. La posibilidad de actualizar grupos de nodos individuales le permite realizar una actualización gradual y programar pods entre grupos de nodos para mantener el tiempo de actividad de las aplicaciones.
+
+> [!NOTE]
+> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. La versión de Kubernetes del plano de control, así como el grupo de nodos inicial, se establece durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control, pero se aplican las restricciones siguientes:
+> 
+> * La versión del grupo de nodos debe tener la misma versión principal que el plano de control.
+> * La versión del grupo de nodos puede ser una versión secundaria anterior a la versión del plano de control.
+> * La versión del grupo de nodos puede ser cualquier versión de revisión, siempre y cuando se sigan las otras dos restricciones.
+> 
+> Para actualizar la versión Kubernetes del plano de control, use `az aks upgrade`. Si el clúster solo tiene un grupo de nodos, el comando `az aks upgrade` también actualizará la versión de Kubernetes del grupo de nodos.
 
 ## <a name="scale-a-node-pool"></a>Escalado de un grupo de nodos
 

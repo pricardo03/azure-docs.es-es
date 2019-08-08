@@ -1,18 +1,18 @@
 ---
 title: Copia de seguridad y recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/31/2019
+ms.author: dacurwin
+ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255006"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689022"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -194,6 +194,9 @@ $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
+> [!IMPORTANT]
+> Solo tiene que proporcionar la hora de inicio en múltiplos de 30 minutos. En el ejemplo anterior, solo puede ser "01:00:00" o "02:30:00". La hora de inicio no puede ser "01:15:00".
+
 En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. En el ejemplo se usan esas variables para definir los parámetros al crear la directiva de protección *NewPolicy*.
 
 ```powershell
@@ -212,6 +215,9 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ### <a name="enable-protection"></a>Habilitar protección
 
 Una vez que haya definido la directiva de protección, todavía debe habilitar la directiva para un elemento. Use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para habilitar la protección. Para habilitar la protección son necesarios dos objetos: el elemento y la directiva. Después de que la directiva se haya asociado con el almacén, el flujo de trabajo de copia de seguridad se desencadena a la hora definida en la programación de la directiva.
+
+> [!IMPORTANT]
+> Al usar PS para habilitar la copia de seguridad de varias VM a la vez, asegúrese de que una sola directiva no tenga más de 100 VM asociadas. Este es un [procedimiento recomendado](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Actualmente, el cliente de PS no bloquea explícitamente si hay más de 100 máquinas virtuales, pero está previsto que la comprobación se agregue en el futuro.
 
 En los ejemplos siguientes se habilita la protección para el elemento V2VM mediante la directiva NewPolicy. Los ejemplos varían en función de si la VM está cifrada y del tipo de cifrado.
 
@@ -447,7 +453,7 @@ $restorejob
 >
 >
 
-Incluya un parámetro **TargetResourceGroupName** adicional para especificar el grupo de recursos en el que se restaurarán los discos administrados. 
+Incluya un parámetro **TargetResourceGroupName** adicional para especificar el grupo de recursos en el que se restaurarán los discos administrados.
 
 > [!NOTE]
 > Se recomienda encarecidamente utilizar el parámetro **TargetResourceGroupName** para la restauración de discos administrados, ya que ofrece importantes mejoras de rendimiento. Además, a partir del módulo Az de Azure PowerShell 1.0, este parámetro es obligatorio en caso de una restauración con discos administrados.
@@ -483,6 +489,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Una vez que restaure los discos, vaya a la siguiente sección para crear la máquina virtual.
+
+## <a name="replace-disks-in-azure-vm"></a>Reemplazar discos en VM de Azure
+
+Para reemplazar los discos y la información de configuración, siga los pasos a continuación:
+
+- Paso 1: [Restaurar los discos](backup-azure-vms-automation.md#restore-the-disks)
+- Paso 2: [Desasociar el disco de datos con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Paso 3: [Conectar un disco a una VM Windows con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Creación de una máquina virtual a partir de discos restaurados
 
@@ -718,6 +733,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restauración de archivos desde una copia de seguridad de la máquina virtual de Azure
 

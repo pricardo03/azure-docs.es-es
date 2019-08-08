@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155152"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724111"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
@@ -84,7 +84,6 @@ En el caso de máquinas virtuales creadas a partir de una imagen personalizada, 
 
 3. Asegúrese de que la VM está configurada para usar el servidor de KMS de Azure correcto. Para ello, ejecute el siguiente comando:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -93,29 +92,26 @@ En el caso de máquinas virtuales creadas a partir de una imagen personalizada, 
 
 4. Compruebe con Psping que dispone de conectividad con el servidor de KMS. Vaya a la carpeta en la que extrajo la descarga de Pstools.zip y ejecute lo siguiente:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    En la penúltima línea, asegúrese de que aparece: Sent = 4, Received = 4, Lost = 0 (0% loss) [Enviados = 4, Recibidos = 4, Perdidos = 0 (0 % perdidos)]
 
    Si el valor de perdidos es mayor que 0 (cero), la máquina virtual no tiene conectividad con el servidor de KMS server. En este caso, si la VM está en una red virtual y tiene especificado un servidor DNS personalizado, debe asegurarse de que el servidor DNS es capaz de resolver kms.core.windows.net. También puede cambiar el servidor DNS a uno que pueda resolver kms.core.windows.net.
 
    Tenga en cuenta que si quita todos los servidores DNS de una red virtual, las máquinas virtuales usan el servicio DNS interno de Azure. Este servicio pude resolver kms.core.windows.net.
   
-Compruebe también que firewall de invitado no está configurado de manera que bloquee los intentos de activación.
+    Además, asegúrese de que el tráfico de red saliente al punto de KMS con el puerto 1688 no esté bloqueado por el firewall de la máquina virtual.
 
-1. Después de comprobar la conectividad correcta con kms.core.windows.net, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados. Este comando intenta la activación varias veces.
+5. Después de comprobar la conectividad correcta con kms.core.windows.net, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados. Este comando intenta la activación varias veces.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-Una activación correcta devuelve información similar a la siguiente:
-
-**Activación de Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) … El producto se activó correctamente.**
+    Una activación correcta devuelve información similar a la siguiente:
+    
+    **Activating Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …  Product activated successfully.** (Activación de Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …  El producto se activó correctamente).
 
 ## <a name="faq"></a>Preguntas más frecuentes 
 

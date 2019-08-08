@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023638"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696284"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -26,10 +26,10 @@ Los permisos de los roles incluyen:
 *  **Proceso**: usuarios que se pueden conectar a la base de datos y realizan operaciones de proceso en ella, además de analizar los datos de base de datos modelo.
 *  **Lectura**: usuarios que pueden usar una aplicación cliente para conectarse a los datos de una base de datos modelo y analizarlo.
 
-Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de SSDT. Cuando se implementa en un servidor, se usa SSMS, [cmdlets de PowerShell para Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para agregar o quitar roles de miembros de usuario.
+Cuando crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de SQL Server Data Tools (SSDT). Cuando se implementa en un servidor, se usa SQL Server Management Studio (SSMS), [cmdlets de PowerShell para Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para agregar o quitar roles de miembros de usuario.
 
-> [!NOTE]
-> Los grupos de seguridad deben tener la propiedad `MailEnabled` establecida en `True`.
+Los **Grupos de seguridad** deben estar [habilitados para correo](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la propiedad `MailEnabled` establecida en `True`. Al especificar un grupo por dirección de correo electrónico, use `obj:groupid@tenantid`.
+
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para agregar o administrar roles y usuarios en SSDT  
   

@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702888"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666354"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
+
+En esta sección se dan respuestas a muchas de las preguntas más frecuentes sobre la protección con contraseña de Azure AD.
 
 ## <a name="general-questions"></a>Preguntas generales
 
@@ -47,6 +49,10 @@ La directiva de validación de contraseña se comporta de la misma forma, indepe
 **P: ¿Por qué se registran eventos de rechazo de contraseña duplicados al intentar establecer una contraseña no segura mediante el complemento de administración Usuarios y equipos de Active Directory?**
 
 El complemento de administración Usuarios y equipos de Active Directory intentará establecer primero la nueva contraseña mediante el protocolo Kerberos. En caso de error, el complemento intentará una segunda vez establecer la contraseña mediante un protocolo heredado (RPC de SAM) (los protocolos concretos que se usan no son importantes). Si Protección con contraseña de Azure AD considera que la nueva contraseña no es segura, se registrarán dos conjuntos de eventos de rechazo de restablecimiento de contraseña.
+
+**P: ¿Por qué los eventos de validación de contraseña de la protección con contraseña de Azure AD se registran con un nombre de usuario vacío?**
+
+Active Directory admite la capacidad de probar una contraseña para ver si supera los requisitos de complejidad de contraseña actuales del dominio, por ejemplo, con la API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Cuando una contraseña se valida de esta manera, las pruebas también incluyen la validación por parte de los productos basados en el archivo dll de filtro de contraseñas, como la protección con contraseña de Azure AD, pero los nombres de usuario que se pasan a un archivo dll de filtro de contraseñas dado estarán vacíos. En este escenario, la protección con contraseña de Azure AD aún validará la contraseña con la directiva de contraseñas actualmente en vigor y emitirá un mensaje de registro de eventos para capturar el resultado; sin embargo, el mensaje del registro de eventos tendrá campos de nombre de usuario vacíos.
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 

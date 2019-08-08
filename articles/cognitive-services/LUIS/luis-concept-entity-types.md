@@ -1,6 +1,6 @@
 ---
-title: Tipos de entidades
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Tipos de entidades: LUIS'
+titleSuffix: Azure Cognitive Services
 description: 'Las entidades extraen datos de la expresión. Los tipos de entidad realizan una extracción predecible de datos. Hay dos tipos de entidades: con aprendizaje automático y sin aprendizaje automático. Es importante saber qué tipo de entidad se usa en las expresiones.'
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080049"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563997"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
@@ -135,59 +135,15 @@ Si tiene una entidad sin aprendizaje automático, como las [entidades precompila
 
 ## <a name="composite-entity"></a>Entidad compuesta
 
-Una entidad compuesta consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
-
-Esta entidad es la opción ideal cuando los datos:
-
-* Están relacionados entre sí. 
-* Se relacionan entre sí en el contexto de la expresión.
-* Usan una variedad de tipos de entidad.
-* Deben agruparse y la aplicación cliente debe procesarlos como una unidad de información.
-* Tienen una variedad de expresiones de usuario que requieren aprendizaje automático.
-
-![entidad compuesta](./media/luis-concept-entities/composite-entity.png)
-
-[Tutorial](luis-tutorial-composite-entity.md)<br>
-[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)<br>
+Una [entidad compuesta](reference-entity-composite.md) consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
 
 ## <a name="list-entity"></a>Entidad de lista
 
-Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
-
-La entidad es la opción ideal cuando los datos de texto:
-
-* Son un conjunto conocido.
-* No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases. 
-* El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
-* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La coincidencia aproximada, la falta de distinción entre mayúsculas y minúsculas, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
-
-![entidad de lista](./media/luis-concept-entities/list-entity.png)
-
-[Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
-[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)
+Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
 
 ## <a name="patternany-entity"></a>Entidad Pattern.any
 
-Pattern.any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
-
-La entidad es la opción ideal cuando:
-
-* El final de la entidad se puede confundir con el resto del texto de la expresión. 
-[Tutorial](luis-tutorial-pattern.md)<br>
-[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#patternany-entity-data)
-
-**Ejemplo**  
-Dada una aplicación cliente que busca libros en función del título, pattern.any extrae el título completo. `Was {BookTitle} written by an American this year[?]` es una expresión de plantilla que usa pattern.any para este libro. 
-
-En la tabla siguiente, cada fila tiene dos versiones de la declaración. La declaración en la parte superior es cómo verá LUIS la declaración inicialmente, donde no está claro dónde comienza ni termina el título. La declaración en la parte inferior es cómo sabrá LUIS cuál es el título del libro cuando exista un patrón para la extracción. 
-
-|Expresión|
-|--|
-|¿El libro El hombre que confundió a su mujer con un sombrero lo escribió un autor americano este año?<br><br>¿El libro **El hombre que confundió a su mujer con un sombrero** lo escribió un autor americano este año?|
-|¿El libro Was Half Asleep in Frog Pajamas (Medio dormido en pijama con estampado de ranas) lo escribió un autor americano este año?<br><br>¿El libro **Was Half Asleep in Frog Pajamas** (Medio dormido en pijama con estampado de ranas) lo escribió un autor americano este año?|
-|¿El libro La insólita amargura del pastel de limón lo escribió un autor americano este año?<br><br>¿El libro **La insólita amargura del pastel de limón** lo escribió un autor americano este año?|
-|¿El libro ¡Hay un molillo en mi bolsillo! lo escribió un autor americano este año?<br><br>¿El libro **¡Hay un molillo en mi bolsillo!** lo escribió un autor americano este año?|
-||
+[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
 
 ## <a name="prebuilt-entity"></a>Entidad creada previamente
 
@@ -240,43 +196,11 @@ La primera opción es quitar la expresión de ejemplo.
 
 ## <a name="regular-expression-entity"></a>Entidad de expresión regular 
 
-Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token. Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. Usa una parte de la biblioteca de [expresiones regulares de .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions), pero no toda ella. 
+Una [entidad de expresión regular](reference-entity-regular-expression.md) extrae una entidad basada en un patrón de expresión regular que se proporciona.
 
-La entidad es la opción ideal cuando:
+## <a name="simple-entity"></a>Entidad simple
 
-* Los datos tienen un formato coherente con cualquier variación que también sea coherente.
-* La expresión regular no necesita más de 2 niveles de anidamiento. 
-
-![Entidad de expresión regular](./media/luis-concept-entities/regex-entity.png)
-
-[Tutorial](luis-quickstart-intents-regex-entity.md)<br>
-[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-Las expresiones regulares pueden generar más coincidencias de las esperables. Un ejemplo de esto es la coincidencia de números en palabras como `one` y `two`. Un ejemplo es la siguiente expresión regular, que coincide con el número `one` junto con otros números:
-
-```javascript
-(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
-
-Esta expresión regular también coincide con cualquier palabra que termina con estos números, como `phone`. Para solucionar problemas como este, asegúrese de que las coincidencias de expresiones regulares tienen en cuenta los límites de palabras. La expresión regular para usar los límites de palabras en este ejemplo se utiliza en la siguiente expresión regular:
-
-```javascript
-\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
-```
-
-## <a name="simple-entity"></a>Entidad simple 
-
-Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en el contexto de aprendizaje automático. Dado que las entidades simples suelen ser nombres, como por ejemplo, nombres de compañías, de productos u otras categorías de nombres, agregue un [lista de frases](luis-concept-feature.md) cuando se use una entidad simple para aumentar la señal de los nombres usados. 
-
-La entidad es la opción ideal cuando:
-
-* Los datos no tienen un formato coherente, pero indican lo mismo. 
-
-![entidad simple](./media/luis-concept-entities/simple-entity.png)
-
-[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#simple-entity-data)<br/>
-
+Una [entidad simple](reference-entity-simple.md) es un valor de aprendizaje automático. Puede ser una palabra o frase.
 ## <a name="entity-limits"></a>Límites de entidad
 
 Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas entidades de cada tipo puede agregar a un modelo.

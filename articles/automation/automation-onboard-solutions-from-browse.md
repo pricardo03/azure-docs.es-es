@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 11dda62a7d8a92b17eb1d431e61086680f356195
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476618"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667341"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -46,6 +46,8 @@ La lista de máquinas virtuales se filtra para mostrar solo las que se encuentra
 ### <a name="resource-group-limit"></a> Limitaciones de incorporación
 
 El número de grupos de recursos que puede usar para incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualizaciones, están limitadas a 5 grupos de recursos por implementación. Para garantizar la integridad de la incorporación, dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja tres grupos de recursos para seleccionar para la implementación.
+
+También puede usar un runbook para la incorporación; para más información, consulte [Incorporación de soluciones de actualización y control de cambios a Azure Automation](automation-onboard-solutions.md).
 
 Use los controles de filtro para seleccionar máquinas virtuales de distintas suscripciones, ubicaciones y grupos de recursos.
 

@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 164fc4d8ad567c75ed5029aaf26af260398f80ba
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722699"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698681"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Creación de una imagen de Windows y distribución en una galería de imágenes compartidas 
 
@@ -100,12 +100,11 @@ az role assignment create \
 ```
 
 
-
-
-
 ## <a name="create-an-image-definition-and-gallery"></a>Creación de una definición de imagen y una galería
 
-Cree una galería de imágenes. 
+Para usar Image Builder con una galería de imágenes compartidas, debe tener ya una galería de imágenes y una definición de imagen. Image Builder no creará la galería de imágenes ni la definición de imagen automáticamente.
+
+Si aún no tiene una galería y una definición de imagen para usar, empiece por crearlas. En primer lugar, cree una galería de imágenes.
 
 ```azurecli-interactive
 az sig create \
@@ -113,7 +112,7 @@ az sig create \
     --gallery-name $sigName
 ```
 
-Cree la definición de una imagen.
+Luego, cree una definición de imagen.
 
 ```azurecli-interactive
 az sig image-definition create \

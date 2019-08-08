@@ -2,18 +2,18 @@
 title: Ejecución de Virtual Kubelet en un clúster de Azure Kubernetes Service (AKS)
 description: Aprenda a usar Virtual Kubelet con Azure Kubernetes Service (AKS) para ejecutar contenedores de Linux y Windows en Azure Container Instances.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475429"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613857"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Uso de Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -22,21 +22,21 @@ Azure Container Instances (ACI) proporciona un entorno hospedado para ejecutar c
 Al usar el proveedor de Virtual Kubelet para Azure Container Instances, los contenedores de Linux y Windows se pueden programar en una instancia de contenedor como si fueran un nodo de Kubernetes estándar. Esta configuración le permite aprovechar las funcionalidades de Kubernetes y la ventaja de valor y costo de administración de las instancias de contenedor.
 
 > [!NOTE]
-> AKS ahora tiene compatibilidad integrada para programar los contenedores en ACI, que se conocen como *nodos virtuales*. Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Si tiene que programar instancias de contenedor de Windows, puede seguir usando Virtual Kubelet. En caso contrario, debe usar los nodos virtuales en lugar de las instrucciones manuales de Virtual Kubelet que se han indicado en este artículo. Puede empezar a trabajar con los nodos virtuales mediante la [CLI de Azure] [virtual-nodes-cli] o [Azure Portal][virtual-nodes-portal].
+> AKS ahora tiene compatibilidad integrada para programar los contenedores en ACI, que se conocen como *nodos virtuales*. Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Si tiene que programar instancias de contenedor de Windows, puede seguir usando Virtual Kubelet. En caso contrario, debe usar los nodos virtuales en lugar de las instrucciones manuales de Virtual Kubelet que se han indicado en este artículo. Puede empezar a trabajar con los nodos virtuales mediante la [CLI de Azure][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
 >
 > Virtual Kubelet es un proyecto de código abierto experimental y debe usarse como tal. Para contribuir, registrar problemas y leer más información acerca de Virtual Kubelet, consulte el [proyecto Virtual Kubelet de GitHub][vk-github].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este documento se supone que tiene un clúster de AKS. Si necesita un clúster de AKS, consulte la [guía de inicio rápido de Azure Kubernetes Service (AKS)][aks-quick-start].
+En este documento se supone que tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el [inicio rápido de Azure Kubernetes Service (AKS)][aks-quick-start].
 
 También es necesaria la versión **2.0.65** de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Para instalar Virtual Kubelet, instale y configure [Helm][aks-helm] en el clúster de AKS. Asegúrese de que su Tiller está [configurado para usarse con Kubernetes RBAC](#for-rbac-enabled-clusters), si es necesario.
+Para instalar Virtual Kubelet, instale y configure [Helm][aks-helm] en el clúster de AKS. Asegúrese de que su Tiller está [configurado para usarse con Kubernetes RBAC](#for-rbac-enabled-clusters), si es necesario.
 
 ### <a name="register-container-instances-feature-provider"></a>Registro del proveedor de características de Container Instances
 
-Si no ha utilizado antes el servicio Azure Container Instances, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando de [lista de proveedores de az][az-provider-list], tal como se muestra en el ejemplo siguiente:
+Si no ha utilizado antes el servicio Azure Container Instances, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -50,7 +50,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Si el proveedor se muestra como *NotRegistered*, registre el proveedor mediante el [registro de proveedor de az] [ az-provider-register] tal como se muestra en el ejemplo siguiente:
+Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -81,7 +81,7 @@ subjects:
     namespace: kube-system
 ```
 
-Aplique la cuenta de servicio y el enlace con [kubectl apply][kubectl-apply] y especifique el archivo *rbac-virtualkubelet.yaml*, tal y como se muestra en el ejemplo siguiente:
+Aplique la cuenta de servicio y el enlace con [kubectl apply][kubectl-apply] y especifique el archivo *rbac-virtual-kubelet.yaml*, tal como se muestra en el ejemplo siguiente:
 
 ```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>Ejecución del contenedor de Linux
 
-Cree un archivo denominado `virtual-kubelet-linux.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] y un campo [toleration][toleration] para programar el contenedor en el nodo.
+Cree un archivo denominado `virtual-kubelet-linux.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] and [toleration][toleration] para programar el contenedor en el nodo.
 
 ```yaml
 apiVersion: apps/v1
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>Ejecución del contenedor de Windows
 
-Cree un archivo denominado `virtual-kubelet-windows.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] y un campo [toleration][toleration] para programar el contenedor en el nodo.
+Cree un archivo denominado `virtual-kubelet-windows.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] and [toleration][toleration] para programar el contenedor en el nodo.
 
 ```yaml
 apiVersion: apps/v1
@@ -254,7 +254,7 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para posibles problemas con Virtual Kubelet, consulte [Known quirks and workarounds][vk-troubleshooting] (Peculiaridades conocidas y soluciones alternativas). Para informar de problemas con Virtual Kubelet, [abra un problema de GitHub][vk-issues].
+Para posibles problemas con Virtual Kubelet, consulte el artículo sobre [peculiaridades conocidas y soluciones alternativas][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
 Obtenga más información sobre Virtual Kubelet en el [proyecto Virtual Kubelet de GitHub][vk-github].
 

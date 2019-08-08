@@ -1,5 +1,5 @@
 ---
-title: 'Transcripción de conversaciones: Servicios de voz'
+title: 'Transcripción de conversaciones: servicio de Voz'
 titleSuffix: Azure Cognitive Services
 description: Transcripción de conversaciones es una característica avanzada de Servicios de voz que combina el reconocimiento de voz en tiempo real, la identificación del hablante y el registro en diarios. Transcripción de conversaciones es una característica perfecta para transcribir reuniones en persona, con la capacidad de distinguir los hablantes, que le permite saber quién ha dicho qué y cuándo, lo que permite a los participantes centrarse en la reunión y realizar el seguimiento de los pasos siguientes rápidamente. Esta característica también mejora la accesibilidad. Con la transcripción, puede hacer participar activamente a personas con dificultades auditivas.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243875"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562884"
 ---
 # <a name="what-is-conversation-transcription"></a>¿Qué es Transcripción de conversaciones?
 

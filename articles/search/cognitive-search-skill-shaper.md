@@ -11,27 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540821"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698859"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
 La aptitud **Conformador** consolida varias entradas en un [tipo complejo](search-howto-complex-data-types.md) al que se puede hacer referencia más adelante en la canalización de enriquecimiento. La aptitud **Conformador** básicamente permite crear una estructura, definir el nombre de los miembros de esa estructura y asignar valores a cada miembro. Los ejemplos de campos consolidados útiles en escenarios de búsqueda incluyen la combinación de un nombre y apellido, de una ciudad y un estado o de un nombre y una fecha de nacimiento en una sola estructura para establecer una identidad exclusiva.
 
-La versión de la API determina la profundidad de modelado que se puede lograr. 
+Además, la habilidad **Conformador** ilustrada en el [escenario 3](#nested-complex-types) agrega una propiedad opcional *sourceContext* a la entrada. Las propiedades *source* y *sourceContext* son mutuamente excluyentes. Si la entrada está en el contexto de la aptitud, simplemente use *source*. Si la entrada está en un contexto *diferente* al de la aptitud, use *sourceContext*. *sourceContext* exige definir una entrada anidada con el elemento específico considerado como origen. 
 
-| Versión de API | Comportamientos de modelado | 
-|-------------|-------------------|
-| Versión 2019-05-06-Preview de la API de REST (no se admite el SDK de .NET) | Objetos complejos, varios niveles de profundidad, en una definición de aptitud **Conformador**. |
-| 2019-05-06** (disponibilidad general), 2017-11-11-Preview| Objetos complejos, un nivel de profundidad. Una forma de varios niveles requiere el encadenamiento de varios pasos del conformador.|
-
-En `api-version=2019-05-06-Preview`, la aptitud **Conformador** mostrada en el [escenario 3](#nested-complex-types) agrega una nueva propiedad opcional *sourceContext* a la entrada. Las propiedades *source* y *sourceContext* son mutuamente excluyentes. Si la entrada está en el contexto de la aptitud, simplemente use *source*. Si la entrada está en un contexto *diferente* al de la aptitud, use *sourceContext*. *sourceContext* exige definir una entrada anidada con el elemento específico considerado como origen. 
-
-En la respuesta, en todas las versiones de la API, el nombre de la salida es siempre "output". Internamente, la canalización puede asignar otro nombre, como "analyzedText", como se muestra en los ejemplos siguientes, pero la aptitud **Conformador** devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
+El nombre de la salida es siempre "salida". Internamente, la canalización puede asignar otro nombre, como "analyzedText", como se muestra en los ejemplos siguientes, pero la aptitud **Conformador** devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
 
 > [!NOTE]
 > La aptitud **Conformador** no está enlazada a una API de Cognitive Services y no se le cobra por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso **Gratis**, que tiene un límite de unos pocos enriquecimientos al día.
@@ -195,9 +188,6 @@ En este caso, **Conformador** acopla todos los títulos de capítulos para crear
 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Escenario 3: consolidación de entrada de contextos anidados
 
-> [!NOTE]
-> Las estructuras anidadas admitidas en la [API de REST versión 2019-05-06-Preview](search-api-preview.md) se pueden usar en un [almacén de conocimiento](knowledge-store-concept-intro.md) o en un índice de Azure Search.
-
 Imagine que tiene el título, los capítulos y el contenido de un libro y ha ejecutado el reconocimiento de entidades y frases clave en el contenido; ahora debe agregar los resultados de las distintas aptitudes en una sola forma con el nombre del capítulo, las entidades y las frases clave.
 
 La definición de aptitud **Conformador** de este escenario podría ser similar al ejemplo siguiente:
@@ -237,7 +227,7 @@ La definición de aptitud **Conformador** de este escenario podría ser similar 
 ```
 
 ### <a name="skill-output"></a>Salida de aptitud
-En este caso, el **Conformador** crea un tipo complejo. Esta estructura existe en memoria. Si quiere guardarla en un almacén de conocimiento, tiene que crear una proyección en el conjunto de aptitudes que defina las características de almacenamiento.
+En este caso, el **Conformador** crea un tipo complejo. Esta estructura existe en memoria. Si quiere guardarla en un [almacén de conocimiento](knowledge-store-concept-intro.md), tiene que crear una proyección en el conjunto de aptitudes que defina las características de almacenamiento.
 
 ```json
 {

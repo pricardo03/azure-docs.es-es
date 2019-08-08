@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: iainfou
 ms.openlocfilehash: 0f99386aa9eeb75a990507e383c32412fb39eceb
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67840460"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Versión preliminar: cree un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
@@ -34,7 +34,7 @@ Es necesario tener instalada y configurada la versión 2.0.66 de la CLI de Azure
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para crear clústeres de AKS que usen zonas de disponibilidad, necesita la extensión de CLI *aks-preview*, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]:
+Para crear clústeres de AKS que usen zonas de disponibilidad, necesita la extensión de CLI *aks-preview*, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension

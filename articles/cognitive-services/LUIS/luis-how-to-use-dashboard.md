@@ -1,5 +1,5 @@
 ---
-title: 'Panel: Language Understanding'
+title: 'Panel: Language Understanding (LUIS)'
 titleSuffix: Azure Cognitive Services
 description: Corrija las intenciones con el panel de análisis, una herramienta de visualización de informes.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236957"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563624"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el Panel para mejorar la aplicación
 

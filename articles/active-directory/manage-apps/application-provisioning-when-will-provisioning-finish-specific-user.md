@@ -16,18 +16,18 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd6b70e7a4542a4cad2ee95fa280ddf8fbe6553
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: bf6190ae35a573ab4b9a37f5cd1f2bd75f06ca46
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310028"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667152"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 
 El servicio de aprovisionamiento de Azure AD ejecuta un ciclo de aprovisionamiento inicial en el sistema de origen y el sistema de destino, seguido de los ciclos periódicos incrementales. Al configurar el aprovisionamiento de una aplicación, puede comprobar el estado actual del servicio de aprovisionamiento y ver cuando un usuario podrá tener acceso a una aplicación.
 
-## <a name="view-the-provisioning-progress-bar-preview"></a>Ver la barra de progreso del aprovisionamiento (versión preliminar)
+## <a name="view-the-provisioning-progress-bar"></a>Ver la barra de progreso del aprovisionamiento
 
  En la página **Aprovisionamiento** para una aplicación, puede ver el estado del servicio de aprovisionamiento de Azure AD. En la sección **Estado actual** de la parte inferior de la página se muestra si un ciclo de aprovisionamiento ha iniciado las cuentas de usuario de aprovisionamiento. Puede ver el progreso del ciclo, cuántos usuarios y grupos se han aprovisionado y cuántos roles se crean.
 

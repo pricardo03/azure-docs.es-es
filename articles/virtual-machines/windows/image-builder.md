@@ -3,24 +3,26 @@ title: Creación de una máquina virtual Windows con Azure Image Builder (versi�
 description: Cree una máquina virtual Windows con Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 103ec3c9ee4bd6b3b83408b0f9958a22d3a22ae1
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 608338c628232f7f67ea6f6b7ba15e6bb1c3b315
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261057"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698658"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
 
-En este artículo se muestra cómo puede crear una imagen personalizada de Windows mediante el generador de imágenes de máquina virtual de Azure. En el ejemplo de este artículo se usan tres [personalizadores](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) distintos para personalizar la imagen:
+En este artículo se muestra cómo puede crear una imagen personalizada de Windows mediante el generador de imágenes de máquina virtual de Azure. En el ejemplo de este artículo se usan [personalizadores](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) para personalizar la imagen:
 - PowerShell (ScriptUri): para descargar y ejecutar un [script de PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Reinicio de Windows: reinicia la máquina virtual.
 - PowerShell (insertado) ejecuta un comando específico. En este ejemplo, se crea un directorio en la máquina virtual mediante `mkdir c:\\buildActions`.
 - Archivo: para copiar un archivo de GitHub en la máquina virtual. En este ejemplo se copia [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) en `c:\buildArtifacts\index.html` en la máquina virtual.
+
+También puede especificar un valor de `buildTimeoutInMinutes`. El valor predeterminado es de 240 minutos, y puede aumentar el tiempo de compilación para permitir compilaciones de larga duración.
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
@@ -60,9 +62,10 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+## <a name="set-variables"></a>Configuración de variables
 
 Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
+
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
@@ -82,14 +85,19 @@ Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az acco
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+Este grupo de recursos se usa para almacenar el artefacto de la plantilla de configuración de la imagen y la imagen misma.
 
-Cree el grupo de recursos.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
-Conceda a Image Builder permiso para crear recursos en ese grupo de recursos. El valor `--assignee` es el identificador de registro de aplicación para el servicio Image Builder. 
+## <a name="set-permissions-on-the-resource-group"></a>Establecer permisos en el grupo de recursos
+
+Otorgue el permiso de "colaborador" de Image Builder para crear la imagen en el grupo de recursos. Sin esto, no se compilará la imagen. 
+
+El valor `--assignee` es el identificador de registro de aplicación para el servicio del generador de imágenes. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -99,12 +107,13 @@ az role assignment create \
 ```
 
 
-## <a name="download-the-json-example"></a>Descargar el ejemplo .json
+## <a name="download-the-image-configuration-template-example"></a>Descargar el ejemplo de plantilla de configuración de imagen
 
-Descargue el archivo .json de ejemplo y configúrelo con las variables que ha creado.
+Se ha creado una plantilla de configuración de imagen con parámetros para que pueda probarla. Descargue el archivo .json de ejemplo y configúrelo con las variables que estableció anteriormente.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
+
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
@@ -113,6 +122,16 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 ```
 
+Puede modificar este ejemplo en el terminal con un editor de texto, como `vi`.
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> Para la imagen de origen, siempre debe [especificar una versión](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure); no puede usar `latest`.
+> Si agrega o cambia el grupo de recursos adonde se distribuye la imagen, tiene que asegurarse de que los [permisos estén establecidos](#set-permissions-on-the-resource-group) en el grupo de recursos.
+ 
 ## <a name="create-the-image"></a>Crear la imagen
 
 Envío de la configuración de la imagen al servicio de generador de imágenes de máquina virtual
@@ -126,7 +145,26 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-Inicie la generación de imágenes.
+Cuando haya finalizado, devolverá un mensaje de confirmación a la consola y creará `Image Builder Configuration Template` en `$imageResourceGroup`. Puede ver este recurso en el grupo de recursos en Azure Portal si habilita "Mostrar tipos ocultos".
+
+Asimismo, Image Builder creará en segundo plano un grupo de recursos de almacenamiento provisional en la suscripción. Este grupo de recursos se usa para la compilación de la imagen. Tendrá este formato: `IT_<DestinationResourceGroup>_<TemplateName>`
+
+> [!Note]
+> No debe eliminar el grupo de recursos de almacenamiento provisional directamente. Primero elimine el artefacto de la plantilla de imagen, esto hará que se elimine el grupo de recursos de almacenamiento provisional.
+
+Si el servicio informa de un error durante el envío de la plantilla de configuración de la imagen:
+-  Revise los pasos para [solucionar problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting). 
+- Tendrá que eliminar la plantilla con el siguiente fragmento de código antes de reintentar el envío.
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>Iniciar la generación de imágenes
+Inicie el proceso de compilación de la imagen con [az resource invoke-action](/cli/azure/resourceaz-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -137,6 +175,9 @@ az resource invoke-action \
 ```
 
 Espere hasta que se complete la compilación. Puede tardar unos 15 minutos.
+
+Si encuentra algún error, revise estos pasos para la [solución de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
 
@@ -168,15 +209,20 @@ Debería ver estos dos directorios creados durante la personalización de la ima
 
 Cuando haya terminado, elimine los recursos.
 
+### <a name="delete-the-image-builder-template"></a>Eliminar la plantilla de Image Builder
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateWin01
+```
+
+### <a name="delete-the-image-resource-group"></a>Eliminar el grupo de recursos de imagen
+```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre los componentes del archivo .json que se usan en este artículo, vea [Referencia de la plantilla de generador de imágenes](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

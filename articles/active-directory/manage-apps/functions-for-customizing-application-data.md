@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e741e8d4d68c9862aaabffaccb86740a3e1e9b8a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204487"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694174"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -129,29 +129,32 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 * Cuando se proporcionan **oldValue** y **replacementValue**:
   
-  * Reemplaza todas las ocurrencias de oldValue en el origen por replacementValue
+  * Reemplaza todas las ocurrencias de **oldValue** en el **origen** por **replacementValue**
 * Cuando se proporcionan **oldValue** y **template**:
   
   * Reemplaza todas las ocurrencias de **oldValue** en **template** por el valor de **source**
+* Cuando se proporcionan **regexPattern** y **replacementValue**:
+
+  * La función aplica **regexPattern** a la cadena de **source**, y usted puede usar los nombres de grupo regex para construir la cadena para **replacementValue**
 * Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementValue**:
   
-  * Reemplaza todos los valores que coinciden en oldValueRegexPattern en la cadena de origen con replacementValue
-* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementPropertyName**:
+  * La función aplica **regexPattern** a la cadena de **source** y reemplaza todos los valores que coinciden con **regexGroupName** por **replacementValue**
+* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementAttributeName**:
   
   * Si **source** no tiene un valor, se devuelve **source**.
-  * Si **source** no tiene un valor, usa **regexPattern** y **regexGroupName** para extraer un valor de sustitución de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
+  * Si **source** tiene un valor, la función aplica **regexPattern** a la cadena de **source** y reemplaza todos los valores coincidentes de **regexGroupName** por el valor asociado con **replacementAttributeName**
 
 **Parámetros:**<br> 
 
 | NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
+| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto **source**. |
 | **oldValue** |Opcional |Cadena |Valor que se va a reemplazar en **source** o **template**. |
-| **regexPattern** |Opcional |Cadena |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
-| **regexGroupName** |Opcional |Cadena |Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
+| **regexPattern** |Opcional |Cadena |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se usa **replacementPropertyName**, patrón para extraer el valor de la propiedad **replacementPropertyName**. |
+| **regexGroupName** |Opcional |Cadena |Nombre del grupo dentro de **regexPattern**. Solo cuando se usa **replacementPropertyName**, extraeremos el valor de este grupo como **replacementValue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |Cadena |Nuevo valor para  reemplazar uno anterior. |
-| **replacementAttributeName** |Opcional |Cadena |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
-| **template** |Opcional |Cadena |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
+| **replacementAttributeName** |Opcional |Cadena |Nombre del atributo que se usará para el valor de reemplazo |
+| **template** |Opcional |Cadena |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue

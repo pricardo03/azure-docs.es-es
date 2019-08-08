@@ -4,15 +4,15 @@ description: En este artículo, aprenderá a implementar y configurar Azure Fir
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082237"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707158"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementación y configuración de Azure Firewall mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ El control del acceso de red saliente es una parte importante de un plan de segu
 
 Una manera de controlar el acceso de red saliente desde una subred de Azure es con Azure Firewall. Con Azure Firewall, puede configurar:
 
-* Reglas de aplicación que definen los nombres de dominio completos (FQDN) a los que se puede acceder desde una subred.
+* Reglas de aplicación que definen los nombres de dominio completos (FQDN) a los que se puede acceder desde una subred. El nombre de dominio completo también puede [incluir instancias de SQL](sql-fqdn-filtering.md).
 * Reglas de red que definen la dirección de origen, el protocolo, el puerto de destino y la dirección de destino.
 
 El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el tráfico al firewall como puerta de enlace predeterminada de la subred.
@@ -39,7 +39,7 @@ En este artículo, aprenderá a:
 > * Configurar un entorno de red de prueba
 > * Implementar un firewall
 > * Crear una ruta predeterminada
-> * Configurar una regla de aplicación que permita acceder a msn.com
+> * Configurar una regla de aplicación para permitir el acceso a www.google.com
 > * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
 > * Probar el firewall
 
@@ -51,9 +51,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Si decide instalar y usar la CLI localmente, ejecute la CLI de Azure versión 2.0.4 o posterior. Para averiguar la versión, ejecute el comando **az --version**. Para más información sobre la instalación o actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+
+Instalación de la extensión de Azure Firewall:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>Configuración de la red
 

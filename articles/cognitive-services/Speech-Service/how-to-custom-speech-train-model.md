@@ -1,6 +1,6 @@
 ---
-title: 'Entrenamiento de un modelo de Custom Speech: Servicios de voz'
-titlesuffix: Azure Cognitive Services
+title: 'Entrenamiento de un modelo de Custom Speech: servicio de Voz'
+titleSuffix: Azure Cognitive Services
 description: El entrenamiento de voz a texto es necesario para mejorar la precisión del reconocimiento en el modelo de línea de base de Microsoft o en un modelo personalizado que tenga pensado crear. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto.
 services: cognitive-services
 author: erhopf
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063913"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562810"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Custom Speech
 
@@ -25,12 +25,11 @@ El entrenamiento de voz a texto es necesario para mejorar la precisión del reco
 
 Si se está encontrando con problemas de reconocimiento en el modelo, el uso de transcripciones con etiqueta humana y los datos relacionados para realizar entrenamiento adicional puede ayudar a mejorar la precisión. Use esta tabla para determinar qué conjunto de datos se debe usar para solucionar su problema:
 
-| Caso de uso | Tipo de datos | Cantidad de datos |
-|----------|-----------|---------------|
-| No se reconocen los nombres propios | Texto relacionado (frases o expresiones) | 10 MB a 500 MB |
-| No se reconocen las palabras debido al acento | Texto relacionado (pronunciación) | Proporcionar las palabras no reconocidas |
-| Las palabras comunes se eliminan o no se reconocen | Transcripciones de audio con etiqueta humana | De 10 a 1000 horas de transcripción |
-
+| Caso de uso | Tipo de datos |
+|----------|-----------|
+| Mejorar la precisión del reconocimiento en el vocabulario y la gramática específicos del sector, como la terminología médica o la jerga de TI | Texto relacionado (frases o expresiones) |
+| Definir el formato fonético y mostrado de una palabra o término que tenga una pronunciación no estándar, como nombres de producto o acrónimos | Texto relacionado (pronunciación) |
+| Mejorar la precisión del reconocimiento en estilos de habla, acentos o ruidos de fondo específicos | Transcripciones de audio con etiqueta humana |
 > [!IMPORTANT]
 > Si no ha cargado un conjunto de datos, consulte [Preparación y prueba de los datos](how-to-custom-speech-test-data.md). En este documento se proporcionan instrucciones para cargar datos y directrices para crear conjuntos de datos de alta calidad.
 

@@ -3,17 +3,16 @@ title: Ciclo de vida de un plano técnico
 description: Conozca el ciclo de vida que recorre un plano técnico y detalles sobre cada fase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683196"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678986"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 
@@ -99,6 +98,17 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 - Actualizar la asignación por una versión **publicada** más reciente del plano técnico
 
 Para más información, consulte [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).
+
+### <a name="unassigning-assignments"></a>Anulación de asignaciones
+
+Si el plano técnico ya no es necesario, se puede desasignar del grupo de administración o de la suscripción. Durante la desasignación del plano técnico, ocurre lo siguiente:
+
+- Eliminación del [bloqueo de recursos del plano técnico](resource-locking.md)
+- Eliminación del objeto de asignación del plano técnico
+- (Condicional) Si se usó **una identidad administrada asignada por el sistema**, también se elimina.
+
+> [!NOTE]
+> Todos los recursos implementados por la asignación del plano técnico permanecen en su lugar, pero ya no están protegidos por Azure Blueprints.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,18 +1,19 @@
 ---
 title: Funcionalidad de restauración instantánea de Azure
 description: Funcionalidad de restauración instantánea de Azure y preguntas frecuentes de la pila de copia de seguridad de VM, modelo de implementación de Resource Manager
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465108"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698407"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -25,7 +26,8 @@ El nuevo modelo de restauración instantánea proporciona las siguientes mejoras
 * Reduce los tiempos de copia de seguridad y restauración al conservarse las instantáneas localmente durante dos días (de forma predeterminada). Este valor predeterminado de retención de instantánea se puede configurar en cualquier valor entre 1 y 5 días.
 * Compatibilidad con tamaños de disco de hasta 4 TB. No se recomienda cambiar el tamaño del disco de Azure Backup.
 * Admite discos SSD estándar junto con discos HDD estándar y SSD Premium.
-*   Capacidad de usar cuentas de almacenamiento originales de una máquina virtual no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
+* Capacidad de usar cuentas de almacenamiento originales de una VM no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
+* Para la copia de seguridad de VM que usan almacenamiento Premium, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 
 
 ## <a name="whats-new-in-this-feature"></a>Novedades de esta característica
@@ -103,4 +105,4 @@ Si el tipo de recuperación es "Instantánea y almacén", la restauración se re
 El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos que se elimine la instantánea (nivel 1). Se recomienda programar un período de retención del punto de restauración (nivel 2) superior al período de retención de instantáneas.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué continúa existiendo mi instantánea incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
-Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de GC, que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la máquina virtual. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
+Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la VM. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.

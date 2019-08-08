@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: ''
+ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 767e3caf577bc1b7a49bd56570b8aeedbe307edc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110468"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693887"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -28,7 +28,7 @@ Además, los clientes pueden consultar su [puntuación segura de identidad](iden
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Muchas de las recomendaciones de esta guía se pueden implementar con Azure AD Free, Básico o sin licencia. Cuando se requiera licencia, indicaremos cuál es necesaria como mínimo para completar la tarea.
+Muchas de las recomendaciones de esta guía se pueden implementar con Azure AD Free o sin licencia. Cuando se requiera licencia, indicaremos cuál es necesaria como mínimo para completar la tarea.
 
 En las páginas siguientes encontrará información adicional sobre las licencias:
 
@@ -46,12 +46,12 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Designación de más de un administrador global](../users-groups-roles/directory-emergency-access.md) | Asigne al menos dos cuentas de administrador global permanentes solo en la nube para casos de emergencia. Estas cuentas no son para un uso diario y deben tener contraseña compleja y larga. | Azure AD Free |
 | [Uso de roles de administrador no global siempre que sea posible](../users-groups-roles/directory-assign-admin-roles.md) | Asigne a los administradores solo el acceso que necesitan a las áreas a las que necesitan acceso. No todos los administradores necesitan ser administradores globales. | Azure AD Free |
 | [Habilitación de Privileged Identity Management para el seguimiento del uso del rol de administrador](../privileged-identity-management/pim-getting-started.md) | Habilite Privileged Identity Management para empezar el seguimiento del uso del rol de administrador. | Azure AD Premium P2 |
-| [Implementación del autoservicio de restablecimiento de contraseña](../authentication/howto-sspr-deployment.md) | Reduzca las llamadas al departamento de soporte técnico para el restablecimiento de contraseña al permitir a los empleados restablecerlas ellos mismos mediante directivas que controle usted como administrador. | Azure AD Basic |
-| [Creación de una lista de contraseñas prohibidas personalizada específica de la organización](../authentication/howto-password-ban-bad-configure.md) | Evite que los usuarios creen contraseñas que incluyan palabras o frases comunes de su organización o zona. | Azure AD Basic |
+| [Implementación del autoservicio de restablecimiento de contraseña](../authentication/howto-sspr-deployment.md) | Reduzca las llamadas al departamento de soporte técnico para el restablecimiento de contraseña al permitir a los empleados restablecerlas ellos mismos mediante directivas que controle usted como administrador. | |
+| [Creación de una lista de contraseñas prohibidas personalizada específica de la organización](../authentication/howto-password-ban-bad-configure.md) | Evite que los usuarios creen contraseñas que incluyan palabras o frases comunes de su organización o zona. | |
 | [Habilitación de la integración local con la protección de contraseñas de Azure AD](../authentication/concept-password-ban-bad-on-premises.md) | Amplíe la lista de contraseñas prohibidas al directorio local para garantizar que las contraseñas locales también cumplen los requisitos de las listas de contraseñas prohibidas globales y específicas del inquilino. | Azure AD Premium P1 |
 | [Habilitación de la guía de contraseñas de Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Olvídese de solicitar a los usuarios que cambien periódicamente la contraseña, deshabilite los requisitos de complejidad y a los usuarios les será más fácil recordar la contraseña y mantener una segura. | Azure AD Free |
 | [Deshabilitación de los restablecimientos de contraseña periódicos para las cuentas de usuario en la nube](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Los restablecimientos de contraseña periódicos promueven un aumento de las contraseñas existentes para los usuarios. Sírvase de la documentación de guía de las directrices de Microsoft sobre las contraseñas y copie la directiva local con los usuarios únicamente de la nube. | Azure AD Free |
-| [Personalización del bloqueo inteligente de Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Deje de tener bloqueos de los usuarios de la nube al replicarlos a usuarios de Active Directory locales. | Azure AD Basic |
+| [Personalización del bloqueo inteligente de Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Deje de tener bloqueos de los usuarios de la nube al replicarlos a usuarios de Active Directory locales. | |
 | [Habilitación del bloqueo inteligente de la extranet para AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | El bloqueo de la extranet de AD FS protege contra los ataques de adivinación de contraseñas por fuerza bruta al tiempo que permite a los usuarios de AD FS válidos continuar usando sus cuentas. | |
 | [Implementación de Azure AD Multi-Factor Authentication mediante directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) | Haga que los usuarios realicen la verificación en dos pasos al acceder a aplicaciones confidenciales mediante directivas de acceso condicional. | Azure AD Premium P1 |
 | [Habilitación de Azure Active Directory Identity Protection](../identity-protection/enable.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
@@ -71,7 +71,8 @@ A continuación agregaremos la base de la fase 1 mediante la importación de nue
 | [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Ahorre tiempo y esfuerzo mediante la creación de grupos de licencias que habiliten o deshabiliten características por grupo en lugar de la configuración por usuario. | |
 | [Creación de un plan para el acceso de usuarios invitados](../b2b/what-is-b2b.md) | Colabore con los usuarios invitados y permítales iniciar sesión en las aplicaciones y los servicios con sus propias identidades profesionales, educativas o sociales. | [Guía de concesión de licencias B2B de Azure AD](../b2b/licensing-guidance.md) |
 | [Decisión acerca de la estrategia de administración de dispositivos](../devices/overview.md) | Decida lo que permite su organización con respecto a los dispositivos. Registro o unión, dispositivos propios o proporcionados por la empresa, etc. | |
-| [Implementación de Windows Hello para empresas en su organización](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepárese para la autenticación sin contraseña con Windows Hello | |
+| [Implementación de Windows Hello para empresas en su organización](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepárese para la autenticación sin contraseña con Windows Hello. | |
+| [Implementar métodos de autenticación sin contraseña para los usuarios](../authentication/concept-authentication-passwordless.md) | Proporcione a los usuarios métodos cómodos de autenticación sin contraseñas. | Azure AD Premium P1 |
 
 ## <a name="phase-3-manage-applications"></a>Fase 3: Administración de aplicaciones
 
@@ -81,7 +82,7 @@ Siguiendo con la compilación de las fases anteriores, identificaremos aplicacio
 | ---- | ------ | ---------------- |
 | Identificación de las aplicaciones | Identifique las aplicaciones que se usan en la organización: locales, SaaS en la nube y otras de línea de negocio. Determinar si estas aplicaciones pueden y deben administrarse con Azure AD. | Sin necesidad de licencia |
 | [Integración de aplicaciones SaaS compatibles en la galería](../manage-apps/add-application-portal.md) | Azure AD incluye una galería que contiene miles de aplicaciones previamente integradas. Algunas de las aplicaciones que su organización usa probablemente estén en la galería y se pueda acceder a ellas desde Azure Portal. | Azure AD Free |
-| [Uso de un proxy de aplicación para integrar las aplicaciones locales](../manage-apps/application-proxy-add-on-premises-application.md) | Un proxy de aplicación permite a los usuarios acceder a aplicaciones locales mediante el sesión con su cuenta de Azure AD. | Azure AD Basic |
+| [Uso de un proxy de aplicación para integrar las aplicaciones locales](../manage-apps/application-proxy-add-on-premises-application.md) | Un proxy de aplicación permite a los usuarios acceder a aplicaciones locales mediante el sesión con su cuenta de Azure AD. | |
 
 ## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Auditoría de las identidades con permisos, revisión del acceso y administración del ciclo de vida de los usuarios
 

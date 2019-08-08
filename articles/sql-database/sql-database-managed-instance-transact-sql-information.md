@@ -9,15 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070348"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567252"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -293,13 +292,13 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
   - No se admite SQL Server Analysis Services.
 - Las notificaciones se admiten parcialmente.
 - Se admite la notificación por correo electrónico, aunque es necesario configurar un perfil de Correo electrónico de base de datos. Agente SQL Server solo puede usar un perfil de Correo electrónico de base de datos y se debe llamar `AzureManagedInstance_dbmail_profile`. 
-  - El buscapersonas no se admite. 
+  - El buscapersonas no se admite.
   - No se admite NetSend.
   - Aún no se admiten las alertas.
-  - No se admiten los servidores proxy. 
+  - No se admiten los servidores proxy.
 - No se admite EventLog.
 
-Las siguientes características no se admiten en estos momentos pero se habilitarán en el futuro:
+Actualmente, no se admiten las siguientes características del Agente SQL:
 
 - Servidores proxy
 - Programación de trabajos en una CPU inactiva
@@ -382,8 +381,9 @@ No se admite la [búsqueda semántica](https://docs.microsoft.com/sql/relational
 
 Los servidores vinculados en instancias administradas admiten un número limitado de destinos:
 
-- Destinos admitidos: SQL Server y SQL Database.
-- Destinos no admitidos: archivos, Analysis Services y otros RDBMS.
+- Los destinos admitidos son las instancias administradas, las bases de datos únicas y las instancias de SQL Server. 
+- Los servidores vinculados no admiten transacciones de escritura distribuidas (MS DTC).
+- Destinos no admitidos: archivos, Analysis Services y otros RDBMS. Intente usar la importación de CSV nativa desde Azure Blob Storage mediante `BULK INSERT` o `OPENROWSET` como alternativa para la importación de archivos.
 
 Operaciones
 
@@ -391,6 +391,7 @@ Operaciones
 - Se admite `sp_dropserver` para quitar un servidor vinculado. Consulte [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La función `OPENROWSET` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Consulte [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee archivos CSV desde Azure Blob Storage. Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|.
 
 ### <a name="polybase"></a>PolyBase
 
@@ -398,7 +399,13 @@ No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Bl
 
 ### <a name="replication"></a>Replicación
 
-La replicación está disponible para la versión preliminar de Instancia administrada. Para más información sobre la replicación, consulte [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La [replicación transaccional](sql-database-managed-instance-transactional-replication.md) está disponible para la versión preliminar pública en la Instancia administrada con algunas restricciones:
+- Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en la Instancia administrada, pero el editor y el distribuidor no se pueden colocar en instancias diferentes.
+- Se admiten los tipos de replicación transaccional, de instantánea y bidireccional. Sin embargo, no se admite la replicación de mezcla, la replicación punto a punto y las suscripciones actualizables.
+- La Instancia administrada puede comunicarse con las versiones recientes de SQL Server. Consulte las versiones admitidas [aquí](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- La replicación transaccional tiene algunos [requisitos de red adicionales](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Para obtener información sobre la configuración de la replicación, vea el [tutorial de replicación](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>Instrucción RESTORE 
 
@@ -459,7 +466,7 @@ No se admite el agente de servicio entre instancias:
 
 ## <a name="Environment"></a>Restricciones del entorno
 
-### <a name="subnet"></a>Subred
+### <a name="subnet"></a>Subnet
 - En la subred reservada para Instancia administrada no se puede colocar ningún otro recurso (por ejemplo máquinas virtuales). Coloque estos recursos en otras subredes.
 - La subred debe tener un número de [direcciones IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements) disponibles suficiente. El mínimo es 16, aunque se recomienda tener al menos 32 direcciones IP en la subred.
 - [No se pueden asociar los puntos de conexión de servicio con la subred de la instancia administrada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
@@ -468,6 +475,7 @@ No se admite el agente de servicio entre instancias:
 
 ### <a name="vnet"></a>VNET
 - La red virtual se puede implementar mediante el modelo con Resource Manager. No se admite el modelo clásico.
+- Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
 - Algunos servicios, como App Service Environment, Logic Apps e Instancia administrada (que se usan para la replicación geográfica, la replicación transaccional, o a través de servidores vinculados) no pueden acceder a las instancias administradas de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
 
 ## <a name="Changes"></a> Cambios de comportamiento
@@ -486,7 +494,7 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamaño de TEMPDB
 
-El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. La base de datos `tempdb` siempre se divide en 12 archivos de datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB en `tempdb`. Siempre se vuelve a recrear `tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará. 
+El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `tempdb` está limitado a 120 GB en los niveles De uso general y Crítico para la empresa. La base de datos `tempdb` siempre se divide en 12 archivos de datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen un registro superior a 120 GB. Siempre se vuelve a crear `tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará. 
 
 ### <a name="cant-restore-contained-database"></a>No se puede restaurar la base de datos independiente
 
@@ -547,7 +555,7 @@ Una instancia administrada coloca información detallada en los registros de err
 
 La clase `TransactionScope` de .NET no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
@@ -585,6 +593,11 @@ Los módulos de CLR colocados en una instancia administrada y las consultas dist
 No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad.
 
 **Solución alternativa**: Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>La restauración a un momento dado sigue la hora de la zona horaria establecida en la instancia de origen.
+
+Actualmente, la restauración a un momento dado interpreta la hora a la que se debe realizar la restauración según la zona horaria de la instancia de origen, en lugar de seguir la hora UTC.
+Consulte los [problemas conocidos de la zona horaria de la Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) para obtener más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

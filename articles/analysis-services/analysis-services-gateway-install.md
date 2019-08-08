@@ -1,23 +1,25 @@
 ---
-title: Instalación de puerta de enlace de datos local | Microsoft Docs
+title: Instalación de la puerta de enlace de datos local para Azure Analysis Services | Microsoft Docs
 description: Aprenda a instalar y configurar una puerta de enlace de datos local.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062251"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678425"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
-Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
+Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales.  Aunque la puerta de enlace que se instala es la misma que la que usan otros servicios, como Power BI, Power Apps y Logic Apps, al instalar para Azure Analysis Services, hay algunos pasos adicionales que debe completar. Este artículo de instalación es específico para **Azure Analysis Services**.
+
+Para más información sobre la puerta de enlace y su uso por parte de Azure Analysis Services, consulte [Conexión a orígenes de datos locales](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,11 +49,15 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 
 ## <a name="download"></a>Descarga
 
- [Descargar la puerta de enlace](https://aka.ms/azureasgateway)
+ [Descargar la puerta de enlace](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
 ## <a name="install"></a>Instalación
 
 1. Ejecute la configuración.
+
+2. Seleccione **Puerta de enlace de datos local**.
+
+   ![Seleccionar](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Seleccione una ubicación, acepte los términos y haga clic en **Instalar**.
 
@@ -84,7 +90,7 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en su suscripción de Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
 
-1. En Azure Portal, elija **Crear un recurso** > **Integración** > **Puerta de enlace de datos local**.
+1. En Azure Portal, haga clic en **Crear un recurso**, busque **Puerta de enlace de datos local** y, luego, haga clic en **Crear**.
 
    ![Creación de un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
@@ -100,7 +106,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
    * **Ubicación**: seleccione la región en que se ha registrado la puerta de enlace.
 
-   * **Nombre de instalación**: si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace registrada. 
+   * **Nombre de instalación**: Si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace que ha instalado en el equipo y registrado. 
 
      Cuando haya terminado, haga clic en **Crear**.
 
@@ -115,7 +121,12 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
    ![Conectar un servidor a un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > Si la puerta de enlace no aparece en la lista, es probable que el servidor no esté en la región que especificó al registrarla. 
+    > Si la puerta de enlace no aparece en la lista, es probable que el servidor no esté en la región que especificó al registrarla.
+
+    Cuando la conexión entre el servidor y el recurso de puerta de enlace se establece correctamente, el estado se mostrará **Conectado**.
+
+
+    ![Conexión correcta de un servidor a un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
 Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúrese de consultar [Puerta de enlace de datos local](analysis-services-gateway.md).
 

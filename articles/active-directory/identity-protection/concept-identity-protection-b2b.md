@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334049"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667132"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
@@ -47,7 +47,7 @@ Si un usuario de B2B en riesgo del directorio está bloqueado por la directiva b
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>¿Cómo se evita que las directivas basadas en riesgos afecten a los usuarios de Colaboración B2B?
 
-La exclusión de los usuarios de B2B de las directivas de acceso condicional basadas en riesgos de la organización impedirá que se vean afectados o bloqueados por su evaluación de riesgos. Para excluir estos usuarios de B2B, cree un grupo en Azure AD que contenga todos los usuarios invitados de la organización. Después, agregue este grupo como una exclusión para las directivas de riesgo de inicio de sesión y riesgo de usuario de Identity Protection integradas, así como para las directivas de acceso condicional con el riesgo de inicio de sesión como una condición.
+La exclusión de los usuarios de B2B de las directivas de acceso condicional basadas en riesgos de la organización impedirá que se vean afectados o bloqueados por su evaluación de riesgos. Para excluir estos usuarios de B2B, cree un grupo en Azure AD que contenga todos los usuarios invitados de la organización. Después, agregue este grupo como una exclusión para las directivas de riesgo de inicio de sesión y riesgo de usuario de Identity Protection integradas, así como para las directivas de acceso condicional con el riesgo de inicio de sesión como condición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,16 +3,16 @@ title: Creación de una plantilla de Azure Image Builder, versión preliminar
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248147"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695397"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -55,7 +55,7 @@ Este es el formato de plantilla básico:
 
 La ubicación es la región donde se creará la imagen personalizada. Para la versión preliminar de Image Builder, se admiten las siguientes regiones:
 
-- Este de EE. UU
+- East US
 - Este de EE. UU. 2
 - Centro occidental de EE.UU.
 - Oeste de EE. UU.
@@ -185,6 +185,19 @@ Establece la imagen de origen en una versión de la imagen existente de una gale
 
 El `imageVersionId` debe ser el valor de ResourceId de la versión de la imagen. Use [lista de versiones de imagen con firma de Azure](/cli/azure/sig/image-version#az-sig-image-version-list) para obtener una lista de las versiones de imagen.
 
+## <a name="properties-buildtimeoutinminutes"></a>Propiedades: buildTimeoutInMinutes
+De manera predeterminada, Image Builder se ejecutará durante 240 minutos. Después de esto, se agotará el tiempo de espera y se detendrá, así se haya completado la compilación de la imagen como si no. Si se alcanza el tiempo de espera, verá un error similar al siguiente:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+Si no se especifica un valor de buildTimeoutInMinutes o se establece en 0, se usará el valor predeterminado. Puede aumentar o disminuir el valor, hasta el máximo de 960 min (16 horas). En Windows, no se recomienda establecer este valor por debajo de 60 minutos. Si alcanza el tiempo de espera, revise los [registros](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs) para ver si el paso de personalización está esperando algo, como la entrada del usuario. 
+
+Si necesita más tiempo para que se completen las personalizaciones, establezca el valor en lo que crea que necesita, con una pequeña sobrecarga. Pero no lo establezca demasiado alto, ya que es posible que tenga que esperar a que se agote el tiempo de espera antes de ver un error. 
+
+
 ## <a name="properties-customize"></a>Propiedades: personalización
 
 
@@ -194,7 +207,6 @@ Al usar `customize`:
 - Puede usar varios personalizadores, pero deben tener un único `name`.
 - Los personalizadores se ejecutan en el orden especificado en la plantilla.
 - Si se produce un error en un personalizador, todo el componente de personalización producirá un error e informará de un error.
-- Tenga en cuenta el tiempo que requerirá la compilación de imagen y ajuste la propiedad "buildTimeoutInMinutes" para dar al generador de imágenes el tiempo suficiente para terminar.
 - Es muy recomendable que pruebe exhaustivamente el script antes de usarlo en una plantilla. Será más fácil depurar el script en su propia máquina virtual.
 - No incluya información confidencial en los scripts. 
 - Las ubicaciones de los scripts deben estar accesibles públicamente, a menos que esté usando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).

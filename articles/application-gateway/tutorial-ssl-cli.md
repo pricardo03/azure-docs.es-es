@@ -3,23 +3,21 @@ title: 'Crear una puerta de enlace de aplicaciones con terminación SSL: CLI de 
 description: Aprenda a crear una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d6df504d46a829298d0fff8d69b05019c26baa75
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955685"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688128"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para [terminación SSL](ssl-overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para los servidores back-end. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
+Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación SSL](ssl-overview.md). En el caso de los servidores back-end, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
 En este artículo, aprenderá a:
 
@@ -84,7 +82,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
@@ -101,7 +101,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 443 \
   --http-settings-port 80 \
@@ -183,4 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear una puerta de enlace de aplicaciones que hospede varios sitios web](./tutorial-multiple-sites-cli.md)
+[Crear una puerta de enlace de aplicaciones que hospede varios sitios web](./tutorial-multiple-sites-cli.md)

@@ -1,28 +1,27 @@
 ---
-title: Voz a texto con Servicios de voz de Azure
+title: 'Conversión de voz en texto: servicio de Voz'
 titleSuffix: Azure Cognitive Services
-description: La conversión de voz a texto de Servicios de voz de Azure, también conocida simplemente como voz a texto, permite la transcripción en tiempo real de secuencias de audio a texto que las aplicaciones, herramientas o dispositivos pueden usar, mostrar o actuar como ante una entrada de comandos. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office, y funciona sin problemas con la traducción y el servicio de texto a voz.
+description: La característica de conversión de voz en texto del servicio de Voz, también conocida simplemente como voz en texto, permite la transcripción en tiempo real de secuencias de audio a texto que las aplicaciones, las herramientas o los dispositivos pueden usar o mostrar como una entrada de comandos, o para las que pueden realizar acciones como dicha entrada de comandos. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office, y funciona sin problemas con la traducción y el servicio de texto a voz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072315"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558846"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
 La conversión de voz a texto de Servicios de voz de Azure, también conocida simplemente como voz a texto, permite la transcripción en tiempo real de secuencias de audio a texto que las aplicaciones, herramientas o dispositivos pueden usar, mostrar o actuar como ante una entrada de comandos. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office, y funciona sin problemas con la traducción y el servicio de texto a voz.  Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-De forma predeterminada, el servicio de voz a texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. 
+De forma predeterminada, el servicio de voz a texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector.
 
 Puede capturar audio desde un micrófono fácilmente, leer de una secuencia o acceder a archivos de audio desde el almacenamiento con el SDK de voz y las API REST de Speech Services. El SDK de voz admite WAV/PCM de 16 bits, 16 kHz u 8 kHz y audio de un solo canal para el reconocimiento de voz. Los formatos de audio adicionales se admiten mediante el [punto de conexión de REST de voz a texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o el [servicio de transcripción por lotes](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -47,21 +46,7 @@ Estas son las características disponibles en el SDK de voz y las API REST de Sp
 
 ## <a name="get-started-with-speech-to-text"></a>Introducción a la conversión de voz a texto
 
-Ofrecemos guías de inicio rápido en los lenguajes de programación más populares, cuyo diseño individual le permite ejecutar código en menos de 10 minutos. Esta tabla incluye una lista completa de inicios rápidos del SDK de voz ordenados por idioma.
-
-| Guía de inicio rápido | Plataforma | Referencia de API |
-|------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [JavaScript, Explorador](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
+Ofrecemos guías de inicio rápido en los lenguajes de programación más populares, cuyo diseño individual le permite ejecutar código en menos de 10 minutos. [Esta tabla](https://aka.ms/csspeech#5-minute-quickstarts) incluye una lista completa de inicios rápidos del SDK de Voz ordenados por plataforma e idioma.  La referencia de API también se puede encontrar [aquí](https://aka.ms/csspeech#reference).
 
 Si prefiere usar el servicio REST de voz a texto, consulte [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -101,7 +86,7 @@ Si sus aplicaciones, herramientas o productos usan Bing Speech API o Custom Spee
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](https://aka.ms/csspeech)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 * [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)

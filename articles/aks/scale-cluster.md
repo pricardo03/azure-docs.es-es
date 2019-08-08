@@ -6,13 +6,13 @@ author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfoulds
-ms.openlocfilehash: de3f8613c93715aecf7e9e066a8ad1d82e4379e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 9cc06df5d2a66ede18af52c13201c731c12e2049
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475129"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614502"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Escalación del número de nodos en un clúster de Azure Kubernetes Service (AKS)
 

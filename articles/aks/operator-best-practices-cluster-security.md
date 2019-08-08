@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados del operador: seguridad de clústeres en Azure Kubernetes Service (AKS)'
 description: Obtenga información sobre los procedimientos recomendados del operador de clústeres para saber cómo administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
-ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475594"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614891"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ En este artículo se indica cómo proteger el clúster de AKS. Aprenderá a:
 > * Actualización de un clúster AKS a la última versión de Kubernetes
 > * Mantener actualizados los nodos y aplicar automáticamente los parches de seguridad.
 
-También puede leer las prácticas recomendadas para la [administración de imágenes de contenedor][best-practices-container-image-management] y para [seguridad de pod][best-practices-pod-security].
+También puede leer los procedimientos recomendados para la [administración de imágenes de contenedor][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger el acceso a los nodos del clúster y al servidor de API
 
@@ -42,13 +42,13 @@ Use RBAC de Kubernetes y la integración de Azure AD para proteger el servidor d
 
 La práctica recomendada consiste en usar grupos para proporcionar acceso a archivos y carpetas frente a identidades individuales, use la pertenencia al *grupo* de Azure AD para enlazar a los usuarios a roles de RBAC en lugar de a *usuarios* individuales. A medida que cambie la pertenencia al grupo de un usuario, también lo harán sus permisos de acceso en el clúster de AKS. Si enlaza al usuario directamente a un rol, su función de trabajo puede cambiar. Las pertenencias al grupo de Azure AD se actualizarán, pero esto no se reflejará en los permisos en el clúster de AKS. En este escenario, al usuario se le otorgan más permisos de los que necesita.
 
-Para obtener más información acerca de la integración de Azure AD y RBAC, consulte [Best practices for authentication and authorization in AKS][aks-best-practices-identity] (Procedimientos recomendados para la autenticación y autorización en AKS).
+Para más información sobre la integración de Azure AD y RBAC, consulte los [procedimientos recomendados para la autenticación y autorización en AKS][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Proteger el acceso del contenedor a los recursos
 
 **Orientación con procedimientos recomendados**: limite el acceso a las acciones que los contenedores pueden realizar. Proporcione el menor número de permisos, y evite el uso de privilegios escalados o acceso a raíz.
 
-De la misma manera, debería conceder a los usuarios o a los grupos el menor número de privilegios requeridos, los contenedores también deberían limitarse a las acciones y procesos que necesiten. Para minimizar el riesgo de ataques, no configure las aplicaciones ni los contenedores que requieren privilegios escalados o acceso a raíz. Por ejemplo, establezca `allowPrivilegeEscalation: false` en el manifiesto de pod. Estos *contextos de seguridad de pod* están integrados en Kubernetes y le permiten definir permisos adicionales, como el usuario o grupo como el que se ejecutará, o qué funcionalidades de Linux se expondrán. Para ver más recomendaciones, consulte [Secure pod access to resources][pod-security-contexts] (Acceso seguro de pod a recursos).
+De la misma manera, debería conceder a los usuarios o a los grupos el menor número de privilegios requeridos, los contenedores también deberían limitarse a las acciones y procesos que necesiten. Para minimizar el riesgo de ataques, no configure las aplicaciones ni los contenedores que requieren privilegios escalados o acceso a raíz. Por ejemplo, establezca `allowPrivilegeEscalation: false` en el manifiesto de pod. Estos *contextos de seguridad de pod* están integrados en Kubernetes y le permiten definir permisos adicionales, como el usuario o grupo como el que se ejecutará, o qué funcionalidades de Linux se expondrán. Para más recomendaciones, consulte [Protección del acceso del pod a los recursos][pod-security-contexts].
 
 Para un control más detallado de las acciones de los contenedores, también puede usar las características de seguridad incorporadas de Linux como *AppArmor*y *seccomp*. Estas características se definen en el nivel de nodo y, después, se implementan a través de un manifiesto de pod. Las características de seguridad integradas de Linux solo están disponibles en los pods y los nodos de Linux.
 
@@ -113,7 +113,7 @@ touch: /tmp/test: Permission denied
 command terminated with exit code 1
 ```
 
-Para obtener más información sobre AppArmor, vea [AppArmor profiles in Kubernetes][k8s-apparmor] (Perfiles de AppArmor en Kubernetes).
+Para más información sobre AppArmor, consulte los [perfiles de AppArmor en Kubernetes][k8s-apparmor].
 
 ### <a name="secure-computing"></a>Informática segura
 
@@ -160,7 +160,7 @@ Implemente el pod de ejemplo con el comando [kubectl apply][kubectl-apply]:
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-Vea el estado de los pod mediante el comando [kubectl get pods][kubectl-get]. El pod indica un error. El filtro seccomp impide que se ejecute el comando `chmod`, tal como se muestra en la salida del ejemplo siguiente:
+Consulte el estado de los pod mediante el comando [kubectl get pods][kubectl-get]. El pod indica un error. El filtro seccomp impide que se ejecute el comando `chmod`, tal como se muestra en la salida del ejemplo siguiente:
 
 ```
 $ kubectl get pods
@@ -169,7 +169,7 @@ NAME                      READY     STATUS    RESTARTS   AGE
 chmod-prevented           0/1       Error     0          7s
 ```
 
-Para obtener más información acerca de los filtros disponibles, vea [Seccomp security profiles for Docker][seccomp] (Perfiles de seguridad de Seccomp para Docker).
+Para más información sobre los filtros disponibles, consulte [Perfiles de seguridad de Seccomp para Docker][seccomp].
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Actualización regular a la versión más reciente de Kubernetes
 
@@ -191,7 +191,7 @@ A continuación, puede actualizar el clúster de AKS con el comando [az aks upgr
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
-Para obtener más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] y [Actualización de un clúster de AKS][aks-upgrade].
+Para más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proceso de las actualizaciones y reinicios de nodos Linux con kured
 
@@ -205,13 +205,13 @@ El proyecto [kured (KUbernetes REboot Daemon)][kured] de código abierto de Weav
 
 Si desea un control más preciso sobre cuándo se producen los reinicios, `kured` puede integrarse con Prometheus para evitar reinicios si hay otros eventos de mantenimiento o problemas de clúster en curso. Esta integración minimiza las complicaciones adicionales al reiniciar los nodos mientras está solucionando activamente otros problemas.
 
-Para obtener más información acerca de cómo controlar los inicios del nodo, vea [Apply security and kernel updates to nodes in AKS][aks-kured] (Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS).
+Para más información sobre cómo controlar los inicios del nodo, consulte [Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS][aks-kured].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se indica cómo proteger el clúster de AKS. Para implementar algunas de estas áreas, consulte los artículos siguientes:
 
-* [Integración de Azure Active Directory con Azure Kubernetes Service][aks-aad]
+* [Integración de Azure Active Directory con AKS][aks-aad]
 * [Actualización de un clúster AKS a la última versión de Kubernetes][aks-upgrade]
 * [Procesamiento de actualizaciones de seguridad y reinicios del nodo con kured][aks-kured]
 

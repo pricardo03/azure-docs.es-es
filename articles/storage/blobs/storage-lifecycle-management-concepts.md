@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cd02051c0ef1dfe93b1ee67a0a9605e1611f336b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565973"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -29,6 +29,8 @@ La directiva de administración del ciclo de vida le permite:
 
 Considere un escenario donde los datos tienen acceso frecuente durante las primeras fases del ciclo de vida, pero solo ocasionalmente al cabo de dos semanas. Transcurrido el primer mes, rara vez se accede al conjunto de datos. En este escenario, es mejor el almacenamiento de acceso frecuente durante las primeras etapas. El almacenamiento de acceso esporádico es más adecuado para un acceso ocasional. El almacenamiento de archivo es la mejor opción de nivel una vez que los datos tengan un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las reglas de directivas de administración del ciclo de vida se encuentran disponibles para mover los datos antiguos a niveles de almacenamiento de acceso más esporádico.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
 
 La directiva de administración del ciclo de vida está disponible con cuentas de almacenamiento de uso general v2 (GPv2), de Blob Storage y de Premium Block Blob. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
@@ -39,7 +41,7 @@ La característica de administración del ciclo de vida es gratuita. A los clien
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La característica de administración del ciclo de vida está disponible en todas las regiones globales de Azure y Azure Government.
+La característica de administración del ciclo de vida está disponible en todas las regiones de Azure.
 
 ## <a name="add-or-remove-a-policy"></a>Incorporación o eliminación de una directiva
 

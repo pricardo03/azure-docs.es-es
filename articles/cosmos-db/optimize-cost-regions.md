@@ -4,14 +4,14 @@ description: En este artículo se explica cómo administrar los costos de las im
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/31/2019
 ms.author: rimman
-ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967292"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667591"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
 
@@ -35,9 +35,9 @@ Imagine que tiene un contenedor en la región Oeste de EE. UU. con una capacida
 |----|----|----|----|
 |Factura de capacidad de proceso para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en varias regiones) |10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |1190,40 USD |
 |Factura de capacidad de proceso para 3 regiones más: Este de EE. UU., Europa del Norte y Asia Oriental (operaciones de escritura en varias regiones) |(3 + 1) * 10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |4761,60 USD |
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU. |100 GB |0,25 USD/GB |25 USD |
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Pacífico |3 * 1 TB |0,25 USD/GB |75 USD |
-|**Total**|||**6052 USD** |
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU. |1 TB (o 1024 GB) |0,25 USD/GB |256 USD |
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental |3 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
+|**Total**|||**6976 USD** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Mejora del uso de la capacidad de proceso por región
 

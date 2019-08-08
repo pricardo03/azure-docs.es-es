@@ -1,6 +1,6 @@
 ---
-title: Seguridad al colaborar
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Seguridad al colaborar: LUIS'
+titleSuffix: Azure Cognitive Services
 description: El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25f6b675846f028b4ba9d49cce9e075bc79eece9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058523"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560666"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso a los puntos de conexión está disponible para todos los usuarios que tengan su propio recurso de Azure [Cognitive Services](../cognitive-services-apis-create-account.md) o [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) y el identificador de la aplicación pública. 

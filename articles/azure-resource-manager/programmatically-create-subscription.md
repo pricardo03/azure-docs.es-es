@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: cf325b93c626e0c7f9584449154e2d531995cdc5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204344"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678929"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Creación de suscripciones de Azure Enterprise mediante programación (versión preliminar)
 
@@ -201,8 +201,7 @@ Para obtener una lista completa de todos los parámetros, vea [az account create
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitaciones de la API de creación de suscripciones de Azure Enterprise
 
 - Con esta API solo pueden crearse suscripciones de Azure Enterprise.
-- Hay un límite inicial de 50 suscripciones por cuenta de inscripción, pero puede [crear una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) para aumentar el límite a 200. Después de eso, las suscripciones solo se pueden crear a través del Centro de cuentas.
-- Debe haber al menos una suscripción de EA o de Desarrollo/pruebas de EA en la cuenta, lo que indica que el propietario de cuenta ha pasado al menos una vez por el registro manual.
+- Hay un límite de 200 suscripciones por cuenta de inscripción. Después de eso, las suscripciones solo se pueden crear a través del Centro de cuentas. Si quiere crear más suscripciones a través de la API, cree otra cuenta de inscripción.
 - Los usuarios que no son propietarios de cuenta, pero se han agregado a una cuenta de inscripción a través de RBAC, no pueden crear suscripciones mediante el Centro de cuentas.
 - No puede seleccionar el inquilino para la suscripción en que se va a crear. La suscripción siempre se crea en el inquilino principal del propietario de cuenta. Para mover la suscripción a otro inquilino, vea cómo [cambiar un inquilino de la suscripción](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

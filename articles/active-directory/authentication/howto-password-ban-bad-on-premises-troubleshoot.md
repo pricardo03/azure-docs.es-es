@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414773"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666233"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
@@ -30,9 +30,9 @@ La causa habitual de este problema es que no se ha registrado aún un proxy. Si 
 
 ## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>El agente de controlador de dominio no es capaz de comunicarse con un proxy
 
-El síntoma principal de este problema son eventos 30018 en el registro de eventos de administración del agente de controlador de dominio. Esto puede deberse a varias causas:
+El síntoma principal de este problema son eventos 30018 en el registro de eventos de administración del agente de controlador de dominio. Este problema puede deberse a varias causas:
 
-1. El agente de controlador de dominio se encuentra en una parte aislada de la red que no permite la conectividad de red con el proxy registrado. Este problema, por tanto, puede ser esperado/benigno siempre que otros agentes de controlador de dominio puedan comunicarse con el proxy con el fin de descargar las directivas de contraseñas de Azure, que se obtendrán mediante el controlador de dominio aislado a través de la replicación de los archivos de directivas en el recurso compartido sysvol.
+1. El agente de controlador de dominio se encuentra en una parte aislada de la red que no permite la conectividad de red con el proxy registrado. Este problema, por tanto, puede ser benigno siempre que otros agentes de controlador de dominio puedan comunicarse con el proxy con el fin de descargar las directivas de contraseñas de Azure, que se obtendrán mediante el controlador de dominio aislado a través de la replicación de los archivos de directivas en el recurso compartido sysvol.
 
 1. El equipo host de proxy está bloqueando el acceso para el punto de conexión del mapeador del punto de conexión de RPC (puerto 135)
 
@@ -42,17 +42,17 @@ El síntoma principal de este problema son eventos 30018 en el registro de event
 
    El instalador de proxy de protección de contraseña de Azure AD crea automáticamente una regla de entrada de firewall de Windows que permite el acceso a cualquier puerto de entrada que escuche el servicio de proxy de Protección con contraseña de Azure AD. Si más adelante se elimina o se deshabilita esta regla, los agentes de controlador de dominio no pueden comunicarse con el servicio de proxy. Si se ha deshabilitado el firewall de Windows integrado en lugar de otro producto de firewall, debe configurar el firewall para permitir el acceso a cualquier puerto de entrada que escuche el servicio de proxy de Protección con contraseña de Azure AD. Esta configuración puede ser más específica si se ha configurado el servicio de proxy para que escuche un puerto estático de RPC específico (mediante el cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`).
 
-## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>El servicio de proxy puede recibir llamadas de los agentes de controlador de dominio en el dominio, pero no puede comunicarse con Azure
+## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>El servicio proxy no se puede comunicar con Azure
 
 1. Asegúrese de que la máquina de proxy dispone de conectividad con los puntos de conexión que aparecen en los [requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md).
 
 1. Asegúrese de que el bosque y todos los servidores proxy estén registrados en el mismo inquilino de Azure.
 
-   Puede comprobarlo ejecutando los cmdlets de PowerShell `Get-AzureADPasswordProtectionProxy` u `Get-AzureADPasswordProtectionDCAgent` y, a continuación, comparando la propiedad `AzureTenant` de cada elemento devuelto. Para un funcionamiento correcto, deben ser los mismos dentro del bosque, en todos los agentes de controlador de dominio y servidores proxy.
+   Para comprobar este requisito, puede ejecutar los cmdlets de PowerShell `Get-AzureADPasswordProtectionProxy` u `Get-AzureADPasswordProtectionDCAgent` y, luego, comparar la propiedad `AzureTenant` de cada elemento devuelto. Para un funcionamiento correcto, el nombre de inquilino declarado debe ser el mismo dentro de todos los agentes de controlador de dominio y servidores proxy.
 
-   Si existe una condición de error de coincidencia del registro de inquilino de Azure, puede repararse ejecutando los cmdlets de PowerShell `Register-AzureADPasswordProtectionProxy` o `Register-AzureADPasswordProtectionForest` según sea necesario y asegurándose de usar credenciales desde el mismo inquilino de Azure para todos los registros.
+   Si existe una condición de error de coincidencia del registro de inquilino de Azure, este problema puede corregirse ejecutando los cmdlets de PowerShell `Register-AzureADPasswordProtectionProxy` o `Register-AzureADPasswordProtectionForest` según sea necesario y asegurándose de usar credenciales desde el mismo inquilino de Azure para todos los registros.
 
-## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>El agente de controlador de dominio no puede cifrar o descifrar los archivos de directivas de contraseña y otro estado
+## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>El agente de controlador de dominio no puede cifrar ni descifrar los archivos de directivas de contraseña
 
 Este problema se puede producir con una variedad de síntomas, pero normalmente tiene una causa común.
 
@@ -62,7 +62,7 @@ De forma predeterminada, el modo de inicio de servicio del servicio KDS está co
 
 Si el modo de inicio del servicio KDS se ha configurado como Deshabilitado, esta configuración debe corregirse para que Protección de contraseñas de Azure AD funcione correctamente.
 
-Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicio, o con otras herramientas de administración de servicio (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
+Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicios, o con otras herramientas de administración (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
 
 La causa más común de que el servicio KDS no se pueda iniciar es que el objeto de controlador de dominio de Active Directory se encuentra fuera de la unidad organizativa controladores de dominio predeterminada. Esta configuración no es compatible con el servicio KDS y no es una limitación impuesta por Protección con contraseña de Azure AD. La solución para esta condición consiste en mover el objeto del controlador de dominio a una ubicación en la unidad organizativa de controladores de dominio predeterminada.
 
@@ -84,7 +84,40 @@ Este problema puede tener varias causas.
 
 1. Puede que el algoritmo de validación de contraseña funcione realmente según lo esperado. Consulte [Cómo se evalúan las contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="directory-services-repair-mode"></a>Modo de reparación de servicios de directorio
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe no puede establecer una contraseña de DSRM no segura
+
+Active Directory validará siempre una nueva contraseña del modo de reparación de servicios de directorio para asegurarse de que cumple los requisitos de complejidad de la contraseña del dominio; esta validación también llama a los archivos dll del filtro de contraseñas, como protección de contraseña de Azure AD. Si se rechaza la nueva contraseña de DSRM, se genera el siguiente mensaje de error:
+
+```text
+C:\>ntdsutil.exe
+ntdsutil: set dsrm password
+Reset DSRM Administrator Password: reset password on server null
+Please type password for DS Restore Mode Administrator Account: ********
+Please confirm new password: ********
+Setting password failed.
+        WIN32 Error Code: 0xa91
+        Error Message: Password doesn't meet the requirements of the filter dll's
+```
+
+Cuando protección de contraseña de Azure AD registra los eventos del registro de eventos de validación de contraseñas para una contraseña de DSRM de Active Directory, se espera que los mensajes del registro de eventos no incluyan un nombre de usuario. Esto ocurre porque la cuenta de DSRM es una cuenta local que no forma parte del dominio de Active Directory real.  
+
+## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>No se puede realizar la promoción de la réplica del controlador de dominio debido a una contraseña de DSRM no segura
+
+Durante el proceso de promoción del controlador de dominio, la nueva contraseña del modo de reparación de servicios de directorio se enviará a un controlador de dominio existente en el dominio para la validación. Si se rechaza la nueva contraseña de DSRM, se genera el siguiente mensaje de error:
+
+```powershell
+Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
+```
+
+Al igual que en el problema anterior, cualquier evento de resultado de validación de la contraseña de protección de contraseña de Azure AD tendrá nombres de usuario vacíos para este escenario.
+
+## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>Se produce un error de degradación del controlador de dominio debido a una contraseña de administrador local no segura
+
+Se admite la degradación de un controlador de dominio en el que todavía se ejecuta el software del agente de controlador de dominio. No obstante, los administradores deben tener en cuenta que el software del agente de controlador de dominio sigue aplicando la directiva de contraseñas actual durante el procedimiento de degradación. La nueva contraseña de la cuenta de administrador local (que se especifica como parte de la operación de degradación) se valida como cualquier otra contraseña. Microsoft recomienda que se elijan contraseñas seguras para las cuentas de administrador local como parte de un procedimiento de degradación del controlador de dominio.
+
+Una vez que se ha realizado correctamente la degradación y el controlador de dominio se ha reiniciado y está de nuevo en ejecución como un servidor miembro normal, el software del agente de controlador de dominio se vuelve a ejecutar en modo pasivo. A partir de ese momento se puede desinstalar en cualquier momento.
+
+## <a name="booting-into-directory-services-repair-mode"></a>Arranque en el modo de reparación de servicios de directorio
 
 Si el controlador de dominio se inicia en el modo de reparación de servicios de directorio, el servicio del agente de controlador de dominio detecta esta anomalía y hará que se deshabiliten todas las actividades de validación de contraseñas o de aplicación de estas, independientemente de la configuración de directivas activa actualmente.
 
@@ -93,12 +126,6 @@ Si el controlador de dominio se inicia en el modo de reparación de servicios de
 Si se produce una situación en la que el servicio del agente de controlador de dominio causa problemas, este servicio se puede apagar inmediatamente. La DLL de filtro de contraseña del agente de controlador de dominio sigue intentando llamar al servicio que no está en ejecución, y registrará los eventos de advertencia (10012, 10013), pero durante ese tiempo se aceptan todas las contraseñas entrantes. El servicio de agente de controlador de dominio se puede también configurar mediante el Administrador de control de servicios de Windows con un tipo de inicio "Deshabilitado" según sea necesario.
 
 Otra medida de corrección sería establecer el modo Habilitar en No en el portal de Protección de contraseña de Azure AD. Una vez que se ha descargado la directiva actualizada, cada servicio del agente de controlador de dominio entrará en un modo inactivo donde todas las contraseñas se aceptan tal cual. Para más información, consulte [Modo forzado](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
-
-## <a name="domain-controller-demotion"></a>Degradación del controlador de dominio
-
-Se admite la degradación de un controlador de dominio en el que todavía se ejecuta el software del agente de controlador de dominio. No obstante, los administradores deben tener en cuenta que el software del agente de controlador de dominio sigue aplicando la directiva de contraseñas actual durante el procedimiento de degradación. La nueva contraseña de la cuenta de administrador local (que se especifica como parte de la operación de degradación) se valida como cualquier otra contraseña. Microsoft recomienda que se elijan contraseñas seguras para las cuentas de administrador locales como parte de un procedimiento de degradación del controlador de dominio. Sin embargo, la validación de la nueva contraseña de la cuenta de administrador local por parte del software del agente de controlador de dominio puede ser perjudicial para los procedimientos operativos de degradación que existían previamente.
-
-Una vez que se ha realizado correctamente la degradación y el controlador de dominio se ha reiniciado y está de nuevo en ejecución como un servidor miembro normal, el software del agente de controlador de dominio se vuelve a ejecutar en modo pasivo. A partir de ese momento se puede desinstalar en cualquier momento.
 
 ## <a name="removal"></a>Eliminación
 

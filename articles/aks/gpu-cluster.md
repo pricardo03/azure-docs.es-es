@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: c92762b53b0f5b50ea08f2f78998a3ccecbed990
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061058"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68381838"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
-Por lo general, las unidades de procesamiento gráfico (GPU) se usan para cargas de trabajo de cálculo intensivo, como cargas de trabajo de visualización y gráficos. AKS admite la creación de grupos de nodos compatibles con GPU para ejecutar estas cargas de trabajo de cálculo intensivo en Kubernetes. Para obtener más información sobre las máquinas virtuales habilitadas para GPU disponibles, consulte [GPU optimized VM sizes in Azure][gpu-skus] (Tamaños de VM optimizadas para GPU en Azure). Para nodos AKS, se recomienda un tamaño mínimo de *Standard_NC6*.
+Por lo general, las unidades de procesamiento gráfico (GPU) se usan para cargas de trabajo de cálculo intensivo, como cargas de trabajo de visualización y gráficos. AKS admite la creación de grupos de nodos compatibles con GPU para ejecutar estas cargas de trabajo de cálculo intensivo en Kubernetes. Para obtener más información sobre las máquinas virtuales habilitadas para GPU disponibles, consulte [Tamaños de máquinas virtuales optimizadas para GPU en Azure][gpu-skus]. Para nodos AKS, se recomienda un tamaño mínimo de *Standard_NC6*.
 
 > [!NOTE]
-> Las máquinas virtuales habilitadas para GPU contienen hardware especializado que está sujeto a una mayor disponibilidad de precios y región. Consulte la herramienta de [precios][azure-pricing] y el sitio de [disponibilidad por región][azure-availability].
+> Las máquinas virtuales habilitadas para GPU contienen hardware especializado que está sujeto a una mayor disponibilidad de precios y región. Para obtener más información, consulte la herramienta de [precios][azure-pricing] y la [disponibilidad de regiones][azure-availability].
 
 Actualmente, el uso de grupos de nodos habilitados para GPU solo está disponible para grupos de nodos de Linux.
 
@@ -28,7 +28,7 @@ Actualmente, el uso de grupos de nodos habilitados para GPU solo está disponibl
 
 En este artículo se supone que ya tiene un clúster de AKS con nodos que admiten GPU. El clúster de AKS debe ejecutar Kubernetes 1.10 o una versión posterior. Si necesita un clúster de AKS que cumpla estos requisitos, consulte la primera sección de este artículo para [crear un clúster de AKS](#create-an-aks-cluster).
 
-También es preciso tener instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso tener instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
@@ -66,7 +66,7 @@ En primer lugar, cree un espacio de nombres mediante el comando [kubectl create 
 kubectl create namespace gpu-resources
 ```
 
-Cree un archivo denominado *nvidia-device-plugin-ds.yaml* y pegue el siguiente manifiesto YAML. Este manifiesto se proporciona como parte del [complemento de dispositivo NVIDIA para proyectos de Kubernetes][nvidia-github].
+Cree un archivo denominado *nvidia-device-plugin-ds.yaml* y pegue el siguiente manifiesto YAML. Este manifiesto se proporciona como parte del [complemento de dispositivo NVIDIA para el proyecto de Kubernetes][nvidia-github].
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -111,7 +111,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Use ahora el comando [kubectl apply][ kubectl-apply] para crear el elemento DaemonSet y confirme que el complemento de dispositivo nVidia se crea correctamente, tal como se muestra en la salida de ejemplo siguiente:
+Ahora, use el comando [kubectl apply][kubectl-apply] para crear el elemento DaemonSet y confirme que el complemento de dispositivo nVidia se crea correctamente, tal como se muestra en la salida de ejemplo siguiente:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -184,7 +184,7 @@ Non-terminated Pods:         (9 in total)
 
 ## <a name="run-a-gpu-enabled-workload"></a>Ejecución de una carga de trabajo habilitada para GPU
 
-Para ver la GPU en acción, programe una carga de trabajo compatible con la GPU con la solicitud de recursos adecuada. En este ejemplo se va a ejecutar un trabajo [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) en el [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/).
+Para ver la GPU en acción, programe una carga de trabajo compatible con la GPU con la solicitud de recursos adecuada. En este ejemplo se va a ejecutar un trabajo [Tensorflow](https://www.tensorflow.org/) en el [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/).
 
 Cree un archivo denominado *samples-tf-mnist-demo.yaml* y pegue el siguiente manifiesto YAML. El siguiente manifiesto de trabajo incluye un límite de recursos de `nvidia.com/gpu: 1`:
 
@@ -322,7 +322,7 @@ Adding run metadata for 499
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para eliminar los objetos Kubernetes asociados creados en este artículo, use el comando [kubectl delete job][kubectl delete] como sigue:
+Para eliminar los objetos de Kubernetes asociados que creó en este artículo, use el comando [kubectl delete job][kubectl delete] como se muestra a continuación:
 
 ```console
 kubectl delete jobs samples-tf-mnist-demo

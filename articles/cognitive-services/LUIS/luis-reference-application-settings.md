@@ -1,5 +1,5 @@
 ---
-title: Configuración de la aplicación
+title: 'Configuración de la aplicación: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Entienda la configuración de la aplicación para las aplicaciones de comprensión de lenguaje.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163632"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563511"
 ---
 # <a name="application-settings"></a>Configuración de la aplicación
 
@@ -48,7 +48,7 @@ Las declaraciones siguientes muestran cómo afecta la normalización de las marc
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Marcas diacríticas `pt-br` de portugués (brasileño)
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ Las declaraciones siguientes muestran cómo afecta la normalización de las marc
 
 #### <a name="dutch-nl-nl-diacritics"></a>Marcas diacríticas `nl-nl` del neerlandés
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ Las declaraciones siguientes muestran cómo afecta la normalización de las marc
 
 Esto incluye las referencias culturales secundarias del francés y canadiense.
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Esto incluye las referencias culturales secundarias del francés y canadiense.
 
 #### <a name="german-de-de-diacritics"></a>Marcas diacríticas `de-de` del alemán
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Esto incluye las referencias culturales secundarias del francés y canadiense.
 
 #### <a name="italian-it-it-diacritics"></a>Marcas diacríticas `it-it` del italiano
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Esto incluye las referencias culturales secundarias del francés y canadiense.
 
 Esto incluye tanto al mexicano y español.
 
-|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en false|
+|Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

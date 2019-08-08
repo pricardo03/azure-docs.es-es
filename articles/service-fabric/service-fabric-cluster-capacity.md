@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: chackdan
-ms.openlocfilehash: 6b11a3ba4fbffe1d35b590f2e5c47f19b6fb028c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2d13364093776028f96b75c5bfef252e2fdfc790
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718120"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679394"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
 
 * Número de tipos de nodos con los que el clúster tiene que empezar
-* Propiedades de cada tipo de nodo (tamaño, principal, accesible desde Internet, número de máquinas virtuales, etc.)
+* Propiedades de cada tipo de nodo (tamaño, principal, accesible desde Internet, número de VM, etc.)
 * Características de confiabilidad y durabilidad del clúster
 
 > [!NOTE]

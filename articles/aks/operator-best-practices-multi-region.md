@@ -6,13 +6,13 @@ author: lastcoolnameleft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: lastcoolnameleft
-ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: thfalgou
+ms.openlocfilehash: 4d4535af1814ab1250bbd56c989b4849013adff6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475172"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614841"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -129,7 +129,7 @@ Actualmente, Kubernetes no proporciona ninguna implementación para la replicaci
 Este artículo se centra en las consideraciones sobre continuidad empresarial y recuperación ante desastres en los clústeres de AKS. Para más información acerca de las operaciones de clúster en AKS, consulte en los siguientes artículos los procedimientos recomendados:
 
 * [Aislamiento multiempresa y de clúster][aks-best-practices-cluster-isolation]
-* [Basic Kubernetes scheduler features][aks-best-practices-scheduler] (Características básicas de programadores de Kubernetes)
+* [Características básicas del programador de Kubernetes][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md

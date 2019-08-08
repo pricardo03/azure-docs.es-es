@@ -2,17 +2,17 @@
 title: Restablecer las credenciales de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo actualizar o restablecer las credenciales de la entidad de servicio para un clúster en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475483"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614123"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Actualizar o rotar las credenciales de una entidad de servicio en Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ De forma predeterminada, los clústeres de AKS se crean con una entidad de servi
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Elija actualizar o crear una entidad de servicio
 
@@ -33,7 +33,7 @@ Si quiere crear una entidad de servicio y actualizar el clúster de AKS, omita e
 
 ### <a name="get-the-service-principal-id"></a>Obtener el id. de la entidad de servicio
 
-Para actualizar las credenciales de la entidad de servicio existente, obtenga el id. de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional.
+Para actualizar las credenciales de la entidad de servicio existente, obtenga el identificador de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -71,7 +71,7 @@ La salida será similar al del ejemplo siguiente: Tome nota de sus valores `appI
 }
 ```
 
-A continuación, defina las variables del id. de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña*:
+A continuación, defina las variables del identificador de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -95,7 +95,7 @@ Las credenciales de la entidad de servicio tardan unos minutos en actualizarse e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, se actualizó la entidad de servicio del propio clúster de AKS. Para obtener más información sobre cómo administrar la identidad de las cargas de trabajo de un clúster, consulte [Best practices for authentication and authorization in AKS][best-practices-identity] (Procedimientos recomendados para la autenticación y autorización en AKS).
+En este artículo, se actualizó la entidad de servicio del propio clúster de AKS. Para más información sobre cómo administrar la identidad de las cargas de trabajo de un clúster, consulte los [procedimientos recomendados para la autenticación y autorización en AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

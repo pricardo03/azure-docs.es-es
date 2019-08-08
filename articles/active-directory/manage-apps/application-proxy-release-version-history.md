@@ -16,15 +16,17 @@ ms.date: 04/05/2019
 ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b54d57a13f0f2b47633a25f1a44efdfa17d11a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595053"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693892"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
-En este artículo se enumeran las versiones y características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente Application Proxy con nuevas características y funciones. Los conectores de Application Proxy se actualizan de forma automática cuando se publica una nueva versión.
+En este artículo se enumeran las versiones y características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente Application Proxy con nuevas características y funciones. Los conectores de Application Proxy se actualizan de forma automática cuando se publica una nueva versión. 
+
+Se recomienda asegurarse de que las actualizaciones automáticas estén habilitadas para los conectores con el fin de asegurarse de tener las características y correcciones de errores más recientes. Microsoft proporciona soporte técnico directo para la versión más reciente del conector y una versión anterior.
 
 Esta es una lista de recursos relacionados:
 

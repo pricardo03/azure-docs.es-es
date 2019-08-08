@@ -5,22 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498719"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696307"
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
 
 Los administradores del servidor deben ser un usuario o grupo de seguridad válido en Azure Active Directory (Azure AD) para el inquilino en el que reside el servidor. Puede usar **Administradores de Analysis Services** en el servidor de Azure Portal, Propiedades del servidor en SSMS, PowerShell o la API de REST para administrar los administradores del servidor. 
 
-> [!NOTE]
-> Los grupos de seguridad deben tener la propiedad `MailEnabled` establecida en `True`.
+Los **Grupos de seguridad** deben estar [habilitados para correo](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la propiedad `MailEnabled` establecida en `True`. Al especificar un grupo por dirección de correo electrónico, use `obj:groupid@tenantid`.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Incorporación de administradores de servidor mediante Azure Portal
 

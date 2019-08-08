@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: ede7167d570c7bd2ba7e04c3a9a703555efb35cd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622407"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698516"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -63,7 +63,8 @@ Para agregar una nueva medida de telemetría, seleccione **+ New Measurement** (
 
 > [!NOTE]
 > Los nombres de campo en la plantilla de dispositivo deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente para que la medida de telemetría se muestre en la aplicación cuando se conecte un dispositivo real. Haga lo mismo cuando configure los ajustes, las propiedades del dispositivo y los comandos mientras continúa definiendo la plantilla de dispositivo en las secciones siguientes.
-.png Por ejemplo, puede agregar una nueva medida de telemetría de temperatura:
+
+Por ejemplo, puede agregar una nueva medida de telemetría de temperatura:
 
 | Display Name (Nombre para mostrar)        | Nombre del campo    |  Unidades    | Min   |max|
 | --------------------| ------------- |-----------|-------|---|
@@ -109,7 +110,7 @@ Rellene los siguientes campos con los datos del estado: **Display Name** (Nombre
 
 Por ejemplo, puede agregar un nuevo estado denominado **Fan Mode** que tenga dos valores posibles que el dispositivo puede enviar: **Operating** (En funcionamiento) y **Stopped** (Detenido).
 
-| Display Name (Nombre para mostrar) | Nombre del campo    |  Value 1   | Display Name (Nombre para mostrar) | Value 2    |Display Name (Nombre para mostrar)  | 
+| Display Name (Nombre para mostrar) | Nombre del campo    |  Value 1   | Display Name (Nombre para mostrar) | Value 2    |Display Name (Nombre para mostrar)  |
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fan Mode     | fanmode       |  1         | Operating    |     0      | Stopped      |
 
@@ -147,6 +148,8 @@ assetloc: {
   alt?: floating point number
 }
 ```
+
+Una vez que se conecta el dispositivo real, la ubicación que agregó como medida se actualiza con el valor que el dispositivo envió. Ahora que ha configurado la medida de ubicación, puede [agregar un mapa para visualizar la ubicación en el panel del dispositivo](#add-a-location-measurement-in-the-dashboard).
 
 ## <a name="settings"></a>Configuración
 
@@ -244,7 +247,7 @@ Puede crear una propiedad de ubicación como una propiedad de dispositivo que el
 
    ![Formulario "Configure Device Properties" (Configurar propiedades del dispositivo) con detalles de ubicación](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Una vez que se conecta el dispositivo real, la ubicación que agregó como propiedad del dispositivo se actualiza con el valor que el dispositivo envió. Ahora que ha configurado la propiedad de ubicación, puede [agregar un mapa para visualizar la ubicación en el panel del dispositivo](#add-a-location-in-the-dashboard).
+Una vez que se conecta el dispositivo real, la ubicación que agregó como propiedad del dispositivo se actualiza con el valor que el dispositivo envió. Ahora que ha configurado la propiedad de ubicación, puede [agregar un mapa para visualizar la ubicación en el panel del dispositivo](#add-a-location-property-in-the-dashboard).
 
 ## <a name="commands"></a>Comandos:
 
@@ -252,9 +255,9 @@ Los comandos se usan para administrar un dispositivo de forma remota. Permiten a
 
 ¿En qué se diferencia un comando de un valor?
 
-* **Configuración**: una configuración es un ajuste que desea aplicar a un dispositivo. Desea que el dispositivo conserve dicha configuración hasta que la cambie. Por ejemplo, desea establecer la temperatura del congelador y desea dicho valor aun cuando se reinicie el congelador.
+- **Configuración**: una configuración es un ajuste que desea aplicar a un dispositivo. Desea que el dispositivo conserve dicha configuración hasta que la cambie. Por ejemplo, desea establecer la temperatura del congelador y desea dicho valor aun cuando se reinicie el congelador.
 
-* **Comando**: los comandos se usan para ejecutar al instante un comando en el dispositivo de forma remota desde IoT Central. Si un dispositivo no está conectado, se agota el tiempo de espera del comando y se produce un error. Por ejemplo, desea reiniciar un dispositivo.
+- **Comando**: los comandos se usan para ejecutar al instante un comando en el dispositivo de forma remota desde IoT Central. Si un dispositivo no está conectado, se agota el tiempo de espera del comando y se produce un error. Por ejemplo, desea reiniciar un dispositivo.
 
 Por ejemplo, puede agregar un nuevo comando **Eco** si selecciona la pestaña **Comandos**, **+ Nuevo comando** y escribe los detalles del nuevo comando:
 
@@ -265,6 +268,8 @@ Por ejemplo, puede agregar un nuevo comando **Eco** si selecciona la pestaña **
 ![Formulario "Configure Command" (Configurar comando) con detalles del eco](./media/howto-set-up-template/commandsecho1.png)
 
 Después de seleccionar **Guardar**, el comando **Eco** aparece como un icono y está listo para usarse en **Device Explorer** una vez que se conecta el dispositivo real. Los nombres de campo del comando deben coincidir con los nombres de las propiedades del código de dispositivo correspondiente para que los comandos se ejecuten correctamente.
+
+[Este es un vínculo al ejemplo de código de dispositivo de C.](https://github.com/Azure/iot-central-firmware/blob/ad40358906aeb8f2040a822ba5292df866692c16/MXCHIP/mxchip_advanced/src/AzureIOTClient.cpp#L34)
 
 ## <a name="rules"></a>Reglas
 
@@ -282,9 +287,9 @@ Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración 
 
 Ahora, cuando un operador acceda al panel en **Device Explorer**, verá el icono.
 
-### <a name="add-a-location-in-the-dashboard"></a>Adición de una ubicación al panel
+### <a name="add-a-location-measurement-in-the-dashboard"></a>Adición de una medida de ubicación al panel
 
-Si ha configurado una medida de ubicación, puede visualizar la ubicación con un mapa en el panel del dispositivo.
+Si ha configurado una medida de ubicación, puede visualizar la ubicación con un mapa en el panel del dispositivo. En el caso de las medidas de ubicación, tiene la opción de trazar el historial de ubicaciones.
 
 1. Vaya a la pestaña **Panel**.
 
@@ -298,13 +303,28 @@ Si ha configurado una medida de ubicación, puede visualizar la ubicación con u
 
 Puede cambiar el tamaño del icono del mapa. Ahora, cuando un operador acceda al panel en **Device Explorer**, se mostrarán todos los iconos del panel que se han configurado, incluido un mapa de ubicación.
 
+### <a name="add-a-location-property-in-the-dashboard"></a>Adición de una propiedad de ubicación al panel
+
+Si ha configurado una propiedad de ubicación, puede visualizar la ubicación en un mapa en el panel del dispositivo.
+
+1. Vaya a la pestaña **Panel**.
+
+1. En el panel del dispositivo, seleccione **Mapa** en la Biblioteca.
+
+1. Asigne un título al mapa. El siguiente ejemplo tiene el título **Device Current Location**. A continuación, elija la propiedad de ubicación configurada anteriormente en la pestaña **Propiedades**. En el ejemplo siguiente, se selecciona la medida **Device Location**:
+
+   ![Formulario Configure Map con detalles del título y las propiedades](./media/howto-set-up-template/locationcloudproperty6map.png)
+
+1. Seleccione **Guardar**. El mosaico muestra la ubicación que ha seleccionado.
+
+Puede cambiar el tamaño del icono del mapa. Ahora, cuando un operador acceda al panel en **Device Explorer**, se mostrarán todos los iconos del panel que se han configurado, incluido un mapa de ubicación.
+
 Para más información sobre cómo usar los iconos en Azure IoT Central, consulte [Uso de iconos de panel](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a configurar una plantilla de dispositivo en una aplicación de Azure IoT Central puede:
 
-> [!div class="nextstepaction"]
-> [Crear una nueva versión de plantilla de dispositivo](howto-version-device-template.md)
-> [Conectar un dispositivo MXChip IoT DevKit a la aplicación de Azure IoT Central](howto-connect-devkit.md)
-> [Conectar una aplicación cliente genérica a la aplicación de Azure IoT Central (Node.js)](howto-connect-nodejs.md)
+- [Creación de una nueva versión de plantilla de dispositivo](howto-version-device-template.md)
+- [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](howto-connect-devkit.md) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+- [Conexión de un aplicación cliente de Node.js genérica a una aplicación de Azure IoT Central (Node.js)](howto-connect-nodejs.md)

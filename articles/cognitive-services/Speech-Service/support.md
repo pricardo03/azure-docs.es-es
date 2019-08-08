@@ -1,21 +1,21 @@
 ---
-title: Opciones de ayuda y soporte técnico
-titlesuffix: Azure Cognitive Services
+title: 'Opciones de ayuda y soporte técnico: servicio de Voz'
+titleSuffix: Azure Cognitive Services
 description: Cómo obtener ayuda y soporte técnico para preguntas y problemas relacionados con la creación de aplicaciones que se integran con el servicio Voz
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558838"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
@@ -71,7 +71,7 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 |Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intención de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Speech SDK general |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Asistentes virtuales por voz (versión preliminar) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| Asistentes virtuales por voz (versión preliminar) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  

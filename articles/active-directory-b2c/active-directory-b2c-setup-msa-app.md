@@ -7,24 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055118"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654226"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft
 
-Para usar una cuenta Microsoft como [proveedor de identidades](active-directory-b2c-reference-oidc.md) en Azure Active Directory (Azure AD) B2C, es preciso crear una aplicación en un inquilino que la represente. Si aún no tiene una cuenta Microsoft, puede obtenerla en [https://www.live.com/](https://www.live.com/).
+Para usar una cuenta de Microsoft como [proveedor de identidades](active-directory-b2c-reference-oidc.md) en Azure Active Directory (Azure AD) B2C, debe crear una aplicación en el inquilino de Azure AD. El inquilino de Azure AD no es el mismo que el usuario de Azure AD B2C. Si todavía no tiene una cuenta de Microsoft, puede obtenerla en [https://www.live.com/](https://www.live.com/).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-1. Seleccione **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, haga clic en el **filtro de directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Por ejemplo, *MSAapp1*.
 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** . Esta opción define como destino el conjunto más amplio de identidades de Microsoft.

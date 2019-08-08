@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.date: 07/19/2019
+ms.openlocfilehash: adbc2c8818a3d7eff679dadc2245fb0ff8686fc2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233046"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566927"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -66,9 +65,9 @@ En la siguiente tabla se describen los campos obligatorios.
 
 ## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
 
-Si tiene que cancelar la reserva de capacidad de SQL Database, podría aplicarse una tarifa del 12 % por terminación anticipada. Los reembolsos se basan en el precio más bajo de su precio de compra o en el precio actual de la reserva. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
+Si tiene que cancelar la reserva de capacidad de SQL Database, podría aplicarse una tarifa del 12 % por terminación anticipada. Los reembolsos se basan en el precio más bajo de su precio de compra o en el precio actual de la reserva. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para cancelar, vaya a la reserva en Azure Portal y seleccione **Reembolso**.
 
-Si necesita cambiar la reserva de capacidad de SQL Database por una región, un tipo de implementación, un nivel de rendimiento o un período diferentes, puede intercambiarla por otra reserva de valor igual o mayor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
+Si necesita cambiar la reserva de capacidad de SQL Database por una región, un tipo de implementación, un nivel de rendimiento o un período diferentes, puede intercambiarla por otra reserva de valor igual o mayor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para realizar un cambio, vaya a la reserva en Azure Portal y seleccione **Cambio**.
 
 Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 

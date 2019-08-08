@@ -8,13 +8,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341571"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679245"
 ---
+> [!NOTE]
+> En este documento se detalla la lista de características que se retiraron de Azure Security Center el 31 de julio de 2019.
+>
+>
+
+
 # <a name="retirement-of-security-center-features-july-2019"></a>Retirada de características de Security Center (julio de 2019)
 
 Hemos realizado varias [mejoras](https://azure.microsoft.com/updates/?product=security-center) en Azure Security Center durante los últimos seis meses.

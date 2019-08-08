@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2030365cd78480c25e224edfea9e395aafa6661c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227916"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668400"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Seguimiento de métricas e implementación de modelos con MLflow y el servicio Azure Machine Learning (versión preliminar)
 
@@ -36,8 +36,9 @@ En este artículo se muestra cómo habilitar el URI de seguimiento de MLflow y l
 
  El Seguimiento de MLflow ofrece funciones de registro de métricas y almacenamiento de artefactos que de otra manera solo están disponibles a través del [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-| | Implementación y seguimiento de MLflow | Azure Machine Learning <br> SDK de Python |  Azure Machine Learning <br> CLI | Portal de Azure|
-|-|-|-|-|-|-|
+
+| | Implementación y seguimiento de MLflow | SDK de Python de Azure Machine Learning |  CLI de Azure Machine Learning | Portal de Azure|
+|---|---|---|---|---|
 | Administración del área de trabajo |   | ✓ | ✓ | ✓ |
 | Uso de almacenes de datos  |   | ✓ | ✓ | |
 | Métricas de registro      | ✓ | ✓ |   | |

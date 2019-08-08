@@ -9,16 +9,38 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477523"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688109"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
 En este artículo se ofrece información sobre la solución de problemas con Desired State Configuration (DSC).
+
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Pasos para solucionar problemas de Desired State Configuration (DSC)
+
+Si se producen errores al compilar o implementar configuraciones en Azure State Configuration, aquí tiene algunos pasos que le ayudarán a diagnosticar el problema.
+
+1. **Asegúrese de que la configuración se compila correctamente en la máquina local:**  Azure State Configuration se basa en DSC de PowerShell. Puede encontrar la documentación del lenguaje y la sintaxis de DSC en los [documentos de DSC de PowerShell](/powershell/dsc/overview/overview).
+
+   Al compilar la configuración de DSC en la máquina local, puede detectar y resolver errores comunes, por ejemplo:
+
+   - **Módulos faltantes**
+   - **Errores de sintaxis**
+   - **Errores lógicos**
+2. **Vea los registros de DSC en el nodo:** Si la configuración se compila correctamente, pero se produce un error cuando se aplica a un nodo, puede encontrar información detallada en los registros. Para obtener información sobre dónde encontrar los registros de DSC, consulte [¿Dónde se encuentran los registros de eventos de DSC?](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)
+
+   Además, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) puede ayudarle a analizar información detallada de los registros de DSC. Si se pone en contacto con el soporte técnico, necesitará estos registros para diagnosticar el problema.
+
+   Puede instalar **xDscDiagnostics** en la máquina local con las instrucciones que se encuentran en [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module) (Instalar el módulo de versión estable).
+
+   Para instalar **xDscDiagnostics** en la máquina de Azure, puede usar [az vm run-command](/cli/azure/vm/run-command) o [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). También puede usar la opción **Ejecutar comando** desde el portal, siguiendo los pasos que se describen en [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](../../virtual-machines/windows/run-command.md).
+
+   Para obtener información sobre **xDscDiagnostics**, consulte [Uso de xDscDiagnostics para analizar registros de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), así como los [cmdlets de xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+3. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Desired State Configuration depende de los módulos instalados en el nodo.  Al usar Azure Automation State Configuration, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos.  Para más información, consulte [Solución de problemas de módulos](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)
 
@@ -86,7 +108,7 @@ Este error suele ocurrir cuando se asigna al nodo un nombre de configuración (p
 * Asegúrese de estar asignando al nodo un "nombre de configuración de nodo" y no el "nombre de configuración".
 * Puede asignar una configuración de nodo a un nodo mediante el Portal de Azure o con un cmdlet de PowerShell.
 
-  * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la página **Nodos DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.  
+  * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la página **Nodos DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.
   * Para asignar una configuración de nodo a un nodo mediante un cmdlet de PowerShell, use el cmdlet **Set-AzureRmAutomationDscNode**.
 
 ### <a name="no-mof-files"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración

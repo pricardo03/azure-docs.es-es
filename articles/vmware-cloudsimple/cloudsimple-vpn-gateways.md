@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d922f87e9a915bd5af9d2b1257dee8044773797e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695219"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816139"
 ---
 # <a name="vpn-gateways-overview"></a>Información general sobre puertas de enlace de VPN
 
@@ -48,25 +48,26 @@ Una conexión VPN de sitio a sitio usa los siguientes parámetros criptográfico
 
 #### <a name="phase-1-proposals"></a>Propuestas de la fase 1
 
-| Parámetro | Propuesta 1 | Propuesta 2 | Propuesta 3 |
-|-----------|------------|------------|------------|
-| Versión de IKE | IKEv1 | IKEv1 | IKEv1 |
-| Cifrado | AES 128 | AES 256 | AES 256 |
-| Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
-| Grupo Diffie Hellman (grupo DH) | 2 | 2 | 2 |
-| Tiempo de vida | 28.800 segundos | 28.800 segundos | 28.800 segundos |
-| Tamaño de datos | 4 GB | 4 GB | 4 GB |
+| Parámetro                       | Propuesta 1     | Propuesta 2     | Propuesta 3     |
+|---------------------------------|----------------|----------------|----------------|
+| Versión de IKE                     | IKEv1          | IKEv1          | IKEv1          |
+| Cifrado                      | AES 128        | AES 256        | AES 256        |
+| Algoritmo hash                  | SHA 256        | SHA 256        | SHA 1          |
+| Grupo Diffie Hellman (grupo DH) | 2              | 2              | 2              |
+| Tiempo de vida                       | 28.800 segundos | 28.800 segundos | 28.800 segundos |
+| Tamaño de datos                       | 4 GB           | 4 GB           | 4 GB           |
+| Dead Peer Detection (DPD)       | Deshabilitada/desactivada   | Deshabilitada/desactivada   | Deshabilitada/desactivada   |
 
 
 #### <a name="phase-2-proposals"></a>Propuestas de la fase 2 
 
-| Parámetro | Propuesta 1 | Propuesta 2 | Propuesta 3 |
-|-----------|------------|------------|------------|
-| Cifrado | AES 128 | AES 256 | AES 256 |
-| Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
-| Grupo de confidencialidad directa total (grupo PFS) | None | None | None |
-| Tiempo de vida | 1800 segundos | 1800 segundos | 1800 segundos |
-| Tamaño de datos | 4 GB | 4 GB | 4 GB |
+| Parámetro                                 | Propuesta 1    | Propuesta 2    | Propuesta 3    |
+|-------------------------------------------|---------------|---------------|---------------|
+| Cifrado                                | AES 128       | AES 256       | AES 256       |
+| Algoritmo hash                            | SHA 256       | SHA 256       | SHA 1         |
+| Grupo de confidencialidad directa total (grupo PFS) | None          | None          | None          |
+| Tiempo de vida                                 | 1800 segundos | 1800 segundos | 1800 segundos |
+| Tamaño de datos                                 | 4 GB          | 4 GB          | 4 GB          |
 
 ## <a name="point-to-site-vpn-gateway"></a>Puerta de enlace de VPN de punto a sitio
 

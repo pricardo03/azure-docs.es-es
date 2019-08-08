@@ -4,14 +4,14 @@ description: Describe las funciones para usar en una plantilla de Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/08/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206351"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698188"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -1013,13 +1013,13 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `length(string)`
 
-Devuelve el número de caracteres de una cadena, o elementos de una matriz.
+Devuelve el número de caracteres en una cadena, elementos en una matriz o propiedades de nivel raíz en un objeto.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+| arg1 |Sí |matriz, cadena u objeto |La matriz que se usará para obtener el número de elementos, la cadena que se usará para obtener el número de caracteres o el objeto que se usará para obtener el número de propiedades del nivel raíz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1045,6 +1045,18 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1056,6 +1068,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1067,6 +1083,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1471,7 +1488,7 @@ Convierte el valor especificado en cadena.
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
+| valueToConvert |Sí | Any |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
 
 ### <a name="return-value"></a>Valor devuelto
 

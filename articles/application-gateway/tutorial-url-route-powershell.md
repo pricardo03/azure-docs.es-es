@@ -3,27 +3,25 @@ title: 'Redirigir el tráfico web en función de la dirección URL: Azure PowerS
 description: Obtenga información acerca de cómo redirigir el tráfico web en función de la dirección URL a grupos de servidores escalables específicos mediante Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.topic: article
+ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c636ab9956b369702c8319d67a83e33070113857
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: a6a8c68edd658e5c207b88b48ee09c6472441e78
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729502"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688158"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
 
-Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este tutorial, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
+Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este artículo, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
 
 Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -32,7 +30,7 @@ En este tutorial, aprenderá a:
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-powershell/scenario.png)
 
-Si lo prefiere, puede completar este tutorial con la [CLI de Azure](tutorial-url-route-cli.md) o [Azure Portal](create-url-route-portal.md).
+Si lo prefiere, puede completar este procedimiento con la [CLI de Azure](tutorial-url-route-cli.md) o [Azure Portal](create-url-route-portal.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -40,15 +38,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, la versión del módulo de Azure PowerShell que necesita este artículo es la 1.0.0 u otra posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
-Debido al tiempo necesario para crear recursos, puede tardar hasta 90 minutos en completar este tutorial.
+Debido al tiempo necesario para crear recursos, puede tardar hasta 90 minutos en completar este procedimiento.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Se debe crear un grupo de recursos que contenga todos los recursos para la aplicación. 
+Cree un grupo de recursos que contenga todos los recursos para la aplicación. 
 
-Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Cree un grupo de recursos de Azure mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -56,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 
-Tanto si tiene una red virtual existente como si quiere crear una nueva, debe asegurarse de que contiene una subred que solo se usa para puertas de enlace de aplicaciones. En este tutorial, se creará una subred para la puerta de enlace de aplicaciones y una subred para los conjuntos de escalado. Se crea una dirección IP pública para permitir el acceso a los recursos de la puerta de enlace de aplicaciones.
+Tanto si tiene una red virtual existente como si quiere crear una nueva, debe asegurarse de que contiene una subred que solo se usa para puertas de enlace de aplicaciones. En este artículo, se creará una subred para la puerta de enlace de aplicaciones y una subred para los conjuntos de escalado. Se crea una dirección IP pública para permitir el acceso a los recursos de la puerta de enlace de aplicaciones.
 
 Cree las configuraciones de subred llamadas *myAGSubnet* y *myBackendSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
 
@@ -79,14 +77,15 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará esta última. Los recursos que cree incluirán lo siguiente:
+En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará. Los recursos que cree incluirán:
 
-- *Configuraciones IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y se asigna un puerto que se usará para tener acceso a esta.
+- *Configuraciones de IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y asigna un puerto que se usará para tener acceso a esta.
 - *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
 - *Agente de escucha y regla predeterminados*: el agente de escucha predeterminado escucha el tráfico en el puerto asignado y la regla predeterminada envía tráfico al grupo predeterminado.
 
@@ -136,7 +135,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Creación del agente de escucha y la regla predeterminados
 
-Es necesario un agente de escucha para permitir que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, se crean dos agentes de escucha. El primer agente de escucha básico que se crea escucha el tráfico en la dirección URL raíz. El segundo agente de escucha que se crea escucha el tráfico en direcciones URL específicas.
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este artículo, se crean dos agentes de escucha. El primer agente de escucha básico que se crea escucha el tráfico en la dirección URL raíz. El segundo agente de escucha que se crea escucha el tráfico en direcciones URL específicas.
 
 Cree el agente de escucha predeterminado llamado *mydefaultListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end creados anteriormente. 
 
@@ -163,8 +162,8 @@ Ahora que ha creado los recursos auxiliares necesarios, especifique los parámet
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -181,7 +180,9 @@ $appgw = New-AzApplicationGateway `
   -Sku $sku
 ```
 
-La creación de la puerta de enlace de aplicaciones puede tardar hasta 30 minutos. Espere a que finalice correctamente la implementación antes de pasar a la sección siguiente. En este punto del tutorial, tendrá una puerta de enlace de aplicaciones que escucha el tráfico en el puerto 80 y envía ese tráfico a un grupo predeterminado de servidores.
+La puerta de enlace de aplicaciones puede tardar 30 minutos en crearse. Espere hasta que finalice la implementación correctamente antes de continuar con la siguiente sección. 
+
+En este punto, tendrá una puerta de enlace de aplicaciones que escucha el tráfico en el puerto 80 y envía ese tráfico a un grupo de servidores predeterminado.
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adición de un puerto de back-end y grupos de back-end de imágenes y vídeo
 
@@ -388,7 +389,7 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="install-iis"></a>Instalación de IIS
 
-Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS, que ejecuta una página de ejemplo para probar si la puerta de enlace de aplicaciones funciona.
+Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS.  Se crea una página de ejemplo para probar si la puerta de enlace de aplicaciones funciona.
 
 ```azurepowershell-interactive
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
@@ -421,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/images/test.htm, y reemplace &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.htm, y reemplace &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 
@@ -439,12 +440,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
-> * Crear grupos de back-end escalables
-
-> [!div class="nextstepaction"]
-> [Redirigir el tráfico web en función de la dirección URL](./tutorial-url-redirect-powershell.md)
+[Redirigir el tráfico web en función de la dirección URL](./tutorial-url-redirect-powershell.md)

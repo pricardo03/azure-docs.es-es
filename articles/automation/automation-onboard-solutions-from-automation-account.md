@@ -9,12 +9,12 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 114ddf8f545f3f8d1f6c1a80725668d7875774f8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476639"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667455"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -103,6 +103,8 @@ Para habilitar la solución para todas las máquinas disponibles, seleccione **H
 ### <a name="all-available-and-future-machines"></a>Todas las máquinas disponibles y futuras
 
 Para habilitar la solución en todas las máquinas disponibles actualmente y en el futuro, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina las configuraciones de ámbito y las búsquedas guardadas del área de trabajo. De este modo, se abrirá la solución para todas las máquinas de Azure y las que no son de Azure que envíen notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente el botón **Administrar máquinas**, ya que no queda ninguna configuración de ámbito.
+
+Puede volver a agregar las configuraciones de ámbito si vuelve a agregar las búsquedas guardadas iniciales. Para más información, consulte [Búsquedas guardadas](#saved-searches).
 
 ### <a name="selected-machines"></a>Máquinas seleccionadas
 

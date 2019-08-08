@@ -1,22 +1,21 @@
 ---
-title: Traducción de voz con Azur Servicios de voz
-titlesuffix: Azure Cognitive Services
-description: Servicios de voz le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+title: Traducción de voz con el servicio de Voz
+titleSuffix: Azure Cognitive Services
+description: El servicio de Voz le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz completa, de varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072413"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552655"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
@@ -56,10 +55,7 @@ Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejem
 
 ## <a name="migration-guides"></a>Guías de migración
 
-> [!WARNING]
-> Translator Speech se retirará el 15 de octubre de 2019.
-
-Si sus aplicaciones, herramientas o productos usan Translator Speech, hemos creado guías para que le ayuden a migrar a Servicios de voz.
+Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), hemos creado guías que le ayudarán a migrar a los servicios de Voz.
 
 * [Migrar de Translator Speech API a Servicios de voz](how-to-migrate-from-translator-speech-api.md)
 

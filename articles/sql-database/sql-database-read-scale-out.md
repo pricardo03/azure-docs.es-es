@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492713"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566959"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Uso de réplicas de solo lectura para equilibrar las cargas de trabajo de las consultas de solo lectura
 
@@ -91,7 +90,7 @@ Puede deshabilitar y volver a habilitar la característica Escalado horizontal d
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-Puede administrar la configuración de Escalado horizontal de lectura en la hoja **Configurar** de la base de datos. 
+Puede administrar la configuración de escalado horizontal de lectura en la hoja **Configurar** de la base de datos. 
 
 ### <a name="powershell"></a>PowerShell
 

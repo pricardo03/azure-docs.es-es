@@ -12,35 +12,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7756174f01e3fede17bec3e2ac185e89caddc097
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480224"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666445"
 ---
-# <a name="cancel-your-subscription-for-azure"></a>Cancelación de la suscripción de Azure
+# <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
-Solo una suscripción de Azure de [Administrador de cuenta](billing-subscription-transfer.md#whoisaa) puede cancelar una suscripción de Azure. Un administrador de suscripciones de Azure también puede [asignar otro usuario como administrador de suscripciones ](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) para que pueda cancelar una suscripción. Después de cancelar la suscripción, el acceso a los servicios y recursos de Azure finalizará.
+Puede cancelar la suscripción de Azure en Azure Portal si ya no necesita la suscripción. 
 
 Antes de cancelar la suscripción:
-
 * Realice una copia de seguridad de los datos. Por ejemplo, si está almacenando datos en Azure Storage o SQL, descargue una copia. Si tiene una máquina virtual, guarde una imagen de la misma localmente.
 * Cierre los servicios. Vaya a la [página de recursos en el portal de administración](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) y **detenga** todas las máquinas virtuales, aplicaciones u otros servicios en ejecución.
 * Considere la posibilidad de migrar los datos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
-* Debe eliminar todos los recursos y todos los grupos de recursos. Es necesario eliminarlos para poder cancelar una suscripción. Los grupos de recursos deben eliminarse uno por uno. Durante la eliminación del grupo de recursos, debe confirmar la eliminación; para ello, escriba el nombre de este.
+* Elimine todos los recursos y todos los grupos de recursos. Es necesario eliminarlos para poder cancelar una suscripción. Los grupos de recursos deben eliminarse uno por uno. Durante la eliminación del grupo de recursos, debe confirmar la eliminación; para ello, escriba el nombre de este.
 * Si tiene algún rol personalizado que haga referencia a esta suscripción en `AssignableScopes`, debe actualizar este rol personalizado para quitar la suscripción. Si intenta actualizar un rol personalizado después de cancelar una suscripción, es posible que obtenga un error. Para más información, consulte [Problemas con roles personalizados](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) y [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
 
-Si cancela un plan de soporte técnico de Azure de pago, se le seguirá facturando mensualmente el resto del período de la suscripción. Para más información, vea [Soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+Si cancela un plan de soporte técnico de Azure de pago, se le facturará el resto del período de la suscripción. Para más información, vea [Soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
-## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelación de la suscripción a través de Azure Portal
+## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelación de la suscripción en Azure Portal
 
 1. Seleccione su suscripción en la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Seleccione la suscripción que quiere cancelar.
 3. Seleccione **Introducción** y, luego, seleccione **Cancelar suscripción**.
-
     ![Captura de pantalla que muestra el botón Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
 3. Siga las indicaciones y finalice la cancelación.
+
+
+## <a name="who-can-cancel-a-subscription"></a>¿Quién puede cancelar una suscripción?
+
+En la tabla siguiente se describe el permiso necesario para cancelar una suscripción.
+
+|Tipo de suscripción     |Quién puede cancelar  |
+|---------|---------|
+|Suscripciones creadas al registrarse en Azure a través del sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador de cuenta, propietarios y colaboradores de la suscripción  |
+|[Contrato Enterprise de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Propietario de la cuenta, propietarios y colaboradores de la suscripción       |
+|[Plan de Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) y [Azure Plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Propietarios y colaboradores de la suscripción      |
+
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>¿Qué ocurre después de cancelar la suscripción?
 
@@ -54,7 +64,7 @@ Esperamos 90 días antes de eliminar permanentemente los datos, por si necesita 
 
 Si cancela su suscripción de pago por uso accidentalmente, puede [volver a activarla en el Centro de cuentas](billing-subscription-become-disable.md).
 
-Si su suscripción no es de pago por uso, para reactivar la suscripción, póngase en contacto con el soporte técnico en los noventa días posteriores a la cancelación.
+Si su suscripción no es de pago por uso, para reactivar la suscripción, póngase en contacto con el soporte técnico en los 90 días posteriores a la cancelación.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

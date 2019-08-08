@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204938"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667164"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -25,7 +25,7 @@ La configuración de la aplicación en una aplicación de función contiene opci
 
 Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-run-local.md#local-settings-file).
 
-## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
+## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
 Clave de instrumentación de Application Insights si usa dicho servicio. Consulte [Supervisar Azure Functions](functions-monitoring.md).
 
@@ -33,9 +33,9 @@ Clave de instrumentación de Application Insights si usa dicho servicio. Consult
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
-## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-En la versión 2.x del entorno de ejecución de Functions, se configura el comportamiento de la aplicación en función del entorno de ejecución. Este valor se [lee durante la inicialización](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Puede establecer `AZURE_FUNCTIONS_ENVIRONMENT` en cualquier valor, pero se admiten [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [desarrollo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [almacenamiento provisional](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [producción](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Cuando `AZURE_FUNCTIONS_ENVIRONMENT` no se ha establecido, el valor predeterminado es `Production`. Esta configuración debe usarse en lugar de `ASPNETCORE_ENVIRONMENT` para establecer el entorno de ejecución. 
+En la versión 2.x del entorno de ejecución de Functions, se configura el comportamiento de la aplicación en función del entorno de ejecución. Este valor se [lee durante la inicialización](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Puede establecer `AZURE_FUNCTIONS_ENVIRONMENT` en cualquier valor, pero se admiten [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [desarrollo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [almacenamiento provisional](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [producción](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Cuando no se ha establecido `AZURE_FUNCTIONS_ENVIRONMENT`, el valor predeterminado es `Development` en un entorno local, y `Production` en Azure. Esta configuración debe usarse en lugar de `ASPNETCORE_ENVIRONMENT` para establecer el entorno de ejecución. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -92,7 +92,7 @@ El tiempo de ejecución de Azure Functions usa esta cadena de conexión de la cu
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
 
-## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
+## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
 Ruta de acceso al compilador que se usa para TypeScript. Le permite reemplazar el valor predeterminado si lo necesita.
 
@@ -100,7 +100,7 @@ Ruta de acceso al compilador que se usa para TypeScript. Le permite reemplazar e
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
-## <a name="functionappeditmode"></a>MODO DE\_EDICIÓN DE\_LA APLICACIÓN DE\_FUNCIÓN
+## <a name="function_app_edit_mode"></a>MODO DE\_EDICIÓN DE\_LA APLICACIÓN DE\_FUNCIÓN
 
 Determina si está habilitada la edición en Azure Portal. Los valores válidos son "readwrite" y "readonly".
 
@@ -108,7 +108,7 @@ Determina si está habilitada la edición en Azure Portal. Los valores válidos 
 |---|------------|
 |MODO DE\_EDICIÓN DE\_LA APLICACIÓN DE\_FUNCIÓN|readonly|
 
-## <a name="functionsextensionversion"></a>VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS
+## <a name="functions_extension_version"></a>VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS
 
 La versión del tiempo de ejecución de Functions para usar en esta aplicación de función. Una tilde con la versión principal significa utilizar la versión más reciente de esa versión principal (por ejemplo, "~2"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "2.0.12345"). El valor predeterminado es "~2". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución.
 
@@ -116,7 +116,7 @@ La versión del tiempo de ejecución de Functions para usar en esta aplicación 
 |---|------------|
 |VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~2|
 
-## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
 Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Se corresponderá con el lenguaje usado en la aplicación (por ejemplo, "dotnet"). Para las funciones en varios lenguajes deberá publicarlas en varias aplicaciones, cada una con un valor de tiempo de ejecución de trabajo correspondiente.  Los valores válidos son `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) y `python` (Python).
 
@@ -124,23 +124,23 @@ Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación 
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
-## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Solo para los planes de consumo. Cadena de conexión para la cuenta de almacenamiento donde se almacenan el código de aplicación de función y la configuración. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
+Solo para los planes de consumo y Premium. Cadena de conexión para la cuenta de almacenamiento donde se almacenan el código de aplicación de función y la configuración. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
 
-## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
+## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Solo para los planes de consumo. Ruta de acceso del archivo para el código de la aplicación de función y la configuración. Se usa con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. El valor predeterminado es una cadena única que comienza con el nombre de aplicación de función. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
+Solo para los planes de consumo y Premium. Ruta de acceso del archivo para el código de la aplicación de función y la configuración. Se usa con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. El valor predeterminado es una cadena única que comienza con el nombre de aplicación de función. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
+## <a name="website_max_dynamic_application_scale_out"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
 
 Número máximo de instancias al que se puede escalar horizontalmente la aplicación de función. El valor predeterminado es sin límite.
 
@@ -151,7 +151,7 @@ Número máximo de instancias al que se puede escalar horizontalmente la aplicac
 |---|------------|
 |ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA|5|
 
-## <a name="websitenodedefaultversion"></a>DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB
+## <a name="website_node_default_version"></a>DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB
 
 El valor predeterminado es "8.11.1".
 
@@ -159,7 +159,7 @@ El valor predeterminado es "8.11.1".
 |---|------------|
 |DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB|8.11.1|
 
-## <a name="websiterunfrompackage"></a>WEBSITE\_RUN\_FROM\_PACKAGE
+## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
 Permite que la aplicación de función se ejecute desde un archivo de paquete montado.
 
@@ -169,7 +169,7 @@ Permite que la aplicación de función se ejecute desde un archivo de paquete mo
 
 Los valores válidos son una dirección URL que se resuelve en la ubicación de un archivo de paquete de implementación o `1`. Cuando se establece en `1`, el paquete debe estar en la carpeta `d:\home\data\SitePackages`. Cuando se usa la implementación de ZIP con esta configuración, el paquete se carga automáticamente en esta ubicación. En la versión preliminar, este ajuste se denomina `WEBSITE_RUN_FROM_ZIP`. Para más información, vea [Run your functions from a package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
 
-## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 De forma predeterminada, las proxies de Functions usarán accesos directos para enviar llamadas de API desde servidores proxy directamente a funciones en la misma instancia de Function App, en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar este comportamiento.
 
@@ -179,7 +179,7 @@ De forma predeterminada, las proxies de Functions usarán accesos directos para 
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que señale a una instancia de Function App local se reenviarán directamente a esa función.|
 
 
-## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 Esta opción de configuración controla si se descodifica %2F como barras diagonales en los parámetros de ruta cuando se insertan en la URL del back-end. 
 

@@ -4,14 +4,14 @@ description: Describe las funciones para usar en una plantilla de Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/8/2018
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206391"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698217"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 
@@ -859,13 +859,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-Devuelve el número de elementos de una matriz, o los caracteres de una cadena.
+Devuelve el número de elementos de una matriz, caracteres de una cadena o propiedades de nivel raíz de un objeto.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+| arg1 |Sí |matriz, cadena u objeto |La matriz que se usará para obtener el número de elementos, la cadena que se usará para obtener el número de caracteres o el objeto que se usará para obtener el número de propiedades del nivel raíz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -891,6 +891,18 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -902,6 +914,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -913,6 +929,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 

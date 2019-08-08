@@ -1,21 +1,21 @@
 ---
-title: 'Inspección de la calidad de los datos de Custom Speech: Servicios de voz'
-titlesuffix: Azure Cognitive Services
-description: Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el portal de Custom Speech, puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.  Esta herramienta le permite inspeccionar rápidamente la calidad del modelo de voz a texto de línea de base de Microsoft o de un modelo personalizado entrenado sin tener que transcribir los datos de audio.
+title: 'Inspección de la calidad de los datos de Custom Speech: servicio de Voz'
+titleSuffix: Azure Cognitive Services
+description: Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el portal de Custom Speech, puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.  Esta herramienta le permite inspeccionar rápidamente la calidad del modelo de voz a texto de línea de base o de un modelo personalizado entrenado sin tener que transcribir los datos de audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064042"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562848"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Custom Speech
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489176"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678180"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -44,7 +44,7 @@ En el siguiente diagrama se muestra el proceso general para crear un paquete de 
 
 ## <a name="start-new-access-package"></a>Inicio de un nuevo paquete de acceso
 
-**Rol necesario:** administrador de usuarios o propietario del catálogo
+**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -64,21 +64,20 @@ En la pestaña **Aspectos básicos**, asigne un nombre al paquete de acceso y es
 
 1. En la lista desplegable **Catálogo**, seleccione el catálogo en el que quiera crear el paquete de acceso. Por ejemplo, puede que tenga un propietario de catálogo que administra todos los recursos de marketing que se pueden solicitar. En este caso, puede seleccionar el catálogo de marketing.
 
-    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos un administrador de usuarios, el propietario del catálogo o un administrador de paquetes de acceso.
+    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso en ese catálogo.
 
     ![Paquete de acceso: aspectos básicos](./media/entitlement-management-access-package-create/basics.png)
 
-    Si quiere crear el paquete de acceso en un catálogo nuevo, haga clic en **Crear nuevo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
+    Si es administrador global o administrador de usuarios y quiere crear el paquete de acceso en un catálogo nuevo que no aparece en la lista, haga clic en **Crear nuevo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
 
-    El paquete de acceso que está creando y los recursos incluidos en él se agregarán al nuevo catálogo. Además, se convertirá automáticamente en el primer propietario del catálogo. Puede agregar a otros propietarios del catálogo.
+    El paquete de acceso que está creando y los recursos incluidos en él se agregarán al nuevo catálogo. También puede agregar a otros propietarios del catálogo.
 
-    Para crear un catálogo, debe ser al menos un administrador de usuarios o un creador de catálogos.
 
 1. Haga clic en **Next**.
 
 ## <a name="resource-roles"></a>Roles de recursos
 
-En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluirán en el paquete de acceso.
+En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluirán en el paquete de acceso.  Los usuarios que soliciten y reciban el paquete de acceso recibirán todos los roles de recursos del paquete de acceso.
 
 1. Haga clic en el tipo de recurso que quiera agregar (**Grupos**, **Aplicaciones** o **Sitios de SharePoint**).
 
@@ -86,11 +85,11 @@ En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluir�
 
     ![Paquete de acceso: roles de recurso](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Si está creando el paquete de acceso en el catálogo General o un catálogo nuevo, podrá elegir cualquier recurso del directorio que posee. Debe ser al menos un administrador de usuarios o un creador de catálogos.
+    Si está creando el paquete de acceso en el catálogo General o un catálogo nuevo, podrá elegir cualquier recurso del directorio que posee. Debe ser al menos administrador global, administrador de usuarios o creador de catálogos.
 
     Si está creando el paquete de acceso en un catálogo existente, puede seleccionar cualquier recurso que ya esté en el catálogo sin que sea su propietario.
 
-    Si es un administrador de usuarios o el propietario del catálogo, tiene la opción adicional de seleccionar los recursos que posee y que aún no están en el catálogo. Si selecciona los recursos que no están actualmente en el catálogo seleccionado, estos también se agregarán al catálogo para que otros administradores de catálogos compilen paquetes de acceso con él. Si solo quiere seleccionar recursos que estén actualmente en el catálogo seleccionado, marque la casilla **Only see** (Solo ver) situada en la parte superior del panel de selección.
+    Si es administrador global, administrador de usuarios o el propietario del catálogo, tiene la opción adicional de seleccionar los recursos que posee y que aún no están en el catálogo. Si selecciona los recursos que no están actualmente en el catálogo seleccionado, estos también se agregarán al catálogo para que otros administradores de catálogos compilen paquetes de acceso con él. Si solo quiere seleccionar recursos que estén actualmente en el catálogo seleccionado, marque la casilla **Only see** (Solo ver) situada en la parte superior del panel de selección.
 
 1. Una vez que haya seleccionado los recursos, en la lista **Roles**, seleccione el rol que quiere que se les asigne a los usuarios para el recurso.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415675"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666295"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -24,12 +24,20 @@ Los profesionales de TI que quieran implementar el autoservicio de restablecimie
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizar el vínculo para ponerse en contacto con el administrador
 
-Aunque SSPR no esté habilitado, los usuarios pueden usar un vínculo para ponerse en contacto con el administrador en el portal de restablecimiento de contraseñas. Si el usuario selecciona este vínculo, sucederá una de estas dos cosas:
+Los usuarios de autoservicio de restablecimiento de contraseña tienen disponible un vínculo para ponerse en contacto con el administrador en el portal de restablecimiento de contraseña. Si un usuario selecciona este vínculo, hará una de estas dos cosas:
 
-* Se envía un correo electrónico a los administradores en el que se solicita asistencia para cambiar la contraseña del usuario.
-* Se proporciona a los usuarios a una dirección URL de su elección para que obtengan ayuda.
+* Si se deja en el estado predeterminado:
+   * Se envía un correo electrónico a los administradores en el que se solicita asistencia para cambiar la contraseña del usuario. Consulte el [correo de ejemplo](#sample-email) a continuación.
+* Si se personaliza:
+   * Se envía al usuario a una página web o dirección de correo electrónico especificada por el administrador para obtener asistencia.
 
-Le recomendamos que establezca como forma de contacto algo como una dirección de correo electrónico o un sitio web que los usuarios ya utilicen para realizar preguntas de soporte técnico.
+> [!TIP]
+> Si se personaliza, se recomienda establecerlo en algo con lo que los usuarios ya estén familiarizados para soporte técnico.
+
+> [!WARNING]
+> Si personaliza esta configuración con una dirección de correo electrónico y una cuenta que necesita un restablecimiento de contraseña, es posible que el usuario no pueda pedir asistencia.
+
+### <a name="sample-email"></a>Correo electrónico de ejemplo
 
 ![Ejemplo de solicitud para restablecer el correo electrónico que se envía al administrador][Contact]
 

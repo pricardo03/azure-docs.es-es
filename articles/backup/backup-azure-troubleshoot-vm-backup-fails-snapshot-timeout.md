@@ -1,19 +1,20 @@
 ---
 title: 'Solución de problemas de Azure Backup: Estado del agente invitado no disponible'
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure Backup; Agente de máquina virtual; Conectividad de red;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465328"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688975"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -77,9 +78,9 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 2: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 3: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks: error en la operación de extensión VMSnapshot
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks: error en la operación de extensión VMSnapshot
 
-**Código de error**: ExtentionOperationFailedForManagedDisks <br>
+**Código de error**: ExtensionOperationFailedForManagedDisks <br>
 **Mensaje de error**: Error en la operación de extensión de VMSnapshot<br>
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
@@ -106,7 +107,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorUnsupportedDiskSize <br>
 **Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB <br>
 
-La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de máquina virtual con un tamaño de disco superior a 4095 GB. La compatibilidad con discos de mayor tamaño estará disponible próximamente.  
+La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a la versión preliminar privada de Azure Backup con compatibilidad con discos de gran tamaño para discos de más de 4 TB hasta un tamaño de 30 TB, escríbanos a AskAzureBackupTeam@microsoft.com.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 

@@ -1,21 +1,21 @@
 ---
-title: 'Introducción a Custom Speech: Servicios de voz'
-titlesuffix: Azure Cognitive Services
-description: Custom Speech es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto de Microsoft para las aplicaciones, herramientas y productos. Para comenzar solo se necesita una serie de archivos de audio de prueba. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
+title: 'Introducción a Custom Speech: servicio de Voz'
+titleSuffix: Azure Cognitive Services
+description: Custom Speech es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto para las aplicaciones, las herramientas y los productos. Para comenzar solo se necesita una serie de archivos de audio de prueba. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060896"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559630"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 

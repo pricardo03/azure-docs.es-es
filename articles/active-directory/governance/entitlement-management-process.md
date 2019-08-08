@@ -3,8 +3,8 @@ title: 'Proceso de solicitud y notificaciones por correo electrónico en la admi
 description: Información acerca del proceso de solicitud para un paquete de acceso y de cuándo se envían notificaciones por correo electrónico en la administración de derechos de Azure Active Directory (versión preliminar).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473062"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678145"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Proceso de solicitud y notificaciones por correo electrónico en la administración de derechos de Azure AD (versión preliminar)
 
@@ -47,7 +47,7 @@ Un usuario que necesite tener acceso a un paquete de acceso puede enviar una sol
 | Expirada | Si ningún aprobador aprueba una solicitud dentro del tiempo de espera de la solicitud de aprobación, la solicitud expira. Para intentarlo de nuevo, el usuario tendrá que volver a enviar la solicitud. |
 | Denegado | El aprobador rechaza una solicitud. |
 | Aprobado | El aprobador aprueba una solicitud. |
-| Entrega | **No** se ha asignado al usuario acceso a todos los recursos del paquete de acceso. Si se trata de un usuario externo, el usuario aún no ha accedido al directorio de recursos ni aceptado la petición de permisos. |
+| Entrega | **No** se ha asignado al usuario acceso a todos los recursos del paquete de acceso. Si se trata de un usuario externo, el usuario puede que aún no haya accedido al directorio de recursos ni aceptado la petición de consentimiento. |
 | Delivered (Entregado) | Se ha asignado al usuario acceso a todos los recursos del paquete de acceso. |
 | Acceso extendido | Si se permiten extensiones en la directiva, el usuario extiende la asignación. |
 | Acceso expirado | El acceso del usuario al paquete de acceso ha expirado. Para obtener acceso de nuevo, el usuario tendrá que enviar una solicitud. |

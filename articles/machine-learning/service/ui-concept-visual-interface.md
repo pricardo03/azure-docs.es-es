@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077372"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677982"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>¿Qué es la interfaz visual de Azure Machine Learning Service? 
 
@@ -54,9 +54,8 @@ Un experimento consta de conjuntos de datos y módulos analíticos, que se conec
 * Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos.
 * Deben establecerse todos los parámetros necesarios para cada módulo.
 
-Para ver un ejemplo del uso de un experimento, consulte [Inicio rápido: Preparación y visualización de datos sin escribir código en Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-Para tener una visión más completa de una solución de análisis predictivo, consulte [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md).
+Para obtener información sobre cómo empezar a usar la interfaz visual, consulte el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md).
 
 ## <a name="dataset"></a>Dataset
 
@@ -94,7 +93,7 @@ Para aprender a implementar el modelo, consulte [Tutorial: Implementación de un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con [inicio rápido: Preparación y visualización de datos sin escribir código en Azure Machine Learning](ui-quickstart-run-experiment.md).
+* Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md)
 * Utilice uno de los ejemplos y modifíquelo cuanto necesite para adaptarlo a sus necesidades:
     * [Ejemplo 1 - Regresión: predicción del precio](ui-sample-regression-predict-automobile-price-basic.md)
     * [Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos](ui-sample-regression-predict-automobile-price-compare-algorithms.md)

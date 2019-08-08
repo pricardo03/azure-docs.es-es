@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7a66355ca1a0c9c2c144f04cd944efe22467d3ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058511"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698629"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -36,7 +36,10 @@ En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
-Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
+Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. Sin embargo, otro dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge. 
+
+>[!NOTE]
+>Los dispositivos IOT que tienen identidades registradas en IOT Hub pueden usar [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) para aislar diferentes procesos, hardware o funciones en un único dispositivo. Las puertas de enlace de IoT Edge admiten conexiones de módulo inferiores mediante la autenticación de clave simétrica, pero no la autenticación de certificado X.509. 
 
 Para conectar un dispositivo de bajada a una puerta de enlace IoT Edge, necesita dos cosas:
 

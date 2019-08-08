@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fad585e1d37694e37c219be210f9521dbbda3a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd7b2cecce443e821e233d97a260b7dfb3471752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241646"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667244"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -38,7 +38,7 @@ El flujo de trabajo final será el siguiente:
 3. Como respuesta, el punto de conexión de delegación se redirige a la interfaz de usuario o la presenta para pedir al usuario que inicie sesión o se suscriba.
 4. Una vez conseguido, se redirige de nuevo al usuario a la página del portal para desarrolladores de API Management de la que partió.
 
-Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En el portal para editores de API Management, haga clic en **Seguridad** y, a continuación, haga clic en la pestaña **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
+Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En Azure Portal, busque **Seguridad** en el recurso de API Management y, luego, haga clic en el elemento de **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
 
 ![Delegation page][api-management-delegation-signin-up]
 

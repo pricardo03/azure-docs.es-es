@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: dad74410562aa54aeb61675e7dc1c0adccc44797
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881067"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679202"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar su solución externa mediante Syslog
 
@@ -37,7 +37,7 @@ Puede conectar a Azure Sentinel cualquier dispositivo local que admita Syslog. E
 
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.
 
-Para obtener más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
 > El agente puede recopilar registros de varios orígenes, pero debe estar instalado en el equipo proxy dedicado.
@@ -47,6 +47,9 @@ Para obtener más información, consulte [Orígenes de datos de Syslog en Azure 
 1. En el portal de Azure Sentinel, haga clic en **Data connectors** (Conectores de datos), seleccione la línea **Syslog** en la tabla y, en el panel de Syslog situado a la derecha, haga clic en **Open connector page** (Abrir la página del conector).
 2. Si la máquina Linux se encuentra en Azure, seleccione **Download and install agent on Azure Linux virtual machine** (Descargar e instalar el agente en una máquina virtual Linux de Azure). En la ventana Máquinas virtuales, seleccione las máquinas en las que quiere instalar el agente y haga clic en **Conectar** en la parte superior.
 1. Si la máquina Linux no se encuentra en Azure, seleccione **Download and install agent on Linux non-Azure machine** (Descargar e instalar el agente en una máquina Linux que no es de Azure). En la ventana **Agente Directo**, copie el comando situado bajo **Descargar e incorporar Agent para Linux** y ejecútelo en el equipo. 
+   > [!NOTE]
+   > Asegúrese de configurar la seguridad de la máquina de acuerdo con la directiva de seguridad de su organización. Por ejemplo, puede configurar la red para que se alinee con la directiva de seguridad de la red corporativa y cambiar los puertos y protocolos del demonio para que se adapten a sus requisitos. 
+
 1. En **Configure the logs to be connected** (Configurar los registros que se van a conectar), en la ventana de configuración del conector de Syslog, siga las instrucciones:
     1. Haga clic en el vínculo **Open your workspace advanced settings configuration** (Abrir la configuración de las opciones avanzadas del área de trabajo). 
     1. Seleccione **Datos**, seguido de **Syslog**.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7402778ec8170e60a623255d0d331f12d8389227
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824300"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688084"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
 En este artículo se muestra cómo asignar usuarios o grupos a una aplicación en Azure Active Directory (Azure AD). Los usuarios deben asignarse primero a una aplicación antes de que un administrador les conceda acceso para hacer lo siguiente:
@@ -32,7 +32,7 @@ En este artículo se muestra cómo asignar usuarios o grupos a una aplicación e
 
 -   Vea como aparece una aplicación en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-La disponibilidad de la asignación basada en grupo viene determinada por su contrato de licencia. La asignación basada en grupo solo se admite para los grupos de seguridad y las pertenencias a grupos anidados no se admiten actualmente.
+La disponibilidad de la asignación basada en grupo viene determinada por su contrato de licencia. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de O365.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para requerir la asignación de usuario:

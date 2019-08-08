@@ -1,5 +1,5 @@
 ---
-title: Cómo usar un modelo existente
+title: Uso e implementación de modelos existentes
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo puede usar Azure Machine Learning Service con los modelos que se han entrenado fuera del servicio. Puede registrar modelos creados fuera de Azure Machine Learning Service y, a continuación, implementarlos como un servicio web o un módulo de Azure IoT Edge.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 332129c9847c317369d5631c3af584da9430e9dd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4534f7e5bba2e34316be3376e2627c15c20ba81f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454547"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694382"
 ---
-# <a name="how-to-use-an-existing-model-with-azure-machine-learning-service"></a>Cómo usar un modelo existente con Azure Machine Learning Service
+# <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Usar un modelo existente con Azure Machine Learning Service
 
 Obtenga información sobre cómo usar un modelo de Machine Learning existente con Azure Machine Learning Service.
 
@@ -211,7 +211,7 @@ Para obtener más información, consulte [Deploy models with Azure Machine Learn
 
 ## <a name="define-deployment"></a>Definir la implementación
 
-El paquete [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contiene las clases que se usan en la implementación. La clase que use determinará dónde se implementa el modelo. Por ejemplo, para implementar un servicio web en Azure Kubernetes Service, use [AksWebService.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-) para crear la configuración de implementación.
+El paquete [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contiene las clases que se usan en la implementación. La clase que use determinará dónde se implementa el modelo. Por ejemplo, para implementar un servicio web en Azure Kubernetes Service, use [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) para crear la configuración de implementación.
 
 El código Python siguiente define una configuración de implementación para una implementación local. Esta configuración implementa el modelo como un servicio web en el equipo local.
 
