@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: Uso de expresiones de estilo controladas por datos
               href: data-driven-style-expressions-web-sdk.md
+            - name: Uso de plantillas de imagen
+              href: how-to-use-image-templates-web-sdk.md
             - name: Superposición de una imagen
               href: map-add-image-layer.md
             - name: Adición de capas de iconos
