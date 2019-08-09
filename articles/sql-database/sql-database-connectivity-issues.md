@@ -138,7 +138,7 @@ Cuando cree la [cadena de conexión](https://msdn.microsoft.com/library/System.D
 
 Específicamente, los valores elegidos deben cumplir la siguiente igualdad: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, un tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para su tercer y último reintento de conexión: 29 < 3 x 10.
+Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, un tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para su tercer y último reintento de conexión: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -310,7 +310,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>Algunas filas devueltas de sys.fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Algunas filas devueltas de sys.fn_xe_telemetry_blob_target_read_file
 
 En el ejemplo siguiente se muestra el aspecto que podría tener una fila devuelta. Los valores nulos que se muestran no suelen ser nulos en las demás filas.
 
