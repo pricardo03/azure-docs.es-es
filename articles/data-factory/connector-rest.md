@@ -55,7 +55,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **RestService**. | Sí |
+| type | La propiedad **type** debe establecerse en **RestService**. | Sí |
 | url | La dirección URL base del servicio REST. | Sí |
 | enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | Sin<br /> (El valor predeterminado es: **true**) |
 | authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
