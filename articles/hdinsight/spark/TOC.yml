@@ -14,7 +14,6 @@
     - name: 'Creación de un clúster de Apache Spark: CLI de Azure'
       href: apache-spark-create-cluster-cli.md
     - name: 'Creación de un clúster de Apache Spark: Plantilla'
-      displayName: 'resource manager template, arm template, resource manager group'
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutoriales
   items:
@@ -50,30 +49,6 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Supervisión de la disponibilidad del clúster con los registros de Ambari y Azure Monitor
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-    - name: Solución de problemas
-      items:
-        - name: Excepción OutOfMemoryError
-          href: ./apache-spark-troubleshoot-outofmemory.md
-        - name: 'Error en el trabajo de Apache Spark: NoClassDefFoundError'
-          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
-        - name: 'Error en el trabajo de Apache Spark: InvalidClassException'
-          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
-        - name: 'Trabajos lentos de Apache Spark: listStatus'
-          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
-        - name: 'Trabajos de Apache Spark lentos: contenedor de almacenamiento'
-          href: ./apache-spark-troubleshoot-job-slowness-container.md
-        - name: Excepción IllegalArgumentException
-          href: ./apache-spark-troubleshoot-illegalargumentexception.md
-        - name: Detenciones de aplicaciones de streaming de Apache Spark
-          href: ./apache-spark-troubleshoot-application-stops.md
-        - name: Excepción RpcTimeoutException
-          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
-        - name: Blocking Cross Origin API
-          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
-        - name: Error al serializar Kryo
-          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
-        - name: 'Registro de eventos de Apache Spark: RequestBodyTooLarge'
-          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster
@@ -226,7 +201,6 @@
                 - name: Uso de Azure Portal
                   href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Utilización de plantillas del Administrador de recursos de Azure
-                  displayName: 'resource manager template, arm template, resource manager group'
                   href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Uso de SDK para .NET
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
@@ -329,6 +303,30 @@
                   href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Optimización de consultas de Apache Hive
                   href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: Solución de problemas
+      items:
+        - name: Excepción OutOfMemoryError
+          href: ./apache-spark-troubleshoot-outofmemory.md
+        - name: 'Error en el trabajo de Apache Spark: NoClassDefFoundError'
+          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: 'Error en el trabajo de Apache Spark: InvalidClassException'
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+        - name: 'Trabajos lentos de Apache Spark: listStatus'
+          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
+        - name: 'Trabajos de Apache Spark lentos: contenedor de almacenamiento'
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
+        - name: Excepción IllegalArgumentException
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Detenciones de aplicaciones de streaming de Apache Spark
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: Excepción RpcTimeoutException
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blocking Cross Origin API
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Error al serializar Kryo
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+        - name: 'Registro de eventos de Apache Spark: RequestBodyTooLarge'
+          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Referencia
   items:
     - name: Ejemplos de código
@@ -350,7 +348,6 @@
     - name: API REST (Apache Spark)
       href: /rest/api/hdinsightspark/
     - name: Plantilla de Resource Manager
-      displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
 - name: Recursos
   items:
