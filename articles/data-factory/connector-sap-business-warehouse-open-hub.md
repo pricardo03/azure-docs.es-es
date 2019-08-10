@@ -99,7 +99,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapOpenHub** | Sí |
-| Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
+| server | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
 | systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | Sí |
 | clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
 | language | Idioma que utiliza el sistema SAP. | No (el valor predeterminado es **EN**)|
