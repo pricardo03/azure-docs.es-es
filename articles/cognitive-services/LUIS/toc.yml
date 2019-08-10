@@ -25,6 +25,10 @@
           href: sdk-csharp-quickstart-authoring-app.md
         - name: Consulta de un punto de conexión de predicción
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: Uso del SDK de Python
+      items:
+        - name: Creación y administración de una aplicación
+          href: sdk-python-quickstart-authoring-app.md
     - name: Uso de API REST
       items:
         - name: Obtener intención
