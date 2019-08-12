@@ -157,7 +157,7 @@ Para obtener información acerca de cómo leer los registros de aprovisionamient
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
-Si selecciona la opción **	Sincronizar todos los usuarios y grupos** y configura un valor para el atributo **roles** de Samanage, el valor del cuadro **Valor predeterminado si es nulo (opcional)** se debe expresar en el formato siguiente:
+Si selecciona la opción **Sincronizar todos los usuarios y grupos** y configura un valor para el atributo **roles** de Samanage, el valor del cuadro **Valor predeterminado si es nulo (opcional)** se debe expresar en el formato siguiente:
 
 - {"displayName":"rol"}, donde el rol es el valor predeterminado que quiera.
 

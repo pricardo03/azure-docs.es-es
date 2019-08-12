@@ -107,25 +107,25 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Conceptos
   items:
-    - name: Etiquetado de imágenes
+    - name: Etiquetas de contenido
       href: concept-tagging-images.md
     - name: Detección de objetos
       href: concept-object-detection.md
-    - name: Detección de marcas
+    - name: Detección de la marca
       href: concept-brand-detection.md
     - name: Categorización de imágenes
       href: concept-categorizing-images.md
-    - name: Descripción de las imágenes
+    - name: Descripciones de imágenes
       href: concept-describing-images.md
     - name: Detección de caras
       href: concept-detecting-faces.md
-    - name: Detección de los tipos de imagen
+    - name: Detección del tipo de imagen
       href: concept-detecting-image-types.md
-    - name: Detección de contenido específico del dominio
+    - name: Contenido específico del dominio
       href: concept-detecting-domain-content.md
-    - name: Detección de combinaciones de colores
+    - name: Detección de la combinación de colores
       href: concept-detecting-color-schemes.md
-    - name: Generación de miniaturas
+    - name: Miniaturas de recorte inteligente
       href: concept-generating-thumbnails.md
     - name: Reconocimiento de texto manuscrito e impreso
       href: concept-recognizing-text.md

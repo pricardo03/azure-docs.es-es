@@ -155,6 +155,8 @@
           items:
             - name: Preparación de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres
               href: azure-to-azure-about-networking.md
+            - name: Personalización de las configuraciones de red de la máquina virtual de Azure de destino
+              href: azure-to-azure-customize-networking.md
             - name: Configuración de la asignación de red y conservación de direcciones IP después de una conmutación por error
               href: azure-to-azure-network-mapping.md
             - name: Ejemplos de conservación de direcciones IP después de una conmutación por error

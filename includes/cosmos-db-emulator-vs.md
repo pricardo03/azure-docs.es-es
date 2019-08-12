@@ -11,5 +11,5 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "66482367"
 ---
-Descargue y use **edición gratuita de ** 
+Descargue y use **edición gratuita de** 
 [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/). Asegúrese de que habilita la carga de trabajo **Desarrollo de Azure** durante la instalación de Visual Studio.

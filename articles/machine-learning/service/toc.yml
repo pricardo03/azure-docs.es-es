@@ -6,7 +6,7 @@
     - name: ¿Qué es el servicio Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Funcionamiento del servicio
+    - name: Arquitectura y términos
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: Tutoriales
@@ -216,6 +216,8 @@
         - name: Dónde y cómo implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: Máquinas virtuales de Notebook
+          href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Container Instances
           href: how-to-deploy-azure-container-instance.md
         - name: Azure Kubernetes Service
@@ -256,9 +258,9 @@
     - name: Creación de flujos de trabajo reutilizables
       displayName: pipelines
       items:
-        - name: Creación de una canalización de Machine Learning
+        - name: 'Canalizaciones de Machine Learning: lotes, procesos, reutilización, uso compartido'
           href: how-to-create-your-first-pipeline.md
-        - name: CI/CD de flujos de trabajo de Machine Learning con Azure Pipelines
+        - name: Canalizaciones de Azure para CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Administración de cuotas de recursos

@@ -247,11 +247,11 @@
               href: devtest-lab-mandatory-artifacts.md
         - name: Integración con CI/CD
           items:
-            - name: Integración de laboratorios en la canalización de integración y entrega continuas de Azure DevOps
-              href: devtest-lab-integrate-ci-cd-vsts.md
-            - name: Integración de entornos en la canalización de integración y entrega continuas de Azure DevOps
+            - name: Integración de laboratorios en la canalización de integración y entrega continuas de Azure Pipelines
+              href: devtest-lab-integrate-ci-cd.md
+            - name: Integración de entornos en la canalización de integración y entrega continuas de Azure Pipelines
               href: integrate-environments-devops-pipeline.md
-            - name: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure DevOps
+            - name: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
               href: use-devtest-labs-build-release-pipelines.md
         - name: Informe sobre el uso de laboratorios
           href: report-usage-across-multiple-labs-subscriptions.md
