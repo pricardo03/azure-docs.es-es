@@ -149,7 +149,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://scim.smartsheet.com/v2/` en la **URL de inquilino **. Escriba el valor que recuperó y guardó anteriormente en Smartsheet en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://scim.smartsheet.com/v2/` en la **URL de inquilino** . Escriba el valor que recuperó y guardó anteriormente en Smartsheet en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
 
     ![Se necesita el cifrado de tokens](common/provisioning-testconnection-tenanturltoken.png)
 
