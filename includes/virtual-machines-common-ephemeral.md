@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a57335eccfce1e81fe0cc85ae6fa7b12aa27e1c3
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805862"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669838"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
@@ -44,7 +44,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 
 ## <a name="size-requirements"></a>Requisitos de tamaño
 
-Puede implementar imágenes de instancias y de máquinas virtuales hasta el tamaño de la caché de máquina virtual. Por ejemplo, las imágenes estándar de Windows Server de Marketplace son de aproximadamente 127 GiB, lo que significa que necesita un tamaño de máquina virtual que tenga una caché de más de 127 GiB. En este caso, las máquinas virtuales [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) tienen un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS2_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. En este caso, Standard_DS3_v2 tienen el tamaño menor de la serie DSv2 que se puede usar con esta imagen. Las imágenes básicas de Linux en Marketplace y las imágenes de Windows Server indicadas por `[smallsize]` tienden a tener alrededor de 30 GiB y pueden usar la mayoría de los tamaños de máquinas virtuales disponibles.
+Puede implementar imágenes de instancias y de máquinas virtuales hasta el tamaño de la caché de máquina virtual. Por ejemplo, las imágenes estándar de Windows Server de Marketplace son de aproximadamente 127 GiB, lo que significa que necesita un tamaño de máquina virtual que tenga una caché de más de 127 GiB. En este caso, las máquinas virtuales [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) tienen un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. En este caso, Standard_DS3_v2 tienen el tamaño menor de la serie DSv2 que se puede usar con esta imagen. Las imágenes básicas de Linux en Marketplace y las imágenes de Windows Server indicadas por `[smallsize]` tienden a tener alrededor de 30 GiB y pueden usar la mayoría de los tamaños de máquinas virtuales disponibles.
 
 Los discos efímeros también requieren que el tamaño de la máquina virtual admita Premium Storage. Los tamaños normalmente (pero no siempre) tienen un `s` en el nombre, como DSv2 y EsV3. Para más información, consulte [Tamaños de máquinas virtuales de Azure](../articles/virtual-machines/linux/sizes.md) para más información sobre qué tamaños se admiten Premium Storage.
 

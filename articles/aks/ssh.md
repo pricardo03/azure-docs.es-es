@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
 ms.openlocfilehash: 6ddd1b160110e7a751f54f89b387a62d94e9308e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614475"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
@@ -22,13 +22,13 @@ En este artículo se muestra cómo crear una conexión SSH con un nodo de AKS me
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 También es preciso que esté instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Adición de la clave SSH pública
 
-De forma predeterminada, las claves SSH se obtienen, o generan, y luego se agregan a los nodos cuando crea un clúster de AKS. Si necesita especificar claves SSH diferentes a las utilizadas cuando creó el clúster de AKS, agregue su clave SSH pública a los nodos de AKS de Linux. Si es necesario, puede crear una clave SSH con [macOS o Linux][ssh-nix] or [Windows][ssh-windows]. Si utiliza PuTTY Gen para crear el par de claves, guarde dicho par en un formato OpenSSH en lugar del formato de clave privada PuTTy predeterminado (archivo .ppk).
+De forma predeterminada, las claves SSH se obtienen, o generan, y luego se agregan a los nodos cuando crea un clúster de AKS. Si necesita especificar claves SSH diferentes a las utilizadas cuando creó el clúster de AKS, agregue su clave SSH pública a los nodos de AKS de Linux. Si es necesario, puede crear una clave SSH con [macOS, Linux][ssh-nix] o [Windows][ssh-windows]. Si utiliza PuTTY Gen para crear el par de claves, guarde dicho par en un formato OpenSSH en lugar del formato de clave privada PuTTy predeterminado (archivo .ppk).
 
 > [!NOTE]
 > Actualmente, las claves SSH solo se pueden agregar a los nodos de Linux mediante la CLI de Azure. Si usa nodos de Windows Server, use las claves SSH proporcionadas cuando creó el clúster de AKS y vaya al paso que trata sobre [cómo obtener la dirección del nodo de AKS](#get-the-aks-node-address). O bien, [conéctese a los nodos de Windows Server mediante conexiones de protocolo de escritorio remoto (RDP)][aks-windows-rdp].
@@ -117,7 +117,7 @@ Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse m
 
 ### <a name="ssh-to-regular-aks-clusters"></a>SSH a los clústeres de AKS normales
 
-Vea la dirección IP privada de un nodo de clúster de AKS con el paso [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show]:
+Vea la dirección IP privada de un nodo de clúster de AKS con el comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Proporcione su propio nombre de grupo de recursos de clúster de AKS obtenido en un paso anterior [az-aks-show][az-aks-show]:
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -224,7 +224,7 @@ Cuando haya finalizado, `exit` la sesión de SSH y, a continuación, `exit` la s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita datos adicionales para la solución de problemas, puede [ver los registros de kubelet][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+Si necesita datos adicionales para la solución de problemas, puede [ver los registros de kubelet][view-kubelet-logs] o [ver los registros del nodo maestro de Kubernetes][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

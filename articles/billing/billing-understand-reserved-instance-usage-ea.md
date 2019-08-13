@@ -11,22 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798153"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598096"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtención del uso y los costos de reservas de Contrato Enterprise
 
 Los datos de uso y costos de reservas están disponibles para los clientes con Contrato Enterprise en Azure Portal y API REST. Este artículo le ayudará a realizar las siguientes acciones:
 
 - Obtener los datos de compra de la reserva.
-- Obtener los datos de infrautilización de la reserva.
-- Amortizar los costos de la reserva.
+- Saber qué suscripción, grupo de recursos o recurso usó la reserva
 - Anular la utilización de la reserva.
 - Calcular el ahorro de la reserva.
+- Obtener los datos de infrautilización de la reserva.
+- Amortización de los costos de la reserva
 
 Los cargos de Marketplace se consolidan en datos de uso. Consulte los cargos de uso de la primera entidad, el uso de Marketplace y las compras desde un único origen de datos.
 
@@ -34,9 +35,9 @@ Los cargos de Marketplace se consolidan en datos de uso. Consulte los cargos de 
 
 Los datos se dividen en dos conjuntos de datos independientes: _Costo real_ y _Costo amortizado_. Diferencias entre estos dos conjuntos de datos:
 
-**Costo real** : proporciona datos para conciliar con la factura mensual. Estos datos tienen costos de compra de la reserva. No tiene ningún recurso EffectivePrice para el uso que recibió el descuento de la reserva.
+**Costo real** : proporciona datos para conciliar con la factura mensual. Estos datos tienen costos de compra de reserva y detalles de aplicación de reserva. Con estos datos, puede saber qué suscripción o grupo de recursos o recurso ha recibido el descuento de reserva en un día concreto. El valor EffectivePrice para el uso que recibe el descuento de la reserva es cero.
 
-**Costo amortizado**: el recurso EffectiveCost que obtiene el descuento de la reserva es el costo prorrateado de la instancia reservada. El conjunto de datos también tiene costos de reserva sin usar. La suma del costo de la reserva y la reserva sin usar proporciona el costo amortizado diario de la reserva.
+**Costo amortizado**: este conjunto de datos es similar al conjunto de datos de Costo real, salvo que el valor EffectivePrice para el uso que obtiene el descuento de reserva es el costo prorrateado de la reserva (en lugar de ser cero). Esto le ayuda a conocer el valor monetario del consumo de reserva de una suscripción, un grupo de recursos o un recurso, y puede ayudarle realizar cargos al usuario por el uso de la reserva internamente. El conjunto de datos también tiene horas de reserva sin usar. El conjunto de archivos no tiene registros de compra de reservas. 
 
 Comparación de dos conjuntos de datos:
 

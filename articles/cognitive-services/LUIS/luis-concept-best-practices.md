@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Procedimientos recomendados: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados del modelo de la aplicación de LUIS.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812918"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639276"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
-Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
+Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS: 
 
 * Compilar el modelo de lenguaje
 * Agregar algunas expresiones de ejemplo de entrenamiento (10-15 por intención)
@@ -27,7 +27,7 @@ Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS
 * Probar desde el punto de conexión 
 * Agregar características
 
-Una vez que la aplicación esté [publicada](luis-how-to-publish-app.md), use el ciclo de creación de agregar características, publicar y probar desde el punto de conexión. No comience el siguiente ciclo de creación al agregar más expresiones de ejemplo, ya que, de esta forma, LUIS no aprende el modelo con expresiones reales del usuario. 
+Una vez que la aplicación esté [publicada](luis-how-to-publish-app.md), use el ciclo de creación para agregar características, publicar y probar desde el punto de conexión. No comience el siguiente ciclo de creación al agregar más expresiones de ejemplo, ya que, de esta forma, LUIS no aprende el modelo con expresiones reales del usuario. 
 
 Para que LUIS sea eficaz en su trabajo de aprendizaje, no expanda las expresiones hasta que el conjunto actual de expresiones de ejemplo y punto de conexión devuelva resultados seguros y con predicciones altas. Mejore las puntuaciones mediante un [aprendizaje activo](luis-concept-review-endpoint-utterances.md), [patrones](luis-concept-patterns.md) y [listas de frases](luis-concept-feature.md). 
 
@@ -78,7 +78,7 @@ Para obtener más información:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Agregar listas de frases y patrones en iteraciones posteriores
 
-Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Es necesario entender cómo se comporta la aplicación antes de agregar listas de frases y patrones, ya que estas características tienen mayor peso que las expresiones de ejemplo y sesgarán la confianza. 
+Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Es necesario entender cómo se comporta la aplicación antes de agregar [listas de frases](luis-concept-feature.md) y [patrones](luis-concept-patterns.md), ya que estas características tienen mayor peso que las expresiones de ejemplo y sesgarán la confianza. 
 
 Una vez comprenda cómo se comporta sin estas características, agregue cada una de ellas a la aplicación según corresponda. No es necesario agregar estas características con cada [iteración](luis-concept-app-iteration.md) ni cambiarlas con cada versión. 
 

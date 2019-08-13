@@ -1,6 +1,6 @@
 ---
 title: Creación de un recurso de Cognitive Services en Azure Portal
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Comience a usar Azure Cognitive Services mediante la creación y suscripción a un recurso en Azure Portal.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334251"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697908"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -65,6 +65,13 @@ Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos
 Después de crear el recurso, puede obtener acceso al mismo desde el panel de Azure si lo ancló allí. De lo contrario, puede encontrarlo en la opción **Grupos de recursos**. Después de seleccionar el recurso, puede obtener las claves si selecciona **Claves** en **Administración de recursos**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Planes de tarifas y facturación
+
+Los planes de tarifas (y la cantidad que se factura) se basan en el número de transacciones que se envían con la información de autenticación. Cada plan de tarifa especifica lo siguiente:
+* el número máximo de transacciones permitidas por segundo (TPS).
+* las características de servicio habilitadas en el plan de tarifa.
+* El costo de una cantidad predefinida de transacciones. Por encima de esta cantidad se producirá un cargo adicional, tal como se especifica en los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) del servicio.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -4,15 +4,15 @@ description: En este artículo se describe la forma de crear y usar bases de dat
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467748"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598484"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -124,6 +124,9 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades definidas por el 
 |\_self | Generada por el sistema | URI direccionable del elemento | Sí | No | No | No | Sin |
 |id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema genera uno automáticamente. | Sí | Sí | Sí | Sí | Sí |
 |Propiedades arbitrarias que define el usuario | Definidas por el usuario | Propiedades definidas por el usuario que se representan en la representación de la API nativa (incluidos los formatos JSON, BSON y CQL). | Sí | Sí | Sí | Sí | Sí |
+
+> [!NOTE]
+> La unicidad de la propiedad `id` solo se aplica dentro de cada partición lógica. Varios documentos pueden tener la misma propiedad `id` con distintos valores de clave de partición.
 
 ### <a name="operations-on-items"></a>Operaciones en elementos
 

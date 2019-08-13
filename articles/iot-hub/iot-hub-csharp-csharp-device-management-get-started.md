@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 40db247dba1d55b5121f95a4d69ca853f3d7ee56
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 544c29505d9bf34622963dfac8987b7eae4f8bc5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404583"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668187"
 ---
-# <a name="get-started-with-device-management-netnet"></a>Introducción a la administración de dispositivos (.NET/.NET)
+# <a name="get-started-with-device-management-net"></a>Introducción a la administración de dispositivos (.NET)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -75,7 +75,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
    using Microsoft.Azure.Devices.Shared;
    ```
         
-5. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición por la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+5. Agregue los campos siguientes a la clase **Program**. Reemplace el valor del marcador de posición por la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
    
    ```csharp
    static RegistryManager registryManager;
@@ -135,7 +135,7 @@ En esta sección realizará las siguientes tareas:
 
 * Usará las propiedades notificadas para permitir consultas de dispositivo gemelo a fin de identificar los dispositivos y cuándo se reiniciaron por última vez.
 
-1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **SimulateManagedDevice**.
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **SimulateManagedDevice**.
    
     ![Nueva aplicación para dispositivo de Windows clásico de Visual C#](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
     
@@ -152,7 +152,7 @@ En esta sección realizará las siguientes tareas:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión del dispositivo del anotó en la sección anterior.
+5. Agregue los campos siguientes a la clase **Program**. Sustituya el valor de marcador de posición por la cadena de conexión del dispositivo del anotó en la sección anterior.
 
     ```csharp
     static string DeviceConnectionString = 

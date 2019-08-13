@@ -1,6 +1,6 @@
 ---
-title: Características
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Características: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812926"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639216"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Características de lista de frases en la aplicación de LUIS
 
@@ -35,7 +35,7 @@ Las listas de frases no están vinculadas a una entidad ni a una intención espe
 
 ## <a name="how-to-use-phrase-lists"></a>Cómo usar las listas de frases
 
-Cree una lista de frases cuando su aplicación tenga palabras o frases que son importantes para su funcionamiento, como:
+[Cree una lista de frases](luis-how-to-add-features.md) cuando su aplicación tenga palabras o frases que son importantes para su funcionamiento, como:
 
 * términos del sector
 * jerga
@@ -88,7 +88,7 @@ Una lista de frases no es una instrucción para que LUIS realice coincidencias e
 Agregar una lista de frases es una alternativa a la adición de más expresiones de ejemplo a una intención. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Cuándo se deben usar listas de frases frente a las entidades de lista
-Aunque tanto una lista de frases como las entidades de lista pueden afectar a las expresiones de todas las intenciones, en cada caso se realiza de forma diferente. Use una lista de frases para afectar a la puntuación de predicción de intención. Use una entidad de lista para afectar a la extracción de la entidad de una coincidencia de texto exacta. 
+Aunque tanto una lista de frases como las [entidades de lista](reference-entity-list.md) pueden afectar a las expresiones de todas las intenciones, en cada caso se realiza de forma diferente. Use una lista de frases para afectar a la puntuación de predicción de intención. Use una entidad de lista para afectar a la extracción de la entidad de una coincidencia de texto exacta. 
 
 ### <a name="use-a-phrase-list"></a>Usar una lista de frases
 Con una lista de frases, LUIS puede tener en cuenta el contexto y generalizar para identificar los elementos que son similares, pero no una coincidencia exacta, como elementos de una lista. Si es necesario que la aplicación de LUIS sea capaz de generalizar e identificar los elementos nuevos de una categoría, use una lista de frases. 

@@ -2,28 +2,28 @@
 title: Entienda la factura de Azure
 description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383633"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610137"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Descripción de la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
 
-Este artículo no es aplicable para clientes de Azure con un Contrato Enterprise. Si es un cliente de Contrato Enterprise, consulte [Descripción de la factura de los clientes de Azure con un Contrato Enterprise](billing-understand-your-bill-ea.md).
-
-Este artículo no se aplica a los clientes de Azure con un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement). Si tiene un contrato de cliente de Microsoft, consulte [Descripción de los cargos de Azure en la factura del contrato de cliente de Microsoft](billing-mca-understand-your-bill.md).
+Este artículo no se aplica a los siguientes clientes:
+- Clientes de Azure con un Contrato Enterprise (Clientes de EA). Si es un cliente de Contrato Enterprise, consulte [Descripción de la factura de los clientes de Azure con un Contrato Enterprise](billing-understand-your-bill-ea.md).
+- Clientes de Azure con un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement). Si tiene un contrato de cliente de Microsoft, consulte [Descripción de los cargos de Azure en la factura del contrato de cliente de Microsoft](billing-mca-understand-your-bill.md).
 
 Para obtener una explicación sobre cómo funciona la facturación en el programa Proveedor de soluciones en la nube de Azure (CSP de Azure), incluido el uso, los precios y el ciclo de facturación, consulta [Información general acerca de la funcionalidad de facturación de CSP de Azure](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 

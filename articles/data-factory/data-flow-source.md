@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314832"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696229"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen de asignación de Data Flow 
 
@@ -28,8 +28,12 @@ Cada flujo de datos requiere al menos una transformación del origen. Agregue ta
 
 Asocie la transformación de origen de Data Flow con exactamente un conjunto de datos de Data Factory. El conjunto de datos define la forma y la ubicación de los datos que quiere escribir o leer. Puede usar caracteres comodín y listas de archivos en el origen para trabajar con más de un archivo a la vez.
 
-## <a name="data-flow-staging-areas"></a>Áreas de almacenamiento provisional de Data Flow
+El uso de una opción de **Wildcard Pattern** (Patrón de comodines) indicará a ADF que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera muy eficaz de procesar varios archivos en un único flujo. Para realizar el seguimiento del nombre de archivo que se está procesando actualmente, establezca un nombre para el campo "Column to store file name" (Columna para almacenar un nombre de archivo) en Source Options (Opciones de origen).
 
+> [!NOTE]
+> Para agregar más reglas de caracteres comodín, establezca varios patrones de coincidencia de caracteres comodín con el signo + junto al patrón de caracteres comodín existente.
+
+## <a name="data-flow-staging-areas"></a>Áreas de almacenamiento provisional de Data Flow
 Data Flow funciona con conjuntos de datos de *almacenamiento provisional* que están en Azure. Use estos conjuntos de datos para el almacenamiento provisional cuando transforme los datos. 
 
 Data Factory tiene acceso a casi 80 conectores nativos. Para incluir datos de esos otros orígenes en el flujo de datos, use la herramienta de actividad de copia para almacenar esos datos en una de las áreas de almacenamiento provisional del conjunto de datos de Data Flow.
@@ -101,13 +105,23 @@ Ejemplos de caracteres comodín:
 
 El contenedor tiene que especificarse en el conjunto de datos. La ruta de acceso con carácter comodín, por tanto, también debe incluir la ruta de acceso de la carpeta de la carpeta raíz.
 
+* **Partition Root Path** (Ruta de acceso de la raíz de la partición): Si tiene carpetas con particiones en el origen de archivo con un formato ```key=value``` (por ejemplo, year = 2019), puede pedir al ADF que asigne el nivel superior del árbol de carpetas de la partición a un nombre de columna del flujo de datos.
+
+En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que desee leer.
+
+![Configuración del archivo de origen de la partición](media/data-flow/partfile2.png "Configuración del archivo de la partición")
+
+Ahora, use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para indicar a ADF cuál es el nivel superior de la estructura de carpetas. Ahora, cuando vea el contenido de los datos, verá que ADF agregará las particiones resueltas que se encuentran en cada uno de los niveles de carpetas.
+
+![Ruta de acceso de la raíz de la partición](media/data-flow/partfile1.png "Vista previa de Ruta de acceso de la raíz de la partición")
+
 * **Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
 * **Columna para almacenar el nombre de archivo**: Almacene el nombre del archivo de origen en una columna de los datos. Escriba aquí un nombre nuevo para almacenar la cadena de nombre de archivo.
 * **Tras finalizar**: Elija no hacer nada con el archivo de origen después de que se ejecute el flujo de datos o bien elimine o mueva el archivo de origen. Las rutas de acceso para mover los archivos de origen son relativas.
 
 Para mover archivos de origen a otra ubicación posterior al procesamiento, primero seleccione "Mover" para la operación de archivo. A continuación, establezca el directorio "from". Si no usa ningún carácter comodín para la ruta de acceso, la configuración de "from" será la misma carpeta que la carpeta de origen.
 
-Si tiene una ruta de acceso de origen con carácter comodín, por ejemplo:
+Si tiene una ruta de acceso de origen con un comodín, su sintaxis será como esta:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ y "to" como
 
 ```/backup/priorSales```
 
-En este caso, todos los subdirectorios que se encuentran en /data/sales y que se han originado se mueven en relación con /backup/priorSales.
+En este caso, todos los subdirectorios que cuyo origen se encuentra en /data/sales se mueven a /backup/priorSales.
 
 ### <a name="sql-datasets"></a>Conjuntos de datos de SQL
 
@@ -152,8 +166,7 @@ Puede modificar los tipos de datos de columna en una posterior transformación d
 ![Configuración de los formatos de datos predeterminados](media/data-flow/source2.png "Formatos predeterminados")
 
 ### <a name="add-dynamic-content"></a>Incorporación de contenido dinámico
-
-Al hacer clic dentro de los campos en el panel de configuración, verá un hipervínculo para "Agregar contenido dinámico". Al hacer clic aquí, se iniciará el Generador de expresiones. Aquí es donde puede establecer los valores para la configuración de forma dinámica mediante expresiones, valores literales estáticos o parámetros.
+Al hacer clic dentro de los campos en el panel de configuración, verá un hipervínculo para "Agregar contenido dinámico". Si selecciona iniciar el Generador de expresiones, establecerá los valores de forma dinámica mediante expresiones, valores literales estáticos o parámetros.
 
 ![Parámetros](media/data-flow/params6.png "Parámetros")
 

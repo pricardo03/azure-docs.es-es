@@ -6,18 +6,27 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: dapatil
-ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927378"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620105"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historial de versiones de Azure Site Recovery Deployment Planner
 
 En este artículo se proporciona el historial de todas las versiones de Azure Site Recovery Deployment Planner, junto con las correcciones y limitaciones conocidas de cada una de ellas, así como sus fechas de lanzamiento.
+
+## <a name="version-25"></a>Versión 2.5
+
+**Fecha de lanzamiento: 29 de julio de 2019**
+
+**Correcciones:**
+
+- En el caso de máquinas virtuales de VMware y máquinas físicas, la recomendación se actualiza para basarse en la replicación en Managed Disks.
+- Se ha agregado compatibilidad con Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64) y Windows 7 (x64) SP1 o posterior.
 
 ## <a name="version-24"></a>Versión 2.4
 
@@ -28,8 +37,8 @@ En este artículo se proporciona el historial de todas las versiones de Azure Si
 - Se mejoró la compatibilidad de sistemas operativos, específicamente al control de errores de localización.
 - Se agregaron VM de hasta 20 Mbps de frecuencia de cambio de datos (renovación) a la lista de compatibilidad.
 - Se mejoraron los mensajes de error.
-  - Se agregó compatibilidad para vCenter 6.7.
-  - Se agregó compatibilidad para la estación de trabajo de Windows Server 2019 y Red Hat Enterprise Linux (RHEL).
+- Se agregó compatibilidad para vCenter 6.7.
+- Se agregó compatibilidad para la estación de trabajo de Windows Server 2019 y Red Hat Enterprise Linux (RHEL).
 
 
 

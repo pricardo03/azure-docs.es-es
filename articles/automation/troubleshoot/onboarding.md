@@ -8,16 +8,47 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477480"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516397"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
 Al incorporar soluciones como Update Management, Change Tracking o Inventory, pueden producirse errores. En este artículo se describen los diversos errores que pueden producirse y cómo resolverlos.
+
+## <a name="known-issues"></a>Problemas conocidos
+
+### <a name="node-rename"></a>Escenario: Para cambiar el nombre de un nodo registrado, es necesario anular el registro o registrarse de nuevo
+
+#### <a name="issue"></a>Problema
+
+Un nodo se registra en Azure Automation y, a continuación, se cambia el nombre de equipo del sistema operativo.  Los informes del nodo continúan apareciendo con el nombre original.
+
+#### <a name="cause"></a>Causa
+
+Al cambiar el nombre de los nodos registrados, no actualiza el nombre del nodo en Azure Automation.
+
+#### <a name="resolution"></a>Resolución
+
+Anule el registro del nodo en State Configuration de Azure Automation y, a continuación, vuelva a registrarlo.  Los informes publicados en el servicio antes de ese momento ya no estarán disponibles.
+
+
+### <a name="resigning-cert"></a>Escenario: No se permite volver a firmar certificados a través del proxy HTTPS
+
+#### <a name="issue"></a>Problema
+
+Los clientes han comunicado que, al conectarse con una solución de proxy que finaliza el tráfico HTTPS y, a continuación, vuelve a cifrar el tráfico mediante un nuevo certificado, el servicio no permite la conexión.
+
+#### <a name="cause"></a>Causa
+
+Azure Automation no permite volver a firmar los certificados usados para cifrar el tráfico.
+
+#### <a name="resolution"></a>Resolución
+
+No hay ninguna solución alternativa para este problema.
 
 ## <a name="general-errors"></a>Errores generales
 

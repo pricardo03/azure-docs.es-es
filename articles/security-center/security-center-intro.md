@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064331"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827923"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -126,9 +126,9 @@ Security Center lo ayuda a limitar la exposición a los ataques por fuerza bruta
 
 Security Center incluye funcionalidades que le permiten llevar a cabo la clasificación automática de los datos en Azure SQL. También puede obtener evaluaciones de las posibles vulnerabilidades en los servicios de Azure SQL y Azure Storage, además de recomendaciones sobre cómo mitigarlas.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Protección de las cargas de trabajo de IoT y de la nube híbrida (versión preliminar)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Protección de las cargas de trabajo de IoT y de la nube híbrida
 
-Azure Security Center for IoT (Internet de las cosas) simplifica la protección de las cargas de trabajo híbridas al ofrecer una visibilidad y un control unificados, una prevención de amenazas adaptable y una detección y respuesta a amenazas inteligentes en todas las cargas de trabajo que se ejecutan en el perímetro, de forma local, en Azure y en otras nubes. Para más información, consulte el artículo sobre [Azure Security Center for IoT (versión preliminar)](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Internet de las cosas) simplifica la protección de las cargas de trabajo híbridas al ofrecer una visibilidad y un control unificados, una prevención de amenazas adaptable y una detección y respuesta a amenazas inteligentes en todas las cargas de trabajo que se ejecutan en el perímetro, de forma local, en Azure y en otras nubes. Para más información, consulte [Azure Security Center para IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Protección con mayor rapidez
 

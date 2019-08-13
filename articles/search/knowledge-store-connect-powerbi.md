@@ -4,16 +4,17 @@ description: Cree un almacén de conocimiento mediante el asistente para la impo
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840849"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Creación de un almacén de conocimiento de Azure Search y conexión mediante Power BI
 
@@ -156,7 +157,7 @@ Use el asistente para la importación de datos para crear el almacén de conocim
 
 1. Haga **Close and Apply** (Cerrar y aplicar) en el extremo izquierdo de la barra de comandos de Power Query.
 
-1. Asegúrese de que Power BI reconoce las relaciones que el almacén de conocimiento ha creado en los datos. Haga clic en el icono de relaciones en el panel de navegación izquierdo. Las tres tablas deben estar relacionadas.
+1. Asegúrese de que Power BI reconoce las relaciones que el almacén de conocimiento ha creado en los datos. Haga clic en el icono de relaciones en el panel de navegación izquierdo. Las tres tablas deben estar relacionadas. Edite las relaciones y asegúrese de que la "dirección de filtro cruzado" está establecida en ambas, con lo que se asegurará de que todos los objetos visuales se actualicen cuando se aplique un filtro.
 
    ![Validar relaciones](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Validate relationships")
 

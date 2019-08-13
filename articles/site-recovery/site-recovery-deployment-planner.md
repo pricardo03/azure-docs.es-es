@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244322"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620059"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -41,10 +41,9 @@ La herramienta proporciona los detalles siguientes:
 
 **Requisitos de infraestructura de Azure**
 
-* Tipo de almacenamiento (cuenta de almacenamiento Estándar o Premium) de cada máquina virtual
-* Número total de cuentas de almacenamiento Estándar y Premium que se van a configurar para la replicación
+* Tipo de almacenamiento (almacenamiento estándar o premium) de cada máquina virtual
+* El número total de cuentas de almacenamiento estándar y premium que se van a configurar para la replicación (se incluyen las cuentas de almacenamiento en caché)
 * Sugerencias de nomenclatura de las cuentas de almacenamiento, según la guía de Storage
-* Posición de las cuentas de almacenamiento de todas las máquinas virtuales
 * Número de núcleos de Azure que se deben configurar antes de realizar una conmutación por error, de prueba o real, en la suscripción
 * Tamaño de máquina virtual de Azure que se recomienda para cada máquina virtual local
 
@@ -120,7 +119,7 @@ Si tiene una versión anterior de Deployment Planner, realice una de las siguien
 
 
 ## <a name="version-history"></a>Historial de versiones
-La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.4.
+La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.5.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) (Historial de versiones de ASR Deployment Planner).
 
 ## <a name="next-steps"></a>Pasos siguientes

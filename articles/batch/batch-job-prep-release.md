@@ -4,7 +4,7 @@ description: Utilice las tareas de preparación en el nivel de trabajo para mini
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776207"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68466969"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 
@@ -31,7 +31,7 @@ Antes de ejecutar las tareas de un trabajo, la tarea de preparación del trabajo
 
 Las tareas de preparación y liberación ofrecen características de tareas de Batch familiares, como la descarga de archivos ([archivos de recursos][net_job_prep_resourcefiles]), la ejecución con elevación de privilegios, las variables de entorno personalizadas, la duración máxima de ejecución, el número de reintentos y el tiempo de retención de archivos.
 
-En las siguientes secciones, aprenderá cómo utilizar las clases [JobPreparationTask][net_job_prep] y [JobReleaseTask][net_job_release] que se encuentran en la biblioteca de [.NET para Batch][api_net].
+En las siguientes secciones, aprenderá cómo utilizar las clases [JobPreparationTask][net_job_prep] y [JobReleaseTask][net_job_release] que se encuentran en la biblioteca de [Batch para .NET][api_net].
 
 > [!TIP]
 > Las tareas de preparación y liberación de trabajos son especialmente útiles en entornos de "grupo compartido", en los que un grupo de nodos de proceso persiste entre ejecuciones de trabajo y muchos trabajos lo usan.
@@ -73,6 +73,8 @@ Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación d
 
 > [!NOTE]
 > La eliminación de un trabajo también ejecuta la tarea de liberación del trabajo. Sin embargo, si un trabajo ya se ha terminado, la tarea no se ejecuta una segunda vez si el trabajo se va a eliminar más adelante.
+
+Las tareas de liberación de trabajos pueden ejecutarse durante un máximo de 15 minutos antes de que el servicio Batch las finalice. Para más información, consulte la [Documentación de referencia de API de REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
@@ -191,7 +193,7 @@ Además de la tarea de preparación del trabajo, puede usar la característica d
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
 Este foro de MSDN proporciona información general de varios métodos de preparación de los nodos para la ejecución de tareas:
 
-[Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch)
+[Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch][forum_post]
 
 Escrito por uno de los miembros del equipo de Azure Batch, describe varias técnicas que puede utilizar para implementar aplicaciones y datos en los nodos de proceso.
 

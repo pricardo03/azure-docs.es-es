@@ -10,28 +10,31 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 19a7f749ffb1af4f712d23abcd52d91653ad4544
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070425"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567378"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
 En este artículo se describen los métodos para migrar una instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Para obtener información sobre cómo migrar a una base de datos única o a un grupo elástico, consulte [Migración a una base de datos única o a una base de datos agrupada](sql-database-cloud-migrate.md). Para obtener información sobre la migración desde otras plataformas, vea [Guía de Azure Database Migration](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> Si desea empezar rápidamente y probar la instancia administrada, puede ir a [la guía de inicio rápido](sql-database-managed-instance-quickstart-guide.md) en lugar de a esta página. 
+
 En un nivel alto, el proceso de migración de la base de datos es parecido a este:
 
 ![proceso de migración](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Evaluación de la compatibilidad de Instancia administrada](#assess-managed-instance-compatibility)
-- [Elección de la opción de conectividad de las aplicaciones](sql-database-managed-instance-connect-app.md)
-- [Implementación en una instancia administrada con tamaño óptimo](#deploy-to-an-optimally-sized-managed-instance)
-- [Selección del método de migración y la migración](#select-migration-method-and-migrate)
-- [Supervisión de aplicaciones](#monitor-applications)
+- [Evalúe la compatibilidad de la instancia administrada](#assess-managed-instance-compatibility) en la que debe asegurarse de que no haya problemas de bloqueo que puedan impedir las migraciones.
+  - Este paso también incluye la creación de la [base de referencia del rendimiento](#create-performance-baseline) para determinar el uso de los recursos en la instancia de SQL Server de origen. Este paso es necesario si desea implementar correctamente el tamaño de la Instancia administrada y comprobar que el rendimiento después de la migración no se ve afectado.
+- [Elección de las opciones de conectividad de las aplicaciones](sql-database-managed-instance-connect-app.md)
+- [Implemente en una Instancia administrada de tamaño óptimo](#deploy-to-an-optimally-sized-managed-instance), donde elegirá las características técnicas (número de núcleos virtuales, cantidad de memoria) y el nivel de rendimiento (Crítico para la empresa, De uso general) de la Instancia administrada.
+- [Seleccione el método de migración y migre](#select-migration-method-and-migrate) donde vaya a migrar las bases de datos con la migración sin conexión (copia de seguridad o restauración nativas, importación y exportación de bases de datos) o con la migración en línea (Data Migration Service, replicación transaccional).
+- [Supervise las aplicaciones](#monitor-applications) para asegurarse de que logra el rendimiento esperado.
 
 > [!NOTE]
 > Para migrar una única base de datos a una sola base de datos o a un grupo elástico, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-single-database-migrate.md).
@@ -58,7 +61,11 @@ Instancia administrada garantiza el 99,99 % de disponibilidad incluso en escena
 
 ### <a name="create-performance-baseline"></a>Creación de base de referencia de rendimiento
 
-Si necesita comparar el rendimiento de la carga de trabajo en Instancia administrada con la carga de trabajo original que se ejecuta en SQL Server, deberá crear una base de referencia de rendimiento que se usará para la comparación. Algunos de los parámetros que necesitará medir en su instancia de SQL Server son: 
+Si necesita comparar el rendimiento de la carga de trabajo en Instancia administrada con la carga de trabajo original que se ejecuta en SQL Server, deberá crear una base de referencia de rendimiento que se usará para la comparación. 
+
+La base de referencia del rendimiento es un conjunto de parámetros como el uso de CPU promedio/máximo, la latencia de E/S de disco promedio/máxima, el rendimiento, IOPS, la duración prevista promedio/máxima de la página o el tamaño promedio máximo de tempdb. Es conveniente tener parámetros similares o incluso mejores después de la migración, por lo que es importante medir y registrar los valores de base de referencia para estos parámetros. Además de los parámetros del sistema, deberá seleccionar un conjunto de consultas representativas o las consultas más importantes de la carga de trabajo y medir la duración mínima, promedio y máxima, y el uso de CPU para las consultas seleccionadas. Estos valores le permitirían comparar el rendimiento de la carga de trabajo que se ejecuta en la instancia administrada con los valores originales del servidor SQL Server de origen.
+
+Algunos de los parámetros que necesitará medir en su instancia de SQL Server son: 
 - [Supervisión del uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y registro del uso medio y uso máximo de la CPU.
 - [Supervisión del uso de memoria en la instancia de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
 - Supervise el uso de E/S de disco en la instancia de SQL Server de origen mediante la vista [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) o los [contadores de rendimiento](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +79,10 @@ Como resultado de esta actividad debería tener documentados los valores promedi
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementación en una instancia administrada con tamaño óptimo
 
 Instancia administrada se ha diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](sql-database-service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El modelo de compra de Instancia administrada se basa en núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube. Aquí se describen algunas directrices generales que pueden ayudarle a elegir las características y el nivel de servicio correctos:
-- [Supervise el uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y compruebe cuánta potencia de proceso utiliza actualmente (mediante vistas de administración dinámicas, SQL Server Management Studio u otras herramientas de supervisión). Puede aprovisionar una instancia administrada que coincida con el número de núcleos que usa en SQL Server, teniendo en cuenta que puede que las características de la CPU tengan que escalarse para que coincidan con las [características de la máquina virtual en la que está instalada Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Compruebe la cantidad de memoria disponible en la instancia de SQL Server y elija [el nivel de servicio que coincida con la memoria](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Sería útil medir la duración prevista de la página en la instancia de SQL Server para determinar si [necesita memoria adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Mida la latencia de E/S del subsistema de archivos para elegir entre los niveles de servicio De uso General y Crítico para la empresa.
+- Según el uso de CPU de la base, puede aprovisionar una Instancia administrada que coincida con el número de núcleos que usa en SQL Server, teniendo en cuenta que puede que las características de la CPU deban escalarse para que coincidan con las [características de la máquina virtual en la que está instalada la Instancia administrada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- En función del uso de memoria de la base de referencia, elija [el nivel de servicio que se ajuste a la memoria](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). La cantidad de memoria no se puede elegir directamente, por lo que tendría que seleccionar la Instancia administrada con la cantidad de núcleos virtuales que coincida con la memoria (por ejemplo, 5,1 GB/núcleo virtual en Gen5). 
+- En función de la latencia de E/S de la base de referencia del subsistema de archivos, elija entre los niveles de servicio De uso general (latencia mayor que 5 ms) y Crítico para la empresa (latencia inferior a 3 ms).
+- Según el rendimiento de la base de referencia, asigne previamente el tamaño de los archivos de datos o de registro para obtener el rendimiento de E/S esperado.
 
 Puede seleccionar recursos de almacenamiento y proceso en el momento de la implementación y, posteriormente, cambiarlos sin provocar tiempo de inactividad de la aplicación con [Azure Portal](sql-database-scale-resources.md):
 
@@ -169,6 +177,13 @@ El resultado de la comparación de rendimiento puede ser:
 Cambie los parámetros o actualice los niveles de servicio para que converjan en la configuración óptima hasta que consiga que el rendimiento de la carga de trabajo se ajuste a sus necesidades.
 
 ### <a name="monitor-performance"></a>Supervisión del rendimiento
+
+Instancia administrada proporciona una gran cantidad de herramientas avanzadas para la supervisión y solución de problemas, y debe utilizarlas para supervisar el rendimiento de la instancia. Algunos de los parámetros que tendría que supervisar son:
+- El uso de CPU en la instancia para determinar que el número de núcleos virtuales que ha aprovisionado es la opción adecuada para la carga de trabajo.
+- La duración prevista de la página en la Instancia administrada para determinar si [necesita memoria adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Espere estadísticas como `INSTANCE_LOG_GOVERNOR` o `PAGEIOLATCH`, que le indicarán que tiene problemas de E/S de almacenamiento, especialmente en el nivel De uso general en el que podría tener que asignar previamente archivos para obtener un mejor rendimiento de E/S.
+
+## <a name="leverage-advanced-paas-features"></a>Aprovechamiento de las características avanzadas de PaaS
 
 Una vez que se encuentra en una plataforma totalmente administrada y ha comprobado que el rendimiento de la carga de trabajo coincide con el rendimiento de la carga de trabajo de SQL Server, aproveche las ventajas que se proporcionan automáticamente como parte del servicio SQL Database. 
 

@@ -1,6 +1,6 @@
 ---
-title: Claves de suscripción
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Claves de suscripción: LUIS'
+titleSuffix: Azure Cognitive Services
 description: No es necesario crear claves de suscripción para usar las primeras 1000 consultas de punto de conexión. Si recibe un error de que se ha quedado _sin cuota_ como un error HTTP 403 o 429, debe crear una clave y asignarla a la aplicación.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c7e23c78b5d03b834d593bd2b53958c3379c51f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560524"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
 
@@ -149,7 +149,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
     |Encabezado|`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|
     |Encabezado|`Content-type`|`application/json`|
     |QueryString|`appid`|El id. de la aplicación LUIS. 
-    |Cuerpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Cuando esta API finaliza correctamente, devuelve un estado 201: creado. 
 

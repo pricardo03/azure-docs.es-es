@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599018"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780376"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel (versión preliminar)
 
@@ -90,7 +90,7 @@ Puede ejecutar un cuaderno de estrategias a petición.
 
 Para ejecutar un cuaderno de estrategias a petición:
 
-1. En la página **Cases** (Casos), seleccione un caso y haga clic en **View full details** (Ver detalles completos).
+1. En la página **incidents** (incidentes), seleccione un incidente y haga clic en **View full details** (Ver detalles completos).
 
 2. En la pestaña **Alertas**, haga clic en la alerta que desee para ejecutar el cuaderno de estrategias, desplácese completamente a la derecha, haga clic en **Ver cuadernos de estrategias** y seleccione un cuaderno de estrategias para **ejecutar** en el lista de cuadernos de estrategias disponibles en la suscripción. 
 

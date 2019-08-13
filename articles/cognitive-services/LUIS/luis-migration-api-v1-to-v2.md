@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522362"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560316"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087). 
@@ -153,9 +153,9 @@ Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) proporci
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importación de una aplicación de 1.x a 2.x
-El JSON de la aplicación 1.x exportado tiene algunas áreas que debe cambiar antes de importarla en [LUIS][LUIS] 2.0. 
+El JSON de la aplicación 1.x exportada tiene algunas áreas que debe cambiar antes de importarla en [LUIS][LUIS]2.0. 
 
-### <a name="prebuilt-entities"></a>Entidades creadas previamente 
+### <a name="prebuilt-entities"></a>Entidades precompiladas 
 Las [entidades creadas previamente](luis-prebuilt-entities.md) han cambiado. Asegúrese de que está usando las entidades creadas previamente de la v2. Esto incluye el uso de [datetimeV2](luis-reference-prebuilt-datetimev2.md), en lugar de datetime. 
 
 ### <a name="actions"></a>Acciones

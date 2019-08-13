@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257066"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68551999"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -41,7 +41,7 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
    }
    ```
 
-2. **Cosmos DB:** los datos generados son almacenes en una colección de Azure Cosmos DB.  
+2. **Cosmos DB:** Los datos generados se almacenan en una colección de Azure Cosmos DB.  
 
 3. **Fuente de cambios:** la fuente de cambios escuchará para detectar cambios en la colección de Azure Cosmos DB. Cada vez que se agregue un nuevo documento a la colección (es decir, cuando se produce un evento tal como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo), la fuente de cambios desencadenará una [función de Azure](../azure-functions/functions-overview.md).  
 

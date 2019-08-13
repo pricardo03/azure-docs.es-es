@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346891"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666285"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -31,6 +31,12 @@ Durante la fase de auditoría, muchas organizaciones concluyen lo siguiente:
 * Necesitan mejorar los procesos operativos existentes para usar contraseñas más seguras.
 * Los usuarios suelen usan contraseñas no seguras.
 * Debe informar a los usuarios sobre el próximo cambio en el cumplimiento de seguridad, el posible impacto para ellos y cómo elegir contraseñas más seguras.
+
+También es posible que la validación de contraseñas más segura afecte a la automatización de la implementación de controladores de dominio de Active Directory existente. Es aconsejable que, al menos, se produzcan una promoción de DC y una degradación de DC durante la evaluación del período de auditoría con el fin de ayudar a descubrir dichos problemas con antelación.  Para más información, consulte:
+
+* [Ntdsutil. exe no puede establecer una contraseña no segura de Modo de reparación de servicios de directorio](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [No se puede realizar la promoción de la réplica del controlador de dominio debido a una contraseña de Modo de reparación de servicios de directorio no segura](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [No se puede realizar la degradación del controlador de dominio debido a una contraseña no segura del administrador local](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Después de que la característica se haya ejecutado en modo de auditoría durante un período razonable, puede cambiar la configuración de *Auditoría* a *Exigir* para requerir contraseñas más seguras. Es conveniente enfocar la supervisión durante dicho período.
 

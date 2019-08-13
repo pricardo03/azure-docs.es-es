@@ -10,10 +10,10 @@ ms.topic: conceptual
 description: Cómo funciona Visual Studio Code con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68297862"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Cómo funciona Visual Studio Code con Azure Dev Spaces
@@ -41,7 +41,7 @@ Después de generar los recursos del proyecto, puede ejecutar los servicios de J
 
 Debe crear el clúster de AKS y habilitar Azure Dev Spaces en el clúster fuera de Visual Studio Code. Por ejemplo, puede usar la CLI de Azure o Azure Portal para realizar esta configuración. Puede volver a usar Dockerfiles, gráficos de Helm y archivos `azds.yaml` existentes creados fuera de Visual Studio Code, por ejemplo los recursos generados mediante la ejecución de `azds prep`. Si vuelve a usar recursos generados fuera de Visual Studio Code, aún debe tener un directorio `.vscode`. Visual Studio Code y la extensión Azure Dev Spaces pueden regenerar este directorio `.vscode` sin sobrescribir los recursos existentes.
 
-En proyectos de .NET Core, debe tener la [extensión de C#][csharp-extension] installed to run your .NET service from Visual Studio Code. Also for Java projects using Maven, you must have the [Java Debugger for Azure Dev Spaces extension][java-extension] instalada, así como [Maven instalado y configurado][maven] para ejecutar el servicio de Java desde Visual Studio Code.
+En proyectos de .NET Core, debe tener instalada la [extensión de C#][csharp-extension] para ejecutar el servicio de .NET desde Visual Studio Code. Asimismo, para los proyectos de Java con Maven, debe tener instalada la [extensión de Java Debugger para Azure Dev Spaces][java-extension] además de [Maven instalado y configurado][maven] para ejecutar el servicio de Java desde Visual Studio Code.
 
 ## <a name="debug-your-service-in-aks"></a>Depurar el servicio en AKS
 

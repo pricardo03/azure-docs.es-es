@@ -3,20 +3,20 @@ title: Solución de problemas de estado degradado en Administrador de tráfico d
 description: Cómo solucionar problemas de perfiles de Administrador de tráfico cuando se muestra como muestra un estado degradado.
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357229"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565866"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
@@ -30,8 +30,8 @@ Si el estado de su instancia de Traffic Manager muestra **Inactivo**, ambos punt
 
 ## <a name="understanding-traffic-manager-probes"></a>Descripción de los sondeos de Traffic Manager
 
-* Traffic Manager considera que un punto de conexión está EN LÍNEA solo cuando el sondeo recibe una respuesta HTTP 200 desde la ruta de acceso del sondeo. Cualquier otra respuesta que no sea la respuesta 200 es un error.
-* Un redireccionamiento 30x producirá un error incluso si la dirección URL redirigida devuelve una respuesta 200.
+* Traffic Manager considera que un punto de conexión está EN LÍNEA solo cuando el sondeo recibe una respuesta HTTP 200 desde la ruta de acceso del sondeo. Si la aplicación devuelve cualquier otro código de respuesta HTTP, debe agregar ese código de respuesta a los [intervalos de código de estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del perfil de Traffic Manager.
+* Una respuesta de redireccionamiento de 30x se trata como un error, a menos que se haya especificado como un código de respuesta válido en los [intervalos de código de estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del perfil de Traffic Manager. Traffic Manager no sondea el destino de la redirección.
 * En los sondeos HTTPs, se omiten los errores de certificado.
 * No importa el contenido real de la ruta de acceso del sondeo, siempre y cuando se devuelva una respuesta 200. Realizar un sondeo de una dirección URL en algún contenido estático, como "/favicon.ico" es una técnica habitual. Los contenidos dinámicos, como las páginas ASP, puede que no siempre devuelvan una respuesta 200, incluso si la aplicación está en buen estado.
 * Un procedimiento recomendado consiste en establecer la ruta de acceso del sondeo en algo que tenga una lógica suficiente para determinar si el sitio está activo o inactivo. En el ejemplo anterior, al establecer la ruta de acceso en "/favicon.ico", solo prueba que w3wp.exe está respondiendo. Puede que este sondeo no indique que la aplicación web está funcionando correctamente. Sería una mejor opción establecer una ruta de acceso a algo como "/Probe.aspx" que tiene lógica para determinar el estado del sitio. Por ejemplo, podría usar contadores de rendimiento para medir el uso de la CPU o el número de solicitudes con error. O bien, podría intentar acceder a los recursos de la base de datos o al estado de la sesión para asegurarse de que la aplicación web funciona.

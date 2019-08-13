@@ -1,6 +1,6 @@
 ---
-title: Pruebas por lotes
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Pruebas por lotes: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Use las pruebas por lotes para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 services: cognitive-services
 author: diberry
@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813298"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639292"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
-Las pruebas por lotes validan el modelo entrenado [activo](luis-concept-version.md#active-version) para medir la precisión de la predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en el modelo entrenado actual en un gráfico. Revise los resultados de la prueba por lotes para adoptar las medidas apropiadas para mejorar la precisión, como agregar más expresiones de ejemplo a una intención si la aplicación presenta errores frecuentes de identificación de la intención correcta.
+Las pruebas por lotes validan el modelo entrenado [activo](luis-concept-version.md#active-version) para medir la precisión de la predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en el modelo entrenado actual, mostrando los resultados en un gráfico. Revise los resultados de la prueba por lotes para adoptar las medidas apropiadas para mejorar la precisión, como agregar más expresiones de ejemplo a una intención si la aplicación presenta errores frecuentes de identificación de la intención correcta.
 
 ## <a name="group-data-for-batch-test"></a>Agrupación de datos para pruebas por lotes
 
-Es importante que las expresiones utilizadas para las pruebas por lotes sean nuevas en LUIS. Si tiene un conjunto de datos de expresiones, divida las expresiones en tres conjuntos: expresiones agregadas a una intención, expresiones recibidas desde el punto de conexión publicado y expresiones utilizadas para las pruebas por lotes de LUIS después de su entrenamiento. 
+Es importante que las expresiones utilizadas para las pruebas por lotes sean nuevas en LUIS. Si tiene un conjunto de datos de expresiones, divida las expresiones en tres conjuntos: expresiones de ejemplo agregadas a una intención, expresiones recibidas desde el punto de conexión publicado y expresiones utilizadas para las pruebas por lotes de LUIS después de su entrenamiento. 
 
-## <a name="a-dataset-of-utterances"></a>Un conjunto de datos de expresiones
+## <a name="a-data-set-of-utterances"></a>Un conjunto de datos de expresiones
 
 Envíe un archivo por lotes de expresiones, conocido como *conjunto de datos*, para las pruebas por lotes. El conjunto de datos es un archivo con formato JSON que contiene un máximo de 1000 expresiones **no duplicadas** etiquetadas. Puede probar hasta diez conjuntos de datos en una aplicación. Si necesita probar más, elimine un conjunto de datos y luego agregue uno nuevo.
 

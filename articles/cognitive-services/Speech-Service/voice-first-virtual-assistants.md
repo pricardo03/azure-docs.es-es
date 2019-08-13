@@ -1,5 +1,5 @@
 ---
-title: 'Asistentes virtuales por voz personalizados (versión preliminar): servicios de Voz'
+title: 'Asistentes virtuales por voz personalizados (versión preliminar): Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Información general de las características, funcionalidades y restricciones de los asistentes virtuales por voz personalizados mediante el canal de Voz Direct Line en Bot Framework y el kit de desarrollo de software (SDK) de Voz de Cognitive Services.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806903"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552541"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre los asistentes virtuales por voz personalizados (versión preliminar)
 

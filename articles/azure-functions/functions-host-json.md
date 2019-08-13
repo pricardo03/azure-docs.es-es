@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371698"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564793"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -147,7 +147,10 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay límite total y el valor predeterminado depende de la versión del entorno de ejecución. En la versión 2.x, el valor predeterminado en un plan de App Service es 30 minutos. En la versión 1.x, es *null*, lo que indica que no hay tiempo de espera. No se puede establecer en infinito. Si no se establece este valor explícitamente, se tomará el valor predeterminado de 30 minutos.
+Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos.  
+En un plan dedicado (App Service), no hay límite total y el valor predeterminado depende de la versión del entorno de ejecución: 
++ En la versión 1.x, el valor predeterminado es *null*, lo que indica que no hay tiempo de espera.   
++ En la versión 2.x, el tiempo de espera predeterminado es de 30 minutos. Un valor de `-1` indica una ejecución sin enlazar.
 
 ```json
 {

@@ -6,24 +6,121 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: larryfr
-author: Blackmist
-ms.date: 05/14/2019
+ms.author: jmartens
+author: j-martens
+ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2568d2213d15faf66ecf606e56ea6b82bacafc3e
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233677"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565103"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
-En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener una descripción completa de cada SDK, consulte los documentos de referencia de:
-+ El SDK principal para Python de [**Azure Machine Learning**](https://aka.ms/aml-sdk)
-+ El [**SDK de preparación de datos de Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://aka.ms/aml-sdk) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2019-07-23"></a>2019-07-23
+
+### <a name="azure-machine-learning-sdk-for-python-v1053"></a>SDK de Azure Machine Learning para Python v1.0.53
+
++ **Nuevas características:**
+  + Automated Machine Learning ahora admite modelos de ONNX de entrenamiento en el destino de proceso remoto
+  + Ahora Azure Machine Learning proporciona la capacidad de reanudar el entrenamiento de una ejecución anterior, punto de comprobación o archivos de modelo.
+    + Obtenga información sobre [cómo usar los estimadores para reanudar el entrenamiento desde una ejecución anterior](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+
++ **Mejoras y correcciones de errores**
+  + **automl-client-core-nativeclient**
+    + Se corrige el error sobre la pérdida de tipos de columnas después de la transformación (error vinculado). 
+    + Se permite que y_query sea un tipo de objeto que contiene None(s) al principio (#459519).
+  + **azure-cli-ml**
+    + Los comandos de la CLI de implementación de modelos y de actualización de servicio ahora aceptan parámetros, archivos de configuración o una combinación de ambos. Los parámetros tienen prioridad sobre los atributos en los archivos.
+    + La descripción del modelo ahora se puede actualizar después del registro.
+  + **azureml-automl-core**
+    + Actualice la dependencia de NimbusML a la versión 1.2.0 (la más reciente actualmente).
+    + Se agrega compatibilidad con los estimadores y canalizaciones de Nimbus ML que se van a usar dentro de los estimadores de AutoML.
+    + Se corrige el error en el procedimiento de selección de conjuntos que hacía aumentar innecesariamente el conjunto resultante aunque las puntuaciones permanecieran constantes.
+    + Se habilita la reutilización de algunas características en las divisiones de CV para las tareas de previsión. De este modo, se acelera la ejecución del programa de instalación aproximadamente en un factor de n_cross_validations para las características caras, como las ventanas con desplazamiento y retraso.
+    + Se soluciona un problema si el tiempo está fuera del intervalo de tiempo admitido de pandas. Ahora se genera una excepción DataException si el tiempo es menor que pd.Timestamp.min o mayor que pd.Timestamp.max.
+    + La previsión permite ahora frecuencias diferentes en los conjuntos de entrenamiento y de prueba si se pueden alinear. Por ejemplo, "quarterly starting in January" y "quarterly starting in October" se pueden alinear.
+    + La propiedad "parameters" se ha agregado a TimeSeriesTransformer.
+    + Se quitan las clases de excepción antiguas.
+    + En las tareas de previsión, el parámetro `target_lags` ahora acepta un valor entero único o una lista de enteros. Si se proporcionó el entero, solo se creará un retardo. Si se proporciona una lista, se tomarán los valores únicos de los retardos. target_lags=[1, 2, 2, 4] creará retardos de uno, dos y cuatro períodos.
+    + Se corrige el error sobre la pérdida de tipos de columnas después de la transformación (error vinculado).
+    + En `model.forecast(X, y_query)` se permite que y_query sea un tipo de objeto que contiene None(s) al principio (#459519).
+    + Se agregan los valores esperados a la salida de automl.
+  + **azureml-contrib-datadrift**
+    +  Se incluyen mejoras en el cuaderno de ejemplo, incluido el cambio a azureml-opendatasets en lugar de azureml-contrib-opendatasets y mejoras de rendimiento al enriquecer datos.
+  + **azureml-contrib-explain-model**
+    + Se corrige el argumento de transformaciones para el explicador LIME con respecto a la importancia de la característica sin formato en el paquete azureml-contrib-explain-model.
+    + Se han agregado segmentaciones a las explicaciones de imágenes en el explicador de imágenes del paquete AzureML-contrib-explain-model.
+    + Se agrega compatibilidad dispersa con SciPy para LimeExplainer.
+    + Se agrega batch_size para imitar el explicador cuando include_local=False para las explicaciones globales de streaming en los lotes a fin de mejorar el tiempo de ejecución de DecisionTreeExplainableModel.
+  + **azureml-contrib-featureengineering**
+    + Se corrige para llamar a set_featurizer_timeseries_params(): el cambio de tipo de valor dict y null check. Se agrega un cuaderno para el caracterizador timeseries.
+    + Actualice la dependencia de NimbusML a la versión 1.2.0 (la más reciente actualmente).
+  + **azureml-core**
+    + Se agrega la capacidad de asociar almacenes de datos DBFS en la CLI de AzureML. 
+    + Se corrige el error con la carga del almacén de datos en que se creaba una carpeta vacía si `target_path` se iniciaba con `/`.
+    + Se corrige el problema de deepcopy en ServicePrincipalAuthentication.
+    + Se han agregado los comandos "az ml environment show" y "az ml environment list" a la CLI.
+    + Los entornos ahora admiten la especificación de un base_dockerfile como alternativa a una base_image ya creada.
+    + La configuración de RunConfiguration sin usar en auto_prepare_environment se ha marcado como en desuso.
+    + La descripción del modelo ahora se puede actualizar después del registro.
+    + Corrección de los errores: Ahora, la eliminación del modelo y la imagen proporciona más información sobre la recuperación de objetos ascendentes que dependen de ellos si la eliminación produce un error debido a una dependencia ascendente.
+    + Se corrige un error que imprimía la duración en blanco para las implementaciones que se producen al crear un área de trabajo para algunos entornos.
+    + Se han mejorado las excepciones de error de la creación de áreas de trabajo. Así, los usuarios no verán el mensaje "Unable to create workspace. Unable to find... " (No se puede crear el área de trabajo. No se puede encontrar.) y, en su lugar, verán el error de creación real.
+    + Se agrega compatibilidad con la autenticación de token en los servicios web de AKS. 
+    + Agregue el método `get_token()` a los objetos `Webservice`.
+    + Se ha agregado compatibilidad con la CLI para administrar conjuntos de datos de aprendizaje automático.
+    + `Datastore.register_azure_blob_container` ahora, opcionalmente, acepta un valor `blob_cache_timeout` (en segundos) que configura los parámetros de montaje de blobfuse para habilitar la expiración de la memoria caché para este almacén de datos. El valor predeterminado es sin tiempo de espera, es decir, cuando se lea un blob, permanecerá en la memoria caché local hasta que el trabajo finalice. La mayoría de los trabajos preferirán esta configuración, pero algunos trabajos necesitan leer más datos de un conjunto de datos grande que quepa en sus nodos. Para estos trabajos, el ajuste de este parámetro les ayudará a funcionar correctamente. Tenga cuidado al optimizar este parámetro: si establece un valor demasiado bajo, puede producirse un rendimiento deficiente, ya que los datos que se usan en una época pueden expirar antes de volver a usarse. Esto significa que todas las lecturas se realizarán desde el almacenamiento de blobs (es decir, la red) en lugar de la memoria caché local, lo que afecta desfavorablemente a los tiempos de entrenamiento.
+    + La descripción del modelo ahora se puede actualizar correctamente después del registro.
+    + La eliminación de modelos e imágenes ahora proporciona más información sobre los objetos de nivel superior que dependen de ellos, lo que provoca un error en la eliminación.
+    + Se mejora la utilización de recursos de las ejecuciones remotas que usan azureml.mlflow.
+  + **azureml-explain-model**
+    + Se corrige el argumento de transformaciones para el explicador LIME con respecto a la importancia de la característica sin formato en el paquete azureml-contrib-explain-model.
+    + Se agrega compatibilidad dispersa con SciPy para LimeExplainer.
+    + Se agrega el contenedor de explicación lineal, así como otro nivel de explicación tabular para explicar los modelos lineales.
+    + Para imitar la explicación en la biblioteca de modelos de explicación, se corrige el error cuando include_local=False para la entrada de datos dispersos.
+    + Se agregan los valores esperados a la salida de automl.
+    + Se corrige la importancia de la característica de permutación cuando se proporcionaba el argumento de transformaciones para obtener la importancia de la característica sin procesar.
+    + Se agrega batch_size para imitar el explicador cuando include_local=False para las explicaciones globales de streaming en los lotes a fin de mejorar el tiempo de ejecución de DecisionTreeExplainableModel.
+    + Para la biblioteca de explicación de modelos, se corrigieron las explicaciones de la caja negra en los que la entrada de trama de datos de Pandas es necesaria para la predicción.
+    + Se corrige el error por el que `explanation.expected_values` a veces devolvería un valor float en lugar de una lista con dicho valor incluido.
+  + **azureml-mlflow**
+    + Se mejora el rendimiento de mlflow.set_experiment(experiment_name).
+    + Se corrige el error en el uso de InteractiveLoginAuthentication para tracking_uri de mlflow.
+    + Se mejora la utilización de recursos de las ejecuciones remotas que usan azureml.mlflow.
+    + Se mejora la documentación del paquete azureml-mlflow.
+    + Se corrige el error que hacía que mlflow.log_artifacts("my_dir") guardara artefactos en "my_dir/artifact-paths" en lugar de "artifact-paths".
+  + **azureml-opendatasets**
+    + Se ancla pyarrow de opendatasets para las versiones anteriores (<0.14.0) debido al problema de memoria reciente.
+    +  Se mueve azureml-contrib-opendatasets a azureml-opendatasets. - Se permite que las clases del conjunto de datos abierto se registren en el área de trabajo de AML y aprovechen sin problemas las funcionalidades del conjunto de datos de AML. - Se mejora significativamente el rendimiento de enriquecimiento de NoaaIsdWeather en una versión que no es de SPARK.
+  + **azureml-pipeline-steps**
+    + El almacén de datos DBFS se admite ahora en las entradas y salidas de DatabricksStep.
+    + Se actualiza la documentación para Azure Batch Step con respecto a las entradas y salidas.
+    + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true*.
+  + **azureml-telemetry**
+    +  Se mueve azureml-contrib-opendatasets a azureml-opendatasets. - Se permite que las clases del conjunto de datos abierto se registren en el área de trabajo de AML y aprovechen sin problemas las funcionalidades del conjunto de datos de AML. - Se mejora significativamente el rendimiento de enriquecimiento de NoaaIsdWeather en una versión que no es de SPARK.
+  + **azureml-train-automl**
+    + Se actualiza la documentación sobre get_output para reflejar el tipo de valor devuelto real y proporcionar notas adicionales sobre cómo recuperar las propiedades de clave.
+    + Actualice la dependencia de NimbusML a la versión 1.2.0 (la más reciente actualmente).
+    + Se agregan los valores esperados a la salida de automl.
+  + **azureml-train-core**
+    + Ahora se aceptan cadenas como destino de proceso para la optimización automática de hiperparámetros.
+    + La configuración de RunConfiguration sin usar en auto_prepare_environment se ha marcado como en desuso.
+
+### <a name="azure-machine-learning-data-prep-sdk-v119"></a>SDK de preparación de datos de Azure Machine Learning v1.1.9
+
++ **Nuevas características:**
+  + Se agrega compatibilidad para leer un archivo directamente desde una dirección URL HTTP o HTTPS.
+
++ **Mejoras y correcciones de errores**
+  + Se mejora el mensaje de error al intentar leer un conjunto de datos Parquet de un origen remoto (que no se admite actualmente).
+  + Se corrige un error al escribir en el formato de archivo Parquet en ADLS Gen 2 y al actualizar el nombre del contenedor ADLS Gen 2 en la ruta de acceso.
 
 ## <a name="2019-07-09"></a>09/07/2019
 
@@ -622,7 +719,7 @@ El proceso de Azure Machine Learning se puede crear en Python, mediante Azure Po
 + Vea el estado del clúster del Proceso de Machine Learning en tiempo real.
 + La compatibilidad con la red virtual se agregó para la creación de Azure Kubernetes Service y el proceso de Azure Machine Learning.
 + Vuelva a ejecutar sus canalizaciones publicadas con los parámetros existentes.
-+ Nuevos [gráficos de aprendizaje automático automatizados](how-to-track-experiments.md#auto) para modelos de clasificación (gráfico de importancia de características, elevación, ganancias y calibración con explicabilidad de modelo) y modelos de regresión (gráfico de importancia de características y valores residuales con explicabilidad de modelo). 
++ Nuevos [gráficos de aprendizaje automático automatizados](how-to-understand-automated-ml.md) para modelos de clasificación (gráfico de importancia de características, elevación, ganancias y calibración con explicabilidad de modelo) y modelos de regresión (gráfico de importancia de características y valores residuales con explicabilidad de modelo). 
 + Las canalizaciones se pueden ver en Azure Portal
 
 

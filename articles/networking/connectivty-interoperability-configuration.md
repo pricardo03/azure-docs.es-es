@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68335932"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración de prueba
@@ -188,22 +188,21 @@ En el emparejamiento de redes virtuales dentro de una región, las redes virtual
 
 You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. La solución de Azure nativa para esta configuración es la conectividad VPN de sitio a sitio mediante una VPN. Una alternativa es usar una aplicación virtual de red (NVA) para el enrutamiento en el centro de conectividad.
 
-Para más información, consulte [¿Qué es VPN Gateway?][VPN]
+Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementación de aplicaciones virtuales de red de alta disponibilidad][Deploy-NVA].
 
-## <a name="next-steps"></a>and [Deploy a highly available NVA][Deploy-NVA].
-
-Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca del [análisis del plano de control][Control-Analysis] de la configuración de prueba y de las vistas de otras redes virtuales y VLAN de la topología.
 
 Más información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
--   Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
+
+Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
+-   Los límites de escala de ExpressRoute.
 
 
 <!--Image References-->
-Los límites de escala de ExpressRoute.
 [1]: ./media/backend-interoperability/SpokeVNet_peering.png "Emparejamiento de VNET de la red virtual de radio"
 [2]: ./media/backend-interoperability/HubVNet-peering.png "Emparejamiento de VNET de la red virtual del concentrador"
 [3]: ./media/backend-interoperability/BranchVNet-VPNGW.png "Configuración de la puerta de enlace de VPN de una red virtual de sucursal"
@@ -211,6 +210,7 @@ Los límites de escala de ExpressRoute.
 [5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "Configuración de la conexión de ExpressRoute 1 a la puerta de enlace ExR del centro de conectividad"
 [6]: ./media/backend-interoperability/ExR2.png "Configuración de ExpressRoute 2"
 [7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "Configuración de la conexión de ExpressRoute 2 a la puerta de enlace ExR del centro de conectividad"
+[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Configuración de la conexión de ExpressRoute 2 a la puerta de enlace ExR de la red virtual remota"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

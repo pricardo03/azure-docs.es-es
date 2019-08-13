@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/02/2018
+ms.topic: conceptual
+ms.date: 07/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 747b279b38ec3b73f19194825195f1b3450d4514
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545799"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834860"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -41,7 +41,46 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
-No hay ninguno programado en este momento. 
+Agosto de 2019: Se aplicará la semántica de POST de acuerdo con las reglas de análisis de direcciones URL: los parámetros duplicados desencadenarán un error, las comillas entre los parámetros ya no se omitirán y se omitirá la marca [BOM](https://www.w3.org/International/questions/qa-byte-order-mark).
+
+## <a name="july-2019"></a>Julio de 2019
+
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Los tokens solo de aplicación para aplicaciones de inquilino único solo se emiten si la aplicación cliente existe en el inquilino de recursos.
+
+**Fecha efectiva**: 26 de julio de 2019
+
+**Puntos de conexión afectados**: [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) y [v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+
+**Protocolo afectado**: [credenciales de cliente (tokens de solo aplicación)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+El 26 de julio se aplicó un cambio de seguridad que modifica la manera en la que se emiten los tokens de solo aplicación (a través de la concesión de credenciales de cliente). Anteriormente, las aplicaciones podían obtener tokens para llamar a cualquier otra aplicación, sin tener en cuenta su presencia en el inquilino o los roles con consentimiento para esa aplicación.  Este comportamiento se ha actualizado de modo que, en el caso de los recursos (a veces denominados API web) configurados para ser inquilino único (el valor predeterminado), la aplicación cliente debe existir en el inquilino de recursos.  Tenga en cuenta que aún no se requiere que exista consentimiento entre el cliente y la API, y que las aplicaciones todavía deben realizar sus propias comprobaciones de autorización para asegurarse de que existe una notificación `roles` y de que contiene el valor esperado para la API.
+
+El mensaje de error de este escenario indica actualmente: 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+Para solucionar este problema, use la experiencia de consentimiento del administrador con el fin de crear la entidad de servicio de la aplicación cliente en el inquilino o bien créela manualmente.  Este requisito garantiza que el inquilino ha dado permiso a la aplicación para que opere dentro del inquilino.  
+
+#### <a name="example-request"></a>Solicitud de ejemplo
+
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` En este ejemplo, el inquilino de recursos (autoridad) es contoso.com, la aplicación de recursos es una aplicación de un solo inquilino denominada `gateway.contoso.com/api` para el inquilino de Contoso y la aplicación cliente es `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Si la aplicación cliente tiene una entidad de servicio en Contoso.com, esta solicitud puede continuar.  Si no la tiene, se producirá el error anterior en la solicitud.  
+
+Si la aplicación de puerta de enlace de Contoso fuera una aplicación de varios inquilinos, la solicitud continuaría, independientemente de que la aplicación cliente tuviera o no una entidad de servicio en Contoso.com.  
+
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Los identificadores URI de redireccionamiento ahora pueden contener parámetros de cadena de consulta.
+
+**Fecha efectiva**: 22 de julio de 2019
+
+**Puntos de conexión afectados**: v1.0 y v2.0
+
+**Protocolo afectado**: Todos los flujos
+
+Según la solicitud [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), las aplicaciones de Azure AD ahora pueden registrar y usar identificadores URI de redireccionamiento (respuesta) con parámetros de consulta estáticos (como https://contoso.com/oauth2?idp=microsoft) ) para solicitudes de OAuth 2.0.  Los identificadores URI de redireccionamiento dinámico siguen estando prohibidos, ya que representan un riesgo de seguridad, y no se pueden usar para conservar la información de estado a través de una solicitud de autenticación; para ello, use el parámetro `state`.
+
+El parámetro de consulta estático está sujeto a la coincidencia de cadenas para los identificadores URI de redireccionamiento, al igual que cualquier otra parte del URI de redireccionamiento; si no hay ninguna cadena registrada que coincida con el parámetro redirect_uri descodificado con URI, se rechazará la solicitud.  Si se encuentra el identificador URI en el registro de la aplicación, se usará toda la cadena para redirigir al usuario, incluido el parámetro de consulta estático. 
+
+Tenga en cuenta que en este momento (final de julio de 2019), la experiencia de usuario del registro de aplicaciones en Azure Portal sigue bloqueando los parámetros de consulta.  Sin embargo, puede editar el manifiesto de aplicación manualmente para agregar parámetros de consulta y probar este procedimiento en la aplicación.  
+
 
 ## <a name="march-2019"></a>Marzo de 2019
 

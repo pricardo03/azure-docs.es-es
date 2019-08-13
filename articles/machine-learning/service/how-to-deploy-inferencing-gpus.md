@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494351"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694342"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
@@ -25,6 +25,9 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 
 > [!TIP]
 > Aunque los fragmentos de código de este artículo usan un modelo de TensorFlow, puede aplicar la información a cualquier marco de aprendizaje automático que admita GPU.
+
+> [!NOTE]
+> La información de este artículo se basa en la información del artículo [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md). Aunque en ese artículo se trata de forma general la realización de implementaciones en Azure Container Service, este trata la implementación específica de GPU.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure le facturará siempre y cuando exista el clúster de AKS. Asegúrese de eliminar el clúster de AKS cuando haya terminado con él.
 
-Para obtener más información sobre el uso de Azure Kubernetes Service con Azure Machine Learning Service, consulte [Cómo implementar y dónde](how-to-deploy-and-where.md#deploy-aks).
+Para más información acerca del uso de Azure Kubernetes Service con Azure Machine Learning Service, consulte [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Escribir el script de entrada
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Para obtener más información, consulte la documentación de referencia de [AksService.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+Para obtener más información, consulte la documentación de referencia de [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definición de la configuración de inferencia
 
@@ -209,7 +212,7 @@ Para obtener más información, consulte la documentación de referencia del [mo
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Emisión de una consulta de ejemplo para el servicio
 
-Envíe una consulta de prueba para el modelo implementado. Cuando se envía una imagen jpeg al modelo, este puntúa la imagen. En el siguiente ejemplo de código, se descargan los datos de prueba y, a continuación, se selecciona una imagen de prueba aleatoria para enviar al servicio. 
+Enviar una consulta de prueba para el modelo implementado. Cuando se envía una imagen jpeg al modelo, este puntúa la imagen. En el siguiente ejemplo de código, se descargan los datos de prueba y, a continuación, se selecciona una imagen de prueba aleatoria para enviar al servicio. 
 
 ```python
 # Used to test your webservice

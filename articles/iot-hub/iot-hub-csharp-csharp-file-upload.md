@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6e41b1999033c00b277cd35173b3247a727e9a8a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403203"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668136"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -42,7 +42,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 * **ReadFileUploadNotification**, que recibe notificaciones de carga de archivos del Centro de IoT.
 
 > [!NOTE]
-> IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, Java y JavaScript), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot) para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
+> IoT Hub admite muchas plataformas de dispositivos y lenguajes (entre los que se incluyen C, Java, Python y JavaScript), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot) para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -62,7 +62,7 @@ En esta sección, modificará la aplicación de dispositivo que creó en [Envío
 
     ![Muestra dónde se actualiza la propiedad de imagen para Copiar en el directorio de salida](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 
-1. En el archivo **Program.cs** , agregue las siguientes instrucciones al principio del archivo:
+1. En el archivo **Program.cs**, agregue las siguientes instrucciones al principio del archivo:
 
     ```csharp
     using System.IO;
@@ -118,7 +118,7 @@ En esta sección, se escribe una aplicación de consola de .NET que recibe mensa
 
     Esta acción descarga, instala y agrega una referencia al [paquete NuGet del SDK de servicios IoT de Azure ](https://www.nuget.org/packages/Microsoft.Azure.Devices/) en el proyecto **ReadFileUploadNotification**.
 
-4. En el archivo **Program.cs** , agregue las siguientes instrucciones al principio del archivo:
+4. En el archivo **Program.cs**, agregue las siguientes instrucciones al principio del archivo:
 
     ```csharp
     using Microsoft.Azure.Devices;

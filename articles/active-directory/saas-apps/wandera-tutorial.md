@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798554"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825286"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Tutorial: Integración de Wandera con Azure Active Directory
 
@@ -37,7 +37,7 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede obtener la evaluación gratuita de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Wandera.
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -66,9 +66,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con Wandera, e
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración del inicio de sesión único en Wandera](#configure-wandera-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Wandera](#create-wandera-test-user)** , para tener un homólogo de Britta Simon en Wandera que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Wandera](#create-wandera-test-user)** , para tener un homólogo de B. Simon en Wandera que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -88,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos** y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -106,7 +106,27 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 ### <a name="configure-wandera-sso"></a>Configuración del inicio de sesión único de Wandera
 
-Para configurar el inicio de sesión único en **Wandera**, es preciso enviar el **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para automatizar la configuración en Wandera, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Wandera** para ir a la aplicación Wandera. En ella, escriba las credenciales de administrador para iniciar sesión en Wandera. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 y 4.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar Wandera manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Wandera como administrador y haga lo siguiente:
+
+4. En la esquina superior derecha de la página, haga clic en **Configuración** > **Administración** > **Inicio de sesión único** y, a continuación, active la opción **Habilitar SAML 2.0** para realizar los pasos siguientes.
+
+    ![Configuración de Wandera](./media/wandera-tutorial/config01.png)
+
+    a. Haga clic en **O bien escriba manualmente los campos requeridos**.
+
+    b. En el cuadro de texto **IdP EntityId** (Id. de entidad de IdP), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
+
+    c. Abra el XML de metadatos de federación en el Bloc de notas, copie su contenido y péguelo en el cuadro de texto **IdP Public X.509 Certificate** (Certificado X.509 público de IdP).
+
+    d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -140,7 +160,7 @@ En esta sección, va a permitir que B.Simon acceda a Wandera mediante el inicio 
 
 ### <a name="create-wandera-test-user"></a>Creación de un usuario de prueba de Wandera
 
-En esta sección, creará un usuario llamado Britta Simon en Wandera. Colabore con el  [equipo de soporte técnico de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) para agregar los usuarios en la plataforma de Wandera. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Wandera. Colabore con el  [equipo de soporte técnico de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) para agregar los usuarios en la plataforma de Wandera. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

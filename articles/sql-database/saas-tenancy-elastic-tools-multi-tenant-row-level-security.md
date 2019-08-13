@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570174"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
-Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework**. Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md).
+Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework**. Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-- Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos con prácticas de particionamiento estándar, mediante el uso de bibliotecas de .NET y plantillas de servicios de Azure. La administración de particiones mediante la [Biblioteca de cliente de Elastic Database][s-d-elastic-database-client-library] le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento.
+- Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos con prácticas de particionamiento estándar, mediante el uso de bibliotecas de .NET y plantillas de servicios de Azure. La administración de particiones mediante la [Biblioteca cliente de Elastic Database][s-d-elastic-database-client-library] le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento.
 - La **seguridad de nivel de fila** permite a los desarrolladores almacenar de forma segura los datos de varios inquilinos en la misma base de datos. Las directivas de seguridad RLS filtran y eliminan las filas que no pertenecen al inquilino que ejecuta una consulta. La centralización de la lógica de filtro en la propia base de datos simplifica el mantenimiento y reduce el riesgo de un error de seguridad. La alternativa de confiar en todo el código de cliente para reforzar la seguridad es arriesgada.
 
 Si estas características se usan conjuntamente, una aplicación puede almacenar los datos para varios inquilinos en la misma base de datos de la partición. El costo por inquilino es menor cuando los inquilinos comparten una base de datos. La misma aplicación puede ofrecen también a sus inquilinos premium la opción de pagar su propia partición dedicada para un único inquilino. Una de las ventajas de este aislamiento es que aporta una mayor garantía de rendimiento. En una base de datos de un único inquilino, no hay otros inquilinos que compitan por los recursos.
@@ -57,7 +56,7 @@ Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos 
 1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo.
 2. **Capa de datos**: cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar.
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
 
 En primer lugar, conéctese a una base de datos de la partición mediante la API de enrutamiento dependiente de los datos de la Biblioteca de cliente de Elastic Database. La aplicación debe indicar a la base de datos que TenantId utiliza la conexión. El valor de TenantId indica a la directiva de seguridad de RLS qué filas se deben filtrar y eliminar, ya que pertenecen a otros inquilinos. Almacenar el valor de TenantId actual en el [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) de la conexión.
 
@@ -346,7 +345,7 @@ GO
 
 ## <a name="summary"></a>Resumen
 
-Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones multiinquilino se pueden utilizar para almacenar datos de forma más eficaz. Esta eficacia es muy pronunciada cuando un gran número de inquilinos tienen pocas filas de datos. Las particiones de inquilino único pueden admitir inquilinos premium, que tienen unos requisitos de rendimiento y aislamiento más estrictos. Para más información, consulte el artículo [Seguridad de nivel de fila][rls].
+Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones multiinquilino se pueden utilizar para almacenar datos de forma más eficaz. Esta eficacia es muy pronunciada cuando un gran número de inquilinos tienen pocas filas de datos. Las particiones de inquilino único pueden admitir inquilinos premium, que tienen unos requisitos de rendimiento y aislamiento más estrictos. Para obtener más información, consulte la [referencia sobre la seguridad de nivel de fila][rls].
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

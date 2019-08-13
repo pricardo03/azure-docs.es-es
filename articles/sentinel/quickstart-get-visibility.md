@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619802"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780482"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Inicio rápido: Introducción a Azure Sentinel (versión preliminar)
 
@@ -34,7 +34,7 @@ En este inicio rápido, aprenderá a ver y supervisar rápidamente lo que sucede
 
 ## <a name="get-visualization"></a>Obtener visualización
 
-Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche un vistazo al panel de información general para hacerse una idea de la posición de seguridad de su organización. Puede hacer clic en cada elemento de estos iconos para explorar en profundidad los datos sin procesar desde los que se crean. Para ayudar a reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Azure Sentinel emplea una técnica de fusión para correlacionar alertas con casos. Los **casos** son grupos de alertas relacionadas que, juntas, crean una incidencia procesable que se puede investigar y resolver.
+Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche un vistazo al panel de información general para hacerse una idea de la posición de seguridad de su organización. Puede hacer clic en cada elemento de estos iconos para explorar en profundidad los datos sin procesar desde los que se crean. Para ayudar a reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Azure Sentinel emplea una técnica de fusión para correlacionar alertas con incidentes. Los **incidentes** son grupos de alertas relacionadas que, juntas, crean un incidente procesable que se puede investigar y resolver.
 
 - En Azure Portal, seleccione Azure Sentinel y, luego, seleccione el área de trabajo que quiere supervisar.
 
@@ -53,7 +53,7 @@ El cuerpo principal de la página de información general ofrece conclusiones de
    ![Mapa de Azure Sentinel](./media/qs-get-visibility/map.png)
 
 
-- **Casos recientes**: para ver los casos recientes, su gravedad y el número de alertas asociadas con el caso. Si observa como un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Azure ATP, es posible que alguien esté intentando atacarle.
+- **Incidentes recientes**: para ver los incidentes recientes, su gravedad y el número de alertas asociadas con el incidente. Si observa como un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Azure ATP, es posible que alguien esté intentando atacarle.
 
 - **Anomalías del origen de datos**: los analistas de datos de Microsoft crean modelos que examinan constantemente los datos de los orígenes de datos en busca de anomalías. Si no hay ninguna anomalía, no se muestra nada. Si se detectan anomalías, debe analizarlas a fondo para ver lo que ha sucedido. Por ejemplo, haga clic en el pico de actividad de Azure. Puede hacer clic en **Chart** (Gráfico) para ver el pico que ha ocurrido y, luego, filtrar por las actividades que se han producido durante ese período de tiempo para ver la causa.
 

@@ -1,6 +1,6 @@
 ---
 title: Cognitive Services y Machine Learning
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Sepa cómo emplear Azure Cognitive Services con otras ofertas de Azure para el aprendizaje automático.
 services: cognitive-services
 author: diberry
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414693"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697922"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -105,11 +105,11 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker Recognizer](./speaker-recognition/home.md)||x||
 |[Speech: Texto a voz (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Speech: Voz a texto (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Speech: Voz a texto (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traducción de voz](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text: traductor personalizado]()||x||
+|[Translator Text: traductor personalizado](./translator/custom-translator/overview.md)||x||
 
 *Personalizer solo necesita datos de entrenamiento recopilados por el servicio (como funciona en tiempo real) para evaluar la directiva y los datos. Personalizer no necesita grandes conjuntos de datos históricos para entrenamiento inicial o por lotes. 
 

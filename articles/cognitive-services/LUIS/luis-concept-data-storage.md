@@ -1,6 +1,6 @@
 ---
-title: Almacenamiento de datos
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Datos y almacenamiento: LUIS'
+titleSuffix: Azure Cognitive Services
 description: LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a la región especificada por la clave.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812943"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639222"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Almacenamiento y eliminación de datos en Cognitive Services de Language Understanding (LUIS)
 LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a la región especificada por la clave. Estos datos se almacenan durante 30 días. 
@@ -34,6 +34,7 @@ Las expresiones se pueden almacenar en dos lugares diferentes.
 <a name="utterances-in-an-intent"></a>
 
 ### <a name="delete-example-utterances-from-an-intent"></a>Eliminación de expresiones de ejemplo de una intención
+
 Elimine expresiones de ejemplo que se han usado para entrenar a [LUIS](luis-reference-regions.md). Si elimina una expresión de ejemplo desde la aplicación de LUIS, se eliminará del servicio web de LUIS y no estará disponible para la exportación.
 
 <a name="utterances-in-review"></a>

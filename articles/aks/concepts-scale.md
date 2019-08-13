@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074034"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561564"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 
 Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar el escalado manual, defina la réplica o el número de nodos, y la API de Kubernetes programará la creación de pods adicionales o el drenaje de nodos.
 
-Para empezar con el escalado manual de pods y nodos, consulte [Scale applications in AKS][aks-scale] (Escalar aplicaciones en AKS).
+Para empezar con el escalado manual de pods y nodos, consulte [Escalado de aplicaciones en AKS][aks-scale].
 
 ## <a name="horizontal-pod-autoscaler"></a>Horizontal Pod Autoscaler
 
@@ -39,15 +39,15 @@ Kubernetes utiliza Horizontal Pod Autoscaler (HPA) para supervisar la demanda de
 
 Si configura Horizontal Pod Autoscaler para una implementación determinada, defina el número mínimo y máximo de réplicas que se pueden ejecutar. Defina también la métrica que se supervisará y en la que se basarán todas las decisiones de escalado, como el uso de la CPU.
 
-Para empezar a usar Horizontal Pod Autoscaler en AKS, consulte [Autoscale pods in AKS][aks-hpa] (Escalado automático de pods en AKS).
+Para empezar a usar Horizontal Pod Autoscaler en AKS, consulte [Escalado automático de pods en AKS][aks-hpa].
 
 ### <a name="cooldown-of-scaling-events"></a>Recuperación de eventos de escalado
 
 Dado que Horizontal Pod Autoscaler comprueba cada 30 segundos la API de métricas, es posible que los eventos de escalado anteriores no se hayan completado correctamente antes de realizar otra comprobación. Este comportamiento puede provocar que Horizontal Pod Autoscaler cambie el número de réplicas antes de que el evento de escalado anterior haya podido recibir la carga de trabajo de la aplicación y las demandas de recursos para ajustarlas en consecuencia.
 
-Para minimizar estos eventos de carrera, se pueden establecer valores de recuperación o retraso. Estos valores definen cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que la API de métricas refleje la carga de trabajo distribuida. De forma predeterminada, el retraso en los eventos de escalado vertical es de 3 minutos y, en los eventos de reducción vertical, de 5 minutos.
+Para minimizar estos eventos de carrera, se establecen valores de recuperación o retraso. Estos valores definen cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que la API de métricas refleje la carga de trabajo distribuida. De forma predeterminada, el retraso en los eventos de escalado vertical es de 3 minutos y, en los eventos de reducción vertical, de 5 minutos.
 
-Es posible que deba ajustar estos valores de recuperación. Los valores de recuperación predeterminados pueden dar la impresión de que Horizontal Pod Autoscaler no escala el recuento de réplicas con la velocidad suficiente. Por ejemplo, para aumentar más rápidamente el número de réplicas en uso, reduzca el valor `--horizontal-pod-autoscaler-upscale-delay` al crear sus definiciones de Horizontal Pod Autoscaler mediante `kubectl`.
+Actualmente, no se pueden ajustar estos valores de recuperación a partir del valor predeterminado.
 
 ## <a name="cluster-autoscaler"></a>Cluster Autoscaler
 
@@ -57,9 +57,9 @@ Para responder a las distintas exigencias de pods, Kubernetes tiene un component
 
 Cluster Autoscaler se usa normalmente junto con Horizontal Pod Autoscaler. Cuando se combinan, Horizontal Pod Autoscaler aumenta o disminuye el número de pods según la demanda de la aplicación, mientras que Cluster Autoscaler ajusta el número de nodos según sea necesario para ejecutar los pods adicionales en consecuencia.
 
-Solo se debe probar Cluster Autoscaler en versión preliminar en clústeres AKS con un grupo de nodo único.
+Solo se debe probar Cluster Autoscaler en versión preliminar en clústeres AKS.
 
-Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler on AKS][aks-cluster-autoscaler] (Cluster Autoscaler en AKS).
+Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler en AKS][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Escalado vertical de eventos
 
@@ -91,7 +91,7 @@ Los nodos virtuales se implementan en una subred adicional en la misma red virtu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar con el escalado de aplicaciones, siga la [guía de inicio rápido para crear un clúster de AKS con la CLI de Azure][aks-quickstart]. A continuación, puede empezar a escalar aplicaciones de manera manual o automática en el clúster de AKS:
+Para empezar con el escalado de aplicaciones, siga el [inicio rápido para crear un clúster de AKS con la CLI de Azure][aks-quickstart]. A continuación, puede empezar a escalar aplicaciones de manera manual o automática en el clúster de AKS:
 
 - Escalado manual de [pods][aks-manually-scale-pods] o [nodos][aks-manually-scale-nodes]
 - Uso de [Horizontal Pod Autoscaler][aks-hpa]
@@ -99,11 +99,11 @@ Para empezar con el escalado de aplicaciones, siga la [guía de inicio rápido p
 
 Para obtener más información sobre los conceptos básicos de Kubernetes y AKS, consulte los artículos siguientes:
 
-- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads] (Clústeres y cargas de trabajo de Kubernetes/AKS)
-- [Kubernetes / AKS access and identity][aks-concepts-identity] (Acceso e identidad de Kubernetes/AKS)
-- [Kubernetes / AKS security][aks-concepts-security] (Seguridad de Kubernetes/AKS)
-- [Kubernetes / AKS virtual networks][aks-concepts-network] (Redes virtuales de Kubernetes/AKS)
-- [Kubernetes / AKS storage][aks-concepts-storage] (Almacenamiento de Kubernetes/AKS)
+- [Clústeres y cargas de trabajo de Kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Acceso a Kubernetes/AKS e identidad][aks-concepts-identity]
+- [Seguridad de Kubernetes/AKS][aks-concepts-security]
+- [Redes virtuales de Kubernetes/AKS][aks-concepts-network]
+- [Almacenamiento de Kubernetes/AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
 

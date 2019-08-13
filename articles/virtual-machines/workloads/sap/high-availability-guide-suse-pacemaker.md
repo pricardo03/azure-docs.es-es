@@ -4,7 +4,7 @@ description: Configuración de Pacemaker en SUSE Linux Enterprise Server en Azur
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68228363"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -448,7 +448,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes. No olvide cambiar el token a 30000 para permitir el mantenimiento con conservación de memoria. Para obtener más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance]. Además, asegúrese de quitar el parámetro mcastaddr.
+   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes. No olvide cambiar el token a 30000 para permitir el mantenimiento con conservación de memoria. Para más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance] o [para Windows][virtual-machines-windows-maintenance]. Además, asegúrese de quitar el parámetro mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
 El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
 
-1. Vaya a [https://portal.azure.com](https://portal.azure.com)
+1. Vaya a <https://portal.azure.com>.
 1. Abra la hoja Azure Active Directory  
    Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
-1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http\://localhost) y haga clic en Crear
-1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
-1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
-1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar
+1. Haga clic en Nuevo registro
+1. Escriba un nombre y seleccione "Solo las cuentas de este directorio organizativo" 
+2. Seleccione el tipo de aplicación "Web", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en Agregar  
+   La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
+1. Seleccione Certificados y secretos, y luego haga clic en Nuevo secreto de cliente
+1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Agregar
 1. Anote el valor. Se utiliza como **contraseña** para la entidad de servicio
-1. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
+1. Seleccione Información general. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creación de un rol personalizado para el agente de barrera
 
@@ -608,9 +609,9 @@ sudo crm configure property maintenance-mode=false
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
+* [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
 * [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server][sles-nfs-guide]
-* [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sles-guide]
-* Para información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure][sap-hana-ha]
+* [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para aplicaciones de SAP][sles-guide]
+* Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales de Azure][sap-hana-ha].

@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899424"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516942"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
-¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
+¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
-* El botón Exportar de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
+* El botón Exportar de la parte superior de una pestaña de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
 
 * [Analytics](../../azure-monitor/app/analytics.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
 * Si lo que le interesa es [explorar los datos en Power BI](../../azure-monitor/app/export-power-bi.md ), puede hacerlo sin usar la exportación continua.
@@ -44,20 +44,19 @@ La exportación continua **no admite** las siguientes características o configu
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a>Creación de una exportación continua.
-1. En el recurso de Application Insights de su aplicación, abra Exportación continua y elija **Agregar**:
+
+1. En el recurso de Application Insights de su aplicación en Configuración, a la izquierda, abra Exportación continua y elija **Agregar**:
 
 2. Elija los tipos de datos de telemetría que quiere exportar.
 
 3. Cree o seleccione una [cuenta de almacenamiento de Azure](../../storage/common/storage-introduction.md) donde quiera almacenar los datos. Para más información sobre las opciones de precios de almacenamiento, visite la [página oficial de precios](https://azure.microsoft.com/pricing/details/storage/).
 
+     Haga clic en Agregar, Destino de exportación, Cuenta de almacenamiento y cree un nuevo almacén o elija uno.
+
     > [!Warning]
     > De forma predeterminada, la ubicación de almacenamiento se establecerá en la misma región geográfica que el recurso de Application Insights. Si los almacena en una región diferente, puede conllevar gastos de transferencia.
 
-    ![Haga clic en Agregar, Destino de exportación, Cuenta de almacenamiento y cree un nuevo almacén o elija uno almacén.](./media/export-telemetry/02-add.png)
-
-4. Cree o seleccione un contenedor en el almacenamiento:
-
-    ![Haga clic en Elegir tipos de evento.](./media/export-telemetry/create-container.png)
+4. Cree o seleccione un contenedor en el almacenamiento.
 
 Una vez que ha creado la exportación, comienza el proceso. Solo obtendrá los datos que lleguen después de crear la exportación.
 
@@ -65,9 +64,7 @@ Puede haber un retraso de aproximadamente una hora antes de que aparezcan los da
 
 ### <a name="to-edit-continuous-export"></a>Para editar la exportación continua
 
-Si desea cambiar los tipos de evento más tarde, simplemente edite la exportación:
-
-![Haga clic en Elegir tipos de evento.](./media/export-telemetry/05-edit.png)
+Haga clic en Exportación continua y seleccione la cuenta de almacenamiento que desee editar.
 
 ### <a name="to-stop-continuous-export"></a>Para detener la exportación continua
 
@@ -76,10 +73,10 @@ Para detener la exportación, haga clic en Deshabilitar. Al hacer clic en Habili
 Para detener la exportación de forma permanente, elimínela. Al realizar esta acción no se eliminan los datos del almacenamiento.
 
 ### <a name="cant-add-or-change-an-export"></a>¿No puede agregar o cambiar una exportación?
-* Para agregar o cambiar las exportaciones, necesita derechos de propietario, colaborador o colaborador de Application Insights. [Más información sobre los roles][roles].
+* Para agregar o cambiar las exportaciones, necesita derechos de acceso de propietario, colaborador o colaborador de Application Insights. [Más información sobre los roles][roles].
 
 ## <a name="analyze"></a> ¿Qué eventos obtiene?
-Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
+Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
 
 Los datos que se han descartado por [muestreo](../../azure-monitor/app/sampling.md) no se incluyen en los datos exportados.
 
@@ -93,7 +90,7 @@ Los datos también incluyen los resultados de cualquier [prueba web de disponibi
 >
 
 ## <a name="get"></a> Inspección de los datos
-Puede inspeccionar el almacenamiento directamente en el portal. Haga clic en **Examinar**, seleccione la cuenta de almacenamiento y abra **Contenedores**.
+Puede inspeccionar el almacenamiento directamente en el portal. Haga clic en Inicio en el menú de la izquierda, en la parte superior donde se indica "Servicios de Azure", seleccione **Cuentas de almacenamiento**, seleccione el nombre de la cuenta de almacenamiento, en la página de información general, seleccione **Blobs** bajo Servicios y, por último, seleccione el nombre del contenedor.
 
 Para inspeccionar Azure Storage en Visual Studio, abra **Ver**, **Cloud Explorer**. Si no tienes ese comando de menú, deberá instalar Azure SDK: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Nube/ y seleccione **Obtener Microsoft Azure SDK para. NET**.
 
@@ -147,7 +144,7 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
       }
     }
 
-Para obtener un ejemplo de código más grande, consulte el [uso de un rol de trabajo][exportasa].
+Para obtener un ejemplo de código mayor, consulte [cómo usar un rol de trabajo][exportasa].
 
 ## <a name="delete"></a>Eliminación de los datos antiguos
 Es responsable de administrar la capacidad de almacenamiento y de eliminar los datos antiguos, si fuera necesario.
@@ -155,15 +152,13 @@ Es responsable de administrar la capacidad de almacenamiento y de eliminar los d
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vuelve a generar la clave de almacenamiento...
 Si cambia la clave para el almacenamiento, la exportación continua dejará de funcionar. Verá una notificación en su cuenta de Azure.
 
-Abra la hoja Exportación continua y edite la exportación. Modifique el destino de exportación, pero deje el mismo almacenamiento seleccionado. Haga clic en Aceptar para confirmar.
-
-![Edite la exportación continua y abra y cierre el destino de exportación.](./media/export-telemetry/07-resetstore.png)
+Abra la pestaña Exportación continua y edite la exportación. Modifique el destino de exportación, pero deje el mismo almacenamiento seleccionado. Haga clic en Aceptar para confirmar.
 
 La exportación continua se reiniciará.
 
 ## <a name="export-samples"></a>Ejemplos de exportación
 
-* [Exportación a SQL con Stream Analytics][exportasa]
+* [Exportación a SQL con el Stream Analytics][exportasa]
 * [Ejemplo 2 de Stream Analytics](export-stream-analytics.md)
 
 En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HDInsight](https://azure.microsoft.com/services/hdinsight/) en la nube. HDInsight ofrece una amplia variedad de tecnologías para administrar y analizar macrodatos, y puede usarlo para procesar datos que se han exportado desde Application Insights.
@@ -171,7 +166,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 ## <a name="q--a"></a>Preguntas y respuestas
 * *Lo único que quiero es una descarga única de un gráfico.*  
 
-    Sí, puede hacerlo. En la parte superior de la hoja, haga clic en **Exportar datos**.
+    Sí, puede hacerlo. En la parte superior de la pestaña, haga clic en **Exportar datos**.
 * *Configuro una exportación, pero no hay ningún dato en el almacén.*
 
     ¿Recibió Application Insights alguna telemetría de su aplicación desde que configuró la exportación? Solo recibirá datos nuevos.
@@ -190,7 +185,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
   * Además, para las aplicaciones con mucho tráfico, se asignan unidades de partición adicionales. En este caso, cada unidad crea un blob cada minuto.
 * *Volví a generar la clave de mi almacenamiento o cambié el nombre del contenedor, y ahora no funciona la exportación.*
 
-    Edite la exportación y abra la hoja de destino de la exportación. Deje el mismo almacenamiento seleccionado que antes y haga clic en Aceptar para confirmar. La exportación se reiniciará. Si el cambio estaba dentro de los últimos días, no perderá datos.
+    Edite la exportación y abra la pestaña de destino de la exportación. Deje el mismo almacenamiento seleccionado que antes y haga clic en Aceptar para confirmar. La exportación se reiniciará. Si el cambio estaba dentro de los últimos días, no perderá datos.
 * *¿Puedo detener la exportación?*
 
     Sí. Haga clic en Deshabilitar.
@@ -198,7 +193,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 ## <a name="code-samples"></a>Ejemplos de código
 
 * [Ejemplo de Stream Analytics](export-stream-analytics.md)
-* [Exportación a SQL con Stream Analytics][exportasa]
+* [Exportación a SQL con el Stream Analytics][exportasa]
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](export-data-model.md)
 
 <!--Link references-->

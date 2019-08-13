@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298838"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68555789"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Administrar la configuración de usuario con Azure Multi-Factor Authentication en la nube
 
@@ -25,6 +25,16 @@ Como administrador, puede administrar las siguientes opciones de configuración 
 * Requerir a los usuarios que vuelvan a proporcionar métodos de contacto
 * Eliminar contraseñas de aplicación
 * Requerir MFA en todos los dispositivos de confianza
+
+## <a name="manage-authentication-methods"></a>Administración de los métodos de autenticación
+
+Como administrador que tiene asignado el rol de administrador de autenticación, puede requerir a los usuarios que restablezcan su contraseña, que vuelvan a registrarse para MFA o que revoquen las sesiones de MFA existentes desde su objeto de usuario.
+
+![Administración de los métodos de autenticación desde Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+
+1. Restablecer contraseña restablecerá la contraseña del usuario y asignará una contraseña temporal que se debe cambiar en el siguiente inicio de sesión.
+2. Requerir volver a registrar MFA lo hará de modo que, cuando el usuario inicie sesión la próxima vez, se le solicitará que configure un nuevo método de autenticación MFA.
+3. Revocar sesiones de MFA borra las sesiones de MFA recordadas del usuario y requiere que realicen MFA la próxima vez que la directiva lo requiera en el dispositivo.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Requerir a los usuarios que vuelvan a proporcionar métodos de contacto
 

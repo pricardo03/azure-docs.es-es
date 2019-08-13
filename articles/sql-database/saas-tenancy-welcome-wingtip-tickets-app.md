@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487381"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570105"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplicación SaaS Wingtip Tickets
 
@@ -36,13 +35,13 @@ Hay tres versiones disponibles de la aplicación, donde cada una explora un patr
 
 El patrón de aplicación independiente por inquilino usa una aplicación de inquilino único con una base de datos para cada inquilino. La aplicación de cada inquilino, incluida su base de datos, se implementa en un grupo de recursos de Azure independiente. El grupo de recursos se puede implementar en la suscripción del proveedor de servicios o en la suscripción del inquilino, y el proveedor la administra en nombre del inquilino. Este patrón de aplicación independiente por inquilino proporciona el mayor nivel de aislamiento del inquilino, pero suele ser la opción más costosa porque no se pueden compartir los recursos entre varios inquilinos.  Este patrón se adapta perfectamente a las aplicaciones que pueden resultar más complejas y que se implementan en cantidades menores de inquilinos.  Con las aplicaciones independientes, la aplicación se puede personalizar para cada inquilino de manera más simple que en otros patrones.  
 
-Consulte los [tutoriales][docs-tutorials-for-wingtip-sa] y el código en GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Consulte los [tutoriales][docs-tutorials-for-wingtip-sa] y el código en GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Patrón de base de datos por inquilino
 
 El patrón de base de datos por inquilino es eficaz para los proveedores de servicios preocupados por el aislamiento del inquilino y que desean ejecutar un servicio centralizado que permita un uso rentable de los recursos compartidos. Se crea una base de datos para cada local, o inquilino, y todas las bases de datos se administran de manera central. Las bases de datos se pueden hospedar en grupos elásticos para proporcionar una administración del rendimiento sencilla y rentable, que aprovecha los patrones de cargas de trabajo imprevisibles de los inquilinos. Una base de datos de catálogo contiene la asignación entre los inquilinos y sus bases de datos. Esta asignación se administra mediante las características de administración del mapa de particiones de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md), que proporciona la administración eficaz de la conexión con la aplicación.
 
-Consulte los [tutoriales][docs-tutorials-for-wingtip-dpt] y el código en GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Consulte los [tutoriales][docs-tutorials-for-wingtip-dpt] y el código en GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Patrón de base de datos multiinquilino con particiones
 
@@ -50,13 +49,13 @@ Las bases de datos multiinquilino son eficaces para los proveedores de servicios
 
 Este patrón también permite un modelo *híbrido* en el que puede optimizar el costo con varios inquilinos en una base de datos, o bien optimizar el aislamiento con un solo inquilino en su propia base de datos. Puede elegir la opción según cada inquilino, ya sea cuando se aprovisiona el inquilino o después, sin afectar la aplicación de ninguna manera.  Este modelo se puede usar de manera eficaz cuando sea necesario tratar de distinta manera los grupos de inquilinos. Por ejemplo, los inquilinos de bajo costo se pueden asignar a bases de datos compartidas, mientras que los inquilinos premium se pueden asignar a sus propias bases de datos. 
 
-Consulte los [tutoriales][docs-tutorials-for-wingtip-mt] y el código en GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Consulte los [tutoriales][docs-tutorials-for-wingtip-mt] y el código en GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 #### <a name="conceptual-descriptions"></a>Descripciones de conceptos
 
-- Puede encontrar una aplicación más detallada del patrón de inquilinato de aplicación en [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-tenancy-app-design-patterns-md]
+- Puede encontrar una explicación más detallada del patrón de inquilinato de aplicación en [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-tenancy-app-design-patterns-md].
 
 #### <a name="tutorials-and-code"></a>Tutoriales y código
 

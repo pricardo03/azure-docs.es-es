@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Llamada a las API REST de Cognitive Services en una canalización de indexación de Azure Search'
+title: 'Tutorial de REST: Llamada a Cognitive Services en una canalización de enriquecimiento de IA: Azure Search'
 description: Aquí se analiza un ejemplo de procesamiento de IA de imágenes, de extracción de datos y de lenguaje natural en la indexación de Azure Search para la extracción y la transformación de datos en blobs de JSON mediante Postman y la API REST.
 manager: pablocas
 author: luiscabrer
@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: d431f0ced5b417e178e064dca347ae8d78f14e5d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669100"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840878"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de REST: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search
 
@@ -488,4 +488,4 @@ La manera más rápida de borrar el contenido después de un tutorial es elimina
 Personalice o extienda la canalización con aptitudes personalizadas. Al crear una aptitud personalizada y agregarla a un conjunto de aptitudes, puede incorporar texto o análisis de imágenes que escriba usted mismo. 
 
 > [!div class="nextstepaction"]
-> [Ejemplo: Creación de una habilidad personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md)
+> [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677659"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725657"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -40,14 +40,14 @@ Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft
 
 * Este tutorial usa la característica **Herramientas de desarrollo** del explorador. Los exploradores web modernos ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) y otros) suelen proporcionar acceso a la **vista del inspector web** mediante la tecla de acceso rápido F12 del teclado. Otra forma de acceder a la vista consiste en hacer clic con el botón derecho en una página web y, a continuación, seleccionar **Inspeccionar elemento**.
 
-## <a name="video"></a>Vídeo
+## <a name="review-video"></a>Revisión del vídeo
 
 En este vídeo, le presentamos el SDK de JavaScript para Time Series Insights en código abierto:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>Aplicación de Time Series Insights de ejemplo
+## <a name="sample-application"></a>Aplicación de ejemplo
 
 En este tutorial, se usa una aplicación Time Series Insights de ejemplo hospedada y gratuita para explorar el código fuente subyacente de la aplicación y explorar la biblioteca cliente JavaScript de Time Series Insights. Mediante el uso de la aplicación de ejemplo, aprenderá a cómo interactuar con Time Series Insights en JavaScript y a visualizar los datos mediante tablas y gráficos.
 
@@ -100,7 +100,7 @@ Primero, vamos a ver el [código fuente HTML y JavaScript](https://github.com/Mi
 
    [![Script del cuerpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Conceptos de la biblioteca cliente JavaScript de Time Series Insights
+## <a name="javascript-client-library"></a>Biblioteca cliente para JavaScript
 
 La biblioteca cliente de Time Series Insights (*tsclient.js*) proporciona abstracciones para dos funciones importantes de JavaScript:
 
@@ -231,7 +231,7 @@ Los tres gráficos aparecen de la siguiente manera cuando se representan:
 
 [![Varios tipos de gráficos a partir de los mismos datos](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>Características avanzadas
+## <a name="learn-about-advanced-features"></a>Más información sobre las características avanzadas
 
 La biblioteca cliente de Time Series Insights tiene varias características adicionales que puede utilizar para implementar las visualizaciones de datos de forma creativa.
 

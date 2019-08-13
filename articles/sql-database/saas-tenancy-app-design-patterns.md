@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cbf0e45ac368f0d2dd1678984bd14392452e63a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484478"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570183"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -79,7 +78,7 @@ Cada base de datos de inquilino se implementa como una base de datos única.  Es
 
 #### <a name="vendor-management"></a>Administración por el proveedor
 
-El proveedor puede tener acceso a todas las bases de datos en todas las instancias de aplicación independientes, incluso si las instancias de la aplicación se instalan en suscripciones de inquilinos diferentes.  El acceso se consigue a través de conexiones SQL.  Este acceso entre instancias puede permitir al proveedor centralizar la administración de esquemas y las consultas entre bases de datos con fines de elaboración de informes o análisis.  Si se desea este tipo de administración centralizada, se debe implementar un catálogo que asigne identificadores de inquilino a los identificadores URI de la base de datos.  Azure SQL Database proporciona una biblioteca de particionamiento que se usa junto con una base de datos SQL para proporcionar un catálogo.  La biblioteca de particionamiento se llama formalmente [biblioteca de cliente de Elastic Database][docu-elastic-db-client-library-536r].
+El proveedor puede tener acceso a todas las bases de datos en todas las instancias de aplicación independientes, incluso si las instancias de la aplicación se instalan en suscripciones de inquilinos diferentes.  El acceso se consigue a través de conexiones SQL.  Este acceso entre instancias puede permitir al proveedor centralizar la administración de esquemas y las consultas entre bases de datos con fines de elaboración de informes o análisis.  Si se desea este tipo de administración centralizada, se debe implementar un catálogo que asigne identificadores de inquilino a los identificadores URI de la base de datos.  Azure SQL Database proporciona una biblioteca de particionamiento que se usa junto con una base de datos SQL para proporcionar un catálogo.  La biblioteca de particionamiento se llama formalmente [biblioteca cliente Elastic Database][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicación multiinquilino con una base de datos por inquilino
 
@@ -105,7 +104,7 @@ Azure SQL Database proporciona las herramientas necesarias para configurar, supe
 
 La plataforma de Azure SQL Database tiene muchas características de administración diseñadas para administrar grandes cantidades de bases de datos a escala, por encima de 100.000 bases de datos.  Estas características hacen que el patrón de una base de datos por inquilino sea plausible.
 
-Por ejemplo, suponga que un sistema tiene una base de datos de 1000 inquilinos como única base de datos.  La base de datos podría tener 20 índices.  Si el sistema pasa a tener 1000 bases de datos de un único inquilino, el número de índices aumenta hasta 20 000.  En SQL Database, como parte del [ajuste automático][docu-sql-db-automatic-tuning-771a], las características de indexación automática están habilitadas de forma predeterminada.  La indexación automática administra automáticamente los 20.000 índices y sus optimizaciones de creación y eliminación.  Estas acciones automatizadas se producen dentro de una base de datos individual y no están coordinadas ni restringidas por acciones similares en otras bases de datos.  La indexación automática trata los índices de manera diferente en una base de datos ocupada que en una base de datos de menos actividad.  Este tipo de personalización de la administración de índices no sería práctico en la escala de una base de datos por inquilino si esta enorme tarea de administración tuviera que realizarse manualmente.
+Por ejemplo, suponga que un sistema tiene una base de datos de 1000 inquilinos como única base de datos.  La base de datos podría tener 20 índices.  Si el sistema pasa a tener 1000 bases de datos de un único inquilino, el número de índices aumenta hasta 20 000.  En SQL Database, como parte del [ajuste automático][docu-sql-db-automatic-tuning-771a], las características de indexación automática están habilitadas de forma predeterminada.  La indexación automática administra automáticamente los 20.000 índices y sus optimizaciones de creación y eliminación.  Estas acciones automatizadas se producen dentro de una base de datos individual y no están coordinadas ni restringidas por acciones similares en otras bases de datos.  La indexación automática trata los índices de manera diferente en una base de datos ocupada que en una base de datos de menos actividad.  Este tipo de personalización de la administración de índices no sería práctico en la escala de una base de datos por inquilino si esta enorme tarea de administración tuviera que realizarse manualmente.
 
 Otras características de administración que escalan bien incluyen las siguientes:
 
@@ -116,7 +115,7 @@ Otras características de administración que escalan bien incluyen las siguient
 
 #### <a name="automation"></a>Automation
 
-Las operaciones de administración se pueden incluir en un script y ofrecer a través de un modelo de [devops][http-visual-studio-devops-485m].  Las operaciones incluso pueden ser automatizadas y expuestas en la aplicación.
+Las operaciones de administración se pueden incluir en un script y ofrecer con un modelo de [devops][http-visual-studio-devops-485m].  Las operaciones incluso pueden ser automatizadas y expuestas en la aplicación.
 
 Por ejemplo, puede automatizar la recuperación de un solo inquilino a un momento anterior en el tiempo.  La recuperación solo necesita restaurar la base de datos de un solo inquilino que almacena al inquilino.  Esta restauración no influye en otros inquilinos, lo que confirma que las operaciones de administración se encuentran en el nivel granular de cada inquilino individual.
 
@@ -198,7 +197,7 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 
 - [Implementación y exploración de la aplicación Wingtip multiinquilino que usa el modelo SaaS de una base de datos por inquilino con Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
-- [Bienvenido a la aplicación SaaS de ejemplo Wingtip Tickets de Azure SQL Database][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
+- [Bienvenidos a la aplicación SaaS de ejemplo Wingtip Tickets de Azure SQL Database][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
 
 <!--  Article link references.  -->

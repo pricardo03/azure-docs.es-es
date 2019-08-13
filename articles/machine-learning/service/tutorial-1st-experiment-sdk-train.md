@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668582"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828558"
 ---
 # <a name="tutorial-train-your-first-model"></a>Tutorial: Entrenamiento del primer modelo
 
@@ -111,7 +111,7 @@ Una vez completado el entrenamiento, llame a la variable `experiment` para captu
 experiment
 ```
 
-<table style="width:100%"><tr><th>NOMBRE</th><th>Área de trabajo</th><th>Página del informe</th><th>Página de documentos</th></tr><tr><td>diabetes-experiment</td><td>Nombre-área-de-trabajo</td><td><a href="" target="_blank" rel="noopener">Vínculo a Azure Portal</a></td><td><a href="" target="_blank" rel="noopener">Vínculo a la documentación</a></td></tr></table>
+<table style="width:100%"><tr><th>NOMBRE</th><th>Área de trabajo</th><th>Página del informe</th><th>Página de documentos</th></tr><tr><td>diabetes-experiment</td><td>Nombre-área-de-trabajo</td><td>Vínculo a Azure Portal</td><td>Vínculo a la documentación</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visualización de los resultados del entrenamiento en el portal
 
@@ -181,7 +181,7 @@ Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando 
 
 1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
 
-   ![Detener el servidor de máquina virtual](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Detener el servidor de máquina virtual](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. En la lista, seleccione la máquina virtual.
 

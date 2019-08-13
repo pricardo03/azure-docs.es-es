@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo funcionan conjuntamente Table API 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
+ms.date: 08/05/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: c7c9caad6c454b90a6d50932450922a03bbc1944
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 71bc5d73a7b5bc83dc1ac835c80ac1b14d5113e9
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604157"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814702"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Implementación con Table API de Azure Cosmos DB y Azure Table Storage
 
@@ -41,9 +41,9 @@ Puede encontrar información adicional sobre el funcionamiento con Table API en 
 Azure Table Storage tiene las siguientes SDK disponibles para el desarrollo:
 
 - [SDK de WindowsAzure.Storage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Esta biblioteca permite trabajar con Storage Table service.
-- [SDK de Python](table-sdk-python.md). El SDK de Table de Azure Cosmos DB para Python también admite con Storage Table service.
+- [SDK de Python](https://github.com/Azure/azure-cosmos-table-python). El SDK Table de Azure Cosmos DB para Python es compatible con el servicio Table Storage (porque las Table API de Azure Table Storage y Cosmos DB comparten las mismas características y funcionalidades, y, a fin de factorizar nuestros esfuerzos de desarrollo del SDK, se recomienda usar este SDK).
 - [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java). Este SDK de Azure Storage proporciona una biblioteca cliente en Java que consume Azure Table Storage.
-- [SDK de Node.js](table-sdk-nodejs.md). Este SDK proporciona un paquete Node.js y una biblioteca cliente de JavaScript compatible con el explorador que consume Storage Table service.
+- [SDK de Node.js](https://github.com/Azure/azure-storage-node). Este SDK proporciona un paquete Node.js y una biblioteca cliente de JavaScript compatible con el explorador que consume Storage Table service.
 - [Módulo de PowerShell AzureRmStorageTable](https://www.powershellgallery.com/packages/AzureRmStorageTable). Este módulo de PowerShell contiene cmdlets para trabajar con tablas de almacenamiento.
 - [Biblioteca cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/). Esta biblioteca le permite compilar aplicaciones en Azure Storage.
 - [Biblioteca cliente de Table de Azure Storage Table para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Este proyecto proporciona un paquete Ruby que facilita el acceso a instancias de Azure Storage Table service.

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868668"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828304"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Azure Migrate: Server Assessment
 
@@ -83,7 +83,7 @@ Azure Migrate: Server Assessment ejecuta un dispositivo ligero de máquina virtu
 - Dicho dispositivo realiza la detección de la máquina virtual y envía metadatos y datos de rendimiento de estas a Azure Migrate Server Assessment.
 - Para configurar el dispositivo:
     - Descargue una plantilla OVA e impórtela en vCenter Server.
-    - Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment.
+    - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
     - Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate.
 - Se pueden configurar varias aplicaciones para un solo proyecto de Azure Migrate. En todos los dispositivos se admite la detección de hasta 35 000 máquinas virtuales. Se puede detectar un máximo de 10 000 servidores por dispositivo.
 
@@ -104,12 +104,12 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. En el caso de la versión 1.19.06.27, el código hash generado debe coincidir con estos valores. 
+3. En el caso de la versión 2.19.07.30, el código hash generado debe coincidir con estos valores. 
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
@@ -146,7 +146,7 @@ Para configurar el dispositivo, siga estos pasos:
 4. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
     - **License** (Licencia): Acepte los términos de licencia y lea la información de terceros.
     - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
-        - Haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
+        - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
         - Especifique las credenciales si el proxy requiere autenticación.
         - Solo se admite un proxy HTTP.
     - **Time sync** (Sincronización de hora): para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
@@ -157,7 +157,7 @@ Para configurar el dispositivo, siga estos pasos:
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Haga clic en **Log In** (Iniciar sesión). Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
+1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
 2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
     - Inicie sesión con su nombre de usuario y contraseña.
     - No se admite el inicio de sesión con un PIN.
@@ -204,15 +204,15 @@ Con Azure Migrate: Server Assessment se pueden crear dos tipos de evaluaciones.
 
 **Valoración** | **Detalles** | **Datos**
 --- | --- | ---
-**Basada en el rendimiento** | Valoraciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
-**Como local** | Valoraciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
+**Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
+**Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
 
 
 ### <a name="run-an-assessment"></a>Ejecución de una evaluación
 
-Las valoraciones se realizan como se indica a continuación:
+Las evaluaciones se realizan como se indica a continuación:
 
-1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear valoraciones.
+1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear evaluaciones.
 2. En la pestaña **Servidores**, en el icono **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
     ![Evaluación](./media/tutorial-assess-vmware/assess.png)
@@ -246,7 +246,7 @@ Una evaluación describe:
 1. En **Objetivos de migración** >  **Servidores**, haga clic en **Evaluaciones** en **Azure Migrate: Server Assessment**.
 2. En **Evaluaciones**, haga clic en una evaluación para abrirla.
 
-    ![Resumen de valoraciones](./media/tutorial-assess-vmware/assessment-summary.png)
+    ![Resumen de evaluaciones](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Revisión de la preparación para Azure
 
@@ -257,7 +257,7 @@ Una evaluación describe:
     - **No está preparado para Azure**: muestra los problemas y las soluciones que se sugieren.
     - **Preparación desconocida**: se usa cuando Azure Migrate no puede evaluar la preparación debido a problemas de disponibilidad de datos.
 
-2. Haga clic en cualquiera de los estados de **Preparación para Azure**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad para ver los detalles de la máquina virtual, entre los que se incluye la configuración de proceso, almacenamiento y red.
+2. Haga clic en cualquiera de los estados de **Preparación para Azure**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.
 
 
 
@@ -281,7 +281,7 @@ Cuando se realizan valoraciones basadas en el rendimiento, se asigna una clasifi
 
 ![Clasificación de confianza](./media/tutorial-assess-vmware/confidence-rating.png)
 
-- Se concede una clasificación que oscila entre 1 estrella (más baja) y 5 estrellas (más alta).
+- Se concede una clasificación que oscila entre 1 estrella (la más baja) y 5 estrellas (la más alta).
 - La clasificación de confianza sirve de ayuda para calcular la confiabilidad de las recomendaciones de tamaño que proporciona la evaluación.
 - La clasificación de confianza se basa en la disponibilidad de los puntos de datos necesarios para calcular tal evaluación.
 

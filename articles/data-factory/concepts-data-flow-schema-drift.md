@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314822"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640232"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desfase del esquema de Mapping Data Flow
 
@@ -65,7 +65,7 @@ A continuación, redondearemos y sumaremos los valores para cada una de esas col
 
 ```round(sum ($$))```
 
-Puede probarlo con el ejemplo de flujo de datos de Azure Data Factory "Taxi Demo". Active la sesión de depuración con el botón de alternancia Depurar en la parte superior de la superficie de diseño de Data Flow para que pueda ver los resultados de forma interactiva:
+Puede ver esta funcionalidad de desfase del esquema en acción con el ejemplo "Taxi Demo" de Azure Data Factory Data Flow. Active la sesión de depuración con el botón de alternancia Depurar en la parte superior de la superficie de diseño de Data Flow para que pueda ver los resultados de forma interactiva:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Al generar nuevas columnas con patrones de columnas, puede acceder a esas column
 * Use "byPosition" para identificar las nuevas columnas por número de posición.
 * Use "byName" para identificar las nuevas columnas por nombre.
 * En los patrones de columna, use "Name", "Stream", "Position", "Type" o cualquier combinación de estos para buscar coincidencias con nuevas columnas.
+
+## <a name="rule-based-mapping"></a>Asignación basada en reglas
+Las transformaciones Seleccionar y de receptor admiten la coincidencia de patrones mediante la asignación basada en reglas. Esto le permitirá compilar reglas que pueden asignar columnas desplazadas a los alias de columna y recibir esas columnas en el destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En el [lenguaje de expresiones de Data Flow](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y desfase de esquema incluidas las funciones "byName" y "byPosition".

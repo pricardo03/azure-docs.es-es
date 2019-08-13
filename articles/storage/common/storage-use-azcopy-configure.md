@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 3773f9a8464dc94436d6d2503b173d4674033ab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565049"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -28,7 +28,7 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 
 ## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
 
-Para configurar las opciones de proxy para AzCopy, establezca la variable de entorno `https_proxy`.
+Para configurar las opciones de proxy para AzCopy, establezca la variable de entorno `https_proxy`. Si ejecuta AzCopy en Windows, AzCopy detecta automáticamente la configuración de proxy, por lo que no tiene que usar esta opción en Windows. Si decide usar esta opción en Windows, invalidará la detección automática.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -40,7 +40,13 @@ En la actualidad, AzCopy no admite servidores proxy que requieren autenticación
 
 ## <a name="optimize-throughput"></a>Optimización del rendimiento
 
-Establezca la variable de entorno `AZCOPY_CONCURRENCY_VALUE` para configurar el número de solicitudes simultáneas y controlar la capacidad de rendimiento y el consumo de recursos. Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecerlo manualmente en un valor superior o inferior.
+Puede usar la marca `cap-mbps` para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando limita el rendimiento a `10` megabits (MB) por segundo.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+El rendimiento puede disminuir al transferir archivos pequeños. Puede aumentar el rendimiento si establece la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Esta variable especifica el número de solicitudes simultáneas que pueden producirse.  Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecerlo manualmente en un valor superior o inferior.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -83,7 +89,7 @@ De forma predeterminada, los archivos de registro y de plan se encuentran en el 
 
 El comando siguiente obtiene todos los errores con el estado `UPLOADFAILED` del registro `04dc9ca9-158f-7945-5933-564021086c79`:
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log

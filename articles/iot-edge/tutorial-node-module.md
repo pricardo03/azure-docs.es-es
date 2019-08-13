@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6304c554858a29e8c6c886bcdec3b51efd635b6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306497"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840096"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo e implementación de un módulo de Node.js de IoT Edge para dispositivos Linux
 
@@ -108,7 +108,7 @@ Actualmente, Visual Studio Code puede desarrollar módulos de Node.js para dispo
 
 ### <a name="update-the-module-with-custom-code"></a>Actualización del módulo con código personalizado
 
-Cada plantilla viene con un código de ejemplo incluido, que toma los datos del sensor simulado del módulo **tempSensor** y los enruta a IoT Hub. En esta sección, agregue código para que NodeModule analice los mensajes antes de enviarlos. 
+Cada plantilla viene con un código de ejemplo incluido, que toma los datos del sensor simulado del módulo **SimulatedTemperatureSensor** y los enruta a IoT Hub. En esta sección, agregue código para que NodeModule analice los mensajes antes de enviarlos. 
 
 1. En el explorador de VS Code, abra **módulos** > **NodeModule** > **app.js**.
 
@@ -212,7 +212,7 @@ Asegúrese de que el dispositivo IoT Edge está en funcionamiento.
 
 3. Seleccione el archivo **deployment.json** de la carpeta **config** y, a continuación, haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). No utilice el archivo deployment.template.json.
 
-4. Haga clic en el botón Actualizar. Debería ver el nuevo **NodeModule** en ejecución junto con el módulo **TempSensor** y el **$edgeAgent** y **$edgeHub**.
+4. Haga clic en el botón Actualizar. Debería ver el nuevo **NodeModule** en ejecución junto con el módulo **SimulatedTemperatureSensor** y el **$edgeAgent** y **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 

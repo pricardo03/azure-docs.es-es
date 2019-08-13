@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4b41772a4e904603309f45244cf4df22af876a32
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734687"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812746"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -28,7 +28,7 @@ Azure App Service Environment es una implementación de Azure App Service en una
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con una dirección VIP en una dirección IP interna, llamada a menudo un ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB). 
 
-Este artículo muestra cómo crear un ASE con un ILB. Para obtener información general sobre ASE, consulte [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear un ASE externo, consulte [Creación de un ASE externo][MakeExternalASE].
+Este artículo muestra cómo crear un ASE con un ILB. Para obtener información general sobre el ASE, consulte [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear un ASE externo, consulte [Creación de un ASE externo][MakeExternalASE].
 
 ## <a name="overview"></a>Información general 
 
@@ -109,7 +109,7 @@ Para configurar el DNS:
 
 - Cree una zona para *&lt;nombre de ASE&gt;.appserviceenvironment.net*.
 - Cree un registro D en esa zona que apunte * a la dirección IP de ILB. 
-- Cree una zona en *&lt;nombre de ASE&gt;.scm.appserviceenvironment.net* llamada SCM.
+- Cree una zona en *&lt;nombre de ASE&gt;.appserviceenvironment.net* llamada SCM.
 - Cree un registro D en la zona SCM que apunte a la dirección IP de ILB.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicación con un ASE con un ILB
@@ -126,15 +126,15 @@ Los puntos de conexión de publicación para las aplicaciones en un ASE con un I
 
 Puede combinar un dispositivo de firewall de aplicaciones web (WAF) con la instancia de ASE de ILB para exponer solo las aplicaciones que quiera a Internet y el resto mantenerlas accesibles desde la red virtual. Esta estrategia le permite crear aplicaciones seguras de varios niveles entre otras cosas.
 
-Para más información sobre cómo configurar la instancia de ASE de ILB con un dispositivo WAF, consulte [Configuración de un firewall de aplicaciones web para entornos de App Service][ASEWAF]. En este artículo se muestra cómo usar una aplicación virtual Barracuda con su ASE. Otra opción es utilizar Azure Application Gateway. Application Gateway utiliza las reglas de núcleo de OWASP para proteger cualquier aplicación que se encuentre detrás de él. Para obtener más información sobre Application Gateway, consulte [Introducción al firewall de aplicaciones web de Azure][AppGW].
+Para más información sobre cómo configurar la instancia de ASE de ILB con un dispositivo WAF, consulte [Configuración de un firewall de aplicaciones web para App Service Environment][ASEWAF]. En este artículo se muestra cómo usar una aplicación virtual Barracuda con su ASE. Otra opción es utilizar Azure Application Gateway. Application Gateway utiliza las reglas de núcleo de OWASP para proteger cualquier aplicación que se encuentre detrás de él. Para más información sobre Application Gateway, consulte [Introducción al firewall de aplicaciones web de Azure][AppGW].
 
 ## <a name="ilb-ases-made-before-may-2019"></a>Instancias de ASE de LIB creadas antes de mayo de 2019
 
 Con las instancias de ASE de ILB que se crearon antes de mayo de 2019, había que establecer el sufijo de dominio durante la creación de ASE. También era necesario cargar un certificado predeterminado que se basaba en dicho sufijo de dominio. Además, con una instancia antigua de ASE de ILB, no puede realizar el inicio de sesión único en la consola de Kudu con las aplicaciones de dicha instancia. Al configurar DNS para una instancia de este tipo, deberá establecer el registro D comodín en una zona que coincida con el sufijo de dominio. 
 
-## <a name="get-started"></a>Introducción ##
+## <a name="get-started"></a>Primeros pasos ##
 
-* Para empezar a trabajar con las instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro]. 
+* Para empezar a trabajar con instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro]. 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

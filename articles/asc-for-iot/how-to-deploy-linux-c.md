@@ -1,5 +1,5 @@
 ---
-title: Guía para instalar e implementar el agente basado en C de Linux de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+title: Guía para instalar e implementar el agente basado en C de Linux del agente de Azure Security Center para IoT | Microsoft Docs
 description: Aprenda a instalar el agente de Azure Security Center for IoT en máquinas Linux de 32 bits y 64 bits.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f5b98060486e6c55bb1702386cd5438f558254b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616840"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597225"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar el agente de seguridad basado en C de Azure Security Center for IoT para Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C de Azure Security Center para IoT para Linux
 
-> [!IMPORTANT]
-> Azure Security Center for IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-En esta guía se explica cómo instalar e implementar el agente de seguridad basado en C de Azure Security Center (ASC) for IoT en Linux.
+En esta guía se explica cómo instalar e implementar el agente de seguridad basado en C de Azure Security Center para IoT en Linux.
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]
@@ -47,20 +43,20 @@ Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir
 
 ## <a name="installation"></a>Instalación 
 
-Para instalar e implementar al agente de seguridad, realice las siguientes operaciones:
+Para instalar e implementar el agente de seguridad, use el siguiente flujo de trabajo:
 
 
-1. Descargue en el equipo la versión más reciente desde [GitHub](https://aka.ms/iot-security-github-c).
+1. Descargue en la máquina la última versión desde [GitHub](https://aka.ms/iot-security-github-c).
 
 1. Extraiga el contenido del paquete y vaya a la carpeta _/Install_.
 
-1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar lo siguiente:
+1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar el siguiente comando:
     
    ```
    chmod +x InstallSecurityAgent.sh
    ```
 
-1. Después, ejecute: 
+1. A continuación, ejecute: 
 
    ```
    ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i
@@ -68,7 +64,7 @@ Para instalar e implementar al agente de seguridad, realice las siguientes opera
    
    Para más información acerca de los parámetros de autenticación, consulte [Procedimiento para configurar la autenticación](concept-security-agent-authentication-methods.md).
 
-El script hace lo siguiente:
+Este script realiza la siguiente función:
 
 1. Instala los requisitos previos.
 
@@ -95,8 +91,8 @@ Compruebe el estado de implementación, para lo que debe ejecutar:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Lea la [información general](overview.md) del servicio ASC for IoT
-- Obtenga más información acerca de la [arquitectura](architecture.md) de ASC for IoT
+- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT
+- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 - Obtenga información acerca de las [alertas de seguridad](concept-security-alerts.md)

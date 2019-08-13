@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488856"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562339"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de escritorio que llama a las API web: adquisición de un token
 
@@ -126,7 +126,7 @@ La clase define las constantes siguientes:
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Este modificador se usa en un escenario avanzado donde quiere que el usuario dé previamente su consentimiento a varios recursos por adelantado (y no quiere utilizar el consentimiento incremental, que normalmente se utiliza con MSAL.NET / la plataforma de identidad de Microsoft v2.0). Para obtener más detalles, vea [Cómo tener el consentimiento del usuario por adelantado para varios recursos](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Este modificador se usa en un escenario avanzado donde quiere que el usuario dé previamente su consentimiento a varios recursos por adelantado (y no quiere utilizar el consentimiento incremental, que normalmente se utiliza con MSAL.NET / la plataforma de identidad de Microsoft). Para obtener más detalles, vea [Cómo tener el consentimiento del usuario por adelantado para varios recursos](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -198,7 +198,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - Este flujo está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows (UWP). En .NET Core solo está disponible la sobrecarga al tomar el nombre de usuario, ya que la plataforma .NET Core no puede pedir el nombre de usuario al sistema operativo.
   
-Para más información sobre el consentimiento, vea [Permiso y consentimiento de v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para más información sobre el consentimiento, consulte [Permisos y consentimientos de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
 
 ### <a name="how-to-use-it"></a>Cómo usarlo
 
@@ -296,7 +296,7 @@ También puede adquirir un token proporcionando el nombre de usuario y la contra
 > [!NOTE] 
 > Aunque esto es útil en algunos casos (escenarios de DevOps), si quiere usar el nombre de usuario y contraseña en escenarios interactivos donde proporciona su propia interfaz de usuario, debería pensar cómo evitarlo. A usar el nombre de usuario y contraseña se están descuidando varias cosas:
 >
-> - Inquilinos principales de identidad moderna: se busca y se reproduce la contraseña. Dado que tenemos este concepto de un secreto compartido que se puede interceptar,
+> - Inquilinos principales de identidad moderna: se busca y se reproduce la contraseña. Dado que tenemos este concepto de secreto compartido que se puede interceptar,
 > es incompatible con el inicio de sesión sin contraseña.
 > - Los usuarios que necesitan realizar MFA no podrán iniciar sesión (ya que no hay ninguna interacción).
 > - Los usuarios no podrán realizar el inicio de sesión único.

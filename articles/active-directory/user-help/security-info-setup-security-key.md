@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7193b994e5749965542746627ef3de2cfe090fa3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386729"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561568"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configuración de la información de seguridad para usar una clave de seguridad (versión preliminar)
 
@@ -30,7 +30,7 @@ Puede usar las claves de seguridad como un método de inicio de sesión sin cont
 
 ## <a name="what-is-a-security-key"></a>¿Qué es una clave de seguridad?
 
-Actualmente, se admiten varios diseños y proveedores de claves de seguridad con el método de autenticación sin contraseña de [Fast Identity online (FIDO)](https://fidoalliance.org/fido2/) (FIDO2). Este método permite iniciar sesión en su cuenta profesional o educativa una vez para obtener acceso a todos los recursos basados en la nube de su organización y a los exploradores admitidos.
+Actualmente, se admiten varios diseños y proveedores de claves de seguridad con los protocolos de autenticación sin contraseña de [Fast Identity online (FIDO)](https://fidoalliance.org/fido2/) (FIDO2). Estas claves le permiten iniciar sesión en su cuenta profesional o educativa para acceder a todos los recursos basados en la nube de su organización cuando se encuentra en un dispositivo o explorador web admitido.
 
 Su administrador u organización le proporcionará una clave de seguridad si lo requiere para su cuenta profesional o educativa. Hay diferentes tipos de claves de seguridad que puede usar; por ejemplo, una llave USB que conecta al dispositivo o una llave NFC que puede acercar a un lector NFC. Puede obtener más información acerca de la clave de seguridad, incluido el tipo, en la documentación del fabricante.
 
@@ -39,17 +39,17 @@ Su administrador u organización le proporcionará una clave de seguridad si lo 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de empezar a registrar la clave de seguridad, compruebe lo siguiente:
+Antes de poder registrar la clave de seguridad, debe cumplirse lo siguiente:
 
 - El administrador ha activado esta característica para su uso dentro de la organización.
 
-- Está en un dispositivo que ejecuta al menos Windows 10, versión 1903 y con el explorador Microsoft Edge.
+- Está en un dispositivo que ejecuta la actualización de Windows 10 de mayo de 2019 y usa un explorador compatible.
 
-- Ha recibido una clave de seguridad física de su administrador u organización. La clave de seguridad debe ser FIDO2 y compatible con Microsoft. Si tiene alguna pregunta sobre la clave de seguridad y sobre si es compatible, póngase en contacto con el departamento de soporte técnico de su organización.
+- Dispone de una clave de seguridad física que su administrador u organización ha aprobado. La clave de seguridad debe ser FIDO2 y compatible con Microsoft. Si tiene alguna pregunta sobre la clave de seguridad y sobre si es compatible, póngase en contacto con el departamento de soporte técnico de su organización.
 
 ## <a name="register-your-security-key"></a>Registro de la clave de seguridad
 
-Debe preparar la clave de seguridad para trabajar con Windows y un PIN único para poder iniciar sesión en su cuenta profesional o educativa con la clave.
+Debe crear la clave de seguridad y asignarle un PIN único para poder iniciar sesión en su cuenta profesional o educativa con la clave. Puede tener hasta 10 claves registradas en su cuenta. 
 
 1. Vaya a la página **Mi perfil** en https://myprofile.microsoft.com e inicie sesión si todavía no lo ha hecho.
 
@@ -96,7 +96,7 @@ Debe preparar la clave de seguridad para trabajar con Windows y un PIN único pa
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>Eliminación de una clave de seguridad de la información de seguridad
 
-Si ya no quiere usar la clave de seguridad, puede eliminar la clave de la información de seguridad. Aunque esto impide que se use la clave de seguridad con su cuenta profesional o educativa, la clave de seguridad continúa almacenando los datos y la información de las credenciales. Para eliminar los datos y la información de credenciales de la clave de seguridad, debe seguir las instrucciones de la sección [Restablecimiento de una clave de seguridad compatible con Microsoft](#reset-your-security-key) de este artículo.
+Si pierde o ya no quiere usar la clave de seguridad, puede eliminarla de la información de seguridad. Aunque esto impide que se use la clave de seguridad con su cuenta profesional o educativa, la clave de seguridad continúa almacenando los datos y la información de las credenciales. Para eliminar los datos y la información de credenciales de la clave de seguridad, debe seguir las instrucciones de la sección [Restablecimiento de una clave de seguridad compatible con Microsoft](#reset-your-security-key) de este artículo.
 
 1. Seleccione el vínculo **Eliminar** de la clave de seguridad para quitarla.
 
@@ -105,7 +105,7 @@ Si ya no quiere usar la clave de seguridad, puede eliminar la clave de la inform
     La clave de seguridad se eliminará y ya no podrá usarla para iniciar sesión en su cuenta profesional o educativa.
 
 >[!Important]
->Si ha eliminado esta clave de seguridad por error, tendrá que volver a registrarla. Para ello, siga las instrucciones de la sección [Cómo registrar la clave de seguridad](#register-your-security-key) de este artículo.
+>Si ha eliminado una clave de seguridad por error, puede volver a registrarla. Para ello, siga las instrucciones de la sección [Cómo registrar la clave de seguridad](#register-your-security-key) de este artículo.
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>Administración de la configuración de la clave de seguridad desde Configuración de Windows
 
@@ -138,25 +138,15 @@ Puede crear un nuevo PIN de clave de seguridad para su clave de seguridad.
 
 1. Abra la aplicación Configuración de Windows, seleccione **Cuentas**, **Opciones de inicio de sesión**, **Clave de seguridad** y, a continuación, **Administrar**.
 
-2. Inserte la clave de seguridad en el puerto USB o acérquela al lector NFC para comprobar su identidad.5
+2. Inserte la clave de seguridad en el puerto USB o acérquela al lector NFC para comprobar su identidad.
 3. Seleccione **Agregar** en el área **PIN de clave de seguridad**, escriba y confirme el nuevo PIN de seguridad y, a continuación, seleccione **Aceptar**.
 
-    La clave de seguridad se actualiza con el nuevo PIN de clave de seguridad para su uso con su cuenta profesional o educativa. Si decide volver a cambiar el PIN, puede seleccionar el botón **Cambiar**.6
+     La clave de seguridad se actualiza con el nuevo PIN de clave de seguridad para su uso con su cuenta profesional o educativa. Si decide volver a cambiar el PIN, puede seleccionar el botón **Cambiar**.
 4. Seleccione **Cerrar** para cerrar la pantalla **Administrar**.
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 
-Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
-
-- **Aplicación autenticadora.** Descargue y use una aplicación autenticadora para obtener una notificación de aprobación o un código de aprobación generado de forma aleatoria para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo configurar y usar la aplicación Microsoft Authenticator, consulte [Set up security info to use an authenticator app](security-info-setup-auth-app.md) (Configuración de la información de seguridad para usar una aplicación de autenticador).
-
-- **Texto de dispositivo móvil.** Escriba el número del dispositivo móvil y obtendrá un código que podrá usar para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones detalladas sobre cómo verificar su identidad con un mensaje de texto (SMS), vea [Configuración de la información de seguridad para usar la mensajería de texto (SMS)](security-info-setup-text-msg.md).
-
-- **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con un número de teléfono, consulte [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
-
-- **Dirección de correo electrónico.** Escriba la dirección de correo electrónico profesional o educativa para recibir un correo electrónico para el restablecimiento de contraseña. Esta opción no está disponible para la verificación en dos pasos. Para obtener instrucciones detalladas sobre cómo configurar el correo electrónico, vea [Configuración de la información de seguridad para usar el correo electrónico](security-info-setup-email.md).
-
-- **Preguntas de seguridad.** Responda a algunas preguntas de seguridad creadas por el administrador para su organización. Esta opción solo está disponible para el restablecimiento de contraseña y no para la verificación en dos pasos. Para obtener instrucciones paso a paso sobre cómo configurar las preguntas de seguridad, consulte el artículo [Configuración de la información de seguridad para usar las preguntas de seguridad](security-info-setup-questions.md).
+Para registrar una clave de seguridad, debe tener al menos un método de comprobación de seguridad adicional registrado. Para más información, consulte la [sección Información general](security-info-add-update-methods-overview.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

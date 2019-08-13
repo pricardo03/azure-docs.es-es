@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335702"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516498"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 
@@ -23,9 +23,9 @@ En este artículo se describe cómo replicar máquinas virtuales habilitadas par
 >Actualmente, Azure Site Recovery solo admite máquinas virtuales de Azure que se ejecutan con un sistema operativo Windows y que están [habilitadas para el cifrado con Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
 ## <a id="required-user-permissions"></a> Permisos de usuario necesarios
-Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves a esta región.
+Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves desde el almacén de claves de la región de origen al de la región de destino.
 
-Para habilitar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption desde Azure Portal, el usuario necesita los permisos siguientes:
+Para habilitar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption desde Azure Portal, el usuario necesita los permisos siguientes en los almacenes de claves de la **región de origen y de destino**.
 
 - Permisos del almacén de claves
     - Lista, Creación y Obtención

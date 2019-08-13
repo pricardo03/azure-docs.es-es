@@ -3,7 +3,7 @@ title: Información sobre la seguridad de las aplicaciones de Azure Service Fabr
 description: Información general sobre cómo ejecutar de forma segura aplicaciones de microservicios en Service Fabric. Obtenga información acerca de cómo ejecutar un script de inicio y servicios en cuentas de seguridad diferentes, autenticar y autorizar a los usuarios, administrar secretos de aplicación, proteger las comunicaciones de servicios, usar una puerta de enlace de API y proteger los datos en reposo de las aplicaciones.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: aljo
-ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302239"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600076"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Seguridad del servicio y la aplicación de Service Fabric
 Una arquitectura de microservicios puede aportar [muchas ventajas](service-fabric-overview-microservices.md). Administrar la seguridad de los microservicios, sin embargo, es un desafío y no es lo mismo que administrar la seguridad de las aplicaciones tradicionales monolíticas. 
@@ -38,7 +38,7 @@ Si se puede tener acceso directamente a los servicios, es posible emplear un ser
 
 En ASP.NET Core, el mecanismo principal para [autenticar a los usuarios](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) es el sistema de pertenencia a Identity de ASP.NET Core. Identity de ASP.NET Core almacena información de usuario (incluida la información de inicio de sesión, roles y notificaciones) en un almacén de datos configurado por el desarrollador. Admite la autenticación en dos fases.  También se admiten proveedores de autenticación externos, por lo que los usuarios pueden iniciar sesión con los procesos de autenticación existentes de proveedores como Microsoft, Google, Facebook o Twitter.
 
-### <a name="authorization"></a>Autorización
+### <a name="authorization"></a>Authorization
 Después de la autenticación, los servicios tienen que autorizar el acceso de usuario o determinar lo que un usuario es capaz de hacer. Este proceso permite que un servicio ponga las API a disposición de algunos usuarios autenticados, pero no de todos. La autorización es ortogonal e independiente de la autenticación, que es el proceso de determinar quién es un usuario. La autenticación puede crear una o varias identidades para el usuario actual.
 
 La [autorización de ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) puede llevarse a cabo según los roles de los usuarios o según una directiva personalizada, lo que puede incluir inspeccionar las notificaciones u otra heurística.
@@ -53,7 +53,7 @@ API Management se integra directamente con Service Fabric, lo que le permite pub
 ## <a name="manage-application-secrets"></a>Administración de secretos de aplicación
 Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato. En esta guía se usa Azure Key Vault para administrar las claves y los secretos. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte.
 
-La forma recomendada de administrar la configuración de servicio es mediante los [paquetes de configuración de servicio][config-package]. Los paquetes de configuración se actualizan mediante actualizaciones acumulativas administradas con validación de estado y reversión automática. Esto es preferible a la configuración global ya que reduce las posibilidades de una interrupción del servicio global. Los secretos cifrados no son ninguna excepción. Service Fabric presenta características integradas para cifrar y descifrar valores en un archivo Settings.xml de paquete de configuración mediante cifrado de certificados.
+La forma recomendada de administrar las opciones de configuración de servicio es mediante los [paquetes de configuración de servicio][config-package]. Los paquetes de configuración se actualizan mediante actualizaciones acumulativas administradas con validación de estado y reversión automática. Esto es preferible a la configuración global ya que reduce las posibilidades de una interrupción del servicio global. Los secretos cifrados no son ninguna excepción. Service Fabric presenta características integradas para cifrar y descifrar valores en un archivo Settings.xml de paquete de configuración mediante cifrado de certificados.
 
 En el diagrama siguiente se ilustra el flujo básico para la administración de secretos en una aplicación de Service Fabric:
 

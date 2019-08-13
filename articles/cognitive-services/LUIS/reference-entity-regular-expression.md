@@ -1,6 +1,6 @@
 ---
-title: Tipo de entidad de expresión regular
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Tipo de entidad de expresión regular: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: dfffea26ccd8dfcecea2c6a2e07234f3ab27f72b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480140"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559937"
 ---
 # <a name="regular-expression-entity"></a>Entidad de expresión regular 
 

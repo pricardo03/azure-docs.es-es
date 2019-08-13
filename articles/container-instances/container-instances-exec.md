@@ -3,16 +3,17 @@ title: Ejecución de comandos en contenedores en ejecución en Azure Container I
 description: Obtenga información sobre cómo ejecutar un comando en un contenedor actualmente en ejecución en Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: danlep
-ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579753"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68325979"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Ejecución de un comando en una instancia de contenedor de Azure en ejecución
 

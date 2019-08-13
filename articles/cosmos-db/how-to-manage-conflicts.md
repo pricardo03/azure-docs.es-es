@@ -4,14 +4,14 @@ description: Aprenda a administrar conflictos en Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360362"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815076"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Con las operaciones de escritura en varias regiones, cuando varios clientes escr
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Creación de una directiva de resolución de conflictos del tipo "el último en escribir gana"
 
-En estos ejemplos se muestra cómo configurar un contenedor con una directiva de resolución de conflictos del tipo "el último en escribir gana". La ruta de acceso predeterminada para modo "el último en escribir gana" es el campo de marca de tiempo o la propiedad `_ts`. También se puede establecer en una ruta de acceso definida por el usuario para un tipo numérico. En un conflicto, gana el valor más alto. Si no se establece la ruta de acceso o la que se establece no es válida, se usará de forma predeterminada `_ts`. Los conflictos resueltos con esta directiva no se muestran en la fuente de conflictos. Todas las API pueden usar esta directiva.
+En estos ejemplos se muestra cómo configurar un contenedor con una directiva de resolución de conflictos del tipo "el último en escribir gana". La ruta de acceso predeterminada para modo "el último en escribir gana" es el campo de marca de tiempo o la propiedad `_ts`. Para la API SQL, también se puede establecer en una ruta de acceso definida por el usuario con un tipo numérico. En un conflicto, gana el valor más alto. Si no se establece la ruta de acceso o la que se establece no es válida, se usará de forma predeterminada `_ts`. Los conflictos resueltos con esta directiva no se muestran en la fuente de conflictos. Todas las API pueden usar esta directiva.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK de .NET V2
 
@@ -114,7 +114,6 @@ Los procedimientos almacenados de resolución de conflictos personalizada deben 
 
 > [!IMPORTANT]
 > Al igual que con cualquier procedimiento almacenado, un procedimiento de resolución de conflictos personalizado puede acceder a los datos con la misma clave de partición y puede realizar cualquier operación de inserción, actualización o eliminación para resolver los conflictos.
-
 
 Este procedimiento almacenado de ejemplo resuelve los conflictos mediante la selección del valor más bajo de la ruta de acceso `/myCustomId`.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Creación de una directiva de resolución de conflictos personalizada
 
 En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada. Estos conflictos se mostrarán en la fuente de conflictos.
@@ -428,10 +426,10 @@ while conflict:
 
 Obtenga información acerca de los siguientes conceptos de Azure Cosmos DB:
 
-* [Distribución global en segundo plano](global-dist-under-the-hood.md)
-* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
-* [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md).
-* [Creación de particiones y distribución de datos](partition-data.md)
-* [Indexación en Azure Cosmos DB](indexing-policies.md)
+- [Distribución global en segundo plano](global-dist-under-the-hood.md)
+- [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
+- [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md).
+- [Creación de particiones y distribución de datos](partition-data.md)
+- [Indexación en Azure Cosmos DB](indexing-policies.md)

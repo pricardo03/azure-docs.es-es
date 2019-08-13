@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Configuración del entono y el área de trabajo'
 titleSuffix: Azure Machine Learning service
-description: En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.
+description: En esta serie de tutoriales, realizará los pasos completos para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  La primera parte cubre la creación de un entorno de servidor de cuaderno en la nube, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668602"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828634"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Tutorial: Configuración del entorno y el área de trabajo
 
@@ -25,7 +25,7 @@ En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Creará un área de trabajo de aprendizaje automático para usarla en el siguiente tutorial
-> * Creará un entorno de servidor de cuadernos en la nube
+> * Cree una máquina virtual de cuaderno, un servidor de Jupyter Notebook basado en la nube con el SDK de Python para Azure Machine Learning preinstalado y preconfigurado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,14 +49,12 @@ En el área de trabajo puede crear un recurso en la nube para empezar a trabajar
 
 1. Seleccione **+Nuevo** para crear una máquina virtual de Jupyter Notebook.
 
-     ![Seleccionar nueva máquina virtual](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Seleccionar nueva máquina virtual](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. Proporcione un nombre para la máquina virtual. Seleccione **Crear**.
 
     > [!NOTE]
     > El nombre de la máquina virtual del cuaderno debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el carácter -.  El nombre también debe ser único en la suscripción de Azure.
-
-    ![Creación de una máquina virtual nueva](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Espere hasta que el estado cambie a **En ejecución**.
 
@@ -66,7 +64,7 @@ Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas
 
 1. Seleccione **Jupyter** en la columna **URI** de la máquina virtual.
 
-    ![Iniciar el servidor de Jupyter Notebook](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Iniciar el servidor de Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
 
@@ -87,7 +85,7 @@ Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando 
 
 1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
 
-   ![Detener el servidor de máquina virtual](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Detener el servidor de máquina virtual](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. En la lista, seleccione la máquina virtual.
 

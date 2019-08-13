@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615758"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
@@ -62,7 +62,7 @@ Los cálculos básicos siguientes comparan la diferencia entre los modelos de re
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Emparejamiento de redes virtuales y conexiones de ExpressRoute
 
-Para proporcionar conectividad local, los dos enfoques de red *kubenet* y *Azure-CNI* pueden usar el [emparejamiento de redes virtuales de Azure][vnet-peering] or [ExpressRoute connections][express-route]. Planee los intervalos de direcciones IP detenidamente para evitar la superposición y un enrutamiento de tráfico incorrecto. Por ejemplo, muchas redes locales usan un intervalo de direcciones *10.0.0.0/8* que se anuncia a través de la conexión ExpressRoute. Es aconsejable crear los clústeres de AKS en las subredes de la red virtual de Azure fuera de este rango de direcciones, como *172.16.0.0/16*.
+Para proporcionar conectividad en el entorno local, los dos enfoques de red *kubenet* y *Azure-CNI* pueden usar el [emparejamiento de redes virtuales de Azure][vnet-peering] o las [conexiones ExpressRoute][express-route]. Planee los intervalos de direcciones IP detenidamente para evitar la superposición y un enrutamiento de tráfico incorrecto. Por ejemplo, muchas redes locales usan un intervalo de direcciones *10.0.0.0/8* que se anuncia a través de la conexión ExpressRoute. Es aconsejable crear los clústeres de AKS en las subredes de la red virtual de Azure fuera de este rango de direcciones, como *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Selección de un modelo de red para usarlo
 
@@ -127,7 +127,7 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Para asignar las delegaciones correctas en los pasos restantes, use los comandos [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] para obtener los identificadores de recurso necesarios. Estos identificadores de recursos se almacenan como variables y se hace referencia a ellos en los pasos restantes:
+Para asignar las delegaciones correctas en los pasos restantes, use los comandos [az network vnet show][az-network-vnet-show] y [az network vnet subnet show][az-network-vnet-subnet-show] para obtener los identificadores de recursos necesarios. Estos identificadores de recursos se almacenan como variables y se hace referencia a ellos en los pasos restantes:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
@@ -176,7 +176,7 @@ Al crear un clúster de AKS, también se crean un grupo de seguridad de red y un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [compilar aplicaciones con Azure Dev Spaces][dev-spaces] or [using Draft][use-draft] o a [implementar aplicaciones con Helm][use-helm].
+Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Azure Dev Spaces][dev-spaces] o a [utilizar Draft][use-draft] o bien [implemente las aplicaciones con Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

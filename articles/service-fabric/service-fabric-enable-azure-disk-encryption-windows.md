@@ -3,7 +3,7 @@ title: Habilitación del cifrado de disco para clústeres con Windows de Azure S
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric mediante Azure Key Vault en Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: navya
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
-ms.author: aljo
-ms.openlocfilehash: c31fc43729bcb58c755959db0c8bc5185b8197f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471416"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599547"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows 
 > [!div class="op_single_selector"]
@@ -58,10 +58,10 @@ La versión preliminar del cifrado de disco de un conjunto de escalado de máqui
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
     ```
-2. Instale la versión más reciente de [CLI de Azure](/cli/azure/install-azure-cli), que contiene los nuevos comandos de cifrado.
+2. Instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli), que contiene los nuevos comandos de cifrado.
 3. Instale la versión más reciente del [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Estos son los cmdlets de Azure Disk Encryption para habilitar ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) el cifrado, recuperar ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) el estado de cifrado y eliminar ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) el cifrado en la instancia del conjunto de escalado.
 
-| Get-Help | Versión |  Origen  |
+| Get-Help | Versión |  Source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 o posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 o posterior | Az.Compute |
@@ -98,7 +98,7 @@ az account set --subscription $subscriptionId
 
 ### <a name="use-the-custom-template-that-you-already-have"></a>Uso de la plantilla personalizada ya existente 
 
-Si tiene que crear una plantilla personalizada para adaptarla a sus necesidades, es muy aconsejable comenzar con una de las ya disponibles en la página [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) (Plantillas de ejemplo de creación de clústeres de Azure Service Fabric). Para [personalizar la plantilla de clúster] [ customize-your-cluster-template], vea las siguientes recomendaciones.
+Si tiene que crear una plantilla personalizada para adaptarla a sus necesidades, es muy aconsejable comenzar con una de las ya disponibles en la página [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) (Plantillas de ejemplo de creación de clústeres de Azure Service Fabric). Para [personalizar la plantilla de clúster][customize-your-cluster-template], consulte las siguientes recomendaciones.
 
 Si ya tiene una plantilla personalizada, vuelva a comprobar que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null, como se indica a continuación:
 

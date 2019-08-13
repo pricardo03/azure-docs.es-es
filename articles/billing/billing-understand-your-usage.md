@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383468"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554696"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -28,7 +28,7 @@ Tipo de cuenta | Uso de Azure | Uso de Marketplace | Compras | Reembolsos
 --- | --- | --- | --- | ---
 Contrato Enterprise (EA) | Sí | Sí | Sí | Sin
 Contrato de cliente de Microsoft (MCA) | Sí | Sí | Sí | Sí
-Pay-as-you-go (PAYG) | Sí | No | No | Sin
+Pay-as-you-go (PAYG) | Sí | Sí | No | Sin
 
 Para más información sobre los pedidos de Marketplace (también conocidos como servicios externos), consulte [Descripción de los gastos de servicios externos de Azure](billing-understand-your-azure-marketplace-charges.md).
 
@@ -65,8 +65,6 @@ EffectivePrice | Todo | Precio unitario combinado para el período. Los precios 
 ExchangeRateDate | MCA | Fecha en la que se estableció el tipo de cambio.
 ExchangeRatePricingToBilling | MCA | Tipo de cambio que se usa para convertir el coste en la moneda de precios a la moneda de facturación.
 Frecuencia | Todo | Indica si se espera que un cargo se repita. Los cargos pueden producirse una vez (**Una vez**), repetirse mensual o anualmente (**Periódico**) o basado en la utilización (**Basado en uso**).
-IncludedQuantity | PAYG | El importe del medidor incluido sin cargo en el período de facturación actual.
-InstanceId | PAGY | Véase ResourceId.
 InvoiceId | Pago por uso, MCA | Identificador único del id. de documento que se muestra en el archivo PDF de la factura.
 InvoiceSection | MCA | Véase InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificador único para el departamento de EA o la sección de la factura de MCA.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | Fecha de inicio del período de calificación que
 SubscriptionId | Todo | Identificador único de la suscripción de Azure.
 SubscriptionName | Todo | Nombre de la suscripción de Azure.
 Etiquetas | Todo | Etiquetas asignadas al recurso. No incluye etiquetas de grupo de recursos. Se puede usar para agrupar o distribuir los costes para el contracargo interno. Para más información, consulte [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas).
+Término | Todo | Muestra el plazo de validez de la oferta. Por ejemplo:  En el caso de instancias reservadas, muestra 12 meses como plazo. Para compras puntuales o compras periódicas, el plazo es de 1 mes (SaaS, soporte de Marketplace). Esto no es aplicable para el consumo de Azure.
 UnitOfMeasure | Todo | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
 UnitPrice | EA, pago por uso | El precio unitario del cargo.
 

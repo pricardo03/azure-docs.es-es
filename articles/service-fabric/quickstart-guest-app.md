@@ -3,7 +3,7 @@ title: Implementación rápida de una aplicación existente en un clúster de Az
 description: Use un clúster de Azure Service Fabric para hospedar una aplicación existente de Node.js con Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428233"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592453"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido le ayudará a implementar una aplicación existente
 
 Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Esto también incluye la instalación del SDK de Service Fabric y Visual Studio 2019 o 2015.
 
-También es preciso que tenga una aplicación de Node.js existente para la implementación. Esta guía de rápido usa un sitio Web en Node.js simple que se puede descargar [aquí][download-sample]. Extraiga este archivo en su carpeta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` después de crear el proyecto en el paso siguiente.
+También es preciso que tenga una aplicación de Node.js existente para la implementación. Este inicio rápido usa un sitio web en Node.js simple que se puede descargar [aquí][download-sample]. Extraiga este archivo en su carpeta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` después de crear el proyecto en el paso siguiente.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][create-account].
 

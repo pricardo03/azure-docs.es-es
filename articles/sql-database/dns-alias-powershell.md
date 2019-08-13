@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
-manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 4318e6557dc72dff7200beb8783575131659b77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afa25a9a92b45c48c30d56428f5cf4e1d2f5d49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797701"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561357"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell con alias DNS para Azure SQL Database
 
@@ -42,9 +41,9 @@ Para conectarse a un servidor determinado de Azure SQL Database, un cliente como
 
 Si quiere ejecutar el script de PowerShell dado en este artículo, se aplican los siguientes requisitos previos:
 
-- Una suscripción y una cuenta de Azure. Para obtener una evaluación gratuita, haga clic en [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
+- Una suscripción y una cuenta de Azure. Para obtener una prueba gratuita, haga clic en [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 - Módulo de Azure PowerShell, con el cmdlet **New-AzSqlServerDNSAlias**.
-  - Si necesita instalarlo o actualizarlo, consulte [Instalación del módulo de Azure PowerShell][install-Az-ps-84p].
+  - Si necesita instalarla o actualizarla, consulte [Instalación y configuración de Azure PowerShell][install-Az-ps-84p].
   - Ejecute `Get-Module -ListAvailable Az;` en powershell\_ise.exe, para encontrar la versión.
 - Dos servidores de Azure SQL Database.
 

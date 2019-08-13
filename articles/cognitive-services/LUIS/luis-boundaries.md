@@ -1,6 +1,6 @@
 ---
-title: límites
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Límites: LUIS'
+titleSuffix: Azure Cognitive Services
 description: En este artículo contiene los límites conocidos de Language Understanding (LUIS) de Azure Cognitive Services. LUIS tiene varias áreas de límites. El límite de modelo controla las intenciones, entidades y características de LUIS. Los límites de cuota se basan en el tipo de clave. La combinación de teclado controla el sitio web de LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154572"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639239"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -28,7 +28,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 
 |Ámbito|Límite|
 |--|:--|
-| [Nombre de aplicación][luis-get-started-create-app] | *Máximo de caracteres predeterminado |
+| [Nombre de la aplicación][luis-get-started-create-app] | *Máximo de caracteres predeterminado |
 | [Pruebas por lotes][batch-testing]| 10 conjuntos de datos, 1000 expresiones por cada conjunto de datos|
 | Lista explícita | 50 por aplicación|
 | Entidades externas | sin límites |
@@ -45,7 +45,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | [Expresión][utterances] | 500 caracteres|
 | [Expresiones][utterances] | 15 000 por aplicación: no hay ningún límite en el número de expresiones por intención|
 | [Versiones](luis-concept-version.md)| ilimitado |
-| [Nombre de la versión][luis-how-to-manage-versions] | 10 caracteres, restringido a caracteres alfanuméricos y punto (.) |
+| [Nombre de versión][luis-how-to-manage-versions] | 10 caracteres, restringido a caracteres alfanuméricos y punto (.) |
 
 *El valor máximo predeterminado de caracteres es 50. 
 
@@ -55,7 +55,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 
 No use los siguientes caracteres en los siguientes nombres.
 
-|Objeto|Excluir caracteres|
+|Object|Excluir caracteres|
 |--|--|
 |Nombres de intención, entidad y rol|`:`<br>`$`|
 |Nombre de la versión|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -72,11 +72,11 @@ La clave de creación tiene distintos límites para la creación y el punto de c
 |Clave|Creación|Punto de conexión|Propósito|
 |--|--|--|--|
 |Creación/Inicio de Language Understanding|1 millón/mes, 5/segundo|1000/mes, 5/segundo|Creación de la aplicación de LUIS|
-|[Suscripción] de Language Understanding[pricing] - F0 - nivel Gratis |no válido|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
-|[Suscripción] de Language Understanding[pricing] - S0 - nivel Básico|no válido|50/segundo|Consultar el punto de conexión de LUIS|
-|[Suscripción] de Cognitive Services[pricing] - S0 - nivel Estándar|no válido|50/segundo|Consultar el punto de conexión de LUIS|
+|[Suscripción][pricing] de Language Understanding - F0 - nivel Gratis |no válido|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
+|[Suscripción][pricing] de Language Understanding - S0 - nivel Básico|no válido|50/segundo|Consultar el punto de conexión de LUIS|
+|[Suscripción][pricing] de Cognitive Services - S0 - nivel Estándar|no válido|50/segundo|Consultar el punto de conexión de LUIS|
 |[Integración del análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)|no válido|sin cargo|Agregar información de sentimiento, incluida la extracción de datos de frases clave |
-|Integración de voz|no válido|5,50 USD/1000 solicitudes de punto de conexión|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
+|[Integración de voz](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|no válido|5,50 USD/1000 solicitudes de punto de conexión|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 

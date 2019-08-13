@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677722"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720861"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
@@ -38,7 +38,7 @@ Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft
 
 * Los componentes de las herramientas principales de IIS Express, Web Deploy y Azure Cloud Services para Visual Studio. Agregue los componentes mediante la modificación de la instalación de Visual Studio.
 
-## <a name="application-design"></a>Diseño de aplicación
+## <a name="understand-application-design"></a>Descripción del diseño de la aplicación
 
 La SPA de ejemplo de Time Series Insights es la base del diseño y del código que se usan en este tutorial. El código usa la biblioteca cliente JavaScript de Time Series Insights. La biblioteca cliente de Time Series Insights ofrece una abstracción de dos categorías principales de API:
 
@@ -48,11 +48,11 @@ La SPA de ejemplo de Time Series Insights es la base del diseño y del código
 
 En este tutorial también se usan datos del entorno de Time Series Insights de la aplicación de ejemplo. Para detalles sobre la estructura de la aplicación de ejemplo de Time Series Insights y cómo usa la biblioteca cliente de Time Series Insights, consulte el tutorial [Exploración de la biblioteca cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
-## <a name="register-the-application-with-azure-ad"></a>Registre la aplicación en Azure AD
+## <a name="register-with-azure-ad"></a>Registro con Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>Creación y publicación de la aplicación
+## <a name="build-and-publish"></a>Compilación y publicación
 
 1. Cree un directorio para almacenar los archivos de proyecto de la aplicación. Luego, vaya a cada una de las direcciones URL siguientes. Haga clic con el botón derecho del vínculo **Raw** (Sin formato) en la esquina superior derecha de la página y, luego, seleccione **Guardar como** para guardar los archivos en el directorio del proyecto.
 
@@ -101,7 +101,7 @@ En este tutorial también se usan datos del entorno de Time Series Insights de
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Para configurar la aplicación para usar el identificador del registro de aplicación de Azure AD, cambie el valor de `clientID` para usar el **identificador de aplicación** que copió en el **paso 3** cuando [registró la aplicación para usar Azure AD](#register-the-application-with-azure-ad). Si ha creado una **dirección URL de cierre de sesión** en Azure AD, establezca ese valor como el valor de `postLogoutRedirectUri`.
+   1. Para configurar la aplicación para usar el identificador del registro de aplicación de Azure AD, cambie el valor de `clientID` para usar el **identificador de aplicación** que copió en el **paso 3** cuando [registró la aplicación para usar Azure AD](#register-with-azure-ad). Si ha creado una **dirección URL de cierre de sesión** en Azure AD, establezca ese valor como el valor de `postLogoutRedirectUri`.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ En este tutorial también se usan datos del entorno de Time Series Insights de
 
 Código o condición de error | DESCRIPCIÓN
 ---------------------| -----------
-*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad **Dirección URL de respuesta**. Vaya a **Configuración** > **Direcciones URL** para el registro de aplicación de Azure AD. Compruebe que exista el **URI de redirección**, que tuvo la opción de especificar en el **paso 2** cuando [registró la aplicación para usar Azure AD](#register-the-application-with-azure-ad).
-*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el **paso 6** de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) debe coincidir con el valor especificado en **Configuración** > **Direcciones de respuesta** en el registro de aplicación de Azure AD. No olvide cambiar también el valor de **Dirección URL de destino** para usar *https* según lo indicado en el **paso 5** de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application).
-Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el **paso 4** de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) son correctas. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
+*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad **Dirección URL de respuesta**. Vaya a **Configuración** > **Direcciones URL** para el registro de aplicación de Azure AD. Compruebe que exista el **URI de redirección** que tuvo la opción de especificar en el **paso 2** o el **paso 4** cuando [registró la aplicación para usar Azure AD](#register-with-azure-ad).
+*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el **paso 6.b** de [Creación y publicación de la aplicación web](#build-and-publish) debe coincidir con el valor especificado en **Configuración** > **Direcciones de respuesta** en el registro de aplicación de Azure AD. |
+Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el **paso 6** de [Creación y publicación de la aplicación web](#build-and-publish) son correctas. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

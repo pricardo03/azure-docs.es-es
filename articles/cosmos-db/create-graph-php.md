@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480603"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736642"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante PHP y Azure Portal
 
@@ -113,7 +113,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
     ]);
     ```
 
-3. Si la cuenta de base de datos de grafos se creó a partir del 20 de diciembre de 2017 incluido, en el nombre de host, cambie `graphs.azure.com` por `gremlin.cosmosdb.azure.com`.
-
-4. Cambie el parámetro `username` del objeto Connection por el nombre de base de datos y el grafo+. Si usó los valores recomendados de `sample-database` y `sample-graph`, debería ser similar al siguiente código:
+3. Cambie el parámetro `username` del objeto Connection por el nombre de base de datos y el grafo+. Si usó los valores recomendados de `sample-database` y `sample-graph`, debería ser similar al siguiente código:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
     ]);
     ```
 
-5. En Azure Portal, use el botón Copiar para copiar la clave principal y péguela sobre `your_primary_key` en el parámetro password.
+4. En Azure Portal, use el botón Copiar para copiar la clave principal y péguela sobre `your_primary_key` en el parámetro password.
 
     La inicialización del objeto Connection ahora debería ser similar al siguiente código:
 
@@ -159,7 +157,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
     ]);
     ```
 
-6. Guarde el archivo `connect.php`.
+5. Guarde el archivo `connect.php`.
 
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
@@ -206,13 +204,13 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 
 4. Escriba una etiqueta de *persona*.
 
-5. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades. Tenga en cuenta que puede crear propiedades únicas para cada persona en el grafo. Solo se requiere la clave de identificador.
+5. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades. Tenga en cuenta que puede crear propiedades únicas para cada persona en el grafo. Solo se requiere la clave de **identificador**.
 
-    key|value|Notas
+    Clave | Valor | Notas
     ----|----|----
-    id|ashley|Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
-    gender|mujer| 
-    técnico | Java | 
+    **id** | ashley | Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
+    **sexo** | mujer | 
+    **tecnología** | Java | 
 
     > [!NOTE]
     > En esta guía de inicio rápido se crea una colección sin particiones. Sin embargo, si crea una colección con particiones especificando una clave de partición durante la creación de la colección, debe incluir la clave de partición como una clave en cada nuevo vértice. 
@@ -224,12 +222,12 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 8. Escriba una etiqueta de *persona*.
 
 9. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades:
-
-    key|value|Notas
+    
+    Clave | Valor | Notas
     ----|----|----
-    id|rakesh|Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
-    gender|hombre| 
-    centro educativo|MIT| 
+    **id** | rakesh | Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
+    **sexo** | hombre | 
+    **centro educativo** | MIT | 
 
 10. Haga clic en **OK**. 
 

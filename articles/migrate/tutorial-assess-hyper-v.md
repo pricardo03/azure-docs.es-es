@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663795"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828331"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
@@ -92,7 +92,7 @@ Azure Migrate Server Assessment ejecuta un dispositivo ligero de máquina virtua
 - Para configurar el dispositivo:
     - Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
     - Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment.
-    - Configure el dispositivo por primera vez y regístrelo con el proyecto de Azure Migrate.
+    - Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate.
 
 ### <a name="download-the-vhd"></a>Descarga del disco duro virtual
 
@@ -115,20 +115,20 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  El código hash generado debe coincidir con esta configuración para la versión 1.19.06.27 del dispositivo.
+3.  El código hash generado debe coincidir con esta configuración para la versión 2.19.07.30 del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  MD5 | 3681F745FA2B0A0A6910707D85161EC5
-  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 
 ### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
 
-Importe el archivo descargado y cree la máquina virtual.
+Importe el archivo descargado y cree la VM.
 
-1. Extraiga el archivo del disco duro virtual comprimido en la carpeta del host de Hyper-V que hospedará la máquina virtual del dispositivo. Se extraen tres carpetas.
+1. Extraiga el archivo del disco duro virtual comprimido en la carpeta del host de Hyper-V que hospedará la VM del dispositivo. Se extraen tres carpetas.
 2. Abra el administrador de Hyper-V. En **Acciones**, haga clic en **Importar máquina virtual**.
 
     ![Implementar disco duro virtual](./media/tutorial-assess-hyper-v/deploy-vhd.png)
@@ -139,12 +139,12 @@ Importe el archivo descargado y cree la máquina virtual.
 2. En **Elegir tipo de importación**, haga clic en **Copiar la máquina virtual (crear un identificador único nuevo)** . A continuación, haga clic en **Siguiente**.
 3. En **Elegir destino**, deje la configuración predeterminada. Haga clic en **Next**.
 4. En **Carpetas de almacenamiento**, deje la configuración predeterminada. Haga clic en **Next**.
-5. En **Elegir red**, especifique el conmutador virtual que usará la máquina virtual. El conmutador necesita conectividad a Internet para enviar datos a Azure.
+5. En **Elegir red**, especifique el conmutador virtual que usará la VM. El conmutador necesita conectividad a Internet para enviar datos a Azure.
 6. En **Resumen**, revise los valores de configuración. Haga clic en **Finalizar**.
-7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la máquina virtual.
+7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la VM.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
+### <a name="verify-appliance-access-to-azure"></a>Verificación de que el dispositivo puede acceder a Azure
 
 Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
@@ -152,7 +152,7 @@ Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [d
 
 Configure el dispositivo por primera vez.
 
-1. En Administrador de Hyper-V > **Máquinas virtuales**, haga clic con el botón derecho en la máquina virtual > **Conectar**.
+1. En Administrador de Hyper-V > **Máquinas virtuales**, haga clic con el botón derecho en la VM > **Conectar**.
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.
 3. Abra un explorador en cualquier equipo que pueda conectarse a la máquina virtual y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
 
@@ -163,7 +163,7 @@ Configure el dispositivo por primera vez.
       - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
       - Especifique las credenciales si el proxy requiere autenticación.
       - Solo se admite un proxy HTTP.
-    - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
+    - **Time sync** (Sincronización de hora): Se verifica la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
     - **Instalación de actualizaciones**: Azure Migrate Server Assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
@@ -189,7 +189,7 @@ Habilite en el dispositivo de la manera siguiente:
 
 #### <a name="option-1"></a>Opción 1
 
-En la máquina virtual del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
+En la VM del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
 
 ```
 Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
@@ -204,26 +204,26 @@ También puede hacerlo en el Editor de directivas de grupo local en el dispositi
 1. En **Directiva de equipo local** > **Configuración del equipo**, haga clic en **Plantillas administrativas** > **Sistema** > **Delegación de credenciales**.
 2. Haga doble clic en **Permitir delegación de credenciales nuevas** y seleccione **Habilitado**.
 3. En **Opciones**, haga clic en **Mostrar** y agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
-4. En **Delegación de credenciales**, haga doble clic en **Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor**. De nuevo, agregue cada host de Hyper-V que desee detectar en la lista, con **wsman/** como prefijo.
+4. En **Delegación de credenciales**, haga doble clic en **Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor**. De nuevo, agregue cada host de Hyper-V que quiera detectar en la lista, con **wsman/** como prefijo.
 
 ## <a name="start-continuous-discovery"></a>Inicio de detección continua
 
-Conéctese desde el dispositivo a los hosts o clústeres de Hyper-V e inicie la detección de máquinas virtuales.
+Conéctese desde el dispositivo a los hosts o clústeres de Hyper-V e inicie la detección de VM.
 
-1. En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta que el dispositivo utilizará para detectar las máquinas virtuales. Especifique un nombre descriptivo para las credenciales y haga clic en **Guardar los detalles**.
+1. En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta que el dispositivo utilizará para detectar las VM. Especifique un nombre descriptivo para las credenciales y haga clic en **Guardar los detalles**.
 2. Haga clic en **Agregar host** y especifique los detalles del host o clúster de Hyper-V.
-3. Haga clic en **Validar**. Después de la validación, se muestra el número de máquinas virtuales que se pueden detectar en cada host o clúster.
+3. Haga clic en **Validar**. Después de la validación, se muestra el número de VM que se pueden detectar en cada host o clúster.
     - Si se produce un error de validación para un host, revise el error manteniendo el puntero sobre el icono en la columna **Estado**. Corrija los problemas y vuelva a validar.
     - Para quitar hosts o clústeres, seleccione > **Eliminar**.
     - No se puede quitar un host específico de un clúster. Solo puede quitar todo el clúster.
     - Puede agregar un clúster, incluso si hay problemas con hosts específicos del clúster.
 4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
-De esta forma comienza la detección. Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en Azure Portal.
+De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal.
 
 ### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 
-Una vez finalizada la detección, puede comprobar que las máquinas virtuales aparecen en el portal.
+Una vez finalizada la detección, puede verificar que las VM aparezcan en el portal.
 
 1. Abra el panel de Azure Migrate.
 2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**.

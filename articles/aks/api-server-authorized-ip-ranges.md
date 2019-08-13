@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67616258"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Versión preliminar: protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
@@ -34,7 +34,7 @@ Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azu
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para configurar intervalos de direcciones IP autorizadas por el servidor de API, necesita la versión 0.4.1 o una posterior de la extensión de la CLI para la *versión preliminar de AKS*. Instalación de la extensión de la CLI de Azure para la *versión preliminar de AKS* mediante el comando [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]:
+Para configurar intervalos de direcciones IP autorizadas por el servidor de API, necesita la versión 0.4.1 o una posterior de la extensión de la CLI para la *versión preliminar de AKS*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -49,7 +49,7 @@ az extension update --name aks-preview
 Para usar intervalos de direcciones IP autorizadas por el servidor de API, primero debe habilitar una marca de características en la suscripción. Para registrar la marca de características *APIServerSecurityPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 
 > [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el proceso. Después de habilitar algunas características en vista previa, pueden usarse los valores predeterminados en todos los clústeres de AKS y, luego, crearse en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
+> Actualmente, al registrar una característica en una suscripción, no se puede anular el proceso. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
@@ -131,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-Para crear una instancia de Azure Firewall, instale la extensión de la CLI *azure-firewall* con el comando [az extension add][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create]. En el siguiente ejemplo se crea un firewall de Azure denominado *myAzureFirewall*:
+Para crear una instancia de Azure Firewall, instale la extensión de la CLI *azure-firewall* con el comando [az extension add][az-extension-add]. A continuación, cree un firewall con el comando [az network firewall create][az-network-firewall-create]. En el siguiente ejemplo se crea un firewall de Azure denominado *myAzureFirewall*:
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -143,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-El firewall de Azure se asigna una dirección IP pública mediante la cual fluye tráfico de salida. Cree una dirección pública mediante el comando [az network publica-ip-create][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] que se aplica a la dirección IP pública:
+El firewall de Azure se asigna una dirección IP pública mediante la cual fluye tráfico de salida. Cree una dirección pública mediante el comando [az network public-ip create][az-network-public-ip-create] y, después, cree una configuración de IP en el firewall con el comando [az network firewall ip-config create][az-network-firewall-ip-config-create] que aplique la dirección IP pública:
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -242,7 +242,7 @@ az aks update \
 
 En este artículo ha habilitado intervalos de direcciones IP autorizadas por el servidor de API. Este enfoque forma parte del modo de ejecución segura de un clúster de AKS.
 
-Para más información, consulte [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+Para más información, consulte [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)][concepts-security] y [Procedimientos recomendados para la seguridad de clústeres y las actualizaciones en AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/

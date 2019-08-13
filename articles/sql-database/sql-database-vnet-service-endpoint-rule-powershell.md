@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd8cabb14ad65b4da562c7d6048a52b574513b26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331152"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566174"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
@@ -31,7 +30,7 @@ En este artículo se proporciona y se describe un script de PowerShell que reali
 1. Crea un *punto de conexión de servicio virtual* de Microsoft Azure en la subred.
 2. Agrega el punto de conexión al firewall de su servidor de Azure SQL Database para crear una *regla de red virtual*.
 
-Sus motivaciones para crear una regla se explican en: [Disponibilidad general de los puntos de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+Sus motivaciones para crear una regla se explican en: [Puntos de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Si todo lo que necesita es evaluar o agregar el punto de conexión del servicio virtual *nombre de tipo* para SQL Database a la subred, puede ir directamente a nuestro [script de PowerShell más directo](#a-verify-subnet-is-endpoint-ps-100).
@@ -55,7 +54,7 @@ En la lista siguiente se muestra la secuencia de otros cmdlets *principales* que
 
 ## <a name="prerequisites-for-running-powershell"></a>Requisitos previos para ejecutar PowerShell
 
-- Ya puede iniciar sesión en Azure, por ejemplo, a través de [Azure Portal][http-azure-portal-link-ref-477t].
+- Ya puede iniciar sesión en Azure, por ejemplo, en [Azure Portal][http-azure-portal-link-ref-477t].
 - Ya puede ejecutar scripts de PowerShell.
 
 > [!NOTE]
@@ -470,7 +469,7 @@ Este es el final de nuestro script principal de PowerShell.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Compruebe que la subred es un punto de conexión
 
-Es posible que tenga una subred a la que ya se haya asignado el nombre de tipo **Microsoft.Sql**, lo que significa que ya es un punto de conexión de servicio virtual. Puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una regla de red virtual desde el punto de conexión.
+Es posible que tenga una subred a la que ya se haya asignado el nombre de tipo **Microsoft.Sql**, lo que significa que ya es un punto de conexión de servicio virtual. Puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una regla de red virtual desde el punto de conexión.
 
 O bien, es posible que no sepa con seguridad si su subred tiene el nombre de tipo **Microsoft.Sql**. Puede ejecutar el siguiente script de PowerShell para realizar estas acciones:
 

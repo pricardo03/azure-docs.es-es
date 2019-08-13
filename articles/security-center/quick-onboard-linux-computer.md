@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521927"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816124"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Linux a Azure Security Center
-Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Linux.
+Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de un agente. El agente se denomina Microsoft Monitoring Agent (MMA), pero también se conoce como agente de OMS.
 
-En esta guía de inicio rápido se explica cómo instalar el agente de Linux en un equipo Linux.
+En este inicio rápido se explica cómo instalar el agente en un equipo Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,7 +57,7 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 
    ![Instalación del agente][5]
 
-Los registros del agente de Security Center para Linux se pueden encontrar en: */var/opt/microsoft/omsagent/\<workspace id>/log/*.
+Los registros del agente se pueden encontrar en: */var/opt/microsoft/omsagent/\<workspace id>/log/* .
 
   ![Registros del agente][6]
 

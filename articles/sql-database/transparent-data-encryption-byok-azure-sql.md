@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: cdd5e29fcc01639c03da70614f53ac648ee6620c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318581"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596699"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault: compatibilidad con Bring Your Own Key
 
@@ -87,14 +86,14 @@ Cuando TDE se configura por primera vez para usar un protector de TDE de Key Vau
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Directrices para configurar el protector de TDE (clave asimétrica)
 
-- Cree la clave de cifrado localmente en un dispositivo HSM local. Asegúrese de que sea una clave asimétrica RSA 2048 para que se pueda almacenar en Azure Key Vault.
+- Cree la clave de cifrado localmente en un dispositivo HSM local. Asegúrese de que sea una clave asimétrica RSA 2048 o RSA HSM 2048 para que se pueda almacenar en Azure Key Vault.
 - Custodie la clave en un sistema de custodia de claves.  
 - Importe el archivo de clave de cifrado (.pfx, .byok o .backup) a Azure Key Vault.
 
    > [!NOTE]
    > Con fines de prueba, es posible crear una clave con Azure Key Vault; sin embargo, esta clave no se puede custodiar, porque la clave privada nunca puede abandonar el almacén de claves.  Haga siempre copias de seguridad de las claves utilizadas para cifrar los datos de producción y custódielas, ya que la pérdida de la clave (eliminación accidental en el almacén de claves, vencimiento, etc.) da como resultado la pérdida permanente de datos.
 
-- Si usa una clave con una fecha de expiración: implemente un sistema de advertencia de expiración para cambiar la clave antes de que expire: **una vez que la clave expire, las bases de datos cifradas perderán el acceso a su protector de TDE y serán inaccesibles** y se denegarán todos los inicios de sesión hasta que se haya cambiado la clave por una nueva.
+- Si usa una clave con una fecha de expiración: implemente un sistema de advertencia de expiración para cambiar la clave antes de que expire: **una vez que la clave expire, las bases de datos cifradas perderán el acceso a su protector de TDE y serán inaccesibles** y se denegarán todos los inicios de sesión hasta que se haya cambiado la clave por una nueva y seleccionado esta y el protector de TDE predeterminado para el servidor SQL Server lógico.
 - Asegúrese de que la clave está habilitada y tiene permisos para realizar operaciones de *obtención*, *encapsulado de clave* y *desencapsulado de clave*.
 - Cree una copia de seguridad de clave de Azure Key Vault antes de usar la clave en Azure Key Vault por primera vez. Obtenga más información sobre el comando [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Cree una nueva copia de seguridad cada vez que se realicen cambios en la clave (por ejemplo, agregar ACL, agregar etiquetas, agregar atributos de clave).
@@ -107,7 +106,7 @@ Cuando TDE se configura por primera vez para usar un protector de TDE de Key Vau
 
 Si el servidor SQL lógico pierde el acceso al protector de TDE administrado por el cliente en Azure Key Vault, la base de datos denegará todas las conexiones y permanecerá inaccesible en Azure Portal.  Las causas más comunes de esto son:
 - El almacén de claves se eliminó accidentalmente o está detrás de un firewall
-- La clave de Key Vault se eliminó accidentalmente o ha expirado
+- La clave de Key Vault se eliminó accidentalmente, está deshabilitada o ha expirado
 - La instancia de SQL Server lógica AppId se eliminó accidentalmente
 - Se revocaron permisos específicos clave para la instancia de SQL Server lógica AppId
 

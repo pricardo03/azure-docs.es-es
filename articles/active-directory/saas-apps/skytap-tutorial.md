@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588036"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integración de Azure Active Directory con Skytap
 
@@ -191,7 +191,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-skytap-test-user"></a>Creación del usuario de prueba en Skytap
 
-En esta sección, creará un usuario llamado Britta Simon en Skytap. Trabaje con el  [equipo de soporte técnico de Skytap](mailto:support@skytap.com) para agregar los usuarios a la plataforma de Skytap. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Skytap. Cualquier administrador o administrador de usuarios de la cuenta de Skytap puede crear usuarios. Para más información sobre cómo hacerlo, consulte los archivos de ayuda de Skytap: https://help.skytap.com/users-create.html
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

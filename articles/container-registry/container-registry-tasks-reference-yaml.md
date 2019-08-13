@@ -3,16 +3,17 @@ title: 'Referencia de Azure Container Registry Tasks: YAML'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27c38f51104dfb170c59860c96a8e3a86973bb1e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954474"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638921"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -79,7 +80,7 @@ az configure --defaults acr=myregistry
 
 Las propiedades de tareas suelen aparecer en la parte superior de un archivo `acr-task.yaml` y son propiedades globales que se aplican a lo largo de la ejecución completa de los pasos de una tarea. Algunas de estas propiedades globales se pueden reemplazar dentro de un paso individual.
 
-| Propiedad | Type | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
+| Propiedad | type | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | Sin | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
@@ -92,17 +93,17 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 
 El objeto de secreto tiene estas propiedades.
 
-| Propiedad | Type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Sin | El identificador del secreto. | None |
 | `keyvault` | string | Sí | La dirección URL del secreto de Azure Key Vault. | None |
-| `clientID` | string | Sí | El identificador de cliente de la identidad administrada asignada por el usuario para los recursos de Azure. | None |
+| `clientID` | string | Sí | El identificador de cliente de la [identidad administrada asignada por el usuario](container-registry-tasks-authentication-managed-identity.md) para los recursos de Azure. | None |
 
 ### <a name="network"></a>red
 
 El objeto de red tiene estas propiedades.
 
-| Propiedad | Type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | Sin | El nombre de la red. | None |
 | `driver` | string | Sí | El controlador para administrar la red. | None |
@@ -362,7 +363,7 @@ Mediante la convención de referencia de imágenes `docker run` estándar, `cmd`
 
 Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla siguiente se definen todas las propiedades de pasos disponibles. No todos los tipos de pasos admiten todas las propiedades. Para ver cuál de estas propiedades está disponible para cada tipo de paso, consulte las acciones de referencia de tipos de pasos [cmd](#cmd), [build](#build) y [push](#push).
 
-| Propiedad | Type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | booleano | Sí | Si el contenedor se debe desasociar cuando se ejecuta. | `false` |
 | `disableWorkingDirectoryOverride` | booleano | Sí | Si se deshabilita la funcionalidad de invalidación de `workingDirectory`. Use en combinación con `workingDirectory` para tener el control total sobre el directorio de trabajo del contenedor. | `false` |
@@ -380,7 +381,7 @@ Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla 
 | `repeat` | int | Sí | El número de reintentos para repetir la ejecución de un contenedor. | 0 |
 | `retries` | int | Sí | El número de reintentos si se produce un error en la ejecución de un contenedor. Solo se realiza un reintento si el código de salida de un contenedor es distinto de cero. | 0 |
 | `retryDelay` | int (segundos) | Sí | El retraso en segundos entre los reintentos de la ejecución de un contenedor. | 0 |
-| `secret` | objeto | Sí | Identifica un secreto de Azure Key Vault o una identidad administrada para los recursos de Azure. | None |
+| `secret` | objeto | Sí | Identifica un secreto de Azure Key Vault o una [identidad administrada para los recursos de Azure](container-registry-tasks-authentication-managed-identity.md). | None |
 | `startDelay` | int (segundos) | Sí | Número de segundos para retrasar la ejecución de un contenedor. | 0 |
 | `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. | None |

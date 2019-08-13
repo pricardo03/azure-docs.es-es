@@ -12,20 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417314"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516812"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
 
 ![flujo del proceso de configuración de iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>Información general
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Este tutorial de implementación se aplica a Microsoft Azure StorSimple Virtual Array. En este tutorial se describe cómo realizar la configuración inicial, registrar un servidor iSCSI de StorSimple, completar la configuración del dispositivo y, después, crear, montar, inicializar y formatear volúmenes en StorSimple Virtual Array configurados como servidor iSCSI. 
 
@@ -195,7 +197,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 4. En la ventana **Propiedades del iniciador iSCSI**, en la pestaña **Destinos**, busque los **Destinos detectados**. (Cada volumen será un destino detectado). El estado del dispositivo debe aparecer como **Inactivo**.
    
     ![Destinos detectados](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Seleccione un dispositivo de destino y luego haga clic en **Conectar**. Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. (Para obtener más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Installing and Configuring Microsoft iSCSI Initiator ][1] [Instalación y configuración del iniciador iSCSI de Microsoft]).
+5. Seleccione un dispositivo de destino y luego haga clic en **Conectar**. Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. Para más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Instalación y configuración del iniciador iSCSI de Microsoft][1].
    
     ![seleccionar dispositivo de destino](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. En el host de Windows, presione la tecla del logotipo de Windows + X y, a continuación, haga clic en **Ejecutar**.

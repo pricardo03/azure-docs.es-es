@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473021"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694285"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -83,8 +83,8 @@ Si solo necesita modificar el comportamiento de un solo recurso de Application I
 
     ![La captura de pantalla agrega una coma después de "IbizaAIExtension" y agrega una nueva línea a continuación con "DisableIpMasking": true.](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > Si experimenta un error que dice: _El grupo de recursos está en una ubicación que no es compatible con uno o más recursos de la plantilla. Elija otro grupo de recursos._ Seleccione temporalmente otro grupo de recursos en la lista desplegable y, a continuación, vuelva a seleccionar el grupo de recursos original para resolver el error.
+    > [!WARNING]
+    > Si experimenta un error que dice: **_El grupo de recursos está en una ubicación que no es compatible con uno o varios recursos de la plantilla. Elija otro grupo de recursos._** Seleccione temporalmente otro grupo de recursos en la lista desplegable y, a continuación, vuelva a seleccionar el grupo de recursos original para resolver el error.
 
 5. Seleccione **Acepto** > **Comprar**. 
 
@@ -92,7 +92,7 @@ Si solo necesita modificar el comportamiento de un solo recurso de Application I
 
     En este caso no se compra nada nuevo, simplemente estamos actualizando la configuración del recurso de Application Insights existente.
 
-6. Una vez completada la implementación, se registrarán nuevos datos de telemetría con los tres primeros octetos en los que se agregará la dirección IP y el último octeto que tendrá ceros.
+6. Una vez completada la implementación, se registrarán nuevos datos de telemetría en los que los tres primeros octetos contendrán la IP y el último tendrá ceros.
 
     Si tuviera que seleccionar y editar la plantilla nuevamente, solo vería la plantilla predeterminada y no la propiedad recién agregada y su valor asociado. Si no ve los datos de la dirección IP y quiere confirmar que `"DisableIpMasking": true` está configurado. Ejecute el siguiente código de PowerShell: (Reemplace `Fabrikam-dev` con el recurso apropiado y el nombre del grupo de recursos).
     
@@ -130,10 +130,11 @@ Content-Length: 54
 
 Si necesita registrar la dirección IP completa en lugar que solo tenga los primeros tres octetos, puede usar un [inicializador de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar la dirección IP en un campo personalizado que no se enmascarará.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET Core
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> Si no puede acceder a `ISupportProperties`, asegúrese de que ejecuta la versión estable más reciente del SDK de Application Insights. `ISupportProperties` están pensadas para valores de cardinalidad alta, mientras que `GlobalProperties` son más adecuadas para valores de cardinalidad baja, como el nombre de la región, el nombre del entorno, etc. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Habilitar el inicializador de telemetría para .ASP.NET
 

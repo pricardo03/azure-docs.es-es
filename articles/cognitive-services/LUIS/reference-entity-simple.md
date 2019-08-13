@@ -1,6 +1,6 @@
 ---
-title: Tipo de entidad simple
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Tipo de entidad simple: LUIS'
+titleSuffix: Azure Cognitive Services
 description: Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en el contexto de aprendizaje automático. Dado que las entidades simples suelen ser nombres, como por ejemplo, nombres de compañías, de productos u otras categorías de nombres, agregue un lista de frases cuando se use una entidad simple para aumentar la señal de los nombres usados.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 3f03b33f685bb5c7c9ba8f2267b8556c5dadade4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: c1514b6cd512924a162a524d11e888055fa06514
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480136"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563209"
 ---
 # <a name="simple-entity"></a>Entidad simple 
 

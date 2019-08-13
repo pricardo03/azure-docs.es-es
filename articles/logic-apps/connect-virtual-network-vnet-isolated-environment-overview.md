@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325407"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516602"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -80,7 +80,22 @@ Al crear el ISE, puede seleccionar la SKU de desarrollador o SKU Premium. Las di
 
   Proporciona un ISE que puede usar para producción y que incluye soporte de SLA, desencadenadores y acciones integrados, conectores estándar, conectores empresariales, una sola cuenta de integración de [nivel Estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), opciones para el escalado vertical de la capacidad y redundancia durante el reciclaje por un precio fijo al mes.
 
+> [!IMPORTANT]
+> La opción del SKU solo está disponible durante la creación del ISE y no se puede cambiar más adelante.
+
 Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>Acceso al punto de conexión del ISE
+
+Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. Estos puntos de conexión determinan si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no. Estos puntos de conexión también afectan al acceso a las entradas y salidas del historial de ejecuciones de la aplicación lógica.
+
+* **Internas**: Puntos de conexión privados que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones solo *desde dentro de la red virtual*
+* **Externas**: Puntos de conexión públicos que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones *desde fuera de la red virtual*
+
+> [!IMPORTANT]
+> La opción del punto de conexión de acceso solo está disponible durante la creación del ISE y no se puede cambiar más adelante.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorn
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [conectarse a las redes virtuales de Azure desde aplicaciones lógicas aisladas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+* [Conexión a redes virtuales de Azure desde aplicaciones lógicas aisladas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+* [Incorporación de artefactos a entornos del servicio de integración](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Administración de entornos del servicio de integración](../logic-apps/ise-manage-integration-service-environment.md)
 * Consulte más información sobre [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 * Obtenga información sobre la [integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md).

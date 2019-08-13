@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569831"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662954"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigación de incidentes y alertas en Azure Security Center (versión preliminar)
-Este documento le ayuda a utilizar la característica de investigación de Azure Security Center para investigar alertas e incidentes de seguridad.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigación de incidentes y alertas en Azure Security Center (retirado)
+Este documento le ayuda a utilizar la característica de investigación (versión preliminar) de Azure Security Center para investigar alertas e incidentes de seguridad.
 
 > [!NOTE]
-> La experiencia de investigación de alertas e incidentes se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> La experiencia de investigación de alertas e incidentes (versión preliminar) se retiró el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>¿Qué es la investigación en Security Center?
 La característica de investigación de Security Center le permite evaluar la causa principal de un posible [incidente de seguridad](https://docs.microsoft.com/azure/security-center/security-center-incident), comprender su ámbito y realizar su seguimiento.

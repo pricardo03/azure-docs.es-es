@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304355"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619599"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -152,9 +152,9 @@ Puede usar Application Insights sin ninguna configuración personalizada. La con
 
 El registrador de Azure Functions incluye una *categoría* para cada registro. La categoría indica qué parte del código de tiempo de ejecución o del código de la función escribió el registro. 
 
-El tiempo de ejecución de Functions crea registros con una categoría que empieza con "Host". Los registros "función iniciada", "función ejecutada" y "función concluida" tienen la categoría "Host.Executor". 
+El tiempo de ejecución de Functions crea registros con una categoría que empieza con "Host". En la versión 1.x, los registros `function started`, `function executed` y `function completed` tienen la categoría `Host.Executor`. A partir de la versión 2.x, estos registros tienen la categoría `Function.<YOUR_FUNCTION_NAME>`.
 
-Si escribe registros en el código de función, su categoría es "Function".
+Si escribe registros en el código de la función, la categoría es `Function` en la versión 1.x del entorno de ejecución de Functions. En la versión 2.x, la categoría es `Function.<YOUR_FUNCTION_NAME>.User`.
 
 ### <a name="log-levels"></a>Niveles de registro
 

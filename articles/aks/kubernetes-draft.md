@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
 ms.openlocfilehash: bd099b9d76e17eda36be1650ef5081e5aaa7e53a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 07/30/2019
 ms.locfileid: "67303538"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Inicio rápido: Desarrollo en Azure Kubernetes Service (AKS) con Draft
@@ -25,7 +25,7 @@ En este artículo se muestra cómo usar el paquete Draft y ejecutar una aplicaci
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 * [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Tener Docker instalado y configurado. Docker proporciona paquetes que configuran Docker en un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
+* Tener Docker instalado y configurado. Docker proporciona paquetes que lo configuran en cualquier sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 * Tener [Helm instalado](https://github.com/helm/helm/blob/master/docs/install.md).
 * Tener [Draft instalado][draft-documentation].
 

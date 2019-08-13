@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639634"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737114"
 ---
-# <a name="what-is-azure-backup"></a>¿Qué es Azure Backup?
+# <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
 El servicio Azure Backup realiza copias de seguridad de los datos en la nube de Microsoft Azure. Puede hacer copias de seguridad de las cargas de trabajo locales y máquinas locales, así como de las máquinas virtuales de Azure.
 

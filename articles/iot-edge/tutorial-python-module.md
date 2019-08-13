@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 55cdb70a02aae62a69f4fc930f4c6ee385a24702
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850112"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839551"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo e implementación de un módulo de Python de IoT Edge para dispositivos Linux
 
@@ -108,7 +108,7 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C para dispositi
 
 ### <a name="update-the-module-with-custom-code"></a>Actualización del módulo con código personalizado
 
-Cada plantilla incluye un código de ejemplo, que toma los datos del sensor simulado del módulo **tempSensor** y los enruta al centro de IoT. En esta sección, agregue el código que expande **PythonModule** para analizar los mensajes antes de enviarlos. 
+Cada plantilla incluye un código de ejemplo, que toma los datos del sensor simulado del módulo **SimulatedTemperatureSensor** y los enruta al centro de IoT. En esta sección, agregue el código que expande **PythonModule** para analizar los mensajes antes de enviarlos. 
 
 1. En el explorador de VS Code, abra **módulos**  > **PythonModule** > **main.py**.
 
@@ -224,7 +224,7 @@ Asegúrese de que el dispositivo IoT Edge está en funcionamiento.
 
 3. Seleccione el archivo **deployment.json** de la carpeta **config** y, a continuación, haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). No utilice el archivo deployment.template.json.
 
-4. Haga clic en el botón Actualizar. Debería ver el nuevo **PythonModule** en ejecución junto con el módulo **TempSensor**, así como **$edgeAgent** y **$edgeHub**. 
+4. Haga clic en el botón Actualizar. Debería ver el nuevo **PythonModule** en ejecución junto con el módulo **SimulatedTemperatureSensor**, así como **$edgeAgent** y **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382781"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824821"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión
 
@@ -75,7 +75,7 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 
 8. Apruebe la notificación en la aplicación Microsoft Authenticator y seleccione **Siguiente**.
 
-    ![Notificación correcta, se establece la conexión entre la aplicación y su cuenta](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Notificación correcta, se establece la conexión entre la aplicación y su cuenta](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     La información de seguridad se actualiza para usar la aplicación Microsoft Authenticator de forma predeterminada para verificar su identidad cuando se usan la verificación en dos pasos o el restablecimiento de contraseña.
 
@@ -98,6 +98,40 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 12. Revise la página **Success** (Correcto) para comprobar que ha configurado correctamente tanto la aplicación Microsoft Authenticator como el método del teléfono (llamada de teléfono o mensaje de texto) para la información de seguridad y, después, seleccione **Listo**.
 
     ![Página que indica que el asistente ha completado la operación correctamente](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Si la organización requiere que use contraseñas de aplicación, es posible que vea una sección adicional en este asistente, donde puede configurarla. Si ve una tercera sección, denominada **Contraseñas de aplicación**, debe rellenarla para poder completar el asistente. Para conocer los pasos que permiten agregar una contraseña de aplicación, consulte la sección [Administración de las contraseñas de aplicaciones](#manage-your-app-passwords) de este artículo.
+
+### <a name="manage-your-app-passwords"></a>Administración de las contraseñas de aplicaciones
+
+Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos en la organización, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
+
+>[!Note]
+>Si no ve esta opción en el asistente, significa que el administrador no la ha configurado. Si no está configurada, pero sabe que tiene que usar contraseñas de aplicación, puede seguir los pasos de la [configuración de contraseñas de aplicación desde la página de información de seguridad (versión preliminar)](security-info-app-passwords.md).
+
+Al utilizar las contraseñas de aplicaciones, es importante recordar:
+
+- Las contraseñas de aplicaciones se generan automáticamente y solo se escriben una vez por cada aplicación.
+
+- Hay un límite de 40 contraseñas por usuario. Si intenta crear una después de ese límite, se le pedirá que elimine una contraseña existente antes de que se le permita crear una nueva.
+
+- Utilice una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, cree una única contraseña para todas las aplicaciones del equipo portátil y luego otra contraseña única para todas las aplicaciones del equipo de sobremesa.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Para agregar contraseñas de aplicación en el Asistente para inicio de sesión
+
+1. Después de finalizar las secciones anteriores del asistente, seleccione **Siguiente** y complete la sección **Contraseña de aplicación**.
+
+2. Escriba el nombre de la aplicación que necesita la contraseña, por ejemplo `Outlook 2010`, y, después, seleccione **Siguiente**.
+
+    ![Incorporación del nombre de la contraseña de aplicación en el asistente](media/security-info/app-password-app-password.png)
+
+3. Copie el código de contraseña desde la pantalla **Contraseña de aplicación** y péguelo en el área **Contraseña** de la aplicación (en este ejemplo, Outlook 2010).
+
+    ![Página Agregar contraseña con contraseña para copiar](media/security-info/app-password-copy-password.png)
+
+4. Después de copiar la contraseña y pegarla en la aplicación, vuelva a este asistente para asegurarse de que toda la información del método de inicio de sesión es correcta y, después, seleccione **Listo**.
+
+    ![Página Contraseña de aplicación, con aviso de finalización](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

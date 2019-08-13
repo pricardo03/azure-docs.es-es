@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349273"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639093"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Implementación de Python en Azure Functions con Visual Studio Code
 
@@ -253,7 +253,7 @@ En estos pasos, se usa la extensión de Functions para crear una aplicación de 
 1. La extensión realiza las siguientes acciones, que puede observar en los mensajes emergentes de Visual Studio Code y la ventana **Salida** (el proceso tarda unos minutos):
 
     - Cree un grupo de recursos con el nombre que asignó (quitando los guiones).
-    - En ese grupo de recursos, cree la cuenta de almacenamiento, el plan de hospedaje y la aplicación de funciones. De forma predeterminada, se crea un [Plan de consumo](functions-scale.md#consumption-plan). Para ejecutar las funciones en un plan dedicado, debe [habilitar la publicación con opciones avanzadas de creación](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - En ese grupo de recursos, cree la cuenta de almacenamiento, el plan de hospedaje y la aplicación de funciones. De forma predeterminada, se crea un [Plan de consumo](functions-scale.md#consumption-plan). Para ejecutar las funciones en un plan dedicado, debe [habilitar la publicación con opciones avanzadas de creación](functions-develop-vs-code.md).
     - Implemente el código en la aplicación de funciones.
 
     El explorador de **Azure: Functions** también muestra el progreso:

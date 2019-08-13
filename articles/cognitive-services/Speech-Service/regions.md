@@ -1,6 +1,6 @@
 ---
-title: 'Regiones: servicios de Voz'
-titlesuffix: Azure Cognitive Services
+title: 'Regiones: Speech Service'
+titleSuffix: Azure Cognitive Services
 description: Referencia de las regiones del servicio Voz.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466990"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553215"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio Voz
 
@@ -36,7 +36,7 @@ El SDK de Voz está disponible en estas regiones para el **reconocimiento de voz
  ------|-------|--------
  Oeste de EE. UU. | `westus` | https://westus.cris.ai
  Oeste de EE. UU. 2 | `westus2` | https://westus2.cris.ai
- Este de EE. UU | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  Este de EE. UU. 2 | `eastus2` | https://eastus2.cris.ai
  Centro de EE. UU. | `centralus` | https://centralus.cris.ai
  Centro-Norte de EE. UU | `northcentralus` | https://northcentralus.cris.ai
@@ -64,7 +64,7 @@ Las regiones disponibles para el **reconocimiento de la intención** mediante el
  Australia | Este de Australia | `australiaeast`
  Europa | Europa del Norte | `northeurope`
  Europa | Europa occidental | `westeurope`
- Norteamérica | Este de EE. UU | `eastus`
+ Norteamérica | East US | `eastus`
  Norteamérica | Este de EE. UU. 2 | `eastus2`
  Norteamérica | Centro-Sur de EE. UU | `southcentralus`
  Norteamérica | Centro occidental de EE.UU. | `westcentralus`
@@ -82,7 +82,7 @@ Region | Parámetro del SDK de Voz
 -------|---------------------
 Oeste de EE. UU. | `westus`
 Oeste de EE. UU. 2 | `westus2`
-Este de EE. UU | `eastus`
+East US | `eastus`
 Este de EE. UU. 2 | `eastus2`
 Europa occidental | `westeurope`
 Europa del Norte | `northeurope`

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444833"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774624"
 ---
 # <a name="what-is-azure-private-dns"></a>¿Qué es DNS privado de Azure?
 
@@ -71,10 +71,11 @@ Los elementos siguientes son errores y problemas conocidos de la versión prelim
 
 Azure DNS tiene las siguientes limitaciones:
 
-* Una red virtual concreta se puede vincular a una sola zona privada como si se habilitara una red virtual de registro de los registros DNS de máquina virtual. Sin embargo, puede vincular varias redes virtuales a una sola zona DNS.
+* Una red virtual concreta se puede vincular a una sola zona privada como si se habilitara el registro automático de los registros DNS de una red virtual. Sin embargo, puede vincular varias redes virtuales a una sola zona DNS.
 * El DNS inverso solo funciona en el espacio de direcciones IP privadas de la red virtual vinculada.
 * El DNS inverso para una dirección IP privada de una red virtual vinculada devuelve "internal.cloudapp.net" como el sufijo predeterminado para la máquina virtual. Para las redes virtuales que están vinculadas a una zona privada con el registro automático habilitado, el DNS inverso para una dirección IP privada devuelve dos FQDN, uno con el valor predeterminado de sufijo *internal.cloudapp.net* y otro con el sufijo de la zona privada.
-* El reenvío condicional no se admite de forma nativa en este momento. Para habilitar la resolución de nombres entre redes locales y Azure. Consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* El reenvío condicional no se admite de forma nativa en este momento. Para habilitar la resolución entre Azure y las redes locales, consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
  
 ## <a name="pricing"></a>Precios
 
@@ -86,7 +87,7 @@ Para obtener información de precios, consulte [Precios de Azure DNS](https://az
 
 * Obtenga información sobre algunos [escenarios de zona privada](./private-dns-scenarios.md) habituales que pueden realizarse con zonas privadas en Azure DNS.
 
-* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico que se puede esperar con determinadas clases de operaciones, vea [Preguntas frecuentes de DNS privado](./dns-faq-private.md).
+* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico que se puede esperar con determinadas clases de operaciones, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.md).
 
 * Visite [Información general sobre zonas y registros de DNS](dns-zones-records.md) para obtener información sobre zonas y registros DNS.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
 ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614593"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
@@ -82,7 +82,7 @@ Una notificación de volumen persistente (PVC) le permite crear almacenamiento d
 
 Para los conceptos sobre cómo crear y usar volúmenes dinámicamente, consulte [Notificaciones de volúmenes persistentes][aks-concepts-storage-pvcs].
 
-Para ver los volúmenes en acción, vea cómo crear y usar dinámicamente un volumen persistente con [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files].
+Para ver los volúmenes en acción, consulte cómo crear y usar dinámicamente un volumen persistente con [Azure Disks][dynamic-disks] o [Azure Files][dynamic-files].
 
 Como parte de las definiciones de clase de almacenamiento, configure la directiva *reclaimPolicy* apropiada. Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro. Puede establecer la directiva reclaimPolicy en *conservar* o *eliminar*. Comprenda las necesidades de su aplicación e implemente comprobaciones regulares para saber el almacenamiento que se conserva para minimizar la cantidad de espacio de almacenamiento no utilizado que se usa y se factura.
 
@@ -92,7 +92,7 @@ Para más información sobre las opciones de clase de almacenamiento, consulte l
 
 **Orientación con procedimientos recomendados**: realice una copia de seguridad de los datos con una herramienta apropiada para su tipo de almacenamiento, como Velero o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
 
-Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], realiza una copia de seguridad de los datos de los volúmenes persistentes y prueba regularmente las operaciones de restauración para comprobar la integridad de los datos y los procesos necesarios.
+Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero][velero] puede realizar copias de seguridad de volúmenes persistentes junto con recursos y configuraciones de clústeres adicionales. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
 
 Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad de datos y si necesita dejar sus datos en reposo antes de la instantánea. Las copias de seguridad de datos no necesariamente le permiten restaurar el entorno de la aplicación de la implementación del clúster. Para más información acerca de estos escenarios, consulte [Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en AKS][best-practices-multi-region].
 

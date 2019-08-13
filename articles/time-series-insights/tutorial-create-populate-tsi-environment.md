@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677745"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725737"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Este tutorial le guía a través del proceso de creación de un entorno de Azure
 
 * La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="video"></a>Vídeo
+## <a name="review-video"></a>Revisión del vídeo
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Aprenda a usar un acelerador de soluciones de Azure IoT para generar datos y empiece a trabajar con Time Series Insights. </br>
 
@@ -116,7 +116,7 @@ En segundo lugar, cree un entorno de Time Series Insights en la suscripción de 
 
    [![Implementación correcta del entorno de Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>Ejecución de una simulación de dispositivo para transmitir datos
+## <a name="run-device-simulation"></a>Simulación de ejecución de dispositivo
 
 Ahora que se completaron la implementación y la configuración inicial, rellene el entorno de Time Series Insights con los datos de ejemplo de los [dispositivos simulados que creó el acelerador](#create-a-device-simulation).
 

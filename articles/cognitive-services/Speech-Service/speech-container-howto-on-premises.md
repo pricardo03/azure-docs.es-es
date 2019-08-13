@@ -1,5 +1,5 @@
 ---
-title: Usar Kubernetes en un entorno local
+title: 'Uso con Kubernetes y Helm: Servicio de Voz'
 titleSuffix: Azure Cognitive Services
 description: Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local.
 services: cognitive-services
@@ -8,29 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/10/2019
+ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786254"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559147"
 ---
-# <a name="use-kubernetes-on-premises"></a>Usar Kubernetes en un entorno local
+# <a name="use-with-kubernetes-and-helm"></a>Uso con Kubernetes y Helm
 
-Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, se va a explicar cómo probar los servicios implementados y diversas opciones de configuración.
+Una opción para administrar los contenedores de Speech locales es usar Kubernetes y Helm. Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, se va a explicar cómo probar los servicios implementados y diversas opciones de configuración. Para obtener más información sobre cómo ejecutar contenedores de Docker sin orquestación de Kubernetes, vea [Instalar y ejecutar contenedores de Speech Service](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores de Voz en el entorno local:
+Requisitos previos para poder usar los contenedores de Voz en el entorno local:
 
 |Obligatorio|Propósito|
 |--|--|
 | Cuenta de Azure | Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free-azure-account] antes de empezar. |
 | Acceso a Container Registry | Para incorporar las imágenes de Docker al clúster, Kubernetes necesita acceso al registro de contenedor. En primer lugar tiene que [solicitar acceso al registro de contenedor][speech-preview-access]. |
 | CLI de Kubernetes | La [CLI de Kubernetes][kubernetes-cli] es necesaria para administrar las credenciales compartidas desde el registro de contenedor. Kubernetes también se necesita antes que Helm, que es el administrador de paquetes de Kubernetes. |
-| CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+| CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], también tendrá que inicializar Helm, que instalará [Tiller][tiller-install]. |
 |Recurso de Voz |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Voz_ de Azure para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves y de introducción de **Voz** de Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : clave de recurso<br><br>**{ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Configuración de equipo host recomendada

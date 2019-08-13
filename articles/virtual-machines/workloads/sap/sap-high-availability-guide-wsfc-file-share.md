@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479187"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Debe usar discos Premium de Azure.
 * Se recomienda utilizar Azure Managed Disks.
 * Se recomienda dar formato a los volúmenes con el sistema de archivos resistente (ReFS).
-    * Para obtener más información, vea el capítulo [Nota de SAP 1869038: compatibilidad de SAP con el sistema de archivos ReFs][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] del artículo Planificar volúmenes en Espacios de almacenamiento directo.
+    * Para más información, consulte la [Nota de SAP 1869038: compatibilidad de SAP para el sistema de archivos ReFs][1869038] y el capítulo [Elección del sistema de archivos][planning-volumes-s2d-choosing-filesystem] de artículo Planificación de volúmenes en espacios de almacenamiento directo.
     * Asegúrese de que ha instalado la [actualización acumulativa de Microsoft KB4025334][kb4025334].
 * Puede usar los tamaños de máquina virtual de Azure de la serie DS o la serie DSv2.
 * Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
-    Para obtener más información, vea las especificaciones de la [serie DSv2][dv2-series] and [DS-Series][ds-series].
+    Para más información, consulte las especificaciones de la [serie DSv2][dv2-series] y la [serie DS][ds-series].
 * Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para obtener más información, vea [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
 * No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<host global de SAP\>. Esto se hace para el \<nombre de host virtual ASCS/SCS\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<host global de SAP\> usa la dirección IP local para todos los nodos del clúster.
 

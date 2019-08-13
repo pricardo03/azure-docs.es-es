@@ -3,16 +3,17 @@ title: Uso de una línea de comandos de inicio en Azure Container Instances
 description: Invalidación del punto de entrada configurado en una imagen de contenedor cuando se implementa una instancia de contenedor de Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569642"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619668"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Establecimiento de la línea de comandos en una instancia de contenedor para invalidar la operación de línea de comandos predeterminada
 
@@ -22,7 +23,7 @@ Igual que configurar [variables de entorno](container-instances-environment-vari
 
 ## <a name="command-line-guidelines"></a>Instrucciones de línea de comandos
 
-* De forma predeterminada, la línea de comandos especifica un *único proceso que inicia sin un shell* en el contenedor. Por ejemplo, la línea de comandos puede ejecutar un archivo ejecutable o un script de Python. 
+* De forma predeterminada, la línea de comandos especifica un *único proceso que inicia sin un shell* en el contenedor. Por ejemplo, la línea de comandos puede ejecutar un archivo ejecutable o un script de Python. El proceso puede especificar parámetros o argumentos adicionales.
 
 * Para ejecutar varios comandos, inicie la línea de comandos mediante el establecimiento de un entorno de shell compatible con el sistema operativo del contenedor. Ejemplos:
 
@@ -56,7 +57,7 @@ La sintaxis de la línea de comandos varía según la herramienta o la API de Az
 
 ### <a name="examples"></a>Ejemplos
 
-|    |  Azure CLI   | Portal | Plantilla | 
+|    |  CLI de Azure   | Portal | Plantilla | 
 | ---- | ---- | --- | --- |
 | Comando único | `--command-line "python myscript.py arg1 arg2"` | **Invalidación del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Varios comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Invalidación del comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804919"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840619"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publicación de una definición de aplicación administrada de Azure
 
@@ -41,7 +41,7 @@ Al definir la aplicación administrada, seleccionará un usuario, un grupo o una
 Para obtener el identificador de objeto de su identidad, proporcione su nombre principal de usuario en el siguiente comando:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 A continuación, necesitará el identificador de definición de rol del rol RBAC integrado al que desea conceder acceso al usuario. El comando siguiente muestra cómo obtener el identificador de definición de rol para el rol Propietario:
@@ -68,14 +68,14 @@ Cuando finalice el comando, tendrá una definición de aplicación administrada 
 
 Algunos de los parámetros usados en el ejemplo anterior son:
 
-* **resource-group**: el nombre del grupo de recursos donde se creó la definición de aplicación administrada.
-* **lock-level**: el tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
-* **authorizations**: describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. Si se necesita más de un valor, especifíquelos en el formulario `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Los valores van separados por un espacio.
-* **package-file-uri**: la ubicación de un paquete .zip que contiene los archivos necesarios. El paquete debe contener los archivos **mainTemplate.json** y **createUiDefinition.json**. **mainTemplate.json** define los recursos de Azure que se crean como parte de la aplicación administrada. La plantilla no difiere de una plantilla habitual de Resource Manager. **createUiDefinition.json** genera la interfaz de usuario para los usuarios que crean la aplicación administrada mediante el portal.
+* **resource-group**: El nombre del grupo de recursos donde se creó la definición de aplicación administrada.
+* **lock-level**: El tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
+* **authorizations**: Describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. Si se necesita más de un valor, especifíquelos en el formulario `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Los valores van separados por un espacio.
+* **package-file-uri**: La ubicación de un paquete .zip que contiene los archivos necesarios. El paquete debe contener los archivos **mainTemplate.json** y **createUiDefinition.json**. **mainTemplate.json** define los recursos de Azure que se crean como parte de la aplicación administrada. La plantilla no difiere de una plantilla habitual de Resource Manager. **createUiDefinition.json** genera la interfaz de usuario para los usuarios que crean la aplicación administrada mediante el portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ha publicado la definición de aplicación administrada. Ahora, aprenda a implementar una instancia de esa definición.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Implementación de la aplicación de catálogo de servicios](deploy-service-catalog-quickstart.md)
+> [Inicio rápido: Implementación de la aplicación de catálogo de servicios](deploy-service-catalog-quickstart.md)

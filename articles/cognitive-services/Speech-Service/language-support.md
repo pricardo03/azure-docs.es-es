@@ -1,7 +1,7 @@
 ---
-title: 'Compatibilidad con idiomas: servicios de Voz'
+title: 'Compatibilidad con idiomas: Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Los servicios de Voz de Azure admite un gran número de idiomas para la conversión de texto a voz y texto a voz, junto con la traducción por voz. En este artículo se proporciona una lista completa idiomas compatibles por servicio.
+description: Speech Service admite un gran número de idiomas para la conversión de texto a voz y voz a texto, junto con la traducción por voz. En este artículo se proporciona una lista completa de idiomas compatibles por servicio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 006b9401a3418e3b2b3803fa0b7897b28887d14a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606606"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559393"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad con regiones e idiomas para los servicios de Voz
 

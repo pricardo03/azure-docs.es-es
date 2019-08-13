@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949557"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840435"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -35,7 +35,7 @@ Si aún no tiene un servidor maestro de Jenkins, comience con la [plantilla de l
 * [Credenciales de Azure](https://plugins.jenkins.io/azure-credentials), versión 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service), versión 0.1
 
-Puede usar el complemento de Jenkins para implementar una aplicación web en cualquier lenguaje que sea compatible con Web Apps, como C#, PHP, Java y Node.js. En este tutorial, usamos una [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar el repositorio en su propia cuenta de GitHub, seleccione el botón **Bifurcar** de la esquina superior derecha de la interfaz de GitHub.  
+Puede usar el complemento de Jenkins para implementar una aplicación web en cualquier lenguaje que sea compatible con Web Apps, como C#, PHP, Python, Java y Node.js. En este tutorial, usamos una [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar el repositorio en su propia cuenta de GitHub, seleccione el botón **Bifurcar** de la esquina superior derecha de la interfaz de GitHub.  
 
 > [!NOTE]
 > Son necesarios Java JDK y Maven para compilar el proyecto de Java. Instale estos componentes en el servidor maestro de Jenkins o en el agente de la máquina virtual si usa el agente para la integración continua. Si va a implementar una aplicación de Java SE, también se necesita el archivo ZIP en el servidor de compilación.

@@ -1,5 +1,5 @@
 ---
-title: Aumento de la cuota de punto de conexión
+title: 'Aumento de la cuota de punto de conexión: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves).
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123547"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563371"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de pantalla de Azure Portal con dos claves de LUIS en el grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. En el sitio web de [LUIS][LUIS], en la sección **Manage** (Administrar), en la página **Keys and endpoints** (Claves y puntos de conexión), haga clic en el botón **Publish** (Publicar) del menú superior derecho para asignar claves a la aplicación y volver a publicarla. 
+2. En el sitio web de [LUIS][LUIS], en la sección **Manage** (Administrar), en la página **Keys and endpoints** (Claves y puntos de conexión), asigne claves a la aplicación y vuelva a publicar la aplicación; para ello, seleccione el botón **Publish** (Publicar) del menú superior derecho. 
 
     En la dirección URL de ejemplo de la columna **Punto de conexión** se usa una solicitud GET con la clave de punto de conexión como un parámetro de consulta. Copie las dos nuevas direcciones URL de punto de conexión de las claves. Se usarán como parte de la configuración de Traffic Manager más adelante en este artículo.
 
@@ -82,7 +82,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
     |--|--|--|
     |-Name|luis-profile-eastus|Nombre de Traffic Manager en Azure Portal|
     |-ResourceGroupName|luis-traffic-manager|Creado en la sección anterior|
-    |-TrafficRoutingMethod|Rendimiento|Para obtener más información, vea [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
+    |-TrafficRoutingMethod|Rendimiento|Para más información, consulte [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
     |-RelativeDnsName|luis-dns-eastus|Es el subdominio del servicio: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Intervalo de sondeo, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|El puerto y el protocolo de LUIS son HTTPS/443|
@@ -101,7 +101,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
     |--|--|--|
     |-EndpointName|luis-east-endpoint|Nombre del punto de conexión que se muestra en el perfil|
     |-TrafficManagerProfile|$eastprofile|Use el objeto de perfil que ha creado en el paso 1|
-    |-Type|ExternalEndpoints|Para obtener más información, vea [Puntos de conexión de Traffic Manager][traffic-manager-endpoints]. |
+    |-Type|ExternalEndpoints|Para más información, consulte [Punto de conexión de Traffic Manager][traffic-manager-endpoints]. |
     |-Target|eastus.api.cognitive.microsoft.com|Este es el dominio del punto de conexión de LUIS.|
     |-EndpointLocation|"eastus"|Región del punto de conexión|
     |-EndpointStatus|habilitado|Habilitar el punto de conexión cuando se crea|
@@ -150,7 +150,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
     |--|--|--|
     |-Name|luis-profile-westus|Nombre de Traffic Manager en Azure Portal|
     |-ResourceGroupName|luis-traffic-manager|Creado en la sección anterior|
-    |-TrafficRoutingMethod|Rendimiento|Para obtener más información, vea [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
+    |-TrafficRoutingMethod|Rendimiento|Para más información, consulte [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
     |-RelativeDnsName|luis-dns-westus|Es el subdominio del servicio: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Intervalo de sondeo, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|El puerto y el protocolo de LUIS son HTTPS/443|
@@ -170,7 +170,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
     |--|--|--|
     |-EndpointName|luis-west-endpoint|Nombre del punto de conexión que se muestra en el perfil|
     |-TrafficManagerProfile|$westprofile|Use el objeto de perfil que ha creado en el paso 1|
-    |-Type|ExternalEndpoints|Para obtener más información, vea [Puntos de conexión de Traffic Manager][traffic-manager-endpoints]. |
+    |-Type|ExternalEndpoints|Para más información, consulte [Punto de conexión de Traffic Manager][traffic-manager-endpoints]. |
     |-Target|westus.api.cognitive.microsoft.com|Este es el dominio del punto de conexión de LUIS.|
     |-EndpointLocation|"westus"|Región del punto de conexión|
     |-EndpointStatus|habilitado|Habilitar el punto de conexión cuando se crea|
@@ -217,7 +217,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
     |--|--|--|
     |-Name|luis-profile-parent|Nombre de Traffic Manager en Azure Portal|
     |-ResourceGroupName|luis-traffic-manager|Creado en la sección anterior|
-    |-TrafficRoutingMethod|Rendimiento|Para obtener más información, vea [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
+    |-TrafficRoutingMethod|Rendimiento|Para más información, consulte [Métodos de enrutamiento de Traffic Manager][routing-methods]. Si usa el rendimiento, la solicitud de dirección URL a Traffic Manager debe proceder de la región del usuario. Si pasa a través de un bot de chat u otra aplicación, es responsabilidad de este imitar la región en la llamada a Traffic Manager. |
     |-RelativeDnsName|luis-dns-parent|Es el subdominio del servicio: luis-dns-parent.trafficmanager.net|
     |-Ttl|30|Intervalo de sondeo, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|El puerto y el protocolo de LUIS son HTTPS/443|

@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1f93bb7cfe1e088aa88d9ff194c8fbce9ea3c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487286"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570229"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
 
 Este artículo es un índice anotado en las ubicaciones de tiempo de un vídeo de 81 minutos sobre modelos o patrones de inquilinos de SaaS. Este artículo le permite avanzar o retroceder en el vídeo hasta la parte que le interese. El vídeo explica las opciones de diseño principales de una aplicación de base de datos multiinquilino en Azure SQL Database. El vídeo incluye demostraciones, tutoriales de código de administración y, a veces, una cantidad mayor de detalles fundamentados en la experiencia que los que pueden encontrarse en nuestra documentación escrita.
 
 El vídeo amplifica la información de nuestra documentación escrita, que se encuentra en: 
-- *Conceptual:* [Multi-tenant SaaS database tenancy patterns][saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
+- *Conceptual:* [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-concept-design-patterns-563e]
 - *Tutoriales:* [Aplicación SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 En el vídeo y los artículos se describen las diferentes fases de creación de una aplicación multiinquilino en Azure SQL Database en la nube. Las características especiales de Azure SQL Database facilitan el desarrollo y la implementación de aplicaciones multiinquilino que son fáciles de administrar y de rendimiento confiable.
@@ -292,16 +291,16 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 #### <a name="38-resources-for-more-information-12035"></a>38. Recursos para obtener más información, 1:20:35
 [![Recursos para obtener más información][image-wtip-min12042-resources-more-info]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4835)
 
-- [Entrada de blog, 22 de mayo de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
+- [Publicación de blog, 22 de mayo de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceptual:* Multi-tenant SaaS database tenancy patterns[saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
+- *Conceptual:* [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-concept-design-patterns-563e]
 
 - *Tutoriales:* [Aplicación SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 - Repositorios de GitHub para tipos de aplicación de inquilinos SaaS de Wingtip Tickets:
-    - [Repositorio de GitHub para: modelo de aplicación independiente][github-wingtip-standaloneapp].
-    - [Repositorio de GitHub para: modelo de base de datos por inquilino][github-wingtip-dbpertenant].
-    - [Repositorio de GitHub para: modelo de base de datos multiinquilino][github-wingtip-multitenantdb].
+    - [Repositorio de GitHub para el modelo de aplicación independiente][github-wingtip-standaloneapp].
+    - [Repositorio de GitHub para el modelo de base de datos por inquilino][github-wingtip-dbpertenant].
+    - [Repositorio de GitHub para el modelo de base de datos multiinquilino][github-wingtip-multitenantdb].
 
 
 

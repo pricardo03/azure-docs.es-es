@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417816"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827242"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
@@ -55,7 +55,7 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 1. En Azure Portal, haga clic en **+Crear un recurso** y, en Marketplace, busque **Recuperación**.
-2. Haga clic en **Backup and Site Recovery (OMS)** y, una vez en esta página, haga clic en **Crear**. 
+2. Haga clic en **Backup and Site Recovery** (Copia de seguridad y recuperación del sitio) y, una vez en esta página, haga clic en **Crear**. 
 1. En **Almacén de Recovery Services** > **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
 2. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
 3. En **Ubicación**, seleccione la región en la que debería estar el almacén. se va a usar **Europa Occidental**.
