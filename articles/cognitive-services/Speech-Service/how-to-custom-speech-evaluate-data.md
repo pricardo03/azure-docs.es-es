@@ -1,7 +1,7 @@
 ---
-title: 'Evaluación de la precisión de la voz personalizada: servicios de Voz'
-titlesuffix: Azure Cognitive Services
-description: En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de texto a voz de Microsoft o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
+title: 'Evaluación de la precisión de Custom Speech: Speech Service'
+titleSuffix: Azure Cognitive Services
+description: En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de voz a texto o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e9818fad9a0b5d04cc50a293b16d838c319dd86
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606568"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562858"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de la voz personalizada
 

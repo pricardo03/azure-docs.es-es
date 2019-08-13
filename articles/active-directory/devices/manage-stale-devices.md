@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499825"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562115"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -47,7 +47,7 @@ La evaluación de la marca de tiempo de actividad se activa mediante un intento 
 - Los dispositivos de Windows 10 que están unidos a Azure AD o a Azure AD híbrido están activos en la red. 
 - Los dispositivos administrados por Intune se han registrado en el servicio.
 
-Si la diferencia entre el valor existente de la marca de tiempo de actividad y el valor actual es mayor de 14 días, el valor existente se reemplaza por el nuevo valor.
+Si la diferencia entre el valor existente de la marca de tiempo de actividad y el valor actual es mayor de 14 días (con una variación de +/- 5 días), el valor existente se reemplaza por el nuevo.
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>¿Cómo se puede obtener la marca de tiempo de actividad?
 
@@ -77,7 +77,7 @@ En la directiva de limpieza, seleccione las cuentas que tengan los roles necesar
 
 ### <a name="timeframe"></a>Período de tiempo
 
-Defina un período que sea el indicador de un dispositivo obsoleto. Cuando defina el período, tenga en cuenta la ventana de 14 días para actualizar la marca de tiempo de actividad en su valor. Por ejemplo, no debe considerar una marca de tiempo que sea menor de 14 días como un indicador de un dispositivo obsoleto. Hay escenarios que pueden hacer que un dispositivo parezca obsoleto cuando no lo es. Por ejemplo, el propietario del dispositivo afectado puede estar de vacaciones o de baja por enfermedad.  Esto supera el período de tiempo para los dispositivos obsoletos.
+Defina un período que sea el indicador de un dispositivo obsoleto. Cuando defina el período, tenga en cuenta la ventana para actualizar la marca de tiempo de actividad en su valor. Por ejemplo, no debe considerar una marca de tiempo que sea menor de 21 días (incluida la variación) como un indicador de un dispositivo obsoleto. Hay escenarios que pueden hacer que un dispositivo parezca obsoleto cuando no lo es. Por ejemplo, el propietario del dispositivo afectado puede estar de vacaciones o de baja por enfermedad.  Esto supera el período de tiempo para los dispositivos obsoletos.
 
 ### <a name="disable-devices"></a>Deshabilitar dispositivos
 
@@ -98,15 +98,30 @@ Los dispositivos unidos a Azure AD híbrido deben seguir las directivas para la 
 Para realizar la limpieza de Azure AD:
 
 - **Dispositivos de Windows 10**: deshabilite o elimine dispositivos de Windows 10 en la instancia de Azure AD local y deje que Azure AD Connect sincronice el estado del dispositivo modificado con Azure AD.
-- **Windows 7/8**: deshabilite o elimine los dispositivos Windows 7/8 en Azure AD. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD.
+- **Windows 7/8**: deshabilite o elimine primero los dispositivos Windows 7/8 en Azure AD en el entorno local. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD. En su lugar, cuando realice el cambio en su entorno local, debe deshabilitarlos o eliminarlos en Azure AD.
+
+> [!NOTE]
+>* La eliminación de dispositivos en AD el entorno local o en Azure AD no se registra en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como identidad (por ejemplo, el acceso condicional). Lea información adicional sobre cómo [quitar el registro en el cliente](faq.md#hybrid-azure-ad-join-faq).
+>* La eliminación de un dispositivo Windows 10 solo en Azure AD volverá a sincronizar el dispositivo desde el entorno local mediante Azure AD Connect, pero como un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro en el dispositivo.
+>* Al quitar el dispositivo del ámbito de sincronización para dispositivos con Windows 10 o Server 2016, se eliminará el dispositivo Azure AD. Al volver a agregarlo al ámbito de sincronización, se colocará un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro del dispositivo.
+>* Si no usa Azure AD Connect para que los dispositivos Windows 10 se sincronicen (por ejemplo, usando solo AD FS para el registro), debe administrar el ciclo de vida similar para los dispositivos Windows 7 o Windows 8.
+
 
 ### <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
 Deshabilite o elimine los dispositivos unidos a Azure AD en Azure AD.
 
+> [!NOTE]
+>* La eliminación de un dispositivo de Azure AD no quita el registro en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como una identidad (por ejemplo, el acceso condicional). 
+>* Obtenga más información [sobre cómo separar en Azure AD](faq.md#azure-ad-join-faq) 
+
 ### <a name="azure-ad-registered-devices"></a>Dispositivos registrados en Azure AD
 
 Deshabilite o elimine los dispositivos registrados de Azure AD en Azure AD.
+
+> [!NOTE]
+>* Al eliminar un dispositivo registrado de Azure AD en Azure AD, no se quita el registro en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como identidad (por ejemplo, el acceso condicional).
+>* Obtenga más información [sobre cómo quitar un registro en el cliente](faq.md#azure-ad-register-faq)
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
 
@@ -148,7 +163,7 @@ Una vez configuradas, las claves de BitLocker para dispositivos Windows 10 se al
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>¿Por qué debería preocuparme por los dispositivos Windows AutoPilot?
 
-Cuando un dispositivo Azure AD se asocia a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
+Cuando un dispositivo Azure AD se asocia a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
 - Con implementaciones no meticulosas controladas por el usuario de Windows AutoPilot, se creará un nuevo dispositivo Azure AD, pero no se etiquetará con ZTDID.
 - Con implementaciones en modo de autoimplementación de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado.  (Se trata de un mecanismo de seguridad para asegurarse de que ningún dispositivo “impostor” intenta unirse a Azure AD sin credenciales). El error indicará una falta de coincidencia de ZTDID.
 - Con implementaciones meticulosas de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado. (En segundo plano, las implementaciones meticulosas usan el mismo proceso del modo de autoimplementación, por lo que aplican los mismos mecanismos de seguridad).
