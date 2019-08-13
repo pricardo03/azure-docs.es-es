@@ -58,6 +58,8 @@
           href: create-cloudsimple-service.md
         - name: Acceso al portal de CloudSimple
           href: access-cloudsimple-portal.md
+        - name: Configuración del firewall local
+          href: on-premises-firewall-configuration.md
         - name: Administración de nodos
           items:
             - name: Aprovisionamiento de nodos

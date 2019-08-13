@@ -11,7 +11,7 @@
       href: search-create-service-portal.md
     - name: Portal
       items:
-        - name: Carga y consulta de un índice
+        - name: Creación y uso de un índice
           href: search-get-started-portal.md
         - name: Enriquecimiento con inteligencia artificial (Cognitive Search)
           href: cognitive-search-quickstart-blob.md

@@ -51,7 +51,7 @@ Hay ligeras diferencias al proteger los servicios web a través de los [destinos
 
 ## <a name="get-a-domain-name"></a>Obtención de un nombre de dominio
 
-Si todavía no tiene un nombre de dominio, compre uno en un *registrador de nombres de dominio*. El proceso y los precios difieren entre los registradores. El registrador proporciona herramientas para administrar el nombre de dominio. Estas herramientas se usan para asignar un nombre de dominio completo (como www.contoso.com \.) a la dirección IP que hospeda el servicio web.
+Si todavía no tiene un nombre de dominio, compre uno en un *registrador de nombres de dominio*. El proceso y los precios difieren entre los registradores. El registrador proporciona herramientas para administrar el nombre de dominio. Estas herramientas se usan para asignar un nombre de dominio completo (como www\.contoso.com ) a la dirección IP que hospeda el servicio web.
 
 ## <a name="get-an-ssl-certificate"></a>Obtener un certificado SSL
 
@@ -60,7 +60,7 @@ Hay muchas maneras de obtener un certificado SSL (certificado digital). La más 
 * Un **certificado**. El certificado debe contener la cadena de certificados completa y debe estar codificado en PEM.
 * Una **clave**. La clave debe estar codificada en PEM.
 
-Cuando solicite un certificado, debe proporcionar el nombre de dominio completo (FQDN) de la dirección que pretende usar para el servicio web (por ejemplo, www.\.contoso.com). La dirección que aparece en el certificado y la que usan los clientes se comparan para comprobar la identidad del servicio web. Si esas direcciones no coinciden, el cliente obtiene un mensaje de error.
+Cuando solicite un certificado, debe proporcionar el nombre de dominio completo (FQDN) de la dirección que pretende usar para el servicio web (por ejemplo, www\.contoso.com). La dirección que aparece en el certificado y la que usan los clientes se comparan para comprobar la identidad del servicio web. Si esas direcciones no coinciden, el cliente obtiene un mensaje de error.
 
 > [!TIP]
 > Si la entidad de certificación no puede proporcionar el certificado y la clave como archivos codificados en PEM, puede usar una utilidad como [OpenSSL](https://www.openssl.org/) para cambiar el formato.

@@ -197,6 +197,8 @@
       items:
         - name: Modelo de aplicación
           href: service-fabric-application-model.md
+        - name: Creación de plantillas de modelo de aplicación
+          href: service-fabric-concept-resource-model.md
         - name: Manifiestos de aplicación y de servicio
           href: service-fabric-application-and-service-manifests.md
         - name: Ejemplos de manifiestos de aplicación y servicio
@@ -350,6 +352,10 @@
           href: service-fabric-diagnostics-partners.md
     - name: Integración con API Management
       href: service-fabric-api-management-overview.md
+    - name: Modelo de recursos de aplicación
+      href: service-fabric-concept-resource-model.md
+    - name: Identidad administrada
+      href: concepts-managed-identity.md
 - name: Guías de procedimientos
   items:
     - name: Configurado su entorno de desarrollo
@@ -741,6 +747,26 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Solución de problemas de un clúster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Uso de Identidad administrada para aplicaciones de Service Fabric
+      items:
+        - name: Configuración del clúster
+          items:
+            - name: Configuración de un clúster existente con identidad administrada
+              href: configure-existing-cluster-enable-managed-identity-token-service.md
+            - name: Configuración de un nuevo clúster de Azure Service Fabric con identidad administrada
+              href: configure-new-azure-service-fabric-enable-managed-identity.md
+        - name: Configuración de la aplicación
+          items:
+            - name: Implementación de una aplicación con Identidad administrada
+              items:
+                - name: Implementación de una aplicación con una identidad administrada asignada por el sistema
+                  href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+                - name: Implementación de una aplicación con una identidad administrada asignada por el usuario
+                  href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+        - name: Uso de MITS con un código de aplicación de Service Fabric
+          href: how-to-managed-identity-service-fabric-app-code.md
+        - name: Concesión de acceso a otros recursos de Azure
+          href: how-to-grant-access-other-resources.md
 - name: Referencia
   items:
     - name: Azure PowerShell

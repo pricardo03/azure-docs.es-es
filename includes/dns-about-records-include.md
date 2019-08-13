@@ -25,7 +25,7 @@ Azure DNS admite todos los tipos de registro de DNS frecuentes: A, AAAA, CAA, CN
 
 ### <a name="record-sets"></a>Conjuntos de registros
 
-En ocasiones, tendrá que crear más de un registro DNS con un nombre y un tipo concretos. Por ejemplo, supongamos que el sitio web www.contoso.com se hospeda en dos direcciones IP diferentes. En este caso, se requieren dos registros A distintos, uno para cada dirección IP. Este es un ejemplo de un conjunto de registros:
+En ocasiones, tendrá que crear más de un registro DNS con un nombre y un tipo concretos. Por ejemplo, supongamos que el sitio web 'www.contoso.com' se hospeda en dos direcciones IP diferentes. En este caso, se requieren dos registros A distintos, uno para cada dirección IP. Este es un ejemplo de un conjunto de registros:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
