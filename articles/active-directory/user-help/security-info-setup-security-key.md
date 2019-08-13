@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7193b994e5749965542746627ef3de2cfe090fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561568"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717383"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configuración de la información de seguridad para usar una clave de seguridad (versión preliminar)
 
@@ -35,7 +35,7 @@ Actualmente, se admiten varios diseños y proveedores de claves de seguridad con
 Su administrador u organización le proporcionará una clave de seguridad si lo requiere para su cuenta profesional o educativa. Hay diferentes tipos de claves de seguridad que puede usar; por ejemplo, una llave USB que conecta al dispositivo o una llave NFC que puede acercar a un lector NFC. Puede obtener más información acerca de la clave de seguridad, incluido el tipo, en la documentación del fabricante.
 
 > [!Note]
-> Si no puede usar una clave de seguridad FIDO2, hay otros métodos de autenticación sin contraseña que puede usar, como la aplicación Microsoft Authenticator o Windows Hello. Para obtener más información sobre la aplicación Microsoft Authenticator, consulte [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Para obtener más información acerca de Windows Hello, consulte [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Si no puede usar una clave de seguridad FIDO2, hay otros métodos de autenticación sin contraseña que puede usar, como la aplicación Microsoft Authenticator o Windows Hello. Para obtener más información sobre la aplicación Microsoft Authenticator, consulte [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md). Para obtener más información acerca de Windows Hello, consulte [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -150,7 +150,7 @@ Para registrar una clave de seguridad, debe tener al menos un método de comprob
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre los métodos de autenticación sin contraseña, lea la entrada del blog [Azure AD de Microsoft inicia la versión preliminar pública de claves de seguridad FIDO2, lo que permite los inicios de sesión sin contraseña](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins), o consulte los artículos [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) e [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
+- Para obtener más información sobre los métodos de autenticación sin contraseña, lea la entrada del blog [Azure AD de Microsoft inicia la versión preliminar pública de claves de seguridad FIDO2, lo que permite los inicios de sesión sin contraseña](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins), o consulte los artículos [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md) e [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 - Para obtener información más detallada sobre las [claves de seguridad compatibles con Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

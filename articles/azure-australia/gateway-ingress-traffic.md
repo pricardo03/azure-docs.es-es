@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571180"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779346"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Control del tráfico de entrada en Azure Australia
 
@@ -35,10 +35,10 @@ Los siguientes requisitos clave, identificados en las publicaciones de ACSC, son
 |---|---|
 |**Implementación de la segmentación y la segregación de red, por ejemplo, mediante una arquitectura de n niveles con firewalls basados en host y controles de acceso a la red de CSP para limitar la conectividad de red entrante y saliente en las máquinas virtuales únicamente a los puertos y protocolos necesarios.**| _Cloud Computing for Tenants_ (Informática en la nube para inquilinos)|
 |**Implemente una conectividad de red confiable, de baja latencia y alto ancho de banda** entre el inquilino (incluidos sus usuarios remotos) y el servicio en la nube para satisfacer los requisitos de disponibilidad del inquilino.  | _Cloud Computing for Tenants_ (Informática en la nube para inquilinos)|
-|**Aplique tecnologías en más de solo una capa de red**. Cada host y cada red se deben segmentar y segregar, siempre que sea posible, en el nivel más bajo que se pueda administrar de forma práctica. En la mayoría de los casos, esta segmentación y segregación abarcan desde la capa de vínculo de datos hasta la capa de aplicación (incluida); sin embargo, en entornos confidenciales, el aislamiento físico puede ser adecuado. Se deben implementar medidas basadas en el host y para toda la red de forma complementaria y se deben supervisar de manera centralizada. No basta con implementar un firewall o un dispositivo de seguridad como la única medida de seguridad. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de red)|
-|**Use los principios de privilegios mínimos y necesidad de conocer**. Si un host, un servicio o una red no necesitan comunicarse con otro host, servicio o red, no se le debe permitir hacerlo. Si un host, un servicio o una red solo necesitan comunicarse con otro host, servicio o red en un puerto o protocolo específicos, los demás puertos y protocolos se deben deshabilitar. La adopción de estos principios en una red complementará a la reducción de privilegios de usuario y aumentará considerablemente la posición de seguridad general del entorno. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de red)|
-|**Separe los hosts y las redes en función de su confidencialidad o importancia para las operaciones empresariales**. La separación se puede lograr mediante el uso de hardware o plataformas diferentes en función de distintas clasificaciones de seguridad, dominios de seguridad o requisitos de disponibilidad e integridad de determinados hosts o redes. En especial, separe las redes de administración y considere la posibilidad de aislar físicamente las que estén fuera de banda en entornos confidenciales. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de red)|
-|**Identifique, autentique y autorice el acceso de todas las entidades a todas las demás entidades**. Todos los usuarios, hosts y servicios deben tener acceso restringido a únicamente los demás usuarios, hosts y servicios que necesiten para realizar sus tareas o funciones designadas. Todos los servicios heredados o locales que eluden o degradan la seguridad de los servicios de identificación, autenticación y autorización se deben deshabilitar y su uso debe supervisarse estrechamente. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de red)|
+|**Aplique tecnologías en más de solo una capa de red**. Cada host y cada red se deben segmentar y segregar, siempre que sea posible, en el nivel más bajo que se pueda administrar de forma práctica. En la mayoría de los casos, esta segmentación y segregación abarcan desde la capa de vínculo de datos hasta la capa de aplicación (incluida); sin embargo, en entornos confidenciales, el aislamiento físico puede ser adecuado. Se deben implementar medidas basadas en el host y para toda la red de forma complementaria y se deben supervisar de manera centralizada. No basta con implementar un firewall o un dispositivo de seguridad como la única medida de seguridad. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de la red)|
+|**Use los principios de privilegios mínimos y necesidad de conocer**. Si un host, un servicio o una red no necesitan comunicarse con otro host, servicio o red, no se le debe permitir hacerlo. Si un host, un servicio o una red solo necesitan comunicarse con otro host, servicio o red en un puerto o protocolo específicos, los demás puertos y protocolos se deben deshabilitar. La adopción de estos principios en una red complementará a la reducción de privilegios de usuario y aumentará considerablemente la posición de seguridad general del entorno. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de la red)|
+|**Separe los hosts y las redes en función de su confidencialidad o importancia para las operaciones empresariales**. La separación se puede lograr mediante el uso de hardware o plataformas diferentes en función de distintas clasificaciones de seguridad, dominios de seguridad o requisitos de disponibilidad e integridad de determinados hosts o redes. En especial, separe las redes de administración y considere la posibilidad de aislar físicamente las que estén fuera de banda en entornos confidenciales. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de la red)|
+|**Identifique, autentique y autorice el acceso de todas las entidades a todas las demás entidades**. Todos los usuarios, hosts y servicios deben tener acceso restringido a únicamente los demás usuarios, hosts y servicios que necesiten para realizar sus tareas o funciones designadas. Todos los servicios heredados o locales que eluden o degradan la seguridad de los servicios de identificación, autenticación y autorización se deben deshabilitar y su uso debe supervisarse estrechamente. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de la red)|
 |**Implemente la lista de permitidos del tráfico en lugar de la lista de denegados**. Solo se permite el acceso del tráfico bueno conocido (es decir, el identificado, autenticado y autorizado), en lugar de denegar el acceso al tráfico malo conocido (por ejemplo, bloquear una dirección o un servicio específicos). Las listas blancas dan como resultado una directiva de seguridad superior que las listas negras y mejoran considerablemente la capacidad para detectar y evaluar posibles intrusiones de red de las organizaciones. |_ACSC Protect: Implementing Network Segmentation and Segregation_ (Protección de ASCS: Implementación de la segmentación y la segregación de red)|
 |
 
@@ -92,7 +92,7 @@ El diagrama de la arquitectura que se muestra aquí describe las posibles rutas 
 
 |Componente | DESCRIPCIÓN|
 |---|---|
-|**Grupos de seguridad de red** | Los grupos de seguridad de red controlan el tráfico dentro y fuera de los recursos de la red virtual de Azure. Aplican reglas para los flujos de tráfico que se permiten o deniegan, lo que incluye el tráfico dentro de Azure y entre Azure y redes externas, como locales o Internet. Se aplican a subredes de una red virtual o a interfaces de red individuales.|
+|**Grupos de seguridad de red** | Los NSG controlan el tráfico dentro y fuera de los recursos de red virtual de Azure. Aplican reglas para los flujos de tráfico que se permiten o deniegan, lo que incluye el tráfico dentro de Azure y entre Azure y redes externas, como locales o Internet. Se aplican a subredes de una red virtual o a interfaces de red individuales.|
 |**Firewall de PaaS** | Muchas funcionalidades de PaaS, como Storage y SQL, tienen un firewall integrado para controlar el tráfico de entrada al recurso específico. Se pueden crear reglas para permitir o denegar la conexión desde direcciones IP o redes virtuales específicas.|
 |**Autenticación de PaaS y control de acceso** | Como parte de un enfoque por niveles de seguridad, las funcionalidades de PaaS proporcionan varios mecanismos para autenticar los usuarios y controlar los privilegios y el acceso.|
 |**Azure Policy** | Azure Policy es un servicio de Azure para crear, asignar y administrar directivas. Estas directivas usan reglas para controlar los tipos de recursos que se pueden implementar y la configuración de esos recursos. Se pueden usar directivas para exigir el cumplimiento e impedir la implementación de recursos si no satisfacen los requisitos; también se pueden utilizar para supervisar e informar sobre el estado de cumplimiento.|
@@ -146,7 +146,7 @@ El nivel estándar ofrece funciones adicionales de reducción de ataques en comp
 |Recurso|Vínculo|
 |---|---|
 |Introducción a Azure DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Procedimientos recomendados de DDoS de Azure|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Procedimientos recomendados de DDoS de Azure|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |Administración de DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 
@@ -323,7 +323,7 @@ La implementación de los controles de segmentación y segregación de la red en
 
 El diseño y la creación de soluciones en Azure es un proceso de creación de una arquitectura lógica para comprender, controlar y supervisar los recursos de red allí donde Azure esté presente. Esta arquitectura lógica es software que se define dentro de la plataforma Azure y ocupa el lugar de una topología de red física que se implementa en entornos de red tradicionales.
 
-La arquitectura lógica que se crea debe proporcionar la funcionalidad necesaria que facilite su uso, pero también, la visibilidad y el control necesarios para la seguridad y la integridad.
+La arquitectura lógica que se crea debe proporcionar la funcionalidad necesaria que facilite su uso, pero también debe proporcionar la visibilidad y el control necesarios de cara a la seguridad y la integridad.
 
 La obtención de este resultado se basa en la implementación de las herramientas de segregación y segmentación de la red necesarias, pero también en la protección y la aplicación de la topología de red y la implementación de estas herramientas.
 

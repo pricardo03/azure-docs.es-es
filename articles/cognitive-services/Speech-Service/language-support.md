@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559393"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815260"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad con regiones e idiomas para los servicios de Voz
 
@@ -31,12 +31,12 @@ El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguiente
  ar-EG | Árabe (Egipto), estándar moderno | Sin | Sí | Sin
  ca-ES | Catalán | Sin | No | Sin
  da-DK | Danés (Dinamarca) | Sin | No | Sin
- de-DE | Alemán (Alemania) | Sí | Sí | Sin
- en-AU | Inglés (Australia) | Sin | Sí | Sí
- en-CA | Inglés (Canadá) | Sin | Sí | Sí
- en-GB | Inglés (Reino Unido) | Sin | Sí | Sí
- en-IN | Inglés (India) | Sí | Sí | Sí
- en-NZ | Inglés (Nueva Zelanda) | Sin | Sí | Sí  
+ de-DE | Alemán (Alemania) | Sí | Sí | Sí
+ en-AU | Inglés (Australia) | Sin | Sí | Sin
+ en-CA | Inglés (Canadá) | Sin | Sí | Sin
+ en-GB | Inglés (Reino Unido) | Sin | Sí | Sin
+ en-IN | Inglés (India) | Sí | Sí | Sin
+ en-NZ | Inglés (Nueva Zelanda) | Sin | Sí | Sin 
  en-US | Inglés (Estados Unidos) | Sí | Sí | Sí
  es-ES | Español (España) | Sí | Sí | Sin
  es-MX | Español (México) | Sin | Sí | Sin

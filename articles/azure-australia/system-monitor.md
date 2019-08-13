@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571252"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779319"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Supervisión del sistema para la seguridad en Azure Australia
 
@@ -108,7 +108,7 @@ Los registros recopilados en Azure se encuentran en una de las tres categorías 
 
 La supervisión de la máquina virtual de Azure se ha mejorado mediante la implementación del agente de máquina virtual tanto para Windows como para Linux. Esto aumenta notablemente la amplitud de información de registro recopilada. La implementación de este agente puede configurarse para que se produzca automáticamente mediante Azure Security Center.
 
-Microsoft proporciona información detallada sobre los registros específicos de recursos de Azure y sus [esquemas](https://docs.microsoft.com/azure/security/azure-log-audit).
+Microsoft proporciona información detallada sobre los registros específicos de recursos de Azure y sus [esquemas](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### <a name="log-retention-and-protection"></a>Retención y protección de registros
 
