@@ -258,7 +258,7 @@
     - name: Creación de flujos de trabajo reutilizables
       displayName: pipelines
       items:
-        - name: 'Canalizaciones de Machine Learning: lotes, procesos, reutilización, uso compartido'
+        - name: Canalizaciones de Machine Learning
           href: how-to-create-your-first-pipeline.md
         - name: Canalizaciones de Azure para CI/CD
           displayName: 'continuous, integration, delivery'

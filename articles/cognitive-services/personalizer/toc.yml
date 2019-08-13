@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: Guías de inicio rápido
   items:
-    - name: Creación y uso de un bucle de comentarios
+    - name: 'Con C#'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Usar Python
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: Conceptos
   items:
     - name: Funcionamiento de Personalizer
