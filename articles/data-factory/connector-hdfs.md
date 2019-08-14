@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 2cac2b350da5ca8738e40f9a288ecf4059e81060
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: e1b8da52870af80b2f9e34ee26d80d9b71d39851
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673903"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839811"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copia de datos de HDFS mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -113,12 +113,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para **Formato de texto delimitado y Parquet**, vea la sección [Conjunto de datos con formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-dataset).
-- Para otros formatos como **ORC, Avro, JSON o binario**, vea la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
+- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato de texto delimitado y Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
 
-Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md) y el artículo [Formato de texto delimitado](format-delimited-text.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para HDFS en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos en el **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para HDFS en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -157,7 +157,7 @@ Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consu
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos desde HDFS en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes:
+Para copiar datos de HDFS en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -208,12 +208,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="hdfs-as-source"></a>HDFS como origen
 
-- Para copiar desde **Formato de texto delimitado y Parquet**, consulte la sección [Origen de formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-source).
-- Para copiar desde otros formatos como **ORC, Avro, JSON o binario**, vea la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
+- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Origen de formato de texto delimitado y Parquet
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
 
-Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md) y el artículo [Formato de texto delimitado](format-delimited-text.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para HDFS en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para HDFS en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -223,6 +223,10 @@ Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consu
 | wildcardFileName         | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí, si no se ha especificado `fileName` en el conjunto de datos |
 | modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                            |
 | modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                            |
+| distcpSettings | Grupo de propiedades al utilizar la herramienta DistCp de HDFS. | Sin |
+| resourceManagerEndpoint | Punto de conexión del administrador de recursos de Yarn | Sí, se utiliza DistCp |
+| tempScriptPath | Una ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, se utiliza DistCp |
+| distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | Sin |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin                                            |
 
 > [!NOTE]
@@ -256,7 +260,12 @@ Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consu
                 },
                 "storeSettings":{
                     "type": "HdfsReadSetting",
-                    "recursive": true
+                    "recursive": true,
+                    "distcpSettings": {
+                        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
+                        "tempScriptPath": "/usr/hadoop/tempscript",
+                        "distcpOptions": "-m 100"
+                    }
                 }
             },
             "sink": {
@@ -269,7 +278,7 @@ Para copiar datos desde HDFS en **Formato de texto delimitado o Parquet**, consu
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos desde HDFS en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
+Para copiar datos de HDFS en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
