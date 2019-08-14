@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: e0626d847b22c11ce5acca5633c9b1291c03742d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509585"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839876"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
@@ -163,12 +163,13 @@ En Azure Data Factory no es necesario especificar ninguna propiedad, más allá 
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para Formato de texto delimitado y Parquet, vea la sección [Conjunto de datos con formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-dataset).
-- Para otros formatos, como ORC, Avro, JSON o binario, vea la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
+- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato de texto delimitado y Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
 
-Para copiar datos con Azure Data Lake Storage Gen1 como origen o destino en Formato de texto delimitado o Parquet, vea los artículos [Formato Parquet](format-parquet.md) y [Formato de texto delimitado](format-delimited-text.md) sobre los conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos como origen y destino de **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas.
+Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -208,7 +209,7 @@ Para copiar datos con Azure Data Lake Storage Gen1 como origen o destino en Form
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos con Azure Data Lake Storage Gen1 como origen o destino en formato ORC, Avro, JSON o binario, se admiten las propiedades siguientes:
+Para copiar datos con Azure Data Lake Storage Gen1 como origen o destino en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -260,12 +261,12 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store como origen
 
-- Para copiar desde Formato de texto delimitado y Parquet, vea la sección [Origen de formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-source).
-- Para copiar desde otros formatos, como ORC, Avro, JSON o binario, vea la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
+- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Origen de formato de texto delimitado y Parquet
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
 
-Para copiar datos desde Azure Data Lake Storage Gen1 en Formato de texto delimitado o Parquet, vea los artículos [Formato Parquet](format-parquet.md) y [Formato de texto delimitado](format-delimited-text.md) sobre el origen de las actividades de copia basadas en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas.  Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -323,7 +324,7 @@ Para copiar datos desde Azure Data Lake Storage Gen1 en Formato de texto delimit
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos de Azure Data Lake Store Gen1 en formato ORC, Avro, JSON o binario, se admiten las propiedades siguientes en la sección **source** de la actividad de copia:
+Para copiar datos de Azure Data Lake Store Gen1 en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -365,12 +366,12 @@ Para copiar datos de Azure Data Lake Store Gen1 en formato ORC, Avro, JSON o bin
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store como receptor
 
-- Para copiar en Formato de texto delimitado y Parquet, vea la sección [Receptor de formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-sink).
-- Para copiar en otros formatos, como ORC, Avro, JSON o binario, vea la sección [Otro receptor de formato](#other-format-sink).
+- Para copiar en el **formato binario, de texto delimitado o Parquet**, consulte la sección [Receptor de formato binario, de texto delimitado o Parquet](#format-based-sink).
+- Para copiar en otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro receptor de formato](#other-format-sink).
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Receptor de formato de texto delimitado y Parquet
+#### <a name="format-based-sink"></a> Receptor de formato binario, de texto delimitado o Parquet
 
-Para copiar datos en Azure Data Lake Storage Gen1 en Formato de texto delimitado o Parquet, vea los artículos [Formato Parquet](format-parquet.md) y [Formato de texto delimitado](format-delimited-text.md) sobre el receptor de las actividades de copia basadas en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del receptor de copia basado en formato:
+Para copiar datos en el **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el receptor de la actividad de copia basado en formato y las configuraciones admitidas.  Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del receptor de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -418,7 +419,7 @@ Para copiar datos en Azure Data Lake Storage Gen1 en Formato de texto delimitado
 
 #### <a name="other-format-sink"></a>Otro receptor de formato
 
-Para copiar datos en Azure Data Lake Storage Gen1 en formato ORC, Avro, JSON o binario, se admiten las propiedades siguientes en la sección del **receptor**:
+Para copiar datos en Azure Data Lake Storage Gen1 en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **sink** (receptor):
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

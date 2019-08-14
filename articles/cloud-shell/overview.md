@@ -3,7 +3,7 @@ title: Introducción a Azure Cloud Shell | Microsoft Docs
 description: Introducción a Azure Cloud Shell.
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199692"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742026"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
@@ -71,11 +71,9 @@ Cloud Shell es una herramienta flexible que puede utilizarse desde:
 * [La extensión de la cuenta de Azure de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Conexión con el almacenamiento de Microsoft Azure Files
-Las máquinas de Cloud Shell son temporales y requieren que se monte un recurso compartido de Azure Files nuevo o existente como `clouddrive` para conservar los archivos.
+Las máquinas de Cloud Shell son temporales, pero los archivos se conservan de dos maneras: a través de una imagen de disco y a través de un recurso compartido de archivos montado denominado `clouddrive`.  Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de Azure Files en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. Se puede asignar un recurso de archivos único que Bash y PowerShell usarán en Cloud Shell.
 
-Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de Azure Files en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. Se puede asignar un recurso de archivos único que Bash y PowerShell usarán en Cloud Shell.
-
-Lea más sobre cómo montar una [cuenta de almacenamiento nueva o existente](persisting-shell-storage.md).
+Obtenga más información sobre cómo montar una [cuenta de almacenamiento nueva o existente](persisting-shell-storage.md) o sobre los [mecanismos de persistencia usados en Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un host temporal que se proporciona por cada sesión y usuario.

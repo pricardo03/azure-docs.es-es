@@ -1,6 +1,6 @@
 ---
 title: Administración de reservas de Azure
-description: Aprenda a cambiar el ámbito de la suscripción y a administrar el acceso a Azure Reservations.
+description: Obtenga información sobre cómo puede administrar las reservas de Azure.
 ms.service: billing
 author: bandersmsft
 manager: yashesvi
@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b161fc7cd4faa75dd87613c297c12f1edd862510
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491193"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840001"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
-Después de comprar una reserva para Azure, es posible que tenga que aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva, o cambiar el ámbito de la misma. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
+Después de comprar una reserva de Azure, es posible que deba aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva o cambiar el ámbito de la reserva. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
 
-Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la configuración de optimización de la reserva. Puede aplicar el descuento de reserva a las máquinas virtuales de la misma serie o puede reservar la capacidad del centro de datos para un tamaño específico de máquina virtual.
+Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la configuración de optimización de la reserva. Puede aplicar el descuento de reserva a las máquinas virtuales de la misma serie o puede reservar la capacidad del centro de datos para un tamaño específico de máquina virtual. Además, debe intentar optimizar las reservas para que se usen totalmente.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -75,7 +75,7 @@ Para delegar la administración de acceso en una reserva:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>División de una reserva única en dos
 
- Si se compran varias instancias de recursos en una reserva, se pueden asignar algunas de las instancias de la reserva a distintas suscripciones. De forma predeterminada, todas las instancias tienen un ámbito, que puede ser de suscripción única o compartida. Pongamos por ejemplo que se han comprado diez instancias de reserva y como ámbito se ha especificado la suscripción A. En caso de que le interese, se puede establecer el ámbito de siete reservas en la suscripción A y el de las tres restantes en la suscripción B. Dividir una reserva le permite distribuir las instancias para lograr una administración más precisa del ámbito. Si quiere simplificar la asignación a las suscripciones, elija el ámbito compartido. Sin embargo, para la administración de costos o fines presupuestarios, puede asignar las cantidades a suscripciones concretas.
+ Si se compran varias instancias de recursos en una reserva, se pueden asignar algunas de las instancias de la reserva a distintas suscripciones. De forma predeterminada, todas las instancias tienen un ámbito, que puede ser de suscripción única o compartida. Pongamos por ejemplo que se han comprado diez instancias de reserva y como ámbito se ha especificado la suscripción A. En caso de que le interese, se puede establecer el ámbito de siete reservas en la suscripción A y el de las tres restantes en la suscripción B. Dividir una reserva le permite distribuir las instancias para lograr una administración más pormenorizada del ámbito. Si quiere simplificar la asignación a las suscripciones, elija el ámbito compartido. Sin embargo, para la administración de costos o fines presupuestarios, puede asignar las cantidades a suscripciones concretas.
 
  Una reserva se puede dividir en dos mediante PowerShell, CLI o la API.
 
@@ -106,13 +106,9 @@ Para delegar la administración de acceso en una reserva:
     Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
-## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
+## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Según el tipo de reserva, es posible que pueda cancelar o intercambiar una reserva. Para más información, vea las secciones sobre cancelación y e intercambios en estos temas:
-
-- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para obtener más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Cambiar la configuración de optimización para instancias reservadas de máquina virtual
 
@@ -129,6 +125,37 @@ Para actualizar la configuración de optimización de la reserva:
 3. Seleccione la reserva.
 4. Seleccione **Configuración** > **Configuración**.
 5. Cambie la configuración de la **optimización**.
+
+## <a name="optimize-reservation-use"></a>Optimización del uso de reservas
+
+El ahorro de reservas de Azure solo se produce al usar recursos sostenidos. Cuando realiza una compra de reserva, paga un costo inicial por lo que es esencialmente el 100 % de uso de recursos durante un período de uno o tres años. Trate de maximizar la reserva para obtener el mayor uso y ahorros posibles. En las secciones siguientes se explica cómo supervisar una reserva y optimizar su uso.
+
+### <a name="view-reservation-use-in-the-azure-portal"></a>Visualización del uso de las reservas en Azure Portal
+
+Una manera de ver el uso de las reservas es mediante Azure Portal.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Seleccione **Todos los servicios** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) y anote el valor de **Uso (%)** de una reserva.  
+  ![Imagen que muestra la lista de reservas](./media/billing-manage-reserved-vm-instance/reservation-list.png)
+3. Seleccione una reserva.
+4. Revise la tendencia de uso de la reserva a lo largo del tiempo.  
+  ![Imagen que muestra el uso de la reserva ](./media/billing-manage-reserved-vm-instance/reservation-utilization-trend.png)
+
+### <a name="view-reservation-use-with-api"></a>Visualización del uso de las reservas con la API
+
+Si es un cliente con Contrato Enterprise (EA), puede ver mediante programación cómo se usan las reservas en su organización. Obtiene las reservas sin usar mediante los datos de uso. Al revisar los cargos de la reserva, tenga en cuenta que los datos se dividen entre el costo real y los costos amortizados. El costo real proporciona datos para conciliar la factura mensual. También tiene los costos de compra de reserva y los detalles de solicitud de reservas. El costo amortizado es como el costo real, salvo que se prorratea el precio efectivo para el uso de reserva. Las horas de reserva sin usar se muestran en datos de costos amortizados. Para más información sobre los datos de uso para los clientes de Contrato Enterprise, consulte [Obtención del uso y los costos de reservas de Contrato Enterprise](billing-understand-reserved-instance-usage-ea.md).
+
+Para otros tipos de suscripciones, use [Reservations Summaries - List By Reservation Order And Reservation](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation) API.
+
+### <a name="optimize-your-reservation"></a>Optimización de la reserva
+
+Si ve que las reservas de su organización se están utilizando por debajo de su capacidad:
+
+- Asegúrese de que las máquinas virtuales que crea su organización coincidan con el tamaño de la máquina virtual que se encuentra en la reserva.
+- Asegúrese de que la flexibilidad de tamaño de instancia esté activada. Para obtener más información, consulte [Administrar reservas: cambiar la configuración de optimización para instancias reservadas de máquina virtual](#change-optimize-setting-for-reserved-vm-instances).
+- Cambie el ámbito de la reserva para que sea _compartido_ y así poder aplicarlo de manera más amplia. Para más información, consulte [Cambio del ámbito en una reserva](#change-the-reservation-scope).
+- Considere la posibilidad de intercambiar la cantidad no utilizada. Para más información, consulte [Cancelaciones y cambios](#cancel-exchange-or-refund-reservations).
+
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

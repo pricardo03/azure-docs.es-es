@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67668348"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementación de la primera aplicación en Cloud Foundry en Microsoft Azure
@@ -31,7 +31,7 @@ ms.locfileid: "67668348"
 
 Hay varias opciones para crear un entorno de Cloud Foundry en Azure:
 
-- Utilice la [oferta de Pivotal Cloud Foundry][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] para implementar la oferta de Marketplace en la documentación de Pivotal.
+- Use la [oferta de Pivotal Cloud Foundry][pcf-azuremarketplace] que encontrará en Azure Marketplace para crear un entorno estándar que incluya PCF Ops Manager y Azure Service Broker. En la documentación de Pivotal puede encontrar [instrucciones completas][pcf-azuremarketplace-pivotaldocs] para implementar la oferta de Marketplace.
 - Cree un entorno personalizado [implementando Pivotal Cloud Foundry manualmente][pcf-custom].
 - [Implemente directamente los paquetes de Cloud Foundry de código abierto][oss-cf-bosh]. Para ello, configure un director de [BOSH](https://bosh.io), una máquina virtual que coordina la implementación del entorno de Cloud Foundry.
 
@@ -40,7 +40,7 @@ Hay varias opciones para crear un entorno de Cloud Foundry en Azure:
 
 ## <a name="connect-to-the-cloud-controller"></a>Conexión a Cloud Controller
 
-Cloud Controller es el punto de entrada principal a un entorno de Cloud Foundry para implementar y administrar aplicaciones. La API de Cloud Controller (CCAPI) principal es una API de REST, pero se puede acceder a ella a través de varias herramientas. En este caso, se interactúa con ella mediante la [CLI de Cloud Foundry][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
+Cloud Controller es el punto de entrada principal a un entorno de Cloud Foundry para implementar y administrar aplicaciones. La API de Cloud Controller (CCAPI) principal es una API de REST, pero se puede acceder a ella a través de varias herramientas. En este caso, se interactúa con ella mediante la [CLI de Cloud Foundry][cf-cli]. La CLI se puede instalar en Linux, MacOS o Windows, pero si prefiere no instalarla, está disponible preinstalada en [Azure Cloud Shell][cloudshell-docs].
 
 Para iniciar sesión, anteponga `api` a la dirección de SYSTEMDOMAINURL que ha obtenido en la implementación de Marketplace. Dado que la implementación predeterminada usa un certificado autofirmado, también debe incluir el modificador `skip-ssl-validation`.
 

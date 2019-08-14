@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fe1d4bf27f3c4bb1f70c1c1fa9767c27f8767998
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 229b8949facae34a809c0789154a3b56264ee2c5
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064210"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779015"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -29,25 +29,26 @@ En este tema se explica cómo ver y entender las recomendaciones de Azure Securi
 >
 
 ## <a name="what-are-security-recommendations"></a>¿Cuáles son las recomendaciones de seguridad?
-El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones le guían en el proceso de configuración de los controles necesarios.
 
-## <a name="implementing-security-recommendations"></a>Implementación de recomendaciones de seguridad
-### <a name="set-recommendations"></a>Obtención de recomendaciones
-En [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md), aprenderá lo siguiente:
+Las recomendaciones son acciones que se deben llevar a cabo para proteger los recursos.
 
-* Configurar directivas de seguridad.
-* Activar la recopilación de datos.
-* Elegir las recomendaciones que verá como parte de la directiva de seguridad.
+Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. A continuación, proporciona recomendaciones sobre cómo quitarlas.
 
-Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, los [grupos de seguridad de red](../virtual-network/security-overview.md) en subredes y las interfaces de red, la auditoría de bases de datos de SQL, el cifrado de datos transparente de bases de datos de SQL y los firewalls de aplicaciones web.  [Establecimiento de directivas de seguridad](tutorial-security-policy.md) proporciona una descripción de cada opción de recomendación.
+Cada recomendación le proporciona:
 
-### <a name="monitor-recommendations"></a>Supervisión de recomendaciones
-Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de **Información general** permite conocer el número total de recomendaciones que identifica Security Center.
+- Una breve descripción de lo que se recomienda.
+- Los pasos de corrección que se deben llevar a cabo para implementar la recomendación. <!-- In some cases, one-click remediation is available. -->
+- Los recursos necesarios para realizar la acción recomendada.
+- El **impacto de la puntuación segura**, que es la cantidad que aumentará la puntuación segura si se implementa esta recomendación.
+
+## Supervisión de recomendaciones<a name="monitor-recommendations"></a>
+
+Security Center analiza el estado de seguridad de los recursos para identificar posibles vulnerabilidades. El icono **Recomendaciones** de **Información general** permite conocer el número total de recomendaciones que identifica Security Center.
 
 ![Introducción a Security Center](./media/security-center-recommendations/asc-overview.png)
 
 1. Seleccione el **icono de Recomendaciones** en **Información general**. Se abre la lista **Recomendaciones**.
-    
+
       ![Ver recomendaciones](./media/security-center-recommendations/view-recommendations.png)
 
     Puede filtrar las recomendaciones. Para ello, seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
@@ -68,19 +69,9 @@ Después de establecer una directiva de seguridad, el Centro de seguridad analiz
 
 >[!NOTE] 
 > Consulte los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md) de los recursos de Azure.
-  
- ### <a name="apply-recommendations"></a>Aplicación de recomendaciones
-> Después de revisar todas las recomendaciones, decida cuál se aplica primero. Se recomienda usar el impacto de la puntuación segura para evaluar qué recomendaciones se deben aplicar primero.
-
-1. En la lista, haga clic en la recomendación.
-1. Siga las instrucciones de la sección *Pasos para la corrección*.
-
+ 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre Security Center, consulte los temas:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga más información sobre cómo supervisar el estado de sus recursos en Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para obtener información sobre cómo corregir las recomendaciones:
+
+* [Recomendaciones de corrección ](security-center-remediate-recommendations.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

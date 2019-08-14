@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509797"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716819"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Las directivas personalizadas son archivos de configuración que definen el comp
 
 | | Flujos de usuario | Directivas personalizadas |
 |-|-------------------|-----------------|
-| Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad. | Profesionales de la identidad, integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenIDConnect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones. |
+| Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad. | Profesionales de la identidad, integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenID Connect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones. |
 | Método de configuración | Azure Portal con una interfaz de usuario (UI) fácil de usar. | Edición directa de archivos XML y posterior carga en Azure Portal. |
 | Personalización de la interfaz de usuario | Personalización completa de la interfaz de usuario, incluido HTML, CSS y JavaScript.<br><br>Compatibilidad multilingüe con cadenas personalizadas. | Iguales |
 | Personalización de atributos | Atributos estándar y personalizados. | Iguales |
@@ -50,12 +50,12 @@ Los flujos de usuario de Azure AD B2C siguen el patrón de tres archivos mencion
 El servicio de administración de identidades y acceso de cliente (CIAM) de Azure incluye:
 
 - Un directorio de usuarios accesible a través de Microsoft Graph y que contiene los datos de usuario tanto para cuentas locales como para cuentas federadas.
-- Acceso al **Marco de experiencia de identidad** que orquesta la confianza entre usuarios y entidades, y transmite notificaciones entre ellos para completar una tarea de administración de identidades o acceso. 
+- Acceso al **Marco de experiencia de identidad** que orquesta la confianza entre usuarios y entidades, y transmite notificaciones entre ellos para completar una tarea de administración de identidades o acceso.
 - Un servicio de token de seguridad (STS) que emite tokens de identificación, tokens de actualización y tokens de acceso (y aserciones SAML equivalentes) y los valida con el fin de proteger los recursos.
 
 Azure AD B2C interactúa en secuencia con proveedores de identidades, usuarios, otros sistemas y con el directorio local de usuario para completar una tarea de identidad. Por ejemplo, iniciar sesión en un cliente, registrar un nuevo usuario o restablecer una contraseña. El marco de experiencia de identidad y una directiva (que también se conoce como una directiva de marco de confianza o de recorrido del usuario) crea confianza entre varios usuarios y define explícitamente los actores, las acciones, los protocolos y la secuencia de pasos que se van a completar.
 
-El marco de experiencia de identidad es una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades en formatos de protocolo estándar como OpenIDConnect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar que admiten HTML y CSS.
+Identity Experience Framework es una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades en formatos de protocolo estándar como OpenID Connect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar que admiten HTML y CSS.
 
 Una directiva personalizada se representa como uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen el esquema de notificaciones, las transformaciones de notificaciones, las definiciones de contenido, los proveedores de notificaciones, los perfiles técnicos y los pasos de orquestación del recorrido del usuario, entre otros elementos. Una directiva personalizada es accesible como uno o varios archivos XML que el marco de experiencia de identidad ejecuta cuando lo invoca un usuario de confianza. Los desarrolladores que configuran las directivas personalizadas deben definir las relaciones de confianza con mucho detalle para incluir puntos de conexión de metadatos, definiciones exactas de intercambio de notificaciones, además de configurar secretos, claves y certificados según lo necesite cada proveedor de identidades.
 

@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: c708cd282e38b5da73915e427485bb8990afd6c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668881"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841204"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Cómo agregar una aptitud personalizada a una canalización de Cognitive Search
 
@@ -27,13 +27,13 @@ Crear una aptitud personalizada le otorga una forma de insertar transformaciones
 
 ## <a name="web-api-custom-skill-interface"></a>Interfaz de aptitudes personalizadas de Web API
 
-Los puntos de conexión de las aptitudes personalizadas de WebAPI agotarán, de forma predeterminada, el tiempo de expiración si no devuelven una respuesta en un espacio de 30 segundos. La canalización de indexación es sincrónica y la indexación producirá un error de tiempo de expiración si no se recibe una respuesta en ese período.  Es posible configurar el tiempo de expiración para que sea de hasta 90 segundos mediante la configuración del parámetro correspondiente:
+Los puntos de conexión de las aptitudes personalizadas de WebAPI agotarán, de forma predeterminada, el tiempo de expiración si no devuelven una respuesta en un espacio de 30 segundos. La canalización de indexación es sincrónica y la indexación producirá un error de tiempo de expiración si no se recibe una respuesta en ese período.  Es posible configurar el tiempo de expiración para que sea de hasta 230 segundos mediante la configuración del parámetro correspondiente:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 Actualmente, el único mecanismo para interactuar con una aptitud personalizada es a través de una interfaz de Web API. Web API debe cumplir los requisitos que se describen en esta sección.

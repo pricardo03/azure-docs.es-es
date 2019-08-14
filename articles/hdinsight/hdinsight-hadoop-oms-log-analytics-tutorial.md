@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/05/2019
+ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479254"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816036"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -105,6 +105,10 @@ Para instrucciones para instalar una solución de administración, consulte [Sol
 ![Vista de solución de supervisión de HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Dado que el clúster es un clúster nuevo de marca, el informe no muestra ninguna actividad.
+
+## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
+
+Azure Monitor también admite la recopilación y el análisis de las métricas de rendimiento de los nodos del clúster. Para obtener más información sobre cómo habilitar y configurar esta característica, consulte [Orígenes de datos de rendimiento de Linux en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

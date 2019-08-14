@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430871"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740879"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -45,7 +45,7 @@ Consulte [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/c
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>¿Qué recursos son compatibles como parte de un grupo de back-end?
 
-Consulte [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) (recursos de back-end compatibles).
+Consulte [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools) (recursos de back-end compatibles).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>¿En qué regiones está disponible Application Gateway?
 
@@ -101,7 +101,7 @@ Sí. Consulte [Modifications to a request](https://docs.microsoft.com/azure/appl
 
 Las nuevas implementaciones de SKU v1 de Application Gateway pueden tardar hasta 20 minutos en aprovisionarse. Los cambios de tamaño o recuento de instancias no provocan interrupciones y Application Gateway permanece activa durante este tiempo.
 
-Las implementaciones que usan la SKU v2 pueden tardar hasta 6 minutos en aprovisionarse.
+La mayoría de las implementaciones que usan la SKU v2 tardan aproximadamente 6 minutos en aprovisionarse. Sin embargo, pueden tardar más tiempo en función del tipo de implementación. Por ejemplo, las implementaciones en varias instancias de Availability Zones con muchas instancias pueden tardar más de 6 minutos. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>¿Puedo usar Exchange Server como un back-end con Application Gateway?
 

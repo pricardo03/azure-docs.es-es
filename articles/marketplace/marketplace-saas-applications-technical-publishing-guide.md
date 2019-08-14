@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876532"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742252"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -126,13 +126,13 @@ Si no está familiarizado con el SSO federado de Azure AD, haga lo siguiente:
 ## <a name="saas-subscriptions"></a>Suscripciones de SaaS
 
 Use el tipo de oferta Aplicación SaaS para permitir que el cliente compre su solución técnica basada en SaaS como una suscripción. Se deben cumplir los requisitos siguientes para la aplicación de SaaS:
-- Determinar el precio y la facturación con una tarifa plana mensual.
+- El precio y la facturación del servicio deben tener una tarifa plana (mensual o anual), o una tarifa por usuario.
 - Proporcionar un método para actualizar o cancelar el servicio en cualquier momento.
-Microsoft hospeda la transacción comercial. Microsoft factura al cliente en su nombre. Para usar la facturación de una aplicación de SaaS como una suscripción, debe habilitar su propia API de servicio de administración de suscripciones. Su API de servicio de administración de suscripciones debe comunicarse directamente con las API de Azure Resource Manager. Su API de servicio de administración de suscripciones debe admitir el aprovisionamiento, la actualización y la cancelación del servicio.
+Microsoft hospeda la transacción comercial. Microsoft factura al cliente en su nombre. Para ofrecer una aplicación SaaS como suscripción, debe integrarse con las API de cumplimiento de SaaS.  El servicio debe admitir el aprovisionamiento, la actualización y la cancelación.
 
 | Requisito | Detalles |  
 |:--- |:--- |  
-|Facturación y medición | El precio de su oferta se fija en una tarifa plana mensual. Los precios y las funcionalidades "true-up" basados en uso no se admiten en este momento. |  
+|Facturación y medición | El precio de la oferta se basa en el modelo de precios que seleccionaste antes de la publicación (tarifa plana o por usuario).  Si se usa el modelo de tarifa plana, también se pueden incluir dimensiones opcionales que se usan para cobrar a los clientes por el uso no incluido en la tarifa plana. |  
 |Cancelación | El cliente puede cancelar su oferta en cualquier momento. |  
 |Página de aterrizaje de transacción | Usted hospeda una página de aterrizaje de transacción personalizada de Azure donde los usuarios pueden crear y administrar su cuenta de servicio SaaS. |   
 | API de suscripción | Usted expone un servicio que puede interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica. |  

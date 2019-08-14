@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: roiyz
-ms.openlocfilehash: b9d0e582b77dc06e1655a7bdb57ee232c603bc86
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 43da116753723470efddc92bffc11038a80a35fb
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706682"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827057"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor para Windows
 
@@ -32,16 +32,14 @@ Azure Monitor proporciona funcionalidades de supervisión de recursos locales y 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión del agente de Log Analytics para Windows es compatible con las siguientes versiones del sistema operativo Windows:
-
-- Windows Server 2019
-- Windows Server 2008 R2, 2012, 2012 R2, 2016, versión 1709 y 1803
+Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo de [información general del agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
 En la tabla siguiente se proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor para Windows y el conjunto de productos del agente de Log Analytics para cada versión. 
 
 | Versión del conjunto de productos Windows para Log Analytics | Versión de la extensión de máquina virtual Windows para Azure Monitor | Fecha de lanzamiento | Notas de la versión |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18011 | 1.0.18011 | Julio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Aumento de MaxExpressionDepth a 10 000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Se agregó la posibilidad de deshabilitar las credenciales predeterminadas al realizar la conexión de proxy (compatibilidad con WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH). </li></ul>|
 | 10.19.13515 | 1.0.13515 | Marzo de 2019 | <ul><li>Correcciones menores de estabilización </li></ul> |
 | 10.19.10006 | N/D | Diciembre de 2018 | <ul><li> Correcciones menores de estabilización </li></ul> | 
@@ -105,7 +103,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 >[!NOTE]
 >La plantilla no admite la especificación de más de un identificador y clave de área de trabajo cuando quiere configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para que informe a varias áreas de trabajo, consulte [Adición o eliminación de un área de trabajo](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-El JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual, o colocada en la raíz o un nivel superior de una plantilla JSON de Resource Manager. La colocación de la plantilla JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+El JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual, o colocada en la raíz o un nivel superior de una plantilla JSON de Resource Manager. La colocación de la plantilla JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/child-resource-name-type.md). 
 
 En el siguiente ejemplo se da por supuesto que la extensión de Azure Monitor está anidada dentro del recurso de máquina virtual. Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 306180d1a0789aff2fc88930178976c342aef9b9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741612"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827416"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
 
@@ -33,23 +33,23 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 Cree una nueva máquina virtual Linux: 
 
-1. Seleccione la opción  **Crear un recurso**  en el panel de navegación izquierdo. 
-1. Busque **Máquina virtual**.  
+1. Seleccione la opción **Crear un recurso** en el panel de navegación izquierdo. 
+1. Busque **Máquina virtual**.  
 1. Seleccione **Ubuntu 16.04 LTS** y seleccione **Crear**. 
-1. Especifique un nombre de máquina virtual como  **MyTelegrafVM**.  
-1. Deje el tipo de disco como **SSD**. A continuación, proporcione un **username** (nombre de usuario), por ejemplo,  **usuarioAzure**. 
-1. En  **Tipo de autenticación**, seleccione **Contraseña**. A continuación, escriba una contraseña que utilizará más adelante para conectarse mediante SSH a la máquina virtual. 
-1. Elija  **Crear un nuevo grupo de recursos**. A continuación, proporcione un nombre, como **miGrupoDeRecursos**. Elija su  **Ubicación**. A continuación, seleccione  **Aceptar**. 
+1. Especifique un nombre de máquina virtual como **MyTelegrafVM**.  
+1. Deje el tipo de disco como **SSD**. A continuación, proporcione un **Nombre de usuario**, por ejemplo, **usuarioAzure**. 
+1. En **Tipo de autenticación**, seleccione **Contraseña**. A continuación, escriba una contraseña que utilizará más adelante para conectarse mediante SSH a la máquina virtual. 
+1. Elija **Crear nuevo grupo de recursos**. A continuación, indique un nombre, como **miGrupoDeRecursos**. Elija su **Ubicación**. Después seleccione **Aceptar**. 
 
     ![Creación de una máquina virtual de Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. Seleccione un tamaño para la máquina virtual. Puede filtrar por  **tipo de proceso**  o por  **tipo de disco**, por ejemplo. 
+1. Seleccione un tamaño para la máquina virtual. Puede filtrar por **Tipo de proceso** o **Tipo de disco**, por ejemplo. 
 
     ![Información general del tamaño de máquina virtual en el agente de Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. En la página  **Configuración** de  **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, selecccione  **HTTP**  y  **SSH (22)** . Deje el resto de valores predeterminados y seleccione  **Aceptar**. 
+1. En la página **Configuración**, en **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **SSH (22)** . Deje el resto de valores predeterminados y seleccione **Aceptar**. 
 
-1. En la página de resumen, seleccione  **Crear**  para iniciar la implementación de la máquina virtual. 
+1. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual. 
 
 1. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual. 
 
@@ -59,11 +59,11 @@ Cree una nueva máquina virtual Linux:
  
 ## <a name="connect-to-the-vm"></a>Conexión a la máquina virtual 
 
-Cree una conexión SSH con la máquina virtual. Seleccione el botón  **Conectar**  en la página de información general de la máquina virtual. 
+Cree una conexión SSH con la máquina virtual. Seleccione el botón **Conectar** en la página de información general de la máquina virtual. 
 
 ![Página de información general de la máquina virtual de Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-En la página  **Conectarse a una máquina virtual** , mantenga las opciones predeterminadas para conectarse por nombre DNS a través del puerto 22. En  **Iniciar sesión con la cuenta local de VM**, se muestra un comando de conexión. Seleccione el botón para copiar el comando. En el ejemplo siguiente se muestra el aspecto que tiene el comando de conexión SSH: 
+En la página **Connect to virtual machine** (Conexión a una máquina virtual), mantenga las opciones predeterminadas para conectarse por nombre DNS a través del puerto 22. En **Iniciar sesión con la cuenta local de VM** se muestra un comando de conexión. Seleccione el botón para copiar el comando. En el ejemplo siguiente se muestra el aspecto que tiene el comando de conexión SSH: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -108,7 +108,7 @@ Ahora, el agente recopilará las métricas de cada uno de los complementos de en
 
 1. Abra [Azure Portal](https://portal.azure.com). 
 
-1. Vaya a la nueva pestaña  **Monitor** . A continuación, seleccione  **Métricas**.  
+1. Vaya a la pestaña **Supervisar**. Seleccione **Métricas**.  
 
      ![Monitor: Métricas (versión preliminar)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -128,7 +128,7 @@ Además, en este tutorial usó el agente de Telegraf para emitir métricas acerc
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
-Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y seleccione  **Eliminar**. Después, confirme el nombre del grupo de recursos que hay que eliminar. 
+Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y seleccione **Eliminar**. Después, confirme el nombre del grupo de recursos que hay que eliminar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).

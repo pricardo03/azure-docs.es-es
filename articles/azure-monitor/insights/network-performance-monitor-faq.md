@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinigam
-ms.openlocfilehash: 71eb789c92452353029613265fe97411c8c00649
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706326"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782124"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -147,7 +147,17 @@ Es posible que un salto no responda a un comando traceroute en uno o varios de l
 * Los dispositivos de red no permiten el tráfico ICMP_TTL_EXCEEDED.
 * Un firewall bloquea la respuesta ICMP_TTL_EXCEEDED del dispositivo de red.
 
-### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>¿Por qué mi vínculo muestra un estado incorrecto pero la topología no? 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Recibo alertas para las pruebas con un estado incorrecto, pero no veo los valores altos en el gráfico de pérdida y latencia de NPM. ¿Cómo compruebo qué elementos tienen un estado incorrecto?
+NPM genera una alerta si la latencia de extremo a extremo entre el origen y el destino cruza el umbral en cualquiera de las rutas de acceso entre ellos. Algunas redes tienen más de una ruta de acceso que conecta el mismo origen y destino. NPM genera una alerta si el estado de alguna de las rutas de acceso es incorrecto. La pérdida y latencia que se muestran en los gráficos es el valor medio de todas las rutas de acceso, por lo que puede que no muestre el valor exacto de una única ruta de acceso. Para saber dónde se ha superado el umbral, busque la columna "SubType" en la alerta. Si el problema se debe a una ruta de acceso, el valor de SubType será NetworkPath (para las pruebas del Monitor de rendimiento), EndpointPath (para las pruebas del Monitor de conectividad de servicio) y ExpressRoutePath (para las pruebas del Monitor de ExpressRotue). 
+
+Consulta de ejemplo para buscar la ruta de acceso incorrecta:
+
+    NetworkMonitoring 
+    | where ( SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>¿Por qué mi prueba muestra un estado incorrecto pero la topología no? 
 NPM supervisa la topología, la latencia y la pérdida de un extremo a otro en intervalos diferentes. La pérdida y la latencia se miden una vez cada cinco segundos y se agregan cada tres minutos (para el Monitor de rendimiento y la Supervisión de ExpressRoute), mientras que la topología se calcula mediante el comando traceroute una vez cada diez minutos. Por ejemplo, entre las 03:44 y las 04:04, la topología podría actualizarse tres veces (a las 03:44, 03:54 y 04:04), pero la pérdida y la latencia se actualizan unas siete veces (a las 03:44, 03:47, 03:50, 03:53, 03:56, 03:59 y 04:02). La topología que se genera a las 03:54 se representará para la pérdida y la latencia calculadas a las 03:56, 03:59 y 04:02. Supongamos que recibe una alerta que indica que el circuito ER se encontraba en un estado incorrecto a las 03:59. Inicia sesión en NPM e intenta establecer la hora de la topología a las 03:59. NPM representará la topología que se generó a las 03:54. Para entender la última topología conocida de la red, compare los campos TimeProcessed (hora a la que se calcularon la pérdida y la latencia) y TracerouteCompletedTime (hora a la que se calculó la topología). 
 
 ### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>¿Cuál es la diferencia entre los campos E2EMedianLatency y AvgHopLatencyList en la tabla NetworkMonitoring?

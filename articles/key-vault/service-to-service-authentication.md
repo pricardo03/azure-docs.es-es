@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796097"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840420"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -250,7 +250,44 @@ Para ver la biblioteca `Microsoft.Azure.Services.AppAuthentication` en acción, 
 
 3. [Use el ejemplo .NET Core y una identidad administrada para llamar a los servicios de Azure desde una máquina virtual Linux de Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="appauthentication-troubleshooting"></a>Solución de problemas de AppAuthentication
+
+### <a name="common-issues-during-local-development"></a>Problemas comunes durante el desarrollo local
+
+#### <a name="azure-cli-is-not-installed-you-are-not-logged-in-or-you-do-not-have-the-latest-version"></a>La CLI de Azure no está instalada, no se ha iniciado sesión o no se cuenta con la versión más reciente
+
+Ejecute **az account get-access-token** para ver si la CLI de Azure muestra un token automáticamente. Si indica que no se encontró dicho programa, instale la [versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Si lo ha instalado, es posible que se le pida que inicie sesión. 
+ 
+#### <a name="azureservicetokenprovider-cannot-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider no puede encontrar la ruta de acceso de la CLI de Azure
+
+AzureServiceTokenProvider busca la CLI de Azure en sus ubicaciones de instalación predeterminadas. Si no se puede encontrar la CLI de Azure, establezca la variable de entorno **AzureCLIPath** en la carpeta de instalación de la CLI de Azure. AzureServiceTokenProvider agregará la variable de entorno a la variable de entorno Path.
+ 
+#### <a name="you-are-logged-into-azure-cli-using-multiple-accounts-the-same-account-has-access-to-subscriptions-in-multiple-tenants-or-you-get-an-access-denied-error-when-trying-to-make-calls-during-local-development"></a>Ha iniciado sesión en la CLI de Azure con varias cuentas, la misma cuenta tiene acceso a las suscripciones de varios inquilinos, o se recibe un error de acceso denegado al intentar realizar llamadas durante el desarrollo local.
+
+Con la CLI de Azure, establezca la suscripción predeterminada en una que tenga la cuenta que desea usar y que se encuentra en el mismo inquilino que el recurso al que desea obtener acceso: **az account set --subscription [subscription-id]** . Si no se muestra ninguna salida, significa que se ha realizado correctamente. Compruebe que la cuenta correcta es ahora el valor predeterminado mediante **az account list**.
+
+### <a name="common-issues-across-environments"></a>Problemas comunes en los entornos
+
+#### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Acceso no autorizado, acceso denegado, prohibido, etc.
+ 
+La entidad de seguridad utilizada no tiene acceso al recurso al que está intentando acceder. Conceda a su cuenta de usuario el acceso de "colaborador" de MSI de App Service al recurso deseado, en función de si está ejecutando el ejemplo en el equipo de desarrollo local o se ha implementado en Azure en la instancia de App Service. Algunos recursos, como los almacenes de claves, también tienen sus propias [directivas de acceso](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) que se usan para conceder acceso a las entidades de seguridad (usuarios, aplicaciones, grupos, etc.).
+
+### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problemas comunes al realizar la implementación en Azure App Service
+
+#### <a name="managed-identity-is-not-setup-on-the-app-service"></a>La identidad administrada no se configura en App Service.
+ 
+Compruebe si las variables de entorno MSI_ENDPOINT y MSI_SECRET existen mediante [Kudu debug console](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Si estas variables de entorno no existen, la identidad administrada no está habilitada en App Service. 
+ 
+### <a name="common-issues-when-deployed-locally-with-iis"></a>Problemas comunes al realizar la implementación localmente con IIS
+
+#### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>No se pueden recuperar los tokens al depurar la aplicación en IIS.
+
+De forma predeterminada, AppAuth se ejecuta en un contexto de usuario diferente de IIS y, por lo tanto, no tiene acceso para usar su identidad de desarrollador para recuperar los tokens de acceso. Puede configurar IIS para que se ejecute con su contexto de usuario con los dos pasos siguientes:
+- Configure el grupo de aplicaciones para que la aplicación web se ejecute como su cuenta de usuario actual. Puede obtener más información [aquí](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Configure "setProfileEnvironment" en "True". Puede obtener más información [aquí](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+
+    - Vaya a %windir%\System32\inetsrv\config\applicationHost.config.
+    - Busque "setProfileEnvironment". Si está establecido en "False", cámbielo a "True". Si no está presente, agréguelo como atributo al elemento processModel (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) y establézcalo en "True".
 
 - Obtenga más información sobre las [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/index.yml).
 - Más información sobre los [escenarios de autenticación de Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165942"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840256"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -27,6 +27,7 @@ Si desea **copiar los archivos tal cual** entre los almacenes basados en archivo
 * [Formato Parquet](#parquet-format)
 * [Formato ORC](#orc-format)
 * [Formato Avro](#avro-format)
+* [Formato binario](#binary-format)
 
 > [!TIP]
 > Obtenga información sobre cómo copiar los mapas de actividad en los datos de origen para recibirlos desde [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
@@ -227,7 +228,7 @@ En esta ejemplo, se espera un objeto JSON de raíz que se asigna al registro ind
 
 y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayendo datos tanto de los objetos como de la matriz:
 
-| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -359,7 +360,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 
 Si tiene la siguiente tabla en SQL Database:
 
-| ID | order_date | order_price | order_by |
+| id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -461,7 +462,7 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
 | Cadena | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/D | N/D |
+| DateTime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
@@ -511,7 +512,7 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 | Double | Double |
 | Decimal | Decimal |
 | Cadena | Cadena |
-| Datetime | Timestamp |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
@@ -534,6 +535,10 @@ Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apa
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten [tipos de datos complejos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos).
+
+## <a name="binary-format"></a>Formato binario
+
+Consulte el artículo sobre el [formato binario](format-binary.md) para más información.
 
 ## <a name="compression-support"></a>Compatibilidad de compresión
 

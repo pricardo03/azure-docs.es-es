@@ -1,5 +1,5 @@
 ---
-title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure con copia de seguridad de Azure Backup | Microsoft Docs
+title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure con Azure Backup
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639589"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827563"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -120,7 +120,7 @@ Puede ejecutar diferentes tipos de copias de seguridad a petición:
 * Copia de seguridad diferencial
 * Copia de seguridad de registro
 
-Aunque puede que tenga que especificar la duración de la retención de la copia de seguridad completa de solo copia, la duración de la retención para otros tipos de copia de seguridad se establece automáticamente en 30 días desde el momento actual. <br/>
+Aunque puede que tenga que especificar la duración de la retención de la copia de seguridad completa de solo copia, el intervalo de retención de la copia de seguridad completa ad hoc se establece automáticamente en 45 días desde el momento actual. <br/>
 Para más información, vea [Tipos de copia de seguridad en SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Anulación del registro de una instancia de SQL Server

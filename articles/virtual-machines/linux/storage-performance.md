@@ -1,6 +1,6 @@
 ---
 title: 'Optimización del rendimiento en máquinas virtuales de la serie Lsv2 de Azure: almacenamiento | Microsoft Docs'
-description: Obtenga información sobre cómo optimizar el rendimiento de la solución en las máquinas virtuales de la serie Lsv2.
+description: Aprenda a optimizar el rendimiento de la solución en las máquinas virtuales de la serie Lsv2.
 services: virtual-machines-linux
 author: laurenhughes
 manager: gwallace
@@ -9,22 +9,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 26c474419a096741f544eb21cff3837afd8a60dd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a06ae79181c70f1cb8519f703cb42a3d699bebf3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708679"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828387"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales de la serie Lsv2
 
 Las máquinas virtuales de la serie Lsv2 admiten una variedad de cargas de trabajo que necesitan una elevada cantidad de E/S y rendimiento en el almacenamiento local en una amplia gama de sectores y aplicaciones.  La serie Lsv2 es ideal para macrodatos, SQL, bases de datos NoSQL, almacenamiento de datos y bases de datos transaccionales de gran tamaño, como Cassandra, MongoDB, Cloudera y Redis.
 
-El diseño de las máquinas virtuales de la serie Lsv2 maximiza el procesador AMD EPYC™ 7551 para proporcionar el mejor rendimiento entre el procesador, la memoria, las máquinas virtuales y los dispositivos NVMe. Además de maximizar el rendimiento del hardware, las máquinas virtuales de la serie Lsv2 están diseñadas para responder a las necesidades de los sistemas operativos Linux a fin de mejorar el rendimiento con el hardware y el software.
+El diseño de las máquinas virtuales de la serie Lsv2 maximiza el procesador AMD EPYC™ 7551 para proporcionar el mejor rendimiento entre el procesador, la memoria, las máquinas virtuales y los dispositivos NVMe. Al trabajar con asociados en Linux, hay disponibles varias compilaciones en Azure Marketplace que están optimizadas para el rendimiento de la serie Lsv2 y actualmente incluyen:
 
-El ajuste del hardware y el software dio lugar a la versión optimizada de [Ubuntu 18.04 y 16.04 de Canonical.04](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer?tab=Overview), que se publicó a principios de diciembre de 2018 en Azure Marketplace, que admite el rendimiento máximo en los dispositivos NVMe en las máquinas virtuales de la serie Lsv2.
+- Ubuntu 18.04
+- Ubuntu 16.04
+- RHEL 8.0
+- Debian 9
+- Debian 10
 
 En este artículo se proporcionan consejos y sugerencias para asegurarse de que las cargas de trabajo y las aplicaciones alcanzan el máximo rendimiento diseñado en las máquinas virtuales. La información de esta página se actualizará continuamente a medida que se agreguen más imágenes optimizadas de Lsv2 a Azure Marketplace.
 
@@ -72,7 +76,7 @@ Entre los escenarios que mantienen los datos en discos NVMe locales están los s
 - La máquina virtual se está ejecutando y se encuentra en buen estado.
 - La máquina virtual se reinicia in situ (por usted o Azure).
 - La máquina virtual se pausa (detenida sin desasignación).
-- La mayoría de la operaciones de servicio de mantenimiento planeado.
+- La mayoría de las operaciones de servicio del mantenimiento planeado.
 
 Los escenarios que borran de forma segura los datos para proteger al cliente incluyen:
 
@@ -80,12 +84,12 @@ Los escenarios que borran de forma segura los datos para proteger al cliente inc
 - La máquina virtual pasa a un estado incorrecto y es necesario recurrir a otro nodo debido a un problema de hardware.
 - Un pequeño número de las operaciones de servicio de mantenimiento planeado que requiere que la VM se reasigne a otro host para el servicio.
 
-Para obtener más información acerca de las opciones para la copia de seguridad de datos en el almacenamiento local, consulte [Copia de seguridad y recuperación ante desastres para discos IaaS de Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para más información acerca de las opciones de la copia de seguridad de datos en el almacenamiento local, consulte [Copia de seguridad y recuperación ante desastres para discos IaaS de Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 * **¿Cómo se puede iniciar la implementación de máquinas virtuales de la serie Lsv2?**  
-   Al igual que cualquier otra VM, use el [Portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [PowerShell](quick-create-powershell.md) para crear una máquina virtual.
+   Al igual que cualquier otra máquina virtual, use el [Portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [PowerShell](quick-create-powershell.md) para crear una máquina virtual.
 
 * **¿Un único error de disco NVMe provocará un error en todas las máquinas virtuales del host?**  
    Si se detecta un error de disco en el nodo de hardware, el hardware está en estado de error. Cuando esto ocurre, se anula la asignación de todas las máquinas virtuales del nodo y estas se mueven a un nodo en buen estado. En el caso de las máquinas virtuales de la serie Lsv2, esto significa que los datos del cliente en el nodo con error se borran de forma segura y el cliente tendrá que volver a crearlos en el nuevo nodo. Como se indicó, antes de que la migración en vivo esté disponible en Lsv2, los datos del nodo con error se moverán proactivamente con las máquinas virtuales a medida que se transfieran a otro nodo.
@@ -107,4 +111,4 @@ Para obtener más información acerca de las opciones para la copia de seguridad
    
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte las especificaciones para todas las [máquinas virtuales optimizadas para el rendimiento del almacenamiento](sizes-storage.md) en Azure.
+* Consulte las especificaciones de todas las [máquinas virtuales optimizadas para el rendimiento del almacenamiento](sizes-storage.md) en Azure

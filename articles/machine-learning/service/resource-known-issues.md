@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358615"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716530"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -151,3 +151,9 @@ Si realiza una operación de administración en un destino de proceso desde un t
 ```
 
 Por ejemplo, si intenta crear o asociar un destino de proceso desde una canalización de aprendizaje automático que se envía para ejecución remota, recibirá un error.
+
+## <a name="overloaded-azurefile-storage"></a>Almacenamiento AzureFile sobrecargado
+
+Si recibe un error "Unable to upload project files to working directory in AzureFile because the storage is overloaded" (No se pueden cargar los archivos del proyecto en el directorio de trabajo en AzureFile porque el almacenamiento está sobrecargado), aplique las siguientes soluciones alternativas.
+
+Si usa un recurso compartido de archivos para otras cargas de trabajo, como la transferencia de datos, se recomienda usar blobs para que el recurso compartido de archivos se pueda usar para el envío de ejecuciones. También puede dividir la carga de trabajo entre dos áreas de trabajo diferentes.

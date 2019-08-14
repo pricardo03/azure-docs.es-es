@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164659"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716616"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Reglas personalizadas para el firewall de aplicaciones web v2
 
@@ -110,10 +110,10 @@ Debe ser una de estas variables:
 - RemoteAddr: dirección IP o nombre de host de la conexión del equipo remoto
 - RequestMethod: método de solicitud HTTP (GET, POST, PUT, DELETE y así sucesivamente).
 - QueryString: la variable en el URI
-- PostArgs: los argumentos enviados en el cuerpo de POST
+- PostArgs: los argumentos enviados en el cuerpo de POST. Las reglas personalizadas que usan esta variable de coincidencia solo se aplican si el encabezado "Content-Type" está establecido en "application/x-www-form-urlencoded" y "multipart/form-data".
 - RequestUri: URI de la solicitud
 - RequestHeaders: los encabezados de la solicitud
-- RequestBody: el cuerpo de la solicitud
+- RequestBody: contiene el cuerpo de la solicitud en su totalidad. Las reglas personalizadas que usan esta variable de coincidencia solo se aplican si el encabezado "Content-Type" está establecido en "application/x-www-form-urlencoded". 
 - RequestCookies: las cookies de la solicitud
 
 ### <a name="selector-optional"></a>Selector [opcional]

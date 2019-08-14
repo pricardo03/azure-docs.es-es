@@ -45,7 +45,7 @@ sections:
     items:
       - type: paragraph
         text: |
-          Puede usar el SDK de Voz (<a href="releasenotes.md">notas de la versión</a>) para agregar las siguientes funcionalidades (y más) a las aplicaciones&colon; 
+          Puede usar el SDK de Voz (<a href="releasenotes.md">notas de la versión</a>) para agregar las siguientes funcionalidades (y más) a las aplicaciones&colon;
           <div class="row"><div class="column"><ul>
           <li><b><a href="speech-to-text.md">texto a voz</a> </b> (reconocimiento de voz/SR)</li>
           <li><b><a href="speech-devices-sdk-create-kws.md">palabras de activación personalizadas</a></b> (detector de palabras clave/KWS)</li>
@@ -253,10 +253,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">Voz a texto (SR)</a><br/>
-          - html: <a href="intent.md">Reconocimiento de la intención</a><br/>
-          - html: <a href="translation.md">Traducción</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Texto a voz</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">Reconocimiento de las intenciones de voz con LUIS, C#</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">Habilitar el bot con Voz mediante Speech SDK, C#</a><br/>'
+          - html: '<a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Compilación de una aplicación de Flask para traducir texto y sintetizar la voz, REST</a><br/>'
   - title: Ejemplos
     items:
       - type: paragraph

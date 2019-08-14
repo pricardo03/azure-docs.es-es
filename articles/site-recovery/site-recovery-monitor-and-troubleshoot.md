@@ -5,35 +5,46 @@ author: raynew
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497544"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717351"
 ---
 # <a name="monitor-site-recovery"></a>Supervisión de Site Recovery
 
-En este artículo, aprenderá a usar las características de supervisión integradas de Azure Site Recovery para la supervisión y solución de problemas. 
+En este artículo, aprenderá a supervisar Azure [Site Recovery](site-recovery-overview.md), mediante la supervisión integrada de Site Recovery.  Puede supervisar:
 
-## <a name="use-the-dashboard"></a>Uso del panel
+- El mantenimiento y el estado de las máquinas replicadas por Site Recovery.
+- El estado de conmutación por error de prueba de las máquinas.
+- Los problemas y errores que afectan a la configuración y la replicación.
+- Los componentes de la infraestructura, como los servidores locales.
 
-1. En el almacén, haga clic en **Información general** para abrir el panel de Site Recovery. Existen las páginas del panel correspondientes a Site Recovery y Backup, y puede cambiar entre ellas.
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+Es posible que quiera revisar las [preguntas comunes de supervisión](monitoring-common-questions.md) antes de empezar.
+
+## <a name="monitor-in-the-dashboard"></a>Supervisión en el panel
+
+1. En el almacén, haga clic en **Información general**. El panel de Recovery Services consolida toda la información de supervisión para el almacén en una sola ubicación. Existen páginas tanto para Site Recovery como para el servicio Azure Backup, y puede cambiar entre ellas.
 
     ![Panel de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2.  El panel consolida toda la información de supervisión para el almacén en una sola ubicación. En el panel, puede explorar en profundidad las diferentes áreas. 
+2. En el panel, explore en profundidad las diferentes áreas. 
 
     ![Panel de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. En **Elementos replicados**, haga clic en **Ver todo** para ver todos los servidores en el almacén.
-4. Explore en profundidad haciendo clic en los detalles del estado de cada sección. En **Vista de la infraestructura**, puede ordenar la información de supervisión por el tipo de máquinas que replica.
+4. Haga clic en los detalles del estado de cada sección para explorar en profundidad.
+5. En **Vista de la infraestructura**, ordene la información de supervisión por el tipo de máquinas que replica.
 
 ## <a name="monitor-replicated-items"></a>Supervisión de elementos replicados
 
-En la sección de elementos replicados se muestra el estado de todas las máquinas que tienen habilitada la replicación en el almacén.
+En **Elementos replicados**, supervise el estado de todas las máquinas que tienen habilitada la replicación en el almacén.
 
 **State** | **Detalles**
 --- | ---
@@ -44,9 +55,9 @@ No aplicable | Los servidores cuya replicación no se espera actualmente. Esto p
 
 ## <a name="monitor-test-failovers"></a>Supervisión de conmutaciones por error de prueba
 
-Puede ver el estado de conmutación por error de prueba para las máquinas en el almacén.
+En **Prueba de conmutación por error correcta**, supervise el estado de la conmutación por error de las máquinas del almacén.
 
-- Recomendamos que ejecute una conmutación por error de prueba en máquinas replicadas al menos una vez cada seis meses. Es una forma de comprobar que la conmutación por error funciona según lo esperado sin interrumpir su entorno de producción. 
+- Recomendamos que ejecute una conmutación por error de prueba en máquinas replicadas al menos una vez cada seis meses. Es una forma de comprobar que la conmutación por error funciona según lo esperado, sin interrumpir su entorno de producción. 
 - Una conmutación por error de prueba se considera correcta solo después de que la conmutación por error y la limpieza posterior a la conmutación por error se hayan completado correctamente.
 
 **State** | **Detalles**
@@ -57,7 +68,7 @@ No aplicable | Máquinas que, actualmente, no son aptas para una conmutación po
 
 ## <a name="monitor-configuration-issues"></a>Supervisión de problemas de configuración
 
-La sección **Problemas de configuración** muestra una lista de problemas que pueden afectar a su capacidad para conmutar por error correctamente.
+En **Problemas de configuración**, supervise los problemas que puedan afectar a su capacidad de conmutar por error correctamente.
 
 - Los problemas de configuración (salvo en el caso de la disponibilidad de actualizaciones de software) se detectan mediante una operación periódica de validador que se ejecuta cada 12 horas de forma predeterminada. Puede forzar la operación de validador para que se ejecute inmediatamente; para ello, haga clic en el icono de actualización junto al encabezado de la sección **Problemas de configuración**.
 - Haga clic en los vínculos para obtener más detalles. En caso de producirse problemas que afecten a máquinas específicas, haga clic en **Necesita atención** en la columna **Configuraciones de destino**. Entre los detalles se incluyen recomendaciones de corrección.
@@ -70,10 +81,11 @@ Cuota de suscripción |  El saldo disponible de la cuota de recursos de suscripc
 Actualizaciones de software | La disponibilidad de nuevas actualizaciones de software e información sobre versiones de software que van a caducar.
 
 
-## <a name="monitoring-errors"></a>Errores de supervisión 
-La sección **Resumen de errores** muestra los síntomas de los errores actualmente activos que pueden afectar a la replicación de servidores en el almacén, junto con el número de máquinas afectadas.
+## <a name="monitor-errors"></a>Supervisión de errores
 
-- Al principio de la sección, se muestran errores que afectan a los componentes de la infraestructura local. Por ejemplo, la falta de recepción de latido del proveedor de Azure Site Recovery que se ejecuta en el servidor de configuración local, el servidor VMM o el host de Hyper-V.
+En **Resumen de errores**, supervise los síntomas de los errores actualmente activos que pueden afectar a la replicación de servidores en el almacén, junto con el número de máquinas afectadas.
+
+- Los errores que afectan a los componentes de la infraestructura local se muestran al principio de la sección. Por ejemplo, la falta de recepción de latido del proveedor de Azure Site Recovery en el servidor de configuración local o en el host de Hyper-V.
 - A continuación, se muestran los síntomas de errores de replicación que afectan a los servidores replicados.
 - Las entradas de la tabla se ordenan por orden decreciente de gravedad del error y, a continuación, por orden decreciente de recuento de las máquinas afectadas.
 - El recuento de los servidores afectados es una forma útil de conocer si un único problema subyacente puede afectar a varias máquinas. Por ejemplo, un problema de red podría afectar potencialmente a todas las máquinas que se replican en Azure. 
@@ -81,7 +93,7 @@ La sección **Resumen de errores** muestra los síntomas de los errores actualme
 
 ## <a name="monitor-the-infrastructure"></a>Supervise la infraestructura.
 
-En la **Vista de la infraestructura** se muestran los componentes de infraestructura implicados en la replicación, así como el estado de conectividad entre los servidores y los servicios de Azure.
+En la **Vista de la infraestructura**, supervise los componentes de infraestructura implicados en la replicación, así como el estado de conectividad entre los servidores y los servicios de Azure.
 
 - Una línea verde indica que el estado de la conexión es correcto.
 - Una línea roja con el icono de error superpuesto indica la existencia de uno o varios síntomas de error que afectan a la conectividad.
@@ -89,7 +101,7 @@ En la **Vista de la infraestructura** se muestran los componentes de infraestruc
 
     ![Vista de la infraestructura de Site Recovery (almacén)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
-## <a name="tips-for-monitoring-the-infrastructure"></a>Sugerencias para la supervisión de la infraestructura
+### <a name="tips-for-monitoring-the-infrastructure"></a>Sugerencias para la supervisión de la infraestructura
 
 - Asegúrese de que los componentes de infraestructura local (servidor de configuración, servidores de procesos, servidores VMM, hosts de Hyper-V y máquinas de VMware) estén ejecutando las versiones más recientes del proveedor o los agentes de Site Recovery.
 - Para usar todas las características en la vista de la infraestructura, debe ejecutar el [paquete acumulativo de actualizaciones 22](https://support.microsoft.com/help/4072852) para estos componentes.
@@ -106,25 +118,16 @@ En la **Vista de la infraestructura** se muestran los componentes de infraestruc
 
 - Para ver la vista de la infraestructura para una sola máquina de replicación, en el menú Almacén, haga clic en **Elementos replicados** y seleccione un servidor.  
 
-### <a name="common-questions"></a>Preguntas frecuentes
 
-
-**¿Por qué el número de máquinas virtuales de la vista de la infraestructura de almacén se muestra diferente del recuento total de los elementos replicados?**
-
-La vista de la infraestructura de almacén tiene un ámbito por escenarios de replicación. Solo las máquinas del escenario de replicación seleccionado actualmente se incluyen en el recuento para la vista. Además, solo contamos las máquinas virtuales que están configuradas para replicarse en Azure. Las máquinas conmutadas por error o aquellas que vuelven a replicarse en un sitio local no se cuentan en la vista.
-
-**¿Por qué el número de elementos replicados que se muestra en el espacio de información esencial es diferente al número total de elementos replicados en el panel?**
-
-Solo las máquinas para las que se ha completado la replicación inicial se incluyen en el recuento que se muestra en el espacio de información esencial. En los elementos replicados, el total incluye todas las máquinas del almacén, incluidas aquellas para las que la replicación inicial está en curso.
 
 
 ## <a name="monitor-recovery-plans"></a>Supervisión de planes de recuperación
 
-En la **sección Planes de recuperación** puede revisar el número de planes, crear nuevos planes y modificar los existentes.  
+En **Planes de recuperación**, supervise el número de planes, cree nuevos planes y modifique los existentes.  
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
-La sección **Trabajos** refleja el estado de las operaciones de Site Recovery.
+En **Trabajos**, supervise el estado de las operaciones de Site Recovery.
 
 - La mayoría de las operaciones de Azure Site Recovery se ejecutan de forma asincrónica, con un trabajo de seguimiento que se crea y usa para realizar un seguimiento del progreso de la operación. 
 - El objeto de trabajo tiene toda la información que necesita para realizar un seguimiento del estado y el progreso de la operación. 
@@ -142,13 +145,10 @@ Supervise los trabajos de la siguiente manera:
 
 ## <a name="monitor-virtual-machines"></a>Supervisión de máquinas virtuales
 
-Además del panel, puede supervisar máquinas en la página de máquinas virtuales. 
-
-1. En el almacén, haga clic en **Elementos replicados** para obtener una lista de máquinas replicadas.  Como alternativa, puede obtener una lista filtrada de los elementos protegidos haciendo clic en cualquiera de los accesos directos con ámbito en la página del panel.
-
+En **Elementos replicados**, obtenga una lista de las máquinas replicadas. 
     ![Vista de lista de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-2. En la página **Elementos replicados**, puede ver y filtrar información. En el menú Acción de la parte superior, puede realizar acciones para una máquina determinada, como ejecutar una conmutación por error de prueba o ver errores específicos.
+2. Puede ver y filtrar la información. En el menú Acción de la parte superior, puede realizar acciones para una máquina determinada, como ejecutar una conmutación por error de prueba o ver errores específicos.
 3. Haga clic en **Columnas** para mostrar columnas adicionales. Por ejemplo, para mostrar RPO, problemas de configuración de destino y errores de replicación.
 4. Haga clic en **Filtrar** para ver información basada en parámetros específicos como el estado de la replicación, o bien una directiva de replicación determinada.
 5. Haga clic con el botón derecho en una máquina para iniciar operaciones como la conmutación por error de prueba para ella o ver detalles del error específicos asociados a ella.
@@ -162,23 +162,6 @@ Además del panel, puede supervisar máquinas en la página de máquinas virtual
    - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario cuando las máquinas se replican en Azure.
 
      ![Información general/detalles de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
-
-
-### <a name="common-questions"></a>Preguntas frecuentes
-
-**¿En qué se diferencia RPO del último punto de recuperación disponible?**
-
-
-- Site Recovery utiliza un proceso asincrónico de varios pasos para replicar máquinas en Azure.
-- En el penúltimo paso de la replicación, los cambios recientes en la máquina junto con los metadatos se copian en una cuenta de registro/almacenamiento en caché.
-- Estos cambios, junto con la etiqueta para identificar un punto recuperable, se escriben en la cuenta de almacenamiento de la región de destino.
--  Site Recovery ahora puede generar un punto recuperable para la máquina virtual.
-- En este momento, se ha cumplido el RPO para los cambios cargados en la cuenta de almacenamiento hasta entonces. En otras palabras, el RPO de la máquina en este momento equivale a la cantidad de tiempo transcurrido desde la marca de tiempo correspondiente al punto recuperable.
-- Ahora, Site Recovery selecciona los datos cargados desde la cuenta de almacenamiento y los aplica a los discos de réplica creados para la máquina.
-- A continuación, Site Recovery genera un punto de recuperación y hace que este punto esté disponible para la recuperación en la conmutación por error. Por lo tanto, el último punto de recuperación disponible indica la marca de tiempo correspondiente al punto de recuperación más reciente que ya se ha procesado y aplicado a los discos de réplica.
-
-> [!NOTE]
-> Una hora del sistema incorrecta en la máquina de origen de replicación o en los servidores de infraestructura local distorsionará el valor calculado de RPO. Para crear informes de RPO precisos, asegúrese de que el reloj del sistema sea también preciso en todos los servidores y máquinas. 
 
 ## <a name="subscribe-to-email-notifications"></a>Suscribirse a las notificaciones por correo electrónico
 
@@ -195,3 +178,7 @@ En el almacén > sección **Supervisión**, haga clic en **Eventos de Site Recov
 1. En **Notificaciones por correo electrónico**, active las notificaciones y especifique a quién deben enviarse. Puede enviarlas a todos los administradores de suscripción y, de forma opcional, a direcciones de correo electrónico específicas.
 
     ![Notificaciones por correo electrónico](./media/site-recovery-monitor-and-troubleshoot/email.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Más información](monitor-log-analytics.md) sobre la supervisión de Site Recovery con Azure Monitor.

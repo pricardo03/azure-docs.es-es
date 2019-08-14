@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 08/15/2018
-ms.openlocfilehash: 8ad7d7497a0fbe6fcf20ad5b50ef4e6cac9ed51f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 07/27/2019
+ms.openlocfilehash: 30123e03a686eed8df0595c8562f2f9d9351bbde
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868898"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706448"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referencia de las funciones del Lenguaje de definición de flujo de trabajo en Azure Logic Apps y Microsoft Flow
 
@@ -240,7 +240,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devuelve la salida de la acción actual en tiempo de ejecución, o valores de otros pares de nombre y valor JSON. Consulte también [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devuelve la salida en tiempo de ejecución del elemento `body` de una acción. Consulte también [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Devuelve la salida en tiempo de ejecución de una acción. Consulte [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Devuelve la salida en tiempo de ejecución de una acción. Consulte [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) y [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Devuelve la salida de una acción en tiempo de ejecución, o valores de otros pares de nombre y valor JSON. Consulte también [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
 | [body](#body) | Devuelve la salida en tiempo de ejecución del elemento `body` de una acción. Consulte también [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Crea una matriz con los valores que coinciden con un nombre de clave en las salidas de acción *form-data* o *form-encoded*. |
@@ -250,6 +250,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Dentro de un bucle Until, devuelven el valor de índice de la iteración actual. Puede usar esta función dentro de bucles Until anidados. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Devuelve la "dirección URL de devolución de llamada" que llama a un desencadenador o una acción. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devuelve el elemento body de una parte específica de la salida de una acción que consta de varias partes. |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Devuelve la salida en tiempo de ejecución de una acción. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Se devuelve el valor de un parámetro que se describe en la definición de flujo de trabajo. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devuelve la salida de un desencadenador en tiempo de ejecución, o desde otros pares de nombre y valor JSON. Consulte también [triggerOutputs](#triggerOutputs) y [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devuelve la salida `body` de un desencadenador en tiempo de ejecución. Consulte [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
@@ -380,9 +381,7 @@ Y devuelve este resultado:
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-Devuelve la salida en tiempo de ejecución de una acción.
-Abreviatura de `actions('<actionName>').outputs`.
-Consulte [actions()](#actions).
+Devuelve la salida en tiempo de ejecución de una acción.  Y es la abreviatura de `actions('<actionName>').outputs`. Consulte [actions()](#actions). La función `actionOutputs()` se resuelve en `outputs()` en el diseñador de aplicaciones lógicas, por lo que piense en usar [outputs()](#outputs), en lugar de `actionOutputs()`. Aunque ambas funciones funcionan del mismo modo, `outputs()` es preferible.
 
 ```
 actionOutputs('<actionName>')
@@ -649,7 +648,7 @@ addProperty(<object>, '<property>', <value>)
 | --------- | -------- | ---- | ----------- |
 | <*objeto*> | Sí | Object | Objeto JSON al que desea agregar una propiedad |
 | <*propiedad*> | Sí | String | Nombre de la propiedad que se va a agregar |
-| <*valor*> | Sí | Cualquiera | Valor de la propiedad |
+| <*valor*> | Sí | Any | Valor de la propiedad |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -1021,7 +1020,7 @@ bool(<value>)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | Cualquiera | Valor que se va a convertir |
+| <*valor*> | Sí | Any | Valor que se va a convertir |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -1061,7 +1060,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*primer-elemento-no-NULL*> | Cualquiera | Primer elemento o valor que no sea NULL. Si todos los parámetros son NULL, esta función devuelve NULL. |
+| <*primer-elemento-no-NULL*> | Any | Primer elemento o valor que no sea NULL. Si todos los parámetros son NULL, esta función devuelve NULL. |
 ||||
 
 *Ejemplo*
@@ -1797,7 +1796,7 @@ first([<collection>])
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*primer-elemento-de-la-colección*> | Cualquiera | Primer elemento de la colección |
+| <*primer-elemento-de-la-colección*> | Any | Primer elemento de la colección |
 ||||
 
 *Ejemplo*
@@ -2151,13 +2150,13 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*expresión*> | Sí | Boolean | Expresión que se va a evaluar |
-| <*valor_si_es_true*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es verdadera |
-| <*valor_si_es_false*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es falsa |
+| <*valor_si_es_true*> | Sí | Any | Valor que se devuelve cuando la expresión es verdadera |
+| <*valor_si_es_false*> | Sí | Any | Valor que se devuelve cuando la expresión es falsa |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-a-devolver-especificado*> | Cualquiera | Valor especificado que se devuelve en función de si la expresión es true o false |
+| <*valor-a-devolver-especificado*> | Any | Valor especificado que se devuelve en función de si la expresión es true o false |
 ||||
 
 *Ejemplo*
@@ -2244,7 +2243,7 @@ item()
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*elemento-de-la-matriz-actual*> | Cualquiera | Elemento actual de la matriz para la iteración actual de la acción |
+| <*elemento-de-la-matriz-actual*> | Any | Elemento actual de la matriz para la iteración actual de la acción |
 ||||
 
 *Ejemplo*
@@ -2273,7 +2272,7 @@ items('<loopName>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*elemento*> | Cualquiera | Elemento del ciclo actual del bucle for-each especificado |
+| <*elemento*> | Any | Elemento del ciclo actual del bucle for-each especificado |
 ||||
 
 *Ejemplo*
@@ -2954,6 +2953,69 @@ Y devuelven estos resultados:
 * Primer ejemplo: al menos una expresión es verdadera, por lo que la función devuelve `true`.
 * Segundo ejemplo: ambas expresiones son falsas, por lo que la función devuelve `false`.
 
+<a name="outputs"></a>
+
+### <a name="outputs"></a>outputs
+
+Devuelve las salidas de una acción en tiempo de ejecución. Use esta función, en lugar de `actionOutputs()`, que se resuelve en `outputs()` en el diseñador de aplicación lógica. Aunque ambas funciones funcionan del mismo modo, `outputs()` es preferible.
+
+```
+outputs('<actionName>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*nombre_de_la_acción*> | Sí | String | Nombre de la acción cuya salida desea |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | -----| ----------- |
+| <*salida*> | String | Salida de la acción especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo obtiene la salida de la acción de Twitter `Get user`:
+
+```
+outputs('Get_user')
+```
+
+Y devuelve este resultado:
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
+
 <a name="parameters"></a>
 
 ### <a name="parameters"></a>parameters
@@ -2971,7 +3033,7 @@ parameters('<parameterName>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-del-parámetro*> | Cualquiera | Valor del parámetro especificado |
+| <*valor-del-parámetro*> | Any | Valor del parámetro especificado |
 ||||
 
 *Ejemplo*
@@ -3130,7 +3192,7 @@ setProperty(<object>, '<property>', <value>)
 | --------- | -------- | ---- | ----------- |
 | <*objeto*> | Sí | Object | Objeto JSON cuya propiedad desea establecer |
 | <*propiedad*> | Sí | String | Nombre de la propiedad existente o nueva que se va a establecer |
-| <*valor*> | Sí | Cualquiera | Valor que se va a establecer para la propiedad especificada |
+| <*valor*> | Sí | Any | Valor que se va a establecer para la propiedad especificada |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3357,7 +3419,7 @@ string(<value>)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | Cualquiera | Valor que se va a convertir |
+| <*valor*> | Sí | Any | Valor que se va a convertir |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -4148,7 +4210,7 @@ variables('<variableName>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-de-variable*> | Cualquiera | Valor de la variable especificada |
+| <*valor-de-variable*> | Any | Valor de la variable especificada |
 ||||
 
 *Ejemplo*
@@ -4255,14 +4317,14 @@ xpath('<xml>', '<xpath>')
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | Sí | Cualquiera | Cadena XML en la que buscar nodos o valores que coincidan con un valor de la expresión XPath |
-| <*xpath*> | Sí | Cualquiera | Expresión XPath utilizada para buscar nodos XML o valores coincidentes |
+| <*xml*> | Sí | Any | Cadena XML en la que buscar nodos o valores que coincidan con un valor de la expresión XPath |
+| <*xpath*> | Sí | Any | Expresión XPath utilizada para buscar nodos XML o valores coincidentes |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | <*nodo-xml*> | XML | Nodo XML si solo un nodo coincide con la expresión XPath especificada |
-| <*valor*> | Cualquiera | Valor de un nodo XML si solo un valor coincide con la expresión XPath especificada |
+| <*valor*> | Any | Valor de un nodo XML si solo un valor coincide con la expresión XPath especificada |
 | [<*xml-nodo1*>, <*xml-nodo2*>, ...] </br>O bien </br>[<*valor1*>, <*valor2*>, ...] | Array | Matriz con los nodos XML o valores que coinciden con la expresión XPath especificada |
 ||||
 

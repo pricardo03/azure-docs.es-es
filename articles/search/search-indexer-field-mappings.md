@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 3546e342b535a122ea4ed3f844cd5e28a76d551a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 771a6e413cd08a338da41c09cd6a0da35e28e5e4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147789"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840656"
 ---
 # <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Search
 
@@ -113,6 +113,8 @@ Una función de asignación de campo transforma el contenido de un campo antes d
 * [base64Decode](#base64DecodeFunction)
 * [extractTokenAtPosition](#extractTokenAtPositionFunction)
 * [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
+* [urlEncode](#urlEncodeFunction)
+* [urlDecode](#urlDecodeFunction)
 
 <a name="base64EncodeFunction"></a>
 
@@ -243,3 +245,51 @@ Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma na
 ```
 
 Para obtener un ejemplo detallado en el que los datos relacionales se transforman en campos de colección de índice, vea [Modelado de datos relacionales](search-example-adventureworks-modeling.md).
+
+<a name="urlEncodeFunction"></a>
+
+### <a name="urlencode-function"></a>Función urlEncode
+
+Esta función se puede utilizar para codificar una cadena de modo que sea "segura para la dirección URL". Cuando se usa con una cadena que contiene caracteres no permitidos en una dirección URL, esta función convertirá esos caracteres "no seguros" en equivalentes de carácter-entidad. Esta función utiliza el formato de codificación UTF-8.
+
+#### <a name="example---document-key-lookup"></a>Ejemplo: búsqueda de clave de documento
+
+La función `urlEncode` se puede usar como alternativa a la función `base64Encode`, si solo se van a convertir los caracteres no seguros de la dirección URL y se mantienen los otros caracteres tal cual.
+
+Por ejemplo, si la cadena de entrada es `<hello>`, el campo de destino de tipo `(Edm.String)` se rellenará con el valor `%3chello%3e`.
+
+Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `urlDecode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
+
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
+    "mappingFunction" : {
+      "name" : "urlEncode"
+    }
+  }]
+ ```
+
+ <a name="urlDecodeFunction"></a>
+
+ ### <a name="urldecode-function"></a>Función urlDecode
+
+ Esta función convierte una cadena con codificación URL en una cadena descodificada mediante el formato de codificación UTF-8.
+
+ ### <a name="example---decode-blob-metadata"></a>Ejemplo: descodificar metadatos de blob
+
+ Algunos clientes de almacenamiento de Azure codifican automáticamente los metadatos de blobs si contienen caracteres que no son ASCII. Sin embargo, si quiere que dichos metadatos se puedan buscar (como texto sin formato), puede usar la función `urlDecode` para volver a convertir los datos codificados en cadenas "normales" al rellenar su índice de búsqueda.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "UrlEncodedMetadata",
+    "targetFieldName" : "SearchableMetadata",
+    "mappingFunction" : {
+      "name" : "urlDecode"
+    }
+  }]
+ ```

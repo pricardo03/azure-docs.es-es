@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839018"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716637"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -113,7 +113,7 @@ Puesto que paga por los recursos informáticos que asigna su plan de App Service
 Aísle la aplicación en un nuevo plan de App Service en los siguientes casos:
 
 - La aplicación consume muchos recursos.
-- Desea escalar la aplicación independientemente de las demás aplicaciones del plan existente.
+- Quiere escalar la aplicación independientemente de las demás aplicaciones del plan existente.
 - La aplicación necesita recursos de una región geográfica diferente.
 
 De esta forma, puede asignar un nuevo conjunto de recursos para la aplicación y tener un mayor control de las aplicaciones.

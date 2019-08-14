@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423011"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841284"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -72,7 +73,8 @@ Cuando *imageAction* se establece en un valor distinto de "none", el nuevo campo
 | originalWidth      | El ancho original de la imagen antes de la normalización. |
 | originalHeight      | La altura original de la imagen antes de la normalización. |
 | rotationFromOriginal |  Rotación a la izquierda en grados, que se produjo para crear la imagen normalizada. Un valor entre 0 y 360 grados. Este paso lee mediante una cámara o escáner los metadatos de la imagen que se genera. Normalmente, es un múltiplo de 90 grados. |
-| contentOffset |El desplazamiento de caracteres en el campo de contenido desde donde se extrajo la imagen. Este campo solo es aplicable para los archivos con imágenes incrustadas. |
+| contentOffset | El desplazamiento de caracteres en el campo de contenido desde donde se extrajo la imagen. Este campo solo es aplicable para los archivos con imágenes incrustadas. |
+| pageNumber | Si la imagen se extrajo o se representó desde un archivo PDF, este campo contiene el número de página en el PDF del que se extrajo o se representó, empezando por 1.  Si la imagen no era de un archivo PDF, este campo será 0.  |
 
  Muestra el valor de *normalized_images*:
 ```json
@@ -84,7 +86,8 @@ Cuando *imageAction* se establece en un valor distinto de "none", el nuevo campo
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

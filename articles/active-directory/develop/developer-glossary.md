@@ -10,7 +10,7 @@ ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6b7c732a0af7fb3519cf255fa26478cd9ae82d2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235351"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835106"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
@@ -50,7 +50,7 @@ Una característica proporcionada por [Azure Portal][AZURE-portal], que genera u
 
 ## <a name="application-object"></a>objeto de aplicación
 
-Cuando se registra o se actualiza una aplicación en [Azure Portal][AZURE-portal], el portal crea o actualiza un objeto de aplicación y un [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que tiene acceso), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
+Cuando se registra o se actualiza una aplicación en [Azure Portal][AZURE-portal], el portal crea o actualiza un objeto de aplicación y el [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que tiene acceso), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
 
 Para más información, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory (Azure AD)][AAD-App-SP-Objects].
 
@@ -115,7 +115,7 @@ Consulte el [marco de consentimiento](consent-framework.md) para más informaci�
 
 ## <a name="id-token"></a>token de identificador
 
-Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-Token] proporcionado por un [punto de conexión de autorización](#authorization-endpoint) del [servidor de autorización](#authorization-server), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
+Un [token de seguridad][OpenIDConnect-ID-Token] de [OpenID Connect](#security-token) proporcionado por un [punto de conexión de autorización](#authorization-server) del [servidor de autorización](#authorization-endpoint), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
 
 Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
@@ -142,7 +142,7 @@ Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de 
 
 También se revelan durante el proceso de [consentimiento](#consent) , ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
-Las solicitudes de permisos se configuran en la pestaña **Permisos de API**  de [Azure Portal][AZURE-portal] al seleccionar los permisos delegados y permisos de la aplicación deseados (estos últimos requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+Las solicitudes de permisos se configuran en la pestaña **Permisos de API** de [Azure Portal][AZURE-portal] al seleccionar los permisos delegados y permisos de la aplicación deseados (estos últimos requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
 
@@ -220,7 +220,7 @@ Un tipo de [aplicación cliente](#client-application) que ejecuta todo el códig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La [Guía del desarrollador de la plataforma de identidad de Microsoft identity][AAD-Dev-Guide] es la página de aterrizaje que se usar para todos los temas relacionados con el desarrollo de la plataforma de identidad de Microsoft, que incluyen una introducción a la [integración de aplicaciones][AAD-How-To-Integrate], así como los conceptos básicos de la [autenticación de la plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+La [Guía del desarrollador de la plataforma de identidad de Microsoft][AAD-Dev-Guide] es la página de aterrizaje que se usar para todos los temas relacionados con el desarrollo de la plataforma de identidad de Microsoft, que incluyen una introducción a la [integración de aplicaciones][AAD-How-To-Integrate], así como los conceptos básicos de la [autenticación de la plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use la siguiente sección de comentarios para proporcionar comentarios y ayudarnos a mejorar y a dar forma a nuestro contenido. Puede incluir solicitudes de nuevas definiciones o de actualización de las existentes.
 

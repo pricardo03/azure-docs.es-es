@@ -5,13 +5,13 @@ author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 08/05/2019
+ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797284"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827994"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -23,8 +23,8 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Número máximo de RU por contenedor ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o ponerse en contacto con nosotros a través de [Preguntar a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Número máximo de RU por base de datos ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o ponerse en contacto con nosotros a través de [Preguntar a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| Número máximo de RU por contenedor ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). |
+| Número máximo de RU por base de datos ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). |
 | Número máximo de RU por clave de partición (lógica) | 10 000 |
 | Almacenamiento máximo en todos los elementos por clave de partición (lógica)| 10 GB |
 | Número máximo de claves de partición (lógicas) distintas | Ilimitado |
@@ -37,10 +37,16 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 
 Un contenedor de Cosmos (o una base de datos de rendimiento compartido) debe tener un rendimiento mínimo de 400 RU. A medida que crece el contenedor, el rendimiento mínimo admitido también depende de los factores siguientes:
 
-* Rendimiento máximo que se ha aprovisionado en algún momento en el contenedor. El servicio admite la disminución del rendimiento de un contenedor en un 10 % del máximo aprovisionado. Por ejemplo, si el rendimiento aumentó a 10 000 RU, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU.
-* Número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU como mínimo.
+* El rendimiento mínimo que se puede establecer en un contenedor depende del rendimiento máximo que se haya aprovisionado alguna vez en el contenedor. El servicio admite la disminución del rendimiento de un contenedor en un 10 % del máximo aprovisionado. Por ejemplo, si el rendimiento aumentó a 10 000 RU, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU.
+* El rendimiento mínimo en una base de datos de rendimiento compartido depende del número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU como mínimo.
 
-El rendimiento actual y mínimo de un contenedor o una base de datos se puede recuperar desde Azure Portal o los SDK. Para obtener más información, consulte [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). En resumen, los límites de RU de aprovisionamiento mínimos son los siguientes. 
+El rendimiento actual y mínimo de un contenedor o una base de datos se puede recuperar desde Azure Portal o los SDK. Para obtener más información, consulte [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). 
+
+> [!NOTE]
+> En algunos casos, es posible que pueda reducir el rendimiento por debajo del 10 %. Use la API para obtener el valor mínimo exacto de RU por contenedor.
+>
+
+En resumen, los límites de RU de aprovisionamiento mínimos son los siguientes. 
 
 | Recurso | Límite predeterminado |
 | --- | --- |
@@ -56,13 +62,21 @@ Puede [aprovisionar y administrar su cuenta de Azure Cosmos](how-to-manage-datab
 
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Número máximo de cuentas de base de datos por suscripción | 50 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o ponerse en contacto con nosotros a través de [Preguntar a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
-| Número máximo de conmutaciones por error regionales | 1/hora de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o ponerse en contacto con nosotros a través de [Preguntar a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
+| Número máximo de cuentas de base de datos por suscripción | 50 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
+| Número máximo de conmutaciones por error regionales | 1/hora de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
 
 > [!NOTE]
 > Las conmutaciones por error regionales solo se aplican a las cuentas de escritura de una sola región. Las cuentas de escritura de varias regiones no requieren ni tienen ningún límite para el cambio de la región de escritura.
 
 Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos regulares. Para obtener más información sobre los intervalos y las ventanas de retención de copias de seguridad, consulte [Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB](online-backup-and-restore.md).
+
+## <a name="per-account-limits"></a>Límites por cuenta
+
+| Recurso | Límite predeterminado |
+| --- | --- |
+| Número máximo de bases de datos | Ilimitado |
+| Número máximo de contenedores por base de datos (o cuenta) | Ilimitado |
+| Número máximo de regiones | Sin límite (todas las regiones de Azure) |
 
 ## <a name="per-container-limits"></a>Límites de cada contenedor
 
@@ -77,7 +91,7 @@ En función de la API que utilice, un contenedor de Azure Cosmos puede represent
 | Número máximo de claves únicas por contenedor|10 <sup>*</sup>|
 | Número máximo de rutas de acceso por restricción de clave única|16 <sup>*</sup>|
 
-<sup>*</sup> Para aumentar cualquiera de estos límites de los contenedores, puede ponerse en contacto con el Soporte técnico de Azure o con nosotros a través de [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com) (Preguntar a Cosmos DB).
+<sup>*</sup> Para aumentar cualquiera de estos límites por contenedor, puede ponerse en contacto con el equipo de soporte técnico de Azure.
 
 ## <a name="per-item-limits"></a>Límites por elemento
 
@@ -115,7 +129,7 @@ Cosmos DB utiliza HMAC para la autorización. Puede usar una clave maestra o [to
 | --- | --- |
 | Tiempo de expiración máximo del token maestro | 15 minutos  |
 | Tiempo de expiración mínimo del token maestro | 10 min  |
-| Tiempo de expiración máximo del token de recursos | 24 horas de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o ponerse en contacto con nosotros a través de [Preguntar a Cosmos DB](mailto:askcosmosdb@microsoft.com)|
+| Tiempo de expiración máximo del token de recursos | 24 horas de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
 | Distorsión máxima del reloj para la autorización del token| 15 minutos |
 
 Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El servicio admite un máximo de un desencadenador previo y un desencadenador posterior por operación de escritura. 
@@ -134,7 +148,7 @@ Cosmos DB admite la consulta de elementos mediante [SQL](how-to-sql-query.md). E
 | Número máximo de argumentos por expresión IN| 6000 <sup>*</sup>|
 | Número máximo de puntos por polígono| 4096 <sup>*</sup>|
 
-<sup>*</sup> Para aumentar cualquiera de estos límites de consulta SQL, puede ponerse en contacto con el Soporte técnico de Azure o con nosotros a través de [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com) (Preguntar a Cosmos DB).
+<sup>*</sup> Para aumentar cualquiera de estos límites de consulta SQL, puede ponerse en contacto con el equipo de soporte técnico de Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Límites específicos de la API de MongoDB
 

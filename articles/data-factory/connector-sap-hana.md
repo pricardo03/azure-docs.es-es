@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9b024fc3c07670201cf72cf80c0b69bf68f1cc8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343773"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725993"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,10 +33,10 @@ Puede copiar datos desde una base de datos SAP HANA a cualquier almacén de dato
 En concreto, este conector SAP HANA admite las siguientes funcionalidades:
 
 - Copiar datos de cualquier versión de la base de datos SAP HANA.
-- Copiar de datos de **modelos de información de HANA** (como las vistas de análisis y cálculo) y las **tablas de fila o columna** mediante consultas SQL.
+- Copiar de datos de **modelos de información de HANA** (como las vistas de análisis y cálculo) y las **tablas de fila o columna**.
 - La copia de datos con autenticación **básica** o de **Windows**.
 
-> [!NOTE]
+> [!TIP]
 > Para copiar datos **en** un almacén de datos SAP HANA, use un conector ODBC genérico. Consulte el artículo sobre el [receptor de SAP HANA](connector-odbc.md#sap-hana-sink) con detalles. Tenga en cuenta que los servicios vinculados para el conector SAP HANA y el conector ODBC tienen tipos distintos y, por tanto, no se pueden reutilizar.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -59,11 +59,53 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapHana** | Sí |
-| server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
-| authenticationType | Tipo de autenticación usado para conectarse a la base de datos SAP HANA.<br/>Los valores permitidos son: **Basic** y **Windows** | Sí |
-| userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| connectionString | Especifique la información necesaria para conectarse a SAP HANA mediante la **autenticación básica** o la **autenticación de Windows**. Consulte los ejemplos siguientes.<br>En la cadena de conexión, el servidor o el puerto es obligatorio (el puerto predeterminado es 30015), y el nombre de usuario y la contraseña son obligatorios cuando se usa la autenticación básica. Para obtener configuraciones avanzadas adicionales, consulte [Propiedades de conexión ODBC de SAP HANA](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>También puede colocar la contraseña en Azure Key Vault y extraer la configuración de contraseña de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada. | Sí |
+| userName | Especifique el nombre de usuario cuando use la autenticación de Windows. Ejemplo: `user@domain.com` | Sin |
+| password | Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
+
+**Ejemplo: use la autenticación básica**
+
+```json
+{
+    "name": "SapHanaLinkedService",
+    "properties": {
+        "type": "SapHana",
+        "typeProperties": {
+            "connectionString": "SERVERNODE=<server>:<port (optional)>;UID=<userName>;PWD=<Password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: use la autenticación de Windows**
+
+```json
+{
+    "name": "SapHanaLinkedService",
+    "properties": {
+        "type": "SapHana",
+        "typeProperties": {
+            "connectionString": "SERVERNODE=<server>:<port (optional)>;",
+            "userName": "<username>", 
+            "password": { 
+                "type": "SecureString", 
+                "value": "<password>" 
+            } 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Si usaba el servicio SAP HANA vinculado a la siguiente carga, todavía se admite tal cual, aunque se aconseja usar la nueva en el futuro.
 
 **Ejemplo:**
 
@@ -93,7 +135,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de SAP HANA.
 
-Para copiar datos desde SAP HANA, establezca la propiedad type del conjunto de datos en **RelationalTable**. No hay ninguna propiedad específica del tipo compatible con el conjunto de datos de SAP HANA de tipo RelationalTable.
+Para copiar datos de una tabla de SAP HANA, se admiten las siguientes propiedades:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SapHanaTable** | Sí |
+| schema | Nombre del esquema de la base de datos de SAP HANA. | No (si se especifica "query" en el origen de la actividad) |
+| table | Nombre de la tabla de la base de datos de SAP HANA. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo:**
 
@@ -101,15 +149,21 @@ Para copiar datos desde SAP HANA, establezca la propiedad type del conjunto de d
 {
     "name": "SAPHANADataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapHanaTable",
+        "typeProperties": {
+            "schema": "<schema name>",
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP HANA linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Si estaba usando un conjunto de datos de tipo `RelationalTable`, todavía se admite tal cual, aunque se aconseja usar el nuevo en el futuro.
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
@@ -117,12 +171,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="sap-hana-as-source"></a>SAP HANA como origen
 
-Para copiar datos desde SAP HANA, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+Para copiar datos desde SAP HANA, en la sección **source** de la actividad de copia se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SapHanaSource** | Sí |
 | query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Sí |
+| packetSize | Especifica el tamaño del paquete de red (en kilobytes) para dividir los datos en varios bloques. Si tiene una gran cantidad de datos para copiar, si aumenta el tamaño de los paquetes aumentará a su vez la velocidad de lectura de SAP HANA en la mayoría de los casos. Se recomienda realizar pruebas de rendimiento al ajustar el tamaño de los paquetes. | No.<br>El valor predeterminado es 2048 (2 MB). |
 
 **Ejemplo:**
 
@@ -145,7 +200,7 @@ Para copiar datos desde SAP HANA, establezca el tipo de origen de la actividad d
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapHanaSource",
                 "query": "<SQL query for SAP HANA>"
             },
             "sink": {
@@ -156,39 +211,41 @@ Para copiar datos desde SAP HANA, establezca el tipo de origen de la actividad d
 ]
 ```
 
+Si estaba usando un origen de copia de tipo `RelationalSource`, todavía se admite tal cual, aunque se aconseja usar el nuevo en el futuro.
+
 ## <a name="data-type-mapping-for-sap-hana"></a>Asignación de tipos de datos para SAP HANA
 
 Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de datos de SAP HANA en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
 | Tipo de datos de SAP HANA | Tipo de datos provisionales de Data Factory |
-|:--- |:--- |
-| ALPHANUM | Cadena |
-| BIGINT | Int64 |
-| BLOB | Byte[] |
-| BOOLEAN | Byte |
-| CLOB | Byte[] |
-| DATE | Datetime |
-| DECIMAL | Decimal |
-| DOUBLE | Single |
-| INT | Int32 |
-| NVARCHAR | Cadena |
-| REAL | Single |
-| SECONDDATE | Datetime |
-| SMALLINT | Int16 |
-| TIME | TimeSpan |
-| TIMESTAMP | Datetime |
-| TINYINT | Byte |
-| VARCHAR | Cadena |
-
-## <a name="known-limitations"></a>Limitaciones conocidas
-
-Cuando se copian datos de SAP HANA, hay algunas limitaciones conocidas:
-
-- Las cadenas NVARCHAR se truncan al llegar a la longitud máxima de 4000 caracteres Unicode
-- SMALLDECIMAL no se admite
-- VARBINARY no se admite
-- Las fechas válidas son las del intervalo entre 30/12/1899 y 31/12/9999
-
+| ------------------ | ------------------------------ |
+| ALPHANUM           | Cadena                         |
+| BIGINT             | Int64                          |
+| BINARY             | Byte[]                         |
+| BINTEXT            | Cadena                         |
+| BLOB               | Byte[]                         |
+| BOOL               | Byte                           |
+| CLOB               | Cadena                         |
+| DATE               | DateTime                       |
+| DECIMAL            | Decimal                        |
+| DOUBLE             | DOUBLE                         |
+| FLOAT              | Double                         |
+| INTEGER            | Int32                          |
+| NCLOB              | Cadena                         |
+| NVARCHAR           | Cadena                         |
+| REAL               | Single                         |
+| SECONDDATE         | DateTime                       |
+| SHORTTEXT          | Cadena                         |
+| SMALLDECIMAL       | Decimal                        |
+| SMALLINT           | Int16                          |
+| STGEOMETRYTYPE     | Byte[]                         |
+| STPOINTTYPE        | Byte[]                         |
+| TEXT               | Cadena                         |
+| TIME               | TimeSpan                       |
+| TINYINT            | Byte                           |
+| VARCHAR            | Cadena                         |
+| TIMESTAMP          | DateTime                       |
+| VARBINARY          | Byte[]                         |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

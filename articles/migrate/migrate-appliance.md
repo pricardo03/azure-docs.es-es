@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663461"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827324"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -42,7 +42,7 @@ El dispositivo tiene instalados estos agentes.
 
 **Agent** | **Detalles**
 --- | ---
-Agente de detección | Recopila datos de configuración de VM locales.
+Agente de detección | Recopila datos de configuración de máquinas virtuales locales.
 Agente de evaluación | Genera perfiles del entorno local para recopilar datos de rendimiento de las VM.
 Adaptador de migración | Orquesta la replicación de VM y coordina la comunicación entre las VM y Azure.
 Puerta de enlace de migración | Envía los datos de VM replicadas a Azure.
@@ -200,8 +200,8 @@ El dispositivo se actualiza a medida que se actualizan los agentes de Azure Migr
 
 - Esto sucede automáticamente porque la actualización automática está habilitada en el dispositivo de forma predeterminada.
 - Puede cambiar esta configuración predeterminada para actualizar los agentes manualmente.
-- Para deshabilitar las actualizaciones automáticas, establezca la clave del Registro de actualización automática del dispositivo en HKLM\SOFTWAREMicrosoft\Azure.
-
+- Para deshabilitar la actualización automática, vaya al Editor del Registro > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance y establezca la clave del Registro "AutoUpdate" en 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Establecer las actualizaciones del agente en manual
 
 En el caso de las actualizaciones manuales, asegúrese de actualizar todos los agentes del dispositivo al mismo tiempo, usando el botón **Actualizar** para cada agente no actualizado en el dispositivo. Puede volver a cambiar la configuración de actualización a actualizaciones automáticas en cualquier momento.

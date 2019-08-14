@@ -1,152 +1,145 @@
 ---
-title: Actualizaciones de Azure Site Recovery | Microsoft Docs
-description: Se proporciona información general sobre las actualizaciones del servicio y cómo actualizar los componentes que se usan en Azure Site Recovery.
-services: site-recovery
+title: Actualizaciones de servicio y actualizaciones de componentes en Azure Site Recovery
+description: Se proporciona información general sobre las actualizaciones de servicio y de componentes en Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 04/25/2019
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203436"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828599"
 ---
-# <a name="service-updates-in-azure-site-recovery"></a>Actualizaciones del servicio Azure Site Recovery
-Las organizaciones tienen que saber cómo mantener los datos seguros y las aplicaciones y cargas de trabajo en funcionamiento cuando se producen interrupciones tanto planeadas como no planeadas. Azure Site Recovery ayuda a garantizar la continuidad empresarial y la recuperación ante desastrse, ya que mantiene las aplicaciones en funcionamiento tanto en las máquinas virtuales como en los servidores físicos disponibles si un sitio deja de funcionar. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas virtuales y servidores físicos para que estén disponibles en una ubicación secundaria si el sitio principal no está disponible. Recupera las cargas de trabajo en el sitio principal cuando vuelva a estar en funcionamiento.
+# <a name="service-updates-in-site-recovery"></a>Actualizaciones de servicio en Azure Site Recovery
 
-Site Recovery puede administrar la replicación de:
+En este artículo se proporciona información general sobre las actualizaciones de [Azure Site Recovery](site-recovery-overview.md) y se describe cómo actualizar los componentes de Site Recovery.
 
-- [Máquinas virtuales de Azure que se replican entre regiones de Azure](azure-to-azure-tutorial-dr-drill.md).
-- Máquinas virtuales locales y servidores físicos que se replican en Azure o en un sitio secundario.
-Para más información, consulte la documentación [aquí](https://docs.microsoft.com/azure/site-recovery).
-
-Azure Site Recovery publica actualizaciones del servicio de forma periódica, que incluyen la incorporación de nuevas características, mejoras en la matriz de compatibilidad y correcciones de errores, si hubiera. Para seguir disfrutando de las características, mejoras y correcciones de errores más recientes, se aconseja a los usuarios actualizar siempre a las últimas versiones de los componentes de Azure SIte Recovery. 
+Site Recovery publica actualizaciones de servicio de forma periódica. Las actualizaciones incluyen nuevas características, mejoras de soporte técnico, actualizaciones de componentes y correcciones de errores. Con el fin de aprovechar las últimas características y correcciones, se recomienda ejecutar las versiones más recientes de los componentes de Site Recovery. 
  
-## <a name="support-statement-for-azure-site-recovery"></a>Declaración de soporte técnico de Azure Site Recovery 
+ 
+## <a name="updates-support"></a>Soporte técnico de actualizaciones
+
+### <a name="support-statement-for-azure-site-recovery"></a>Declaración de soporte técnico de Azure Site Recovery
+
+Se recomienda actualizar siempre a las versiones más recientes de los componentes:
+
+**Con cada nueva versión "N" de un componente de Azure Site Recovery que se publica, todas las versiones anteriores a "N-4" se consideran excluidas del soporte técnico.** 
 
 > [!IMPORTANT]
-> **Con cada nueva versión "N" de un componente de Azure Site Recovery que se publica, todas las versiones anteriores a "N-4" se consideran excluidas del soporte técnico.** Por este motivo, siempre se recomienda actualizar a las versiones más recientes disponibles.
+> El soporte técnico oficial es para la actualización de la versión > N-4 a la versión N. Por ejemplo, si tiene la versión N-6, deberá actualizar primero a N-4 y, después, a N.
 
-> [!IMPORTANT]
-> Se da soporte técnico oficial para las actualizaciones de las versiones >N-4 a N (siendo N la versión más reciente). Si tiene la versión N-6, deberá actualizar primero a N-4 y, después, a N.
 
-## <a name="expiry-of-components"></a>Expiración de componentes
-Site Recovery indica a los clientes qué componentes están a punto de expirar o que ya han expirado a través de notificaciones por correo electrónico (si se han suscrito) o en el panel del almacén del portal. A partir de ahora, las notificaciones del panel del almacén no están disponibles si está protegiendo una VM de hYpe-rV. Además, si navega a la vista de infraestructura correspondiente de su escenario, verá un botón "actualización disponible" junto al componente, que le redirigirá a los vínculos para descargar las versiones más recientes.
+### <a name="links-to-currently-supported-update-rollups"></a>Vínculos a paquetes acumulativos de actualizaciones admitidos actualmente
 
-A continuación se encuentra la frecuencia de las notificaciones por correo electrónico cuando los componentes están a punto de expirar.
-- 60 días antes de que el componente esté a punto de expirar: quincenalmente
-- Siguientes 53 días: semanalmente
-- Últimos 7 días: diaria
-- Una vez expirado: quincenalmente
+ Consulte el paquete acumulativo de actualizaciones más reciente (versión N) en [este artículo](site-recovery-whats-new.md). Recuerde que Site Recovery proporciona soporte técnico para las versiones N-4.
 
 
 
-### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Actualización cuando la diferencia entre la versión actual y la versión más reciente es mayor que 4
+## <a name="component-expiry"></a>Expiración de componentes
 
-1. Como primer paso, actualice el componente instalado actualmente de, por ejemplo, la versión N a N+4 y, después, cambie a la siguiente versión compatible. Supongamos que la versión actual es 9.24 y tiene la versión 9,16; primero, actualice a 9.20 y, después, a 9.24.
-2. Siga el mismo proceso para todos los componentes según el escenario.
+Site Recovery le indica qué componentes están a punto de expirar o ya han expirado por correo electrónico (si está suscrito a las notificaciones por correo electrónico) o en el panel del almacén del portal.
 
-### <a name="support-for-latest-oskernel-versions"></a>Soporte técnico para versiones de kernel o del sistema operativo más recientes
+- Además, cuando haya actualizaciones disponibles, en la vista de infraestructura del escenario del portal, aparecerá el botón **Actualización disponible** junto al componente. Este botón le redirige a un vínculo para descargar la versión más reciente del componente.
+-  Las notificaciones del panel del almacén no están disponibles si está replicando máquinas virtuales de Hyper-V. 
+
+Las notificaciones de correo electrónico se envían como se indica a continuación.
+
+**Hora** | **Frecuencia**
+--- | ---
+60 días antes de que expire el componente | Una vez cada dos semanas
+Siguientes 53 días | Una vez a la semana
+Últimos 7 días | Una vez al día
+Después de la expiración | Una vez cada dos semanas
+
+
+### <a name="upgrading-outside-official-support"></a>Actualización fuera del soporte técnico oficial
+
+Si la diferencia entre su versión del componente y la versión más reciente es superior a cuatro versiones, se considera que queda fuera del soporte técnico. En este caso, actualice como se indica a continuación: 
+
+1. Actualice el componente instalado actualmente a su versión actual más cuatro. Por ejemplo, si su versión es la 9.16, actualice a la 9.20.
+2. A continuación, actualice a la siguiente versión compatible. Así, en nuestro ejemplo, después de actualizar de la 9.16 a la 9.20, actualizará a la 9.24. 
+
+Siga el mismo proceso para todos los componentes pertinentes.
+
+### <a name="support-for-latest-operating-systemskernels"></a>Soporte técnico para sistemas operativos/kernels más recientes
 
 > [!NOTE]
-> Si tiene programado un mantenimiento y, como parte de él, el equipo se va a reiniciar, se recomienda que primero actualice los componentes de Site Recovery y continúe con el resto de las actividades programadas.
+> Si tiene programado un mantenimiento y, como parte de él, el equipo se va a reiniciar, se recomienda que primero actualice los componentes de Site Recovery y, a continuación, continúe con el resto de las actividades programadas en el mantenimiento.
 
-1. Antes de actualizar las versiones del kernel o el sistema operativo, compruebe si la versión de destino es compatible con Azure Site Recovery. Encontrará la información en nuestra documentación sobre máquinas virtuales de Azure, [máquinas virtuales de VMware](vmware-physical-azure-support-matrix.md) y máquinas virtuales de Hyper-V en
-2. Consulte las [actualizaciones del servicio](https://azure.microsoft.com/updates/?product=site-recovery) para ver qué versión de los componentes de Site Recovery admiten la versión específica que desea actualizar.
-3. En primer lugar, actualice a la versión más reciente de Site Recovery.
-4. Ahora, actualice el kernel o el sistema operativo a las versiones deseadas.
-5. Reinicie el equipo.
-6. Así se asegura de que la versión del kernel o del sistema operativo de las máquinas se actualicen a la versión más reciente, y de que se carguen los cambios más recientes de Site Recovery necesarios para admitir la nueva versión en la máquina de origen.
+1. Antes de actualizar las versiones del kernel o el sistema operativo, compruebe si la versión de destino es compatible con Site Recovery. 
+
+    - Compatibilidad con [máquina virtual de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+    - Compatibilidad con [servidores físicos o de VMware](vmware-physical-azure-support-matrix.md#replicated-machines).
+    - Compatibilidad con [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
+2. Revise las [actualizaciones disponibles](site-recovery-whats-new.md) para averiguar qué desea actualizar.
+3. Actualice a la versión más reciente de Site Recovery.
+4. Actualice el sistema operativo o el kernel a las versiones necesarias.
+5. Reinicie.
 
 
+Este proceso garantiza que el sistema operativo o el kernel de la máquina se actualicen a la versión más reciente y que se carguen en la máquina los cambios de Site Recovery más recientes necesarios para admitir la nueva versión.
 
 ## <a name="azure-vm-disaster-recovery-to-azure"></a>Recuperación ante desastres de máquinas virtuales de Azure en Azure
-En este escenario, es muy recomendable que [habilite](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-autoupdate) las actualizaciones automáticas. Puede optar por permitir que Site Recovery administre las actualizaciones de las siguientes maneras:
 
-- Como parte del paso para habilitar la replicación:
-- Alternar la configuración de actualización de la extensión dentro del almacén
+En este escenario, es muy recomendable que [habilite las actualizaciones automáticas](azure-to-azure-autoupdate.md). Puede permitir que Site Recovery administre las actualizaciones de la siguiente manera:
 
-Si ha elegido administrar las actualizaciones manualmente, siga estos pasos:
+- Al habilitar el proceso de replicación.
+- Definiendo la configuración de actualización de la extensión dentro del almacén.
 
-1. Vaya a Azure Portal y vaya a su almacén de Recovery Services.
-2. Vaya al panel "Elementos replicados" de Azure Portal correspondiente al almacén de Recovery Services.
-3. Haga clic en la notificación situada en la parte superior de la pantalla:
+Si desea administrar las actualizaciones manualmente, haga lo siguiente:
+
+1. En el almacén > **Elementos replicados**, haga clic en esta notificación en la parte superior de la pantalla: 
     
-    *Hay una nueva actualización del agente de replicación de Site recovery disponible. Haga clic para instalar*
-    
-    *Haga clic para instalar ->* .
+    **Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalarla ->**
 
 4. Seleccione las máquinas virtuales a las que desea aplicar la actualización y haga clic en **Aceptar**.
 
-## <a name="between-two-on-premises-vmm-sites"></a>Entre dos sitios VMM locales
-1. Descargue el paquete acumulativo de actualizaciones más reciente para el proveedor de Microsoft Azure Site Recovery.
-2. Instale el paquete acumulativo de actualizaciones en primer lugar en el servidor de VMM local que administre el sitio de recuperación.
-3. Una vez actualizado el sitio de recuperación, instale el paquete acumulativo de actualizaciones en el servidor de VMM que administra el sitio principal.
 
-> [!NOTE]
-> Si el servicio VMM es de alta disponibilidad (VMM en clúster), asegúrese de instalar la actualización en todos los nodos del clúster donde esté instalado el servicio VMM.
+## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Recuperación ante desastres de un servidor físico/VM de VMware en Azure
 
-## <a name="between-an-on-premises-vmm-site-and-azure"></a>Entre un sitio VMM local y Azure
-1. Descargue el paquete acumulativo de actualizaciones para el proveedor de Microsoft Azure Site Recovery.
-2. Instale el paquete acumulativo de actualizaciones en el servidor de VMM local.
-3. Instale el agente MARS más reciente en todos los hosts de Hyper-V.
+1. En función de la versión actual y de conformidad con la [declaración de soporte técnico](#support-statement-for-azure-site-recovery), instale primero la actualización en el servidor de configuración local con [estas instrucciones](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
+2. Si tiene servidores de procesos de escalado horizontal, actualícelos a continuación con [estas instrucciones](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Para actualizar el agente de movilidad en cada máquina protegida, abra **Elementos protegidos** > **Elementos replicados**.
+4. Seleccione la máquina virtual y, a continuación, seleccione el botón **Actualizar agente** que aparece en la parte inferior de la página de cada máquina virtual. Esto actualiza el agente de Mobility Service en todas las máquinas virtuales protegidas.
 
-> [!NOTE]
-> Si el servicio VMM es de alta disponibilidad (VMM en clúster), asegúrese de instalar la actualización en todos los nodos del clúster donde esté instalado el servicio VMM.
+### <a name="reboot-after-mobility-service-upgrade"></a>Reinicio después de la actualización de Mobility Service
 
-## <a name="between-an-on-premises-hyper-v-site-and-azure"></a>Entre un sitio Hyper-V local y Azure
+Se recomienda reiniciar después de cada actualización de Mobility Service para asegurarse de que se cargan todos los cambios más recientes en la máquina de origen.
 
-1. Descargue el paquete acumulativo de actualizaciones para el proveedor de Microsoft Azure Site Recovery.
-2. Instale el proveedor en todos los nodos de los servidores de Hyper-V que haya registrado en Azure Site Recovery.
+No es obligatorio reiniciar, a menos que durante el último reinicio la diferencia entre la versión del agente y la versión actual sea mayor que 4.
 
-> [!NOTE]
-> Si el suyo es un servidor host de Hyper-V en clúster, asegúrese de instalar la actualización en todos los nodos del clúster.
+En el ejemplo de la tabla se muestra cómo funciona esto.
 
-## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Entre un sitio de VMware local o un sitio físico y Azure
-
-Antes de continuar con las actualizaciones, consulte [Declaración de soporte técnico de Azure Site Recovery](#support-statement-for-azure-site-recovery) para conocer la ruta de actualización.
-
-1. En función de la versión actual y la declaración de soporte técnico proporcionada anteriormente, instale primero la actualización en el servidor de administración local mediante las instrucciones proporcionadas [aquí](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Este es el servidor que tiene los roles Servidor de configuración y Servidor de proceso.
-2. Si tiene servidores de proceso de escalabilidad horizontal, actualícelos a continuación de acuerdo con las instrucciones proporcionadas [aquí](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-3. Luego, para actualizar el agente de movilidad en cada elemento protegido, vaya a Azure Portal y diríjase a la página **Elementos protegidos** > **Elementos replicados**. Seleccione una máquina virtual en esta página. Seleccione el botón **Actualizar agente** que aparece en la parte inferior de la página de cada máquina virtual. Esto actualiza el agente de Mobility Service en todas las máquinas virtuales protegidas.
-
-### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Reinicio de la máquina de origen después de actualizar el agente de movilidad
-
-Se recomienda reiniciar después de cada actualización del agente de Mobility Service para asegurarse de que se cargan todos los cambios más recientes en la máquina de origen. Sin embargo, **no es obligatorio**. Si, durante el último reinicio, la diferencia entre la versión del agente y la versión actual es mayor que 4, es obligatorio reiniciar. Consulte una explicación detallada en la tabla siguiente:
-
-|**Versión del agente durante el último reinicio** | **Actualizando a** | **¿El reinicio es obligatorio?**|
+|**Versión del agente (último reinicio)** | **Actualizar a** | **¿Reinicio obligatorio?**|
 |---------|---------|---------|
 |9.16 |  9.18 | No es obligatorio|
 |9.16 | 9.19 | No es obligatorio|
 | 9.16 | 9.20 | No es obligatorio
- | 9.16 | 9.21 | Sí, actualice primero a la versión 9.20; después, reinicie antes de actualizar a la versión 9.21 porque la diferencia entre las versiones (9.16 donde se realizó el último reinicio y la versión de destino 9.21) es >4.
+ | 9.16 | 9.21 | Obligatorio.<br/><br/> Actualice a la versión 9.20 y, a continuación, reinicie antes de actualizar a la 9.21.
 
-## <a name="links-to-currently-supported-update-rollups"></a>Vínculos a paquetes acumulativos de actualizaciones admitidos actualmente
+## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en Azure
 
-|Paquete acumulativo de actualizaciones  |Proveedor  |Instalación unificada| OVF  |MARS|
-|---------|---------|---------|---------|--------|
-|[Paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
-|[Paquete acumulativo de actualizaciones 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
-|[Paquete acumulativo de actualizaciones 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
-|[Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery): revisión     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
-|[Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
-|[Paquete acumulativo de actualizaciones 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+### <a name="between-a-hyper-v-site-and-azure"></a>Entre un sitio Hyper-V y Azure
 
-## <a name="previous-update-rollups"></a>Paquetes acumulativos de actualizaciones anteriores
+1. Descargue la actualización del proveedor de Microsoft Azure Site Recovery.
+2. Instale el proveedor en cada servidor de Hyper-V registrado en Site Recovery. Si está ejecutando un clúster, actualice en todos los nodos del clúster.
 
-- [Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
-- [Paquete acumulativo de actualizaciones 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
-- [Paquete acumulativo de actualizaciones 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
-- [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
-- [Paquete acumulativo de actualizaciones 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
-- [Paquete acumulativo de actualizaciones 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
-- [Paquete acumulativo de actualizaciones 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
-- [Paquete acumulativo de actualizaciones 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 
-- [Paquete acumulativo de actualizaciones 22](https://support.microsoft.com/help/4072852/update-rollup-22-for-azure-site-recovery) 
-- [Paquete acumulativo de actualizaciones 21](https://support.microsoft.com/help/4051380/update-rollup-21-for-azure-site-recovery) 
-- [Paquete acumulativo de actualizaciones 20](https://support.microsoft.com/help/4041105/update-rollup-20-for-azure-site-recovery) 
-- [Paquete acumulativo de actualizaciones 19](https://support.microsoft.com/help/4034599/update-rollup-19-for-azure-site-recovery) 
+
+## <a name="between-an-on-premises-vmm-site-and-azure"></a>Entre un sitio VMM local y Azure
+1. Descargue la actualización del proveedor de Microsoft Azure Site Recovery.
+2. Instale el proveedor en el servidor VMM. Si VMM está implementado en un clúster, instale el proveedor en todos los nodos del clúster.
+3. Instale el agente de Microsoft Azure Recovery Services más reciente en cada host de Hyper-V o nodo del clúster.
+
+
+## <a name="between-two-on-premises-vmm-sites"></a>Entre dos sitios VMM locales
+1. Descargue la actualización más reciente del proveedor de Microsoft Azure Site Recovery.
+2. Instale el proveedor más reciente en el servidor VMM que administra el sitio de recuperación secundario. Si VMM está implementado en un clúster, instale el proveedor en todos los nodos del clúster.
+3. Una vez actualizado el sitio de recuperación, instale el proveedor en el servidor VMM que administra el sitio principal.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte nuestra página [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery) para conocer las nuevas actualizaciones y versiones.

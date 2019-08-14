@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361015"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840499"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
@@ -30,6 +30,9 @@ El flujo de trabajo general al crear un cliente que usa un servicio web de Machi
 1. Determinar el tipo de datos de solicitud que usa el modelo.
 1. Crear una aplicación que llame al servicio web.
 
+> [!TIP]
+> Los ejemplos de este documento se crean manualmente sin el uso de las especificaciones de OpenAPI (Swagger). Si ha habilitado una especificación de OpenAPI para la implementación, puede usar herramientas como [swagger-codegen](https://github.com/swagger-api/swagger-codegen) para crear bibliotecas de cliente para el servicio.
+
 ## <a name="connection-information"></a>Información sobre la conexión
 
 > [!NOTE]
@@ -37,8 +40,10 @@ El flujo de trabajo general al crear un cliente que usa un servicio web de Machi
 
 La clase [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) proporciona la información necesaria para crear un cliente. Las siguientes propiedades `Webservice` son útiles para crear una aplicación cliente:
 
-* `auth_enabled`: si la autenticación está habilitada, `True`; de lo contrario, `False`.
+* `auth_enabled`: si la autenticación de la clave está habilitada, `True`; de lo contrario, `False`.
+* `token_auth_enabled`: si la autenticación del token está habilitada, `True`; de lo contrario, `False`.
 * `scoring_uri`: dirección de la API REST.
+
 
 Existen tres formas de recuperar esta información para los servicios web implementados:
 
@@ -67,7 +72,15 @@ Existen tres formas de recuperar esta información para los servicios web implem
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>Clave de autenticación
+### <a name="authentication-for-services"></a>Autenticación para servicios
+
+Azure Machine Learning proporciona dos formas de controlar el acceso a los servicios web. 
+
+|Método de autenticación|ACI|AKS|
+|---|---|---|
+|Clave|Deshabilitado de forma predeterminada| Habilitado de forma predeterminada|
+|Se necesita el cifrado de tokens| No disponible| Deshabilitado de forma predeterminada |
+#### <a name="authentication-with-keys"></a>Autenticación con claves
 
 Al habilitar la autenticación para una implementación, se crean automáticamente las claves de autenticación.
 
@@ -85,6 +98,26 @@ print(primary)
 
 > [!IMPORTANT]
 > Si necesita regenerar una clave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### <a name="authentication-with-tokens"></a>Autenticación con tokens
+
+Cuando se habilita la autenticación por tokens para un servicio web, el usuario debe proporcionar un token JWT de Azure Machine Learning al servicio web para tener acceso a él. 
+
+* La autenticación por tokens se deshabilita de manera predeterminada cuando se implementa en Azure Kubernetes Service.
+* La autenticación por tokens no se admite cuando se implementa en Azure Container Instances.
+
+Para controlar la autenticación por tokens, use el parámetro `token_auth_enabled` cuando cree o actualice una implementación.
+
+Si la autenticación por tokens está habilitada, puede usar el método `get_token` para recuperar un token de portador y la hora de expiración de los tokens:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> Tendrá que solicitar un nuevo token después de la hora del token `refresh_by`. 
 
 ## <a name="request-data"></a>Datos de la solicitud
 

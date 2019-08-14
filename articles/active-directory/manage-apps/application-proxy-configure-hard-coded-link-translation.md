@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956907"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705795"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -32,7 +32,7 @@ La mejor forma de asegurarse de que los vínculos funcionan del mismo modo tanto
 
 Si no puede usar dominios personalizados en el inquilino, hay algunas otras opciones para proporcionar esta funcionalidad. Todas ellas también son compatibles con los dominios personalizados y entre sí, de forma que pueda configurar dominios personalizados y otras soluciones si es necesario. 
 
-**Opción 1: usar Managed Browser**. Esta solución solo es aplicable si tiene previsto recomendar o requerir que los usuarios tengan acceso a la aplicación a través de Intune Managed Browser. Controlará todas las URL publicadas. 
+**Opción 1: usar Managed Browser o Microsoft Edge**. Esta solución solo es aplicable si tiene previsto recomendar o requerir que los usuarios tengan acceso a la aplicación a través de Intune Managed Browser o Microsoft Edge. Controlará todas las URL publicadas. 
 
 **Opción 2: usar la extensión MyApps**. Esta solución requiere que los usuarios instalen una extensión de explorador del lado cliente, pero controlará todas las URL publicadas y funciona con los exploradores más populares. 
 
@@ -47,9 +47,9 @@ Estas tres características mantendrán sus vínculos en funcionamiento independ
 > O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>Opción 1: Integración con Intune Managed Browser 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opción 1: Integración de Intune Managed Browser y Microsoft Edge 
 
-Puede usar Intune Managed Browser para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Intune Managed Browser. Managed Browser reconocerá todas las URL internas publicadas con Application Proxy y se redirigirán a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
+Puede usar Intune Managed Browser o Microsoft Edge para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Intune Managed Browser. Managed Browser reconocerá todas las URL internas publicadas con Application Proxy y se redirigirán a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
 
 Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 

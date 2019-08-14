@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500908"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839896"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -44,11 +44,13 @@ En el ejemplo siguiente se crea una imagen de contenedor de la aplicación de No
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 En este ejemplo se crea la imagen `node-app` con la etiqueta `1.0` y se inserta en el registro de contenedor *myregistry*. Aquí, el nombre del registro de destino se antepone explícitamente al nombre de la imagen. Si no se especifica, la dirección URL del registro se antepone automáticamente al nombre de la imagen.
+
+El parámetro `--pull` especifica que el comando extrae la última imagen del compilador.
 
 La salida del comando muestra el progreso de la compilación e inserción de la imagen. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 En este ejemplo se crea la imagen `java-app` etiquetada con el identificador de ejecución del comando y se inserta en el registro de contenedor *myregistry*.
 
-El parámetro `--pull` especifica que el comando extrae la imagen del compilador más reciente, lo que es necesario porque ACR Tasks no almacena en caché la imagen del compilador de Heroku.
+El parámetro `--pull` especifica que el comando extrae la última imagen del compilador.
 
 La salida del comando muestra el progreso de la compilación e inserción de la imagen. 
 

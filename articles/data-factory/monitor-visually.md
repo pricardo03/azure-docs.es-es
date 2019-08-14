@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53ead1caed47ae442670f0b6bcd54cd84956a759
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60717073"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720616"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
@@ -62,7 +62,7 @@ Vista de lista muestra ejecuciones de actividad correspondiente a cada ejecució
 | Duration | Duración de ejecución (HH) |
 | Status | No se pudo, Se realizó correctamente, En curso |
 | Entrada | Matriz JSON que describe las entradas de actividad |
-| Salida | Matriz JSON que describe las salidas de actividad |
+| Output | Matriz JSON que describe las salidas de actividad |
 | Error | Error de ejecución de actividad (if/any) |
 
 ![Supervisión de las ejecuciones de actividad](media/monitor-visually/activity-runs.png)
@@ -133,6 +133,18 @@ Puede ver el historial de repetición de ejecuciones de todas las ejecuciones de
 También puede ver el historial de repetición de ejecuciones de una ejecución de canalización determinada.
 
 ![Ver el historial de ejecuciones de una canalización](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="gantt-views"></a>Vistas de Gantt
+
+Use las vistas de Gantt para visualizar rápidamente las canalizaciones y ejecuciones de actividad. Puede consultar la vista de Gantt en función de la canalización o el grupo, mediante las anotaciones o etiquetas que haya creado en esas canalizaciones.
+
+![Diagrama de Gantt](media/monitor-visually/gantt1.png)
+
+![Anotaciones de gráfico de Gantt](media/monitor-visually/gantt2.png)
+
+La longitud de la barra le informará de la duración de la canalización. Asimismo, puede hacer clic en la barra para ver más detalles.
+
+![Duración del gráfico de Gantt](media/monitor-visually/gantt3.png)
 
 ## <a name="guided-tours"></a>Visitas guiadas
 Haga clic en el 'Icono de información' en la parte inferior izquierda y haga clic en 'Visitas guiadas' para obtener instrucciones paso a paso sobre cómo supervisar las ejecuciones de actividad y canalización.

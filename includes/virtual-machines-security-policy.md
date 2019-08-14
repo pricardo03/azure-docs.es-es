@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68623107"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843323"
 ---
 Es importante proteger la máquina virtual (VM) para las aplicaciones que se ejecutan. Proteger las máquinas virtuales puede suponer que se incluyan uno o varios servicios y características de Azure que abarcan un acceso seguro a las máquinas virtuales y al almacenamiento seguro de los datos. Este artículo proporciona información que le permite proteger las máquinas virtuales y las aplicaciones.
 
 ## <a name="antimalware"></a>Antimalware
 
-El panorama moderno de amenazas para los entornos de nube es dinámico, lo que aumenta la presión para mantener una protección eficaz a fin de satisfacer los requisitos de cumplimiento y seguridad. [Microsoft Antimalware para Azure](../articles/security/fundamentals/antimalware.md) es una funcionalidad gratuita de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Las alertas se pueden configurar para avisarle cuando software no deseado o malintencionado intenta instalarse o ejecutarse en una máquina virtual.
+El panorama moderno de amenazas para los entornos de nube es dinámico, lo que aumenta la presión para mantener una protección eficaz a fin de satisfacer los requisitos de cumplimiento y seguridad. [Microsoft Antimalware para Azure](../articles/security/fundamentals/antimalware.md) es una funcionalidad gratuita de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Las alertas se pueden configurar para avisarle cuando software no deseado o malintencionado intenta instalarse o ejecutarse en una máquina virtual. No se admite en las máquinas virtuales que ejecutan Linux o Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 

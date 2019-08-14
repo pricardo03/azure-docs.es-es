@@ -10,17 +10,17 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
-ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1f4ba923cb9698a00c8c7c8be6e1b34f09ea1b72
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349299"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840937"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>Aptitud cognitiva Text Translation (Versión preliminar)
+#   <a name="text-translation-cognitive-skill"></a>Aptitud cognitiva Text Translation
 
-La aptitud **Text Translation** evalúa el texto y, para cada registro, devuelve el texto traducido al idioma de destino especificado. Esta aptitud usa [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate), disponible en Cognitive Services.  Aunque actualmente está disponible en la versión de la API de disponibilidad general de Azure Search más reciente, se considera que está en versión preliminar y debe tratarse como tal hasta que se anuncie como disponible con carácter general.
+La aptitud **Text Translation** evalúa el texto y, para cada registro, devuelve el texto traducido al idioma de destino especificado. Esta aptitud usa [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate), disponible en Cognitive Services.
 
 Esta funcionalidad es útil si espera que los documentos no estén en un único idioma, en cuyo caso puede normalizar el texto a un solo idioma antes de la indexación para la búsqueda mediante su traducción.  También es útil para los casos de uso de localización, en los que puede que desee tener copias del mismo texto disponibles en varios idiomas.
 

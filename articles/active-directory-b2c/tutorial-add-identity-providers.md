@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33f595dd36ac9448cc1276647f9943326b0b74c1
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655220"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716657"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Después de crear la aplicación para el proveedor de identidades que quiere agr
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y, después, **Agregar**.
 1. Escriba un **nombre**. Por ejemplo, escriba *Contoso Azure AD*.
-1. Seleccione **Tipo de proveedor de identidades**, seleccione **Open ID Connect (versión preliminar)** y haga clic en **Aceptar**.
+1. Seleccione **Tipo de proveedor de identidades**, seleccione **OpenID Connect (versión preliminar)** y haga clic en **Aceptar**.
 1. Haga clic en **Configurar este proveedor de identidades**.
 1. En **URL de metadatos**, escriba la URL siguiente y sustituya `your-AD-tenant-domain` por el nombre de dominio del inquilino de Azure AD.
 

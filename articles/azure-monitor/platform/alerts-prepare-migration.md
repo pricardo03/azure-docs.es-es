@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015607"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827393"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar las aplicaciones lógicas y los runbooks para la migración de las reglas de alertas clásicas
 
@@ -32,7 +32,7 @@ La tabla siguiente es una referencia a las interfaces de programación para las 
 |         |Alertas clásicas  |Nuevas alertas de métricas |
 |---------|---------|---------|
 |API DE REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|CLI de Azure     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Plantilla del Administrador de recursos de Azure | [Para alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para nuevas alertas de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -44,7 +44,7 @@ Utilice la tabla siguiente para asignar los campos de carga de webhook del forma
 
 |  |Alertas clásicas  |Nuevas alertas de métricas |
 |---------|---------|---------|
-|¿Se activó o resolvió la alerta?    | **estado**       | **data.status** |
+|¿Se activó o resolvió la alerta?    | **status**       | **data.status** |
 |Información contextual sobre la alerta     | **contextoo**        | **data.context**        |
 |Marca de tiempo en que se activó o resolvió la alerta     | **context.timestamp**       | **data.context.timestamp**        |
 | Id. de regla de alerta | **context.id** | **data.context.id** |
@@ -52,7 +52,7 @@ Utilice la tabla siguiente para asignar los campos de carga de webhook del forma
 | Descripción de la regla de alerta | **context.description** | **data.context.description** |
 | Condición de regla de alerta | **context.condition** | **data.context.condition** |
 | Nombre de métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Agregación de tiempo (cómo se agrega la métrica en la ventana de evaluación)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Agregación de tiempo (cómo se agrega la métrica en la ventana de evaluación)| **context.condition.timeAggregation** | **context.condition.timeAggregation** |
 | Período de evaluación | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operador (cómo se compara el valor de métrica agregado con el umbral) | **context.condition.operator** | **data.context.condition.operator** |
 | Umbral | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |

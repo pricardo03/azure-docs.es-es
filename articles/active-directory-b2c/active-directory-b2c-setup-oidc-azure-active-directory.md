@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b867a7f9ffeab3d243c8c094830aa0984cffd04a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654196"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716776"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Si desea habilitar el inicio de sesión para los usuarios de una organización e
 2. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 3. Seleccione **Proveedores de identidades** y, después, **Agregar**.
 4. Escriba un **nombre**. Por ejemplo, escriba: `Contoso Azure AD`.
-5. Seleccione **Tipo de proveedor de identidades**, seleccione **Open ID Connect (versión preliminar)** y haga clic en **Aceptar**.
+5. Seleccione **Tipo de proveedor de identidades**, seleccione **OpenID Connect (versión preliminar)** y haga clic en **Aceptar**.
 6. Seleccione **Configurar este proveedor de identidades**.
 7. En **URL de metadatos**, escriba la dirección URL siguiente, sustituyendo `your-AD-tenant-domain` por el nombre de dominio del inquilino de Azure AD. Por ejemplo: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

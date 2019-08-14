@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638542"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837909"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acceso y personalización del nuevo portal para desarrolladores en Azure API Management
 
@@ -77,6 +77,10 @@ Sí, quedará en desuso después de que el nuevo esté disponible con carácter 
 El objetivo de la disponibilidad general es proporcionar una paridad de características basada en escenarios con el portal anterior. Hasta entonces, la versión preliminar podría no tener las características seleccionadas implementadas.
 
 Las excepciones son las *aplicaciones* y los *problemas* del portal anterior, que no estarán disponibles en el nuevo portal. Si usa los *problemas* del portal anterior y los necesita en el nuevo, publique un comentario en [un problema de GitHub dedicado](https://github.com/Azure/api-management-developer-portal/issues/122).
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>He encontrado errores o me gustaría solicitar una característica.
+
+Estupendo. Puede proporcionarnos comentarios, enviar una solicitud de característica o archivar un informe de errores mediante la [sección de problemas del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/issues). Mientras visita esa sección, también nos gustaría recibir sus comentarios sobre los problemas marcados con la etiqueta `community`.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Quiero trasladar el contenido del nuevo portal entre entornos. ¿Cómo puedo hacerlo?, ¿tengo que usar la versión autohospedada?
 

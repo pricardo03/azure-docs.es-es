@@ -1,24 +1,24 @@
 ---
-title: 'Inicio rápido: Consulta de datos mediante la biblioteca de Python de Azure Data Explorer'
-description: Con esta guía de inicio rápido, obtendrá información sobre cómo utilizar Python para consultar datos en el Explorador de datos de Azure.
+title: Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
+description: En este artículo aprenderá a utilizar Python para consultar datos de Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360240"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827536"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Inicio rápido: Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos para Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite consultar los datos desde el código. En esta guía de inicio rápido, se conecta a una tabla en el *clúster de ayuda* que hemos configurado para facilitar el aprendizaje. A continuación, consulta una tabla en ese clúster, que devuelve los resultados.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos para Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite consultar los datos desde el código. En este artículo se conecta a una tabla en el *clúster de ayuda* que hemos configurado para facilitar el aprendizaje. A continuación, consulta una tabla en ese clúster, que devuelve los resultados.
 
-Esta guía de inicio rápido también está disponible como un [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Este artículo también está disponible como [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,4 +98,4 @@ Debe ver los diez primeros resultados de la tabla StormEvents.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)
+> [Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)

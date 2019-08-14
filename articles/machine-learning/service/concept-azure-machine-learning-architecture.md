@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663487"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828236"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -40,13 +40,13 @@ Normalmente, el flujo de trabajo del modelo de Machine Learning sigue estos paso
 
 1. **Supervisión**: supervise el **desfase de datos** entre el conjunto de datos de entrenamiento y los datos de inferencia de un modelo implementado. Cuando sea necesario, vuelva al paso 1 para volver a entrenar el modelo con nuevos datos de entrenamiento.
 
-## <a name="tools-for-azure-machine-learning"></a>Herramientas para Azure Machine Learning 
+## <a name="tools-for-azure-machine-learning"></a>Herramientas para Azure Machine Learning
 
 Utilice estas herramientas para Azure Machine Learning:
 
 +  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automatice las actividades de aprendizaje automático con la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Escribir código en Visual Studio Code con la [extensión VS Code para Azure Machine Learning](how-to-vscode-tools.md) 
++ Escribir código en Visual Studio Code con la [extensión VS Code para Azure Machine Learning](how-to-vscode-tools.md)
 + Use la [interfaz visual (versión preliminar) de Azure Machine Learning Service](ui-concept-visual-interface.md) para realizar los pasos del flujo de trabajo sin escribir código.
 
 ## <a name="glossary-of-concepts"></a>Glosario de conceptos
@@ -87,7 +87,7 @@ Para obtener más información sobre las áreas de trabajo, consulte [¿Qué es 
 
 Un experimento es una agrupación de varias ejecuciones de un script determinado. Siempre pertenece a un área de trabajo. Cuando envíe una ejecución, proporcione un nombre de experimento. La información de la ejecución se almacena en ese experimento. Si envía una ejecución y especifica un nombre de experimento que no existe, se crea automáticamente un experimento nuevo con ese nombre.
 
-Para obtener un ejemplo del uso de un experimento, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-run-cloud-notebook.md).
+Para obtener un ejemplo del uso de un experimento, consulte [Tutorial: Entrenamiento del primer modelo](tutorial-1st-experiment-sdk-train.md).
 
 ### <a name="models"></a>Modelos
 
@@ -132,9 +132,9 @@ Un **almacén de datos** es una abstracción de almacenamiento en una cuenta de 
 
 ### <a name="compute-targets"></a>Destinos de proceso
 
-Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube. Los destinos de proceso facilitan el cambio entorno de proceso sin cambiar el código. 
+Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube. Los destinos de proceso facilitan el cambio entorno de proceso sin cambiar el código.
 
-Obtenga más información sobre los [destinos de proceso disponibles para el entrenamiento y la implementación](concept-compute-target.md). 
+Obtenga más información sobre los [destinos de proceso disponibles para el entrenamiento y la implementación](concept-compute-target.md).
 
 ### <a name="training-scripts"></a>Scripts de entrenamiento
 
@@ -153,7 +153,6 @@ Una ejecución es un registro que contiene la información siguiente:
 
 Una ejecución se produce cuando se envía un script para entrenar un modelo. Una ejecución puede tener cualquier número de ejecuciones secundarias. Por ejemplo, la ejecución de nivel superior puede tener dos ejecuciones secundarias, cada una de las cuales puede tener sus propias ejecuciones secundarias.
 
-Para obtener un ejemplo de las vistas de ejecución que se producen al entrenar un modelo, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-run-cloud-notebook.md).
 
 ### <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
@@ -222,7 +221,9 @@ Azure IoT Edge garantiza que el módulo se esté ejecutando y supervisa el dispo
 
 ### <a name="ml-pipelines"></a>Canalizaciones de Machine Learning
 
-Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso.
+Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso. 
+
+Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos subsiguientes si la salida de ese paso no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
 
 Para obtener más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
 

@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672128"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841208"
 ---
 # <a name="custom-web-api-skill"></a>Aptitud API web personalizada
 
@@ -26,6 +26,7 @@ La estructura de las cargas JSON se describen con mayor detalle más adelante en
 
 > [!NOTE]
 > El indizador realizará dos reintentos para ciertos códigos de estado HTTP estándar devueltos desde la API web. Estos códigos de estado HTTP son: 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -41,7 +42,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | uri | URI de la API web adonde se enviará la carga de _JSON_. Solo se permite el esquema de URI **https** |
 | httpMethod | Método que se usará al enviar la carga. Los métodos permitidos son `PUT` o `POST` |
 | httpHeaders | Colección de pares clave-valor donde las claves representan los nombres de encabezados y los valores representan los valores de encabezados que se enviarán a la API web junto con la carga. Estos encabezados no se permiten en esta colección: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Opcional) Cuando se especifica, indica el tiempo de expiración del cliente http que hace la llamada API. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por ejemplo, `PT60S` para 60 segundos. Si no se establece, se elige el valor predeterminado de 30 segundos. El tiempo de expiración se puede establecer en un máximo de 90 segundos y un mínimo de 1. |
+| timeout | (Opcional) Cuando se especifica, indica el tiempo de expiración del cliente http que hace la llamada API. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por ejemplo, `PT60S` para 60 segundos. Si no se establece, se elige el valor predeterminado de 30 segundos. El tiempo de expiración se puede establecer en un máximo de 230 segundos y un mínimo de 1. |
 | batchSize | (Opcional) Indica cuántos "registros de datos" (consulte la estructura de la carga de _JSON_ que se muestra más adelante) se enviarán por llamada API. Si no se establece, se elige un valor predeterminado de 1000. Se recomienda usar este parámetro para lograr un equilibrio adecuado entre el rendimiento de la indexación y la carga en la API |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud

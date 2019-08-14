@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 08/01/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 815ff980abdde7ab91861d8550030476312fb6d3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483007"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835168"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
@@ -115,6 +115,9 @@ Estos ámbitos le permiten codificar la aplicación en un modo de divulgación m
 ## <a name="token-claims"></a>Notificaciones de token
 
 El punto de conexión de la Plataforma de identidad de Microsoft emite un conjunto más pequeño de notificaciones en sus tokens de manera predeterminada para mantener el tamaño reducido de las cargas. Si tiene aplicaciones y servicios que tienen una dependencia de una notificación concreta en un token de v1.0 que ya no se proporciona de manera predeterminada en un token de la Plataforma de identidad de Microsoft, considere el uso de la característica [notificaciones opcionales](active-directory-optional-claims.md) para incluir esa notificación.
+
+> [!IMPORTANT]
+> Los puntos de conexión de las versiones v1.0 y v2.0 pueden emitir tokens v1.0 y v2.0. Los tokens id_tokens *siempre* coinciden con el punto de conexión desde el que se los solicita, y los tokens de acceso *siempre* coinciden con el formato que espera la API web a la que el cliente llamará mediante ese token.  Por lo tanto, si la aplicación usa el punto de conexión v2.0 para obtener un token para llamar a Microsoft Graph, el cual espera tokens de acceso de formato v1.0, la aplicación recibirá un token con el formato v1.0.  
 
 ## <a name="limitations"></a>Limitaciones
 

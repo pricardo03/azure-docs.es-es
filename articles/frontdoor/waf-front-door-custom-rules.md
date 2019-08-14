@@ -10,20 +10,20 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 344e04985c52945b2917d3b5f616d5fca6051ab9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846260"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839762"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para el firewall de aplicaciones web con Azure Front Door
-El servicio del firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de las condiciones de coincidencia, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones de coincidencia y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. En este artículo se describen las reglas de coincidencia que se basan en parámetros HTTP.
+El servicio del firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de un conjunto de condiciones coincidentes, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones coincidentes y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Prioridad, condiciones de coincidencia y tipos de acción
-Puede controlar el acceso con una regla WAF personalizada que defina un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. 
+Puede controlar el acceso con una regla WAF personalizada que defina un número de prioridad, un tipo de regla, una matriz de condiciones de coincidencia y una acción. 
 
-- **Prioridad:** es un entero único que describe el orden de evaluación de las reglas WAF. Las reglas con valores más bajos se evalúan antes que las reglas con valores más altos.
+- **Prioridad:** es un entero único que describe el orden de evaluación de las reglas WAF. Las reglas con valores de prioridad más bajos se evalúan antes que las reglas con valores más altos. Los números de prioridad deben ser únicos entre todas las reglas personalizadas.
 
 - **Acción:** define cómo enrutar una solicitud si coincide con una regla WAF. Puede elegir una de las siguientes acciones para que se aplique cuando una solicitud coincida con una regla personalizada.
 
@@ -32,19 +32,17 @@ Puede controlar el acceso con una regla WAF personalizada que defina un número 
     - *Registro*: WAF registra una entrada en los registros de WAF y continúa evaluando la regla siguiente.
     - *Redirigir*: WAF redirige la solicitud a un URI especificado, registra una entrada en los registros de WAF y se cierra.
 
-- **Condición de coincidencia**: define una variable de coincidencia, un operador y un valor de coincidencia. Cada regla puede contener varias condiciones de coincidencia. Una condición de coincidencia puede basarse en las siguientes *variables de coincidencia*:
-    - RemoteAddr (IP de cliente)
+- **Condición de coincidencia**: define una variable de coincidencia, un operador y un valor de coincidencia. Cada regla puede contener varias condiciones de coincidencia. Una condición de coincidencia se puede basar en la ubicación geográfica, las direcciones IP del cliente (CIDR), el tamaño o la coincidencia de cadenas. La coincidencia de cadenas puede ser en una lista de variables de coincidencia.
+  - **Variable de coincidencia:**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- **Operador**: la lista incluye los elementos que se indican a continuación.
+    - Cookies
+  - **Operador:**
     - Any: a menudo se usa para definir la acción predeterminada si ninguna regla coincide. Any es un operador de coincidencia de todo.
-    - IPMatch: defina una restricción de IP para la variable RemoteAddr.
-    - GeoMatch: defina un filtrado geográfico para la variable RemoteAddr.
     - Igual
     - Contains
     - LessThan: restricción del tamaño.
@@ -52,26 +50,46 @@ Puede controlar el acceso con una regla WAF personalizada que defina un número 
     - LessThanOrEqual: restricción del tamaño.
     - GreaterThanOrEqual: restricción del tamaño.
     - BeginsWith
-     - EndsWith
+    - EndsWith
+    - Regex
+  
+  - **Regex** no admite las operaciones siguientes: 
+    - Referencias inversas y captura de subexpresiones
+    - Aserciones arbitrarias de ancho cero
+    - Referencias de subrutinas y patrones recursivos
+    - Patrones condicionales
+    - Verbos de control de retroceso
+    - Directiva de un solo byte \C
+    - Directiva de coincidencia de nueva línea \R
+    - Directiva de inicio de restablecimiento de coincidencia \K
+    - Llamadas y código insertado
+    - Agrupación atómica y cuantificadores de posesivos
 
-Puede establecer la condición *negate* para que sea true si el resultado de una condición debe negarse.
-
-El valor de coincidencia (*Match value*) define la lista de valores de coincidencia posibles.
-Los valores del método de solicitud HTTP admitidos incluyen:
-- GET
-- POST
-- PUT
-- HEAD
-- DELETE
-- LOCK
-- UNLOCK
-- PROFILE
-- OPCIONES
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- COPY
-- MOVE
+  - **Negate [opcional]:** Puede establecer la condición *negate* para que sea true si el resultado de una condición debe negarse.
+      
+  - **Transform [opcional]:** Una lista de cadenas con los nombres de las transformaciones que se van a realizar antes de la coincidencia. Pueden ser las siguientes:
+     - Uppercase 
+     - Minúsculas
+     - Trim
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **Valor de coincidencia:** Los valores del método de solicitud HTTP admitidos incluyen:
+     - GET
+     - POST
+     - PUT
+     - HEAD
+     - DELETE
+     - LOCK
+     - UNLOCK
+     - PROFILE
+     - OPCIONES
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - COPY
+     - MOVE
 
 ## <a name="examples"></a>Ejemplos
 

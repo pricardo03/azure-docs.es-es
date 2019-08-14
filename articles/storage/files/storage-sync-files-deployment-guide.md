@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699418"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840608"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -381,7 +381,7 @@ Los pasos recomendados para la incorporación en Azure File Sync por primera vez
 6. Una vez finalizada la carga inicial, instalar el agente de Azure File Sync en cada uno de los demás servidores.
 7. Crear nuevos recursos compartidos de archivos en cada uno de los demás servidores.
 8. Crear puntos de conexión de servidor en nuevos recursos compartidos de archivos con la directiva de niveles de nube, si lo desea. (Este paso requiere que haya almacenamiento adicional disponible para la instalación inicial).
-9. Permitir que el agente de Azure File Sync realice una restauración rápida del espacio de nombres completo sin la transferencia de datos real. Después de la sincronización del espacio de nombres completo, el motor de sincronización rellenará el espacio en disco local en función de la directiva de niveles de nube para el punto de conexión del servidor. 
+9. Deje que el agente de Azure File Sync realice una restauración rápida del espacio de nombres completo sin la transferencia de datos real. Después de la sincronización del espacio de nombres completo, el motor de sincronización rellenará el espacio en disco local en función de la directiva de niveles de nube para el punto de conexión del servidor. 
 10. Asegúrese de que la sincronización finaliza y pruebe la topología según sea necesario. 
 11. Redirigir a los usuarios y las aplicaciones a este recurso compartido nuevo.
 12. Si lo desea, se pueden eliminar todos los recursos compartidos duplicados en los servidores.

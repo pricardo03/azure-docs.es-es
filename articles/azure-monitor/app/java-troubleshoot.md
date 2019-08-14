@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061139"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742198"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
@@ -35,7 +35,7 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 * Compruebe que no haya ningún nodo `<DisableTelemetry>true</DisableTelemetry>` en el archivo xml.
 * En el firewall, es posible que tenga que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com. Consulte la [lista completa de excepciones del firewall](../../azure-monitor/app/ip-addresses.md)
 * En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
-* Active el inicio de sesión en la ventana de la consola del IDE. Para ello, agregue un elemento `<SDKLogger />` bajo el nodo raíz en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto) y compruebe si hay entradas precedidas por la indicación AI: INFO/WARN/ERROR para cualquier registro sospechoso.
+* [Active el inicio de sesión](#debug-data-from-the-sdk). Para ello, agregue un elemento `<SDKLogger />` bajo el nodo raíz en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto) y compruebe si hay entradas precedidas por la indicación AI: INFO/WARN/ERROR para cualquier registro sospechoso. 
 * Asegúrese de que se ha cargado correctamente el archivo ApplicationInsights.xml apropiado por parte del SDK de Java, examinando para ello los mensajes de salida de la consola para ver si hay una instrucción que haga referencia a que "el archivo de configuración se ha encontrado correctamente".
 * Si no se encuentra el archivo de configuración, compruebe los mensajes de salida para ver dónde se busca el archivo de configuración, y asegúrese de que ApplicationInsights.xml se encuentra en una de las ubicaciones de búsqueda. Como regla general, puede colocar el archivo de configuración cerca de los JAR de SDK de Application Insights. Por ejemplo: en Tomcat, esto significaría la carpeta WEB-INF/classes. Durante el desarrollo, puede colocar el archivo ApplicationInsights.xml en la carpeta de recursos del proyecto web.
 * Consulte también la [página de problemas de GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para ver los problemas conocidos relacionados con el SDK.
@@ -110,7 +110,7 @@ Para más información sobre lo que sucede en la API, agregue `<SDKLogger/>` baj
 También puede indicar al registrador que lo envíe a un archivo:
 
 ```XML
-  <SDKLogger type="FILE">
+  <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
@@ -119,7 +119,7 @@ También puede indicar al registrador que lo envíe a un archivo:
 
 ### <a name="spring-boot-starter"></a>Spring Boot Starter
 
-Para habilitar el registro del SDK con aplicaciones de Spring Boot con Spring Boot Starter de Application Insights, agregue lo siguiente al archivo `application.properties`:
+Para habilitar los registros del SDK con aplicaciones de Spring Boot mediante Spring Boot Starter de Application Insights, agregue lo siguiente al archivo `application.properties`:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,16 +127,38 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
+o para imprimir si se produce un error estándar:
+
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
 ### <a name="java-agent"></a>Agente de Java
 
-Para habilitar la actualización del registro del agente de JVM, actualice el [archivo AI-Agent.xml](java-agent.md).
+Para habilitar la actualización del registro del agente de JVM, actualice el [archivo AI-Agent.xml](java-agent.md):
 
 ```xml
-<AgentLogger type="FILE">
+<AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
+```
+
+### <a name="java-command-line-properties"></a>Propiedades de la línea de comandos de Java
+_A partir de la versión 2.4.0_
+
+Para habilitar el registro con opciones de la línea de comandos, sin cambiar los archivos de configuración:
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+o para imprimir si se produce un error estándar:
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>Pantalla de inicio de Azure
@@ -146,7 +168,7 @@ No, este muestra el estado de los servidores de Azure en todo el mundo.
 
 *¿Cómo puedo encontrar datos sobre mi aplicación desde el panel de inicio de Azure (pantalla principal)?*
 
-Suponiendo que haya [configurado la aplicación para Application Insights][java], haga clic en Examinar, seleccione Application Insights y, después, elija el recurso de aplicación que haya creado para su aplicación. Para mayor brevedad en un futuro, puede anclar la aplicación al panel de inicio.
+Suponiendo [configuró la aplicación para Application Insights][java], haga clic en Examinar, seleccione Application Insights y, después, elija el recurso de aplicación que haya creado para su aplicación. Para mayor brevedad en un futuro, puede anclar la aplicación al panel de inicio.
 
 ## <a name="intranet-servers"></a>Servidores de intranet
 **¿Puedo supervisar un servidor de mi intranet?**
@@ -171,10 +193,10 @@ Application Insights usa `org.apache.http`. Se reubica en los archivos JAR princ
 **He configurado Application Insights para mi aplicación de servidor Java. ¿Qué más puedo hacer?**
 
 * [Supervisar la disponibilidad de sus páginas web][availability]
-* [Supervisar el uso de páginas web][usage]
+* [Supervisar el uso de las páginas web][usage]
 * [Realizar el seguimiento del uso y diagnosticar los problemas en las aplicaciones de su dispositivo][platforms]
 * [Escribir código para realizar un seguimiento del uso de la aplicación][track]
-* [Captura de registros de diagnóstico][javalogs]
+* [Capturar los registros de diagnóstico][javalogs]
 
 ## <a name="get-help"></a>Obtención de ayuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)

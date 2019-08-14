@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512852"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716688"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -54,7 +54,7 @@ En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -133,18 +133,18 @@ El elemento **JourneyInsights** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Sí | El valor tiene que ser `ApplicationInsights`. | 
+| TelemetryEngine | Sí | El valor tiene que ser `ApplicationInsights`. |
 | InstrumentationKey | Sí | Cadena que contiene la clave de instrumentación para el elemento de Application Insights. |
 | DeveloperMode | Sí | Valores posibles: `true` o `false`. Si es `true`, Application Insights acelera la telemetría a través de la canalización de procesamiento. Esta configuración es adecuada para el desarrollo, pero está limitada a grandes volúmenes. Los registros de actividad detallados solo están diseñados para contribuir en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción. Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo. Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece. Estos registros detallados solo se recopilan cuando este valor se establece en `true`.|
-| ClientEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el script del lado cliente ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente. | 
-| ServerEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el JSON UserJourneyRecorder existente como evento personalizado a Application Insights. | 
-| TelemetryVersion | Sí | El valor tiene que ser `1.0.0`. | 
+| ClientEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el script del lado cliente ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente. |
+| ServerEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el JSON UserJourneyRecorder existente como evento personalizado a Application Insights. |
+| TelemetryVersion | Sí | El valor tiene que ser `1.0.0`. |
 
 Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
-Mediante el uso de las directivas de Azure AD B2C, puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. Azure AD B2C pasa los parámetros de la cadena de consulta al archivo HTML dinámico, como un archivo .aspx. 
+Mediante el uso de las directivas de Azure AD B2C, puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. Azure AD B2C pasa los parámetros de la cadena de consulta al archivo HTML dinámico, como un archivo .aspx.
 
 En el ejemplo siguiente se pasa un parámetro denominado `campaignId` con un valor de `hawaii` en la cadena de consulta:
 
@@ -169,7 +169,7 @@ Para obtener más información, vea [Configuración de la interfaz de usuario co
 El elemento **TechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | Id | Sí | El valor tiene que ser `PolicyProfile`. |
 
 El elemento **TechnicalProfile** contiene los elementos siguientes:
@@ -217,7 +217,7 @@ El elemento **SubjectNamingInfo** contiene el siguiente atributo:
 | --------- | -------- | ----------- |
 | ClaimType | Sí | Una referencia a un **PartnerClaimType** de una notificación de salida. La notificación de salida debe definirse en la colección **OutputClaims** de la directiva del usuario de confianza. |
 
-En el ejemplo siguiente se muestra cómo definir un usuario de confianza de OpenId Connect. La información sobre el nombre del asunto se configura como `objectId`:
+En el ejemplo siguiente se muestra cómo definir un usuario de confianza de OpenID Connect. La información sobre el nombre del asunto se configura como `objectId`:
 
 ```XML
 <RelyingParty>

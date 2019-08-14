@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567460"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779043"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -79,9 +79,9 @@ Si las dos generaciones de hardware no se admiten en la misma región, es posibl
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>¿Cómo se optimiza el rendimiento de una instancia administrada? 
 
-Una instancia administrada de uso general usa el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para optimizar el rendimiento del nivel de servicio de uso general, siga las instrucciones de esta entrada de blog.
+Una instancia administrada de uso general usa el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para obtener más información, consulte [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e) (Impacto del tamaño del archivo de registro en el rendimiento de la Instancia administrada de uso general).
 
-En el caso de cargas de trabajo con un uso intensivo de E/S, considere la posibilidad de uso de hardware de Gen 5, mientras que se recomienda usar Gen 4 en las que haya un uso elevado de procesos. Para más información, consulte en la sección de preguntas frecuentes cómo elegir la generación de hardware.
+En el caso de cargas de trabajo con un uso intensivo de E/S, considere la posibilidad de uso de hardware de Gen 5, mientras que se recomienda usar Gen 4 en las que haya un uso elevado de procesos. Para obtener más información, consulte [Cómo elegir entre Gen 4 y Gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance).
 
 Si la carga de trabajo consta de muchas transacciones pequeñas, considere la posibilidad de cambiar el tipo de conexión de proxy a modo de redirección.
 

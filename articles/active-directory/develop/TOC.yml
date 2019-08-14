@@ -295,6 +295,8 @@
               href: v2-oauth2-device-code.md
             - name: Concesión de credenciales de contraseña de propietario del recurso OAuth 2.0
               href: v2-oauth-ropc.md
+            - name: Flujo de aserción del portador de SAML de OAuth 2.0
+              href: v2-saml-bearer-assertion.md
             - name: Sustitución de claves de firmas
               href: active-directory-signing-key-rollover.md
             - name: Tokens de identificador

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688594"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827576"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -71,7 +71,7 @@ El usuario debe eliminar el bloqueo y borrar la colección de puntos de restaura
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>¿Admite Azure Backup los discos administrados SSD estándar?
-Azure Backup admite los [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Los discos administrados SSD proporcionan un nuevo tipo de almacenamiento duradero para las máquinas virtuales de Azure. Se proporciona compatibilidad con discos SSD administrados en la [restauración instantánea](backup-instant-restore-capability.md).
+Sí, Azure Backup admite [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
 No se pueden tomar instantáneas en un disco habilitado para el Acelerador de escritura. No obstante, el servicio Azure Backup puede excluir este tipo de disco de la copia de seguridad.
@@ -119,7 +119,7 @@ Sí. Incluso si elimina la máquina virtual, puede ir al elemento de la copia de
 Para una máquina virtual de Azure con discos administrados, se puede habilitar la restauración en los conjuntos de disponibilidad proporcionando una opción en una plantilla mientras se restaura como discos administrados. Esta plantilla tiene el parámetro de entrada denominado **Conjuntos de disponibilidad**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>¿Cómo se consiguen rendimientos de restauración más rápidos?
-Para mejorar el rendimiento de restauración, nos estamos trasladando a la funcionalidad [restauración instantánea](backup-instant-restore-capability.md).
+La funcionalidad [Restauración instantánea](backup-instant-restore-capability.md) ayuda en copias de seguridad y restauraciones de las instantáneas más rápidas.
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

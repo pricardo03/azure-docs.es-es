@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481719"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834636"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -72,14 +72,17 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
       1. Ruta de acceso de la clave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nombre del valor: **TenantName**
       1. Tipo de valor: **REG_SZ**
-      1. Datos del valor: El **nombre de dominio** comprobado en Azure AD (por ejemplo, `contoso.onmicrosoft.com` o cualquier otro nombre de dominio comprobado en el directorio)
+      1. Datos del valor: El **nombre de dominio** comprobado si usa un entorno federado como AD FS. Su "nombre de dominio" o el nombre de dominio de onmicrosoft.com comprobados, por ejemplo, `contoso.onmicrosoft.com` si usa un entorno administrado
    1. Haga clic en **Aceptar**
 1. Cierre el editor para el GPO recién creado.
 1. Vincule el GPO recién creado a la OU deseada que contiene equipos unidos a un dominio que pertenecen a la población de lanzamiento controlado
 
 ### <a name="configure-ad-fs-settings"></a>Configuración de AD FS
 
-Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente, pero vinculando el GPO a los servidores de AD FS. Esta configuración es necesaria para que AD FS establezca el origen de identidades de dispositivo como Azure AD.
+Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente, pero vinculando el GPO a los servidores de AD FS. El objeto SCP define el origen de autoridad de los objetos del dispositivo. Puede ser local o Azure AD. Cuando se configura para AD FS, el origen de los objetos del dispositivo se establece como Azure AD.
+
+> [!NOTE]
+> Si no pudo configurar SCP en el lado del cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local y AD FS iniciaría la eliminación de los objetos de dispositivo del directorio local después de un período estipulado.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validación controlada de la unión a Azure AD híbrido en dispositivos Windows de nivel inferior
 

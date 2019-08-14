@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414133"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742205"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -40,9 +40,11 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión integral 
 * Configurar alertas que le avisen de forma proactiva si el uso de CPU y memoria en los nodos o contenedores supera los umbrales o alertas que lo registren.
 * Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
 
->[!NOTE]
->La compatibilidad con Prometheus es una característica que se encuentra en versión preliminar pública en este momento.
->
+    >[!NOTE]
+    >La compatibilidad con Prometheus es una característica que se encuentra en versión preliminar pública en este momento.
+    >
+
+* Supervise las cargas de trabajo de contenedor [implementadas en el motor de AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Consulte el siguiente vídeo, que proporciona un análisis detallado de nivel intermedio para ayudarle a obtener información sobre cómo supervisar el clúster de AKS con Azure Monitor para contenedores.
 

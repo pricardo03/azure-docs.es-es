@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150868"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827461"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -27,11 +27,11 @@ ms.locfileid: "65150868"
 > * [Versión 1](v1/data-factory-data-movement-activities.md)
 > * [Versión actual](copy-activity-overview.md)
 
-En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden analizar y transformar con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
+En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden utilizar otras actividades para analizarlos y transformarlos con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
 
 ![Rol de actividad de copia](media/copy-activity-overview/copy-activity.png)
 
-La actividad de copia se ejecuta en una instancia de [Integration Runtime](concepts-integration-runtime.md). Para otro escenario de copia de datos, se puede usar otro tipo de Integration Runtime:
+La actividad de copia se ejecuta en una instancia de [Integration Runtime](concepts-integration-runtime.md). Para otro escenario de copia de datos, se pueden usar otros tipos de Integration Runtime:
 
 * Cuando copie datos entre almacenes de datos y ambos sean accesibles públicamente, la actividad de copia puede usar **Azure Integration Runtime**, que es seguro, confiable, escalable y con carácter de [disponibilidad global](concepts-integration-runtime.md#integration-runtime-location).
 * Cuando copie datos con almacenes de datos como origen o destino ubicados en el entorno local o en una red con control de acceso (por ejemplo, Azure Virtual Network), debe configurar una instancia de **Integrated Runtime autohospedado** para impulsar la copia de datos.
@@ -159,7 +159,7 @@ Haga clic para ver la lista de actividades de esta ejecución de canalización. 
 Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de la ejecución y las características de rendimiento de la actividad de copia. Muestra información, incluidos el volumen, las filas y los archivos de los datos copiados desde el origen al receptor, el rendimiento, los pasos que recorre con su duración correspondiente y las configuraciones usadas para el escenario de copia.
 
 >[!TIP]
->En algunos casos, también verá el mensaje "**Sugerencias para la optimización del rendimiento**" en la parte superior de la página de supervisión de copias, que le informa sobre el cuello de botella identificado y le guía por las opciones que puede cambiar con el fin de mejorar el rendimiento de la copia. Puede ver el ejemplo con detalles [aquí](#performance-and-tuning).
+>En algunos casos, también verá el mensaje "**Performance tuning tips**" (Sugerencias para la optimización del rendimiento) en la parte superior de la página de supervisión de copias, que le informa sobre el cuello de botella identificado y le guía por las opciones que puede cambiar con el fin de aumentar el rendimiento de la copia. Puede ver un ejemplo con detalles [aquí](#performance-and-tuning).
 
 **Ejemplo: copia de Amazon S3 a Azure Data Lake Store**
 ![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -177,11 +177,13 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | dataWritten | Tamaño de los datos escritos en el receptor | Valor Int64 en **bytes** |
 | filesRead | Número de archivos que se copia al copiar datos desde el almacenamiento de archivos. | Valor Int64 (sin unidad) |
 | filesWritten | Número de archivos que se copia al copiar datos al almacenamiento de archivos. | Valor Int64 (sin unidad) |
+| sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
+| sinkPeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
 | rowsRead | Número de filas que se leen desde el origen (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
 | rowsCopied | Número de filas que se copian en el receptor (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
-| throughput | Proporción de transferencia de los datos. | Número de punto flotante en **KB/s** |
 | copyDuration | Duración de la copia. | Valor Int32 en segundos |
+| throughput | Proporción de transferencia de los datos. | Número de punto flotante en **KB/s** |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas con el almacén de datos de origen durante la copia. | Valor Int32 |
 | sinkPeakConnections| Número máximo de conexiones simultáneas establecidas con el almacén de datos de receptor durante la copia.| Valor Int32 |
 | sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
@@ -189,39 +191,51 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Boolean |
 | effectiveIntegrationRuntime | Muestra el tipo de Integration Runtime que se usa para impulsar la ejecución de actividad con el formato "`<IR name> (<region if it's Azure IR>)`". | Texto (cadena) |
 | usedDataIntegrationUnits | Unidades de integración de datos vigentes durante la copia. | Valor Int32 |
-| usedParallelCopies | El número de parallelCopies efectivo durante la copia. | Valor Int32|
+| usedParallelCopies | El número de parallelCopies efectivo durante la copia. | Valor Int32 |
 | redirectRowPath | Ruta de acceso al registro de las filas incompatibles omitidas en la instancia de Blob Storage que configura en "redirectIncompatibleRowSettings". Consulte el ejemplo siguiente. | Texto (cadena) |
-| executionDetails | Más detalles sobre las fases por las que pasa la actividad de copia y los pasos, la duración, las configuraciones usadas, etc. correspondientes. No se recomienda analizar esta sección, porque podría modificarse. | Matriz |
+| executionDetails | Más detalles sobre las fases por las que pasa la actividad de copia y los pasos, la duración, las configuraciones usadas, etc. correspondientes. No se recomienda analizar esta sección, porque podría modificarse.<br/><br/>ADF también informa sobre las duraciones detalladas (en segundos) empleadas en los pasos correspondientes en `detailedDurations`:<br/>- **Duración de puesta en cola** (`queuingDuration`): tiempo hasta que la actividad de copia se inicia realmente en el entorno de ejecución de integración. Si usa un IR autohospedado y este valor es grande, le recomendamos que compruebe la capacidad y el uso del entorno, y que lo escale vertical u horizontalmente según la carga de trabajo. <br/>- **Duración del script anterior a la copia** (`preCopyScriptDuration`): tiempo empleado en ejecutar el script anterior a la copia en el almacén de datos receptor. Se aplica cuando se configura el script anterior a la copia. <br/>- **Tiempo hasta el primer byte** (`timeToFirstByte`): tiempo que el entorno de ejecución de integración tarda en recibir el primer byte del almacén de datos de origen. Se aplica en un origen no basado en archivos. Si este valor es grande, se recomienda comprobar y optimizar la consulta o el servidor.<br/>- **Duración de la transferencia** (`transferDuration`): tiempo para que el entorno de ejecución de integración transfiera todos los datos del origen al receptor después de obtener el primer byte. | Array |
+| perfRecommendation | Sugerencias de optimización del rendimiento de la copia. Consulte la sección sobre [Rendimiento y optimización](#performance-and-tuning) para más detalles. | Array |
 
 ```json
 "output": {
-    "dataRead": 107280845500,
-    "dataWritten": 107280845500,
-    "filesRead": 10,
-    "filesWritten": 10,
-    "copyDuration": 224,
-    "throughput": 467707.344,
+    "dataRead": 6198358,
+    "dataWritten": 19169324,
+    "filesRead": 1,
+    "sourcePeakConnections": 1,
+    "sinkPeakConnections": 2,
+    "rowsRead": 39614,
+    "rowsCopied": 39614,
+    "copyDuration": 1325,
+    "throughput": 4.568,
     "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedDataIntegrationUnits": 32,
-    "usedParallelCopies": 8,
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
+    "usedDataIntegrationUnits": 4,
+    "usedParallelCopies": 1,
     "executionDetails": [
         {
             "source": {
-                "type": "AmazonS3"
+                "type": "AzureBlobStorage"
             },
             "sink": {
-                "type": "AzureDataLakeStore"
+                "type": "AzureSqlDatabase"
             },
             "status": "Succeeded",
-            "start": "2018-01-17T15:13:00.3515165Z",
-            "duration": 221,
-            "usedDataIntegrationUnits": 32,
-            "usedParallelCopies": 8,
+            "start": "2019-08-06T01:01:36.7778286Z",
+            "duration": 1325,
+            "usedDataIntegrationUnits": 4,
+            "usedParallelCopies": 1,
             "detailedDurations": {
                 "queuingDuration": 2,
-                "transferDuration": 219
+                "preCopyScriptDuration": 12,
+                "transferDuration": 1311
             }
+        }
+    ],
+    "perfRecommendation": [
+        {
+            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
+            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
+            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
         }
     ]
 }
@@ -248,7 +262,7 @@ En este ejemplo, durante la ejecución de la copia, ADF percibe que la instancia
 ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copia incremental
-Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen en uno de destino. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md).
+Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen a uno receptor. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Lectura y escritura de datos con particiones
 En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión actual, este comportamiento se logra mediante un parámetro de canalización y la hora de inicio o la hora programada del desencadenador como valor del parámetro. Para más información, consulte [How to read and write large data files](how-to-read-write-partitioned-data.md) (Cómo leer o escribir datos con particiones).

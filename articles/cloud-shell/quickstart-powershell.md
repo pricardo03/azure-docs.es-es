@@ -1,6 +1,6 @@
 ---
-title: Inicio rápido de PowerShell en Azure Cloud Shell | Microsoft Docs
-description: Guía de inicio rápido de PowerShell en Cloud Shell
+title: Guía de inicio rápido de Azure Cloud Shell | Microsoft Docs
+description: Guía de inicio rápido de Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199540"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742003"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell
 

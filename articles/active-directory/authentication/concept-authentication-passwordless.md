@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80b359be0a6249327ba1ba1d51ffbc330bb073
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711969"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823788"
 ---
 # <a name="what-is-passwordless"></a>¿Qué quiere decir sin contraseña?
 
@@ -26,11 +26,13 @@ La autenticación multifactor (MFA) es una excelente manera de proteger la organ
 | --- | --- | --- |
 | Inicio de sesión sin contraseña | Clave de seguridad o teléfono | PIN o biométrica |
 
-Microsoft es consciente de que cada organización tiene diferentes necesidades en cuanto a la autenticación. Actualmente, ofrece Windows Hello, la experiencia sin contraseña Premier para equipos Windows. Se están agregando nuevas credenciales a la familia sin contraseña: Aplicación Microsoft Authenticator y claves de seguridad FIDO2.
+Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece actualmente Windows Hello, nuestra solución para equipos Windows. Incorporamos la aplicación Microsoft Authenticator y las claves de seguridad FIDO2 a la familia de las opciones sin contraseñas.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicación Microsoft Authenticator
 
 Permita que el teléfono del empleado se convierta en un método de autenticación sin contraseña. Es posible que ya esté usando la aplicación Microsoft Authenticator como una opción de autenticación multifactor cómoda sumada a una contraseña. Pero ahora está disponible como una opción sin contraseña.
+
+![Inicio de sesión en Microsoft Edge con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Convierte cualquier teléfono iOS o Android en una credencial sin contraseña segura al permitir a los usuarios iniciar sesión en cualquier plataforma o explorador mediante la recepción de una notificación en su teléfono, la coincidencia de un número que aparece en la pantalla con el de su teléfono y luego el uso de su biométrica (toque o cara) o PIN para confirmar.
 
@@ -40,11 +42,13 @@ Las claves de seguridad FIDO2 son un método de autenticación sin contraseña b
 
 En la versión preliminar pública, los empleados pueden usar claves de seguridad externas para iniciar sesión en sus equipos Windows 10 unidos a Azure Active Directory (con la versión 1809 o superior) y lograr el inicio de sesión único en sus recursos de nube. También pueden iniciar sesión en exploradores compatibles.
 
+![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
+
 Aunque hay muchas claves certificadas como FIDO2 por FIDO Alliance, Microsoft requiere la implementación de algunas extensiones opcionales de la especificación FIDO2 CTAP por parte del proveedor para garantizar la máxima seguridad y la mejor experiencia.
 
 Una clave de seguridad **DEBE** implementar las siguientes extensiones y características del protocolo FIDO2 CTAP para ser compatible con Microsoft:
 
-| # | Confianza de característica o extensión | ¿Por qué se requiere? |
+| # | Confianza de característica o extensión | ¿Por qué se requiere esta característica o extensión? |
 | --- | --- | --- |
 | 1 | Clave residente | Esta característica permite que la clave de seguridad sea portátil, ya que la credencial se almacena en la clave de seguridad. |
 | 2 | PIN de cliente | Esta característica permite proteger las credenciales con un segundo factor y se aplica a las claves de seguridad que no tienen una interfaz de usuario. |
@@ -67,16 +71,18 @@ Las claves de seguridad FIDO2 son una excelente opción para las empresas que so
 
 ## <a name="what-scenarios-work-with-the-preview"></a>¿Qué escenarios funcionan con la versión preliminar?
 
-1. Los administradores pueden habilitar métodos de autenticación sin contraseña para su inquilino
-1. Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método
-1. Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
-1. Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña
-   1. Aplicación Microsoft Authenticator: funciona en todos los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
-   1. Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 versión 1809 o superior e Internet en exploradores compatibles como Microsoft Edge.
+- Los administradores pueden habilitar métodos de autenticación sin contraseña para su inquilino
+- Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método
+- Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
+- Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña
+   - Aplicación Microsoft Authenticator: funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
+   - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 versión 1809 o superior e Internet en exploradores compatibles como Microsoft Edge.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilitar opciones sin contraseña en la organización](howto-authentication-passwordless-enable.md)
+[Habilitar opciones sin contraseña de clave de seguridad FIDO2 en la organización](howto-authentication-passwordless-security-key.md)
+
+[Habilitar opciones sin contraseña basadas en teléfono en la organización](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Vínculos externos
 

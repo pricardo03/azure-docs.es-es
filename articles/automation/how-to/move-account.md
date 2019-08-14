@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a82358a2194f10a2112ed89109f0f2933dfd5fe2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478609"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717242"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Traslado de la cuenta de Azure Automation a otra suscripción
 
-Azure ofrece la posibilidad de mover algunos recursos a un nuevo grupo de recursos o a una nueva suscripción. Puede mover recursos mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Para más información sobre el proceso, consulte [Movimiento de recursos a un grupo de recursos o suscripción nuevos](../../azure-resource-manager/resource-group-move-resources.md). 
+Azure ofrece la posibilidad de mover algunos recursos a un nuevo grupo de recursos o a una nueva suscripción. Puede mover recursos mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Para más información sobre el proceso, consulte [Movimiento de recursos a un grupo de recursos o suscripción nuevos](../../azure-resource-manager/resource-group-move-resources.md).
 
 Las cuentas de Azure Automation son uno de los recursos que se pueden mover. En este artículo, conocerá los pasos para mover cuentas de Automation a otro recurso o suscripción.
 
@@ -34,8 +34,8 @@ Los pasos generales para mover la cuenta de Automation son:
 
 Para desvincular área de trabajo de la cuenta de Automation, se deben eliminar estas soluciones del área de trabajo:
 - **Change Tracking e Inventario**
-- **Administración de actualizaciones** 
-- **Iniciar/detener las VM fuera de las horas de trabajo** 
+- **Administración de actualizaciones**
+- **Iniciar/detener las VM fuera de las horas de trabajo**
 
 En el grupo de recursos, busque cada solución y seleccione **Eliminar**. En la página **Eliminar recursos**, confirme los recursos que quiere quitar y seleccione **Eliminar**.
 
@@ -127,7 +127,7 @@ Las máquinas que incorporó con sus soluciones serán visibles cuando se haya c
 
 Para activar la solución **Start/Stop VMs during off-hours**, deberá volver a implementar la solución. En **Recursos relacionados**, seleccione **Start/Stop VMs** > **Más información acerca de la solución y cómo habilitarla** > **Crear** para iniciar la implementación.
 
-En la página **Agregar solución**, elija el área de trabajo de Log Analytics y la cuenta de Automation.  
+En la página **Agregar solución**, elija el área de trabajo de Log Analytics y la cuenta de Automation.
 
 ![Menú Agregar solución](../media/move-account/add-solution-vm.png)
 
@@ -140,9 +140,10 @@ Una vez finalizado el traslado, compruebe la siguiente lista de tareas que deben
 |Capacidad|Pruebas|Vínculo de solución de problemas|
 |---|---|---|
 |Runbooks|Un runbook puede ejecutar recursos de Azure y conectarse a ellos correctamente.|[Solución de problemas de runbooks](../troubleshoot/runbooks.md)
-| Control de código fuente|Puede ejecutar una sincronización manual en el repositorio de control de código fuente.|[Integrar el control de código fuente](../source-control-integration.md)|
+|Control de código fuente|Puede ejecutar una sincronización manual en el repositorio de control de código fuente.|[Integrar el control de código fuente](../source-control-integration.md)|
 |Change Tracking e Inventario|Compruebe que puede ver los datos del inventario actual en las máquinas.|[Solución de problemas de Change Tracking](../troubleshoot/change-tracking.md)|
 |Administración de actualizaciones|Asegúrese de que ve las máquinas y están en buen estado.</br>Ejecute una implementación de actualizaciones de software de prueba.|[Solución de problemas de Update management](../troubleshoot/update-management.md)|
+|Recursos compartidos|Verifique que ve todos los recursos compartidos, como [Credenciales ](../shared-resources/credentials.md), [Variables](../shared-resources/variables.md), etc.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

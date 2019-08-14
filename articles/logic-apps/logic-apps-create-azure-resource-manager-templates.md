@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386741"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706520"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
 Para ayudarle a automatizar la creación e implementación de su aplicación lógica, en este artículo se describen las formas en que puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para la aplicación lógica. Para obtener información general sobre la estructura y la sintaxis de una plantilla que incluye la definición de flujo de trabajo y otros recursos necesarios para la implementación, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
-Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que puede reutilizar no solo para crear aplicaciones lógicas, sino también para definir los recursos y parámetros que desea usar para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos. Para obtener más información acerca de las plantillas de Azure Resource Manager, consulte estos temas:
+Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que puede reutilizar no solo para crear aplicaciones lógicas, sino también para definir los recursos y parámetros que desea usar para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos.
+
+> [!IMPORTANT]
+> Asegúrese de que las conexiones de la plantilla usen el mismo grupo de recursos y la misma ubicación de Azure que la aplicación lógica.
+
+Para obtener más información acerca de las plantillas de Azure Resource Manager, consulte estos temas:
 
 * [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> Las conexiones de la plantilla deben usar el mismo grupo de recursos y la misma ubicación de Azure que la aplicación lógica.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Al descargar la aplicación lógica, obtiene una plantilla que incluye las defin
 Puede crear plantillas de Resource Manager mediante Azure PowerShell con el [módulo LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Este módulo de código abierto evalúa primero la aplicación lógica y las conexiones que usa. Después, el módulo genera los recursos de plantilla con los parámetros necesarios para la implementación.
 
 Por ejemplo, suponga que tiene una aplicación lógica que recibe un mensaje de una cola de Azure Service Bus y sube datos a una base de datos de Azure SQL. El módulo conserva toda la lógica de orquestación y parametriza las cadenas de conexión de SQL y Service Bus con el fin de que se puedan proporcionar y cambiar esos valores en función de sus necesidades de implementación.
+
+En estos ejemplos se muestra cómo crear e implementar aplicaciones lógicas mediante plantillas de Azure Resource Manager, Azure Pipelines en Azure DevOps y Azure PowerShell:
+
+* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Configuración de una acción de Function App para Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Instalación de módulos PowerShell
 

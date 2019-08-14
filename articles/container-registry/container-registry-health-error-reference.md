@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 3bb81f33823fff5fb47f5bbbf6bb9b798b26d8af
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608399"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840359"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
@@ -90,6 +90,12 @@ Este error indica que el servidor de inicio de sesión del registro no respondi�
 Este error indica que el servidor de inicio de sesión del registro no respondió con un token de acceso, por lo que se denegó el acceso al registro de destino. Este error puede producirse si el usuario no tiene los permisos adecuados en el registro o si las credenciales de usuario para la CLI de Azure son obsoletas.
 
 *Posibles soluciones*: compruebe si el usuario tiene los permisos adecuados en el registro; ejecute `az login` para actualizar los permisos, los tokens y las credenciales.
+
+## <a name="connectivity_ssl_error"></a>CONNECTIVITY_SSL_ERROR
+
+Este error significa que el cliente no pudo establecer una conexión segura con el registro de contenedor. Este error suele producirse si se está ejecutando o utilizando un servidor proxy.
+
+*Posibles soluciones*: Más información sobre cómo trabajar con tipos de contenido [puede encontrarse aquí](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

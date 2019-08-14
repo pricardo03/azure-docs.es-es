@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Incorporación de controles al mapa
               href: map-add-controls.md
+            - name: Creación de un origen de datos
+              href: create-data-source-web-sdk.md
             - name: Adición de una capa de símbolo
               href: map-add-pin.md
-            - name: Adición de un elemento emergente
-              href: map-add-popup.md
             - name: Adición de una capa de burbuja
               href: map-add-bubble-layer.md
-            - name: Agregar formas
+            - name: Adición de una capa de línea
+              href: map-add-line-layer.md
+            - name: Adición de una capa de polígono
               href: map-add-shape.md
             - name: Adición de una capa de mapa térmico
               href: map-add-heat-map-layer.md
+            - name: Adición de un elemento emergente
+              href: map-add-popup.md
             - name: Punto de datos del clúster
               href: clustering-point-data-web-sdk.md
             - name: Uso de expresiones de estilo controladas por datos
               href: data-driven-style-expressions-web-sdk.md
             - name: Uso de plantillas de imagen
               href: how-to-use-image-templates-web-sdk.md
-            - name: Superposición de una imagen
+            - name: Adición de una capa de imagen
               href: map-add-image-layer.md
             - name: Adición de capas de iconos
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Agregar formas
           href: how-to-add-shapes-to-android-map.md
+        - name: Mostrar información de características
+          href: display-feature-information-android.md
         - name: Adición de una capa de icono
           href: how-to-add-tile-layer-android-map.md
 - name: Referencia

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: df8c8a4040b4aae4379b4bfe0e9a16337588dd1b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304839"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704445"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Creación de un subclip de vídeo al codificar mediante Azure Media Services: REST
 
@@ -82,7 +82,7 @@ Para completar los pasos descritos en este tema, ha de:
     ```
 1. Presione **Enviar**.
 
-    En la sección **Respuesta**, verá la información sobre un trabajo que se creó y envía, así como el estado del trabajo. 
+    En la sección **Respuesta**, verá la información sobre el trabajo que se creó y envía, así como el estado del trabajo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

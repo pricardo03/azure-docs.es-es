@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93b26b2861c5603770a954943174d6436296ad07
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668375"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815901"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
 Con Azure Machine Learning, puede enviar fácilmente el script de entrenamiento a [diversos destinos de proceso](how-to-set-up-training-targets.md#compute-targets-for-training), con el [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) y el [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ese patrón le ofrece mucha flexibilidad y el máximo control.
 
-Para facilitar el entrenamiento del modelo de aprendizaje profundo, el SDK de Azure Machine Learning para Python proporciona una abstracción de nivel más alto, la clase Estimator, que permite a los usuarios construir fácilmente configuraciones de ejecución. Puede crear y usar un tipo genérico [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) para enviar el script de entrenamiento con cualquier marco de aprendizaje que elija (como scikit-learn) que desee ejecutar en cualquier destino de proceso, ya sea la máquina local, una sola máquina virtual en Azure o un clúster de GPU en Azure. En las tareas PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
+Para facilitar el entrenamiento del modelo de aprendizaje profundo, el SDK de Azure Machine Learning para Python proporciona una abstracción de nivel más alto, la clase Estimator, que permite a los usuarios construir fácilmente configuraciones de ejecución. Puede crear y usar un [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar el script de entrenamiento con cualquier marco de aprendizaje que elija (como scikit-learn) en cualquier destino de proceso: ya sea la máquina local, una sola máquina virtual en Azure o un clúster de GPU en Azure. En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
 
 ## <a name="train-with-an-estimator"></a>Entrenamiento con un estimador
 
@@ -58,13 +58,13 @@ Este fragmento de código especifica los parámetros siguientes para el construc
 
 Parámetro | DESCRIPCIÓN
 --|--
-`source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto 
-`script_params`| Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares `<command-line argument, value>`. Para especificar una marca detallada en `script_params`, use `<command-line argument, "">`.
+`source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto.
+`script_params`| Diccionario que especifica los argumentos de línea de comandos que se pasan al script de entrenamiento `entry_script`, en forma de pares `<command-line argument, value>`. Para especificar una marca detallada en `script_params`, use `<command-line argument, "">`.
 `compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
-`entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
+`entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta.
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  
 
-El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios
+El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios.
 
 Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto `experiment` del [experimento](concept-azure-machine-learning-architecture.md#experiments). 
 
