@@ -56,7 +56,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **SqlServer**. | Sí |
+| type | La propiedad type se debe establecer en: **SqlServer**. | Sí |
 | connectionString |Especifique la información de **connectionString** necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Consulte los ejemplos siguientes.<br/>Marque este campo como **SecureString** para almacenarlo de forma segura en Azure Data Factory. También puede asignar una contraseña en Azure Key Vault. Si se trata de la autenticación de SQL, extraiga la configuración `password` de la cadena de conexión. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Un ejemplo es **domainname\\username**. |Sin |
 | contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como **SecureString** para almacenarlo de forma segura en Azure Data Factory. O bien puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sin |
