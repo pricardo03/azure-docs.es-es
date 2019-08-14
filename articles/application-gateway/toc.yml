@@ -33,8 +33,10 @@
   items:
     - name: Azure PowerShell
       href: powershell-samples.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
+    - name: Plantillas de Resource Manager
+      href: resource-manager-template-samples.md
 - name: Conceptos
   items:
     - name: Aspectos básicos
@@ -95,9 +97,6 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: CLI de Azure
           href: tutorial-manage-web-traffic-cli.md
-        - name: Plantilla
-          displayName: 'ARM, Resource Manager, template'
-          href: create-vmss-template.md
     - name: Configuración del equilibrador de carga interno
       items:
         - name: Portal de Azure

@@ -139,136 +139,136 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
         - name: Creación de una canalización de aprendizaje automático de Apache Spark
           href: apache-spark-creating-ml-pipelines.md
-        - name: Análisis de macrodatos
+    - name: Análisis de macrodatos
+      items:
+        - name: Apache Hive con Apache Spark
+          href: ../interactive-query/apache-hive-warehouse-connector.md
+        - name: Uso de Apache Spark para leer y escribir datos de Apache HBase
+          href: ../hdinsight-using-spark-query-hbase.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Análisis de registros de telemetría de Application Insights
+          href: apache-spark-analyze-application-insight-logs.md
+    - name: Extensión de los clústeres
+      items:
+        - name: Personalización de clústeres con Bootstrap
+          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Personalización de clústeres mediante la acción de script
+          href: ../hdinsight-hadoop-customize-cluster-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Desarrollo acciones de script
+          href: ../hdinsight-hadoop-script-actions-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Agregar bibliotecas de Apache Hive
+          href: ../hdinsight-hadoop-add-hive-libraries.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Uso de Apache Giraph
+          href: ../hdinsight-hadoop-giraph-install-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Uso de Hue
+          href: ../hdinsight-hadoop-hue-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Uso de nodos perimetrales vacíos
+          href: ../hdinsight-apps-use-edge-node.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Compilación de aplicaciones de HDInsight
           items:
-            - name: Apache Hive con Apache Spark
-              href: ../interactive-query/apache-hive-warehouse-connector.md
-            - name: Uso de Apache Spark para leer y escribir datos de Apache HBase
-              href: ../hdinsight-using-spark-query-hbase.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Análisis de registros de telemetría de Application Insights
-              href: apache-spark-analyze-application-insight-logs.md
-        - name: Extensión de los clústeres
+            - name: Instalación de aplicaciones personalizadas
+              href: ../hdinsight-apps-install-custom-applications.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de REST para instalar aplicaciones
+              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: Publicar aplicaciones de HDInsight en Azure Marketplace
+              href: ../hdinsight-apps-publish-applications.md
+    - name: Seguridad
+      items:
+        - name: Uso de SSH con HDInsight
+          href: ../hdinsight-hadoop-linux-use-ssh-unix.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Uso de la tunelización de SSH
+          href: ../hdinsight-linux-ambari-ssh-tunnel.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Restricción del acceso a los datos
+          href: ../hdinsight-storage-sharedaccesssignature-permissions.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Autorización de usuarios para Apache Ambari Views
+          href: ../hdinsight-authorize-users-to-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: administración
+      items:
+        - name: Administración de recursos de clúster
+          href: apache-spark-resource-manager.md
+        - name: Administración de aplicaciones de Apache Spark mediante el servidor de historial
+          href: apache-azure-spark-history-server.md
+        - name: Configuración de opciones de Apache Spark
+          href: apache-spark-settings.md
+        - name: Optimización de trabajos de Apache Spark
+          href: apache-spark-perf.md
+        - name: Habilitación del almacenamiento en caché con la memoria caché de E/S
+          href: apache-spark-improve-performance-iocache.md
+        - name: Planeamiento de la capacidad de clúster
+          href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Creación de clústeres de HDInsight
+          href: ../hdinsight-hadoop-provision-linux-clusters.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
           items:
-            - name: Personalización de clústeres con Bootstrap
-              href: ../hdinsight-hadoop-customize-cluster-bootstrap.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Personalización de clústeres mediante la acción de script
-              href: ../hdinsight-hadoop-customize-cluster-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Desarrollo acciones de script
-              href: ../hdinsight-hadoop-script-actions-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Agregar bibliotecas de Apache Hive
-              href: ../hdinsight-hadoop-add-hive-libraries.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Uso de Apache Giraph
-              href: ../hdinsight-hadoop-giraph-install-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Uso de Hue
-              href: ../hdinsight-hadoop-hue-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Uso de nodos perimetrales vacíos
-              href: ../hdinsight-apps-use-edge-node.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Compilación de aplicaciones de HDInsight
-              items:
-                - name: Instalación de aplicaciones personalizadas
-                  href: ../hdinsight-apps-install-custom-applications.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de REST para instalar aplicaciones
-                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
-                - name: Publicar aplicaciones de HDInsight en Azure Marketplace
-                  href: ../hdinsight-apps-publish-applications.md
-        - name: Seguridad
+            - name: Uso de Azure Portal
+              href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Utilización de plantillas del Administrador de recursos de Azure
+              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de SDK para .NET
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
+            - name: Uso de SDK para Python
+              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
+            - name: Uso de SDK para Java
+              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
+            - name: Uso de Azure PowerShell
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de cURL y la API de REST de Azure
+              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de la CLI de Azure
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Creación de clústeres a petición
+              href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Administración de clústeres de HDInsight
+          href: ../hdinsight-administer-use-portal-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
           items:
-            - name: Uso de SSH con HDInsight
-              href: ../hdinsight-hadoop-linux-use-ssh-unix.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Uso de la tunelización de SSH
-              href: ../hdinsight-linux-ambari-ssh-tunnel.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Restricción del acceso a los datos
-              href: ../hdinsight-storage-sharedaccesssignature-permissions.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Autorización de usuarios para Apache Ambari Views
-              href: ../hdinsight-authorize-users-to-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-        - name: administración
+            - name: Uso de SDK para .NET
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
+            - name: Uso de SDK para Python
+              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+            - name: Uso de SDK para Java
+              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+            - name: Uso de SDK para Go (versión preliminar)
+              href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
+            - name: Uso de Azure PowerShell
+              href: ../hdinsight-administer-use-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de la CLI de Azure
+              href: ../hdinsight-administer-use-command-line.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Administración de clústeres con la interfaz de usuario web de Apache Ambari
+          href: ../hdinsight-hadoop-manage-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
           items:
-            - name: Administración de recursos de clúster
-              href: apache-spark-resource-manager.md
-            - name: Administración de aplicaciones de Apache Spark mediante el servidor de historial
-              href: apache-azure-spark-history-server.md
-            - name: Configuración de opciones de Apache Spark
-              href: apache-spark-settings.md
-            - name: Optimización de trabajos de Apache Spark
-              href: apache-spark-perf.md
-            - name: Habilitación del almacenamiento en caché con la memoria caché de E/S
-              href: apache-spark-improve-performance-iocache.md
-            - name: Planeamiento de la capacidad de clúster
-              href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Creación de clústeres de HDInsight
-              href: ../hdinsight-hadoop-provision-linux-clusters.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-              items:
-                - name: Uso de Azure Portal
-                  href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Utilización de plantillas del Administrador de recursos de Azure
-                  href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de SDK para .NET
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
-                - name: Uso de SDK para Python
-                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
-                - name: Uso de SDK para Java
-                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
-                - name: Uso de Azure PowerShell
-                  href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de cURL y la API de REST de Azure
-                  href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de la CLI de Azure
-                  href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Creación de clústeres a petición
-                  href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Administración de clústeres de HDInsight
-              href: ../hdinsight-administer-use-portal-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-              items:
-                - name: Uso de SDK para .NET
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
-                - name: Uso de SDK para Python
-                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-                - name: Uso de SDK para Java
-                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
-                - name: Uso de SDK para Go (versión preliminar)
-                  href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
-                - name: Uso de Azure PowerShell
-                  href: ../hdinsight-administer-use-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de la CLI de Azure
-                  href: ../hdinsight-administer-use-command-line.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Administración de clústeres con la interfaz de usuario web de Apache Ambari
-              href: ../hdinsight-hadoop-manage-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-              items:
-                - name: Optimización de clústeres con la interfaz de usuario web de Apache Ambari
-                  href: ../hdinsight-changing-configs-via-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Uso de la API REST de Apache Ambari
-                  href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Administración de registros de un clúster de HDInsight
-              href: ../hdinsight-log-management.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Adición de cuentas de almacenamiento
-              href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Carga de datos para trabajos de Apache Hadoop
-              href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Varios clústeres de HDInsight con Data Lake Storage
-              href: ../hdinsight-multiple-clusters-data-lake-store.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Importación y exportación de datos con Apache Sqoop
-              href: ../hadoop/hdinsight-use-sqoop.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-              items:
-                - name: Conexión con SSH
-                  href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Ejecución con cURL
-                  href: ../hadoop/apache-hadoop-use-sqoop-curl.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Ejecución con SDK para .NET
-                  href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-                - name: Ejecución mediante Azure PowerShell
-                  href: ../hadoop/apache-hadoop-use-sqoop-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Uso de Apache Oozie para flujos de trabajo
-              href: ../hdinsight-use-oozie-linux-mac.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Puertos y URI de servicio y clúster
-              href: ../hdinsight-hadoop-port-settings-for-services.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Migración a las herramientas de desarrollo de Resource Manager
-              href: ../hdinsight-hadoop-development-using-azure-resource-manager.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Disponibilidad y confiabilidad
-              href: ../hdinsight-high-availability-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Actualización de un clúster de HDInsight a una versión más reciente
-              href: ../hdinsight-upgrade-cluster.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-            - name: Aplicación de revisión del SO para un clúster de HDInsight
-              href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Optimización de clústeres con la interfaz de usuario web de Apache Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Uso de la API REST de Apache Ambari
+              href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Administración de registros de un clúster de HDInsight
+          href: ../hdinsight-log-management.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Adición de cuentas de almacenamiento
+          href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Carga de datos para trabajos de Apache Hadoop
+          href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Varios clústeres de HDInsight con Data Lake Storage
+          href: ../hdinsight-multiple-clusters-data-lake-store.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Importación y exportación de datos con Apache Sqoop
+          href: ../hadoop/hdinsight-use-sqoop.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+          items:
+            - name: Conexión con SSH
+              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Ejecución con cURL
+              href: ../hadoop/apache-hadoop-use-sqoop-curl.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Ejecución con SDK para .NET
+              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+            - name: Ejecución mediante Azure PowerShell
+              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Uso de Apache Oozie para flujos de trabajo
+          href: ../hdinsight-use-oozie-linux-mac.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Puertos y URI de servicio y clúster
+          href: ../hdinsight-hadoop-port-settings-for-services.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Migración a las herramientas de desarrollo de Resource Manager
+          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Disponibilidad y confiabilidad
+          href: ../hdinsight-high-availability-linux.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Actualización de un clúster de HDInsight a una versión más reciente
+          href: ../hdinsight-upgrade-cluster.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+        - name: Aplicación de revisión del SO para un clúster de HDInsight
+          href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
         - name: Solución de problemas
           items:
             - name: Depuración de trabajos de Apache Spark
