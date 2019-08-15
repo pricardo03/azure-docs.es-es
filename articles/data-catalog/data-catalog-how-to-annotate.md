@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736349"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950258"
 ---
-# <a name="how-to-annotate-data-sources"></a>Anotación de orígenes de datos
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Anotación de orígenes de datos en Azure Data Catalog
+
 ## <a name="introduction"></a>Introducción
+
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a detectar, comprender y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos. Cuando un origen de datos se registra en Data Catalog, el servicio copia e indexa sus metadatos, pero eso no es todo. Data Catalog permite que los usuarios faciliten sus propios metadatos descriptivos, como descripciones y etiquetas, para complementar los metadatos extraídos del origen de datos y conseguir que más personas lo comprendan.
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotación y micromecenazgo

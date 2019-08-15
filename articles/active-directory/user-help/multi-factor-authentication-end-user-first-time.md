@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230048"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949904"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
 La comprobación en dos pasos es un paso adicional de seguridad que ayuda a proteger su cuenta para que el acceso para las demás personas sea más complicado. Si está leyendo este artículo, probablemente tiene un correo electrónico del administrador del trabajo o la escuela sobre Multi-Factor Authentication. O quizás ha intentado iniciar sesión y tiene un mensaje pidiéndole que configure la comprobación de seguridad adicional. Si es así, **no puede iniciar sesión hasta que haya completado el proceso de inscripción automática**.
@@ -34,7 +34,7 @@ Cuando el soporte técnico de la compañía requiera que empiece a usar la verif
 
 Para empezar, seleccione **Configurar ahora**.
 
-Si no ve una pantalla similar a la siguiente al iniciar sesión, siga las instrucciones especificadas en [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) para buscar la página de configuración donde puede administrar las opciones de verificación.
+Si no ve una pantalla similar a la siguiente al iniciar sesión, siga las instrucciones especificadas en [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) para buscar la página de configuración donde puede administrar las opciones de verificación.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decisión de cómo desea verificar los inicios de sesión
 

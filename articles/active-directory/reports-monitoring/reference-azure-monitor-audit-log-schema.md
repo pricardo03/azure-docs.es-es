@@ -3,7 +3,7 @@ title: Interpretación del esquema de registro de auditoría de Azure Active Dir
 description: Se describe el esquema de registro de auditoría de Azure AD para su uso en Azure Monitor.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437080"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987956"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretación del esquema de registros de auditoría de Azure AD en Azure Monitor (versión preliminar)
 
@@ -160,7 +160,7 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 | durationMs |  Este campo no se ha asignado y puede ignorarlo de forma segura. |
 | callerIpAddress | Dirección IP del cliente que realizó la solicitud. | 
 | correlationId | GUID opcional que el cliente pasa. Puede ayudar a poner en correlación las operaciones de cliente con las operaciones de servidor y es útil al realizar el seguimiento de los registros que se distribuyen entre servicios. |
-| identidad | Identidad del token que se ha presentado al realizar la solicitud. La identidad puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
+| identity | Identidad del token que se ha presentado al realizar la solicitud. La identidad puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | level | Tipo de mensaje. Para los registros de auditoría, el nivel siempre es *Informativo*. |
 | location | Ubicación del centro de datos. |
 | properties | Enumera las propiedades admitidas relacionadas con un registro de auditoría. Para más información, consulte la siguiente tabla. | 

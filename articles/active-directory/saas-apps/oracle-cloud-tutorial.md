@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596425"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943627"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integración de Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -101,11 +101,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. La aplicación Oracle Cloud Infrastructure Console espera las aserciones de SAML en un formato específico, que requiere que agregue asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+1. La aplicación Oracle Cloud Infrastructure Console espera las aserciones de SAML en un formato específico, que requiere que agregue asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
    ![imagen](common/edit-attribute.png)
 
-1. Además de lo anterior, la aplicación Oracle Cloud Infrastructure Console espera que se devuelvan algunos atributos más en la respuesta de SAML. En la sección  **Atributos y reclamaciones del usuario**  del cuadro de diálogo  **Notificaciones de grupos (versión preliminar)**  , siga estos pasos:
+1. Además de lo anterior, la aplicación Oracle Cloud Infrastructure Console espera que se devuelvan algunos atributos más en la respuesta de SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
 
    1. Haga clic en el **lápiz** junto a **Valor de identificador de nombre**.
 

@@ -2,7 +2,7 @@
 title: Uso del paquete de contenido de Power BI de Azure Active Directory | Microsoft Docs
 description: Aprenda a usar el paquete de contenido de Power BI de Azure Active Directory.
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437703"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988237"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
 
@@ -59,7 +59,7 @@ También puede filtrar los resultados mediante la selección de una fecha o ubic
 
 - User Name
 - Dirección IP
-- Ubicación 
+- Location 
 - Estado de inicio de sesión 
 
 **Embudo de SSPR**: este informe le ayuda a comprender cómo se usa la herramienta SSPR dentro de su organización. Puede ver cuántos restablecimientos de contraseña se intentaron con la herramienta SSPR y cuántos de ellos se realizaron correctamente. También puede profundizar más en los errores de restablecimiento de contraseña y comprender por qué se produjeron determinados errores. 

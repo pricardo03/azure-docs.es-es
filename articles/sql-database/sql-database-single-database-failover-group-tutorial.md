@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: d11dd72c65ea32fb5a262f325bdcad0b5a8ab863
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566653"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935019"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: Adición de una base de datos única de Azure SQL Database a un grupo de conmutación por error
 
@@ -29,20 +29,20 @@ Configure un grupo de conmutación por error para una base de datos única de Az
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
 - Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
 - Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
 - Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
@@ -57,7 +57,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 ## <a name="2---create-the-failover-group"></a>2\. Creación de un grupo de conmutación por error 
 En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) entre un servidor de Azure SQL Server existente y uno nuevo en otra región. A continuación, agregue la base de datos de ejemplo al grupo de conmutación por error. 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante Azure Portal. 
 
 
@@ -90,7 +90,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
     ![Adición de la base de datos SQL a un grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante PowerShell. 
 
    > [!NOTE]
@@ -146,7 +146,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante la CLI de AZ. 
 
    > [!NOTE]
@@ -182,6 +182,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
       --partner-server $drServerName \
       --resource-group $resourceGroupName \
       --server $serverName \
+      --add-db $databaseName
       --failover-policy Automatic
    ```
 
@@ -190,7 +191,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
 ## <a name="3---test-failover"></a>3\. Prueba de la conmutación por error 
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Pruebe la conmutación por error mediante Azure Portal. 
 
 1. Vaya a **Servidores de SQL Server** en [Azure Portal](https://portal.azure.com). 
@@ -207,7 +208,7 @@ Pruebe la conmutación por error mediante Azure Portal.
 1. Revise qué servidor es ahora el principal y cuál el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados. 
 1. Vuelva a seleccionar **Conmutación por error** para devolver los servidores a sus roles originales. 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Pruebe la conmutación por error mediante PowerShell. 
 
 
@@ -262,7 +263,7 @@ Revierta el grupo de conmutación por error al servidor principal:
    Write-host "Failed failover group to successfully to back to" $serverName
    ```
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Pruebe la conmutación por error mediante la CLI de Azure. 
 
 
@@ -319,7 +320,7 @@ Revierta el grupo de conmutación por error al servidor principal:
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Limpie los recursos mediante la eliminación del grupo de recursos. 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Elimine el grupo de recursos mediante Azure Portal. 
 
 
@@ -327,7 +328,7 @@ Elimine el grupo de recursos mediante Azure Portal.
 1. Seleccione **Eliminar grupo de recursos** para eliminar todos los recursos del grupo, así como el propio grupo de recursos. 
 1. En la nueva ventana, escriba el nombre del grupo de recursos, `myResourceGroup`, y luego seleccione **Eliminar** para eliminar el grupo de recursos.  
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Elimine el grupo de recursos mediante Azure PowerShell. 
 
 
@@ -341,7 +342,7 @@ Elimine el grupo de recursos mediante Azure PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Elimine el grupo de recursos mediante la CLI de Azure. 
 
 
@@ -361,15 +362,15 @@ Elimine el grupo de recursos mediante la CLI de Azure.
 
 ## <a name="full-scripts"></a>Scripts completos
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Create SQL Database")]
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 No hay scripts disponibles para Azure Portal.
  
 ---

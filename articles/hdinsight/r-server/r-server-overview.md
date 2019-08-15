@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448886"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941688"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>¿Qué es ML Services en Azure HDInsight?
 
@@ -90,7 +90,7 @@ Para realizar puntuaciones en HDInsight, escriba una función de R que llame al 
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Puntuación en Azure Machine Learning (AML)
 
-Si desea realizar la puntuación mediante Azure Machine Learning, utilice el paquete de R de Azure Machine Learning de código abierto, conocido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), para publicar el modelo como un servicio web de Azure. Para mayor comodidad, este paquete está preinstalado en el nodo perimetral. Después, utilizando los recursos de Azure Machine Learning, cree una interfaz de usuario para el servicio web y, si es necesario, llame a dicho servicio web para efectuar las puntuaciones.
+Si desea realizar la puntuación mediante Azure Machine Learning, utilice el paquete de R de Azure Machine Learning de código abierto, conocido como [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/), para publicar el modelo como un servicio web de Azure. Para mayor comodidad, este paquete está preinstalado en el nodo perimetral. Después, utilizando los recursos de Azure Machine Learning, cree una interfaz de usuario para el servicio web y, si es necesario, llame a dicho servicio web para efectuar las puntuaciones.
 
 Si elige esta opción, tendrá que convertir los objetos de modelo de ScaleR en objetos de modelo de código abierto equivalentes para poder usarlos con el servicio web. Para esta conversión, utilice las funciones de coerción de ScaleR, como `as.randomForest()`, para los modelos basados en conjuntos.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 7559bfd3d97f7b430b92578473501b519eb0a07f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551690"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934553"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -82,8 +82,8 @@ Si se agregan discos a una máquina virtual de Azure para la que está habilitad
 
 Para habilitar la replicación para un disco agregado, haga lo siguiente:
 
-1.  En el almacén > **Elementos replicados**, haga clic en la máquina virtual a la que agregó el disco.
-2.  Haga clic en **Discos** y, a continuación, seleccione el disco de datos para el que desea habilitar la replicación (estos discos tienen un estado de **No protegido**).
+1.  En el almacén > **Elementos replicados**, haga clic en la VM a la que agregó el disco.
+2.  Haga clic en **Discos** y, luego, seleccione el disco de datos para el que quiere habilitar la replicación (estos discos tienen un estado de **No protegido**).
 3.  En **Detalles del disco**, haga clic en **Habilitar replicación**.
 
     ![Habilitación de la replicación para un disco agregado](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
@@ -123,6 +123,6 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
 >Durante la replicación inicial, el estado de la máquina virtual puede tardar un tiempo en actualizarse, sin ningún progreso. Haga clic en el botón **Actualizar** para ver el estado más reciente.
 >
 
-# <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Más información](site-recovery-test-failover-to-azure.md) sobre la ejecución de una conmutación por error de prueba.

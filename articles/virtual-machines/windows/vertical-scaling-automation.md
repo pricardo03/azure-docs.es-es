@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7cccd36c619e58b8dedb9a52e70c478dc7b857c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5d255662f7db12537365f57eb71355ca2e11cc51
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707924"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947248"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Escalado vertical de máquinas virtuales de Windows con Azure Automation
 
@@ -36,6 +36,7 @@ Los pasos para lograr esto se describen a continuación:
 2. Importar los runbooks de escalado vertical de Azure Automation a la suscripción.
 3. Agregar un webhook al runbook.
 4. Agregar una alerta a la máquina virtual.
+
 
 ## <a name="scale-limitations"></a>Limitaciones de escala
 
@@ -224,6 +225,7 @@ Puede elegir escalar entre los siguientes pares de tamaños:
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar Azure Automation para tener acceso a las máquinas virtuales.
 Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los runbooks que se usan para escalar una máquina virtual. Recientemente, el servicio Automation presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
