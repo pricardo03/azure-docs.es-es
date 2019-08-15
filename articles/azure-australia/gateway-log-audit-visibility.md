@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b7a9f28d06b5e921b5f1b8defa151641bb039940
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824300"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990212"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Registro, auditoría y visibilidad de puertas de enlace en Azure Australia
 
@@ -113,7 +113,7 @@ Al implementar los componentes que se enumeran en este artículo, se aplican las
 |---|---|
 |Documentos de cumplimiento normativo y de las directivas de Australia|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Productos de Azure: por regiones de Australia e independientes de la región|[https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,centro de australia,centro de australia 2,este de australia,sudeste de australia](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
-|Administración de registros de auditoría y seguridad de Microsoft Azure (notas del producto)|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
+|Administración de registros de auditoría y seguridad de Microsoft Azure (notas del producto)|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
 |Configuración de Microsoft Monitoring Agent|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)|
 |
 

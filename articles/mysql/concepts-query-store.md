@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461722"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950576"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 
 **Se aplica a:**  Azure Database for MySQL 5.7
 
-> [!NOTE]
+> [!IMPORTANT]
 > El Almacén de consultas está en versión preliminar.
 
 La característica Almacén de consultas de Azure Database for MySQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en la base de datos de esquema denominada **mysql** en la instancia de Azure Database for MySQL.
@@ -89,7 +89,7 @@ Las siguientes opciones están disponibles para configurar los parámetros del A
 
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | Active o desactive la característica del Almacén de consultas según el valor. Nota: Si performance_schema está desactivado, al activar query_store_capture_mode se activarán performance_schema y un subconjunto de instrumentos de esquema de rendimiento necesarios para esta característica. | ALL | NONE, ALL |
+| query_store_capture_mode | Active o desactive la característica de almacén de consultas según el valor. Nota: Si performance_schema está desactivado, al activar query_store_capture_mode se activarán performance_schema y un subconjunto de instrumentos de esquema de rendimiento necesarios para esta característica. | ALL | NONE, ALL |
 | query_store_capture_interval | Intervalo de captura del Almacén de consultas en minutos. Permite especificar el intervalo en el que se agregan las métricas de consulta. | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Se activa o se desactiva para capturar todas las consultas de utilidades que se están ejecutando en el sistema. | NO | YES, NO |
 | query_store_retention_period_in_days | Período de tiempo en días que se conservan los datos en el Almacén de consultas. | 7 | 1 - 30 |
@@ -108,11 +108,11 @@ Use  [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-con
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql** .
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**. 
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 
-### <a name="mysqlquerystore"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por cada identificador de base de datos, de usuario y de consulta diferentes.
 
@@ -145,7 +145,7 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 | `first_seen` | timestamp| NO| La primera aparición (UTC) de la consulta durante el período de agregación.|
 | `last_seen` | timestamp| NO| La última aparición (UTC) de la consulta durante este período de agregación.|
 
-### <a name="mysqlquerystorewaitstats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento únicos.
 

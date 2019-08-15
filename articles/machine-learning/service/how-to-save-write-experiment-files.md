@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: b0e0ef93b2782cd44eca3dc6023a7eb556cd3245
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618392"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856047"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 
@@ -49,7 +49,7 @@ Your total snapshot size exceeds the limit of 300.0 MB
 
 Para resolver este error, almacene los archivos del experimento en un almacén de datos. Si no puede usar un almacén de datos, la tabla siguiente ofrece algunas soluciones alternativas posibles.
 
-Experimento y descripción|Solución de límite de almacenamiento
+Experimento &nbsp; descripción|Solución de límite de almacenamiento
 ---|---
 Menos de 2000 archivos y no se puede usar un almacén de datos| Invalide el límite de tamaño de instantánea con <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Puede tardar varios minutos según el número y el tamaño de los archivos.
 Debe usar el directorio de script específico| Cree un archivo `.amlignore` para excluir los archivos de la instantánea del experimento que no forman parte del código fuente. Agregue los nombres de archivo al archivo `.amlignore` y colóquelo en el mismo directorio que el script de entrenamiento. El archivo `.amlignore` usa los mismos [sintaxis y patrones](https://git-scm.com/docs/gitignore) que un archivo `.gitignore`.

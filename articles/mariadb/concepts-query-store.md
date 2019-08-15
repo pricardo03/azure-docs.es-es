@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 5d4d01f9f85c78d0e864ec9d11c1d8cd43542e57
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462087"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950635"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MariaDB con el Almacén de consultas
 
 **Se aplica a:**  Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > El Almacén de consultas está en versión preliminar.
 
 La característica Almacén de consultas de Azure Database for MariaDB proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en la base de datos de esquema denominada **mysql** en la instancia de Azure Database for MariaDB.
@@ -26,34 +26,34 @@ La característica Almacén de consultas de Azure Database for MariaDB proporcio
 
 El Almacén de consultas se puede usar en diversos escenarios, incluidos los siguientes:
 
-- Detectar consultas con regresión
+- Detectar consultas con regresión.
 - Determinar el número de veces que se ha ejecutado una consulta en un período determinado
 - Comparar el tiempo de ejecución medio de una consulta a través de ventanas de tiempo para ver diferenciales de gran tamaño
 
 ## <a name="enabling-query-store"></a>Habilitación del Almacén de consultas
 
-El Almacén de consultas es una característica opcional, por lo que no está activo de forma predeterminada en un servidor. El almacén de consultas se habilita o deshabilita globalmente para todas las bases de datos en un servidor determinado y no se puede activar o desactivar por base de datos.
+El Almacén de consultas es una característica opcional, por lo que no está activo de forma predeterminada en un servidor. El Almacén de consultas se habilita o deshabilita globalmente para todas las bases de datos en un servidor determinado y no se puede activar o desactivar por base de datos.
 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitación del Almacén de consultas mediante Azure Portal
 
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for MariaDB.
-1. Seleccione **Parámetros del servidor** en la sección  **Configuración** del menú.
-1. Busque el parámetro query_store_capture_mode.
-1. Establezca el valor en TODOS y seleccione  **Guardar**.
+1. Seleccione **Parámetros del servidor** en la sección  **Configuración** del menú. 
+1. Busque el parámetro query_store_capture_mode.
+1. Establezca el valor en ALL y seleccione  **Guardar**.
 
 Para habilitar las estadísticas de espera en el Almacén de consultas:
 
-1. Busque el parámetro query_store_wait_sampling_capture_mode.
-1. Establezca el valor en TODOS y seleccione  **Guardar**.
+1. Busque el parámetro query_store_wait_sampling_capture_mode.
+1. Establezca el valor en ALL y seleccione  **Guardar**.
 
-Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos mysql.
+Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos mysql.
 
 ## <a name="information-in-query-store"></a>Información del Almacén de consultas
 
 El Almacén de consultas tiene dos almacenes:
 
-- Un almacén de estadísticas de tiempo de ejecución para conservar la información de estadísticas de ejecución de consultas.
-- Un almacén de estadísticas de espera para conservar la información de estadísticas de espera.
+- Un almacén de estadísticas de tiempo de ejecución para conservar la información de estadísticas de ejecución de consultas.
+- Un almacén de estadísticas de espera para conservar la información de estadísticas de espera.
 
 Para minimizar el uso de espacio, las estadísticas de ejecución en tiempo de ejecución en el almacén de estadísticas en tiempo de ejecución se agregan durante un período fijo y configurable. La información de estos almacenes está visible consultando las vistas del almacén de consultas.
 
@@ -78,8 +78,8 @@ Estos son algunos ejemplos de cómo puede obtener más información sobre la car
 | **Observación** | **Acción** |
 |---|---|
 |Largas esperas de bloqueo | Compruebe los textos de consulta para las consultas afectadas e identifique las entidades de destino. Busque en el Almacén de consultas otras consultas que modifiquen la misma entidad, que se ejecuta con frecuencia o tiene una gran duración. Tras identificar estas consultas, considere la posibilidad de cambiar la lógica de aplicación para mejorar la simultaneidad o usar un nivel de aislamiento menos restrictivo. |
-|Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Compruebe las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices para este servidor que optimizarían las consultas. |
-|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices que optimizarían estas consultas.|
+|Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Revise las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices para este servidor que optimizarían las consultas. |
+|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Revise las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices que optimizarían estas consultas.|
 
 ## <a name="configuration-options"></a>Opciones de configuración
 
@@ -89,17 +89,17 @@ Las siguientes opciones están disponibles para configurar los parámetros del A
 
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | Active o desactive la característica de almacén de consultas según el valor. Nota: Si performance_schema está desactivado, al activar query_store_capture_mode se activarán performance_schema y un subconjunto de instrumentos de esquema de rendimiento necesarios para esta característica. | ALL | NINGUNO, TODOS |
-| query_store_capture_interval | Intervalo de captura del almacén de consultas en minutos. Permite especificar el intervalo en el que se agregan las métricas de consulta. | 15 | 5-60 |
-| query_store_capture_utility_queries | Se activa o se desactiva para capturar todas las consultas de utilidades que se están ejecutando en el sistema. | NO | SÍ, NO |
-| query_store_retention_period_in_days | Período de tiempo en días que se conservan los datos en el almacén de consultas. | 7 | 1 - 30 |
+| query_store_capture_mode | Active o desactive la característica de almacén de consultas según el valor. Nota: Si performance_schema está desactivado, al activar query_store_capture_mode se activarán performance_schema y un subconjunto de instrumentos de esquema de rendimiento necesarios para esta característica. | ALL | NONE, ALL |
+| query_store_capture_interval | Intervalo de captura del Almacén de consultas en minutos. Permite especificar el intervalo en el que se agregan las métricas de consulta. | 15 | 5 - 60 |
+| query_store_capture_utility_queries | Se activa o se desactiva para capturar todas las consultas de utilidades que se están ejecutando en el sistema. | NO | YES, NO |
+| query_store_retention_period_in_days | Período de tiempo en días que se conservan los datos en el Almacén de consultas. | 7 | 1 - 30 |
 
 Las siguientes opciones afectan específicamente a las estadísticas de espera.
 
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Permite activar o desactivar las estadísticas de espera. | NINGUNA | NINGUNO, TODOS |
-| query_store_wait_sampling_frequency | Altera la frecuencia de muestreo de espera en segundos. De 5 a 300 segundos. | 30 | 5-300 |
+| query_store_wait_sampling_capture_mode | Permite activar o desactivar las estadísticas de espera. | NINGUNA | NONE, ALL |
+| query_store_wait_sampling_frequency | Altera la frecuencia de muestreo de espera en segundos. De 5 a 300 segundos. | 30 | 5 - 300 |
 
 > [!NOTE]
 > Actualmente, **query_store_capture_mode** reemplaza a esta configuración, lo que significa que **query_store_capture_mode** y **query_store_wait_sampling_capture_mode** tienen que estar habilitados para que funcionen todas las estadísticas de espera. Si **query_store_capture_mode** está desactivado, las estadísticas de espera también estarán desactivadas, dado que usan el performance_schema habilitado y el query_text capturado por el almacén de consultas.
@@ -108,66 +108,66 @@ Use  [Azure Portal](howto-server-parameters.md) para obtener o establecer otro 
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#create-additional-admin-users) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#create-additional-admin-users) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**. 
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 
-### <a name="mysqlquerystore"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por cada identificador de base de datos, de usuario y de consulta diferentes.
 
 | **Nombre** | **Tipo de datos** | **IS_NULLABLE** | **Descripción** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | Nombre del esquema. |
-| `query_id`| bigint(20) | NO| Identificador único generado para la consulta específica. Si la misma consulta se ejecuta en un esquema diferente, se generará un nuevo identificador. |
-| `timestamp_id` | timestamp| NO| Marca de tiempo en la que se ejecuta la consulta. Se basa en la configuración de query_store_interval.|
-| `query_digest_text`| longtext| NO| Texto de consulta normalizado después de quitar todos los literales.|
-| `query_sample_text` | longtext| NO| Primera aparición de la consulta real con literales.|
+| `schema_name`| varchar(64) | NO | El nombre del esquema. |
+| `query_id`| bigint(20) | NO| El identificador único generado para la consulta específica. Si la misma consulta se ejecuta en un esquema diferente, se generará un nuevo identificador. |
+| `timestamp_id` | timestamp| NO| La marca de tiempo en la que se ejecuta la consulta. Se basa en la configuración de query_store_interval.|
+| `query_digest_text`| longtext| NO| El texto de consulta normalizado después de quitar todos los literales.|
+| `query_sample_text` | longtext| NO| La primera aparición de la consulta real con literales.|
 | `query_digest_truncated` | bit| SÍ| Indica si el texto de consulta se ha truncado. El valor será Sí si la consulta tiene más de 1 KB.|
-| `execution_count` | bigint(20)| NO| Número de veces que se ejecutó la consulta para este identificador o marca de tiempo durante el intervalo configurado.|
-| `warning_count` | bigint(20)| NO| Número de advertencias que generó la consulta durante el intervalo.|
-| `error_count` | bigint(20)| NO| Número de errores que generó la consulta durante el intervalo.|
-| `sum_timer_wait` | double| SÍ| Tiempo de ejecución total de esta consulta durante el intervalo.|
-| `avg_timer_wait` | double| SÍ| Tiempo de ejecución medio de esta consulta durante el intervalo.|
-| `min_timer_wait` | double| SÍ| Tiempo de ejecución mínimo de esta consulta.|
-| `max_timer_wait` | double| SÍ| Tiempo de ejecución máximo.|
-| `sum_lock_time` | bigint(20)| NO| Tiempo total empleado en todos los bloqueos para la ejecución de esta consulta durante este período de tiempo.|
-| `sum_rows_affected` | bigint(20)| NO| Número de filas afectadas.|
-| `sum_rows_sent` | bigint(20)| NO| Número de filas enviadas al cliente.|
+| `execution_count` | bigint(20)| NO| El número de veces que se ejecutó la consulta para este identificador o marca de tiempo durante el intervalo configurado.|
+| `warning_count` | bigint(20)| NO| El número de advertencias que generó la consulta durante el intervalo.|
+| `error_count` | bigint(20)| NO| El número de errores que generó la consulta durante el intervalo.|
+| `sum_timer_wait` | double| SÍ| El tiempo de ejecución total de esta consulta durante el intervalo.|
+| `avg_timer_wait` | double| SÍ| El tiempo de ejecución promedio de esta consulta durante el intervalo.|
+| `min_timer_wait` | double| SÍ| El tiempo de ejecución mínimo de esta consulta.|
+| `max_timer_wait` | double| SÍ| El tiempo de ejecución máximo.|
+| `sum_lock_time` | bigint(20)| NO| El tiempo total empleado en todos los bloqueos para la ejecución de esta consulta durante este período de tiempo.|
+| `sum_rows_affected` | bigint(20)| NO| El número de filas afectadas.|
+| `sum_rows_sent` | bigint(20)| NO| El número de filas enviadas al cliente.|
 | `sum_rows_examined` | bigint(20)| NO| Número de filas examinadas|
-| `sum_select_full_join` | bigint(20)| NO| Número de combinaciones completas.|
-| `sum_select_scan` | bigint(20)| NO| Número de exámenes seleccionados. |
-| `sum_sort_rows` | bigint(20)| NO| Número de filas ordenadas.|
-| `sum_no_index_used` | bigint(20)| NO| Número de veces que la consulta no usó índices.|
-| `sum_no_good_index_used` | bigint(20)| NO| Número de veces que el motor de ejecución de consultas no usó índices correctos.|
-| `sum_created_tmp_tables` | bigint(20)| NO| Número total de tablas temporales creadas.|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| Número total de tablas temporales creadas en el disco (genera E/S).|
-| `first_seen` | timestamp| NO| Primera aparición (UTC) de la consulta durante el período de agregación.|
-| `last_seen` | timestamp| NO| Última aparición (UTC) de la consulta durante este período de agregación.|
+| `sum_select_full_join` | bigint(20)| NO| El número de combinaciones completas.|
+| `sum_select_scan` | bigint(20)| NO| El número de exámenes seleccionados. |
+| `sum_sort_rows` | bigint(20)| NO| El número de filas ordenadas.|
+| `sum_no_index_used` | bigint(20)| NO| El número de veces que la consulta no usó índices.|
+| `sum_no_good_index_used` | bigint(20)| NO| El número de veces que el motor de ejecución de consultas no usó índices correctos.|
+| `sum_created_tmp_tables` | bigint(20)| NO| El número total de tablas temporales creadas.|
+| `sum_created_tmp_disk_tables` | bigint(20)| NO| El número total de tablas temporales creadas en el disco (genera E/S).|
+| `first_seen` | timestamp| NO| La primera aparición (UTC) de la consulta durante el período de agregación.|
+| `last_seen` | timestamp| NO| La última aparición (UTC) de la consulta durante este período de agregación.|
 
-### <a name="mysqlquerystorewaitstats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento únicos.
 
 | **Nombre**| **Tipo de datos** | **IS_NULLABLE** | **Descripción** |
 |---|---|---|---|
-| `interval_start` | timestamp | NO| Inicio del intervalo (incremento de 15 minutos).|
-| `interval_end` | timestamp | NO| Fin del intervalo (incremento de 15 minutos).|
-| `query_id` | bigint(20) | NO| Identificador único generado en la consulta normalizada (desde el almacén de consultas).|
-| `query_digest_id` | varchar(32) | NO| Texto de consulta normalizado después de quitar todos los literales (desde el almacén de consultas). |
-| `query_digest_text` | longtext | NO| Primera aparición de la consulta real con literales (desde el almacén de consultas). |
-| `event_type` | varchar(32) | NO| Categoría del evento de espera. |
-| `event_name` | varchar(128) | NO| Nombre del evento de espera. |
-| `count_star` | bigint(20) | NO| Número de eventos de espera muestreados durante el intervalo de la consulta. |
-| `sum_timer_wait_ms` | double | NO| Tiempo de espera total (en milisegundos) de esta consulta durante el intervalo. |
+| `interval_start` | timestamp | NO| El inicio del intervalo (incremento de 15 minutos).|
+| `interval_end` | timestamp | NO| El fin del intervalo (incremento de 15 minutos).|
+| `query_id` | bigint(20) | NO| El identificador único generado en la consulta normalizada (desde el Almacén de consultas).|
+| `query_digest_id` | varchar(32) | NO| El texto de consulta normalizado después de quitar todos los literales (desde el Almacén de consultas). |
+| `query_digest_text` | longtext | NO| La primera aparición de la consulta real con literales (desde el Almacén de consultas). |
+| `event_type` | varchar(32) | NO| La categoría del evento de espera. |
+| `event_name` | varchar(128) | NO| El nombre del evento de espera. |
+| `count_star` | bigint(20) | NO| El número de eventos de espera muestreados durante el intervalo de la consulta. |
+| `sum_timer_wait_ms` | double | NO| El tiempo de espera total (en milisegundos) de esta consulta durante el intervalo. |
 
 ### <a name="functions"></a>Functions
 
 | **Nombre**| **Descripción** |
 |---|---|
-| `mysql.az_purge_querystore_data(TIMESTAMP)` | Purga todos los datos del almacén de consultas antes de la marca de tiempo determinada. |
+| `mysql.az_purge_querystore_data(TIMESTAMP)` | Purga todos los datos del Almacén de consultas antes de la marca de tiempo determinada. |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Purga todos los datos de eventos de espera antes de la marca de tiempo determinada. |
-| `mysql.az_procedure_purge_recommendation(TIMESTAMP)` | Purga recomendaciones cuya expiración se produce antes de la marca de tiempo determinada. |
+| `mysql.az_procedure_purge_recommendation(TIMESTAMP)` | Purga las recomendaciones cuya expiración se produce antes de la marca de tiempo determinada. |
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 
