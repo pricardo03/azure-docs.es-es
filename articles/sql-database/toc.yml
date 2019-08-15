@@ -107,6 +107,8 @@
       items:
         - name: Migración en línea mediante DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Agregar a un grupo de conmutación por error
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Configuración de la replicación transaccional
           href: replication-with-sql-database-managed-instance.md
     - name: Seguridad en SQL Database
