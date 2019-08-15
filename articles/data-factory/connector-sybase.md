@@ -55,11 +55,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado Sybase:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Sybase** | Sí |
-| Servidor | Nombre del servidor de Sybase. |Sí |
-| Base de datos | Nombre de la base de datos Sybase. |Sí |
+| server | Nombre del servidor de Sybase. |Sí |
+| database | Nombre de la base de datos Sybase. |Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos Sybase.<br/>Los valores permitidos son: **Basic** y **Windows**. |Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| username | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |Sí |
+| password | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
