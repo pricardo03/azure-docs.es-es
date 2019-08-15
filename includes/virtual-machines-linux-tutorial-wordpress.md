@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 76a080d40721fa78ad703f77f6dbe7a3363ab77e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186322"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857490"
 ---
 ## <a name="install-wordpress"></a>Instalación de WordPress
 
@@ -45,7 +45,6 @@ GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
 ON wordpress.*
 TO wordpress@localhost
 IDENTIFIED BY 'yourPassword';
-FLUSH PRIVILEGES;
 ```
 
 Ejecute el siguiente comando para crear la base de datos:
