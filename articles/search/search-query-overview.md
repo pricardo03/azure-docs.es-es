@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c2d40865857bc3ea8367199ed29e0220a0e7c557
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485184"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882595"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
 
@@ -96,7 +96,7 @@ Todos los demás parámetros de búsqueda son opcionales. Para la lista completa
 
 Azure Search se basa en Apache Lucene y le permite elegir entre dos analizadores de consulta para gestionar consultas típicas y especializadas. Las solicitudes se formulan mediante el analizador básico con [sintaxis de consulta simplificada](query-simple-syntax.md), seleccionada como predeterminada por su velocidad y eficacia para las consultas de texto libre. Esta sintaxis admite varios operadores de búsqueda comunes entre los que se incluyen los operadores de frase, sufijo, precedencia, AND, OR y NOT.
 
-La [sintaxis de consulta completa de Lucene](query-Lucene-syntax.md#bkmk_syntax), que se habilita al agregar `queryType=full` a la solicitud, permite usar el expresivo lenguaje de consulta adoptado ampliamente desarrollado en [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La sintaxis completa amplía la sintaxis simplificada. Cualquier consulta que escriba con sintaxis simplificada se ejecuta en el analizador de Lucene completo. 
+La [sintaxis de consulta completa de Lucene](query-Lucene-syntax.md#bkmk_syntax), que se habilita al agregar `queryType=full` a la solicitud, permite usar el expresivo lenguaje de consulta adoptado ampliamente desarrollado en [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La sintaxis completa amplía la sintaxis simplificada. Cualquier consulta que escriba con sintaxis simplificada se ejecuta en el analizador de Lucene completo. 
 
 Los ejemplos siguientes ilustran el punto: misma consulta, pero con valores de queryType distintos, producen resultados diferentes. En la primera consulta, `^3` se trata como parte del término de búsqueda.
 
@@ -118,7 +118,7 @@ Azure Search admite una amplia gama de tipos de consulta.
 
 | Tipo de consulta | Uso | Más información y ejemplos |
 |------------|--------|-------------------------------|
-| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. | 
+| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. | 
 | Búsqueda filtrada | [Expresión de filtro de OData](query-odata-filter-orderby-syntax.md) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Búsqueda georreferenciada | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en el campo, la expresión de filtro y cualquier analizador | Las coordenadas que se almacenan en un campo con Edm.GeographyPoint se utilizan para "buscar cerca de mí" o los controles de búsqueda con mapas. <br/>[Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search)|
 | Búsqueda de intervalo | Expresión de filtro y analizador básico | En Azure Search, las consultas de intervalo se compilan con el parámetro de filtro. <br/>[Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 

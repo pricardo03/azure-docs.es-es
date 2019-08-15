@@ -2,17 +2,17 @@
 title: Personalización de las propiedades de RDP con PowerShell (Azure)
 description: Cómo personalizar las propiedades de EDP para Windows Virtual Desktop con cmdlets de PowerShell.
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: v-hevem
-ms.openlocfilehash: ce14f990272fa1e70d07c0f4a1f18025b536eccc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618862"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950722"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto para un grupo de hosts
 

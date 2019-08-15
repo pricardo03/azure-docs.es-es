@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 51255bc4a93fbe3719eec96f00940a765644bbfe
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 04c49b78d948884a9bcccfa949518d25a3dac9c1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312871"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986567"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -103,7 +103,7 @@ Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los si
 - **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue a través del control de acceso basado en rol (RBAC). Se recomienda la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de Azure AD a través de SMB para Azure Files (versión preliminar).** Azure Files admite la autorización basada en identidades a través de SMB (Bloque de mensajes del servidor) mediante Azure Active Directory Domain Services. Las máquinas virtuales (VM) Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](../files/storage-files-active-directory-overview.md).
 - **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Queue y Table y Azure Files admiten la autorización con clave compartida. Un cliente que usa la autorización de clave compartida pasa un encabezado con cada solicitud que se firma con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
-- **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 - **Acceso anónimo a contenedores y blobs.** Un contenedor y sus blobs pueden estar disponibles públicamente. Cuando se especifica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Para más información, consulte [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Administración del acceso de lectura anónimo a contenedores y blobs).
 
 ## <a name="encryption"></a>Cifrado

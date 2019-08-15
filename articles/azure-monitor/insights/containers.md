@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 98b7e99e5e9d25c6708b92b02e609ad38a971054
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381570"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951954"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -202,11 +202,11 @@ En esta sección, se describen los pasos necesarios para instalar al agente de L
 2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario.
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. Para implementar daemon-set, ejecute lo siguiente:
@@ -241,11 +241,11 @@ Siga este procedimiento si quiere usar secretos para proteger el identificador y
 2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador `<WSID>` y la clave principal `<KEY>` del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. Implemente el archivo de secretos ejecutando lo siguiente:

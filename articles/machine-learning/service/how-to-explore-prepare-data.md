@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dbdd088e5a78a4f78eec27b5ee74856c6aecc209
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828440"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847903"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Exploración y preparación de datos con la clase Dataset (versión preliminar)
 
@@ -31,7 +31,7 @@ Para explorar y preparar los datos, necesitará:
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
 
 * El SDK de Azure Machine Learning para Python (versión 1.0.21 o posterior), que incluye el paquete azureml-datasets. Para instalar o actualizar a la versión más reciente del SDK, consulte [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 

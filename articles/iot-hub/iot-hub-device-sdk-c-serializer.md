@@ -1,19 +1,19 @@
 ---
 title: 'SDK de dispositivo IoT de Azure para C: serializador | Microsoft Docs'
 description: Describe cómo usar la biblioteca de serializador del SDK de dispositivo IoT de Azure para C con el fin de crear aplicaciones para dispositivos que se comunican con un centro de IoT Hub.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
-ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883165"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 
@@ -64,7 +64,7 @@ Lo que no se demuestra en este ejemplo son tipos de datos adicionales que se adm
 
 Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de **serializador** :
 
-| Type | DESCRIPCIÓN |
+| type | DESCRIPCIÓN |
 | --- | --- |
 | double |número de punto flotante de doble precisión |
 | int |entero de 32 bits |

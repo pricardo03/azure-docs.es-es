@@ -1,20 +1,19 @@
 ---
 title: Uso de Azure CDN para obtener acceso a blobs con dominios personalizados mediante HTTPS
 description: Obtenga información sobre cómo integrar Azure CDN con Blob Storage para acceder a blobs con dominios personalizados mediante HTTPS.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148402"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986851"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Uso de Azure CDN para obtener acceso a blobs con dominios personalizados mediante HTTPS
 
@@ -41,7 +40,7 @@ Para habilitar HTTPS para el punto de conexión personalizado de Blob Storage, h
 
 ## <a name="shared-access-signatures"></a>Firmas de acceso compartido
 
-De forma predeterminada, los puntos de conexión de Blob Storage no permiten el acceso de lectura anónimo. Si el punto de conexión de Blob Storage está configurado para no permitir el acceso de lectura anónimo, proporcione un token de [firma de acceso compartido](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) en cada solicitud que realice a su dominio personalizado. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
+De forma predeterminada, los puntos de conexión de Blob Storage no permiten el acceso de lectura anónimo. Si el punto de conexión de Blob Storage está configurado para no permitir el acceso de lectura anónimo, proporcione un token de [firma de acceso compartido](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) en cada solicitud que realice a su dominio personalizado. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
 
 Azure CDN no respeta las restricciones que se agregan al token de firma de acceso compartido. Por ejemplo, todos los tokens de firma de acceso compartido expiran. Todavía puede acceder a contenido con una firma de acceso compartido expirada hasta que se purgue ese contenido desde los nodos perimetrales de Azure CDN. Puede controlar cuánto tiempo se almacenan en caché los datos en Azure CDN mediante el establecimiento del encabezado de respuesta de caché. Para saber cómo, vea [Administración de la expiración de Azure Storage Blob en Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
 

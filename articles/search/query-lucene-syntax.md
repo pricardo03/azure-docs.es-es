@@ -4,7 +4,7 @@ description: Referencia de la sintaxis completa de Lucene, como se usa con Azure
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8e9b737676b2695b7b88430f59b0b0e79bc477a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002243"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883877"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
-Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
+Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
 
 ## <a name="how-to-invoke-full-parsing"></a>Invocación del análisis completo
 
@@ -136,7 +136,7 @@ El campo especificado en `fieldName:searchExpression` debe ser un campo `searcha
 > Al usar expresiones de búsqueda clasificada por campos, no es necesario usar el parámetro `searchFields` porque cada expresión de búsqueda clasificada por campos tiene un nombre de campo especificado explícitamente. Pero tenga en cuenta que todavía puede usar el parámetro `searchFields` si quiere ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=genre:jazz NOT history&searchFields=description` coincidiría con `jazz` únicamente con el campo `genre`, aunque coincidiría con `NOT history` con el campo `description`. El nombre de campo proporcionado en `fieldName:searchExpression` siempre tiene prioridad sobre el parámetro `searchFields`. Por eso en este ejemplo no es necesario incluir `genre` en el parámetro `searchFields`.
 
 ##  <a name="bkmk_fuzzy"></a> Búsqueda aproximada  
- Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia. 
+ Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia. 
 
  Para realizar una búsqueda aproximada, use el símbolo "~" de tilde de la Ñ al final de una sola palabra con un parámetro opcional, un número entre 0 y 2, que especifica la distancia de edición. Por ejemplo, "blue~" o "blue~1" devolvería "blue", "blues" y "glue".
 
@@ -155,7 +155,7 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
  Para impulsar un término, use el símbolo de intercalación, "^", un símbolo con un factor de impulso (un número) al final del término que quiera buscar. También puede impulsar frases. Cuanto mayor sea el factor de prioridad, más relevante será el término en relación con otros términos de búsqueda. De forma predeterminada, el factor de prioridad es 1. Aunque el factor de impulso debe ser positivo, puede ser inferior a 1 (por ejemplo, 0,20).  
 
 ##  <a name="bkmk_regex"></a> Búsqueda de expresiones regulares  
- Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Por ejemplo, para encontrar documentos que contengan "motel" o "hotel", especifique `/[mh]otel/`.  Las búsquedas mediante expresiones regulares se comparan con las palabras individuales.   
 

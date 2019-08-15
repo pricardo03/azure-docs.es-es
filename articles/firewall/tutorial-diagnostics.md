@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044868"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "60193209"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Supervisión de métricas y registros de Azure Firewall
 
@@ -71,11 +71,11 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 Para habilitarlo, siga estos pasos:
 
-1. Anote el identificador de recurso de la cuenta de almacenamiento donde se almacenan los datos de registro. Este valor tiene este formato: */subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Storage/storageAccounts/\<nombreDeCuentaDeAlmacenamiento\>*.
+1. Anote el identificador de recurso de la cuenta de almacenamiento donde se almacenan los datos de registro. Este valor tiene este formato: */subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Storage/storageAccounts/\<nombreDeCuentaDeAlmacenamiento\>* .
 
    Puede usar cualquier cuenta de almacenamiento de la suscripción. Para buscar esta información, se puede usar Azure Portal. La información se encuentra en la página de **propiedades** del recurso.
 
-2. Observe el identificador de recurso del firewall para el que se ha habilitado el registro. Este valor tiene el siguiente formato: */subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Network/azureFirewalls/\<nombreDeFirewall\>*.
+2. Observe el identificador de recurso del firewall para el que se ha habilitado el registro. Este valor tiene el siguiente formato: */subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Network/azureFirewalls/\<nombreDeFirewall\>* .
 
    Para buscar esta información, use Azure Portal.
 

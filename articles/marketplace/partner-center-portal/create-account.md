@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668339"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955584"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -71,7 +71,7 @@ Le agradecemos que haya creado una cuenta en el Centro de partners. Ahora se le 
 
 Si su cuenta se ha migrado desde [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), no es necesario que cree una cuenta en el Centro de partners, ya que habrá recibido un vínculo personalizado a su nueva cuenta del Centro de partners mediante el correo electrónico y en una notificación de banner que se muestra después de iniciar sesión en una cuenta existente de CPP.
 
-Una vez haya habilitado la nueva cuenta de Centro de partners con la visita a este vínculo personalizado, puede volver a su cuenta mediante el [panel de información de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) en Centro de partners.
+Una vez haya habilitado la nueva cuenta de Centro de partners con la visita a este vínculo personalizado, puede volver a su cuenta mediante el [panel de información de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en Centro de partners.
 
 El contrato de publicación y la información de perfil de empresa se migrarán a la nueva cuenta de Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario configurados previamente, así como ofertas activas asociadas con su cuenta de CPP. 
 

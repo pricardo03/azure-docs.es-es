@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463809"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015477"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
@@ -231,7 +231,7 @@ Aquí encontrará otras consideraciones sobre el funcionamiento de los canales y
 ## <a name="related-topics"></a>Temas relacionados
 [Codificadores locales recomendados](media-services-recommended-encoders.md)
 
-[Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)
+[Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
 
 [Información general y escenarios comunes de Azure Media Services](media-services-overview.md)
 

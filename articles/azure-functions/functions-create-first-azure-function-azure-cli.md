@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 625fcda4b612fdeda940f9219238ac79354dd056
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4e65abdb500d61aa72b142f598a17e4cb8fb05f8
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444665"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949968"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Creación de su primera función desde la línea de comandos
 
@@ -37,33 +37,7 @@ Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Creación del proyecto de aplicación de función local
-
-Ejecute el comando siguiente desde la línea de comandos para crear un proyecto de aplicación de función en la carpeta `MyFunctionProj` del directorio local actual. También se crea un repositorio GitHub en `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-Cuando se le pida, seleccione un tiempo de ejecución del trabajo de entre los siguientes lenguajes:
-
-+ `dotnet`: crea un proyecto de biblioteca de clases .NET (.csproj).
-+ `node`: crea un proyecto JavaScript.
-
-Cuando se ejecute el comando, verá una salida similar a la siguiente:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Use el siguiente comando para ir a la nueva carpeta del proyecto `MyFunctionProj`.
-
-```bash
-cd MyFunctionProj
-```
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Habilitación de conjuntos de extensiones
 

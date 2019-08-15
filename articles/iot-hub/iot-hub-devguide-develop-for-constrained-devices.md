@@ -1,18 +1,18 @@
 ---
 title: Desarrollo en Azure IoT Hub para dispositivos restringidos mediante los SDK para C de IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: instrucciones sobre cómo desarrollar mediante los SDK de Azure IoT para dispositivos restringidos.'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
-ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320961"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880961"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 
@@ -73,7 +73,7 @@ A continuación, consulte los modelos de programación para dispositivos restrin
 
 El SDK para C tiene un [serializador de SDK para C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer) opcional, que le permite usar las tablas de asignación declarativas para definir métodos y propiedades de dispositivos gemelos. El serializador está diseñado para simplificar el desarrollo pero agrega sobrecarga, lo cual no es óptimo para dispositivos restringidos. En este caso, considere el uso de las API de cliente primitivas y analice el código JSON con un analizador ligero como [parson](https://github.com/kgabis/parson).
 
-### <a name="use-the-lower-layer-ll"></a>Uso de la capa inferior (_LL_)
+### <a name="use-the-lower-layer-_ll_"></a>Uso de la capa inferior (_LL_)
 
 El SDK para C admite dos modelos de programación. Cuenta con un conjunto de API con una porción _LL_ en el nombre, que es el acrónimo de capa inferior. Este conjunto de API es ligero y no crea subprocesos de trabajo, lo que significa que el usuario debe controlar manualmente la programación. Por ejemplo, para el cliente de dispositivo, las API _LL_ se pueden encontrar en este [archivo de encabezado](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
 

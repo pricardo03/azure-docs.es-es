@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949631"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69016787"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
 
@@ -38,7 +38,7 @@ Este tutorial contiene cuatro lecciones:
 
 * Windows 8 de 32 o 64 bits.
 * Versiones de 2012 a 2015 de Visual Studio.
-* [SDK de cliente Smooth Streaming de Microsoft para Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [SDK de cliente Smooth Streaming de Microsoft para Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés): 
 
@@ -71,7 +71,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
     | Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
     | Plantilla |Aplicación vacía (XAML) |
     | NOMBRE |SSPlayer |
-    | Ubicación |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Nombre de la solución |SSPlayer |
     | Crear directorio para la solución |(seleccionado) |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779827"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928006"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -54,7 +54,7 @@ En un área de trabajo habilitada en la nube, un inquilino puede definirse como 
 Cada directorio de Azure AD es distinto e independiente de otros directorios de Azure AD. Del mismo modo que un edificio de oficinas para empresas es un activo seguro dedicado específicamente a su organización, un directorio de Azure AD se ha diseñado también para ser un activo seguro para el uso exclusivo de su organización. La arquitectura de Azure AD aísla los datos del cliente y la información de identidad para evitar contactos cruzados. Esto significa que los usuarios y los administradores de un directorio de Azure AD no tendrán acceso a los datos de otro directorio, ya sea de manera involuntaria o malintencionada.
 
 ### <a name="azure-tenancy"></a>Inquilinato de Azure
-El inquilinato de Azure (suscripción de Azure) hace referencia a una relación "cliente/facturación" y a un único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) en [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). El aislamiento en el nivel de inquilino en Microsoft Azure se logra con Azure Active Directory y los [controles basados en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) que ofrece. Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD).
+El inquilinato de Azure (suscripción de Azure) hace referencia a una relación "cliente/facturación" y a un único [inquilino](../../active-directory/develop/quickstart-create-new-tenant.md) en [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). El aislamiento en el nivel de inquilino en Microsoft Azure se logra con Azure Active Directory y los [controles basados en roles](../../role-based-access-control/overview.md) que ofrece. Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD).
 
 Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Puede asignar estos derechos de acceso con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. Un inquilino de Azure está aislado lógicamente mediante límites de seguridad de forma que ningún cliente puede acceder o poner en riesgo los coinquilinos, ya sea de forma malintencionada o por accidente. Azure AD se ejecuta en servidores sin sistema operativo, aislados en un segmento de red separado donde el filtrado de paquetes de nivel de host y Firewall de Windows bloquean el tráfico y las conexiones no deseadas.
 
@@ -71,7 +71,7 @@ Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los rec
 
 - Los usuarios de Azure AD no tienen acceso a los recursos ni las ubicaciones físicas y, por lo tanto, no pueden omitir las comprobaciones lógicas de directiva de RBAC que se indican a continuación.
 
-Por razones de diagnóstico y mantenimiento, se necesita y utiliza un modelo de operaciones que emplee un sistema de elevación de privilegios Just-In-Time. Azure AD Privileged Identity Management (PIM) presenta el concepto de administrador apto. Los [administradores aptos](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) deben ser usuarios que necesiten acceso con privilegios de vez en cuando, pero no todos los días. El rol está inactivo hasta que el usuario necesita acceso, luego realiza un proceso de activación y se convierte en un administrador activo durante una cantidad de tiempo predeterminada.
+Por razones de diagnóstico y mantenimiento, se necesita y utiliza un modelo de operaciones que emplee un sistema de elevación de privilegios Just-In-Time. Azure AD Privileged Identity Management (PIM) presenta el concepto de administrador apto. Los [administradores aptos](../../active-directory/privileged-identity-management/pim-configure.md) deben ser usuarios que necesiten acceso con privilegios de vez en cuando, pero no todos los días. El rol está inactivo hasta que el usuario necesita acceso, luego realiza un proceso de activación y se convierte en un administrador activo durante una cantidad de tiempo predeterminada.
 
 ![Administración de identidades con privilegios de Azure AD](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -82,7 +82,7 @@ El concepto de contenedores de inquilino está profundamente relacionado con el 
 Aunque se almacenan metadatos de varios inquilinos de Azure Active Directory en el mismo disco físico, no hay relación entre los contenedores salvo la que se define en el servicio de directorio, que a su vez viene determinada por el administrador del inquilino.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC) de Azure
-El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
+El [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
 
 RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
 
@@ -96,16 +96,16 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la instancia de Azure Virtual Network ni a la subred a la que se conecta la máquina virtual.
 
-[Roles integrados para el control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)(Roles personalizados en RBAC de Azure).
+[Roles integrados para el control de acceso basado en rol](../../role-based-access-control/built-in-roles.md) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](../../role-based-access-control/custom-roles.md)(Roles personalizados en RBAC de Azure).
 
 Otras funcionalidades de Azure Active Directory incluyen:
 - Azure AD habilita SSO para las aplicaciones SaaS, independientemente de donde estén hospedadas. Algunas aplicaciones están federadas con Azure AD y otras usan SSO con contraseña. Las aplicaciones federadas también pueden admitir aprovisionamiento de usuarios y [almacén de contraseñas](https://www.techopedia.com/definition/31415/password-vault).
 
-- El acceso a datos en [Azure Storage](https://azure.microsoft.com/services/storage/) se controla mediante la autenticación. Cada cuenta de almacenamiento tiene una clave principal ([clave de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/storage-create-storage-account), o SAK) y una clave secreta secundaria (la firma de acceso compartido, o SAS).
+- El acceso a datos en [Azure Storage](https://azure.microsoft.com/services/storage/) se controla mediante la autenticación. Cada cuenta de almacenamiento tiene una clave principal ([clave de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md), o SAK) y una clave secreta secundaria (la firma de acceso compartido, o SAS).
 
-- Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs)), sincronización y replicación de directorios locales.
+- Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)), sincronización y replicación de directorios locales.
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite unir máquinas virtuales de Azure a un dominio de Active Directory sin implementar controladores de dominio. Puede conectarse a estas máquinas virtuales con sus credenciales corporativas de Active Directory y administrar las máquinas virtuales unidas a un dominio mediante una directiva de grupo para aplicar una base de referencia de seguridad en todas sus máquinas virtuales de Azure.
 
@@ -140,7 +140,7 @@ Usar un tamaño aislado garantiza que la máquina virtual será la única que se
 * Standard_D15_v2
 * Standard_F72s_v2
 
-Puede obtener más información sobre cada tamaño aislado [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+Puede obtener más información sobre cada tamaño aislado [aquí](../../virtual-machines/windows/sizes-memory.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
 La plataforma de proceso de Azure se basa en la virtualización, lo que significa que todo el código del cliente se ejecuta en una máquina virtual de Hyper-V. En cada nodo de Azure (o punto de conexión de red), hay un hipervisor que se ejecuta directamente sobre el hardware y divide un nodo en un número variable de máquinas virtuales invitadas.
@@ -215,12 +215,12 @@ Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad d
 
 ![Aislamiento con Storage Access Control](./media/isolation-choices/azure-isolation-fig9.png)
 
-**El acceso a los datos de Azure Storage (incluidas las tablas)** se puede controlar con un token [SAS (Firma de acceso compartido)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1), que concede acceso de ámbito. El token SAS se crea mediante una plantilla de consulta (URL) firmada con la [SAK (Clave de la cuenta de almacenamiento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Esta [URL firmada](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) se puede entregar a otro proceso (delegado), que puede completar los detalles de la consulta y hacer la petición al servicio de almacenamiento. Un token SAS le permite conceder acceso temporal a los clientes sin revelar la clave secreta de la cuenta de almacenamiento.
+**El acceso a los datos de Azure Storage (incluidas las tablas)** se puede controlar con un token [SAS (Firma de acceso compartido)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md), que concede acceso de ámbito. El token SAS se crea mediante una plantilla de consulta (URL) firmada con la [SAK (Clave de la cuenta de almacenamiento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Esta [URL firmada](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) se puede entregar a otro proceso (delegado), que puede completar los detalles de la consulta y hacer la petición al servicio de almacenamiento. Un token SAS le permite conceder acceso temporal a los clientes sin revelar la clave secreta de la cuenta de almacenamiento.
 
 Esto significa que puede conceder permisos limitados a los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. Se pueden conceder estos permisos limitados sin tener que compartir las claves de acceso de su cuenta.
 
 ### <a name="ip-level-storage-isolation"></a>Aislamiento del almacenamiento en el nivel de dirección IP
-Puede establecer firewalls y definir un intervalo de direcciones IP para los clientes de confianza. Con un intervalo de direcciones IP, solo los clientes que tengan una dirección IP dentro del intervalo definido podrán conectarse a [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
+Puede establecer firewalls y definir un intervalo de direcciones IP para los clientes de confianza. Con un intervalo de direcciones IP, solo los clientes que tengan una dirección IP dentro del intervalo definido podrán conectarse a [Azure Storage](../../storage/common/storage-security-guide.md).
 
 Los datos de almacenamiento de IP se pueden proteger contra usuarios no autorizados mediante un mecanismo de red que se utiliza para asignar un túnel de tráfico dedicado al almacenamiento de IP.
 
@@ -233,23 +233,23 @@ Azure ofrece los siguientes tipos de cifrado para proteger los datos:
 #### <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
 
--   [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Azure Storage o desde este servicio.
+-   [Cifrado de nivel de transporte](../../storage/common/storage-security-guide.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
 -   [Cifrado en el cable](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
 
--   [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
+-   [Cifrado de cliente](../../storage/common/storage-security-guide.md), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 #### <a name="encryption-at-rest"></a>Cifrado en reposo
-Para muchas organizaciones, el [cifrado de los datos en reposo](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
+Para muchas organizaciones, el [cifrado de los datos en reposo](isolation-choices.md) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
--   [Cifrado del servicio Storage](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
+-   [Cifrado del servicio Storage](../../storage/common/storage-security-guide.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 
--   [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) también proporciona la característica de cifrado en reposo.
+-   [Cifrado de cliente](../../storage/common/storage-security-guide.md) también proporciona la característica de cifrado en reposo.
 
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
+-   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -293,7 +293,7 @@ SQL Database es un servicio de bases de datos relacionales de Microsoft Cloud qu
 
 ### <a name="sql-azure-application-model"></a>Modelo de aplicación de SQL Azure
 
-[Microsoft SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) es un servicio de base de datos relacional en la nube que se basa en la tecnología de SQL Server. Proporciona un servicio de base de datos de alta disponibilidad, escalable y multiinquilino, hospedado por Microsoft en la nube.
+[Microsoft SQL Azure Database](../../sql-database/sql-database-single-database-get-started.md) es un servicio de base de datos relacional en la nube que se basa en la tecnología de SQL Server. Proporciona un servicio de base de datos de alta disponibilidad, escalable y multiinquilino, hospedado por Microsoft en la nube.
 
 Desde una perspectiva de la aplicación, SQL Azure proporciona la siguiente jerarquía: Cada nivel tiene independencia de niveles de uno a varios.
 
@@ -344,9 +344,9 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 ![Aislamiento de red](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Aislamiento del tráfico:** una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) es el límite para aislamiento del tráfico en la plataforma Azure. Las máquinas virtuales de una red virtual no se pueden comunicar directamente con las máquinas virtuales de otra red virtual, incluso si las dos redes virtuales las creó el mismo cliente. El aislamiento consiste en una propiedad fundamental que garantiza que las máquinas virtuales del cliente y la comunicación sigan siendo privadas en una red virtual.
+**Aislamiento del tráfico:** una [red virtual](../../virtual-network/virtual-networks-overview.md) es el límite para aislamiento del tráfico en la plataforma Azure. Las máquinas virtuales de una red virtual no se pueden comunicar directamente con las máquinas virtuales de otra red virtual, incluso si las dos redes virtuales las creó el mismo cliente. El aislamiento consiste en una propiedad fundamental que garantiza que las máquinas virtuales del cliente y la comunicación sigan siendo privadas en una red virtual.
 
-[Subred](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) ofrece un nivel de aislamiento adicional de la red virtual basado en un intervalo de direcciones IP. Direcciones IP en la red virtual, puede dividir una red virtual en varias subredes por organización y seguridad. Las instancias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) para permitir o denegar el tráfico de red a una instancia de máquina virtual en función de las reglas configuradas en la lista de control de acceso (ACL) del NSG. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred.
+[Subred](../../virtual-network/virtual-networks-overview.md) ofrece un nivel de aislamiento adicional de la red virtual basado en un intervalo de direcciones IP. Direcciones IP en la red virtual, puede dividir una red virtual en varias subredes por organización y seguridad. Las instancias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar [grupos de seguridad de red (NSG)](../../virtual-network/virtual-networks-overview.md) para permitir o denegar el tráfico de red a una instancia de máquina virtual en función de las reglas configuradas en la lista de control de acceso (ACL) del NSG. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

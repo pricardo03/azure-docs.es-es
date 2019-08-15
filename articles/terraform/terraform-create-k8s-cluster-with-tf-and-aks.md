@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 257a2d78a54e292faecda836811f0a58fabd584d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009096"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854501"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creación de un clúster de Kubernetes con Azure Kubernetes Service y Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) permite administrar el entorno hospedado de Kubernetes, lo que hace que sea fácil y rápido implementar y administrar aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.
@@ -110,9 +110,14 @@ Cree el archivo de configuración de Terraform que declara los recursos para el 
         name     = "${var.resource_group_name}"
         location = "${var.location}"
     }
+    
+    resource "random_id" "log_analytics_workspace_name_suffix" {
+        byte_length = 8
+    }
 
     resource "azurerm_log_analytics_workspace" "test" {
-        name                = "${var.log_analytics_workspace_name}"
+        # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
+        name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
         location            = "${var.log_analytics_workspace_location}"
         resource_group_name = "${azurerm_resource_group.k8s.name}"
         sku                 = "${var.log_analytics_workspace_sku}"
@@ -165,7 +170,7 @@ Cree el archivo de configuración de Terraform que declara los recursos para el 
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }

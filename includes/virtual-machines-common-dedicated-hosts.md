@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702959"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976612"
 ---
-Azure Dedicated Host es un servicio que proporciona servidores físicos (capaces de hospedar una o varias máquinas virtuales) dedicados a una suscripción a Azure. Los hosts dedicados son los mismos servidores físicos que se usan en nuestros centros de datos y se proporcionan como un recurso. Puede aprovisionar hosts dedicados dentro de una región, zona de disponibilidad y dominio de error. Después, puede colocar las máquinas virtuales directamente en los hosts aprovisionados, en la configuración que más se ajuste a sus necesidades.
-
-> [!IMPORTANT]
-> Azure Dedicated Host está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitaciones conocidas de la versión preliminar**
-> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-> - La versión preliminar inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
-> - Durante la versión preliminar, no podrá cambiar el tamaño de las máquinas virtuales implementada en los hosts dedicados.
-> - El control sobre las funcionalidades de mantenimiento se encuentra en una versión preliminar limitada. Para probarla, lo primero que debe hacer es esta [encuesta de nominación](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).  
-> Durante la versión preliminar, no vamos a ofrecer la opción de capacidad reservada. 
-
 ## <a name="benefits"></a>Ventajas 
 
 La reserva de todo el host proporciona las siguientes ventajas:
@@ -122,7 +109,7 @@ Durante la versión preliminar, se admitirán los siguientes tipos/SKU de host: 
 
 Azure supervisa y administra el estado de mantenimiento de los hosts. Al consultar el host se devolverán los siguientes estados:
 
-| Estado de mantenimiento   | Descripción       |
+| Estado de mantenimiento   | DESCRIPCIÓN       |
 |----------|----------------|
 | Host disponible     | No hay ningún problema conocido en el host.   |
 | Host bajo investigación  | Hay algunos problemas en el host y se están examinando. Se trata de un estado transitorio necesario para que Azure intente identificar el ámbito y la causa principal del problema identificado. Es posible que se vean afectadas las máquinas virtuales que se ejecutan en el host. |

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dd86e6bf571dd67da00aee63eadff031a1040ff7
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728734"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934886"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implementación de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al implementar aplicaciones para la nube. Se tratan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de versión y de respuesta del [Ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para implementar una aplicación más segura.
@@ -40,7 +40,7 @@ Compruebe el rendimiento de su aplicación antes de iniciarla o de implementar a
 
 Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como Entre estas vulnerabilidades, son comunes los ataques por inyección de código SQL o ataques de scripts de sitios. Evitar estos ataques en el código de la aplicación puede ser todo un desafío. Puede requerir un mantenimiento riguroso, revisión y supervisión en varias capas de la topología de la aplicación. Un WAF centralizado ayuda a simplificar la administración de seguridad. Las soluciones de WAF también pueden reaccionar ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado.
 
-La característica de [Azure Application Gateway WAF](https://docs.microsoft.com/azure/application-gateway/waf-overview) que ofrece una protección centralizada de las aplicaciones web contra las vulnerabilidades de seguridad más habituales. La solución WAF se basa en las reglas contenidas en [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
+La característica de [Azure Application Gateway WAF](../../application-gateway/waf-overview.md) que ofrece una protección centralizada de las aplicaciones web contra las vulnerabilidades de seguridad más habituales. La solución WAF se basa en las reglas contenidas en [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
 
 ### <a name="create-an-incident-response-plan"></a>Creación de un plan de respuesta ante incidentes
 
@@ -71,13 +71,13 @@ Los servicios de Azure que ayudan con la supervisión de aplicaciones son los si
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Application Insights detecta automáticamente anomalías en el rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Application Insights detecta automáticamente anomalías en el rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure, incluidas las aplicaciones web. Azure Security Center ayuda a detectar amenazas que de otro modo podrían pasar desapercibidas. Funciona con varias soluciones de seguridad.
+[Azure Security Center](../../security-center/security-center-intro.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure, incluidas las aplicaciones web. Azure Security Center ayuda a detectar amenazas que de otro modo podrían pasar desapercibidas. Funciona con varias soluciones de seguridad.
 
-El nivel Gratis de Security Center ofrece seguridad limitada solo para los recursos de Azure. El [nivel Estándar de Security Center](https://docs.microsoft.com/azure/security-center/security-center-onboarding) amplía estas funcionalidades a los recursos locales y otras nubes.
+El nivel Gratis de Security Center ofrece seguridad limitada solo para los recursos de Azure. El [nivel Estándar de Security Center](../../security-center/security-center-onboarding.md) amplía estas funcionalidades a los recursos locales y otras nubes.
 El nivel Estándar de Security Center le ayuda a:
 
   - Buscar y corregir vulnerabilidades de seguridad

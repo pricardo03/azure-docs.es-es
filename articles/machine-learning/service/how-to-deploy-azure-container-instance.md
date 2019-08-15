@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 1bf8c22c2c7c8e8aaab35a4663652300a341c99c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04c77a82d08e2559d4ce29d49d56d6b7a5edfca5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571072"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856139"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 
@@ -28,9 +28,9 @@ Para información de la disponibilidad de cuotas y regiones de ACI, consulte el 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md).
+- Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
 
-- Un modelo de aprendizaje automático registrado en el área de trabajo. Si no tiene un modelo registrado, consulte [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
+- Un modelo de Machine Learning registrado en el área de trabajo. Si no tiene un modelo registrado, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
 - La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](https://aka.ms/aml-sdk) o la [extensión de Visual Studio Code para Azure Machine Learning](how-to-vscode-tools.md).
 
@@ -40,13 +40,13 @@ Para información de la disponibilidad de cuotas y regiones de ACI, consulte el 
     * `model`: establézcalo en el modelo registrado.
     * `inference_config`: establézcalo en la configuración de inferencia del modelo.
 
-    Para más información sobre la configuración de estas variables, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+    Para más información acerca de cómo establecer estas variables, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
-- En los fragmentos de la __CLI__ de este artículo se supone que ha creado un documento `inferenceconfig.json`. Para más información sobre cómo crear este documento, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+- En los fragmentos de código de la __CLI__ de este artículo se supone que ha creado un documento `inferenceconfig.json`. Para más información sobre cómo crear este documento, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Implementación en ACI
 
-Para implementar un modelo en Azure Container Instances, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio Web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+Para implementar un modelo en Azure Container Instances, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 

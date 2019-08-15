@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0eda9fe0e16a945dcb9f9a1b686afcd2aebe6306
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710574"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854383"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
 La consola serie de Azure Portal proporciona acceso a una consola basada en texto para las máquinas virtuales Linux y los conjuntos de escalado de máquinas virtuales. Esta conexión serie se conecta al puerto serie ttys0 de la máquina virtual o del conjunto de escalado de máquinas virtuales y ofrece acceso a ellos sin estar relacionada con el estado del sistema operativo o de la red. A la consola serie solo se puede acceder mediante Azure Portal; además, esta solo se permite a los usuarios que tienen un rol de acceso de colaborador o superior en el conjunto de escalado de máquinas virtuales o la máquina virtual.
 
-La consola serie funciona de la misma manera para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente los conjuntos de escalado de máquinas virtuales, a menos que se indique lo contrario.
+La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente los conjuntos de escalado de máquinas virtuales, a menos que se indique lo contrario.
 
 Para la documentación sobre la consola serie para Windows, consulte [Consola serie para Windows](../windows/serial-console.md).
 
@@ -35,11 +35,11 @@ Para la documentación sobre la consola serie para Windows, consulte [Consola se
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- La máquina virtual o el conjunto de escalado de máquinas virtuales debe usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
+- La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
-- La cuenta que usa una consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md)
+- La cuenta que usa una consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md).
 
-- La máquina virtual o el conjunto de escalado de máquinas virtuales deben tener un usuario con contraseña. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
+- La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben tener un usuario con contraseña. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
 
 - La máquina virtual o el conjunto de escalado de máquinas virtuales deben tener el [diagnóstico de arranque](boot-diagnostics.md) habilitado.
 
@@ -57,21 +57,21 @@ La consola serie para las máquinas virtuales y los conjuntos de escalado de má
 Usar la consola serie para máquinas virtuales es tan sencillo como hacer clic en **Consola serie** en la sección **Soporte técnico y solución de problemas** de Azure Portal.
   1. Abra [Azure Portal](https://portal.azure.com).
 
-  1. Vaya a **Todos los recursos** y seleccione una máquina Virtual. Se abrirá la página de información general de la máquina virtual.
+  1. Vaya a **Todos los recursos** y seleccione una máquina virtual. Se abrirá la página de información general de la máquina virtual.
 
   1. Desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas** y seleccione la opción **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
      ![Ventana de la consola serie de Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>Consola serie para los conjuntos de escalado de máquinas virtuales
-La consola serie está disponible por instancia para los conjuntos de escalado de máquinas virtuales. Tendrá que ir a al conjunto de escalado de máquinas virtuales específico para ver el botón **Consola serie**. Si su conjunto de escalado de máquinas virtuales no tiene habilitado el diagnóstico de arranque, asegúrese de que actualizar el modelo para habilitarlo y actualice todas las instancias al nuevo modelo para acceder a la consola serie.
+La consola serie está disponible por instancia para los conjuntos de escalado de máquinas virtuales. Tendrá que ir a la instancia individual de un conjunto de escalado de máquinas virtuales para ver el botón **Consola serie**. Si su conjunto de escalado de máquinas virtuales no tiene habilitado el diagnóstico de arranque, asegúrese de actualizar el modelo para habilitarlo y actualice todas las instancias en el nuevo modelo para acceder a la consola serie.
   1. Abra [Azure Portal](https://portal.azure.com).
 
   1. Vaya a **Todos los recursos** y seleccione un conjunto de escalado de máquinas virtuales. Se abrirá la página de información general del conjunto de escalado de máquinas virtuales.
 
-  1. Vaya a **Instancias**
+  1. Vaya a **Instancias**.
 
-  1. Seleccione un conjunto de escalado de máquinas virtuales
+  1. Seleccione un conjunto de escalado de máquinas virtuales.
 
   1. En la sección **Soporte técnico y solución de problemas**, seleccione **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
@@ -102,7 +102,7 @@ Para habilitar la consola serie para la imagen de VM de Linux personalizada, hab
 
 También deberá agregar ttys0 como destino para la salida de serie. Para más información sobre cómo configurar una imagen personalizada para trabajar con la consola serie, consulte los requisitos generales del sistema en el artículo de [Creación y carga de un disco duro virtual Linux en Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Si está compilando un kernel personalizado, considere la posibilidad de habilitar las marcas de kernel `CONFIG_SERIAL_8250=y` y `CONFIG_MAGIC_SYSRQ_SERIAL=y`. El archivo de configuración se encuentra normalmente en la ruta de acceso */boot/* . |
+Si está compilando un kernel personalizado, considere la posibilidad de habilitar las marcas de kernel `CONFIG_SERIAL_8250=y` y `CONFIG_MAGIC_SYSRQ_SERIAL=y`. El archivo de configuración se encuentra normalmente en la ruta de acceso */boot/* .
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Escenarios habituales de acceso a la consola serie
 
@@ -118,7 +118,7 @@ Interacción con el cargador de arranque | Reinicie la máquina virtual desde de
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado. Puede deshabilitar la consola serie a nivel de la suscripción o de la máquina virtual o del conjunto de escalado de máquinas virtuales. Tenga en cuenta que el diagnóstico de arranque debe estar habilitado en una máquina virtual para que la consola serie funcione.
 
 ### <a name="vmvirtual-machine-scale-set-level-disable"></a>Nivel de la máquina virtual o del conjunto de escalado de máquinas virtuales deshabilitados
-La consola serie puede deshabilitarse para una determinada máquina virtual o conjunto de escalado de máquinas virtuales al deshabilitar la configuración de diagnóstico de arranque. Desactive el diagnóstico de arranque desde Azure Portal para deshabilitar la consola serie para la máquina virtual o el conjunto de escalado de máquinas virtuales. Si utiliza la consola serie en un conjunto de escalado de máquinas virtuales, asegúrese de actualizar las instancias al modelo más reciente.
+La consola serie puede deshabilitarse para una máquina virtual o un conjunto de escalado de máquinas virtuales específicos al deshabilitar la configuración de diagnóstico de arranque. Desactive el diagnóstico de arranque desde Azure Portal para deshabilitar la consola serie para la máquina virtual o el conjunto de escalado de máquinas virtuales. Si utiliza la consola serie en un conjunto de escalado de máquinas virtuales, asegúrese de actualizar las instancias al modelo más reciente.
 
 > [!NOTE]
 > Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Estos permisos incluyen roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
@@ -199,7 +199,7 @@ Socket web está cerrado o no se pudo abrir. | Puede que necesite incluir `*.con
 Se encontró una respuesta "Prohibido" al obtener acceso a la cuenta de almacenamiento de diagnósticos de arranque de la VM. | Asegúrese de que los diagnósticos de arranque no tengan ningún firewall de cuentas. Se necesita una cuenta de almacenamiento de diagnósticos de arranque accesible para que la consola serie funcione.
 
 ## <a name="known-issues"></a>Problemas conocidos
-Somos conscientes de que la consola serie presenta algunos problemas. A continuación, tiene una lista de dichos problemas y los pasos que puede realizar para mitigarlos. Estos problemas y mitigaciones se aplican tanto a las máquinas virtuales como a los conjuntos de escalado de máquinas virtuales.
+Somos conscientes de que la consola serie presenta algunos problemas. A continuación, tiene una lista de dichos problemas y los pasos que puede realizar para mitigarlos. Estos problemas y mitigaciones se aplican tanto a las máquinas virtuales como a las instancias de conjunto de escalado de máquinas virtuales.
 
 Problema                           |   Mitigación
 :---------------------------------|:--------------------------------------------|
@@ -207,7 +207,7 @@ Al presionar **Entrar** después del banner de conexión no se muestra ninguna s
 El texto de la consola serie solo ocupa una parte de la pantalla (a menudo después de usar un editor de texto). | Las consolas serie no admiten operaciones para cambiar el tamaño de la ventana ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), lo que significa que no se enviará ninguna señal SIGWINCH para actualizar el tamaño de la pantalla y la máquina virtual no tendrá conocimiento del tamaño del terminal. Instale xterm o una utilidad similar que le proporcione el comando `resize` y, a continuación, ejecute `resize`.
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
 La consola serie no funciona con un firewall de la cuenta de almacenamiento. | Por su diseño, la consola serie no puede operar con firewalls de la cuenta de almacenamiento habilitados en la cuenta de almacenamiento del diagnóstico de arranque.
-La consola serie no funciona con una cuenta de almacenamiento que use Azure Data Lake Storage Gen2 con espacios de nombres jerárquicos. | Se trata de un problema conocido con los espacios de nombres jerárquicos. Para mitigar el problema, asegúrese de que cuenta de almacenamiento con diagnóstico de arranque de la máquina virtual no se crea mediante Azure Data Lake Storage Gen2. Esta opción solo puede establecerse durante la creación de la cuenta de almacenamiento. Es posible que deba crear cuenta de almacenamiento con diagnóstico de arranque independiente sin Azure Data Lake Storage Gen2 habilitado para mitigar este problema.
+La consola serie no funciona con una cuenta de almacenamiento que use Azure Data Lake Storage Gen2 con espacios de nombres jerárquicos. | Se trata de un problema conocido con los espacios de nombres jerárquicos. Para mitigar el problema, asegúrese de que la cuenta de almacenamiento con diagnóstico de arranque de la máquina virtual no se crea mediante Azure Data Lake Storage Gen2. Esta opción solo puede establecerse durante la creación de la cuenta de almacenamiento. Es posible que deba crear cuenta de almacenamiento con diagnóstico de arranque independiente sin Azure Data Lake Storage Gen2 habilitado para mitigar este problema.
 Entradas de teclado erráticas en las imágenes de SLES BYOS. La entrada mediante el teclado solo se reconoce esporádicamente. | Se trata de un problema con el paquete de Plymouth. No se debe ejecutar Plymouth en Azure, ya que no necesita una pantalla de presentación y Plymouth afecta la capacidad de la plataforma para usar la consola serie. Quite Plymouth con `sudo zypper remove plymouth` y reinicie el equipo. Como alternativa, modifique la línea de kernel de la configuración GRUB anexando `plymouth.enable=0` al final de esta. Para ello, puede [editar la entrada de arranque en el tiempo de arranque](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles) o editar la línea GRUB_CMDLINE_LINUX en `/etc/default/grub`, reconstruir GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg` y reiniciar el equipo.
 
 

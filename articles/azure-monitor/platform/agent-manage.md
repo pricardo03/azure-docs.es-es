@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: magoedte
 ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67146305"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
@@ -30,7 +30,7 @@ El agente de Log Analytics para Windows y Linux puede actualizarse a la versión
 
 | Entorno | Método de instalación | Método de actualización |
 |--------|----------|-------------|
-| MV de Azure | Extensión de VM del agente de Log Analytics para Windows o Linux | El agente se actualiza automáticamente de forma predeterminada a menos que configure la plantilla de Azure Resource Manager para no realizar la actualización; para ello, debe establecer la propiedad *autoUpgradeMinorVersion* a **false**. |
+| Azure VM | Extensión de VM del agente de Log Analytics para Windows o Linux | El agente se actualiza automáticamente de forma predeterminada a menos que configure la plantilla de Azure Resource Manager para no realizar la actualización; para ello, debe establecer la propiedad *autoUpgradeMinorVersion* a **false**. |
 | Imágenes personalizadas de VM de Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux.|
 | VM ajenas a Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux. |
 

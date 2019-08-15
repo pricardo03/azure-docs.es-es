@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: diberry
-ms.openlocfilehash: 156b2cf7c8042699f70e4bc3ec0b8944ac59a364
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501174"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955549"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -141,7 +141,7 @@ A continuación se muestra un ejemplo de archivo *.xls* de preguntas y respuesta
 
 Al importar una base de conocimiento, se reemplaza el contenido de la base de conocimiento existente. La importación requiere un archivo .tsv estructurado que contiene información del origen de datos. Esta información ayuda a QnA Maker a agrupar los pares pregunta-respuesta y a atribuirlos a un origen de datos particular.
 
-| Pregunta  | Respuesta  | Origen| Metadatos (1 clave: 1 valor) |          
+| Pregunta  | Respuesta  | Source| Metadatos (1 clave: 1 valor) |          
 |-----------|---------|----|---------------------|
 | Pregunta1 | Respuesta1 | URL1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pregunta2 | Respuesta2 | Editorial|    `Key:Value`       |

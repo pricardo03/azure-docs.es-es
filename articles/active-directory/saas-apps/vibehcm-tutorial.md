@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d1f974b7fea72bede2ead2e9d971419d5e83cb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087521"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Tutorial: integración de Azure Active Directory con Vibe HCM
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Vibe HCM, siga estos
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por  **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente en Azure.  
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Vibe HCM](common/preintegrated.png)
 
@@ -174,7 +174,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-vibe-hcm-test-user"></a>Creación de un usuario de prueba en Vibe HCM
 
-En esta sección, creará un usuario llamado Britta Simon en Vibe HCM. Trabaje con el  [equipo de soporte técnico de Vibe HCM](mailto:support@vibehcm.com) para agregar usuarios a la plataforma de Vibe HCM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Vibe HCM. Trabaje con el [equipo de soporte técnico de Vibe HCM](mailto:support@vibehcm.com) para agregar los usuarios a la plataforma de Vibe HCM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

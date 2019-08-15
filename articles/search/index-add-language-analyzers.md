@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790897"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881505"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
 
@@ -118,7 +118,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 |Urdu|ur.microsoft||  
 |Vietnamita|vi.microsoft||  
 
- Todos los analizadores con nombres anotados con **lucene** disponen de la tecnología de [analizadores de idioma de Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Todos los analizadores con nombres anotados con **lucene** disponen de la tecnología de [analizadores de idioma de Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Otras referencias  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service])  

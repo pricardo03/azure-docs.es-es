@@ -1,20 +1,19 @@
 ---
 title: Métricas de Azure Storage en Azure Monitor | Microsoft Docs
 description: Obtenga información acerca de las nuevas métricas que ofrece Azure Monitor.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e31ad78e24f329eb46cd85ba4a5962442a216779
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510544"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844830"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -344,8 +343,8 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
-| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
-| ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
+| ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 | IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Almacenamiento de tablas
@@ -353,24 +352,24 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | TableCapacity | La cantidad de almacenamiento de tablas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| TableCount   | El número de tablas de la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| TableEntityCount | El número de entidades de tabla que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| TableCount   | El número de tablas de la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| TableEntityCount | El número de entidades de tabla que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="queue-storage"></a>Queue Storage
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | QueueCapacity | La cantidad de almacenamiento de colas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| QueueMessageCount | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br/><br/>Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| QueueMessageCount | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br/><br/>Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="file-storage"></a>File Storage
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | FileCapacity | La cantidad de almacenamiento de archivos que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
-| FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ## <a name="transaction-metrics"></a>Métricas de transacciones
 
@@ -380,7 +379,7 @@ Azure Storage proporciona las siguientes métricas de transacciones en Azure Mon
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| Transacciones | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName y Authentication ([Definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
+| Transacciones | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName y Authentication ([Definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
 | Entrada | La cantidad de datos de entrada. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
 | Salida | La cantidad de datos de salida. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
 | SuccessServerLatency | El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency. <br/><br/> Unidad: Milisegundos <br/> Tipo de agregación: Media <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |

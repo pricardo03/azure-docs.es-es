@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b1aac19885e2b640063e4840f047916ad51e9656
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439502"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855741"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Registro del MXChip IoT DevKit con IoT Hub mediante el aprovisionamiento automático con el servicio Azure IoT Hub Device Provisioning
 
@@ -79,7 +79,7 @@ En el código de dispositivo, deberá especificar el [punto de conexión de apro
 1. En Azure Portal, seleccione el panel **Información general** del servicio Device Provisioning y anote los valores de **Punto de conexión global del dispositivo** e **Ámbito de id**.
   ![Punto de conexión global y ámbito de id. del servicio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Abra el archivo **DeKitDPS.ino**. Busque y reemplace `[Global Device Endpoint]` y `[ID Scope]` por los valores que acababa de anotar.
+1. Abra **DevKitDPS.ino**. Busque y reemplace `[Global Device Endpoint]` y `[ID Scope]` por los valores que acababa de anotar.
   ![Punto de conexión del servicio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Rellene la variable `registrationId` en el código. La variable solo puede contener caracteres alfanuméricos, minúsculas y guiones con un máximo de 128 caracteres permitido. Anote también el valor.

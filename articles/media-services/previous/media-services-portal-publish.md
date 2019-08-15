@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61127878"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015079"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Seleccione el vídeo y, a continuación, haga clic en el botón **Reproducir**.
 Se aplican algunas consideraciones:
 
 * Asegúrese de que el vídeo se ha publicado.
-* El reproductor multimedia de Azure Portal reproduce desde el punto de conexión de streaming predeterminado. Si quiere reproducir desde un punto de conexión de streaming no predeterminado, seleccione y copie la dirección URL y luego péguela en otro reproductor. Por ejemplo, puede probar el vídeo en [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* El reproductor multimedia de Azure Portal reproduce desde el punto de conexión de streaming predeterminado. Si quiere reproducir desde un punto de conexión de streaming no predeterminado, seleccione y copie la dirección URL y luego péguela en otro reproductor. Por ejemplo, puede probar el vídeo en [Azure Media Player](https://aka.ms/azuremediaplayer).
 * Debe estar ejecutándose el punto de conexión de streaming desde el que está realizando una operación de streaming.  
 
 ## <a name="provide-feedback"></a>Envío de comentarios

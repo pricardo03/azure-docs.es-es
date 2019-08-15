@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25408b2120a9ac9f38e7959ef8e9dbbb34df7c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962567"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853171"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
 Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v1-protocols-openid-connect-code.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
 
-## <a name="using-the-idtoken"></a>Uso del id_token
+## <a name="using-the-id_token"></a>Uso del id_token
 
 Los tokens de id. se deben usar para validar que un usuario es quien dice ser y obtener información útil adicional sobre ellos: no deben usarse para la autorización en lugar de un [token de acceso](access-tokens.md). Las notificaciones que proporciona pueden usarse para la experiencia del usuario en la aplicación, seleccionar una base de datos y proporcionar acceso a la aplicación cliente.
 
-## <a name="claims-in-an-idtoken"></a>Notificaciones de un id_token
+## <a name="claims-in-an-id_token"></a>Notificaciones de un id_token
 
 Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
 
@@ -89,7 +89,7 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 |`uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
 
-## <a name="validating-an-idtoken"></a>Validación de un id_token
+## <a name="validating-an-id_token"></a>Validación de un id_token
 
 La validación de un `id_token` es similar al primer paso de la [validación de un token de acceso](access-tokens.md#validating-tokens): el cliente debe asegurarse de que el emisor correcto ha enviado de vuelta el token y que no se ha manipulado. Dado que los `id_tokens` siempre son un token JWT, existen muchas bibliotecas para validar estos tokens: se recomienda usar una de ellas en lugar de hacerlo usted mismo.
 

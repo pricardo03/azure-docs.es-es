@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542808"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854721"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -123,7 +123,7 @@ La respuesta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveserv
 
 Utilice la cadena de consulta `displayText` y la dirección URL `webSearchUrl` para crear un hipervínculo que lleve al usuario a la página de resultados de búsqueda de Bing para la consulta relacionada. También puede usar la cadena de consulta `text` en su propia consulta de Web Search API y mostrar los resultados por sí mismo.
 
-Para más información sobre cómo controlar los marcadores de resaltado en `displayText`, consulte [Resaltado de aciertos](./hit-highlighting.md).
+Para más información sobre cómo controlar los marcadores de resaltado en `displayText`, consulte [Resaltado de aciertos](../bing-web-search/hit-highlighting.md).
 
 A continuación se muestra un ejemplo del uso de consultas relacionadas en Bing.com.
 

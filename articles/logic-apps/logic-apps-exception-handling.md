@@ -11,10 +11,10 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60996611"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
@@ -29,7 +29,7 @@ Para el control de errores y excepciones más básico, puede usar una *directiva
 
 Estos son los tipos de directivas de reintentos: 
 
-| Type | DESCRIPCIÓN | 
+| type | DESCRIPCIÓN | 
 |------|-------------| 
 | **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. | 
 | **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. | 
@@ -71,7 +71,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN |
+| Valor | type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*retry-policy-type*> | Cadena | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
 | <*retry-interval*> | Cadena | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
@@ -80,7 +80,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN |
+| Valor | type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*minimum-interval*> | Cadena | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | Cadena | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

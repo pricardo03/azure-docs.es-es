@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bc305938801a4edcf32e36ce57f76079f33c5bf8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c91c8de35dcf3f1bc8fd5f41bd2356336c3fe450
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727392"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927960"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -161,7 +161,7 @@ Para las operaciones con claves de cifrado, una identidad de servicio puede tene
 Para obtener una clave para usar al cifrar o descifrar datos en reposo, la identidad de servicio con la que se ejecutará la instancia de Resource Manager debe tener UnwrapKey (para obtener la clave de descifrado) y WrapKey (para insertar una clave en el almacén de claves al crear una nueva clave).
 
 >[!NOTE]
->Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+>Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
 
 **Ventajas**
 
@@ -237,14 +237,14 @@ Los servicios de Microsoft Azure admitir uno o más modelos de cifrado en reposo
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Cualquier cliente mediante las características de la infraestructura de Azure como servicio (IaaS) puede lograr el cifrado en reposo para sus discos y máquinas virtuales de IaaS y discos mediante Azure Disk Encryption. Para más información sobre Azure Disk Encryption, vea la [documentación de Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Cualquier cliente mediante las características de la infraestructura de Azure como servicio (IaaS) puede lograr el cifrado en reposo para sus discos y máquinas virtuales de IaaS y discos mediante Azure Disk Encryption. Para más información sobre Azure Disk Encryption, vea la [documentación de Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
 
 #### <a name="azure-storage"></a>Almacenamiento de Azure
 
 Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage y Azure Files) admiten el cifrado en reposo en el lado servidor; algunos servicios admiten además el cifrado de las claves administradas por el cliente y el cifrado del lado cliente. 
 
-- Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob Storage y Azure Files también admiten las claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Lado cliente: Azure Blobs, Tables y Queues admiten el cifrado en el lado cliente. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) para más información.
+- Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md). Azure Blob Storage y Azure Files también admiten las claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Lado cliente: Azure Blobs, Tables y Queues admiten el cifrado en el lado cliente. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md) para más información.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 

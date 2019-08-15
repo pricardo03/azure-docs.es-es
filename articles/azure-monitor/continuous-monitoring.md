@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60497427"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967751"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -34,7 +34,7 @@ Para obtener observabilidad en todo su entorno, debe habilitar la supervisión e
 - [Azure DevOps Projects](../devops-project/overview.md) ofrece una experiencia simplificada con su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 - [La supervisión continua en su canalización de versión de DevOps](../azure-monitor/app/continuous-monitoring.md) le permite programar o revertir su implementación en función de los datos de supervisión.
 - [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md) le permite instrumentar una aplicación de .NET activa en Windows con Azure Application Insights sin tener que modificar ni volver a implementar el código.
-- Si tiene acceso al código de su aplicación, habilite la supervisión completa con [Application Insights](../azure-monitor/app/app-insights-overview.md) instalando el SDK de Application Insights de Azure Monitor para [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) o [cualquier otro lenguaje de programación](../azure-monitor/app/platforms.md). Esto le permite especificar eventos, métricas o vistas de página personalizados que son pertinentes para su aplicación y su empresa.
+- Si tiene acceso al código de su aplicación, habilite la supervisión completa con [Application Insights](../azure-monitor/app/app-insights-overview.md) instalando el SDK de Application Insights de Azure Monitor para [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) o [cualquier otro lenguaje de programación](../azure-monitor/app/platforms.md). Esto le permite especificar eventos, métricas o vistas de página personalizados que son pertinentes para su aplicación y su empresa.
 
 
 

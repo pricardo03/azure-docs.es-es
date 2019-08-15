@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498506"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967158"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
@@ -243,9 +243,6 @@ Para insertar estos secretos en el archivo de configuración de Spring o Tomcat,
 
 En esta sección se muestra cómo conectar aplicaciones Java implementadas en Azure App Service en Linux con las plataformas de supervisión de aplicaciones (APM) NewRelic y AppDynamics.
 
-[Configuración de New Relic](#configure-new-relic)
-[Configuración de AppDynamics](#configure-appdynamics)
-
 ### <a name="configure-new-relic"></a>Configuración de New Relic
 
 1. Cree una cuenta de NewRelic en [NewRelic.com](https://newrelic.com/signup).
@@ -258,7 +255,6 @@ En esta sección se muestra cómo conectar aplicaciones Java implementadas en Az
     - Si la aplicación usa **Java SE**, cree una variable de entorno llamada `JAVA_OPTS` con el valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - Si usa **Tomcat**, cree una variable de entorno llamada `CATALINA_OPTS` con el valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - Si usa **WildFly**, consulte la documentación de New Relic [aquí](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) para obtener instrucciones acerca de cómo instalar el agente de Java y la configuración de JBoss.
-    - Si ya tiene una variable de entorno para `JAVA_OPTS` o `CATALINA_OPTS`, anexe la opción `javaagent` al final del valor actual.
 
 ### <a name="configure-appdynamics"></a>Configuración de AppDynamics
 
@@ -270,6 +266,8 @@ En esta sección se muestra cómo conectar aplicaciones Java implementadas en Az
     - Si usa **Java SE**, cree una variable de entorno llamada `JAVA_OPTS` con el valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` donde `<app-name>` es el nombre de su instancia de App Service.
     - Si usa **Tomcat**, cree una variable de entorno llamada `CATALINA_OPTS` con el valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` donde `<app-name>` es el nombre de su instancia de App Service.
     - Si usa **WildFly**, consulte la documentación de AppDynamics [aquí](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) para obtener instrucciones acerca de cómo instalar el agente de Java y la configuración de JBoss.
+
+>  Si ya tiene una variable de entorno para `JAVA_OPTS` o `CATALINA_OPTS`, anexe la opción `-javaagent:/...` al final del valor actual.
 
 ## <a name="configure-jar-applications"></a>Configuración de aplicaciones JAR
 

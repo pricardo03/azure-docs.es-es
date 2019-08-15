@@ -1,20 +1,19 @@
 ---
 title: Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage | Microsoft Docs
 description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage o web en una cuenta de Azure Storage.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: ae809dd4841d6df8caabebfaded263b52f386834
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501933"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845029"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 

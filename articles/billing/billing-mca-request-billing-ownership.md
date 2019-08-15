@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 4c9a8c866a157757121e6a9dd07a0a8559937c5e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 110bd975de1d865c2aa3d3b088c98cdc8b9e45ad
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490812"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019554"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure de otras cuentas
 
@@ -29,7 +29,7 @@ Para solicitar la propiedad de la facturación, debe ser **propietario de la sec
 
 ## <a name="request-billing-ownership"></a>Solicitud de propiedad de la facturación
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) como propietario o colaborador de la sección de factura de una cuenta de facturación para un contrato de cliente de Microsoft.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario o colaborador de la sección de factura de una cuenta de facturación para un contrato de cliente de Microsoft.
 
 2. Busque **Administración de costos + facturación**.
 

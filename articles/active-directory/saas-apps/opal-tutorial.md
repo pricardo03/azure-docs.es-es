@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b95c6defcef7fdc112487988fc9bdd1ea3bb59c2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095584"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Tutorial: Integración de Azure Active Directory con Opal
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Opal, realice los pa
     > [!NOTE]
     > El valor de dirección URL de respuesta no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de atención al cliente de Opal](mailto:support@workwithopal.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación Opal espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+5. La aplicación Opal espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### <a name="create-opal-test-user"></a>Creación de un usuario de prueba de Opal
 
-En esta sección, creará un usuario llamado Britta Simon en Opal. Trabaje con el  [equipo de soporte técnico de Opal](mailto:support@workwithopal.com) para agregar a los usuarios en la plataforma de Opal. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Opal. Trabaje con el [equipo de soporte técnico de Opal](mailto:support@workwithopal.com) para agregar los usuarios a la plataforma de Opal. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

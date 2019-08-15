@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498532"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849200"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -79,7 +79,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 | Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
-Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
+Después de [instalar la solución](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
 
 ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -105,7 +105,7 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
+| type |*AzureDiagnostics* |
 | SourceSystem |*Las tablas de Azure* |
 | CallerIpAddress |Dirección IP del cliente que realizó la solicitud. |
 | Categoría | *AuditEvent* |
@@ -114,7 +114,7 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 | httpStatusCode_d |Código de estado HTTP devuelto por la solicitud (por ejemplo, *200*) |
 | id_s |Identificador único de la solicitud. |
 | identity_claim_appid_g | GUID para el identificador de aplicación |
-| nombreOperación |Nombre de la operación, como se documenta en el [registro de Azure Key Vault](../../key-vault/key-vault-logging.md). |
+| OperationName |Nombre de la operación, como se documenta en el [registro de Azure Key Vault](../../key-vault/key-vault-logging.md). |
 | OperationVersion |Versión de API de REST solicitada por el cliente (por ejemplo, *2015-06-01*) |
 | requestUri_s |URI de la solicitud. |
 | Recurso |Nombre del almacén de claves. |

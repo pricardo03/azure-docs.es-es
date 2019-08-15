@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: diberry
-ms.openlocfilehash: 1203748b43ea5911d4717f451bca2cbe82753386
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26792246267ced6d9fff50fe4fea11cc8d280d6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447410"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966689"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Compatibilidad de idioma del contenido de la base de conocimiento para QnA Maker
 QnA Maker admite el contenido de la base de conocimiento en varios idiomas. Sin embargo, cada servicio QnA Maker se debe reservar para un único idioma. La primera base de conocimiento creada para un servicio QnA Maker particular establece el idioma de dicho servicio. Consulte [aquí](../Overview/languages-supported.md) la lista de idiomas admitidos.

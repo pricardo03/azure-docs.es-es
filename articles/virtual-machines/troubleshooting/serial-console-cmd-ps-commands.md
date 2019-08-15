@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77fe6f1ce416df049928697d2c166e2aba0abfe2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710613"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935215"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos de Windows: CMD y PowerShell
 
@@ -241,7 +241,7 @@ Al agregar `/f` se forzará a que las aplicaciones en ejecución se cierren sin 
 ### <a name="detect-safe-mode-boot"></a>Detectar el modo de arranque seguro
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Comandos de Windows: PowerShell
+## <a name="windows-commands---powershell"></a>Comandos de Windows: PowerShell
 
 Para ejecutar PowerShell en SAC, después de llegar a un símbolo del sistema CMD, escriba:
 

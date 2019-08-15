@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: bdc75033e0aa2e401a511789728feef3248d46ad
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ac4722c1253f97bfb8c232202e24a923c027edf
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454175"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018837"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -76,7 +76,7 @@ Lamentablemente, no hay ninguna respuesta fácil.  Cada aplicación debe decidir
 Si quiere ver cómo funciona su código en condiciones de error, use la [característica de reinicio](cache-administration.md#reboot). Esto le permitirá ver cómo afectan las interrupciones momentáneas de la conexión a su aplicación.
 
 ## <a name="performance-testing"></a>Pruebas de rendimiento
- * **Use `redis-benchmark.exe`** para hacerse una idea del rendimiento/latencia posibles antes de escribir sus propias pruebas de rendimiento.  La documentación del banco de pruebas de Redis se puede encontrar [aquí](http://redis.io/topics/benchmarks).  Tenga en cuenta que el banco de pruebas de Redis no admite SSL, por lo que tendrá que [habilitar un puerto que no sea SSL a través de Azure Portal](cache-configure.md#access-ports) antes de ejecutar la prueba.  [Aquí se puede encontrar una versión compatible con Windows de redis-benchmark.exe](https://github.com/MSOpenTech/redis/releases)
+ * **Use `redis-benchmark.exe`** para hacerse una idea del rendimiento/latencia posibles antes de escribir sus propias pruebas de rendimiento.  La documentación del banco de pruebas de Redis se puede encontrar [aquí](https://redis.io/topics/benchmarks).  Tenga en cuenta que el banco de pruebas de Redis no admite SSL, por lo que tendrá que [habilitar un puerto que no sea SSL a través de Azure Portal](cache-configure.md#access-ports) antes de ejecutar la prueba.  [Aquí se puede encontrar una versión compatible con Windows de redis-benchmark.exe](https://github.com/MSOpenTech/redis/releases)
  * El cliente para pruebas de VM debe estar en la **misma región** que la instancia de caché de Redis.
  * **Se recomienda usar la serie de VM Dv2** para su cliente, ya que tiene mejor hardware y logrará los mejores resultados.
  * Asegúrese de que la VM del cliente que use tenga **al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 

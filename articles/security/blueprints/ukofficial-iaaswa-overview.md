@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609484"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946541"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -141,7 +141,7 @@ Storage
 
 **Puerta de enlace**: [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) proporciona conectividad entre los enrutadores de la red local y la red virtual de producción.
 
-**Puerta de enlace de Internet y dirección IP pública**: la puerta de enlace de Internet expone los servicios de aplicación a los usuarios a través de Internet. El tráfico que obtiene acceso a estos servicios se protege mediante [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), que ofrece funcionalidades de equilibrio de carga y enrutamiento de nivel 7 con protección de firewall de aplicaciones web (WAF).
+**Puerta de enlace de Internet y dirección IP pública**: la puerta de enlace de Internet expone los servicios de aplicación a los usuarios a través de Internet. El tráfico que obtiene acceso a estos servicios se protege mediante [Application Gateway](../../application-gateway/overview.md), que ofrece funcionalidades de equilibrio de carga y enrutamiento de nivel 7 con protección de firewall de aplicaciones web (WAF).
 
 **Red virtual de administración**: esta [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contiene recursos que implementan funcionalidades de administración y supervisión para las cargas de trabajo que se ejecutan en la red virtual de producción.
 
@@ -152,11 +152,11 @@ Storage
 **Redes virtuales emparejadas en red**: las redes virtuales de producción y administración están conectadas mediante el [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 Estas redes virtuales se siguen administrando como recursos independientes, pero aparecen como uno con fines de conectividad para estas máquinas virtuales. Estas redes se comunican entre sí directamente mediante direcciones IP privadas. El emparejamiento de redes virtuales está sujeto a que las redes virtuales estén en la misma región de Azure.
 
-**Grupos de seguridad de red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual.
+**Grupos de seguridad de red**: los [grupos de seguridad de red](../../virtual-network/virtual-network-vnet-plan-design-arm.md) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual.
 
 **Active Directory Domain Services (AD DS)** : esta arquitectura proporciona una implementación dedicada de [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
 
-**Registro y auditoría**: [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captura las operaciones realizadas en los recursos de su suscripción (por ejemplo, quién ha iniciado la operación, cuándo se ha producido la operación, el estado de la operación y los valores de otras propiedades que pueden ayudarle a investigar la operación). Azure Activity Log es un servicio de la plataforma de Azure que captura todas las acciones de una suscripción. Los registros se pueden archivar o exportar si es necesario.
+**Registro y auditoría**: [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) captura las operaciones realizadas en los recursos de su suscripción (por ejemplo, quién ha iniciado la operación, cuándo se ha producido la operación, el estado de la operación y los valores de otras propiedades que pueden ayudarle a investigar la operación). Azure Activity Log es un servicio de la plataforma de Azure que captura todas las acciones de una suscripción. Los registros se pueden archivar o exportar si es necesario.
 
 **Supervisión y alertas de red**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) es un servicio de plataforma que proporciona captura de paquetes de red, registro de flujo, herramientas de topología y diagnósticos para tráficos de red dentro de sus redes virtuales.
 
@@ -168,11 +168,11 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 ### <a name="logging-and-audit"></a>Registro y auditoría
 
-**Supervisión**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) es el servicio de plataforma que proporciona un único origen para supervisar el registro de actividad, las métricas y los registros de diagnóstico de todos los recursos de Azure. Azure Monitor se puede configurar para visualizar, consultar, enrutar y archivar las métricas y los registros procedentes de los recursos de Azure, así como tomar medidas relacionadas. Se recomienda usar el control de acceso basado en recursos para proteger el registro de auditoría para ayudar a garantizar que los usuarios no pueden modificar los registros.
+**Supervisión**: [Azure Monitor](../../azure-monitor/overview.md) es el servicio de plataforma que proporciona un único origen para supervisar el registro de actividad, las métricas y los registros de diagnóstico de todos los recursos de Azure. Azure Monitor se puede configurar para visualizar, consultar, enrutar y archivar las métricas y los registros procedentes de los recursos de Azure, así como tomar medidas relacionadas. Se recomienda usar el control de acceso basado en recursos para proteger el registro de auditoría para ayudar a garantizar que los usuarios no pueden modificar los registros.
 
-**Registros de actividad**: configure los [registros de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) para que proporcionen información sobre las operaciones que se han realizado en los recursos de la suscripción.
+**Registros de actividad**: configure los [registros de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md) para que proporcionen información sobre las operaciones que se han realizado en los recursos de la suscripción.
 
-**Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
+**Registros de diagnóstico**: los [registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
 
 **Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
 
@@ -182,11 +182,11 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Active Directory Domain Services**: esta arquitectura proporciona una implementación de Active Directory Domain Services en Azure. Si necesita recomendaciones específicas sobre cómo implementar Active Directory en Azure, consulte los siguientes artículos:
 
-[Extending Active Directory Domain Services (AD DS) to Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain) (Extensión de Active Directory Domain Services (AD DS) a Azure).
+[Extending Active Directory Domain Services (AD DS) to Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) (Extensión de Active Directory Domain Services (AD DS) a Azure).
 
 [Directrices para implementar Windows Server Active Directory en Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) o [Active Directory en Azure unido a un bosque local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
+**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) o [Active Directory en Azure unido a un bosque local](/azure/architecture/reference-architectures/identity.md).
 
 ### <a name="security"></a>Seguridad
 
@@ -194,21 +194,21 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y red perimetral públicos/privados le ofrece más mejoras de seguridad.
 
-**Protección de la red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) se recomiendan para que cada subred proporcione un segundo nivel de protección contra el tráfico entrante que omite una puerta de enlace configurada incorrectamente o deshabilitada. Ejemplo: [Plantilla de Resource Manager para implementar un NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Protección de la red**: los [grupos de seguridad de red](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSG) se recomiendan para que cada subred proporcione un segundo nivel de protección contra el tráfico entrante que omite una puerta de enlace configurada incorrectamente o deshabilitada. Ejemplo: [Plantilla de Resource Manager para implementar un NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Protección de puntos de conexión públicos**: la puerta de enlace de Internet expone los servicios de aplicación a los usuarios a través de Internet. El tráfico que obtiene acceso a estos servicios se protege mediante [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), que proporciona una administración de protocolo HTTPS y firewall de aplicaciones web.
+**Protección de puntos de conexión públicos**: la puerta de enlace de Internet expone los servicios de aplicación a los usuarios a través de Internet. El tráfico que obtiene acceso a estos servicios se protege mediante [Application Gateway](../../application-gateway/overview.md), que proporciona una administración de protocolo HTTPS y firewall de aplicaciones web.
 
 **Intervalos IP**: los intervalos IP en la arquitectura son intervalos sugeridos. Se recomienda que los clientes consideren la posibilidad de tener su propio entorno y usar intervalos adecuados.
 
-**Conectividad híbrida**: las cargas de trabajo basadas en la nube están conectadas con el centro de datos local a través de VPN con IPSEC mediante Azure VPN Gateway. Los clientes deben asegurarse de que estén usando una instancia de VPN Gateway adecuada para conectarse a Azure. Ejemplo: [Plantilla de Resource Manager de VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Es posible que los clientes que ejecuten cargas de trabajo críticas a gran escala con requisitos de macrodatos quieran considerar la opción de usar una arquitectura de red híbrida con [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) para la conectividad de red privada con los Servicios en la nube de Microsoft.
+**Conectividad híbrida**: las cargas de trabajo basadas en la nube están conectadas con el centro de datos local a través de VPN con IPSEC mediante Azure VPN Gateway. Los clientes deben asegurarse de que estén usando una instancia de VPN Gateway adecuada para conectarse a Azure. Ejemplo: [Plantilla de Resource Manager de VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Es posible que los clientes que ejecuten cargas de trabajo críticas a gran escala con requisitos de macrodatos quieran considerar la opción de usar una arquitectura de red híbrida con [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) para la conectividad de red privada con los Servicios en la nube de Microsoft.
 
-**Separación de intereses**: esta arquitectura de referencia separa las redes virtuales para las operaciones empresariales y de administración. Las redes virtuales y subredes independientes admiten la administración del tráfico, incluidas las restricciones de entrada y salida del tráfico, mediante NSG entre segmentos de red de acuerdo con los procedimientos recomendados de [Servicios en la nube de Microsoft y seguridad de red](https://docs.microsoft.com/azure/best-practices-network-security).
+**Separación de intereses**: esta arquitectura de referencia separa las redes virtuales para las operaciones empresariales y de administración. Las redes virtuales y subredes independientes admiten la administración del tráfico, incluidas las restricciones de entrada y salida del tráfico, mediante NSG entre segmentos de red de acuerdo con los procedimientos recomendados de [Servicios en la nube de Microsoft y seguridad de red](/azure/architecture/vdc/networking-virtual-datacenter.md).
 
-**Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
+**Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](../../azure-resource-manager/resource-group-overview.md). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
 
-**Restricciones de control de acceso**: use el [control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
+**Restricciones de control de acceso**: use el [control de acceso basado en rol](../../role-based-access-control/role-assignments-portal.md) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](../../role-based-access-control/custom-roles.md). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
 
-**Acceso a Internet**: esta arquitectura de referencia usa [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como equilibrador de carga y puerta de enlace accesibles desde Internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Acceso a Internet**: esta arquitectura de referencia usa [Azure Application Gateway](../../application-gateway/overview.md) como equilibrador de carga y puerta de enlace accesibles desde Internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](../../application-gateway/overview.md).
 
 **Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) proporciona una perspectiva central del estado de seguridad de los recursos de las suscripciones y ofrece recomendaciones que ayudan a evitar que se realicen ataques a los recursos. También se puede usar para habilitar directivas más pormenorizadas. Por ejemplo, las directivas pueden aplicarse a grupos de recursos determinados, lo que permite a la empresa adaptar su postura con respecto al riesgo. Se recomienda que los clientes habiliten Azure Security Center en su suscripción de Azure.
 

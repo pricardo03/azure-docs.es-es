@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837494"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036546"
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
@@ -40,7 +39,7 @@ Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 | manifest | Obtiene el manifiesto que describe un tipo de aplicación. |
 | provision | Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete .sfpkg en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes. |
 | report-health | Envía un informe de estado sobre la aplicación de Service Fabric. |
-| type | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado. |
+| Tipo | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado. |
 | type-list | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric. |
 | unprovision | Elimina un tipo de aplicación de Service Fabric del clúster o anula su registro. |
 | upgrade | Inicia la actualización de una aplicación en el clúster de Service Fabric. |

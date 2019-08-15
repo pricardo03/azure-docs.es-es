@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61245128"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016629"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
@@ -56,16 +56,8 @@ El equipo también supervisa las preguntas etiquetadas con "azure-media-services
 
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
 
-El correo principal del soporte técnico de Azure Media Services es: **amshelp\@microsoft.com**.
+El correo electrónico principal del soporte técnico de Azure Media Services es: **amshelp@microsoft.com** .
 
-La siguiente tabla enumera el correo electrónico de los subequipos de las características:
+## <a name="next-steps"></a>Pasos siguientes
 
-| Característica | Email |
-| --- | --- |
-| Análisis multimedia de Azure |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Diseñador de flujo de trabajo |mepd@microsoft.com |
-| Streaming y empaquetado de archivos |amsstreaming@microsoft.com |
-| Streaming en vivo y empaquetado |amslived@microsoft.com |
-
+[Información general](media-services-overview.md)

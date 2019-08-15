@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640061"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935041"
 ---
 En este paso, creará el grupo de recursos y una base de datos única de Azure SQL Database.
 
@@ -19,7 +19,7 @@ En este paso, creará el grupo de recursos y una base de datos única de Azure S
 >
 > Para obtener más información, vea [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) (Creación de una regla de firewall a nivel de base de datos) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, vea [Create a server-level firewall](../sql-database-server-level-firewall-rule.md) (Crear un firewall de nivel de servidor).  
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
@@ -75,7 +75,7 @@ Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
 9. En el formulario **SQL Database**, seleccione **Crear** para implementar y aprovisionar el grupo de recursos, el servidor y la base de datos.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ Cree el grupo de recursos y la base de datos única con PowerShell.
    $database
    ```
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Cree el grupo de recursos y la base de datos única mediante la CLI de AZ.
 

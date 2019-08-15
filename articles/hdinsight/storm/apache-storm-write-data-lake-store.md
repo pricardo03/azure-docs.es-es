@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 5c1376c7d1afe9c9702cfb43a146ac1cd17d6e58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428348"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946448"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escritura en HDFS de Apache Hadoop desde Apache Storm en Azure HDInsight
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
 ### <a name="example-configuration"></a>Configuración de ejemplo
 
-El siguiente YAML es un fragmento del archivo `resources/writetohdfs.yaml` incluido en el ejemplo. Este archivo define la topología de Storm mediante el marco [Flux](https://storm.apache.org/releases/1.1.2/flux.html) para Apache Storm.
+El siguiente YAML es un fragmento del archivo `resources/writetohdfs.yaml` incluido en el ejemplo. Este archivo define la topología de Storm mediante el marco [Flux](https://storm.apache.org/releases/current/flux.html) para Apache Storm.
 
 ```yaml
 components:

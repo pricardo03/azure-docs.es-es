@@ -1,7 +1,6 @@
 ---
 title: El controlador Azure Blob Filesystem para Azure Data Lake Storage Gen2
 description: El controlador ABFS Hadoop FileSystem
-services: storage
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -9,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 50d39aa3c6341e61e383c5584ab2992e3fea3189
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ece85feff3c6eff9fc2348de70842204986952d5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278083"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855619"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Controlador del sistema de archivos de Azure Blob (ABFS): un controlador de Azure Storage dedicado para Hadoop
 

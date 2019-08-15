@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561c4458f942dc524f7de8df5b4385a1eaa1f6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80eb3d60eb4c40e726d53d5fb876a6a118d119cb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106281"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Tutorial: Integración de Azure Active Directory con BetterWorks
 
@@ -119,7 +119,7 @@ Para configurar el inicio de sesión único de Azure AD con BetterWorks, siga lo
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. La aplicación BetterWorks espera las aserciones de SAML en un formato específico que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+6. La aplicación BetterWorks espera las aserciones de SAML en un formato específico que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -217,7 +217,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-betterworks-test-user"></a>Creación de un usuario de prueba en BetterWorks
 
-En esta sección, creará un usuario llamado Britta Simon en BetterWorks. Colabore con el  [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com) para agregar los usuarios a la plataforma BetterWorks. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en BetterWorks. Colabore con el [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com) para agregar los usuarios a la plataforma BetterWorks. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

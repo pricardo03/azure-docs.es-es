@@ -3,20 +3,20 @@ title: Problemas conocidos con el complemento Elementos acústicos de un proyect
 titlesuffix: Azure Cognitive Services
 description: Podría encontrar los siguientes problemas conocidos al usar la versión preliminar del diseñador para Elementos acústicos de un proyecto.
 services: cognitive-services
-author: kylestorck
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylsto
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: df5a4ce62af0405ffab8f711fb40b3d92083a3a4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706662"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933064"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemas conocidos de Project Acoustics
 Podría encontrar los siguientes problemas conocidos al usar la versión preliminar del diseñador para Elementos acústicos de un proyecto.
@@ -24,10 +24,6 @@ Podría encontrar los siguientes problemas conocidos al usar la versión prelimi
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Los parámetros acústicos se pierden al cambiar el nombre de una escena
 
 Si cambia el nombre de una escena, todos los parámetros acústicos que pertenecen a dicha escena no se transferirán automáticamente a la escena nueva. Sin embargo, seguirán existiendo en el archivo de recursos antiguo. Busque el archivo **SceneName_AcousticParameters.asset** en el directorio **Editor** junto al archivo de la escena. Cámbiele el nombre para reflejar el nuevo nombre de la escena.
-
-## <a name="unity-crashes-when-closing-project"></a>Unity se bloquea al cerrar un proyecto
-
-En las versiones más recientes de Unity (2018.2 +), hay un problema conocido en el que Unity se bloqueará cuando se cierra un proyecto. En [este error de Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project) se hace un seguimiento de esto.
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>Implementación en Android desde algunas versiones de Unity
 

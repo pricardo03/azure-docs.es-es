@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu
-ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: johndeu
+ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687058"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014844"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
 
 La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -57,9 +58,9 @@ Las siguientes consideraciones se aplican al usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Encabezados de solicitud HTTP estándar compatibles con los Media Services
 Para cada llamada que realice en los Media Services, hay un conjunto de encabezados necesarios que debe incluir en la solicitud y también un conjunto de encabezados opcionales que puede incluir si lo desea. En la tabla siguiente se enumeran los encabezados necesarios:
 
-| Encabezado | Type | Valor |
+| Encabezado | type | Valor |
 | --- | --- | --- |
-| Autorización |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
+| Authorization |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o una versión más reciente)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
@@ -71,7 +72,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | Type | Valor |
+| Encabezado | type | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
@@ -85,7 +86,7 @@ A continuación se muestra un conjunto de encabezados opcionales:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Encabezados de respuesta HTTP estándar compatibles con los Media Services
 A continuación se muestra un conjunto de encabezados que pueden devolverse según el recurso que estuviera solicitando y la acción que deseara realizar.
 
-| Encabezado | Type | Valor |
+| Encabezado | type | Valor |
 | --- | --- | --- |
 | request-id |Cadena |Identificador único de la operación o servicio actual generado. |
 | client-request-id |Cadena |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |

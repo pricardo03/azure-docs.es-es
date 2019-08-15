@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7744d99bb97d11b7702c8ee388cf27bc0cc087cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9679e3216184c0dc5b8dee241c30fc69d5423aeb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508338"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963760"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de QQ mediante Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Directo
 ### <a name="register-for-the-qq-developer-program"></a>Registro para el programa para desarrolladores de QQ
 
 1. Inicie sesión en el [portal para desarrolladores de QQ](http://open.qq.com) e inicie sesión con sus credenciales de la cuenta de QQ.
-2. Después de iniciar sesión, vaya a [http://open.qq.com/reg](http://open.qq.com/reg) para registrarse como un programador.
+2. Después de iniciar sesión, vaya a [https://open.qq.com/reg](https://open.qq.com/reg) para registrarse como un programador.
 3. Seleccione **个人** (Desarrollador individual).
 4. Escriba la información necesaria y luego seleccione **下一步** (Paso siguiente).
 5. Complete el proceso de comprobación de correo electrónico. Debe esperar unos días para recibir la aprobación después de registrarse como desarrollador. 

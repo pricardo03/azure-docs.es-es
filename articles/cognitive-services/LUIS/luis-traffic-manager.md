@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72a7b383d224936e3d22ee9e7acb5db28fe63c4e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563371"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945141"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 

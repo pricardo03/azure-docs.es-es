@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbcf941293a30a48a17dfdf832ae8af551e834c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7f4dd89b2469d99fadd08178dbca9c17382414a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100995"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integración de Azure Active Directory con Hightail
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con Hightail, realice lo
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL como: `https://www.hightail.com/loginSSO`
 
-6. La aplicación Hightail espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+6. La aplicación Hightail espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 

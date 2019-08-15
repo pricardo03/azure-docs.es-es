@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797478"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883906"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -351,7 +350,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-El documento 1 coincidió con la mejor consulta porque tanto el término *espacioso* y la frase necesaria *vistas al mar* aparecen en el campo de descripción. Los siguientes dos documentos coinciden solo con la frase *vistas al mar*. Podría ser sorprendente que la puntuación por relevancia para el documento 2 y 3 fuera diferente, aunque coincide con la consulta de la misma manera. Se debe a que la fórmula de puntuación tiene más componentes que simplemente TF/IDF. En este caso, al documento 3 se le asignó una puntuación ligeramente superior porque su descripción es más corta. Obtenga información sobre [Fórmula de puntuación práctica de Lucene](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) para entender cómo longitud de campo y otros factores pueden influir en la puntuación por relevancia.
+El documento 1 coincidió con la mejor consulta porque tanto el término *espacioso* y la frase necesaria *vistas al mar* aparecen en el campo de descripción. Los siguientes dos documentos coinciden solo con la frase *vistas al mar*. Podría ser sorprendente que la puntuación por relevancia para el documento 2 y 3 fuera diferente, aunque coincide con la consulta de la misma manera. Se debe a que la fórmula de puntuación tiene más componentes que simplemente TF/IDF. En este caso, al documento 3 se le asignó una puntuación ligeramente superior porque su descripción es más corta. Obtenga información sobre [Fórmula de puntuación práctica de Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) para entender cómo longitud de campo y otros factores pueden influir en la puntuación por relevancia.
 
 Algunos tipos de consulta (comodín, prefijo y regex) siempre aportan una puntuación constante a la puntuación total del documento. Esto permite la inclusión de las coincidencias encontradas a través de la expansión de consultas en los resultados, pero sin que ello afecte a la clasificación. 
 

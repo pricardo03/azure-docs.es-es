@@ -8,17 +8,15 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc614626131236361246664a1bcef34f82b54ec5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991587"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848463"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Puerta de enlace de red virtual de ExpressRoute y FastPath
 Para conectar una red virtual de Azure y una red local a través de ExpressRoute, primero debe crear una puerta de enlace de red virtual. Una puerta de enlace de red virtual tiene dos propósitos: intercambiar las rutas de IP entre las redes y enrutar el tráfico de red. En este artículo se explican los tipos de puerta de enlace, las SKU de puerta de enlace y el rendimiento estimado por SKU. En este artículo también se explica [FastPath](#fastpath) de ExpressRoute, una característica que permite que el tráfico de red desde la red local omita la puerta de enlace de red virtual para mejorar el rendimiento.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gateway-types"></a>Tipos de puerta de enlace
 

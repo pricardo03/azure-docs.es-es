@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519128"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933896"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia incremental de archivos nuevos y modificados según LastModifiedDate con la herramienta Copiar datos
 
@@ -53,15 +53,13 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**: 
    
-   ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
-      
-     ![Nueva factoría de datos](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
    El nombre de la factoría de datos debe ser _globalmente único_. Puede aparecer el siguiente mensaje de error:
    
-   ![Mensaje de error de nueva factoría de datos](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![Mensaje de error de nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
 
    Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_ **ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
 3. Seleccione la **suscripción** de Azure en la que va a crear la nueva instancia de Data Factory. 
@@ -82,18 +80,18 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
     ![Icono "Deploying Data Factory" (Implementando Data Factory)](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Una vez finalizada la creación, se muestra la página principal de **Data Factory**.
    
-    ![Página principal Factoría de datos](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
 11. Para abrir la interfaz de usuario de Azure Data Factory en otra pestaña, seleccione el icono **Author & Monitor** (Creación y supervisión). 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Uso de la herramienta Copy Data para crear una canalización
 
 1. En la página **Let's get started** (Comencemos), seleccione el icono **Copy Data** (Copiar datos) para iniciar la herramienta Copiar datos. 
 
-   ![Icono de la herramienta Copy Data](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Icono de la herramienta Copy Data](./media/doc-common-process/get-started-page.png)
    
-2. En la página **Properties** (Propiedades), realice los pasos siguientes:
+2. En la página **Propiedades**, realice los pasos siguientes:
 
-    a. En **Task name** (Nombre de la tarea), escriba **DeltaCopyFromBlobPipeline**.
+    a. En **Nombre de la tarea**, escriba **DeltaCopyFromBlobPipeline**.
 
     b. En **Task cadence** (Cadencia de tareas) o **Task schedule** (Programación de tareas) seleccione **Run regularly on schedule** (Ejecutar periódicamente según programación).
 

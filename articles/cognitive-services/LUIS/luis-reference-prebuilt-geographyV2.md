@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2628dd30e09f4c52517ccb0a284cda235fb0c33f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560237"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933539"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada GeographyV2 para una aplicación de LUIS
 La entidad precompilada GeographyV2 detecta lugares. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad GeographyV2 a las intenciones de la aplicación. La entidad GeographyV2 se admite en la [referencia cultural](luis-reference-prebuilt-entities.md) de inglés.

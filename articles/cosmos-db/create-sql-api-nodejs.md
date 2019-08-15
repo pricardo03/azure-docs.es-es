@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: dech
-ms.openlocfilehash: 19312e6c6aa71a81c3339e7d40de582490c4ffff
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: e6a04c840e0982947e1223abf82737e1cd9d4445
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986339"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854162"
 ---
 # <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación Node.js con la cuenta de Azure Cosmos DB SQL API
 
@@ -87,7 +87,7 @@ Los fragmentos de código siguientes se han tomado del archivo **app.js**.
 * Se inicializa `CosmosClient`.
 
     ```javascript
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
     ```
 
 * Se crea una base de datos.
@@ -111,21 +111,25 @@ Los fragmentos de código siguientes se han tomado del archivo **app.js**.
 * Se realiza una consulta SQL en JSON.
 
     ```javascript
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+      const querySpec = {
+        query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
         parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
+          {
+            name: '@lastName',
+            value: 'Andersen'
+          }
         ]
-    };
+      }
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
+      const { resources: results } = await client
+        .database(databaseId)
+        .container(containerId)
+        .items.query(querySpec)
+        .fetchAll()
+      for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult)
+        console.log(`\tQuery returned ${resultString}\n`)
+      }
     ```    
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
@@ -142,9 +146,9 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 
-4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de `config.primaryKey` en `config.js`. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
+4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de `config.key` en `config.js`. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
-    `config.primaryKey = "FILLME"`
+    `config.key = "FILLME"`
     
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 1. Ejecute `npm install` en un terminal para instalar los módulos de NPM necesarios.

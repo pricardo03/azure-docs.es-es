@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f0e1a79073596dcabfacb7163e12b33bb582b7c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1eb0d7450e1a7f263f29b8d4657547dd85d4276
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238928"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883298"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -110,7 +110,7 @@ En el ejemplo siguiente, hay un único mensaje de Azure IoT Hub donde la matriz 
 
 La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede [dar forma](./time-series-insights-send-events.md#json) a los datos de telemetría.
 
-| deviceId  | Type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId  | type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de batería | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de batería |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |

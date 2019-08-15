@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65860844"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
@@ -36,7 +36,7 @@ En este tutorial se usa Azure Machine Learning para crear un modelo de aprendiza
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
-* Una instancia de SQL Data Warehouse con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
+* Una instancia de SQL Data Warehouse con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Obtener los datos
 Los datos están en la vista dbo.vTargetMail en la base de datos AdventureWorksDW. Para leer estos datos:
@@ -119,7 +119,7 @@ Verá dos columnas más agregadas al conjunto de datos de prueba.
 Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. Como pasos siguientes, puede usar este modelo para realizar predicciones para los nuevos clientes y publicar este modelo como un servicio web o volver a escribir los resultados en SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].
+Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png

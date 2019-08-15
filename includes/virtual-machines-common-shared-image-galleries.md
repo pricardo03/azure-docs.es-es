@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775926"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012270"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -73,7 +73,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
+Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Regiones de origen |
@@ -179,7 +179,7 @@ Los siguientes SDK admiten la creación de galerías de imágenes compartidas:
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>Plantillas
 

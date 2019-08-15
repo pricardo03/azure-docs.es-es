@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854422"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883884"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Cómo crear un índice para varios idiomas en Azure Search
 
@@ -35,7 +34,7 @@ Los analizadores de idioma se especifican cuando se crea un campo. Para agregar 
 
 ![Asignación de analizadores de idioma durante la definición del campo](media/search-language-support/select-analyzer.png "Assign language analyzers during field definition")
 
-De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Lucene estándar](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html), que no depende del idioma. Para ver la lista completa de los analizadores compatibles, consulte [Incorporación de analizadores de idiomas a un índice de Azure Search](index-add-language-analyzers.md).
+De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Lucene estándar](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), que no depende del idioma. Para ver la lista completa de los analizadores compatibles, consulte [Incorporación de analizadores de idiomas a un índice de Azure Search](index-add-language-analyzers.md).
 
 Los analizadores están diseñados para usarse tal cual en el portal. Si necesita algún tipo de personalización o configuración específica para los filtros y los tokenizadores, debe [crear un analizador personalizado](index-add-custom-analyzers.md) en el código. El portal no admite la selección ni la configuración de analizadores personalizados.
 

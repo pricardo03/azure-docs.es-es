@@ -4,7 +4,7 @@ description: Referencia de la sintaxis de consulta simple que se usa para las co
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a9c87731dcb6a2cb31e9120a0170b892c58b6f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024204"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884093"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxis de consulta simple en Azure Search
-Azure Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
+Azure Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
 
 > [!NOTE]  
 >  Azure Search proporciona una [sintaxis de consulta de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).

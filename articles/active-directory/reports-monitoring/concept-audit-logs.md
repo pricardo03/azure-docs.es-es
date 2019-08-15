@@ -3,7 +3,7 @@ title: Informes de actividad de auditoría en el portal de Azure Active Director
 description: Introducción a los informes de actividad de auditoría en el portal de Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a0a31fab8dd1490b58e743c149e4a54cae11bed1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618924"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988340"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -206,7 +206,7 @@ Si quiere revisar los datos de auditoría relacionados con las aplicaciones, pue
 
 Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
 
-También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b566bfc3f6c49f6cb9fe31f166356f6ae351e38
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440937"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879226"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -38,9 +38,6 @@ Antes de implementar SSPR, las organizaciones pueden querer determinar cuántas 
 ## <a name="licensing-considerations"></a>Consideraciones acerca de las licencias
 
 Las licencias de Azure Active Directory se otorgan por usuario, es decir, cada usuario tiene que tener una licencia adecuada para las características que usa.
-
-- El autoservicio de restablecimiento de contraseña para los usuarios solo en la nube está disponible con Azure AD Basic o superior.
-- El autoservicio de restablecimiento de contraseña con escritura diferida local para entornos híbridos requiere Azure AD Premium P1 o superior.
 
 Para más información sobre las licencias, consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

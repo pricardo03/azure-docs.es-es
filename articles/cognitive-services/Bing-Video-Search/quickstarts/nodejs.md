@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500115"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932952"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y Node.js
 
@@ -75,7 +75,7 @@ Use este artículo de inicio rápido para realizar la primera llamada a Bing Vid
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>Creación y envío de la solicitud de búsqueda
+## <a name="create-and-send-the-search-request"></a>Creación y envío de la solicitud de búsqueda
 
 1. Cree una función denominada `bing_video_search()`. Agregue los parámetros de la solicitud, incluidos el nombre de host y los encabezados. Codifique el término de búsqueda y anéxelo al parámetro de ruta de acceso con el parámetro `?q=`. Después, envíe la solicitud con `req.end()`.
 

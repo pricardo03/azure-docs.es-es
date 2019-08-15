@@ -1,20 +1,19 @@
 ---
 title: Establecimiento de permisos para Data Lake Storage Gen2 con Explorador de Azure Storage
 description: En este tema, aprenderá a establecer permisos con el Explorador de Azure Storage en archivos y directorios dentro de su cuenta de almacenamiento compatible con Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
-ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.reviewer: stewu
+ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939307"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847408"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2
 
@@ -43,7 +42,7 @@ Seleccione el campo **Agregar usuario o grupo** para agregar un usuario o grupo 
 
 Escriba la entrada de Azure Active Directory (AAD) correspondiente que quiere agregar a la lista y, luego, seleccione **Agregar**.
 
-El usuario o grupo ahora aparecerá en el campo **Usuarios y grupos:**, lo que le permitirá empezar a administrar sus permisos.
+El usuario o grupo ahora aparecerá en el campo **Usuarios y grupos:** , lo que le permitirá empezar a administrar sus permisos.
 
 > [!NOTE]
 > Se trata de un procedimiento recomendado para crear un grupo de seguridad en AAD y mantener los permisos en el grupo en lugar de usuarios individuales. Para más detalles sobre esta recomendación, así como otros procedimientos recomendados, consulte los [procedimientos recomendados para Data Lake Storage Gen2](data-lake-storage-best-practices.md).

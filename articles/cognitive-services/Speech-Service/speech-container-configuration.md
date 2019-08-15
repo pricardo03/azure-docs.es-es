@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321368"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932102"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
 
@@ -23,7 +23,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-# <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Valores de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 

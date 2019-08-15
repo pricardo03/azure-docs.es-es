@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711465"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966917"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -55,7 +55,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
 | connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `"DSN=<name of the DSN on IR machine>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | Sin |
-| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
 | credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como SecureString. | Sin |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -120,7 +120,7 @@ Para copiar datos con un almacén de datos compatible con ODBC como origen o des
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla en el almacén de datos ODBC. | No (si se especifica "query" en el origen de la actividad)<br/>Sí para el receptor |
 
 **Ejemplo**
@@ -151,7 +151,7 @@ Para copiar datos desde un almacén de datos compatible con ODBC, establezca el 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -192,7 +192,7 @@ Para copiar datos a un almacén de datos compatible con ODBC, establezca el tipo
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OdbcSink** | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **OdbcSink** | Sí |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 0, detectado automáticamente) |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en el almacén de datos en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin |
@@ -231,80 +231,6 @@ Para copiar datos a un almacén de datos compatible con ODBC, establezca el tipo
     }
 ]
 ```
-
-## <a name="ibm-informix-source"></a>Origen de IBM Informix
-
-Puede copiar datos de la base de datos de IBM Informix mediante el conector ODBC genérico.
-
-Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para Informix para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Por ejemplo, puede usar el controlador "IBM INFORMIX ODBC DRIVER (64-bit)". Consulte la sección [Requisitos previos](#prerequisites) para detalles.
-
-Antes de usar el origen de Informix en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
-
-Se crea un servicio vinculado ODBC para vincular un almacén de datos de IBM Informix con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
-
-## <a name="microsoft-access-source"></a>Origen de Microsoft Access
-
-Puede copiar datos de la base de datos de Microsoft Access mediante el conector ODBC genérico.
-
-Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para Microsoft Access para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
-
-Antes de usar el origen de Microsoft Access en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
-
-Se crea un servicio vinculado ODBC para vincular un almacén de datos de Microsoft Access con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
 
 ## <a name="sap-hana-sink"></a>Receptor de SAP HANA
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405123"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854099"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -159,5 +159,5 @@ Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de 
 
 - [Call your custom search](./search-your-custom-view.md) (Llamada a la búsqueda personalizada)
 - [Configuración de la experiencia de interfaz de usuario hospedada](./hosted-ui.md)
-- [Uso de marcadores de decoración para resaltar texto](./hit-highlighting.md)
+- [Uso de marcadores de decoración para resaltar texto](../bing-web-search/hit-highlighting.md)
 - [Paginación de páginas web](./page-webpages.md)

@@ -10,16 +10,15 @@ ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fc1ac9668454578ee137a2ddd1b85319fea0a28
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623211"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945496"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Administración de Azure Cloud Services mediante Azure Automation
 Esta guía le ofrece el servicio Azure Automation y cómo se puede usar para simplificar la administración de Azure Cloud Services.

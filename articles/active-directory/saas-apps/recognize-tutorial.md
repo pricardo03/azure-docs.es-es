@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093256"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integración de Azure Active Directory con Recognize
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Recognize, siga esto
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección  **Configuración básica de SAML** , si tiene el  **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
     >[!NOTE]
     >Puede obtener el **archivo de metadatos del proveedor de servicios** en la sección **Configuración del inicio de sesión único de Recognize** del tutorial.

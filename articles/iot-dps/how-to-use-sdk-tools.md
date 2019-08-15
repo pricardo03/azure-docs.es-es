@@ -1,19 +1,18 @@
 ---
 title: Uso de las herramientas proporcionadas en los SDK de Azure IoT Hub Device Provisioning para simplificar el desarrollo
 description: En este documento se analizan las herramientas de desarrollo proporcionadas en el SDK de Azure IoT Hub Device Provisioning Service
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fd4913776a7d21405f62a28d452bd50cd22f046
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627328"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883002"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Uso de las herramientas proporcionadas en los SDK para simplificar el desarrollo del aprovisionamiento
 El servicio IoT Hub Device Provisioning simplifica el proceso de aprovisionamiento con un [aprovisionamiento automático](concepts-auto-provisioning.md) Just-In-Time sin intervención del usuario de una manera segura y escalable.  Se requiere una atestación de seguridad mediante el certificado X.509 o el Módulo de plataforma segura (TPM).  Microsoft también está asociado con [otros asociados de hardware de seguridad](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para mejorar la confiabilidad en la protección de la implementación de IoT. A los desarrolladores les puede resultar bastante complicado conocer el requisito de seguridad de hardware. Se proporciona un conjunto de SDK de Azure IoT Provisioning Service para que los desarrolladores puedan usar un nivel de comodidad para los clientes de escritura que se comunican con el servicio de aprovisionamiento. Los SDK también proporcionan ejemplos para escenarios comunes, así como un conjunto de herramientas para simplificar la atestación de seguridad en el desarrollo.

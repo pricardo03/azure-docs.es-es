@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 423825540c02d2788de7a6148ddcec3c654fd450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b5f44471187f4031642fd674381e672453b7197
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754794"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884257"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -60,7 +60,7 @@ El centro de IoT Edge facilita la comunicación entre módulos. Al usar el centr
 Para enviar datos al centro de IoT Edge, un módulo llama al método SendEventAsync. El primer argumento especifica en qué salida enviará el mensaje. El siguiente seudocódigo envía un mensaje a la salida **output1**:
 
    ```csharp
-   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
+   ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```

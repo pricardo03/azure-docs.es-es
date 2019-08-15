@@ -1,21 +1,18 @@
 ---
 title: Prueba unitaria de Azure Durable Functions
 description: Obtenga información sobre cómo ejecutar una prueba unitaria de Durable Functions.
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords: ''
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: kadimitr
-ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: glenga
+ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648472"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967112"
 ---
 # <a name="durable-functions-unit-testing"></a>Prueba unitaria de Durable Functions
 
@@ -91,11 +88,11 @@ A continuación, se simula `CreateCheckStatusResponse` para devolver siempre una
         });
 ```
 
-También se simula `TraceWriter`:
+También se simula `ILogger`:
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -111,7 +108,7 @@ Ahora, se llama al método `Run` desde la prueba unitaria:
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  El último paso es comparar la salida con el valor esperado:

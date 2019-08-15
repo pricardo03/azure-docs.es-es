@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 057614da8fd29e1208c2788049c5d6d1a985eed5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343210"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036027"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para traducción de lenguaje SQL
 
 El proveedor de consulta de Azure Cosmos DB realiza una mejor opción de asignación desde una consulta de LINQ a una consulta SQL de Cosmos DB. En la descripción siguiente se da por supuesto un conocimiento básico de LINQ.
 
-El sistema de tipos de proveedor de consultas admite solo los tipos primitivos de JSON: numérico, booleano, cadena y null.
+El sistema de tipos del proveedor de consultas admite solo los tipos primitivos de JSON: numérico, booleano, cadena y null.
 
 El proveedor de consultas admite las siguientes expresiones escalares:
 
-- Valores constantes, incluidos los valores constantes de los tipos de datos primitivos durante la evaluación de la consulta.
+- Valores constantes, incluidos los de los tipos de datos primitivos durante la evaluación de la consulta.
   
 - Expresiones de índice de propiedad o matriz que hacen referencia a la propiedad de un objeto o a un elemento de matriz. Por ejemplo:
   
@@ -32,7 +32,7 @@ El proveedor de consultas admite las siguientes expresiones escalares:
     family.children[n].grade; //n is an int variable
   ```
   
-- Expresiones aritméticas, incluidas expresiones aritméticas comunes con valores numéricos y booleanos. Para obtener una lista completa, consulte la [Especificación de SQL de Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Expresiones aritméticas, incluidas las expresiones aritméticas comunes con valores numéricos y booleanos. Para obtener una lista completa, consulte la [Introducción a las consultas SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
     2 * family.children[0].grade;
@@ -56,7 +56,7 @@ El proveedor de consultas admite las siguientes expresiones escalares:
 
 ## <a id="SupportedLinqOperators"></a>Operadores de LINQ admitidos
 
-El proveedor LINQ incluido con el SDK de .NET de SQL admite los operadores siguientes:
+El proveedor LINQ incluido con el SDK de .NET para SQL admite los operadores siguientes:
 
 - **Select**: Las proyecciones se traducen a la instrucción SQL SELECT, incluida la construcción de objetos.
 - **Where**: Los filtros se traducen a la instrucción SQL WHERE y admiten la traducción entre `&&`, `||` y `!` a los operadores SQL.
@@ -188,7 +188,7 @@ La sintaxis es `input.Where(x => f(x))`, donde `f` es una expresión escalar que
 
 ## <a name="composite-sql-queries"></a>Composición de consultas SQL
 
-Puede componer los operadores anteriores para formar consultas más eficaces. Dado que Cosmos DB admite contenedores anidados, puede concatenar o anidar la composición.
+Puede componer los operadores anteriores para formar consultas más eficaces. Dado que Cosmos DB admite contenedores anidados, puede concatenar o anidar la composición.
 
 ### <a name="concatenation"></a>Concatenación
 
@@ -199,8 +199,8 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 - **Expresión lambda de LINQ**
   
   ```csharp
-      input.Select(family=>family.parents[0])
-          .Where(familyName == "Wakefield");
+      input.Select(family => family.parents[0])
+          .Where(parent => parent.familyName == "Wakefield");
   ```
 
 - **SQL**

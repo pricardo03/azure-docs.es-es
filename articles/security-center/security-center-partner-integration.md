@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662934"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950556"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -56,7 +56,7 @@ Las soluciones de seguridad de Azure que se implementan desde Security Center se
 
    ![Introducción a Security Center](./media/security-center-partner-integration/overview.png)
 
-En **Soluciones de seguridad**, puede ver información acerca del mantenimiento de las soluciones de seguridad integrada de Azure y realizar tareas de administración básicas. También puede conectar otros tipos de orígenes de datos de seguridad, como las alertas y los registros de firewall de Azure Active Directory Identity Protection en Common Event Format (CEF).
+En **Soluciones de seguridad**, puede ver información acerca del mantenimiento de las soluciones de seguridad integrada de Azure y realizar tareas de administración básicas.
 
 ### <a name="connected-solutions"></a>Soluciones conectadas
 
@@ -97,8 +97,6 @@ Security Center detecta automáticamente las soluciones de seguridad que se ejec
 Seleccione **Conectar** en una solución para integrarla con Security Center y recibir alertas de seguridad.
 
 ![Soluciones detectadas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center también detecta las soluciones implementadas en la suscripción que pueden reenviar registros de Common Event Format (CEF). Aprenda a [conectar una solución de seguridad](quick-security-solutions.md) que use registros de CEF a Security Center.
 
 ### <a name="add-data-sources"></a>Agregar orígenes de datos
 

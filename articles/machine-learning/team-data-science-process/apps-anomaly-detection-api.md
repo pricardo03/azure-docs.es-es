@@ -12,10 +12,10 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "64926183"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
@@ -121,7 +121,7 @@ La API de detección de anomalías admite detectores en tres categorías general
 ### <a name="parameters"></a>Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | Type | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
 | detectors.spikesdips | Si se deben detectar solo subidas, solo bajadas, o ambos |Ambos |enumerated |Ambos, subidas, bajadas |Ambos |
@@ -131,7 +131,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | zspikedetector.sensitivity |Sensibilidad del detector ZSpike |3 |integer |1-10 |3-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | postprocess.tailRows |Número de los puntos de datos más recientes que se van a mantener en los resultados de salida |0 |integer |0 (se mantienen todos los puntos de datos), o especifique el número de puntos para mantener en los resultados |N/D |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API.
 
 | Salidas | DESCRIPCIÓN |
@@ -157,7 +157,7 @@ Los detectores en el punto de conexión de estacionalidad son similares a los de
 
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | Type | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregación en segundos para agregar series temporales de entrada |0 (no se realiza ninguna agregación) |integer |0: omitir agregación, de lo contrario, > 0 |De 5 minutos a 1 día, dependiente de la serie temporal |
 | preprocess.aggregationFunc |Función que se usa para agregar datos al objeto AggregationInterval especificado |mean |enumerated |mean, sum, length |N/D |
@@ -174,7 +174,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | seasonality.transform |Si los componentes de tendencia (y) estacionales se eliminarán antes de aplicar la detección de anomalías |deseason |enumerated |none, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Número de los puntos de datos más recientes que se van a mantener en los resultados de salida |0 |integer |0 (se mantienen todos los puntos de datos), o especifique el número de puntos para mantener en los resultados |N/D |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API.
 
 | Salidas | DESCRIPCIÓN |

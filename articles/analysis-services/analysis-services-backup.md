@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15d2d0a043271da18d7884b684ffe8cf5c1f4dc8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 2e751d45e4b76852426d454f8d29196c01396504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619210"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932475"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -72,7 +72,7 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 
 
 ### <a name="powershell"></a>PowerShell
-Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
+Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
 
 ## <a name="restore"></a>Restauración
 Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/common/storage-use-azcopy.md). 
@@ -99,7 +99,7 @@ Para la restauración, el archivo de copia de seguridad debe estar en la cuenta 
 
 ### <a name="powershell"></a>PowerShell
 
-Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet).
+Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Información relacionada

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: bfe11a8cbb6dd2de77bbac9d14c294c3f93438f3
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 484a7344185efa17731f5c35c7c4dec109608b67
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490420"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933075"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
@@ -61,5 +61,5 @@ Para otros tipos de suscripción, [póngase en contacto con soporte técnico](ht
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-# <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre cómo [supervisar y administrar la actividad de facturación de Azure](billing-getting-started.md).

@@ -3,7 +3,7 @@ title: Solución de errores de los paquetes de contenido de los registros de act
 description: Proporciona una lista de mensajes de error del paquete de contenido de la actividad de Azure Active Directory y los pasos para corregirlos.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 06/07/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807524"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987897"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solución de errores de los paquetes de contenido de los registros de actividad de Azure Active Directory 
 

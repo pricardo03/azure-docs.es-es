@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866243"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883549"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Compatibilidad de idiomas y regiones para Bing Visual Search API
 
@@ -51,7 +51,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Alemania|DE|
 |RAE de Hong Kong|HK|
 |India|IN|
-|Indonesia|ID|
+|Indonesia|id|
 |Italia|IT|
 |Japón|JP|
 |Corea|KR|

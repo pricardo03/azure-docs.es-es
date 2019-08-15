@@ -1,18 +1,19 @@
 ---
 title: 'Azure Key Vault: Uso de la eliminación temporal con PowerShell'
 description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de PowerShell
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461372"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985750"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -40,7 +41,7 @@ Las operaciones de Key Vault se administran por separado mediante los permisos d
 
 | Operación | DESCRIPCIÓN | Permiso del usuario |
 |:--|:--|:--|
-|Enumerar|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
+|List|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura un almacén de claves eliminado.|Microsoft.KeyVault/vaults/write|
 |Purgar|Elimina permanentemente un almacén de claves eliminado y todo su contenido.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -49,6 +50,9 @@ Para más información sobre los permisos y el control de acceso, consulte [Prot
 ## <a name="enabling-soft-delete"></a>Habilitar la eliminación temporal
 
 La "eliminación temporal" se habilita para permitir la recuperación de un almacén de claves eliminado o de los objetos almacenados en un almacén de claves.
+
+> [!IMPORTANT]
+> La acción de habilitar la "eliminación temporal" en un almacén de claves es irreversible. Una vez que la propiedad de eliminación temporal se ha establecido en "true", no se puede modificar ni eliminar.  
 
 ### <a name="existing-key-vault"></a>Almacén de claves existente
 

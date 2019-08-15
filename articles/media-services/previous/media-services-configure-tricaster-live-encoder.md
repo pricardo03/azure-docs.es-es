@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720789"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016736"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador NewTek TriCaster para enviar una transmisión por secuencias en directo de velocidad de bits única  
 > [!div class="op_single_selector"]
@@ -78,7 +79,7 @@ Mientras se inicia el canal puede [configurar el codificador](media-services-con
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configuración del codificador NewTek TriCaster
+## <a name="a-idconfigure_tricaster_rtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configuración del codificador NewTek TriCaster
 
 En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 

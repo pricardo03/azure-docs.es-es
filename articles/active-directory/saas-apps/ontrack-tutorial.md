@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: c1da9ec6098864d4f17ac668db6411c1dd0e3afe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371ad2a8530de7b20427327d939bf164d871ab74
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095653"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integración de Azure Active Directory con OnTrack
 
@@ -120,7 +120,7 @@ Para configurar el inicio de sesión único de Azure AD con OnTrack, realice los
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de OnTrack](mailto:CustomerService@insigniagroup.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación OnTrack espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+5. La aplicación OnTrack espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-ontrack-test-user"></a>Creación de un usuario de prueba de OnTrack
 
-En esta sección, creará un usuario llamado Britta Simon en OnTrack. Trabaje con el  [equipo de soporte técnico de OnTrack](mailto:CustomerService@insigniagroup.com) para agregar los usuarios a la plataforma de OnTrack. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en OnTrack. Trabaje con el [equipo de soporte técnico de OnTrack](mailto:CustomerService@insigniagroup.com) para agregar los usuarios a la plataforma de OnTrack. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

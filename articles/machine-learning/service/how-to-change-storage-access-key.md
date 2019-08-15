@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
-ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 08/08/2019
+ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358778"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990552"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 
@@ -25,7 +25,7 @@ Por motivos de seguridad, es posible que necesite cambiar las claves de acceso d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](setup-create-workspace.md).
+* Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 
 * El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -84,17 +84,13 @@ Para actualizar Azure Machine Learning Service de modo que use la clave nueva, s
         az login
         ```
 
-    1. Para instalar la extensión de Azure Machine Learning, use el siguiente comando:
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. Para actualizar el área de trabajo de modo que use la clave nueva, use el comando siguiente. Reemplace `myworkspace` por el nombre del área de trabajo de Azure Machine Learning y reemplace `myresourcegroup` por el nombre del grupo de recursos de Azure que contiene el área de trabajo.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         Este comando sincroniza automáticamente las nuevas claves de la cuenta de Azure Storage que usa el área de trabajo.
 

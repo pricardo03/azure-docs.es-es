@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: b363a994024b4a53703b6107ef4190129e900547
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462055"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950648"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendaciones de rendimiento en Azure Database for MariaDB
 
 **Se aplica a:** Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Recomendaciones de rendimiento está en versión preliminar pública.
 
 La característica Recomendaciones de rendimiento analiza las bases de datos para crear sugerencias personalizadas para mejorar el rendimiento. Para generar las recomendaciones, el análisis examina diversas características de bases de datos, incluido el esquema. Habilite [Almacén de consultas](concepts-query-store.md) en el servidor para poder usar por completo la característica Recomendaciones de rendimiento. Si el esquema de rendimiento está desactivado, al activarlo en el Almacén de consultas se activarán performance_schema y un subconjunto de los instrumentos del esquema de rendimiento necesarios para la característica. Después de implementar una recomendación de rendimiento, debe probar el rendimiento para evaluar el efecto de estos cambios.

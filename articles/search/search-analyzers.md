@@ -4,17 +4,16 @@ description: Asigne analizadores a los campos de texto que permiten búsquedas d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.custom: seodec2018
-ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1d39c23106b2218700e7a2707b824e240448d3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795800"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883034"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizadores para procesamientos textuales en Azure Search
 
@@ -31,7 +30,7 @@ Los analizadores de idioma convierten una entrada de texto en formularios primit
 
 ## <a name="default-analyzer"></a>Analizador predeterminado  
 
-Azure Search usa el [analizador estándar de Apache Lucene (Lucene estándar)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que divide el texto en elementos siguiendo las reglas de ["Segmentación de texto Unicode"](https://unicode.org/reports/tr29/). Además, el analizador estándar convierte todos los caracteres en minúsculas. Los documentos indexados y lo términos de búsqueda son sometidos a análisis durante la indexación y el procesamiento de consultas.  
+Azure Search usa el [analizador estándar de Apache Lucene (Lucene estándar)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que divide el texto en elementos siguiendo las reglas de ["Segmentación de texto Unicode"](https://unicode.org/reports/tr29/). Además, el analizador estándar convierte todos los caracteres en minúsculas. Los documentos indexados y lo términos de búsqueda son sometidos a análisis durante la indexación y el procesamiento de consultas.  
 
 Se usa automáticamente en cada campo que permite búsquedas. Puede invalidar el valor predeterminado campo por campo. Los analizadores alternativos pueden ser un [analizador de idioma](index-add-language-analyzers.md), un [analizador personalizado](index-add-custom-analyzers.md) o un analizador predefinido de la [lista de analizadores disponibles](index-add-custom-analyzers.md#AnalyzerTable).
 
@@ -42,7 +41,7 @@ En la lista siguiente se describen los analizadores que están disponibles en Az
 
 | Categoría | DESCRIPCIÓN |
 |----------|-------------|
-| [Analizador Lucene estándar](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predeterminada. No se requieren ninguna especificación ni configuración. Este analizador de uso general funciona bien en la mayoría de lenguajes y escenarios.|
+| [Analizador Lucene estándar](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predeterminada. No se requieren ninguna especificación ni configuración. Este analizador de uso general funciona bien en la mayoría de lenguajes y escenarios.|
 | Analizadores predefinidos | Se ofrecen como un producto acabado concebido para usarse tal cual. <br/>Hay dos tipos: especializados y de lenguaje. Lo que hace que sean "predefinidos" es que se hace referencia a ellos por su nombre, sin configuración ni personalización alguna. <br/><br/>Los [analizadores especializados (independientes del idioma)](index-add-custom-analyzers.md#AnalyzerTable) se usan cuando las entradas de texto requieren procesamiento especializado o un procesamiento mínimo. Los analizadores predefinidos sin lenguaje incluyen **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** y **Whitespace**.<br/><br/>Los [analizadores de lenguaje](index-add-language-analyzers.md) se utilizan cuando se necesita compatibilidad lingüística enriquecida con lenguajes individuales. Azure Search admite 35 analizadores de lenguaje de Lucene y 50 analizadores de procesamiento de lenguaje natural de Microsoft. |
 |[Analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Hacen referencia a una configuración definida por el usuario de una combinación de los elementos existentes, que consta de un tokenizador (obligatorio) y filtros opcionales (char o token).|
 

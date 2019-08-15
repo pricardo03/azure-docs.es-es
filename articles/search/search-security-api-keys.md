@@ -10,16 +10,16 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3880ed367ebe33e04f37b139927b75e3d01b178
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024412"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855779"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
 
-Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. En las [soluciones REST](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key) la clave de API se especifica normalmente en un encabezado de solicitud. En las [soluciones .NET](search-howto-dotnet-sdk.md#core-scenarios), se especifica a menudo una clave como valor de configuración y, posteriormente, se pasa como [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clave de administración) o [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clave de consulta) en [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. En las [soluciones REST](search-get-started-postman.md) la clave de API se especifica normalmente en un encabezado de solicitud. En las [soluciones .NET](search-howto-dotnet-sdk.md#core-scenarios), se especifica a menudo una clave como valor de configuración y, posteriormente, se pasa como [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clave de administración) o [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clave de consulta) en [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
 Las claves se crean con el servicio de búsqueda durante el aprovisionamiento de este. Puede ver y obtener los valores de clave en [Azure Portal](https://portal.azure.com).
 

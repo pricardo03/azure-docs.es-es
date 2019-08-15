@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e1d481c6019feebf3d62f0e23480f5572363869c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68778769"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946839"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web IaaS para FedRAMP
 
@@ -85,7 +85,7 @@ La arquitectura define una red virtual privada con un espacio de direcciones de 
 
 **Grupos de seguridad de red**: Esta solución implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración dentro de una red virtual. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema.
 
-Consulte la configuración de los [grupos de seguridad de red](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementados con esta solución. Los clientes pueden configurar grupos de seguridad de red mediante la edición del archivo anterior usando [esta documentación](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) como guía.
+Consulte la configuración de los [grupos de seguridad de red](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementados con esta solución. Los clientes pueden configurar grupos de seguridad de red mediante la edición del archivo anterior usando [esta documentación](../../virtual-network/virtual-network-vnet-plan-design-arm.md) como guía.
 
 Cada una de las subredes tiene un grupo de seguridad de red dedicado (NSG):
 - 1 NSG para Application Gateway (LBNSG)
@@ -106,19 +106,19 @@ La arquitectura protege los datos en reposo mediante varias medidas de cifrado.
 
 Los clientes también pueden configurar las medidas de seguridad de SQL Server siguientes:
 -   La [autenticación y autorización de AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permite la administración de identidades de usuarios de bases de datos y otros servicios de Microsoft en una ubicación central.
--   [Auditoría de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) realiza un seguimiento de los eventos de las bases de datos y los escribe en un registro de auditoría de una cuenta de almacenamiento de Azure.
+-   [Auditoría de SQL Database](../../sql-database/sql-database-auditing.md) realiza un seguimiento de los eventos de las bases de datos y los escribe en un registro de auditoría de una cuenta de almacenamiento de Azure.
 -   Las [reglas de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impiden el acceso a los servidores de bases de datos hasta que se otorgan los permisos adecuados. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud.
--   La [detección de amenazas de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permite detectar y responder ante posibles amenazas a medida que se producen, mediante el envío de alertas de seguridad para actividades sospechosas en la base de datos, posibles puntos vulnerables, ataques por inyección de código SQL y patrones anómalos de acceso a la base de datos.
+-   La [detección de amenazas de SQL](../../sql-database/sql-database-threat-detection.md) permite detectar y responder ante posibles amenazas a medida que se producen, mediante el envío de alertas de seguridad para actividades sospechosas en la base de datos, posibles puntos vulnerables, ataques por inyección de código SQL y patrones anómalos de acceso a la base de datos.
 -   Las [columnas de Always Encrypted](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantizan que los datos confidenciales nunca aparecen como texto no cifrado dentro del sistema de base de datos. Después de habilitar el cifrado de datos, solo las aplicaciones cliente o los servidores de aplicaciones con acceso a las claves pueden acceder a los datos de texto no cifrado.
 -   El [enmascaramiento de los datos dinámicos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) puede realizarse después de la implementación de la arquitectura de referencia. Los clientes deberán ajustar la configuración del enmascaramiento de los datos dinámicos para ajustarse al esquema de la base de datos.
 
-**Azure Disk Encryption**: Azure Disk Encryption se utiliza para los discos cifrados de máquinas virtuales de IaaS de Windows. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aprovecha la función de BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos y sistema operativo. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar las claves de cifrado del disco.
+**Azure Disk Encryption**: Azure Disk Encryption se utiliza para los discos cifrados de máquinas virtuales de IaaS de Windows. [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) aprovecha la función de BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos y sistema operativo. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar las claves de cifrado del disco.
 
 ### <a name="identity-management"></a>Administración de identidades
 
 Las siguientes tecnologías proporcionan funcionalidades de administración de identidad en el entorno de Azure:
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) es el directorio multiinquilino basado en la nube y el servicio de administración de identidades de Microsoft.
-- La autenticación para una aplicación web implementada por el cliente puede realizarse mediante Azure AD. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+- La autenticación para una aplicación web implementada por el cliente puede realizarse mediante Azure AD. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).  
 - El [control de acceso basado en rol de Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción se limita al administrador de la suscripción y el acceso a los recursos se puede limitar según el rol de usuario.
 - Una instancia implementada de Active Directory de IaaS proporciona administración de identidades en el nivel de sistema operativo para máquinas virtuales implementadas de IaaS.
 
@@ -132,9 +132,9 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 **Application Gateway**: La arquitectura reduce el riesgo de sufrir vulnerabilidades de seguridad, ya que usa Application Gateway con el firewall de aplicaciones web (WAF) y tiene el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
 
 - [SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Opción para habilitar la [descarga SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
+- Opción para habilitar la [descarga SSL](../../application-gateway/create-ssl-portal.md)
 - Opción para deshabilitar [TLS v1.0 y v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Firewall de aplicaciones web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modo WAF)
+- [Firewall de aplicaciones web](../../application-gateway/waf-overview.md) (modo WAF)
 - [Modo de prevención](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) con el conjunto de reglas OWASP 3.0
 
 ### <a name="business-continuity"></a>Continuidad del negocio
@@ -147,22 +147,22 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
-Los registros de Azure Monitor ofrecen un registro completo de la actividad de usuario y del sistema, además de mantenimiento de este. La solución de [registros de Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
+Los registros de Azure Monitor ofrecen un registro completo de la actividad de usuario y del sistema, además de mantenimiento de este. La solución de [registros de Azure Monitor](../azure-security-disk-encryption-overview.md) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
 
-- **Registros de actividad:**  los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
-- **Registros de diagnóstico:**  Los [registros de diagnóstico:](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
+- **Registros de actividad:**  los [registros de actividad](../../azure-monitor/platform/activity-logs-overview.md) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
+- **Registros de diagnóstico:**  Los [registros de diagnóstico:](../../azure-monitor/platform/diagnostic-logs-overview.md) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
 - **Archivado de registros**:  Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización. Esos registros se conectan a los registros de Azure Monitor para el procesamiento, el almacenamiento y la creación de informes de panel.
 
 Además, como parte de esta arquitectura, se instalan las siguientes soluciones de supervisión. Tenga en cuenta que es responsabilidad del cliente configurar estas soluciones para alinearlas con los controles de seguridad de FedRAMP:
--   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
--   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
+-   [AD Assessment](../../azure-monitor/insights/ad-assessment.md): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
+-   [Antimalware Assessment](../../security-center/security-center-install-endpoint-protection.md): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la solución Azure Automation almacena, ejecuta y administra runbooks.
--   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): el panel Security and Audit proporciona una visión de alto nivel del estado de seguridad de los recursos al proporcionar información sobre métricas de los dominios de seguridad, problemas importantes, detecciones, inteligencia sobre amenazas y consultas comunes de seguridad.
--   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona a los clientes una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
--   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): la solución Update Management permite la administración de cliente de las actualizaciones de seguridad del sistema operativo, incluido el estado de las actualizaciones disponibles y el proceso de instalación de las actualizaciones necesarias.
--   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health notifica el número de agentes implementados y su distribución geográfica, así como el número de agentes que no responden y el de agentes que envían datos operativos.
--   [Registros de actividad de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de todas las suscripciones de Azure para un cliente.
--   [Change Tracking](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Change Tracking permite a los clientes identificar fácilmente los cambios en el entorno.
+-   [Security and Audit](../../security-center/security-center-intro.md): el panel Security and Audit proporciona una visión de alto nivel del estado de seguridad de los recursos al proporcionar información sobre métricas de los dominios de seguridad, problemas importantes, detecciones, inteligencia sobre amenazas y consultas comunes de seguridad.
+-   [SQL Assessment](../../azure-monitor/insights/sql-assessment.md): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona a los clientes una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
+-   [Update Management](../../automation/automation-update-management.md): la solución Update Management permite la administración de cliente de las actualizaciones de seguridad del sistema operativo, incluido el estado de las actualizaciones disponibles y el proceso de instalación de las actualizaciones necesarias.
+-   [Agent Health](../../monitoring/monitoring-solution-agenthealth.md): la solución Agent Health notifica el número de agentes implementados y su distribución geográfica, así como el número de agentes que no responden y el de agentes que envían datos operativos.
+-   [Registros de actividad de Azure](../../azure-monitor/platform/collect-activity-logs.md): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de todas las suscripciones de Azure para un cliente.
+-   [Change Tracking](../../azure-monitor/platform/collect-activity-logs.md): la solución Change Tracking permite a los clientes identificar fácilmente los cambios en el entorno.
 
 **Azure Monitor**
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ayuda a los usuarios a realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias permitiendo a las organizaciones auditar, crear alertas y archivar datos, incluido el seguimiento de las llamadas a la API en los recursos Azure de los clientes.

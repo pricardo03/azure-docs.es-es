@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606922"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965290"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
 ## <a name="overview"></a>Información general
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 Los componentes de hardware del dispositivo StorSimple de Microsoft Azure se adhieren a las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen los módulos de alimentación y refrigeración (PCM), las unidades de disco, la capacidad de almacenamiento y los revestimientos. La información de cumplimiento normativo trata aspectos tales como las normas internacionales, la seguridad, las emisiones y el cableado.
 
@@ -41,7 +43,7 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa 
 | Corriente de entrada máxima |20 A |20 A |
 | Corrección del factor de potencia |>95% del voltaje de entrada nominal |>95% del voltaje de entrada nominal |
 | Armónicos |Cumple la norma EN 61000-3-2 |Cumple la norma EN 61000-3-2 |
-| Salida |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
+| Output |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
 | +5 V \@ 42 A |+5 V \@ 40 A | |
 | +12 V \@ 38 A |+12 V \@ 38 A | |
 | Conectable en funcionamiento |Sí |Sí |

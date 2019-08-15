@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727255"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934688"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 En este artículo, se trata un conjunto de procedimientos recomendados para la seguridad del control de acceso y la administración de identidades en Azure. Estos procedimientos recomendados proceden de nuestra experiencia con [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) y las experiencias de clientes como usted.
@@ -84,8 +84,8 @@ Para más información, consulte [Implement password hash synchronization with A
 **Detalles**: use las capacidades adecuadas para admitir la autenticación:
 
   - Azure AD para los empleados.
-  - [B2B de Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/) para los usuarios invitados y socios externos.
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) para controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles al usar las aplicaciones.
+  - [B2B de Azure AD](../../active-directory/b2b/index.yml) para los usuarios invitados y socios externos.
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) para controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles al usar las aplicaciones.
 
 Las organizaciones que no integren la identidad del entorno local con la identidad en la nube pueden tener mayor sobrecarga para administrar cuentas. Esta sobrecarga aumenta la probabilidad de que haya errores e infracciones de seguridad.
 

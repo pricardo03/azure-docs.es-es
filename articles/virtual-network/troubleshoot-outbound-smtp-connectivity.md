@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 13ed2dc2b304368e468c433b5abf5d056c33e406
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466480"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935372"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -36,7 +36,7 @@ Para los usuarios de Azure de Contrato Enterprise, no hay ningún cambio en la c
 ## <a name="pay-as-you-go"></a>Pay-As-You-Go
 Si se suscribió antes del 15 de noviembre de 2017 en las ofertas de suscripción de Pago por uso o de Microsoft Partner Network, no habrá ningún cambio en la capacidad técnica de probar la entrega de correo electrónico saliente. Seguirá teniendo la posibilidad de probar la entrega de correo electrónico saliente desde máquinas virtuales de Azure dentro de estas suscripciones directamente a proveedores de correo electrónico externos sin ninguna restricción desde la plataforma de Azure. Como ya se indicó, no se garantiza que los proveedores de correo electrónico acepten el correo electrónico entrante de un usuario cualquiera y los usuarios deberán trabajar directamente con proveedores de correo electrónico para corregir cualquier problema de entrega de mensaje o filtrado de correo no deseado que implique a proveedores específicos.
 
-Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico mediante el siguiente tipo de incidencia: Tipo de problema **Administración de suscripciones**: **Solicitud para habilitar el flujo de correo electrónico del puerto 25**. Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
+Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico mediante el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
 
 Después de que una suscripción de pago por uso o de Microsoft Partner Network esté exenta y las VM hayan sido "detenidas" e "iniciadas" desde Azure Portal, todas las VM dentro de esa suscripción quedarán exentas en el futuro. La exención solo es aplicable a la suscripción solicitada.
 

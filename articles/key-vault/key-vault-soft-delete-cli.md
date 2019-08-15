@@ -1,18 +1,19 @@
 ---
 title: 'Azure Key Vault: Uso de la eliminación temporal con la CLI'
 description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de la CLI
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976305"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -33,7 +34,7 @@ Las operaciones de Key Vault se administran por separado mediante los permisos d
 
 | Operación | DESCRIPCIÓN | Permiso del usuario |
 |:--|:--|:--|
-|Enumerar|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
+|List|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura un almacén de claves eliminado.|Microsoft.KeyVault/vaults/write|
 |Purgar|Elimina permanentemente un almacén de claves eliminado y todo su contenido.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 

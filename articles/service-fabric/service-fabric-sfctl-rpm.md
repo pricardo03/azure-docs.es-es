@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f40451087aba5af5b02625ad3ac1ca6231d976c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556362"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035875"
 ---
 # <a name="sfctl-rpm"></a>rpm de sfctl
 Consulte y envíe comandos al servicio del administrador de reparaciones.
@@ -86,7 +85,7 @@ Esta API es compatible con la plataforma Service Fabric; no está diseñada para
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --executor-filter | El nombre del ejecutar de reparación cuyas tareas notificadas deben incluirse en la lista. |
-| --state-filter | Una operación OR bit a bit de los siguientes valores, especificando qué estados de tareas deben incluirse en la lista de resultados. <br> 1\. Creado <br>2\. Notificado  <br>4\. Preparando  <br>8\. Aprobado  <br>16\. Ejecutando  <br>32\. Restaurando  <br>64\. Completado |
+| --state-filter | Una operación OR bit a bit de los siguientes valores, especificando qué estados de tareas deben incluirse en la lista de resultados. <br> 1\. Creado <br>2\. Notificado  <br>4\. Preparando  <br>8\. Aprobado  <br>16. Ejecutando  <br>32. Restaurando  <br>64. Completado |
 | --task-id-filter | El prefijo del identificador de tarea de reparación que debe coincidir. |
 
 ### <a name="global-arguments"></a>Argumentos globales

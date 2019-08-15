@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384139"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881917"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Compatibilidad de idiomas y regiones para Bing Image Search API
 
@@ -49,7 +49,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Alemania|DE|
 |RAE de Hong Kong|HK|
 |India|IN|
-|Indonesia|ID|
+|Indonesia|id|
 |Italia|IT|
 |Japón|JP|
 |Corea|KR|

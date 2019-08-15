@@ -9,12 +9,12 @@ ms.date: 05/13/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 88bf81852a4501f4fc5807d865214d57dbc0aab3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 060e1d01e5f078bad9852ae35d0af9142192a7b6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794494"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985615"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -32,7 +32,7 @@ Servicios de Microsoft de primera entidad, como Azure Site Recovery o Azure Back
 
 * Administración de instantáneas incrementales orientadas a la aplicación: las aplicaciones pueden aprovechar las API REST y las instantáneas de los blobs en páginas para guardar los puntos de control de las aplicaciones sin incurrir en costosas duplicaciones de datos. Azure Storage admite las instantáneas locales para blobs en páginas, que no requieren copiar todo el blob. Estas API de instantáneas públicas también permiten acceder y copiar las diferencias entre instantáneas.
 * Migración en vivo de aplicación y datos de local a la nube: Copie los datos locales y use las API de REST para escribir directamente en un blob en páginas de Azure mientras la máquina virtual local sigue ejecutándose. Una vez alcanzado el objetivo, puede conmutar por error rápidamente a la máquina virtual de Azure con esos datos. De esta forma, puede migrar las máquinas virtuales y los discos virtuales de local a la nube con un tiempo de inactividad mínimo, ya que la migración de datos se realiza en segundo plano mientras se sigue usando la máquina virtual y el tiempo de inactividad necesario para la conmutación por error es reducido (en minutos).
-* El acceso compartido [basado en SAS](../common/storage-dotnet-shared-access-signature-part-1.md) permite escenarios como varios lectores y un único escritor, y admite el control de simultaneidad.
+* El acceso compartido [basado en SAS](../common/storage-sas-overview.md) permite escenarios como varios lectores y un único escritor, y admite el control de simultaneidad.
 
 ## <a name="page-blob-features"></a>Características de blobs en páginas
 

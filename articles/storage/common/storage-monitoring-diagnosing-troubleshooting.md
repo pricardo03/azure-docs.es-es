@@ -1,20 +1,19 @@
 ---
 title: Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs
 description: Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912417"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855353"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -467,16 +466,16 @@ El motivo más común de este error es que un cliente se desconecte antes de que
 ### <a name="the-client-is-receiving-403-messages"></a>El cliente recibe mensajes HTTP 403 (prohibido)
 Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivos más probables es que el cliente esté usando una Firma de acceso compartido (SAS) expirada al enviar una solicitud de almacenamiento (aunque hay otras causas posibles, como un sesgo del reloj, que las claves no sean válidas o que los encabezados estén vacíos). Si el motivo es que la clave SAS expiró, no verá ninguna entrada en los datos de registro del registro de Almacenamiento del lado servidor. En la siguiente tabla, puede ver una muestra del registro del lado cliente generado por la biblioteca de cliente de Almacenamiento que ilustra este problema:
 
-| Origen | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
+| Source | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
 | --- | --- | --- | --- | --- |
-| Microsoft.Azure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Esperando respuesta. |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 403 Prohibido. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción producida durante la operación: El servidor remoto devolvió un error: 403 Prohibido. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
 | Microsoft.Azure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 403 Prohibido. |
 
 En este escenario, debe investigar el motivo por el que el token de SAS expira antes de que el cliente envíe el token al servidor:

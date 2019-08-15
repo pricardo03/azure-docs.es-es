@@ -2,17 +2,17 @@
 title: Cómo administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 description: Obtenga información sobre cómo mejorar la conectividad de dispositivos y la mensajería al usar los SDK de dispositivo de Azure IoT Hub
 services: iot-hub
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e881dffbd1f286047ffcff226eb3dede7a138a0c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67535507"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884344"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 
@@ -28,7 +28,7 @@ Los detalles de implementación pueden variar según el lenguaje. Para obtener m
 
 * [SDK de C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
 
-* [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [SDK de Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 

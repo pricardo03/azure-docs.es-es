@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594929"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931999"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
 
@@ -165,11 +165,9 @@ Si se produce un error, la solicitud también devolverá una respuesta de error 
 
 En el ejemplo siguiente se muestra cómo convertir dos cadenas escritas en japonés a japonés escrito con el alfabeto latino.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
 Esta es la carga de JSON para la solicitud en este ejemplo:
 
-```
+```json
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
@@ -178,5 +176,3 @@ Si está usando cURL en una ventana de línea de comandos que no admite caracter
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
-
----

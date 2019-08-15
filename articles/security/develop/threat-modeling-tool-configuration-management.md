@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728344"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934805"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -563,7 +563,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
+| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](../../iot-hub/tutorial-firmware-update.md) |
 | **Pasos** | LWM2M es un protocolo de Open Mobile Alliance para la administración de dispositivos IoT. La administración de dispositivos IoT de Azure permite interactuar con dispositivos físicos mediante trabajos de dispositivo. Asegúrese de que la puerta de enlace de la nube implementa un proceso para mantener al día de forma rutinaria el dispositivo y otros datos de configuración mediante la administración de dispositivos de Azure IoT Hub. |
 
 ## <a id="controls-policies"></a>Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas

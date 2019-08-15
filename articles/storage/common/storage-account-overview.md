@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2adb2928772f97c2dc14b8ebe9eb2072cbc4a36d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443746"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985365"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -143,7 +143,7 @@ Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquier
 
 - **Azure Active Directory:** Use las credenciales de Azure Active Directory (Azure AD) para autenticar a un usuario, grupo u otra identidad, y que así pueda obtener acceso a los datos de blobs y colas (versión preliminar). Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de clave compartida:** use la clave de acceso de la cuenta de almacenamiento para crear una cadena de conexión que la aplicación pueda usar en el tiempo de ejecución para obtener acceso a Azure Storage. Los valores en la cadena de conexión se usan para construir el encabezado *Autorización* que se pasa a Azure Storage. Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
-- **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autenticación de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autenticación de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 

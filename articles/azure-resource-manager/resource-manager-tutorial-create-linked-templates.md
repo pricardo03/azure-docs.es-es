@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241384"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036001"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Tome nota de los dos valores (Nombre del grupo de recursos y Linked template URI [Uri de la plantilla vinculada]) al final del panel de Shell. Necesitará estos valores más adelante en el tutorial.
 5. Seleccione **Salir del modo de enfoque** para cerrar el panel de Shell.
 
-En la práctica, se genera un token de SAS cuando se implementa la plantilla principal y se asigna a la expiración del token de SAS una ventana más pequeña para que sea más seguro. Para más información, consulte [Provisión del token de SAS durante la implementación](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+En la práctica, se genera un token de SAS cuando se implementa la plantilla principal y se asigna a la expiración del token de SAS una ventana más pequeña para que sea más seguro. Para más información, consulte [Provisión del token de SAS durante la implementación](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Llamada a la plantilla vinculada
 
@@ -327,7 +327,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 Para mejorar el proyecto, efectúe los siguientes cambios adicionales en el proyecto completado:
 
 1. Modifique la plantilla principal (azuredeploy.json) para que tome el valor del URI de la plantilla vinculada a través de un parámetro.
-2. En lugar de generar un token de SAS al cargar la plantilla vinculada, genere el token al implementar la plantilla principal. Para más información, consulte [Provisión del token de SAS durante la implementación](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. En lugar de generar un token de SAS al cargar la plantilla vinculada, genere el token al implementar la plantilla principal. Para más información, consulte [Provisión del token de SAS durante la implementación](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

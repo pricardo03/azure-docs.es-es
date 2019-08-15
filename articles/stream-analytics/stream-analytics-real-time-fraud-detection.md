@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 19c9448b6a743302eb81bb208444336d6435f114
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621836"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947039"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -138,13 +138,13 @@ Antes de iniciar la aplicación TelcoGenerator, es preciso configurarla para que
    telcodatagen.exe 1000 0.2 2
    ```
 
-    Los parámetros son los siguientes: 
+   Los parámetros son los siguientes: 
 
-    * Número de registros CDR por hora. 
-    * Probabilidad de fraude de tarjeta SIM: frecuencia, como porcentaje de todas las llamadas, con que la aplicación debe simular una llamada fraudulenta. El valor 0,2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.
-    * Duración en horas. Número de horas que debe ejecutarse la aplicación. También puede detener la aplicación en cualquier momento presionando Ctrl+C en la línea de comandos.
+   * Número de registros CDR por hora. 
+   * Probabilidad de fraude de tarjeta SIM: frecuencia, como porcentaje de todas las llamadas, con que la aplicación debe simular una llamada fraudulenta. El valor 0,2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.
+   * Duración en horas. Número de horas que debe ejecutarse la aplicación. También puede detener la aplicación en cualquier momento presionando Ctrl+C en la línea de comandos.
 
-    Después de unos segundos, la aplicación comienza a mostrar los registros de llamada telefónica en la pantalla tal y como los envía al centro de eventos.
+   Después de unos segundos, la aplicación comienza a mostrar los registros de llamada telefónica en la pantalla tal y como los envía al centro de eventos.
 
 Estos son algunos de los principales campos que se van a usar en esta aplicación de detección de fraudes en tiempo real:
 

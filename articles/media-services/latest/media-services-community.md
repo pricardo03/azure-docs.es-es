@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710169"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69016102"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
@@ -49,15 +49,6 @@ El equipo también supervisa las preguntas etiquetadas con "azure-media-services
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
 
 El correo principal del soporte técnico de Azure Media Services es: **amshelp\@microsoft.com**.
-
-La siguiente tabla enumera el correo electrónico de los subequipos de las características:
-
-| Característica | Email |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Diseñador de flujo de trabajo |mepd@microsoft.com |
-| Streaming en vivo y empaquetado |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

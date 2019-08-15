@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506421"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934372"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -41,7 +41,7 @@ Si está desarrollando un proyecto y tiene que compartir código fuente de forma
 
     ![Crear una instancia de Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Concédase a usted mismo y a los miembros del equipo acceso a Key Vault. Si tiene un equipo grande, puede crear un [grupo de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) y agregar acceso a ese grupo de seguridad para Key Vault. En la lista desplegable *Permisos de secretos*, marque *Get* (Obtener) y *List* (Lista) en *Secret Management Operations* (Operaciones de administración de secretos).
+2. Concédase a usted mismo y a los miembros del equipo acceso a Key Vault. Si tiene un equipo grande, puede crear un [grupo de Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) y agregar acceso a ese grupo de seguridad para Key Vault. En la lista desplegable *Permisos de secretos*, marque *Get* (Obtener) y *List* (Lista) en *Secret Management Operations* (Operaciones de administración de secretos).
 
     ![Agregar directiva de acceso de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566782"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883049"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
 
@@ -37,7 +37,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor de bases de da
 > [!NOTE]
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 > [!IMPORTANT]
-> Una regla de firewall de 0.0.0.0 permite que todos los servicios de Azure pasen a través de la regla de firewall de nivel de servidor e intenten conectarse a una base de datos única o agrupada a través del servidor. Para más información sobre el uso de reglas de red virtual, consulte [Reglas de red virtual alternativas a las reglas de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Una regla de firewall de 0.0.0.0 permite que todos los servicios de Azure pasen a través de la regla de firewall de nivel de servidor e intenten conectarse a una base de datos única o agrupada a través del servidor. 
 
 Siga estos pasos para crear una regla de firewall de IP de nivel de servidor para la dirección IP de su cliente y habilite la conectividad externa mediante el firewall de SQL Database solo para su dirección IP.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: af88d2f0ce0e26fe67dda265b59684083c133dd5
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297600"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935097"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Compatibilidad de la intercalación de base de datos con Azure SQL Data Warehouse
 
@@ -26,7 +26,7 @@ Para cambiar la intercalación predeterminada, simplemente debe actualizar el ca
 
 Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, basta con que cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
-#<a name="list-of-unsupported-collation-types"></a>Lista de los tipos de intercalación que no se admiten
+## <a name="list-of-unsupported-collation-types"></a>Lista de los tipos de intercalación que no se admiten
 *   Japanese_Bushu_Kakusu_140_BIN
 *   Japanese_Bushu_Kakusu_140_BIN2
 *   Japanese_Bushu_Kakusu_140_CI_AI_VSS

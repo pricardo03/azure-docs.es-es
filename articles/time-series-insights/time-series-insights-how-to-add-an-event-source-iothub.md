@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47e14ff87a6197ccc97231835da545207545a328
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 234fe28cb8bd9dcb97e307836961e2f587e15181
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460791"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846641"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 
@@ -89,7 +89,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
        | Propiedad | DESCRIPCIÓN |
        | --- | --- |
        | Id. de suscripción | La suscripción en la que se creó este centro de IoT.
-       | Grupos de recursos | El nombre del grupo de recursos en el que se creó este centro de IoT.
+       | Resource group | El nombre del grupo de recursos en el que se creó este centro de IoT.
        | Nombre de IoT Hub | El nombre del centro de IoT. Cuando creó el centro de IoT especificó un nombre para este.
        | Nombre de la directiva de IoT Hub | La directiva de acceso compartido. Puede crear esta directiva en la pestaña Configuración de centro de IoT. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
        | Clave de la directiva de IoT Hub | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Azure Service Bus. Especifique la clave principal o secundaria aquí.

@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310543"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967580"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
 
-En este artículo se muestra cómo ejecutar una [tarea de ACR](container-registry-tasks-overview.md) según una programación. Para programar una tarea, configure uno o varios *desencadenadores de temporizador*. 
+En este artículo se muestra cómo ejecutar una [tarea de ACR](container-registry-tasks-overview.md) según una programación. Para programar una tarea, configure uno o varios *desencadenadores de temporizador*.
 
 La programación de tareas es útil para escenarios como los siguientes:
 
@@ -29,18 +29,18 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ej
 
 ## <a name="about-scheduling-a-task"></a>Acerca de la programación de tareas
 
-* **Desencadenador con una expresión cron**: el desencadenador de temporizador de una tarea utiliza una *expresión cron*. La expresión es una cadena con cinco campos que especifican el minuto, la hora, el día, el mes y el día de la semana en que se va a desencadenar la tarea. Se admiten frecuencias de hasta una vez por minuto. 
+* **Desencadenador con una expresión cron**: el desencadenador de temporizador de una tarea utiliza una *expresión cron*. La expresión es una cadena con cinco campos que especifican el minuto, la hora, el día, el mes y el día de la semana en que se va a desencadenar la tarea. Se admiten frecuencias de hasta una vez por minuto.
 
   Por ejemplo, la expresión `"0 12 * * Mon-Fri"` desencadena una tarea al mediodía hora UTC todos los días de la semana. Consulte los [detalles](#cron-expressions) más adelante en este artículo.
-* **Varios desencadenadores de temporizador**: se permite la adición de varios temporizadores a una tarea, siempre que las programaciones sean distintas. 
+* **Varios desencadenadores de temporizador**: se permite la adición de varios temporizadores a una tarea, siempre que las programaciones sean distintas.
     * Puede especificar varios desencadenadores de temporizador al crear la tarea o agregarlos más tarde.
     * Opcionalmente, dé un nombre a los desencadenadores para facilitar la administración; de lo contrario, ACR Tasks proporcionará nombres de desencadenador predeterminados.
-    * Si las programaciones del temporizador se superponen en algún momento, ACR Tasks desencadena la tarea a la hora programada para cada temporizador. 
+    * Si las programaciones del temporizador se superponen en algún momento, ACR Tasks desencadena la tarea a la hora programada para cada temporizador.
 * **Otros desencadenadores de tarea**: en una tarea desencadenada por temporizadores, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o las [actualizaciones de la imagen de base](container-registry-tutorial-base-image-update.md). Al igual que otras tareas de ACR, también puede [desencadenar manualmente][az-acr-task-run] una tarea programada.
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Creación de una tarea con un desencadenador de temporizador
 
-Cuando crea una tarea con el comando [az acr task create][az-acr-task-create], opcionalmente puede agregar un desencadenador de temporizador. Agregue el parámetro `--schedule` y pase una expresión cron para el temporizador. 
+Cuando crea una tarea con el comando [az acr task create][az-acr-task-create], opcionalmente puede agregar un desencadenador de temporizador. Agregue el parámetro `--schedule` y pase una expresión cron para el temporizador.
 
 A modo de ejemplo sencillo, el siguiente comando desencadena la ejecución de la imagen `hello-world` de Docker Hub todos los días a las 21:00 UTC. La tarea se ejecuta sin un contexto de código fuente.
 
@@ -86,8 +86,8 @@ This message shows that your installation appears to be working correctly.
 Después de la hora programada, ejecute el comando [az acr task list-runs][az-acr-task-list-runs] para comprobar que el temporizador desencadenó la tarea según lo esperado:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 Cuando el temporizador desencadena la tarea correctamente, el resultado es similar al siguiente:
 
@@ -98,7 +98,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## <a name="manage-timer-triggers"></a>Administración de desencadenadores de temporizador
 
 Use los comandos [az acr task timer][az-acr-task-timer] para administrar los desencadenadores de temporizador de una tarea de ACR.
@@ -150,7 +150,7 @@ Salida de ejemplo:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Eliminación de un desencadenador de temporizador 
+### <a name="remove-a-timer-trigger"></a>Eliminación de un desencadenador de temporizador
 
 Use el comando [az acr task timer remove][az-acr-task-timer-remove] para eliminar un desencadenador de temporizador de una tarea. En el ejemplo siguiente, se elimina el desencadenador *timer2* de *mytask*:
 
@@ -178,7 +178,7 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 |---------|---------|---------|
 |Un valor específico |<nobr>"5 * * * *"</nobr>|cada hora a "y cinco"|
 |Todos los valores (`*`)|<nobr>"* 5 * * *"</nobr>|cada minuto de la hora empezando a las 5:00 UTC (60 veces al día)|
-|Un intervalo (operador `-`)|<nobr>"0 1-3 * * *"</nobr>|3 veces al día, a la 1:00, a las 2:00 y a las 3:00 UTC|  
+|Un intervalo (operador `-`)|<nobr>"0 1-3 * * *"</nobr>|3 veces al día, a la 1:00, a las 2:00 y a las 3:00 UTC|
 |Un conjunto de valores (operador `,`)|<nobr>"20,30,40 * * * *"</nobr>|3 veces por hora, a "y veinte", a la media y a "menos veinte"|
 |Un valor de intervalo (operador `/`)|<nobr>"*/10 * * * *"</nobr>|6 veces por hora, a "y diez", a "y veinte", etc.
 

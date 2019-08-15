@@ -8,38 +8,13 @@ ms.topic: include
 ms.date: 01/16/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6f9065786879749eee6187e93283f4c026b7fff
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 98172c2c487488a72bbfdd3a8205ac7d8668db60
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186188"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035758"
 ---
-La siguiente configuración del equipo se usó para los pasos siguientes:
-
-  | | |
-  |---|---|
-  |Equipo| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
-  |Dependencias| strongSwan |
-
-#### <a name="1-install-strongswan"></a>1. Instalación de strongSwan
-
-Ejecute los comandos siguientes para instalar la configuración necesaria de strongSwan:
-
-```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
-```
-
-```
-apt-get install libstrongswan-standard-plugins
-```
-
-```
-apt-get install strongswan-pki
-```
-
-#### <a name="2-generate-keys-and-certificate"></a>2. Generación de claves y certificados
-
 Genere el certificado de entidad de certificación.
 
   ```

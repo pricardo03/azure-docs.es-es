@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53b315b87200b37cda215a29a65be9babaf54f43
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795194"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967213"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Elección del protocolo de federación correcto para una aplicación multiinquilino
 
@@ -72,7 +72,7 @@ Para obtener información acerca de cómo registrar una aplicación e implementa
 
 Lenguaje de marcado de aserción de seguridad (SAML) se utiliza normalmente para las aplicaciones web. Para obtener información general, consulte [Uso del protocolo SAML por parte de Azure AD](../develop/active-directory-saml-protocol-reference.md). 
 
-Web Services Federation (WSFed) es un [estándar de la industria](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) que normalmente se usa para las aplicaciones web que se desarrollan mediante la plataforma. NET.
+Web Services Federation (WSFed) es un [estándar de la industria](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) que normalmente se usa para las aplicaciones web que se desarrollan mediante la plataforma. NET.
 
 ### <a name="benefits"></a>Ventajas
 

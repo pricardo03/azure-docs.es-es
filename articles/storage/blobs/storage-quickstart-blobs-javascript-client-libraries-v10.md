@@ -11,12 +11,12 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 742e270ae84604e8d5389c0b2982642f56105fcc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828211"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986875"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -59,7 +59,7 @@ A continuación, se usa Azure Cloud Shell para crear un token de seguridad.
 
 ## <a name="create-a-shared-access-signature"></a>Creación de una firma de acceso compartido
 
-La firma de acceso compartido (SAS) es usada por el código que se ejecuta en el explorador para autorizar las solicitudes para Blob Storage. Mediante el uso de una firma de acceso compartido, el cliente puede autorizar el acceso a los recursos de almacenamiento sin la clave de acceso de cuenta ni la cadena de conexión. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+La firma de acceso compartido (SAS) es usada por el código que se ejecuta en el explorador para autorizar las solicitudes para Blob Storage. Mediante el uso de una firma de acceso compartido, el cliente puede autorizar el acceso a los recursos de almacenamiento sin la clave de acceso de cuenta ni la cadena de conexión. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).
 
 Puede crear una SAS mediante la CLI de Azure a través de Azure Cloud Shell, con Azure Portal o con el Explorador de Azure Storage. En la tabla siguiente se describen los parámetros para los que necesita proporcionar valores con el fin de generar una firma de acceso compartido con la CLI.
 

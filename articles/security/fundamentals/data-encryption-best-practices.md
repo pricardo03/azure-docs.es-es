@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727432"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934748"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -97,7 +97,7 @@ Las organizaciones que no aplican el cifrado de datos están más expuestas a pr
 
 La protección de los datos en tránsito debe ser una parte esencial de su estrategia de protección de datos. Puesto que los datos se desplazan entre muchas ubicaciones, la recomendación general es utilizar siempre los protocolos SSL/TLS para intercambiar datos entre diferentes ubicaciones. En algunas circunstancias, es posible que desee aislar el canal de comunicación completo entre infraestructura local y en la nube mediante una VPN.
 
-Para los datos que se desplazan entre la infraestructura local y Azure, debe plantearse usar medidas de seguridad apropiadas, como HTTPS o VPN. Al enviar tráfico cifrado entre una instancia de Azure Virtual Network y una ubicación local a través de Internet público, use [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/).
+Para los datos que se desplazan entre la infraestructura local y Azure, debe plantearse usar medidas de seguridad apropiadas, como HTTPS o VPN. Al enviar tráfico cifrado entre una instancia de Azure Virtual Network y una ubicación local a través de Internet público, use [Azure VPN Gateway](../../vpn-gateway/index.yml).
 
 Estos son los procedimientos recomendados específicos para usar Azure VPN Gateway, SSL/TLS y HTTPS.
 

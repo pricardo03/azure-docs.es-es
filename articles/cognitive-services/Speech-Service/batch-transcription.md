@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 088b6ef93631cb964979de3621453caa430c5b1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559703"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881154"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
@@ -86,8 +86,8 @@ Utilice estas propiedades opcionales para configurar la transcripción:
 
 | Parámetro | DESCRIPCIÓN |
 |-----------|-------------|
-| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `none`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. |
-| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `none`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. |
+| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `None`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. |
+| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `None`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. |
  | `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. |
  | `AddSentiment` | Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, que permite la opinión por expresión y `false` (el valor predeterminado) que la deshabilita. |
  | `AddDiarization` | Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, que permite la diarización, y `false` (el valor predeterminado) que la deshabilita. También requiere que `AddWordLevelTimestamps` se establezca en true.|

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312845"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934190"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Azure Key Vault y la CLI de Azure 
 
@@ -31,7 +31,7 @@ Cuando use la característica de clave de cuenta de almacenamiento administrada,
 
 > [!NOTE]
 > La integración de Azure Storage con Azure Active Directory (Azure AD) es un servicio de administración de acceso y de identidades basado en la nube de Microsoft.
-> La integración con Azure AD está disponible para [blobs y colas de Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> La integración con Azure AD está disponible para [blobs y colas de Azure](../storage/common/storage-auth-aad.md).
 > Use Azure AD para autenticación y autorización.
 > Azure AD proporciona acceso basado en token OAuth2 a Azure Storage exactamente igual que Azure Key Vault.
 >
@@ -49,7 +49,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Otros  | Cualquiera | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 <!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
@@ -58,7 +58,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 Antes de usar Key Vault para administrar la clave de cuenta de almacenamiento, revise los requisitos previos:
 
 - Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-- Cree una [cuenta de almacenamiento de Azure](https://azure.microsoft.com/services/storage/). Siga [estos pasos](https://docs.microsoft.com/azure/storage/).
+- Cree una [cuenta de almacenamiento de Azure](https://azure.microsoft.com/services/storage/). Siga [estos pasos](../storage/index.yml).
 - El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.        
       
 ## <a name="manage-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento
@@ -150,7 +150,7 @@ Después de completar los pasos descritos en la sección anterior, ejecute los c
 
 ## <a name="fetch-tokens-in-code"></a>Captura de los tokens en el código
 
-Ejecute las operaciones en la cuenta de almacenamiento capturando los [tokens de firma de acceso compartido](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) de Key Vault.
+Ejecute las operaciones en la cuenta de almacenamiento capturando los [tokens de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) de Key Vault.
 
 Hay tres formas de autenticarse en Key Vault:
 

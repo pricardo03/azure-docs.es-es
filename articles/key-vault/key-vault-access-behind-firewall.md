@@ -3,18 +3,18 @@ title: 'Acceso a Key Vault detrás de un firewall: Azure Key Vault | Microsoft D
 description: Aprenda a acceder a Azure Key Vault desde una aplicación detrás de un firewall
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689954"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976382"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 

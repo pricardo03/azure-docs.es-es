@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9a50b0e5dd4e96c9235348bbfaae1d8a6e54d53
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307939"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846623"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
@@ -99,7 +99,7 @@ Siga estas instrucciones para instalar la extensión en máquinas virtuales Wind
 4. Seleccione **Diagnósticos de rendimiento de Azure**, revise los términos y condiciones y seleccione **Crear**.
 
     ![Captura de pantalla de la pantalla Nuevo recurso, donde aparece resaltado Diagnósticos de rendimiento de Azure](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Proporcione los valores de parámetros para la instalación y seleccione **Aceptar** para instalar la extensión. Para más información sobre los escenarios compatibles, consulte [Cómo usar PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Proporcione los valores de parámetros para la instalación y seleccione **Aceptar** para instalar la extensión. Para más información sobre los escenarios compatibles, consulte [Cómo usar PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Captura de pantalla del cuadro de diálogo Instalar extensión](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. Si la instalación se realiza correctamente, verá un mensaje que indica este estado.

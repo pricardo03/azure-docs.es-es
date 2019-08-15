@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: dc4c36735ade8a094acbf897ee040a239a1bed48
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727405"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927979"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -206,7 +206,7 @@ SQL Advanced Threat Protection (ATP) proporciona un conjunto de funcionalidades 
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
 
-[Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) ayuda a proteger los datos de SQL Database ofreciendo visibilidad sobre la seguridad en todos los servidores y bases de datos. Con Security Center puede realizar estas tareas:
+[Security Center](../../security-center/security-center-sql-database.md) ayuda a proteger los datos de SQL Database ofreciendo visibilidad sobre la seguridad en todos los servidores y bases de datos. Con Security Center puede realizar estas tareas:
 
 - Definir las directivas de auditoría y cifrado de SQL Database
 - Supervisar la seguridad de los recursos de SQL Database de todas sus suscripciones

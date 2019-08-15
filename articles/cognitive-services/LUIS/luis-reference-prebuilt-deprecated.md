@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: bbd86ab2ffa55903715da05b0120442f300a1702
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637856"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933618"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades precompiladas en desuso en una aplicación de LUIS
 Las siguientes entidades precompiladas están en desuso y no se pueden agregar a las nuevas aplicaciones de LUIS.

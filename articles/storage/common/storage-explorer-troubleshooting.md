@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840399"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934982"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -291,6 +291,7 @@ Estos paquetes son los requisitos más comunes del Explorador de Storage en Linu
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
+---
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Revisión del Explorador de Storage para las versiones más recientes de .NET Core
 

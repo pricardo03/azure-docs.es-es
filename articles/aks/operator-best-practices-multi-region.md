@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 4d4535af1814ab1250bbd56c989b4849013adff6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614841"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967186"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -107,7 +107,7 @@ Las aplicaciones pueden utilizar Azure Storage para sus datos. Como las aplicac
 
 Las aplicaciones pueden requerir almacenamiento persistente, incluso después de eliminar un pod. En Kubernetes, puede usar los volúmenes persistentes para conservar el almacenamiento de datos. Los volúmenes persistentes se montan en la máquina virtual de un nodo y, a continuación, se exponen a los pods. Los volúmenes persistentes realizan el seguimiento de los pods, aunque estos se muevan a un nodo diferente dentro del mismo clúster.
 
-La estrategia de replicación que use dependerá de la solución de almacenamiento. Las soluciones de almacenamiento comunes, como [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](http://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html) y [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps), proporcionan sus propias instrucciones sobre la recuperación ante desastres y la replicación.
+La estrategia de replicación que use dependerá de la solución de almacenamiento. Las soluciones de almacenamiento comunes, como [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html) y [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps), proporcionan sus propias instrucciones sobre la recuperación ante desastres y la replicación.
 
 La estrategia típica consiste en proporcionar un punto común de almacenamiento donde las aplicaciones puedan escribir sus datos. Estos datos se replican entre regiones y se accede a ellos de forma local.
 

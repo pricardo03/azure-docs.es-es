@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/25/2019
-ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 08/09/2019
+ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501445"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947165"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
@@ -38,8 +38,8 @@ Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7
 
 ## <a name="mysql-version-80"></a>MySQL versión 8.0
 
-> [!NOTE]
-> MySQL 8.0 se encuentra actualmente en versión preliminar. Si no ve MySQL 8.0 en Azure Portal, es posible que la implementación no se haya completado en su región. 
+> [!IMPORTANT]
+> MySQL 8.0 se encuentra actualmente en versión preliminar.
 
 Versión de corrección de errores: 8.0.15
 

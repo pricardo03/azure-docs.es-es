@@ -1,19 +1,19 @@
 ---
 title: Transferencia de datos con Azure Blob Storage como origen o destino mediante AzCopy v10 | Microsoft Docs
 description: Este artículo contiene una colección de comandos de ejemplo de AzCopy que le ayudarán a crear contenedores, copiar archivos y sincronizar directorios entre sistemas de archivos y contenedores locales.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2ab561c387467086a40aa6676af347a107c2c452
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.reviewer: dineshm
+ms.openlocfilehash: 62859dde7cd4f2335b696eedb2cdfbd1daad9456
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641121"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934948"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -151,7 +151,7 @@ Puede usar AzCopy para copiar blobs a otras cuentas de almacenamiento. La operac
 > [!NOTE]
 > En la actualidad, este escenario solo se admite para las cuentas que no tienen un espacio de nombres jerárquico. 
 
-AzCopy usa [API](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url) [de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo.
+AzCopy usa [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo.
 
 En esta sección se incluyen los ejemplos siguientes:
 

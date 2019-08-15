@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d3738cb5b18cfe98878b857b91a3689fb81a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9aa77b539d91d328736dca2b0f7d040f6b4b5f5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105616"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integración de Azure Active Directory con Cisco Cloud
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Cisco Cloud, siga es
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de Cisco Cloud](mailto:cpr-ops@cisco.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. La aplicación Cisco Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+6. La aplicación Cisco Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-cisco-cloud-test-user"></a>Creación de un usuario de prueba de Cisco Cloud
 
-En esta sección, creará un usuario llamado Britta Simon en Cisco Cloud. Trabaje con el  [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com) para añadir los usuarios a la plataforma de Cisco Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Cisco Cloud. Trabaje con el [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com) para añadir los usuarios a la plataforma de Cisco Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

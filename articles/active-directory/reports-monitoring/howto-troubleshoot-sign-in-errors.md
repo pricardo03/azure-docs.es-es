@@ -3,7 +3,7 @@ title: Solución de errores de inicio de sesión mediante informes de Azure Acti
 description: Aprenda a solucionar errores de inicio de sesión utilizando los informes de Azure Active Directory en Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286591"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988163"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos para: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
 

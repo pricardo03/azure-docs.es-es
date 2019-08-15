@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827605"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018980"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -163,7 +163,7 @@ En los escenarios anteriores, se recomienda desencadenar una operación de nuevo
 
 El tamaño total de la cadena de archivos no solo depende del número de archivos, sino también de sus nombres y rutas de acceso. Para cada archivo de base de datos, obtenga el nombre de archivo lógico y la ruta de acceso física. Puede usar esta consulta SQL:
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -171,13 +171,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 Ahora organícelos en el siguiente formato:
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 Este es un ejemplo:
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -188,7 +188,7 @@ Si el tamaño de la cadena del contenido supera los 20 000 bytes, los archivos 
 Puede reemplazar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contenga la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Cree un archivo `database_name.json` y colóquelo en la ubicación *C:\Archivos de programa\Azure Workload Backup\bin\plugins\SQL*.
 
 El contenido del archivo debe tener este formato:
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -205,7 +205,7 @@ El contenido del archivo debe tener este formato:
 
 Este es un ejemplo:
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -222,7 +222,7 @@ Este es un ejemplo:
 
 En el contenido anterior puede obtener el nombre lógico del archivo de base de datos mediante la siguiente consulta SQL:
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"

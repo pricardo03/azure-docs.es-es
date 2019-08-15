@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26301e9a8aef29f1ff786f4fcd28b806eb10b8df
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318416"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846768"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -194,7 +194,7 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
 
 2. Desbloquee el archivo PerfInsights.zip. Para ello, haga clic con el botón derecho en el archivo PerfInsights.zip y seleccione **Propiedades**. En la pestaña **General**, seleccione **Desbloquear** y haga clic en **Aceptar**. Así se asegura de que la herramienta se ejecuta sin advertencias de seguridad adicionales.  
 
-    ![Captura de pantalla de las propiedades de PerfInsights con Desbloquear resaltado](media/how-to-use-perfInsights/unlock-file.png)
+    ![Captura de pantalla de las propiedades de PerfInsights con Desbloquear resaltado](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Expanda el archivo PerfInsights.zip comprimido en una unidad temporal (de forma predeterminada, suele ser la unidad D). 
 
@@ -204,7 +204,7 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Captura de pantalla de la salida de la línea de comandos de PerfInsights](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Captura de pantalla de la salida de la línea de comandos de PerfInsights](media/how-to-use-perfInsights/pi-commandline.png)
     
     La sintaxis básica para ejecutar los escenarios de PerfInsights es:
     
@@ -253,8 +253,8 @@ En el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** , puede 
 
 Haga clic en la pestaña **Conclusiones**.
 
-![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
+![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Las conclusiones clasificadas como altas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como medias representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como bajas son solo declaraciones informativas.
@@ -269,17 +269,17 @@ En las secciones **Disk Map** (Mapa de discos) y **Volume Map** (Mapa de volúme
 
 En la perspectiva de los discos físicos (Disk Map), la tabla muestra todos los volúmenes lógicos que se ejecutan en el disco. En el ejemplo siguiente, **PhysicalDrive2** ejecuta dos volúmenes lógicos creados en varias particiones (J y H):
 
-![Captura de la pestaña de discos](media/how-to-use-perfInsights/disktab.png)
+![Captura de la pestaña de discos](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 En la perspectiva de los volúmenes (Volume Map), las tablas muestran todos los discos físicos en cada volumen lógico. Observe que en el caso de los discos RAID y dinámicos, un volumen lógico se puede ejecutar en varios discos físicos. En el ejemplo siguiente *C:\\mount* es un punto de montaje configurado como *SpannedDisk* en los discos físicos 2 y 3:
 
-![Captura de pantalla de la ficha de volúmenes](media/how-to-use-perfInsights/volumetab.png)
+![Captura de pantalla de la ficha de volúmenes](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>Pestaña SQL
 
 Si la máquina virtual de destino hospeda alguna instancia de SQL Server, en el informe verá una pestaña adicional denominada **SQL**:
 
-![Captura de pantalla de pestaña SQL](media/how-to-use-perfInsights/sqltab.png)
+![Captura de pantalla de pestaña SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 Esta sección contiene una pestaña **Findings** (Conclusiones) y pestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
 
@@ -287,7 +287,7 @@ La pestaña **Conclusiones** contiene una lista de todos los problemas de rendim
 
 En el ejemplo siguiente, se muestra **PhysicalDrive0** (que se ejecuta en la unidad C). En el ejemplo siguiente, los archivos **modeldev** y **modellog** se encuentran en la unidad C y son de tipos diferentes (archivo de datos y registro de transacciones, respectivamente).
 
-![Captura de pantalla de información de registro](media/how-to-use-perfInsights/loginfo.png)
+![Captura de pantalla de información de registro](media/how-to-use-perfInsights/pi-log-info.png)
 
 Las pestañas de las instancias concretas de SQL Server contienen una sección general que muestra información básica acerca de la instancia seleccionada. También contienen secciones adicionales para información avanzada, lo que incluye los valores, las configuraciones y las opciones de usuario.
 
@@ -310,7 +310,7 @@ Puede cargar los registros e informes de diagnóstico en el Soporte técnico de 
 
 La siguiente captura de pantalla muestra un mensaje similar al que puede recibir:
 
-![Captura de pantalla de mensaje de ejemplo del Soporte técnico de Microsoft](media/how-to-use-perfInsights/supportemail.png)
+![Captura de pantalla de mensaje de ejemplo del Soporte técnico de Microsoft](media/how-to-use-perfInsights/pi-support-email.png)
 
 Siga las instrucciones del mensaje para acceder al área de trabajo de transferencia de archivos. Para mayor seguridad, tiene que cambiar la contraseña la primera vez que la use.
 
