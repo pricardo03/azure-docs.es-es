@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a2c186fab28c96fa743e7bbf1701dba9de3f742d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 69b25f22d448436db5e906a3b56b5e50ec412b40
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726933"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934676"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -41,17 +41,17 @@ La infraestructura de Azure está diseñada desde la instalación hasta las apli
 La seguridad operativa de Azure hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
 
 En estas notas del producto se describe el enfoque de Microsoft hacia la seguridad operativa de Azure dentro de la plataforma de nube de Microsoft Azure y se cubren los siguientes servicios:
-1.  [Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.  [Azure Security Center](../../security-center/security-center-intro.md)
 
-3.  [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+3.  [Azure Monitor](../../azure-monitor/overview.md)
 
-4.  [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+4.  [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
 5.  [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
-6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+6.  [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
 
 ## <a name="microsoft-azure-monitor-logs"></a>Registros de Microsoft Azure Monitor
@@ -100,21 +100,21 @@ Protege los datos de las aplicaciones y los conserva durante años sin necesidad
 Los datos protegidos en Azure Backup se almacenan en un almacén de copia de seguridad ubicado en una región geográfica determinada. Los datos se replican en la misma región y, según el tipo de almacén, también pueden replicarse en otra región para obtener una resistencia adicional.
 
 ### <a name="management-solutions"></a>Soluciones de administración
-[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) es una solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube.
+[Azure Monitor](../../security-center/security-center-intro.md) es una solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube.
 
 
-Las [soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica empaquetados previamente que implementan un escenario de administración específico con uno o más servicios de Azure Monitor. Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
+Las [soluciones de administración](../../monitoring/monitoring-solutions.md) son conjuntos de lógica empaquetados previamente que implementan un escenario de administración específico con uno o más servicios de Azure Monitor. Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
 
 
 ![Soluciones de administración](./media/operational-security/azure-operational-security-fig4.png)
 
-Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Esta solución utiliza el agente de [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
+Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](../../automation/automation-update-management.md). Esta solución utiliza el agente de [registros de Azure Monitor](../../log-analytics/log-analytics-queries.md) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
 
-Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) para instalar las actualizaciones necesarias. Todo este proceso se administra en el portal y no tiene que preocuparse sobre los detalles subyacentes.
+Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](../../automation/automation-intro.md) para instalar las actualizaciones necesarias. Todo este proceso se administra en el portal y no tiene que preocuparse sobre los detalles subyacentes.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Dentro del servicio, es posible definir directivas no solo para las suscripciones de Azure, sino también para [grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), por lo que puede ser más específico.
+Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Dentro del servicio, es posible definir directivas no solo para las suscripciones de Azure, sino también para [grupos de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups), por lo que puede ser más específico.
 
 ### <a name="security-policies-and-recommendations"></a>Directivas de seguridad y recomendaciones
 
@@ -165,7 +165,7 @@ Azure Security Center recopila copias efímeras de los archivos de volcado de me
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-La solución de [seguridad y auditoría de registros de Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) permite a TI supervisar activamente todos los recursos con el fin de minimizar el impacto de los incidentes de seguridad. La seguridad y auditoría de registros de Azure Monitor tiene dominios de seguridad que pueden usarse para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
+La solución de [seguridad y auditoría de registros de Azure Monitor](../../security-center/security-center-monitoring.md) permite a TI supervisar activamente todos los recursos con el fin de minimizar el impacto de los incidentes de seguridad. La seguridad y auditoría de registros de Azure Monitor tiene dominios de seguridad que pueden usarse para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
 
 -   Evaluación de malware
 -   Evaluación de la actualización
@@ -195,11 +195,11 @@ Estos registros los emite un recurso y proporcionan información detallada y fre
 
 Por ejemplo, los registros del sistema de eventos de Windows son una categoría de registro de diagnóstico para máquinas virtuales y los registros de blob, tabla y cola son categorías de los registros de diagnóstico para cuentas de almacenamiento.
 
-Los registros de diagnóstico son distintos del [registro de actividad (anteriormente conocido como registro de auditoría o registro operativo)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
+Los registros de diagnóstico son distintos del [registro de actividad (anteriormente conocido como registro de auditoría o registro operativo)](../../azure-monitor/platform/activity-logs-overview.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
 
 ### <a name="metrics"></a>Métricas
 
-Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y consumir estas [métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para supervisar y solucionar problemas. Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
+Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y consumir estas [métricas](../../monitoring/monitoring-data-collection.md) para supervisar y solucionar problemas. Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
 
 -   **Realizar un seguimiento del rendimiento** del recurso (por ejemplo, una máquina virtual, un sitio web o una aplicación lógica) mediante el trazado de las métricas en un gráfico de portal y anclando ese gráfico a un panel.
 
@@ -213,13 +213,13 @@ Azure Monitor permite utilizar telemetría para obtener información sobre el re
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-Es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde diversos orígenes diferentes. Actualmente se admiten [roles web y de trabajo del servicio en la nube de Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) que ejecutan Microsoft Windows, y [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Otros servicios de Azure tienen su propio diagnóstico independiente.
+Es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde diversos orígenes diferentes. Actualmente se admiten [roles web y de trabajo del servicio en la nube de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) que ejecutan Microsoft Windows, y [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Otros servicios de Azure tienen su propio diagnóstico independiente.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
 La auditoría de la seguridad de la red es fundamental para detectar vulnerabilidades de red y asegurar el cumplimiento de la seguridad de TI y el modelo de gobernanza reglamentario. Con la vista Grupo de seguridad, puede recuperar las reglas de seguridad y de grupo de seguridad de red configuradas, así como las reglas de seguridad efectivas. Con la lista de reglas que se aplican, puede determinar los puertos que están abiertos y evaluar la vulnerabilidad de la red.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
 
 ![Azure Network Watcher](./media/operational-security/azure-operational-security-fig8.png)
 
@@ -240,15 +240,15 @@ En la actualidad, Network Watcher dispone de las siguientes funcionalidades:
 
 [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) puede almacenar métricas que incluyen estadísticas de las transacciones y datos de capacidad agregados sobre las solicitudes realizadas a un servicio de almacenamiento. Las transacciones se notifican tanto en el nivel de operación de API como en el nivel de servicio de almacenamiento, y la capacidad se notifica en el nivel de servicio de almacenamiento. Los datos de las métricas se pueden utilizar para analizar el uso del servicio de almacenamiento, diagnosticar problemas con las solicitudes realizadas en el mismo y mejorar el rendimiento de las aplicaciones que utilizan un servicio.
 
-[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento. El registro de Storage Analytics está disponible para los [servicios Blob, Queue y Table service](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento.
+[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento. El registro de Storage Analytics está disponible para los [servicios Blob, Queue y Table service](../../storage/common/storage-introduction.md). Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento.
 
 Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de Blob service pero no en los puntos de conexión de Table o Queue service, solo se crean los registros correspondientes a Blob service.
 
-Para utilizar Storage Analytics, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo en [Azure Portal](https://portal.azure.com/); para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use la operación Set Service Properties para habilitar Storage Analytics de forma individual para cada servicio.
+Para utilizar Storage Analytics, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo en [Azure Portal](https://portal.azure.com/); para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](../../storage/common/storage-monitor-storage-account.md). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use la operación Set Service Properties para habilitar Storage Analytics de forma individual para cada servicio.
 
 Los datos agregados se almacenan en un blob conocido (para el registro) y en tablas conocidas (para las métricas), a los que se puede tener acceso mediante las API de Blob service y de Table service.
 
-Storage Analytics tiene un límite de 20 TB en cuanto a la cantidad de datos almacenados, que es independiente del límite total de la cuenta de almacenamiento. Todos los registros se almacenan en [blobs en bloques](https://docs.microsoft.com/azure/storage/storage-analytics) en un contenedor denominado $logs, que se crea automáticamente cuando se habilita Storage Analytics para una cuenta de almacenamiento.
+Storage Analytics tiene un límite de 20 TB en cuanto a la cantidad de datos almacenados, que es independiente del límite total de la cuenta de almacenamiento. Todos los registros se almacenan en [blobs en bloques](../../storage/common/storage-analytics.md) en un contenedor denominado $logs, que se crea automáticamente cuando se habilita Storage Analytics para una cuenta de almacenamiento.
 
 Son facturables las acciones siguientes realizadas por Storage Analytics:
 
@@ -260,7 +260,7 @@ Son facturables las acciones siguientes realizadas por Storage Analytics:
 > Si desea obtener un rendimiento óptimo, conviene que limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si no todos los discos se usan mucho al mismo tiempo, la cuenta de almacenamiento admite un mayor número de discos.
 
 > [!Note]
-> Para más información sobre los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+> Para más información sobre los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md).
 
 
 Se registran los siguientes tipos de solicitudes autenticadas y anónimas.
@@ -281,9 +281,9 @@ Azure AD también incluye un conjunto completo de funcionalidades de administrac
 
 -   Supervise el uso de las aplicaciones y proteja su empresa contra amenazas avanzadas con informes y supervisión de seguridad.
 
-Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y auditoría para el directorio. [El informe de auditoría de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su entorno de Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio).
+Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y auditoría para el directorio. [El informe de auditoría de Azure Active Directory](../../active-directory/active-directory-reporting-azure-portal.md) ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su entorno de Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio).
 
-Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría de su entorno de Azure Active Directory desde [Azure Portal](https://portal.azure.com/), como se describe en [Visualización de los registros de auditoría](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Esta es una lista de los informes incluidos:
+Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría de su entorno de Azure Active Directory desde [Azure Portal](https://portal.azure.com/), como se describe en [Visualización de los registros de auditoría](../../active-directory/reports-monitoring/overview-reports.md). Esta es una lista de los informes incluidos:
 
 | Informes de seguridad  | Informes de actividad| Informes de auditoría |
 | :------------- | :-------------| :-------------|
@@ -299,14 +299,14 @@ Los informes proporcionan el registro de auditoría para el nombre del evento, e
 
 
 
-Los datos de estos informes pueden resultar útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Se puede llamar a estas API desde diversos lenguajes de programación y herramientas.
+Los datos de estos informes pueden resultar útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las [API](../../active-directory/active-directory-reporting-api-getting-started-azure-portal.md) de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Se puede llamar a estas API desde diversos lenguajes de programación y herramientas.
 
 Los eventos del informe de auditoría de Azure AD se conservan durante 180 días.
 
 > [!Note]
-> Para obtener más información acerca de la retención de los informes, consulte [Directivas de retención de informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
+> Para obtener más información acerca de la retención de los informes, consulte [Directivas de retención de informes de Azure Active Directory](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
 
-Para los clientes interesados en almacenar [eventos de auditoría](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) durante períodos de retención más largos, se puede utilizar la API de informes para extraer periódicamente los eventos de auditoría a un almacén de datos independiente.
+Para los clientes interesados en almacenar [eventos de auditoría](../../active-directory/active-directory-reporting-activity-audit-logs.md) durante períodos de retención más largos, se puede utilizar la API de informes para extraer periódicamente los eventos de auditoría a un almacén de datos independiente.
 
 ## <a name="summary"></a>Resumen
 
@@ -341,5 +341,5 @@ Microsoft diseña su software y sus servicios teniendo en cuenta la seguridad pa
 
 Use el análisis y los datos de seguridad de Microsoft para realizar una detección de amenazas más inteligente y eficaz.
 
-- [Planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide): una serie de pasos y tareas que puede seguir para optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración en la nube de su organización.
+- [Planeamiento y operaciones de Azure Security Center](../../security-center/security-center-planning-and-operations-guide.md): una serie de pasos y tareas que puede seguir para optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración en la nube de su organización.
 

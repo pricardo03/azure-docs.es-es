@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 827dffc1c7544d9373b5f8d4426ea8c448fa25ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1e4c4712312faf2274a4a0737c4fc1f7ce39f98e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571164"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824197"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>Protección de la administración remota de la puerta de enlace en Azure Australia
 
@@ -33,7 +33,6 @@ En este documento se describe la importancia de la seguridad en la administraci�
 |Registro y auditoría   |La generación, la recopilación y el análisis automatizados de eventos relacionados con la seguridad y la administración desde estaciones de trabajo, servidores, dispositivos de red y cuadros de salto permitirán la detección de peligros e intentos de ataque. La automatización permite a las organizaciones responder con mayor rapidez, lo que reduce el riesgo.|
 |Segmentación y segregación de red|Segmentar una red en zonas lógicas, como dominios de seguridad diferentes, y seguir segregando estas redes lógicas mediante la restricción de los tipos de datos que fluyen de una zona a otra restringe el movimiento lateral. La segmentación impide que un rol no admitido acceda a más recursos.|
 |Cuadros de salto|Un cuadro de salto es un servidor de acceso remoto protegido que suele utilizar el software de Servicios de Escritorio remoto o Secure Shell (SSH) de Microsoft. Los cuadros de salto actúan como peldaño para los administradores que acceden a sistemas críticos, donde todas las acciones administrativas se realizan desde el host dedicado.|
-|
 
 En este artículo se proporciona una arquitectura de referencia sobre cómo se pueden usar los elementos anteriores para la administración segura de sistemas implementados en Azure.
 
@@ -77,7 +76,6 @@ La obtención de acceso para la administración es un proceso de varios pasos qu
 |Acceso condicional |Las directivas de acceso condicional comprueban el intento de autenticación para garantizar que cumple los requisitos necesarios, como la dirección IP de la que procede la conexión, la pertenencia a grupos de la cuenta con privilegios y el estado de administración y cumplimiento de la estación de trabajo con privilegios, tal como los indicó Intune. |
 |Privileged Identity Management (PIM) |Desde Azure Portal el administrador ahora puede activar o solicitar la activación de los roles con privilegios con autorización mediante PIM. PIM garantiza que las cuentas con privilegios no tengan privilegios administrativos permanentes y que todas las solicitudes de acceso con privilegios sean solo durante el tiempo necesario para realizar las tareas administrativas. PIM también proporciona registro de todas las solicitudes y activaciones para fines de auditoría. |
 |Administración de identidades y acceso|Una vez que la cuenta con privilegios se ha identificado y activado de forma segura, se proporciona al administrador acceso a las suscripciones de Azure y a los recursos para los que se les han asignado permisos mediante la administración de identidades y acceso.|
-|
 
 Una vez que la cuenta con privilegios ha completado los pasos para obtener acceso administrativo a Azure Portal, se puede configurar el acceso a las cargas de trabajo y se pueden establecer conexiones administrativas.
 
@@ -91,7 +89,6 @@ Una vez que la cuenta con privilegios ha completado los pasos para obtener acces
 |Servidor de directivas de redes (NPS)|El servidor de directivas de redes recibe la solicitud de autenticación de la puerta de enlace de Escritorio remoto y valida el nombre de usuario y la contraseña en Active Directory antes de enviar una solicitud a Azure Active Directory para desencadenar una solicitud de autenticación de Azure MFA.|
 |Azure MFA|Azure MFA envía una solicitud de autenticación al dispositivo móvil registrado de la cuenta con privilegios. Intune administra el dispositivo móvil para garantizar el cumplimiento de los requisitos de seguridad. El administrador debe autenticarse primero en el dispositivo móvil y, a continuación, en la aplicación Microsoft Authenticator con un PIN o sistema biométrico para que el intento de autenticación se autorice en Azure MFA.|
 |Servidor de salto|Una vez autenticado correctamente, la conexión RDP se cifra mediante seguridad de la capa de transporte (TLS) y se envía a través del túnel IPSec cifrado a Azure VPN Gateway mediante la puerta de enlace de Escritorio remoto al servidor de salto. Desde el servidor de salto el administrador puede ahora conectarse mediante RDP o SSH a las máquinas virtuales de carga de trabajo tal y como se especifica en la solicitud JIT.|
-|
 
 ## <a name="general-guidance"></a>Instrucciones generales
 
@@ -133,7 +130,6 @@ La estación de trabajo con privilegios es una máquina protegida que se puede u
 |---|---|
 |Introducción a la arquitectura de las estaciones de trabajo con acceso con privilegios|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |Material de referencia sobre la protección del acceso con privilegios|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### <a name="mobile-device"></a>Dispositivo móvil
 
@@ -143,7 +139,6 @@ Los dispositivos móviles tienen mayor riesgo de pérdida accidental o robo debi
 |---|---|
 |Métodos de autenticación de Azure AD|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |Uso de la aplicación Microsoft Authenticator|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### <a name="microsoft-intune"></a>Microsoft Intune
 
@@ -153,7 +148,6 @@ Intune es el componente de Enterprise Mobility + Security que administra los dis
 |---|---|
 |Documentación de Microsoft Intune|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Introducción al cumplimiento de los dispositivos en Intune|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### <a name="group-policy"></a>Directiva de grupo
 
@@ -162,7 +156,6 @@ Directiva de grupo se utiliza para controlar la configuración de los sistemas o
 |Recursos|Vínculo|
 |---|---|
 |Opción Permitir el inicio de sesión local de Directiva de grupo|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### <a name="jump-server--bastion-host"></a>Servidor/host de salto
 
@@ -171,7 +164,6 @@ El servidor/host de salto es un punto centralizado para la administración. Tien
 |Recursos|Vínculo|
 |---|---|
 |Implementación de hosts administrativos seguros|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### <a name="just-in-time-jit-access"></a>Acceso Just-In-Time (JIT)
 
@@ -181,7 +173,6 @@ JIT es una funcionalidad de Azure Security Center que utiliza grupos de segurida
 |---|---|
 |Administración del acceso Just-In-Time (JIT)|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |Automatización del acceso Just-In-Time de Azure a las máquinas virtuales|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## <a name="secure-communication"></a>Comunicación segura
 
@@ -194,7 +185,6 @@ Las comunicaciones con Azure Portal se cifran mediante la seguridad de la capa d
 |Recursos |Vínculo |
 |---|---|
 |Introducción al cifrado de Azure: cifrado en tránsito|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### <a name="azure-vpn-gateway"></a>Azure VPN Gateway
 
@@ -204,8 +194,7 @@ Azure VPN Gateway proporciona la conexión cifrada segura desde la estación de 
 |---|---|
 |Acerca de las conexiones de punto a sitio|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Detalles criptográficos de Azure VPN Gateway|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Configuración de Azure VPN Gateway|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Configuración de Azure VPN Gateway|[Configuración de Azure VPN Gateway](vpn-gateway.md)|
 
 ### <a name="remote-desktop-rd-gateway"></a>Puerta de enlace de Escritorio remoto (RD)
 
@@ -214,7 +203,6 @@ La puerta de enlace de Escritorio remoto es un mecanismo seguro para controlar y
 |Recursos |Vínculo |
 |---|---|
 |Arquitectura de los servicios de Escritorio remoto|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### <a name="network-security-groups-nsgs"></a>Grupos de seguridad de red (NSG)
 
@@ -224,7 +212,6 @@ Los grupos de seguridad de red funcionan como listas de control de acceso (ACL) 
 |---|---|
 |Introducción a los grupos de seguridad de Azure|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |Procedimientos para: planear redes virtuales|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## <a name="strong-authentication"></a>Autenticación sólida
 
@@ -237,7 +224,6 @@ En general, un controlador de dominio hospeda una copia de la base de datos de A
 |Recursos |Vínculo |
 |---|---|
 |Introducción a Active Directory Domain Services|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
@@ -249,7 +235,6 @@ en la nube y proporciona autenticación y autorización para un entorno de Azure
 |---|---|
 |Documentación de Azure Active Directory|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |Documentación de la identidad híbrida|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### <a name="network-policy-server-nps"></a>Servidor de directivas de redes (NPS)
 
@@ -258,7 +243,6 @@ Un servidor de directivas de redes es un servidor de autenticación y de directi
 |Recursos |Vínculo |
 |---|---|
 |Documentación del servidor de directivas de redes|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### <a name="azure-mfa"></a>Azure MFA
 
@@ -268,7 +252,6 @@ Azure MFA es un servicio de autenticación proporcionado en Azure Active Direc
 |---|---|
 |Funcionamiento: Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |Procedimientos para: Implementación de Azure Multi-factor Authentication en la nube|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## <a name="strong-authorisation"></a>Autorización segura
 
@@ -282,7 +265,6 @@ El acceso para realizar acciones con privilegios en Azure se basa en los roles q
 |---|---|
 |Control de acceso basado en rol de Azure|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |Definiciones de los roles|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
@@ -292,7 +274,6 @@ PIM es un componente de Azure Active Directory que controla el acceso de los r
 |---|---|
 |Documentación sobre Privileged Identity Management (PIM)|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |Primer uso de PIM|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### <a name="conditional-access"></a>Acceso condicional
 
@@ -302,7 +283,6 @@ El acceso condicional es un componente de Azure Active Directory que permite o
 |---|---|
 |Documentación sobre el acceso condicional|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |Procedimientos para: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

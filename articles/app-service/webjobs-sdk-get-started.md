@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f33e36568171ab7b37f536a3c7883b004cb71c0
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418231"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68838034"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -370,7 +370,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 Para aprovechar el registro de [Application Insights](../azure-monitor/app/app-insights-overview.md), actualice el código de registro para que haga lo siguiente:
 
 * Agregue un proveedor de registro de Application Insights con [filtrado](webjobs-sdk-how-to.md#log-filtering) predeterminado; toda la información y los registros de nivel superior van ahora a la consola y a Application Insights cuando la ejecución se realiza localmente.
-* Coloque el objeto `LoggerFactory` en un bloque `using` para asegurarse de que la salida del registro se vacíe cuando se cierre el host.
+* Coloque el objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) en un bloque `using`para asegurarse de que la salida del registro se vacía al cerrarse el host.
 
 1. Instale la versión 3.x estable más reciente del paquete NuGet para el proveedor de registro de Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 

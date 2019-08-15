@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/06/2019
 ms.author: meirm
-ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452660"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839278"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure Monitor para proveedores de servicios
 Las áreas de trabajo de Log Analytics de Azure Monitor pueden ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales o en la nube del cliente. 
@@ -29,7 +29,7 @@ Para los asociados y proveedores de servicios que forman parte del programa [Pro
 
 ## <a name="architectures-for-service-providers"></a>Arquitecturas de proveedores de servicios
 
-Las áreas de trabajo de Log Analytics proporcionan un método para que los administradores controlen el flujo y el aislamiento de los registros y creen una arquitectura de registro que aborde sus necesidades empresariales específicas. [En este artículo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) se explican las consideraciones generales sobre la administración del área de trabajo. Los proveedores de servicios tienen consideraciones adicionales.
+Las áreas de trabajo de Log Analytics proporcionan un método para que el administrador controlen el flujo y el aislamiento de los datos de [registro](data-platform-logs.md) y cree una arquitectura que aborde sus necesidades empresariales específicas. En [este artículo](design-logs-deployment.md) se explican las consideraciones de diseño, implementación y migración de un área de trabajo, mientras que el artículo acerca de la[administración del acceso](manage-access.md) se describe cómo aplicar y administrar los permisos para los datos de registro. Los proveedores de servicios tienen consideraciones adicionales.
 
 Hay tres arquitecturas posibles para proveedores de servicios con respecto a las áreas de trabajo de Log Analytics:
 
@@ -55,16 +55,21 @@ En esta arquitectura, los registros no se almacenan en los inquilinos del client
 
 Las ventajas de dicha arquitectura son las siguientes:
 * Es fácil administrar un gran número de clientes e integrarlos en distintos sistemas back-end.
+
 * El proveedor de servicios tiene una propiedad completa a través de los registros y los distintos artefactos, como son las funciones y las consultas guardadas.
+
 * El proveedor de servicios puede realizar análisis en todos los clientes.
 
 Las desventajas de dicha arquitectura son las siguientes:
 * Esta arquitectura es aplicable únicamente para los datos de máquina virtual basados en un agente, no abarcará orígenes de datos del tejido de Azure, PaaS ni SaaS.
-* Puede resultar dificultoso separar los datos entre los clientes cuando se mezclan en una sola área de trabajo. El único método adecuado para ello consiste en usar el nombre del equipo de dominio completo (FQDN) o a través del identificador de la suscripción de Azure. 
-* Todos los datos de todos los clientes se almacenarán en la misma región con una sola factura y las mismas opciones de configuración y de retención.
-* Los servicios de PaaS y de tejido de Azure, como Azure Diagnostics y los registros de auditoría de Azure, requieren que el área de trabajo esté en el mismo inquilino que el recurso; por tanto, no pueden enviar los registros al área de trabajo central.
-* Todos los agentes de VM desde todos los clientes se autenticarán en el área de trabajo central con el mismo identificador de área de trabajo y clave. No hay ningún método para bloquear los registros desde un cliente específico sin interrumpir a otros clientes.
 
+* Puede resultar dificultoso separar los datos entre los clientes cuando se mezclan en una sola área de trabajo. El único método adecuado para ello consiste en usar el nombre del equipo de dominio completo (FQDN) o a través del identificador de la suscripción de Azure. 
+
+* Todos los datos de todos los clientes se almacenarán en la misma región con una sola factura y las mismas opciones de configuración y de retención.
+
+* Los servicios de PaaS y de tejido de Azure, como Azure Diagnostics y los registros de auditoría de Azure, requieren que el área de trabajo esté en el mismo inquilino que el recurso; por tanto, no pueden enviar los registros al área de trabajo central.
+
+* Todos los agentes de VM desde todos los clientes se autenticarán en el área de trabajo central con el mismo identificador de área de trabajo y clave. No hay ningún método para bloquear los registros desde un cliente específico sin interrumpir a otros clientes.
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido: los registros se almacenan en el área de trabajo que se encuentra en el inquilino del cliente y algunos se extraen a una ubicación central.
 
@@ -76,10 +81,14 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 2. Power BI como ubicación central: Power BI puede funcionar como ubicación central cuando las diversas áreas de trabajo exportan datos a él mediante la integración entre el área de trabajo de Log Analytics y [Power BI](../../azure-monitor/platform/powerbi.md). 
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Automatice la creación y configuración de áreas de trabajo con [plantillas de Resource Manager](template-workspace-configuration.md).
+
 * Automatice la creación de áreas de trabajo con [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md). 
+
 * Use [alertas](../../azure-monitor/platform/alerts-overview.md) para integrarse con sistemas existentes.
+
 * Genere informes de resumen con [Power BI](../../azure-monitor/platform/powerbi.md).
+
 * Revise el proceso de [configurar Log Analytics y Power BI para supervisar varios clientes de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers).

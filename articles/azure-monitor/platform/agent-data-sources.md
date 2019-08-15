@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776091"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839343"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Orígenes de datos de agente en Azure Monitor
 Los orígenes de datos que configura definen los datos que recopila Azure Monitor de los agentes.  Los datos de los agentes se almacenan como [datos de registro](data-platform-logs.md) con un conjunto de registro.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -29,7 +29,7 @@ Los orígenes de datos que configura definen los datos que recopila Azure Monito
 En la tabla siguiente se enumeran los orígenes de datos de agente que actualmente se encuentran disponibles en Azure Monitor.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.   También se proporciona información sobre el método y la frecuencia de recopilación. 
 
 
-| Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Origen de datos | Plataforma | Agente de Log Analytics | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Registros personalizados](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | a la llegada |
 | [Registros personalizados](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | a la llegada |

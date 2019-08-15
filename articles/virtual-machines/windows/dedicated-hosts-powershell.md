@@ -10,20 +10,31 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/28/2019
+ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 99c19223841748850ecc92fe08ebc09f563aff5d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2482fb4ab74a3c1e032a32890c3dc2c3920b5e6b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700216"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725622"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Vista previa: Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
-Asegúrese de que tiene instalada la versión más reciente del módulo de Azure PowerShell y que in inicia sesión en una cuenta de Azure con `Connect-AzAccount`. 
+Asegúrese de que tiene instalada la versión 2.4.2 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`. Para instalar la versión 2.4.2, abra un símbolo del sistema de PowerShell y escriba:
+
+```powershell
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+```
+
+necesitará al menos la versión 1.6.0 del módulo PowerShellGet para habilitar la funcionalidad del módulo de vista previa en PowerShell. Las versiones más recientes de PowerShell Core lo integran automáticamente, pero en las versiones anteriores de PowerShell, puede ejecutar el siguiente comando para realizar la actualización a la versión más reciente:
+
+```powershell
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+```
+
 
 > [!IMPORTANT]
 > Azure Dedicated Host está actualmente en versión preliminar pública.

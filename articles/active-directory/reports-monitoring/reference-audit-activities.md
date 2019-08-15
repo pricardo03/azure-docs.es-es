@@ -3,7 +3,7 @@ title: Referencia de la actividad de auditoría de Azure Active Directory (Azure
 description: Obtenga una visión general de las actividades de auditoría que se pueden registrar en los registros de auditoría de Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989628"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -140,112 +140,112 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Authentication|Creación de aplicación V1|
 |Authentication|Creación de aplicación V2|
 |Authentication|Creación de un dominio personalizado en el inquilino|
-|Autorización|Creación de un nuevo AdminUserJourney|
-|Autorización|Creación de un json de recurso localizado|
-|Autorización|Creación de un nuevo IDP personalizado|
-|Autorización|Creación de nuevo IDP|
-|Autorización|Creación o actualización de un recurso del directorio B2C|
-|Autorización|Creación de directiva|
-|Autorización|Creación de directiva de trustFramework|
-|Autorización|Creación de directiva de trustFramework con prefijo configurable|
-|Autorización|Creación de atributo de usuario|
-|Autorización|CreateTrustFrameworkPolicy|
-|Autorización|Crea o actualiza un nuevo AdminUserJourney|
-|Autorización|Eliminación de IDP|
-|Autorización|Eliminación de IdentityProvider|
-|Autorización|Eliminación de aplicación V1|
-|Autorización|Eliminación de aplicación V2|
-|Autorización|Eliminación de la concesión de permisos de aplicaciones V2|
-|Autorización|Eliminación de un recurso del directorio B2C|
-|Autorización|Eliminación de un contenedor de claves CPIM|
-|Autorización|Eliminación de directiva de trustFramework|
-|Autorización|Eliminación de atributo de usuario|
-|Autorización|Habilitar característica B2C|
-|Autorización|Obtención de recursos de directorio B2C en una suscripción|
-|Autorización|Obtención de IDP personalizado|
-|Autorización|Obtención de IDP|
-|Autorización|Obtención de aplicaciones V1 y V2|
-|Autorización|Obtención de aplicación V1|
-|Autorización|Obtención de aplicaciones V1|
-|Autorización|Obtención de aplicación V2|
-|Autorización|Obtención de aplicaciones V2|
-|Autorización|Obtención del recurso del directorio B2C|
-|Autorización|Obtención de una lista de dominios personalizados en el inquilino|
-|Autorización|Obtención de un recorrido del usuario|
-|Autorización|Obtención de notificaciones de aplicación permitidas para el recorrido del usuario|
-|Autorización|Obtención de notificaciones autoafirmadas permitidas para el recorrido del usuario|
-|Autorización|Obtención de notificaciones autoafirmadas permitidas de directiva|
-|Autorización|Obtención de la lista de notificaciones de salida disponibles|
-|Autorización|Obtención de definiciones de contenido para el recorrido del usuario|
-|Autorización|Obtención de IDP para un flujo de administración específico|
-|Autorización|Obtención de metadatos de clave activos del contenedor de claves en JWK|
-|Autorización|Obtención de una lista de todos los flujos de administración|
-|Autorización|Obtención de lista de etiquetas para todos los flujos de administración de todos los usuarios|
-|Autorización|Obtención de la lista de inquilinos de un usuario|
-|Autorización|Obtención de notificaciones autoafirmadas de las cuentas locales|
-|Autorización|Obtención de un json de recurso localizado|
-|Autorización|Obtención de operaciones del proveedor de recursos Microsoft.AzureActiveDirectory|
-|Autorización|Obtención de directivas|
-|Autorización|Obtención de directiva|
-|Autorización|Obtención de propiedades de recurso de un inquilino|
-|Autorización|Obtención de una lista de IDP compatible|
-|Autorización|Obtención de lista de IDP compatible del recorrido del usuario|
-|Autorización|Obtención de información del inquilino|
-|Autorización|Obtención de características permitidas del inquilino|
-|Autorización|Obtención de una lista de IDP personalizada definida por el inquilino|
-|Autorización|Obtención de una lista de IDP definida por el inquilino|
-|Autorización|Obtención de una lista de IDP local definida por el inquilino|
-|Autorización|Obtención de los detalles de inquilino de un usuario para la creación de recursos|
-|Autorización|Obtención de lista de inquilinos|
-|Autorización|Obtención de tenantDomains|
-|Autorización|Obtención de la referencia cultural predeterminada para CPIM|
-|Autorización|Obtención de los detalles de un flujo de administración|
-|Autorización|Obtención de la lista de UserJourneys para este inquilino|
-|Autorización|Obtención del conjunto de referencias culturales admitidas disponibles para CPIM|
-|Autorización|Obtención de directiva de trustFramework|
-|Autorización|Obtención de directiva de trustFramework como xml|
-|Autorización|Obtención de atributo de usuario|
-|Autorización|Obtención de atributos de usuario|
-|Autorización|Obtención de lista de recorridos del usuario|
-|Autorización|GetIEFPolicies|
-|Autorización|GetIdentityProviders|
-|Autorización|GetTrustFrameworkPolicy|
-|Autorización|Obtiene un contenedor de claves CPIM en formato jwk|
-|Autorización|Obtiene una lista de contenedores de claves del inquilino|
-|Autorización|Obtiene el tipo de inquilino|
-|Autorización|MigrateTenantMetadata|
-|Autorización|Revisión de IdentityProvider|
-|Autorización|PutTrustFrameworkPolicy|
-|Autorización|PutTrustFrameworkpolicy|
-|Autorización|Eliminación de un recorrido del usuario|
-|Autorización|Restauración de una copia de seguridad del contenedor de claves CPIM|
-|Autorización|Recuperación de las concesiones de permisos de aplicaciones V2|
-|Autorización|Recuperación de entidades de servicio de aplicaciones V2 en el inquilino actual|
-|Autorización|Actualización de IDP personalizado|
-|Autorización|Actualización de IDP|
-|Autorización|Actualización de IDP local|
-|Autorización|Actualización de aplicación V1|
-|Autorización|Actualización de aplicación V2|
-|Autorización|Actualización de la concesión de permisos de aplicaciones V2|
-|Autorización|Actualización de directiva|
-|Autorización|Actualización de atributo de usuario|
-|Autorización|Carga de una clave cifrada CPIM|
-|Autorización|Autorización de usuario: la API está deshabilitada para el conjunto de características del inquilino|
-|Autorización|Autorización de usuario: se ha concedido acceso al usuario como "Administrador del inquilino"|
-|Autorización|Autorización de usuario: se han concedido al usuario derechos de acceso de "Usuarios autenticados"|
-|Autorización|Comprobación de si está habilitada la característica B2C|
-|Autorización|Comprobación de si está habilitada la característica|
-|Autorización|Creación de programa|
-|Autorización|Eliminación de programa|
-|Autorización|Vinculación al control del programa|
-|Autorización|Incorporación a las revisiones de acceso de Azure AD|
-|Autorización|Desvinculación al control del programa|
-|Autorización|Actualización de programa|
-|Autorización|Deshabilitar SSO de escritorio|
-|Autorización|Deshabilitar SSO de escritorio para un dominio específico|
-|Autorización|Deshabilitar el proxy de aplicación|
-|Autorización|Deshabilitar la autenticación de paso a través|
-|Autorización|Habilitar SSO de escritorio|
+|Authorization|Creación de un nuevo AdminUserJourney|
+|Authorization|Creación de un json de recurso localizado|
+|Authorization|Creación de un nuevo IDP personalizado|
+|Authorization|Creación de nuevo IDP|
+|Authorization|Creación o actualización de un recurso del directorio B2C|
+|Authorization|Creación de directiva|
+|Authorization|Creación de directiva de trustFramework|
+|Authorization|Creación de directiva de trustFramework con prefijo configurable|
+|Authorization|Creación de atributo de usuario|
+|Authorization|CreateTrustFrameworkPolicy|
+|Authorization|Crea o actualiza un nuevo AdminUserJourney|
+|Authorization|Eliminación de IDP|
+|Authorization|Eliminación de IdentityProvider|
+|Authorization|Eliminación de aplicación V1|
+|Authorization|Eliminación de aplicación V2|
+|Authorization|Eliminación de la concesión de permisos de aplicaciones V2|
+|Authorization|Eliminación de un recurso del directorio B2C|
+|Authorization|Eliminación de un contenedor de claves CPIM|
+|Authorization|Eliminación de directiva de trustFramework|
+|Authorization|Eliminación de atributo de usuario|
+|Authorization|Habilitar característica B2C|
+|Authorization|Obtención de recursos de directorio B2C en una suscripción|
+|Authorization|Obtención de IDP personalizado|
+|Authorization|Obtención de IDP|
+|Authorization|Obtención de aplicaciones V1 y V2|
+|Authorization|Obtención de aplicación V1|
+|Authorization|Obtención de aplicaciones V1|
+|Authorization|Obtención de aplicación V2|
+|Authorization|Obtención de aplicaciones V2|
+|Authorization|Obtención del recurso del directorio B2C|
+|Authorization|Obtención de una lista de dominios personalizados en el inquilino|
+|Authorization|Obtención de un recorrido del usuario|
+|Authorization|Obtención de notificaciones de aplicación permitidas para el recorrido del usuario|
+|Authorization|Obtención de notificaciones autoafirmadas permitidas para el recorrido del usuario|
+|Authorization|Obtención de notificaciones autoafirmadas permitidas de directiva|
+|Authorization|Obtención de la lista de notificaciones de salida disponibles|
+|Authorization|Obtención de definiciones de contenido para el recorrido del usuario|
+|Authorization|Obtención de IDP para un flujo de administración específico|
+|Authorization|Obtención de metadatos de clave activos del contenedor de claves en JWK|
+|Authorization|Obtención de una lista de todos los flujos de administración|
+|Authorization|Obtención de lista de etiquetas para todos los flujos de administración de todos los usuarios|
+|Authorization|Obtención de la lista de inquilinos de un usuario|
+|Authorization|Obtención de notificaciones autoafirmadas de las cuentas locales|
+|Authorization|Obtención de un json de recurso localizado|
+|Authorization|Obtención de operaciones del proveedor de recursos Microsoft.AzureActiveDirectory|
+|Authorization|Obtención de directivas|
+|Authorization|Obtención de directiva|
+|Authorization|Obtención de propiedades de recurso de un inquilino|
+|Authorization|Obtención de una lista de IDP compatible|
+|Authorization|Obtención de lista de IDP compatible del recorrido del usuario|
+|Authorization|Obtención de información del inquilino|
+|Authorization|Obtención de características permitidas del inquilino|
+|Authorization|Obtención de una lista de IDP personalizada definida por el inquilino|
+|Authorization|Obtención de una lista de IDP definida por el inquilino|
+|Authorization|Obtención de una lista de IDP local definida por el inquilino|
+|Authorization|Obtención de los detalles de inquilino de un usuario para la creación de recursos|
+|Authorization|Obtención de lista de inquilinos|
+|Authorization|Obtención de tenantDomains|
+|Authorization|Obtención de la referencia cultural predeterminada para CPIM|
+|Authorization|Obtención de los detalles de un flujo de administración|
+|Authorization|Obtención de la lista de UserJourneys para este inquilino|
+|Authorization|Obtención del conjunto de referencias culturales admitidas disponibles para CPIM|
+|Authorization|Obtención de directiva de trustFramework|
+|Authorization|Obtención de directiva de trustFramework como xml|
+|Authorization|Obtención de atributo de usuario|
+|Authorization|Obtención de atributos de usuario|
+|Authorization|Obtención de lista de recorridos del usuario|
+|Authorization|GetIEFPolicies|
+|Authorization|GetIdentityProviders|
+|Authorization|GetTrustFrameworkPolicy|
+|Authorization|Obtiene un contenedor de claves CPIM en formato jwk|
+|Authorization|Obtiene una lista de contenedores de claves del inquilino|
+|Authorization|Obtiene el tipo de inquilino|
+|Authorization|MigrateTenantMetadata|
+|Authorization|Revisión de IdentityProvider|
+|Authorization|PutTrustFrameworkPolicy|
+|Authorization|PutTrustFrameworkpolicy|
+|Authorization|Eliminación de un recorrido del usuario|
+|Authorization|Restauración de una copia de seguridad del contenedor de claves CPIM|
+|Authorization|Recuperación de las concesiones de permisos de aplicaciones V2|
+|Authorization|Recuperación de entidades de servicio de aplicaciones V2 en el inquilino actual|
+|Authorization|Actualización de IDP personalizado|
+|Authorization|Actualización de IDP|
+|Authorization|Actualización de IDP local|
+|Authorization|Actualización de aplicación V1|
+|Authorization|Actualización de aplicación V2|
+|Authorization|Actualización de la concesión de permisos de aplicaciones V2|
+|Authorization|Actualización de directiva|
+|Authorization|Actualización de atributo de usuario|
+|Authorization|Carga de una clave cifrada CPIM|
+|Authorization|Autorización de usuario: la API está deshabilitada para el conjunto de características del inquilino|
+|Authorization|Autorización de usuario: se ha concedido acceso al usuario como "Administrador del inquilino"|
+|Authorization|Autorización de usuario: se han concedido al usuario derechos de acceso de "Usuarios autenticados"|
+|Authorization|Comprobación de si está habilitada la característica B2C|
+|Authorization|Comprobación de si está habilitada la característica|
+|Authorization|Creación de programa|
+|Authorization|Eliminación de programa|
+|Authorization|Vinculación al control del programa|
+|Authorization|Incorporación a las revisiones de acceso de Azure AD|
+|Authorization|Desvinculación al control del programa|
+|Authorization|Actualización de programa|
+|Authorization|Deshabilitar SSO de escritorio|
+|Authorization|Deshabilitar SSO de escritorio para un dominio específico|
+|Authorization|Deshabilitar el proxy de aplicación|
+|Authorization|Deshabilitar la autenticación de paso a través|
+|Authorization|Habilitar SSO de escritorio|
 |Administración de directorios|Habilitar SSO de escritorio para un dominio específico|
 |Administración de directorios|Habilitar proxy de aplicación|
 |Administración de directorios|Habilitar la autenticación de paso a través|

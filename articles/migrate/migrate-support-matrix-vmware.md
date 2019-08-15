@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640786"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828283"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -42,8 +42,12 @@ En la tabla se resumen los escenarios admitidos para las máquinas virtuales de 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
 Azure Government | Gobierno de EE. UU. - Virginia
-Asia Pacífico | Sudeste Asiático o Asia Oriental
-Europa | Sur de Europa u Oeste de Europa
+Asia Pacífico | Asia Oriental o Sudeste Asiático
+Australia | Este de Australia o Sudeste de Australia
+Canadá | Centro de Canadá o Este de Canadá
+Europa | Norte de Europa y Oeste de Europa
+India | India central o India meridional
+Japón |  Este de Japón u Oeste de Japón
 Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
 Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
 
@@ -70,7 +74,7 @@ El dispositivo de Azure Migrate para VMware se implementa mediante una plantilla
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**vCenter Server** | Necesita recursos suficientes en vCenter Server para asignar una máquina virtual con 32 GB de memoria, 4 vCPU y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.
+**vCenter Server** | Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.
 **ESXi** | La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior.
 **Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto.
 **vCenter Server** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo puede conectarse a una instancia de vCenter Server.
@@ -322,7 +326,7 @@ dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan 
 --- | ---
 Máquinas virtuales | El servicio de movilidad que se ejecuta en las máquinas virtuales se comunica con el dispositivo de replicación local (servidor de configuración) en el puerto HTTPS 443 entrante para la administración de la replicación.<br/><br/> Las máquinas virtuales envían datos de replicación al servidor de procesos (que se ejecuta en la máquina del servidor de configuración) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
 Dispositivo de replicación | El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
-Servidor de procesos | El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.<br/> De forma predeterminada, el servidor de procesos se ejecuta en el dispositivo de replicación.
+Servidor de proceso | El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.<br/> De forma predeterminada, el servidor de procesos se ejecuta en el dispositivo de replicación.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700156"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840530"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introducción a la relación entre aprendizaje profundo y aprendizaje automático
 
@@ -43,9 +43,9 @@ Ahora que ya tiene una información general acerca del aprendizaje automático y
 
 En la tabla siguiente se comparan las dos técnicas con más detalle:
 
-| |Aprendizaje automático |Aprendizaje profundo|
+| |Todo el aprendizaje automático |Solo aprendizaje profundo|
 |---|---|---|
-|  **Número de puntos de datos** | Puede usar pequeñas cantidades de datos que proporcionan los usuarios | Requiere una gran cantidad de datos de entrenamiento sin etiquetar para sacar conclusiones concisas |
+|  **Número de puntos de datos** | Puede usar pequeñas cantidades de datos que proporcionan los usuarios | Requiere una gran cantidad de datos de entrenamiento para sacar conclusiones concisas |
 |  **Dependencias del hardware** | Puede trabajar en equipos lentos. No necesita gran cantidad de potencia de cálculo | Depende de máquinas rápidas. Realiza intrínsecamente un gran número de operaciones de multiplicación de matrices. Estas operaciones se pueden optimizar eficazmente mediante una GPU |
 |  **Proceso de características** | Requiere que los usuarios creen e identifiquen con precisión las características | Aprende las características de alto nivel de los datos y crea nuevas características automáticamente |
 |  **Enfoque del aprendizaje** | Divide las tareas en pequeñas partes y, después, combina los resultados recibidos para sacar una conclusión | Resuelve el problema de forma global |
@@ -72,7 +72,7 @@ De forma similar a la tarea de reconocimiento de imágenes, la generación de su
 
 La traducción automática toma palabras, frases u oraciones de un idioma y las traduce automáticamente a otro. La traducción automática lleva mucho tiempo utilizándose, pero el aprendizaje profundo está obteniendo magníficos resultados en dos áreas específicas: la traducción automática de texto (y de voz a texto) y traducción automática de imágenes. Con la transformación apropiada de los datos, una red profunda es capaz de comprender texto, audio y señales visuales. La traducción automática se puede usar para identificar fragmentos de sonido en archivos de audio mayores y transcribir la palabra hablada o la imagen como texto.
 
-### <a name="text-analytics"></a>Análisis de texto
+### <a name="text-analytics"></a>Text Analytics
 
 Una tarea importante que puede realizar el aprendizaje profundo es la detección electrónica. Las empresas usan el análisis de texto basado en el aprendizaje profundo para la detección de negociaciones en el mercado de valores que hacen un uso indebido de información privilegiada y el cumplimiento normativo gubernamental. Los fondos de cobertura utilizan el análisis de texto para explorar en profundidad los repositorios de documentos masivos con el fin de obtener información acerca del rendimiento de las inversiones en futuros y el sentimiento del mercado. El caso de uso del análisis de texto basado en aprendizaje profundo gira en torno a su capacidad de analizar grandes cantidades de datos de texto para realizar análisis o generar agregaciones.
 

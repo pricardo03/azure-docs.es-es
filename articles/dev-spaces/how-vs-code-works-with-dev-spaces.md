@@ -9,12 +9,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Cómo funciona Visual Studio Code con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68297862"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725812"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Cómo funciona Visual Studio Code con Azure Dev Spaces
 
@@ -52,9 +52,9 @@ Después de iniciar el proyecto, puede depurar los servicios de Java, Node.js y 
 
 Puede ver cómo funcionan Visual Studio Code y la extensión Azure Dev Spaces con Azure Dev Spaces en los inicios rápidos siguientes:
 
-* [Desarrollo con Java][quickstart-java]
-* [Desarrollo con .NET][quickstart-netcore]
-* [Desarrollo con Node.js][quickstart-node]
+* [Iteración y depuración rápidas con Visual Studio Code y Java][quickstart-java]
+* [Iteración y depuración rápidas con Visual Studio Code y .NET][quickstart-netcore]
+* [Iteración y depuración rápidas con Visual Studio Code y Node.js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code

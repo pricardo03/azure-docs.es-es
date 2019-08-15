@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678525"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774988"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformación Selección de Mapping Data Flow
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -32,9 +32,11 @@ También puede usar Selección como una manera de anular la selección de column
 ## <a name="options"></a>Opciones
 * El valor predeterminado de "Selección" es incluir todas las columnas de entrada y mantener los nombres originales. Para crear un alias de la secuencia, puede establecer el nombre de la transformación Selección.
 * Para crear alias de columnas individuales, desactive la opción "Seleccionar todo" y use la asignación de columnas en la parte inferior.
-* Elija omitir los duplicados para eliminar las columnas duplicadas de los metadatos de entrada o salida.
+* Elija Skip Duplicates (Omitir duplicados) para eliminar las columnas duplicadas de los metadatos de entrada o salida.
 
 ![Omisión de duplicados](media/data-flow/select-skip-dup.png "Skip Duplicates")
+
+* Si elige omitir duplicados, los resultados estarán visibles en la pestaña Inspect (Inspeccionar). ADF mantendrá la primera repetición de la columna y verá que se han quitado de su flujo todas las repeticiones posteriores de la misma columna.
 
 > [!NOTE]
 > Para borrar las reglas de asignación, pulse el botón **Restablecer**.

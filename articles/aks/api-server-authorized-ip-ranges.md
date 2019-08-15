@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616258"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740933"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Versión preliminar: protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -218,13 +218,13 @@ Para habilitar los intervalos de direcciones IP autorizadas por el servidor de A
 
 Use el comando [az aks update][az-aks-update] y, en el parámetro *--intervalos-de-direcciones-ip-autorizadas-por-el-servidor-de-api*, especifique los intervalos de direcciones IP autorizadas por el servidor de API que se permitirán. Estos intervalos de direcciones IP suelen ser intervalos de direcciones que usan las redes locales. Agregue la dirección IP pública de su propio firewall Azure obtenido en el paso anterior, por ejemplo, *20.42.25.196/32*.
 
-En el siguiente ejemplo se habilitan los intervalos de direcciones IP autorizadas por el servidor de API en el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Los intervalos de direcciones IP que autorizar son *20.42.25.196/32* (la dirección IP pública del firewall de Azure), después, *172.0.0.10/16* y *168.10.0.10/18*:
+En el siguiente ejemplo se habilitan los intervalos de direcciones IP autorizadas por el servidor de API en el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Los intervalos de direcciones IP que autorizar son *20.42.25.196/32* (la dirección IP pública del firewall de Azure), después, *172.0.0.0/16* y *168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Actualización o deshabilitación de los intervalos de direcciones IP autorizadas

@@ -1,6 +1,6 @@
 ---
 title: Introducción al control de mapa de web en Azure Maps | Microsoft Docs
-description: Aprenda a usar la biblioteca Javascript del lado cliente del Control de mapa de Azure Maps.
+description: Aprenda a usar la biblioteca Javascript del cliente del control de mapa de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957277"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839384"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Uso del Control de mapa de Azure Maps
+# <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
 La biblioteca de Javascript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil.
 
@@ -168,6 +168,40 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="Uso del control de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte el Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> (Uso del control de mapa) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
     </iframe>
+
+## <a name="localizing-the-map"></a>Localización del mapa
+
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres `atlas` global, lo que provocará que estos valores son los predeterminados en todas las instancias de control de mapa de la aplicación. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
+
+```javascript
+atlas.setLanguage('fr-FR');
+atlas.setView('auto');
+```
+
+La segunda opción consiste en usar esta información a las opciones del mapa al cargar el mapa como:
+
+```javascript
+map = new atlas.Map('myMap', {
+    language: 'fr-FR',
+    view: 'auto',
+
+    authOptions: {
+        authType: 'aad',
+        clientId: '<Your AAD Client Id>',
+        aadAppId: '<Your AAD App Id>',
+        aadTenant: 'msft.ccsctp.net'
+    }
+});
+```
+
+> [!Note]
+> Con el SDK web es posible cargar varias instancias del mapa con diferentes configuraciones de idioma y región. Además, esta configuración se puede actualizar después de que se haya cargado el mapa mediante la función `setStyle` del mapa. 
+
+Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista regional establecida en "auto".
+
+![Imagen del mapa que muestra las etiquetas en francés](./media/how-to-use-map-control/websdk-localization.png)
+
+[Aquí](supported-languages.md) encontrará una lista completa de los idiomas y vistas regionales admitidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60905007"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839463"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -41,8 +41,9 @@ Las expresiones se representan como matrices JSON. El primer elemento de una exp
 
 El SDK web de Azure Maps admite muchos tipos de expresiones que pueden usarse solas o en combinación con otras expresiones.
 
-| Tipo de expresiones | DESCRIPCIÓN |
+| Tipo de expresiones | Descripción |
 |---------------------|-------------|
+| [Expresión de agregado](#aggregate-expression) | Expresión que define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. |
 | [Expresiones booleanas](#boolean-expressions) | Las expresiones booleanas proporcionan un conjunto de expresiones de operadores booleanos para evaluar las comparaciones booleanas. |
 | [Expresiones de color](#color-expressions) | Las expresiones de color facilitan la creación y la manipulación de valores de color. |
 | [Expresiones condicionales](#conditional-expressions) | Las expresiones condicionales proporcionan operaciones lógicas que son parecidas a las instrucciones if. |
@@ -165,6 +166,27 @@ Las expresiones matemáticas proporcionan operadores matemáticos para llevar a 
 | `['sin', number]` | número | Calcula el seno del número especificado. |
 | `['sqrt', number]` | número | Calcula la raíz cuadrada del número especificado. |
 | `['tan', number]` | número | Calcula la tangente del número especificado. |
+
+## <a name="aggregate-expression"></a>Expresión de agregado
+
+Una expresión de agregado define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. La salida de estas expresiones debe ser un número o un valor booleano. 
+
+Una expresión de agregado toma tres valores: un valor de operador y un valor inicial y una expresión para recuperar una propiedad de cada característica en los datos en los que se va a aplicar la operación de agregado. La expresión tiene el siguiente formato:
+
+```javascript
+[operator: string, initialValue: boolean | number, mapExpression: Expression]
+```
+
+- operator: Una función de la expresión que luego se aplica a todos los valores que calcula `mapExpression` para cada punto del clúster. Operadores que se admiten: 
+    - Para números `+`: `*`, `max`, `min`
+    - Para valores booleanos: `all`, `any`
+- initialValue: un valor inicial al que se agrega el primer valor calculado.
+- mapExpression: una expresión que se aplica a cada punto del conjunto de datos.
+
+**Ejemplos**
+
+Si todas las características de un conjunto de datos tienen una propiedad `revenue` que es un número. Los ingresos totales de todos los puntos de un clúster creados a partir del conjunto de datos se pueden calcular mediante la siguiente expresión de agregado: `['+', 0, ['get', 'revenue']]`
+
 ## <a name="boolean-expressions"></a>Expresiones booleanas
 
 Las expresiones booleanas proporcionan un conjunto de expresiones de operadores booleanos para evaluar las comparaciones booleanas.

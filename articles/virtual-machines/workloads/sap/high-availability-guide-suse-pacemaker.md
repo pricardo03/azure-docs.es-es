@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68228363"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725606"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -398,6 +398,28 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > Si usa Suse Linux Enterprise Server para SAP 15, tenga en cuenta que debe activar el módulo adicional e instalar el componente adicional, que es un requisito previo para usar el agente de barrera de Azure. Para más información acerca de los módulos y las extensiones de SUSE, consulte el siguiente artículo acerca de los [módulos y las extensiones](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Siga las instrucciones que se indican a continuación para instalar el SDK de Azure para Python. 
+
+   Las siguientes instrucciones para instalar el SDK de Azure para Python solo se aplican a Suse Enterprise Server para SAP **15**.  
+
+    - Si usa una licencia BYOS, siga estas instrucciones  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - Si usa una suscripción de pago por uso, siga estas instrucciones  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]** Configure la resolución nombres de host
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
@@ -510,7 +532,7 @@ El dispositivo STONITH usa una entidad de servicio para la autorización de Micr
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creación de un rol personalizado para el agente de barrera
 
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+La entidad de servicio no tiene permiso para acceder a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 
 Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el contenido a sus suscripciones; esto es, reemplace c276fc76-9cd4-44c9-99a7-4fd71546436e y e91d47c4-76f3-4271-a796-21b4ecfe3624 por los identificadores de su suscripción. Si solo tiene una suscripción, quite la segunda entrada en AssignableScopes.
 
@@ -536,7 +558,7 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Asignación del rol personalizado a la entidad de servicio
 
-Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario.
+Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol Propietario.
 
 1. Vaya a [https://portal.azure.com](https://portal.azure.com)
 1. Abra la hoja Todos los recursos

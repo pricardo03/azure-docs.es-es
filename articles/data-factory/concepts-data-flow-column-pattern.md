@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640240"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775211"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Asignación de patrones de columnas de flujos de datos
 
@@ -45,6 +45,16 @@ Para crear patrones basados en columnas, puede buscar coincidencias en función 
 Cuando asigna columnas a las transformaciones de origen y Seleccionar, tendrá la opción de elegir "Asignación fija" o "Asignación basada en reglas". Si conoce el esquema de los datos y espera columnas específicas del conjunto de datos de origen que siempre coinciden con nombres estáticos específicos, puede usar la asignación fija. Sin embargo, si trabaja con esquemas flexibles, use la asignación basada en reglas. Podrá crear una coincidencia de patrones con las reglas descritas anteriormente.
 
 ![Asignación basada en reglas](media/data-flow/rule2.png "Rule based mapping")
+
+Cree las reglas mediante el generador de expresiones. Las expresiones devolverán un valor booleano que coincide con las columnas (true) o que excluya las columnas (false).
+
+## <a name="pattern-matching-special-columns"></a>Columnas especiales de coincidencia de patrones
+
+* `$$` se traducirá al nombre de cada coincidencia en tiempo de diseño en modo de depuración y tras la ejecución en tiempo de ejecución
+* `name` representa el nombre de cada columna de entrada
+* `type` representa el tipo de datos de cada columna de entrada
+* `stream` representa el nombre asociado a cada secuencia o transformación del flujo
+* `position` es la posición ordinal de las columnas en el flujo de datos
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [lenguaje de expresiones](http://aka.ms/dataflowexpressions) de Mapping Data Flow de ADF para las transformaciones de datos.

@@ -25,6 +25,8 @@
       items:
         - name: Configuración de una geovalla
           href: tutorial-geofence.md
+        - name: Análisis espacial
+          href: tutorial-iot-hub-maps.md
 - name: Conceptos
   items:
     - name: Autenticación con Azure Maps
