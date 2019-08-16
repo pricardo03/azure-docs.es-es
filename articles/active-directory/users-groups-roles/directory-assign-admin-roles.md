@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812835"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851523"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -200,9 +200,7 @@ Además, el usuario puede acceder a informes relacionados con la adopción y el 
   > [!NOTE]
   > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Power BI". En [Azure Portal](https://portal.azure.com) es "Administrador de Power BI".
 
-* **[Administrador de autenticación con privilegios](#privileged-authentication-administrator)** : los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña para todos los usuarios, incluidos los administradores globales, y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación con privilegios pueden forzar a los usuarios a que vuelvan a registrarse con una credencial existente distinta a una contraseña (por ejemplo, MFA, FIDO) y revocar "recordar MFA en el dispositivo", por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios. Los administradores de autenticación con privilegios pueden:
-  * Obligar a los usuarios a volver a registrarse con una credencial distinta a una contraseña (por ejemplo, MFA, FIDO)
-  * Revocar "Recordar MFA en el dispositivo", solicitando la autenticación multifactor en el siguiente inicio de sesión
+* **[Administrador de autenticación con privilegios](#privileged-authentication-administrator)** : los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña para todos los usuarios, incluidos los administradores globales, y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación con privilegios pueden forzar a los usuarios a que vuelvan a registrarse con una credencial existente distinta a una contraseña (por ejemplo, MFA, FIDO) y revocar "recordar MFA en el dispositivo", por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios.
 
 * **[Administrador de roles con privilegios](#privileged-role-administrator)** : los usuarios con este rol pueden administrar asignaciones de roles en Azure Active Directory, así como en Azure AD Privileged Identity Management. Además, este rol permite administrar todos los aspectos de Privileged Identity Management y de las unidades administrativas.
 

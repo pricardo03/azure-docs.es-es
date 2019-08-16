@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667164"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735706"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -115,6 +115,15 @@ La versión del tiempo de ejecución de Functions para usar en esta aplicación 
 |Clave|Valor de ejemplo|
 |---|------------|
 |VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~2|
+
+## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
+
+Especifica el número máximo de procesos de trabajo de lenguaje, con un valor predeterminado de `1`. El valor máximo permitido es `10`. Las invocaciones de función se distribuyen uniformemente entre los procesos de trabajo de lenguaje. Los procesos de trabajo de lenguaje se generan cada diez segundos hasta que se alcanza el número establecido por FUNCTIONS\_WORKER\_PROCESS\_COUNT. El uso de varios procesos de trabajo de lenguaje no es el mismo que el [escalado](functions-scale.md). Considere la posibilidad de usar esta opción cuando la carga de trabajo tenga una combinación de invocaciones vinculadas a la E/S y vinculadas a la CPU. Esta configuración se aplica a todos los lenguajes que no son .NET.
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
