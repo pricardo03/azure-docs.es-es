@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467853"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717551"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -39,7 +39,7 @@ A continuación, encontrará una guía clara para elegir una clave de partición
 
 * En una única partición lógica se admite un límite máximo de 10 GB de almacenamiento.  
 
-* Los contenedores de Azure Cosmos tienen un rendimiento mínimo de 400 unidades de solicitud por segundo (RU/s). Las solicitudes a la misma clave de partición no pueden exceder el rendimiento asignado a una partición. Si las solicitudes superan el rendimiento asignado, tendrá la velocidad limitada. Por tanto, es importante elegir una clave de partición que no dé como resultado "zonas activas" dentro de la aplicación.
+* Los contenedores de Azure Cosmos tienen un rendimiento mínimo de 400 unidades de solicitud por segundo (RU/s). Cuando el rendimiento se aprovisiona en una base de datos, el valor mínimo de RU por contenedor es de cien unidades de solicitud por segundo (RU/s). Las solicitudes a la misma clave de partición no pueden exceder el rendimiento asignado a una partición. Si las solicitudes superan el rendimiento asignado, tendrá la velocidad limitada. Por tanto, es importante elegir una clave de partición que no dé como resultado "zonas activas" dentro de la aplicación.
 
 * Elija una clave de partición que tenga una amplia gama de valores y patrones de acceso que se distribuyan uniformemente entre las particiones lógicas. Esto ayuda a distribuir los datos y la actividad en el contenedor entre el conjunto de particiones lógicas, para que los recursos de rendimiento y almacenamiento de datos se puedan distribuir entre las particiones lógicas.
 

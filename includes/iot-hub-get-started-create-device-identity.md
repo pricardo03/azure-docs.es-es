@@ -8,32 +8,26 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2bce9788006a564def9bd8c1375a85dc4184b67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e919f22d5dd7975f055f262ec9ba69230aebd17
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814818"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780853"
 ---
-## <a name="create-a-device-identity"></a>Creación de una identidad de dispositivo
+En esta sección, se usa la CLI de Azure para crear una identidad del dispositivo para este artículo. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
 
-En esta sección, se usa la CLI de Azure para crear una identidad del dispositivo para este tutorial. La CLI de Azure está preinstalada en [Azure Cloud Shell](~/articles/cloud-shell/overview.md) o puede [instalarla localmente](/cli/azure/install-azure-cli). Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
+1. Abra [Azure Cloud Shell](https://shell.azure.com/).
 
-1. Ejecute el siguiente comando en el entorno de línea de comandos donde utiliza la CLI de Azure para instalar la extensión de IoT:
+1. En Azure Cloud Shell, ejecute el comando siguiente para instalar la extensión IoT de Microsoft Azure para la CLI de Azure:
 
-    ```cmd/sh
+    ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
 
-1. Si ejecuta la CLI de Azure localmente, utilice el siguiente comando para iniciar sesión en su cuenta de Azure (si usa Cloud Shell, ha iniciado sesión automáticamente y no tiene que ejecutar este comando):
+2. Cree una identidad del dispositivo denominada `myDeviceId` y recupere la cadena de conexión del dispositivo con estos comandos:
 
-    ```cmd/sh
-    az login
-    ```
-
-1. Por último, cree una identidad del dispositivo denominada `myDeviceId` y recupere la cadena de conexión del dispositivo con estos comandos:
-
-    ```cmd/sh
+    ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
     az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
     ```

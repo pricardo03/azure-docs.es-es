@@ -9,12 +9,12 @@ ms.topic: article
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: fde2b6d1d298e89227951c376d584452fbff2679
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707061"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772709"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
 
@@ -35,7 +35,7 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 
     * Máquina virtual de Notebook de Azure Machine Learning: no se necesitan descargas ni instalación
 
-        * Complete el [artículo de inicio rápido de Notebook basado en la nube](quickstart-run-cloud-notebook.md#create-notebook) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
+        * Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
 
         * En la carpeta de muestras del servidor de cuadernos, vaya al directorio **how-to-use-azureml > training-with-deep-learning** para encontrar cuadernos completados y expandidos.
         * export-run-history-to-run-history.ipynb

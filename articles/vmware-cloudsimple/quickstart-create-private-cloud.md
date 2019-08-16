@@ -5,19 +5,26 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b68dcd47377ee56c4ebedc94905e1f0a8b70b38
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476027"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812343"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configuración del entorno de una nube privada
 
 En este artículo, obtenga información sobre cómo crear una nube privada de CloudSimple y configurar el entorno de nube privada.
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Asigne un intervalo de CIDR para las subredes vSphere/vSAN de la nube privada. Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter. Los componentes de administración se implementan en la red seleccionada para CIDR de subredes vSphere/vSAN. El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.  El espacio de direcciones de la subred vSphere/vSAN debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple.  Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure.  Para más información sobre las subredes vSphere/vSAN, consulte [Introducción a las VLAN y subredes](cloudsimple-vlans-subnets.md).
+
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: /24 
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: /21
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -27,7 +34,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
 3. Seleccione el servicio de CloudSimple en que quiere crear la nube privada.
-4. En la introducción, haga clic en **Crear nube privada** para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le pide, inicie sesión con sus credenciales de inicio de sesión en Azure.  
+4. En la introducción, haga clic en **Crear nube privada** para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
 
     ![Creación de una nube privada desde Azure](media/create-private-cloud-from-azure.png)
 
@@ -56,7 +63,7 @@ Puede acceder al portal de CloudSimple desde Azure Portal.  El portal de CloudSi
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
 3. Seleccione el servicio de CloudSimple en el que quiere crear la nube privada.
-4. En la introducción, haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le pide, inicie sesión con sus credenciales de inicio de sesión en Azure.  
+4. En la introducción, haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
 
     ![Inicio del portal de CloudSimple](media/launch-cloudsimple-portal.png)
 
@@ -141,7 +148,7 @@ CloudSimple le proporciona un circuito ExpressRoute para la nube privada. Puede 
 
 Ahora puede iniciar sesión en vCenter para configurar las máquinas virtuales y las directivas.
 
-1. Para acceder a vCenter, inicie el proceso desde el portal de CloudSimple. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere).  Seleccione la nube privada y, a continuación, haga clic en **Launch vSphere Client** (Iniciar cliente vSphere) en la nube privada.
+1. Para acceder a vCenter, inicie el proceso desde el portal de CloudSimple. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere).  Seleccione la nube privada y, después, haga clic en **Launch vSphere Client** (Iniciar cliente vSphere) en la nube privada.
 
     ![Inicio del cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 

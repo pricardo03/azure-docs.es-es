@@ -1,6 +1,6 @@
 ---
-title: Uso de DevTest Labs en canalizaciones de versiones y compilaciones de Azure DevOps | Microsoft Docs
-description: Obtenga información sobre cómo usar Azure DevTest Labs en canalizaciones de versiones y compilaciones de Azure DevOps.
+title: Uso de DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines | Microsoft Docs
+description: Obtenga información sobre cómo usar Azure DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620624"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774481"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de versiones y compilaciones de Azure DevOps
-En este artículo se proporciona información sobre cómo se puede usar DevTest Labs en canalizaciones de versiones y compilaciones de Azure DevOps. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
+En este artículo se proporciona información sobre cómo se puede usar DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines. 
 
 ## <a name="overall-flow"></a>Flujo general
 El flujo básico consiste en tener una **canalización de compilación**, que se encarga de las tareas siguientes:
@@ -49,7 +49,7 @@ Hay un par de elementos que se deben crear con antelación:
 La canalización de compilación creará un entorno de DevTest Labs e implementará el código para las pruebas.
 
 ## <a name="set-up-a-build-pipeline"></a>Configuración de una canalización de compilación
-En Azure DevOps, cree una canalización de compilación con el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
+En Azure Pipelines, cree una canalización de compilación con el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
 
 ![Selección de la plantilla ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ La tercera tarea es **Implementación de Azure App Service**. El tipo de aplicac
 
 ![Tarea Implementación de App Service](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>Configuración de la canalización de versión
+## <a name="set-up-release-pipeline"></a>Configuración de una canalización de versión
 Puede crear una canalización de versión con dos tareas: **Implementación en Azure: creación o actualización del grupo de recursos** e **Implementación de Azure App Service**. 
 
 En la primera tarea, especifique el nombre y la ubicación del grupo de recursos. La ubicación de la plantilla es un artefacto vinculado. Si la plantilla de Resource Manager incluye plantillas vinculadas, será necesario implementar una implementación de grupo de recursos personalizado. La plantilla está en el artefacto de colocación publicado. Invalide los parámetros de la plantilla de Resource Manager. Puede dejar la configuración restante con los valores predeterminados. 
@@ -98,5 +98,5 @@ Ahora que ambas canalizaciones están configuradas, ponga en cola manualmente un
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
-- [Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure DevOps](devtest-lab-integrate-ci-cd-vsts.md)
-- [Integración de entornos en las canalizaciones CI/CD de Azure DevOps](integrate-environments-devops-pipeline.md)
+- [Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure Pipelines](devtest-lab-integrate-ci-cd-vsts.md)
+- [Integración de entornos en las canalizaciones de integración y entrega continuas de Azure Pipelines](integrate-environments-devops-pipeline.md)

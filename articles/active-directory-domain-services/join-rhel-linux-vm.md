@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 52df4308020b03565c851b6969c0e2e31464d7d7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: d0acbd02103ebd8dd3819579c85b4ddac22dba78
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234050"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773094"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual de Red Hat Enterprise Linux (RHEL) 7 a un dominio administrado con Servicios de dominio de Azure AD.
@@ -107,6 +107,8 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 
     > [!TIP]
     > Utilice la misma cuenta de usuario que ha especificado el paso anterior ("kinit").
+    >
+    > Si la máquina virtual no puede unirse al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

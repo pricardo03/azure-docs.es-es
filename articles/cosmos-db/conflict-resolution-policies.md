@@ -4,15 +4,15 @@ description: En este artículo se describen las categorías de conflicto y las d
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 45b7257f67be8ba5c134717d73488916056b7a7d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f69a70ef3bfc8830ed12173fddee41095937a1c0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384215"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815098"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
 
@@ -30,16 +30,16 @@ En el caso de las cuentas de Azure Cosmos configuradas con varias regiones de es
 
 Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para resolver conflictos de escritura. En un contenedor de Azure Cosmos, puede seleccionar una de las dos directivas de resolución de conflictos siguientes:
 
-- **Últimos casos de escritura correcta (LWW)** : esta directiva de resolución utiliza de forma predeterminada una propiedad de marca de tiempo definida por el sistema. (que se basa en el protocolo de reloj de sincronización de hora). Si usa la API de SQL, puede especificar cualquier otra propiedad numérica personalizada (por ejemplo, su propia noción de una marca de tiempo) que se usará para la resolución de conflictos. A las propiedades numéricas personalizadas también se les denominan *ruta de acceso para la resolución de conflictos*. 
+* **Últimos casos de escritura correcta (LWW)** : esta directiva de resolución utiliza de forma predeterminada una propiedad de marca de tiempo definida por el sistema. (que se basa en el protocolo de reloj de sincronización de hora). Si usa la API de SQL, puede especificar cualquier otra propiedad numérica personalizada (por ejemplo, su propia noción de una marca de tiempo) que se usará para la resolución de conflictos. A las propiedades numéricas personalizadas también se les denominan *ruta de acceso para la resolución de conflictos*. 
 
   Si dos o más elementos entran en conflicto en operaciones de inserción o de reemplazo, el elemento que contiene el valor más alto para la ruta de acceso para la resolución de conflictos se convierte en el ganador. Si varios elementos tienen el mismo valor numérico para la ruta de acceso para la resolución de conflictos, el sistema determina la versión ganadora. Se garantiza que todas las regiones convergen en un solo ganador y finalizan con la versión idéntica del elemento confirmado. En caso de que haya conflictos de eliminación, la versión eliminada siempre se impone a otros conflictos, ya sean de inserción o de reemplazo, Este resultado tiene lugar independientemente del valor de la ruta de acceso para la resolución de conflictos.
 
   > [!NOTE]
-  > Últimos casos de escritura correcta es la directiva de resolución de conflictos predeterminada Está disponible para las API siguientes: SQL, MongoDB, Cassandra, Gremlin y Table.
+  > Últimos casos de escritura correcta es la directiva de resolución de conflictos predeterminada y usa la marca de tiempo `_ts` para estas API: SQL, MongoDB, Cassandra, Gremlin y Table. La propiedad numérica personalizada solo está disponible para la API SQL.
 
   Para obtener más información, consulte los [ejemplos de uso de directivas de resolución de conflictos LWW](how-to-manage-conflicts.md).
 
-- **Personalizada**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
+* **Personalizada**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
 
   Si configura el contenedor con la opción de resolución personalizada y no registra un procedimiento de combinación en el contenedor o procedimiento de combinación lanza una excepción en tiempo de ejecución, los conflictos se escriben en la *fuente de conflictos*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md).
 

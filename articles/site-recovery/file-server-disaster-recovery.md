@@ -5,15 +5,15 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772168"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708136"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -56,7 +56,7 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 
 |Entorno  |Recomendación  |Puntos que se deben tener en cuenta |
 |---------|---------|---------|
-|Entorno de servidor de archivos con o sin DFSR|   [Uso de Site Recovery para la replicación](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery no es compatible con los clústeres de discos compartidos ni con el almacenamiento conectado a la red (NAS). Si su entorno usa estas configuraciones, utilice cualquiera de los demás enfoques según corresponda. <br> Site Recovery no es compatible con SMB 3.0. La máquina virtual replicada incorpora los cambios solo cuando se actualizan los cambios realizados en los archivos en la ubicación original de los archivos.
+|Entorno de servidor de archivos con o sin DFSR|   [Uso de Site Recovery para la replicación](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery no es compatible con los clústeres de discos compartidos ni con el almacenamiento conectado a la red (NAS). Si su entorno usa estas configuraciones, utilice cualquiera de los demás enfoques según corresponda. <br> Site Recovery no es compatible con SMB 3.0. La máquina virtual replicada incorpora los cambios solo cuando se actualizan los cambios realizados en los archivos en la ubicación original de los archivos.<br>  Site Recovery ofrece un proceso de replicación de datos casi sincrónico y, por lo tanto, en caso de que se produzca un escenario de conmutación por error no planeada, podría producirse una pérdida de datos y podrían aparecer problemas de falta de coincidencia de USN.
 |Entorno de servidor de archivos con DFSR     |  [Extensión de DFSR a una máquina virtual de IaaS de Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR funciona correctamente en entornos con el ancho de banda muy restringido. Este enfoque requiere una máquina virtual de Azure activa y en ejecución todo el tiempo. Debe tener en cuenta el costo de la máquina virtual en la planeación.         |
 |Máquina virtual de IaaS de Azure     |     File Sync    |     Si utiliza File Sync en un escenario de recuperación ante desastres, durante la conmutación por error debe realizar acciones manuales para asegurarse de que los recursos compartidos de archivos están accesibles para el equipo cliente de forma transparente. File Sync requiere que el puerto 445 esté abierto en el equipo cliente.     |
 
@@ -64,7 +64,7 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 ### <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 Dado que la replicación de Site Recovery no depende de la aplicación, se espera que estas recomendaciones sirvan también para los escenarios siguientes.
 
-| Origen    |En un sitio secundario    |En Azure
+| Source    |En un sitio secundario    |En Azure
 |---------|---------|---------|
 |Azure| -|Sí|
 |Hyper-V|   Sí |Sí
@@ -74,6 +74,8 @@ Dado que la replicación de Site Recovery no depende de la aplicación, se esper
 
 > [!IMPORTANT]
 > Antes de continuar con cualquiera de los tres enfoques siguientes, asegúrese de que se han tenido en cuenta estas dependencias.
+
+
 
 **Conectividad de sitio a sitio**: Debe establecerse una conexión directa entre el sitio local y la red de Azure para permitir la comunicación entre servidores. Utilice una conexión VPN de sitio a sitio segura con una red virtual de Azure que se utiliza como el sitio de recuperación ante desastres. Para más información, consulte [Establecimiento de una conexión VPN de sitio a sitio entre un sitio local y una red virtual de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 

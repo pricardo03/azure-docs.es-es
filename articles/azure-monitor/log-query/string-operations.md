@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466950"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741456"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabajo con cadenas en consultas de registro de Azure Monitor
 
@@ -34,7 +34,7 @@ Cada carácter de una cadena contiene un número de índice, según su ubicació
 
 
 ## <a name="strings-and-escaping-them"></a>Cadenas y caracteres de escape
-Los valores de cadena se encapsulan con los caracteres de comillas simples o dobles. La barra diagonal inversa (\) se usa como carácter de escape para el carácter que le sigue, por ejemplo, \t para tabulación, \n para nueva línea y \" para el propio carácter de comillas.
+Los valores de cadena se encapsulan con los caracteres de comillas simples o dobles. La barra diagonal inversa (\\) se usa como carácter de escape para el carácter que le sigue, por ejemplo, \t para tabulación, \n para nueva línea y \" para el propio carácter de comillas.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"

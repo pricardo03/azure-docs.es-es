@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736588"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742388"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
-Con el fin de determinar el estado de cada back-end, cada entorno de Front Door envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" servidores back-end a los que se deben enrutar las solicitudes de cliente reales.
+Con el fin de determinar el estado de cada back-end, cada entorno de Front Door envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" servidores back-end a los que se deben enrutar las solicitudes de cliente reales. Tenga en cuenta que, como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeos de estado a los backends puede ser superior a más de una solicitud por segundo y depende de la frecuencia de sondeo de estado configurada. 
+
 
 
 ## <a name="supported-protocols"></a>Protocolos admitidos

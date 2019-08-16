@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: de857498aeb51c9b3711c90338d983e85b61cb70
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065428"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774563"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configuración de una galería de imágenes compartidas en Azure DevTest Labs
 DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Esta característica permite que los usuarios de laboratorios accedan a imágenes de una ubicación compartida cuando crean recursos de laboratorio. También facilita la estructuración y la organización de las imágenes de máquina virtual administradas y personalizadas. La característica Shared Image Gallery admite lo siguiente:
@@ -51,7 +51,9 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
 1. Asocie una galería de imágenes compartidas existente al laboratorio; para ello, haga clic en el botón **Asociar** y seleccione su galería en la lista desplegable.
 
     ![Attach](./media/configure-shared-image-gallery/attach-options.png)
-1. Vaya a la galería asociada y configúrela para **habilitar o deshabilitar** imágenes compartidas para la creación de máquinas virtuales.
+1. Vaya a la galería asociada y configúrela para **habilitar o deshabilitar** imágenes compartidas para la creación de máquinas virtuales. Seleccione una galería de imágenes de la lista para configurarla. 
+
+    De forma predeterminada **Permitir que se usen todas las imágenes como bases de máquinas virtuales** está establecido en **Sí**. Significa que todas las imágenes disponibles de la galería de imágenes compartidas asociadas estarán disponibles para un usuario de laboratorio al crear una nueva máquina virtual de laboratorio. Si es necesario restringir el acceso a determinadas imágenes, cambie **Permitir que se usen todas las imágenes como bases de máquinas virtuales** a **No**, seleccione las imágenes que desea permitir al crear máquinas virtuales y, después, seleccione el botón **Guardar**.
 
     ![Habilitar o deshabilitar](./media/configure-shared-image-gallery/enable-disable.png)
 1. Los usuarios del laboratorio pueden crear entonces una máquina virtual con las imágenes habilitadas con solo hacer clic en **+ Agregar** y buscar la imagen en la página **choose your base** (Elegir la base).
@@ -67,92 +69,48 @@ Si va a usar una plantilla de Azure Resource Manager para asociar una galería d
 {
     "apiVersion": "2018-10-15-preview",
     "type": "Microsoft.DevTestLab/labs",
-    "name": "[parameters('newLabName')]",
-    "location": "[resourceGroup (). location]",
+    "name": "mylab",
+    "location": "eastus",
     "resources": [
-    {
-        "apiVersion": "2018-10-15-preview",
-        "name": "[variables('labVirtualNetworkName')]",
-        "type": "virtualNetworks",
-        "dependsOn": [
-            "[resourceId('Microsoft.DevTestLab/labs', parameters('newLabName'))]"
-        ]
-    },
     {
         "apiVersion":"2018-10-15-preview",
         "name":"myGallery",
         "type":"sharedGalleries",
         "properties": {
-            "galleryId":"[parameters('existingSharedGalleryId')]",
+            "galleryId":"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/mySharedGalleryRg/providers/Microsoft.Compute/galleries/mySharedGallery",
             "allowAllImages": "Enabled"
-        },
-        "dependsOn":[
-            "[resourceId('Microsoft.DevTestLab/labs', parameters('newLabName'))]"
-        ]
+        }
     }
     ]
-} 
-
+}
 ```
 
 Para ver un ejemplo completo de una plantilla de Resource Manager, consulte estos ejemplos de plantilla de Resource Manager en nuestro repositorio público de GitHub: [Configuración de una galería de imágenes compartidas al crear un laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-### <a name="create-a-vm-using-an-image-from-the-shared-image-gallery"></a>Creación de una máquina virtual con una imagen de la galería de imágenes compartidas
-Si va a usar una plantilla de Azure Resource Manager para crear una máquina virtual mediante una imagen de la galería de imágenes compartidas, utilice el ejemplo siguiente:
+## <a name="use-api"></a>Uso de la API
 
-```json
+### <a name="shared-image-galleries---create-or-update"></a>Galerías de imágenes compartidas: crear o actualizar
 
-"resources": [
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
+Body: 
 {
-    "apiVersion": "2018-10-15-preview",
-    "type": "Microsoft.DevTestLab/labs/virtualMachines",
-    "name": "[variables('resourceName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "sharedImageId": "[parameters('existingSharedImageId')]",
-        "size": "[parameters('newVMSize')]",
-        "isAuthenticationWithSshKey": false,
-        "userName": "[parameters('userName')]",
-        "sshKey": "",
-        "password": "[parameters('password')]",
-        "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
-        "labSubnetName": "[variables('labSubnetName')]"
+    "properties":{
+        "galleryId": "[Shared Image Gallery resource Id]",
+        "allowAllImages": "Enabled"
     }
 }
-],
 
 ```
 
-Para más información, vea estos ejemplos de plantillas de Resource Manager en nuestro repositorio público de GitHub.
-[Creación de una máquina virtual mediante una imagen de la galería de imágenes compartidas](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-sharedimage).
+### <a name="shared-image-galleries-images---list"></a>Imágenes de galerías de imágenes compartidas: lista 
 
-## <a name="use-api"></a>Uso de la API
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
+```
 
-- Use la versión de API 2018-10-15-preview.
-- Para asociar la galería, envíe la solicitud como se muestra en el siguiente fragmento de código:
-    
-    ``` 
-    PUT [Lab Resource Id]/SharedGalleries/[newGalleryName]
-    Body: 
-    {
-        “properties”:{
-            “galleryId”: “[Shared Image Gallery resource Id]”,
-            “allowAllImages”:”Enabled”
-        }
-    }
-    ```
-- Para ver todas las imágenes de la galería de imágenes compartidas, puede enumerar todas las imágenes compartidas junto con sus identificadores de recursos.
 
-    ```
-    GET [Lab Resource Id]/SharedGalleries/mySharedGallery/SharedImages
-    ````
-- Para crear una máquina virtual mediante imágenes compartidas, puede realizar una operación PUT en las máquinas virtuales y, en las propiedades de las máquinas virtuales, pasar el identificador de las imágenes compartidas que obtuvo en la llamada anterior. a properties.SharedImageId.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes sobre los artefactos:
-
-- [Especificación de artefactos obligatorios para su laboratorio](devtest-lab-mandatory-artifacts.md)
-- [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
-- [Incorporación de un repositorio de artefactos a un laboratorio](devtest-lab-artifact-author.md)
-- [Diagnóstico de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md)
+Consulte los siguientes artículos sobre la creación de una máquina virtual mediante una imagen de la galería de imágenes compartidas adjunta: [Creación de una máquina virtual con una imagen compartida de la galería](add-vm-use-shared-image.md)

@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501301"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815693"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -431,7 +431,7 @@ Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD)
 
 **Tarifa plana:** habilite el acceso a su oferta con un única tarifa plana mensual o anual. A veces esto se denomina precios basados en puesto. Con este modelo de precios, opcionalmente, puede definir planes limitados que usan la API del servicio de medición de Marketplace para cobrar a los clientes según las unidades no estándar.  Para obtener más información sobre la facturación limitada, consulte [facturación limitada mediante el servicio de medición de Marketplace](./saas-metered-billing.md).
 
-**Basado en puestos:** habilite el acceso a su oferta con el precio en función del número de usuarios que acceden a la oferta u que ocupan los *puestos*. Este modelo basado en puestos le permite establecer el número mínimo y máximo de puestos permitido en función del precio. De esta forma, se pueden configurar diferentes puntos de precio en función del número de usuarios mediante la configuración de varios planes.  Estos campos son opcionales. Si se deja vacío, se interpretará que el número de puestos no tiene límite (el mínimo es 1 y el máximo es tantos como el sistema puede admitir). Estos campos se pueden editar como parte de una actualización del plan.
+**Por usuario:** habilite el acceso a su oferta con el precio en función del número de usuarios que acceden a la oferta u que ocupan los puestos. Este modelo basado en usuarios le permite establecer el número mínimo y máximo de usuarios permitido en función del precio. De esta forma, se pueden configurar diferentes puntos de precio en función del número de usuarios mediante la configuración de varios planes.  Estos campos son opcionales. Si no se selecciona, se interpretará que el número de usuarios no tiene límite (el mínimo es 1 y el máximo es tantos como el sistema puede admitir). Estos campos se pueden editar como parte de una actualización del plan.
 
 Una vez publicado, la elección de modelo de precios facturación no se puede cambiar. Además, todos los planes de la misma oferta deben compartir el mismo modelo de precios.
 

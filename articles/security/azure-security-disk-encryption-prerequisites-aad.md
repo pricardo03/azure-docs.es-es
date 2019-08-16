@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7226e10140cba768486a770237f61fce8598f58
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609922"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726248"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Requisitos previos Azure Disk Encryption (versión anterior)
 
@@ -183,7 +183,7 @@ La [CLI de Azure 2.0](/cli/azure) es una herramienta de línea de comandos para 
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Flujo de trabajo de requisitos previos de Key Vault y la aplicación de Azure AD
 
-Si ya está familiarizado con los requisitos previos de Key Vault y Azure AD para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para más información sobre el uso del script de requisitos previos, vea la [guía de inicio rápido de cifrado de una máquina virtual](fundamentals/quick-encrypt-vm-powershell.md) y el [apéndice de Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Si ya está familiarizado con los requisitos previos de Key Vault y Azure AD para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para más información sobre el uso del script de requisitos previos, vea [Apéndice de Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Cree un almacén de claves. 
 2. Configure una aplicación de Azure AD y una entidad de servicio.

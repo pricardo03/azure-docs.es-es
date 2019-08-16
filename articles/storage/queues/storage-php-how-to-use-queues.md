@@ -1,21 +1,19 @@
 ---
 title: Uso de Queue Storage de PHP- Azure Storage
 description: Aprenda a usar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: article
-ms.date: 01/11/2018
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 01/11/2018
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951198"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721442"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,14 +21,14 @@ ms.locfileid: "65951198"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Azure Queue Storage. Los ejemplos están escritos mediante clases de la [biblioteca de cliente de Azure Storage para PHP][download]. Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Azure Queue Storage. Los ejemplos se escriben mediante clases de la [biblioteca cliente de Azure Storage para PHP][download]. Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Azure Queue Storage es que el código haga referencia a clases de la [biblioteca de cliente de Azure Storage para PHP][download]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Azure Queue Storage es que el código haga referencia a clases de la [biblioteca cliente de Azure Storage para PHP][download]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
 En esta guía, usará funciones del servicio Queue Storage a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
@@ -52,7 +50,7 @@ En esta guía, usará funciones del servicio Queue Storage a las que se puede ll
     php composer.phar install
     ```
 
-También puede ir a la [biblioteca de cliente de PHP de Azure Storage][download] en GitHub para clonar el código fuente.
+También puede ir a la [biblioteca cliente de PHP de Azure Storage][download] en GitHub para clonar el código fuente.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento en cola
 Para usar las API de almacenamiento en cola de Azure, necesitará:

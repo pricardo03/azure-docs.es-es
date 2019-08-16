@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 78afec75269876c309b2c324d8a5973fd5ebf9a8
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234019"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773039"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.
@@ -145,6 +145,8 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 
     > [!TIP]
     > Utilice la misma cuenta de usuario que ha especificado el paso anterior ("kinit").
+    >
+    > Si la máquina virtual no puede unirse al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/

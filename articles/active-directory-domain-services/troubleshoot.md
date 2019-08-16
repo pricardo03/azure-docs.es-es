@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472278"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772986"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
@@ -147,6 +147,9 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **Cuentas de solo nube**: Si la cuenta de usuario afectada es una cuenta de usuario solo para la nube, asegúrese de que el usuario ha cambiado su contraseña después de habilitar Azure AD Domain Services. Este paso hace que se generen los hash de credenciales necesarios para los Servicios de dominio de Azure AD
+* **Verifique que la cuenta de usuario está activa**: Si la cuenta de un usuario está bloqueada, no podrá iniciar sesión hasta que la cuenta vuelva a estar activa. Tras escribir una contraseña incorrecta del dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente.
+  * Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloqueará en el dominio administrado de Azure AD Domain Services. Compruebe el estado de la cuenta de usuario mediante la consola de administración de Active Directory (ADAC) para el dominio administrado de Azure AD DS, no en Azure AD.
+  * También puede [configurar directivas de contraseña específica que cambien el umbral y la duración de bloqueo predeterminados](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Hay una o varias alertas en el dominio administrado
 

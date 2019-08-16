@@ -4,20 +4,23 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: db754adbe60acfa155400910c47de556db793eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beae89b3f8e21e2f56a1dbf2090b7a612ed5cab0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968900"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815117"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de Cassandra API de Azure Cosmos DB con plantillas de Azure Resource Manager
 
 ## Crear una cuenta, un espacio de claves y una tabla de Azure Cosmos <a id="create-resource"></a>
 
 Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para Cassandra API con dos tablas que compartirán el rendimiento de 400 RU/s en el nivel de espacio de claves. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
+
+> [!NOTE]
+> Los nombres de las cuentas deben estar en minúsculas y deben tener 31 caracteres o menos.
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 

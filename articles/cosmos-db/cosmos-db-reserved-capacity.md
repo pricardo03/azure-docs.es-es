@@ -4,15 +4,15 @@ description: Aprenda a comprar capacidad reservada de Azure Cosmos DB para ahorr
 author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b74fcc2e08f02be7adeeab4cfee5f36d5194392c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508636"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779860"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -53,12 +53,12 @@ El tamaño de la reserva debe basarse en la cantidad total de rendimiento que us
    |Campo  |DESCRIPCIÓN  |
    |---------|---------|
    |Ámbito   |   Opción que controla el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/>  Si selecciona **Compartido**, el descuento de la reserva se aplica a las instancias de Azure Cosmos DB que se ejecutan en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la capacidad reservada.  |
-   |Subscription  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos por adelantado. El tipo de suscripción debe ser uno de los siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
+   |Subscription  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos por adelantado. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | Grupo de recursos | Grupo de recursos al que se aplica el descuento de capacidad reservada. |
    |Término  |   Un año o tres años.   |
    |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de arquitectura multimaestro por hora.|
    | Unidades de capacidad reservada| La cantidad de rendimiento que quiere reservar. Puede calcular este valor si determina el rendimiento necesario para todos los recursos de Cosmos DB (por ejemplo, las bases de datos o contenedores) por región. A continuación, multiplique esa cifra por el número de regiones que asociará a la base de datos de Cosmos DB. Por ejemplo:  Si tiene cinco regiones con un millón de RU/s en todas las regiones, seleccione cinco millones de RU/s para la compra de capacidad de reserva. |
- 
+
 
 5. Después de rellenar el formulario, se calcula el precio necesario para comprar la capacidad reservada. La salida también muestra el porcentaje de descuento que se obtiene con las opciones seleccionadas. A continuación, haga clic en **Seleccionar**.
 
@@ -72,9 +72,11 @@ Después de comprar una reserva, se aplica inmediatamente a cualquier recurso de
 
 Cuando expira la reserva, las instancias de Azure Cosmos DB se siguen ejecutando y se facturan según las tarifas habituales de pago por uso.
 
-## <a name="cancellation-and-exchanges"></a>Cancelaciones e intercambios
+## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Para ayudar a identificar la capacidad reservada adecuada, consulte [Aplicación del descuento por reserva a Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Si necesita cancelar o intercambiar una reserva de Azure Cosmos DB, consulte [Cambios de reservas y reembolsos](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Para ayudar a identificar la capacidad reservada adecuada, consulte [Aplicación del descuento por reserva a Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

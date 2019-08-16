@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377333"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814450"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -125,7 +125,7 @@ El la función de ejemplo siguiente se desencadena y se ejecuta cada cinco minut
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,7 +225,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
-|**schedule**|**ScheduleExpression**|Una [expresión CRON](#cron-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%** , como en este ejemplo: "%ScheduleAppSetting%". |
+|**schedule**|**ScheduleExpression**|Una [expresión CRON](#ncrontab-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%** , como en este ejemplo: "%ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** muy pocas veces, si acaso, se debe establecer en `true`, especialmente en producción. |
 |**useMonitor**|**useMonitor**|Establezca esta propiedad en `true` o `false` para indicar si la programación se debe supervisar. La supervisión de la programación conserva las apariciones de programación para ayudar a garantizar que la programación se mantiene correctamente aunque las instancias de aplicación de función se reinicien. Si no se establece explícitamente, el valor predeterminado es `true` para las programaciones que tienen un intervalo de periodicidad suprior a 1 minuto. Para las programaciones que se desencadenan más de una vez por minuto, el valor predeterminado es `false`.
 
@@ -253,9 +253,9 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 La propiedad `IsPastDue` es `true` cuando la invocación de función actual es posterior a la programada. Por ejemplo, un reinicio de aplicación de función podría provocar la ausencia de una invocación.
 
-## <a name="cron-expressions"></a>Expresiones CRON 
+## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB 
 
-Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar expresiones CRON. Una expresión CRON incluye seis campos:
+Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar las expresiones NCRONTAB. Una expresión NCRONTAB es similar a una expresión CRON excepto en que incluye un sexto campo adicional al comienzo para usarlo con una precisión de segundos:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Ejemplos CRON
+### <a name="ncrontab-examples"></a>Ejemplos de NCRONTAB
 
-Estos son algunos ejemplos de expresiones CRON que puede usar para el desencadenador de temporizador en Azure Functions.
+Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desencadenador de temporizador en Azure Functions.
 
 |Ejemplo|Cuándo se desencadena  |
 |---------|---------|
@@ -284,25 +284,24 @@ Estos son algunos ejemplos de expresiones CRON que puede usar para el desencaden
 |`"0 30 9 * * *"`|A las 9:30 a. m. todos los días|
 |`"0 30 9 * * 1-5"`|A las 9:30 a. m. cada día de la semana|
 |`"0 30 9 * Jan Mon"`|A las 9:30 a. m. todos los lunes en enero|
->[!NOTE]   
->Puede encontrar ejemplos de expresiones CRON en línea, pero muchas de ellas omiten el campo `{second}`. Si copia información de uno de ellos, agregue el campo que falta, `{second}`. Por lo general querrá un cero en ese campo, no un asterisco.
 
-### <a name="cron-time-zones"></a>Zonas horarias CRON
+
+### <a name="ncrontab-time-zones"></a>Zonas horarias de NCRONTAB
 
 Los números de una expresión CRON hacen referencia a una hora y fecha, no un intervalo de tiempo. Por ejemplo, un 5 en el campo `hour` hace referencia a las 5:00 a. m., no a cada 5 horas.
 
 La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073) (Índice de zona horaria de Microsoft). 
 
-Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10 a.m. (Hora estándar), use la siguiente expresión CRON que representa la zona horaria UTC:
+Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10:00 a.m. (Hora estándar), use la siguiente expresión NCRONTAB que representa la zona horaria UTC:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-O bien, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, utilice la siguiente expresión CRON: 
+O bien, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, usa la expresión NCRONTAB siguiente: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 Si usa `WEBSITE_TIME_ZONE`, la hora se ajusta a los cambios de hora de la zona horaria en cuestión como, por ejemplo, al horario de verano. 

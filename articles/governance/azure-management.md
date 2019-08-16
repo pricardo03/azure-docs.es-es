@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608200"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780794"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Información general de los servicios de administración de Azure
 
@@ -40,7 +40,7 @@ La automatización de estas tareas permite eliminar la redundancia, reducir el t
 ## <a name="govern"></a>Control
 
 La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure. Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.
-En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos. Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
+En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos. Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos. [Azure Cost Management](../cost-management/overview-cost-mgt.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
 
 ## <a name="secure"></a>Seguridad
 

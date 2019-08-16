@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido de Bash en Azure Cloud Shell | Microsoft Docs
-description: Guía de inicio rápido para Bash en Cloud Shell
+title: Inicio rápido para Azure Cloud Shell | Microsoft Docs
+description: Inicio rápido para Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199624"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741985"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guía de inicio rápido para Bash en Azure Cloud Shell
 

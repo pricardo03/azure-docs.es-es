@@ -8,23 +8,23 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799399"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815654"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
-Video Indexer admite la segmentación de vídeos en unidades temporales basadas en propiedades estructurales y semánticas. Esta funcionalidad permite a los clientes examinar, administrar y editar fácilmente su contenido de vídeo en función de distintas granularidades. Por ejemplo, según las escenas, los cortes y los fotogramas clave, como se describe en este tema. La característica de **detección de escenas** está actualmente en versión preliminar.   
+Video Indexer admite la segmentación de vídeos en unidades temporales basadas en propiedades estructurales y semánticas. Esta funcionalidad permite a los clientes examinar, administrar y editar fácilmente su contenido de vídeo en función de distintas granularidades. Por ejemplo, según las escenas, los cortes y los fotogramas clave, como se describe en este tema.   
 
 ![Escenas, capturas y fotogramas clave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
-
-## <a name="scene-detection-preview"></a>Detección de caras (versión preliminar)
-
+ 
+## <a name="scene-detection"></a>Detección de escenas  
+ 
 Video Indexer determina cuándo cambia una escena en el vídeo según indicaciones visuales. Una escena representa un evento único y se compone de una serie de cortes consecutivos, que están semánticamente relacionadas. Una vista en miniatura de la escena es el primer fotograma clave de su captura subyacente. Video Indexer segmenta un vídeo en escenas según la coherencia de color entre cortes consecutivos y recupera la hora de comienzo y final de cada escena. La detección de escenas se considera una tarea complicada ya que supone cuantificar los aspectos semánticas de los vídeos.
 
 > [!NOTE]

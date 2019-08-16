@@ -8,21 +8,32 @@ ms.custom: experiment-luis-0519
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/25/2019
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 63a898bd807b168ae17ec90e442c6ee6c001c715
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a7f64a07378b5ef0085fe77018d6b202984bc1a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559887"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945823"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
 
 ## <a name="release-notes"></a>Notas de la versión 
+
+### <a name="july-23-2019"></a>23 de julio de 2019
+
+* Actualización de [Recognizers-Text](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3) a 1.2.3
+    * Reconocedores de edad, temperatura, dimensión y moneda en italiano.
+    * Mejora en el reconocimiento de festividades en inglés para calcular correctamente las fechas basadas en el Día de Acción de Gracias.
+    * Mejoras en DateTime en francés para reducir los falsos positivos de entidades que no son de fecha y hora.
+    * Compatibilidad con el año natural, escolar o fiscal y acrónimos en DateRange en inglés.
+    * Reconocimiento de PhoneNumber mejorado en chino y japonés.
+    * Compatibilidad mejorada con NumberRange en inglés.
+    * Mejoras en el rendimiento.
 
 ### <a name="june-24-2019"></a>24 de junio de 2019
 

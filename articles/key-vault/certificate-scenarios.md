@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2581106466f7d84cc694cd47d4ba02e40bf60b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427841"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815762"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -39,7 +39,7 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 -   La incorporación como administrador de TI, administrador de PKI o cualquiera que administre las cuentas con entidades de certificación para una empresa determinada (p. ej. Contoso) es un requisito previo para usar los certificados de Key Vault.  
     Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault:  
     -   DigiCert: Key Vault ofrece certificados SSL OV con DigiCert.  
-    -   Globaltrust: Key Vault ofrece certificados SSL OV con Globaltrust.  
+    -   GlobalSign: Key Vault ofrece certificados SSL OV con GlobalSign.  
 
 **Paso 2**: un administrador de la cuenta del proveedor de la entidad de certificación crea las credenciales que utilizará Key Vault para la inscripción, la renovación y el uso de certificados SSL mediante Key Vault.
 

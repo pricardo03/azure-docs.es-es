@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254732"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774693"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -50,6 +50,7 @@ Vea el ejemplo específico del lenguaje:
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -212,6 +213,57 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
+
+En el ejemplo siguiente se muestra cómo leer un mensaje de cola de ServiceBus a través de un desencadenador.
+
+Un enlace de ServiceBus se define en *function.json*, donde *type* se establece en `serviceBusTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+El código de *_\_init_\_.py* declara un parámetro como `func.ServiceBusMessage`, que permite leer el mensaje de la cola en la función.
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
+```
+
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
 Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un desencadenador de Service Bus:
@@ -278,7 +330,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBusTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el mensaje de cola o tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
 |**queueName**|**QueueName**|Nombre de la cola que se debe supervisar.  Se establece únicamente si se supervisa una cola, no un tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
@@ -367,6 +419,7 @@ Vea el ejemplo específico del lenguaje:
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
@@ -557,6 +610,56 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="output---python-example"></a>Salida: ejemplo de Python
+
+En el ejemplo siguiente se muestra cómo escribir en una cola de ServiceBus en Python.
+
+Una definición de enlace de ServiceBue se define en *function.json*, donde *type* se establece en `serviceBus`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "queueName": "outqueue"
+    }
+  ]
+}
+```
+
+En *_\_init_\_.py*, puede escribir un mensaje en la cola pasando un valor al método `set`.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
 ## <a name="output---attributes"></a>Salida: atributos
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
@@ -594,7 +697,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBus". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa la cola o el tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
 |**queueName**|**QueueName**|Nombre de la cola.  Se establece únicamente si se envían mensajes de cola, no de tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se envían mensajes de tema, no de cola.|

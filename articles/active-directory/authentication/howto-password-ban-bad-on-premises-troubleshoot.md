@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666233"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779621"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
@@ -32,7 +32,7 @@ La causa habitual de este problema es que no se ha registrado aún un proxy. Si 
 
 El síntoma principal de este problema son eventos 30018 en el registro de eventos de administración del agente de controlador de dominio. Este problema puede deberse a varias causas:
 
-1. El agente de controlador de dominio se encuentra en una parte aislada de la red que no permite la conectividad de red con el proxy registrado. Este problema, por tanto, puede ser benigno siempre que otros agentes de controlador de dominio puedan comunicarse con el proxy con el fin de descargar las directivas de contraseñas de Azure, que se obtendrán mediante el controlador de dominio aislado a través de la replicación de los archivos de directivas en el recurso compartido sysvol.
+1. El agente de controlador de dominio se encuentra en una parte aislada de la red que no permite la conectividad de red con el proxy registrado. Este problema puede ser inofensivo siempre que otros agentes de controlador de dominio se puedan comunicar con el proxy para descargar las directivas de contraseña de Azure. Una vez descargadas, el controlador de dominio aislado obtendrá dichas directivas a través de la replicación de los archivos de las directivas en el recurso compartido Sysvol.
 
 1. El equipo host de proxy está bloqueando el acceso para el punto de conexión del mapeador del punto de conexión de RPC (puerto 135)
 
@@ -70,6 +70,8 @@ La causa más común de que el servicio KDS no se pueda iniciar es que el objeto
 
 Este problema puede tener varias causas.
 
+1. Los agentes de controlador de dominio ejecutan una versión de software de versión preliminar pública que ha expirado. Consulte [El software de los agentes de controlador de dominio de versión preliminar pública expiró](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
+
 1. Sus agentes de controlador de dominio no pueden descargar una directiva o no pueden descifrar las directivas existentes. Busque posibles causas en los temas anteriores.
 
 1. El modo Exigir de la directiva de contraseñas sigue establecido en Auditoría. Si esta configuración está aplicada, vuelva a configurarla en Exigir con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Cuando protección de contraseña de Azure AD registra los eventos del registro de eventos de validación de contraseñas para una contraseña de DSRM de Active Directory, se espera que los mensajes del registro de eventos no incluyan un nombre de usuario. Esto ocurre porque la cuenta de DSRM es una cuenta local que no forma parte del dominio de Active Directory real.  
+Cuando protección de contraseña de Azure AD registra los eventos del registro de eventos de validación de contraseñas para una contraseña de DSRM de Active Directory, se espera que los mensajes del registro de eventos no incluyan un nombre de usuario. Este comportamiento se produce porque la cuenta de DSRM es una cuenta local que no forma parte del dominio de Active Directory real.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>No se puede realizar la promoción de la réplica del controlador de dominio debido a una contraseña de DSRM no segura
 
@@ -119,7 +121,67 @@ Una vez que se ha realizado correctamente la degradación y el controlador de do
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Arranque en el modo de reparación de servicios de directorio
 
-Si el controlador de dominio se inicia en el modo de reparación de servicios de directorio, el servicio del agente de controlador de dominio detecta esta anomalía y hará que se deshabiliten todas las actividades de validación de contraseñas o de aplicación de estas, independientemente de la configuración de directivas activa actualmente.
+Si el controlador de dominio se inicia en el modo de reparación de servicios de directorio, la DLL de filtro de contraseña del agente de controlador de dominio detecta esta anomalía y hará que se deshabiliten todas las actividades de validación de contraseñas o de aplicación de estas, independientemente de la configuración de directivas activa actualmente. La DLL de filtro de contraseña del agente de controlador de dominio registrará un evento de advertencia 10023 en el registro de eventos de administración, por ejemplo:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>El software de los agentes de controlador de dominio de versión preliminar pública expiró
+
+Durante el período de versión preliminar de Protección con contraseña de Azure AD, el software de agente de controlador de dominio estaba codificado de forma rígida para dejar de procesar las solicitudes de validación de contraseñas en las fechas siguientes:
+
+* La versión 1.2.65.0 dejará de procesar las solicitudes de validación de contraseñas el 1 de septiembre de 2019.
+* La versión 1.2.25.0 y versiones anteriores dejaron de procesar las solicitudes de validación de contraseñas el 1 de julio de 2019.
+
+A medida que se aproxima la fecha límite, todas las versiones de agentes de controlador de dominio con límite de tiempo emitirán un evento 10021 en el registro de eventos de administración del agente de controlador de dominio durante el arranque que tienen un aspecto similar al siguiente:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+Cuando se ha pasado la fecha límite, todas las versiones de agentes de controlador de dominio con límite de tiempo emitirán un evento 10022 en el registro de eventos de administración del agente de controlador de dominio durante el arranque que tienen un aspecto similar al siguiente:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Como la fecha límite solo se comprueba en el arranque inicial, es posible que no vea estos eventos hasta mucho después de la fecha límite. Una vez conocido el plazo, no se producirán efectos negativos ni en el controlador de dominio ni en el entorno más grande, salvo que todas las contraseñas se aprobarán de manera automática.
+
+> [!IMPORTANT]
+> Microsoft recomienda que los agentes de controlador de dominio de la versión preliminar pública expirados se actualicen de inmediato a la versión más reciente.
+
+Una manera sencilla de detectar un agente de controlador de dominio en un entorno que se debe actualizar es mediante la ejecución del cmdlet `Get-AzureADPasswordProtectionDCAgent`, por ejemplo:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+En este tema, el campo SoftwareVersion obviamente es la propiedad de clave que se debe examinar. También puede usar el filtrado de PowerShell para filtrar los agentes de controlador de dominio que ya tienen la versión de línea de base necesaria o una versión superior, por ejemplo:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Ninguna versión del software de proxy de Protección con contraseña de Azure AD tiene límite de tiempo. Microsoft sigue recomendando que tanto los agentes de controlador de dominio como los de proxy se actualicen a las versiones más recientes a medida que se lanzan. El cmdlet `Get-AzureADPasswordProtectionProxy` se puede usar para buscar los agentes de proxy que requieren actualizaciones, similar a lo que sucede en el ejemplo anterior para los agentes de controlador de dominio.
+
+Consulte [Actualización del agente de controlador de dominio](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) y [Actualización del agente proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para más detalles sobre procedimientos de actualización específicos.
 
 ## <a name="emergency-remediation"></a>Corrección de emergencia
 

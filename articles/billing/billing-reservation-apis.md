@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478932"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779901"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
 
@@ -84,7 +84,7 @@ Si ve que las reservas de su organización están siendo usadas por debajo de su
 - Asegúrese de que las máquinas virtuales que crea su organización coincidan con el tamaño de la máquina virtual que se encuentra en la reserva.
 - Asegúrese de que la flexibilidad de tamaño de instancia esté activada. Para obtener más información, consulte [Administrar reservas: cambiar la configuración de optimización para instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Cambie el ámbito de la reserva para que sea compartido y así poder aplicarlo de manera más amplia. Para obtener más información, consulte [Administrar reservas: cambio del ámbito de una reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Cambie la cantidad que no haya usado. Para obtener más información, consulte [Administrar reservas: cancelaciones y cambios](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Cambie la cantidad que no haya usado. Para más información, consulte [Administración de reservas](billing-manage-reserved-vm-instance.md).
 
 ## <a name="give-access-to-reservations"></a>Dar acceso a las reservas
 

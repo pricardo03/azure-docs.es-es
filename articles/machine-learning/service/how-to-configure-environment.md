@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668476"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772699"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -72,11 +72,11 @@ La máquina virtual de cuadernos se distingue por ser un elemento:
 
   Si le interesa el código, la máquina virtual incluye tutoriales y ejemplos que le ayudarán a obtener información sobre el uso de Azure Machine Learning Service. Los cuadernos de ejemplo se almacenan en la cuenta de Azure Blob Storage del área de trabajo, de modo que pueden compartirse entre máquinas virtuales. Cuando se ejecutan, también tienen acceso a los almacenes de datos y recursos de proceso del área de trabajo.
 
-+ **Configuración simple**. Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Configuración simple**. Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
 + **Personalizable**. Aunque es una oferta de máquina virtual administrada y segura, usted conservará el acceso completo a las capacidades de hardware y podrá personalizarlo todo lo que quiera. Por ejemplo, puede crear rápidamente una máquina virtual con la tecnología NVidia V100 más reciente para llevar a cabo la depuración paso a paso de la novedosa arquitectura de red neuronal.
 
-[Detenga la máquina virtual de cuadernos](quickstart-run-cloud-notebook.md#stop-the-notebook-vm) para dejar de incurrir en cargos por su uso.
+[Detenga la máquina virtual de cuadernos](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm) para dejar de incurrir en cargos por su uso. 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

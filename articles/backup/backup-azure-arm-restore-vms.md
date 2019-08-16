@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 126e33d4bedb56eb479361f16c02e7e167e49392
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688759"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736691"
 ---
-# <a name="restore-azure-vms"></a>Restauración de máquinas virtuales de Azure
+# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
 En este artículo se describe cómo restaurar los datos de una máquina virtual de Azure a partir de los puntos de recuperación almacenados en los almacenes de [Azure Backup](backup-overview.md) Recovery Services.
 
@@ -112,7 +112,8 @@ Como una de las [opciones de restauración](#restore-options), puede crear un di
 
 4. En **Restaurar configuración**, seleccione **Aceptar**. En **Restaurar**, haga clic en **Restaurar** para desencadenar la operación de restauración.
 
-Durante la restauración de la máquina virtual, Azure Backup no usa la cuenta de almacenamiento. Pero, para **restaurar discos** y realizar una **restauración instantánea**, se usa la cuenta de almacenamiento para almacenar la plantilla.
+Cuando la máquina virtual usa discos administrados y selecciona la opción **Crear máquina virtual**, Azure Backup no usa la cuenta de almacenamiento especificada. En el caso de **Restaurar discos** y **Restauración instantánea**, la cuenta de almacenamiento solo se usa para almacenar la plantilla. Los discos administrados se crean en el grupo de recursos especificado.
+Cuando la máquina virtual usa discos no administrados, se restauran como blobs en la cuenta de almacenamiento.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Uso de plantillas para personalizar una máquina virtual restaurada
 
@@ -163,7 +164,7 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 **Máquinas virtuales ancladas por zona** | Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales ancladas por zona. [Más información](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
-Una vez que se desencadene la operación de restauración, el servicio de copia de seguridad crea un trabajo para realizar su seguimiento. Azure Backup muestra las notificaciones sobre el trabajo en el portal. Si no aparecen, haga clic en el símbolo de **notificaciones** para verlas.
+Una vez que se desencadene la operación de restauración, el servicio de copia de seguridad crea un trabajo para realizar su seguimiento. Azure Backup muestra las notificaciones sobre el trabajo en el portal. Si no están visibles, seleccione el símbolo **Notificaciones** y luego elija **Ver todos los trabajos** para ver el estado del proceso de restauración.
 
 ![Restauración desencadenada](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

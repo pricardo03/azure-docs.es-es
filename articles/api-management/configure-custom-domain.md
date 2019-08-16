@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326136"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736251"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -40,17 +40,19 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
 
 1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com/).
-1. Seleccione **Dominios personalizados y SSL**.
+1. Seleccione **Dominios personalizados**.
 
     Hay varios puntos de conexión a los que puede asignar un nombre de dominio personalizado. En la actualidad, están disponibles los siguientes:
 
-    - **Proxy** (el valor predeterminado es `<apim-service-name>.azure-api.net`),
+    - **Puerta de enlace** (el valor predeterminado es `<apim-service-name>.azure-api.net`),
     - **Portal** (el valor predeterminado es `<apim-service-name>.portal.azure-api.net`),
     - **Management** (el valor predeterminado es `<apim-service-name>.management.azure-api.net`),
     - **SCM** (el valor predeterminado es `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Proxy** (esta dirección URL se utiliza para llamara a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador). Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado. En la mayoría de los casos, solo se puede establecer un nombre de dominio personalizado para un punto de conexión dado. Sin embargo, el nivel **premium** admite la configuración de varios nombres de host para el punto de conexión **Proxy**.
+    > Solo el punto de conexión **Puerta de enlace** está disponible para la configuración en el nivel Consumo.
+    > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Puerta de enlace** (esta dirección URL se utiliza para llamar a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador).
+    > Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado. El nivel **Premium** admite la configuración de varios nombres de host para el punto de conexión **Puerta de enlace**.
 
 1. Seleccione el punto de conexión que desee actualizar.
 1. En la ventana de la derecha, haga clic en **Personalizar**.

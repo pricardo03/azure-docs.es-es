@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325128"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742321"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server
 
@@ -39,7 +39,7 @@ SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Clúst
 SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Creación de reflejo (modo de alto rendimiento)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | El tiempo necesario para forzar el servicio, que utiliza el servidor reflejado como servidor en espera semiactiva. | La replicación es asincrónica. La base de datos reflejada puede retrasarse un poco respecto a la base de datos principal. El retraso suele ser pequeño. Pero puede ser grande si el sistema de la entidad de seguridad o del servidor reflejado están sobrecargados.<br/><br/>El trasvase de registros puede ser un complemento a la creación de reflejo de la base de datos. Es una alternativa favorable a la creación de reflejo de la base de datos asincrónica.
 SQL como plataforma como servicio (PaaS) en Azure.<br/><br/>Este tipo de implementación incluye grupos elásticos y servidores de Azure SQL Database. | Replicación geográfica activa | 30 segundos después de que se desencadene la conmutación por error.<br/><br/>Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal. | RPO de cinco segundos.<br/><br/>La replicación geográfica activa usa la tecnología Always On de SQL Server. Esta permite replicar de forma asincrónica las transacciones confirmadas en la base de datos principal a una base de datos secundaria mediante el aislamiento de instantánea.<br/><br/>Se garantiza que los datos secundarios nunca tengan transacciones parciales.
 SQL como PaaS configurado con replicación geográfica activa en Azure.<br/><br/>Este tipo de implementación incluye una instancia administrada de SQL Database, grupos elásticos y servidores de SQL Database. | Grupos de conmutación por error automática | RTO de una hora. | RPO de cinco segundos.<br/><br/>Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa. Pero se usa el mismo mecanismo de replicación asincrónico.
-SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| Replicación con Azure Site Recovery | El RTO es normalmente de menos de 15 minutos. Para más información, lea el [contrato de nivel de servicio de RTO proporcionado por Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Una hora para la coherencia de la aplicación y cinco minutos para la coherencia de bloqueo.
+SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| Replicación con Azure Site Recovery | El RTO es normalmente de menos de 15 minutos. Para más información, lea el [contrato de nivel de servicio de RTO proporcionado por Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Una hora para la coherencia de la aplicación y cinco minutos para la coherencia de bloqueo. Si busca un RPO más bajo, use otras tecnologías BCDR.
 
 > [!NOTE]
 > Estas son algunas consideraciones importantes al proteger las cargas de trabajo SQL con Site Recovery:

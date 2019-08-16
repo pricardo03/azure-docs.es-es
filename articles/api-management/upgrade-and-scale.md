@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408860"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774938"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
@@ -66,6 +66,10 @@ Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cam
 4. Especifique el número de **unidades** que desea agregar. Puede utilizar el control deslizante o escribir directamente el número.  
     Si selecciona el nivel **Premium**, primero tendrá que seleccionar una región.
 5. Presione **Save**(Guardar).
+
+## <a name="downtime-during-scaling-up-and-down"></a>Tiempo de inactividad durante el escalado y reducción vertical
+Si va a escalar desde o hasta el nivel Desarrollador, habrá tiempo de inactividad. De lo contrario, no hay tiempo de inactividad. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

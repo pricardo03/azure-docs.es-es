@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302348"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815723"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning Service
 
@@ -45,7 +45,7 @@ Ajuste automáticamente los hiperparámetros explorando el intervalo de valores 
 
 ### <a name="types-of-hyperparameters"></a>Tipos de hiperparámetros
 
-Cada hiperparámetro puede ser discreto o continuo.
+Cada hiperparámetro puede ser discreto o continuo y tiene una distribución de valores que se describe con una [expresión de parámetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Hiperparámetros discretos 
 
@@ -129,7 +129,7 @@ El [muestreo bayesiano](https://docs.microsoft.com/python/api/azureml-train-core
 
 Cuando se usa el muestreo bayesiano, el número de ejecuciones simultáneas tiene un efecto sobre la eficacia del proceso de ajuste. Normalmente, un menor número de ejecuciones simultáneas puede provocar una mejor convergencia de muestreo, dado que el menor grado de paralelismo aumenta el número de ejecuciones que se benefician de las ejecuciones completadas previamente.
 
-El muestreo bayesiano solo admite distribuciones `choice` y `uniform` en el espacio de búsqueda. 
+El muestreo bayesiano solo admite las distribuciones `choice`, `uniform` y `quniform` en el espacio de búsqueda.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-En este ejemplo, se aplica la directiva de terminación anticipada en cada intervalo, comenzando en el intervalo de evaluación 5. Una ejecución se terminará en el intervalo 5 si su rendimiento en este intervalo se encuentra en el 20% del rendimiento más bajo de todas las ejecuciones en el intervalo 5.
+En este ejemplo, se aplica la directiva de terminación anticipada en cada intervalo, comenzando en el intervalo de evaluación 5. Una ejecución se terminará en el intervalo 5 si su rendimiento en este intervalo se encuentra en el 20 % del rendimiento más bajo de todas las ejecuciones en el intervalo 5.
 
 ### <a name="no-termination-policy"></a>Sin directiva de terminación
 
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-En este código se configura un experimento de ajuste de hiperparámetros para usar un máximo de 20 ejecuciones totales, de forma tal que se ejecutan 4 configuraciones al mismo tiempo.
+En este código se configura un experimento de ajuste de hiperparámetros para usar un máximo de 20 ejecuciones totales, de forma tal que se ejecutan cuatro configuraciones al mismo tiempo.
 
 ## <a name="configure-experiment"></a>Configuración del experimento
 

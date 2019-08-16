@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780535"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736797"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -102,7 +102,7 @@ Los planes de servicio compatibles incluyen:
 - Microsoft Stream
 - Evaluación gratuita de Dynamics 365
 
-La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office o la SKU de Office Basic. También puede usar la opción [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio del inquilino no administrado y comprobarlo en el inquilino deseado. Esta opción no moverá usuarios ni mantendrá el acceso a la suscripción. Solo mueve el nombre de dominio. 
+La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office. También puede usar la opción [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio del inquilino no administrado y comprobarlo en el inquilino deseado. Esta opción no moverá usuarios ni mantendrá el acceso a la suscripción. Solo mueve el nombre de dominio. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Más información acerca de RMS para individuos
 

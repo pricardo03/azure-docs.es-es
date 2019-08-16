@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60522558"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734700"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
 En este artículo se describe cómo programar el inicio y la detención de Azure-SSIS Integration Runtime (IR) mediante Azure Data Factory (ADF). Azure-SSIS IR es un recurso de proceso de ADF dedicado a la ejecución de paquetes de SQL Server Integration Services (SSIS). La ejecución de Azure-SSIS IR lleva asociado un costo. Por lo tanto, normalmente es preferible ejecutar la instancia de IR solo cuando haya que ejecutar paquetes SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario o la aplicación de ADF, o Azure PowerShell, para [iniciar o detener manualmente la instancia de IR](manage-azure-ssis-integration-runtime.md).
@@ -346,6 +346,8 @@ En la siguiente sección se ofrecen los pasos para la creación de un runbook de
     
 7. Repita los dos pasos anteriores, pero utilice **STOP** como valor de **OPERATION**. Inicie de nuevo el runbook seleccionando el botón **Iniciar** en la barra de herramientas. Escriba los nombres del grupo de recursos, la instancia de ADF y la instancia de Azure-SSIS IR. En **OPERATION** (Operación), escriba **STOP** (Detener). En la ventana de salida, espere hasta ver el mensaje **### Completed ###** (Completado) después de ver **### Stopping###** (Deteniendo). No se tarda tanto en detener Azure-SSIS IR como en iniciarlo. Cierre la ventana **Trabajo** y vuelva a la ventana **Runbook**.
 
+8. También puede desencadenar el runbook a través de un webhook que se puede crear seleccionando el elemento de menú **Webhooks** o según una programación que se pueda crear seleccionando el elemento de menú **Programaciones** tal como se especifica a continuación.  
+
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creación de programaciones para que el runbook inicie o detenga Azure-SSIS IR
 
 En la sección anterior, ha creado un runbook de Azure Automation que puede iniciar o detener Azure-SSIS IR. En esta sección, va a crear dos programaciones para el runbook. Al configurar la primera programación, especifique **START** para **OPERATION**. De igual forma, al configurar la segunda programación, especifique **STOP** para **OPERATION**. Para ver el procedimiento detallado para crear programaciones, consulte el artículo [Creación de una programación](../automation/shared-resources/schedules.md#creating-a-schedule).
@@ -380,7 +382,7 @@ En la sección anterior, ha creado un runbook de Azure Automation que puede inic
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea la siguiente entrada de blog:
--   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/) (Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de ADF)
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370) (Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de ADF)
 
 Consulte los siguientes artículos de la documentación de SSIS: 
 

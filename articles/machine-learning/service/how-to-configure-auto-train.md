@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479789"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742301"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -40,7 +40,7 @@ Si prefiere una experiencia sin código, también puede [crear experimentos de a
 
 Antes de comenzar el experimento, debe determinar el tipo de problema de aprendizaje automático que va a resolver. El aprendizaje automático automatizado admite tipos de tareas de clasificación, regresión y previsión.
 
-El aprendizaje automático automatizado admite los siguientes algoritmos durante el proceso de optimización y automatización. Como usuario, no hay ninguna necesidad de especificar el algoritmo. 
+El aprendizaje automático automatizado admite los siguientes algoritmos durante el proceso de optimización y automatización. Como usuario, no hay ninguna necesidad de especificar el algoritmo.
 
 clasificación | Regresión | Previsión de series temporales
 |-- |-- |--
@@ -104,7 +104,7 @@ A continuación se muestra un ejemplo del uso de `datastore`:
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ A continuación se muestra un ejemplo del uso de `datastore`:
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>Definición de las referencias de dprep
+### <a name="define-dprep-references"></a>Definición de las referencias de dprep
 
 Defina X e y como referencia de dprep, que se pasará a un objeto automatizado `AutoMLConfig` de aprendizaje automático similar al siguiente:
 
@@ -122,8 +122,8 @@ Defina X e y como referencia de dprep, que se pasará a un objeto automatizado `
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a> Configuración de conjuntos
+
+Los modelos de conjunto están habilitados de forma predeterminada y aparecen como las iteraciones de ejecución finales en una ejecución automatizada de aprendizaje automático. Los métodos de conjunto admitidos actualmente son votación y apilamiento. La votación se implementa como un voto blando mediante promedios ponderados y la implementación de apilamiento usa una implementación de dos niveles, donde el primer nivel tiene los mismos modelos que el conjunto de votación y el segundo modelo de nivel se usa para encontrar la combinación óptima de los modelos del primer nivel. Si usa modelos de ONNX **o** tiene habilitada la explicación del modelo, el apilamiento se deshabilitará y solo se utilizará la votación.
+
+Hay varios argumentos predeterminados que se pueden proporcionar como `kwargs` en un objeto `AutoMLConfig` para modificar el comportamiento predeterminado del conjunto de pila.
+
+* `stack_meta_learner_type`: el metaaprendizaje es un modelo entrenado en la salida de los modelos heterogéneos individuales. Los metaaprendizajes predeterminados son `LogisticRegression` para las tareas de clasificación (o `LogisticRegressionCV` si está habilitada la validación cruzada) y `ElasticNet` para las tareas de regresión y predicción (o `ElasticNetCV` si está habilitada la validación cruzada). Este parámetro puede ser una de las cadenas siguientes: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
+* `stack_meta_learner_train_percentage`: especifica la proporción del conjunto de entrenamiento (al elegir entrenar y el tipo de validación de entrenamiento) que se va a reservar para entrenar el metaaprendizaje. El valor predeterminado es `0.2`.
+* `stack_meta_learner_kwargs`: parámetros opcionales que se van a pasar al inicializador del metaaprendizaje. Estos parámetros y tipos de parámetro reflejan los del constructor del modelo correspondiente y se reenvían a dicho constructor.
+
+En el código siguiente se muestra un ejemplo de cómo especificar el comportamiento del conjunto personalizado en un objeto `AutoMLConfig`.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+El entrenamiento de conjunto está habilitado de forma predeterminada, pero se puede deshabilitar mediante los parámetros booleanos `enable_voting_ensemble` y `enable_stack_ensemble`.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>Ejecutar experimento
 
-Para una instancia automatizada de Machine Learning, deberá crear un objeto `Experiment`, que es objeto con nombre en un objeto `Workspace` que se usa para ejecutar experimentos.
+Para una instancia automatizada de Machine Learning, se crea un objeto `Experiment`, que es un objeto con nombre en un objeto `Workspace` que se usa para ejecutar experimentos.
 
 ```python
 from azureml.core.experiment import Experiment

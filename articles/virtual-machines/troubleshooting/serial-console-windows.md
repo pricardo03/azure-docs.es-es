@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: e76fcd937f85ce3b1c156cf2f3dabb8ca95b9b68
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710562"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775359"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -128,7 +128,7 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
 
 1.  Escriba `cmd` para crear un canal que contenga una instancia de CMD.
 
-1.  Escriba `ch -si 1` para cambiar al canal que está ejecutando la instancia de CMD.
+1.  Escriba `ch -si 1` o presione las teclas de método abreviado `<esc>+<tab>` para cambiar al canal que ejecuta la instancia de CDM.
 
 1.  Presione **Entrar** y, a continuación, escriba las credenciales de inicio de sesión con permisos administrativos.
 

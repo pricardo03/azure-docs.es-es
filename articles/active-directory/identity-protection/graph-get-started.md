@@ -11,20 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f939811bec312baa1f4c37f0f915d2e881121af
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1640511c2f97865f5026f9f977ed0e4a9c03e338
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334080"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774370"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 
-Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Hay tres API que exponen información acerca de los usuarios e inicios de sesión con riesgo. La primera API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](../reports-monitoring/concept-risk-events.md) así como información asociada. La segunda API, **riskyUsers**, permite consultar Microsoft Graph, para obtener información acerca de qué usuarios ha detectado Identity Protection como un riesgo. La tercera API, **signIn**, permite consultar Microsoft Graph para obtener información acerca de los inicios de sesión de Azure AD con propiedades concretas relacionadas con el estado, detalle y nivel del riesgo. En este artículo se le introduce a la conexión a Microsoft Graph y a la consulta de estas API. Para obtener una introducción más detallada, ver toda la documentación y acceder al Probador de Graph, diríjase al [sitio web de Microsoft Graph](https://graph.microsoft.io/) o consulte la documentación de referencia específica de estas API:
+Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Hay cuatro API que exponen información acerca de los usuarios e inicios de sesión con riesgo. La primera API, **riskDetection**, permite consultar Microsoft Graph para obtener una lista de las detecciones de riesgo vinculado de usuario e inicio de sesión y la información asociada sobre la detección. La segunda API, **riskyUsers**, permite consultar Microsoft Graph, para obtener información acerca de qué usuarios ha detectado Identity Protection como un riesgo. La tercera API, **signIn**, permite consultar Microsoft Graph para obtener información acerca de los inicios de sesión de Azure AD con propiedades concretas relacionadas con el estado, detalle y nivel del riesgo. La cuarta API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](../reports-monitoring/concept-risk-events.md) así como información asociada. En este artículo se le introduce a la conexión a Microsoft Graph y a la consulta de estas API. Para obtener una introducción más detallada, ver toda la documentación y acceder al Probador de Graph, diríjase al [sitio web de Microsoft Graph](https://graph.microsoft.io/) o consulte la documentación de referencia específica de estas API:
 
-* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 
 ## <a name="connect-to-microsoft-graph"></a>Conexión con Microsoft Graph
 
@@ -194,6 +195,14 @@ Solo tiene que agregar el identificador de cliente, la clave secreta y el domini
 ## <a name="query-the-apis"></a>Consulta de las API
 
 Estas tres API ofrecen una gran cantidad de oportunidades para recuperar información acerca de los usuarios e inicios de sesión de riesgo en su organización. A continuación se muestran algunos casos de uso comunes de estas API y las solicitudes de ejemplo asociadas. Para ejecutar puede usar el código de ejemplo anterior, o el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer).
+
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Obtener todas las detecciones de riesgo sin conexión (riskDetection API)
+
+Con las directivas de riesgo de inicio de sesión de Identity Protection, puede aplicar condiciones cuando se detecta riesgo en tiempo real. Pero ¿qué ocurre con las detecciones que se detectan sin conexión (o no en tiempo real)? Para comprender qué detecciones se han producido sin conexión y, por lo tanto, no habrían desencadenado la directiva de riesgo de inicio de sesión, puede consultar riskDetection API.
+
+```
+GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+```
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Obtención de eventos de riesgo medio y riesgo elevado (identityRiskEvents API)
 

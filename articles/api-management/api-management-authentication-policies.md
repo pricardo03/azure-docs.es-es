@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca9bd4964cf190eaa2be6d66d57c7ada971d675
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442401"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774973"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -83,64 +83,73 @@ En este ejemplo, el certificado de cliente se identifica mediante su huella digi
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
 En este ejemplo, el certificado de cliente se identifica mediante el nombre de recurso.
-```xml
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+```  
+
+### <a name="elements"></a>Elementos  
+  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
+|----------|-----------------|--------------|  
+|authentication-certificate|Elemento raíz.|Sí|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|----------|-----------------|--------------|-------------|  
+|thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
+|certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
+  
+### <a name="usage"></a>Uso  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+  
+-   **Secciones de la directiva:** inbound (entrada)  
+  
+-   **Ámbitos de la directiva:** todos los ámbitos  
+
+##  <a name="ManagedIdentity"></a> Autenticación con una identidad administrada  
+ Use la directiva `authentication-managed-identity` para autenticarse con un servicio de back-end mediante la identidad administrada del servicio de API Management. En esencia, esta directiva usa la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. Después de obtener el token correctamente, la Directiva establecerá el valor del token en el `Authorization` encabezado mediante el esquema `Bearer`.
+  
+### <a name="policy-statement"></a>Instrucción de la directiva  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Ejemplo  
+#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Uso de una identidad administrada para autenticación con un servicio back-end
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net"/> 
+```
+  
+#### <a name="use-managed-identity-in-send-request-policy"></a>Uso de una identidad administrada en una directiva send-request
+```xml  
+<send-request mode="new" timeout="20" ignore-error="false">
+    <set-url>https://example.com/</set-url>
+    <set-method>GET</set-method>
+    <authentication-managed-identity resource="ResourceID"/>
+</send-request>
 ```
 
-### <a name="elements"></a>Elementos
-
-|NOMBRE|DESCRIPCIÓN|Obligatorio|
-|----------|-----------------|--------------|
-|authentication-certificate|Elemento raíz.|Sí|
-
-### <a name="attributes"></a>Atributos
-
-|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|----------|-----------------|--------------|-------------|
-|thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|
-|certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|
-
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
-
--   **Secciones de la directiva:** inbound (entrada)
-
--   **Ámbitos de la directiva:** todos los ámbitos
-
-##  <a name="ManagedIdentity"></a> Autenticación con una identidad administrada
- Use la directiva `authentication-managed-identity` para autenticarse con un servicio de back-end mediante la identidad administrada del servicio de API Management. Esta directiva usa eficazmente la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado.
-
-### <a name="policy-statement"></a>Instrucción de la directiva
-
-```xml
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>
-```
-
-### <a name="example"></a>Ejemplo
-
-```xml
-<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" />
-```
-
-### <a name="elements"></a>Elementos
-
-|NOMBRE|DESCRIPCIÓN|Obligatorio|
-|----------|-----------------|--------------|
-|authentication-managed-identity |Elemento raíz.|Sí|
-
-### <a name="attributes"></a>Atributos
-
-|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|----------|-----------------|--------------|-------------|
-|resource|String. URI del identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|
-|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`.|Sin|N/D|
-|ignore-error|Booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|Sin|false|
-
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
-
--   **Secciones de la directiva:** inbound (entrada)
-
+### <a name="elements"></a>Elementos  
+  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |Elemento raíz.|Sí|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|----------|-----------------|--------------|-------------|  
+|resource|String. URI del identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|  
+|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`. |Sin|N/D|  
+|ignore-error|Booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|Sin|false|  
+  
+### <a name="usage"></a>Uso  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+  
+-   **Secciones de la directiva:** inbound (entrada)  
+  
 -   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="next-steps"></a>Pasos siguientes

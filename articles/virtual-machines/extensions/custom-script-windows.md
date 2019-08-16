@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 8487b8477b1837fce0b1c2c6435174c48dfbded4
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478421"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774580"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -55,6 +55,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite abrir pu
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
 * La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*.
 * Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlar esta situación.
+* La extensión de script personalizado se ejecutará con la cuenta LocalSystem
 
 ## <a name="extension-schema"></a>Esquema de extensión
 

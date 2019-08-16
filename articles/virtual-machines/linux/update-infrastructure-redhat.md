@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 2add03d68b00fb18fb4323a6acd04480b3770c1c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efc76616151776bc2f766f92ff9503413c6037d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708415"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774283"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -97,6 +97,11 @@ Ejecute lo siguiente comando como raíz:
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
 
+1. Configuración de la máquina virtual RHEL
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+    
 1. Actualización de la máquina virtual de RHEL
     ```bash
     sudo yum update

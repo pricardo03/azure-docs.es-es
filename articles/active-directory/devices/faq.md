@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499795"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706313"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
+
+## <a name="general-faq"></a>Preguntas más frecuentes generales
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien, ¿por qué el propietario del dispositivo está marcado como N/D para los dispositivos unidos a Azure Active Directory (Azure AD) híbrido?
 
@@ -39,6 +41,11 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 
 - En dispositivos Windows 10 y Windows Server 2016 o posteriores, ejecute `dsregcmd.exe /status`.
 - En las versiones anteriores del sistema operativo, ejecute `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
+
+**R:** Para consultar información sobre solución de problemas, vea los artículos:
+- [Solución de problemas de dispositivos mediante el comando dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
+- [Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +72,8 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 **R:** Esta operación es así por diseño. En este caso, el dispositivo no tiene acceso a los recursos en la nube. Los administradores pueden realizar esta acción en dispositivos obsoletos, perdidos o robados para evitar el acceso no autorizado. Si esta acción se realiza de forma no intencionada, deberá volver a habilitar o volver a registrar el dispositivo, tal y como se describe a continuación.
 
 - Si el dispositivo se deshabilitó en Azure AD, un administrador con suficientes privilegios puede habilitarlo desde el portal de Azure AD.  
+  > [!NOTE]
+  > Si va a sincronizar dispositivos mediante Azure AD Connect, los dispositivos unidos a Azure AD híbrido se volverán a habilitar automáticamente durante el siguiente ciclo de sincronización. Por lo tanto, si necesita deshabilitar un dispositivo unido a Azure AD híbrido, debe deshabilitarlo de la instancia de AD local.
 
  - Si el dispositivo se elimina en Azure AD, debe volver a registrar el dispositivo. Para volver a registrar el dispositivo, deberá realizar algunas acciones manualmente en él. Consulte a continuación las instrucciones para volver a registrar en función del estado del dispositivo. 
 
@@ -114,20 +123,30 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 
 **P: ¿Por qué un usuario puede tener acceso a recursos desde un dispositivo que deshabilité en Azure Portal?**
 
-**R:** Una revocación tarda hasta una hora en aplicarse.
+**R:** La revocación tarda hasta una hora en aplicarse desde el momento en el que el dispositivo de Azure AD se marca como deshabilitado.
 
 >[!NOTE] 
 >En el caso de los dispositivos inscritos, se recomienda que borre los datos del dispositivo para asegurarse de que los usuarios no pueden acceder a los recursos. Para obtener más información, consulte [¿Qué es la inscripción de dispositivos?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>P: ¿Por qué hay dispositivos marcados como "Pendientes" en la columna REGISTRADO en Azure Portal?
+
+**R.** :  Pendiente indica que el dispositivo no está registrado. Este estado indica que un dispositivo se ha sincronizado con Azure AD Connect desde la instancia de AD local y está listo para el registro de dispositivos. Estos dispositivos tienen el TIPO DE UNIÓN establecido en "Unidos a Azure AD híbrido". Para más información, consulte [Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>Un dispositivo también puede pasar de tener un estado registrado a "Pendiente".
+>* Si se elimina un dispositivo de Azure AD primero y se vuelve a sincronizar desde AD local.
+>* Si un dispositivo se quita de un ámbito de sincronización en Azure AD Connect y se vuelve a agregar.
+>
+>En ambos casos, debe volver a registrar el dispositivo manualmente en cada uno de estos dispositivos. Para revisar si el dispositivo se registró anteriormente, puede [solucionar problemas de los dispositivos mediante el comando dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
 ## <a name="azure-ad-join-faq"></a>P+F de unión a Azure AD
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?
 
-**R:** 
-- En el caso de los dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático. De esta forma, la tarea programada no registrará el dispositivo de nuevo. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien ejecute este comando como un script en varios dispositivos para separarlos de forma masiva.
-- Para los dispositivos unidos a Azure AD puro, asegúrese de tener una cuenta de administrador local sin conexión o cree una. No podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y luego **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para finalizar el proceso de separación.
+**R:** Para los dispositivos unidos a Azure AD puro, asegúrese de tener una cuenta de administrador local sin conexión o cree una. No podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y luego **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para finalizar el proceso de separación.
 
 ---
 
@@ -223,6 +242,10 @@ Este comportamiento:
 
 ## <a name="hybrid-azure-ad-join-faq"></a>P+F de unión a Azure AD híbrido
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>P: ¿Cómo se separa un dispositivo unido a Azure AD híbrido localmente en el dispositivo?
+
+**R:** En el caso de los dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático. De esta forma, la tarea programada no registrará el dispositivo de nuevo. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien ejecute este comando como un script en varios dispositivos para separarlos de forma masiva.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>P: ¿Dónde puedo encontrar información de solución de problemas para diagnosticar errores de unión a Azure AD híbrido?
 
 **R:** Para consultar información sobre solución de problemas, vea los artículos:
@@ -234,7 +257,7 @@ Este comportamiento:
 
 **R:** Cuando los usuarios agregan sus cuentas a las aplicaciones en un dispositivo unido a un dominio, se les puede preguntar si quieren **agregarla a Windows**. Si indican que **Sí** en la ventana, el dispositivo se registra con Azure AD. El tipo de confianza se marca como registrado en Azure AD. Después de que habilite la unión de Azure AD híbrido en una organización, el dispositivo también se une con Azure AD híbrido. De esta forma, se muestran dos estados para el mismo dispositivo. 
 
-La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Azure AD. Por tanto, el dispositivo se considera con unión a Azure AD híbrido para cualquier autenticación y evaluación de acceso condicional. Puede eliminar sin problemas el registro de dispositivos registrados en Azure AD desde el portal de Azure AD. Aprenda a [evitar o borrar los dos estados en el equipo de Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Azure AD. Por tanto, el dispositivo se considera con unión a Azure AD híbrido para cualquier autenticación y evaluación de acceso condicional. Puede eliminar sin problemas el registro de dispositivos registrados en Azure AD desde el portal de Azure AD. Aprenda a [evitar o borrar los dos estados en el equipo de Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -258,10 +281,19 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 
 ## <a name="azure-ad-register-faq"></a>P+F de registro de Azure AD
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>P: ¿Cómo se quita un dispositivo registrado en Azure AD localmente en el dispositivo?
+
+**R:** 
+- Para los dispositivos registrados en Azure AD Windows 10 vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y luego **Desconectar**. El registro de dispositivos es por perfil de usuario en Windows 10.
+- Para iOS y Android, puede usar **Configuración** > **Registro de dispositivos** la aplicación Microsoft Authenticator configuración y seleccionar **Anular registro del dispositivo** .
+- Para macOS, puede usar la aplicación Portal de empresa de Microsoft Intune para anular la inscripción del dispositivo desde la administración y quitar cualquier registro. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>P: ¿Puedo registrar los dispositivos BYOD de Android o iOS?
 
 **R:** Sí, pero solo con el servicio de registro de dispositivos de Azure y para clientes híbridos. No es compatible con el servicio de registro de dispositivos local en los servicios de federación de Active Directory (AD FS).
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>P: ¿Cómo puedo registrar un dispositivo macOS?
 
 **R:** Siga estos pasos.
@@ -274,6 +306,7 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 - Los usuarios incluidos en la directiva de acceso condicional necesitan una [versión admitida de Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para acceder a los recursos. 
 - Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de la empresa.
 
+---
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre los [dispositivos registrados en Azure AD](concept-azure-ad-register.md).

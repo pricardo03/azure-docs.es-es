@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 62d9319ae292c9f4ae22f8fcd83bdd8799dc6617
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b4622321dc25025eb2f7752755490eb5bc105069
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480271"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741781"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service para Azure Functions
 
@@ -280,14 +280,15 @@ En el ejemplo siguiente se agrega un usuario a un grupo.
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
         });
@@ -302,19 +303,23 @@ En el ejemplo siguiente se quita a un usuario de un grupo.
 [FunctionName("removeFromGroup")]
 public static Task RemoveFromGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Remove
         });
 }
 ```
+
+> [!NOTE]
+> Para obtener `ClaimsPrincipal` correctamente enlazado, debe haber definido la configuración de autenticación en Azure Functions.
 
 ### <a name="2x-javascript-send-message-output-examples"></a>Ejemplos de salida de envío de mensajes de JavaScript 2.x
 

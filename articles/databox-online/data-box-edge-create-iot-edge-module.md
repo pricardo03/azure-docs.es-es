@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64680895"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775174"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge
 
@@ -140,11 +140,11 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Agregue la clase **MessageBody** a la clase Program. Estas clases definen el esquema esperado para el cuerpo de los mensajes entrantes.
+4. Agregue la clase **FileEvent** para definir el cuerpo del mensaje.
 
     ```
     /// <summary>
-    /// The MessageBody class defines the expected schema for the body of incoming messages. 
+    /// The FileEvent class defines the body of incoming messages. 
     /// </summary>
     private class FileEvent
     {

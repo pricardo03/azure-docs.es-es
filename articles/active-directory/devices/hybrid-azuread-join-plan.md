@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562127"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779454"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -111,12 +111,18 @@ Estos escenarios no requieren que se configure un servidor de federación para l
 
 ### <a name="federated-environment"></a>Entorno federado
 
-Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes:
+Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes. Si tiene un entorno federado en que se utilizan los Servicios de federación de Active Directory (AD FS), ya se admiten los requisitos anteriores.
 
-- **Protocolo WS-Trust:** Este protocolo es necesario para autenticar en Azure AD los dispositivos Windows actuales unidos a Azure AD híbrido.
 - **Notificación WIAORMULTIAUTHN:** Esta notificación es necesaria para realizar la unión a Azure AD híbrido para dispositivos Windows de nivel inferior.
+- **Protocolo WS-Trust:** Este protocolo es necesario para autenticar en Azure AD los dispositivos Windows actuales unidos a Azure AD híbrido. Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust: `/adfs/services/trust/2005/windowstransport`  
+`/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-Si tiene un entorno federado en que se utilizan los servicios de federación de Active Directory (AD FS), ya se admiten los requisitos anteriores.
+> [!WARNING] 
+> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
 
 > [!NOTE]
 > Azure AD no admite tarjetas inteligentes ni certificados en dominios administrados.
@@ -130,7 +136,7 @@ Según el escenario que coincida con la infraestructura de identidad, consulte l
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisión del soporte de UPN de AD local para la unión a Azure AD híbrido
 
-A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
+A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
 
 - UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
 - UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.

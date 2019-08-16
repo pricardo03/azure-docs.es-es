@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620744"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780460"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Búsqueda de amenazas con Azure Sentinel, versión preliminar
 
@@ -41,7 +41,7 @@ Con la función de búsqueda de Azure Sentinel, puede aprovechar las siguientes 
 
 - Lenguaje de consulta eficaz con IntelliSense: se basa en un lenguaje de consulta que le reporta la flexibilidad que necesita para llevar la búsqueda al siguiente nivel.
 
-- Creación de marcadores propios: durante el proceso de búsqueda, puede encontrar coincidencias, hallazgos, paneles o actividades que tienen un aspecto sospechoso o poco usual. A fin de marcar esos elementos de forma que se pueda volver a ellos en el futuro, utilice la funcionalidad de marcador. Los marcadores permiten guardar los elementos para usarlos más adelante para crear un caso de investigación. Para obtener más información sobre los marcadores, vea el tema sobre el uso de marcadores de búsqueda.
+- Creación de marcadores propios: durante el proceso de búsqueda, puede encontrar coincidencias, hallazgos, paneles o actividades que tienen un aspecto sospechoso o poco usual. A fin de marcar esos elementos de forma que se pueda volver a ellos en el futuro, utilice la funcionalidad de marcador. Los marcadores permiten guardar los elementos para usarlos más adelante para crear un incidente de investigación. Para obtener más información sobre los marcadores, vea el tema sobre el uso de marcadores de búsqueda.
 
 - Uso de cuadernos para automatizar la investigación: los cuadernos son cuadernos de estrategias pormenorizados que se pueden crear para recorrer paso a paso un proceso investigación y de búsqueda.  Los cuadernos aglutinan todos los pasos de búsqueda en un cuaderno de estrategias reutilizable que se puede compartir con otras personas de la organización. 
 - Consulta de los datos almacenados: los datos están accesibles en las tablas para que se puedan consultar. Así, por ejemplo, se puede consultar la creación de procesos, los eventos DNS y otros muchos tipos de eventos.

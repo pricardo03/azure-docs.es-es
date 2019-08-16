@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9d19441b2f2202573086a711c202d4b36bbee5fa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846146"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774291"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -143,7 +143,7 @@ En la pestaña **Redes**, configure las opciones de las red.
 
 En la pestaña **Supervisión**, configurar la supervisión y el apagado automático. 
 
-* De forma predeterminada, Azure habilita la **supervisión de arranque** con la misma cuenta de almacenamiento que se designó para la máquina virtual. Estos valores se pueden cambiar aquí, pero también se puede habilitar **Diagnósticos del SO invitado** . 
+* De forma predeterminada, Azure habilita los **diagnósticos de arranque** con la misma cuenta de almacenamiento que se designó para la máquina virtual. Estos valores se pueden cambiar aquí, pero también se puede habilitar **Diagnósticos del SO invitado** . 
 * En esta pestaña también se pueden habilitar **Identidad administrada asignada por el sistema** y **parada automática**. 
 
 ![Configuración de administración de máquina virtual SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)

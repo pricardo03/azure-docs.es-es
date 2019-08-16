@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382045"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774790"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creación de certificados para permitir el back-end con Azure Application Gateway
 
@@ -73,7 +73,7 @@ Desde el certificado SSL, exporte el archivo .cer de clave pública (no la clave
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportación del certificado raíz de confianza (para SKU v2)
 
-Se requiere un certificado raíz de confianza para permitir las instancias de back-end de la SKU v2 de Application Gateway. El certificado raíz es un certificado raíz en formato X.509 codificado en base 64 (.CER) de los certificados de servidor de back-end. En este ejemplo, se usará un certificado SSL para el certificado de back-end y se exportará su clave pública. Luego, se exportará el certificado raíz de la CA de confianza desde la clave pública en formato codificado en Base 64 para obtener el certificado raíz de confianza. 
+El certificado raíz de confianza es necesario para incluir en la lista de permitidos las instancias de back-end de la SKU v2 de Application Gateway. El certificado raíz es un certificado raíz en formato X.509 codificado en base 64 (.CER) de los certificados de servidor de back-end. En este ejemplo, se usará un certificado SSL como certificado de back-end, se exportará su clave pública y, luego, se exportará el certificado raíz de la entidad de certificación de confianza de la clave pública en formato codificado en Base 64 para obtener el certificado raíz de confianza. Los certificados intermedios se deben agrupar con un certificado de servidor e instalar en el servidor de back-end.
 
 Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado:
 
@@ -105,4 +105,5 @@ Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora tiene el certificado de autenticación y el certificado raíz de confianza en formato X.509 codificado en Base 64 (.CER). Puede agregarlos a la puerta de enlace de aplicaciones para permitir los servidores back-end para el cifrado SSL de un extremo a otro. Consulte [cómo configurar el cifrado SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Ahora tiene el certificado de autenticación y el certificado raíz de confianza en formato X.509 codificado en Base 64 (.CER). Puede agregarlos a la puerta de enlace de aplicaciones para incluir en la lista de permitidos los servidores back-end para el cifrado SSL de un extremo a otro. Consulte [cómo configurar el cifrado SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

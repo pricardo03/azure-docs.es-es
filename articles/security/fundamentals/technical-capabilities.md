@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 8d1018f307948ea3ed5551b610c299aaa13e8116
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611383"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934597"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -52,7 +53,7 @@ Azure le ayuda a proteger información empresarial y personal permitiéndole adm
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube, para lo que se habilitan más niveles de validación, tales como las directivas de autenticación multifactor y de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) proporciona un inicio de sesión único para miles de aplicaciones en la nube y acceso a aplicaciones web que se ejecutan de forma local.
+Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube, para lo que se habilitan más niveles de validación, tales como las directivas de autenticación multifactor y de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) proporciona un inicio de sesión único para miles de aplicaciones en la nube y acceso a aplicaciones web que se ejecutan de forma local.
 
 Entre las ventajas en materia de seguridad de Azure Active Directory (Azure AD) se incluye la capacidad de:
 
@@ -90,19 +91,19 @@ Las siguientes son las principales funcionalidades de administración de identid
 
 Muchas organizaciones confían en el modelo de software como servicio (SaaS), como Office 365, Box y Salesforce para la productividad del usuario final. Tradicionalmente, el personal de TI tenía que crear y actualizar individualmente cuentas de usuario en cada aplicación SaaS y los usuarios tenían que recordar una contraseña para cada aplicación SaaS.
 
-[Azure AD extiende Active Directory local a la nube](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), permitiendo a los usuarios usar su cuenta profesional principal no solo para iniciar sesión en sus dispositivos unidos a dominios y recursos de la empresa, sino también en todas las aplicaciones web y SaaS necesarias para su trabajo.
+[Azure AD extiende Active Directory local a la nube](../../active-directory/manage-apps/what-is-single-sign-on.md), permitiendo a los usuarios usar su cuenta profesional principal no solo para iniciar sesión en sus dispositivos unidos a dominios y recursos de la empresa, sino también en todas las aplicaciones web y SaaS necesarias para su trabajo.
 
-Los usuarios no solo no tienen que administrar varios conjuntos de nombres de usuario y contraseñas, sino que es posible aprovisionar o cancelar el aprovisionamiento del acceso a las aplicaciones automáticamente en función de los grupos de la organización y de su estado de empleado. [Azure AD introduce controles de seguridad y de gobernanza del acceso](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) que permiten administrar de forma centralizada el acceso de los usuarios a través de aplicaciones SaaS.
+Los usuarios no solo no tienen que administrar varios conjuntos de nombres de usuario y contraseñas, sino que es posible aprovisionar o cancelar el aprovisionamiento del acceso a las aplicaciones automáticamente en función de los grupos de la organización y de su estado de empleado. [Azure AD introduce controles de seguridad y de gobernanza del acceso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) que permiten administrar de forma centralizada el acceso de los usuarios a través de aplicaciones SaaS.
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) es un método de autenticación que requiere el uso de más de un método de verificación, y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. [MFA ayuda a proteger](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
+[Azure Multi-factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) es un método de autenticación que requiere el uso de más de un método de verificación, y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. [MFA ayuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Supervisión de seguridad, alertas e informes basados en aprendizaje automático
 
 La supervisión y las alertas de seguridad, así como los informes basados en el aprendizaje automático que identifican patrones de acceso incoherentes, puede ayudarle a proteger su negocio. Puede usar los informes de acceso y uso de Active Directory de Azure para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización. Con esta información, un administrador de directorios puede determinar mejor dónde puede haber posibles riesgos de seguridad de modo que pueda planear adecuadamente la mitigación de estos riesgos.
 
-En Azure Portal o a través del [portal de Azure Active Directory](https://aad.portal.azure.com/), los [informes](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) se clasifican de la manera siguiente:
+En Azure Portal o a través del [portal de Azure Active Directory](https://aad.portal.azure.com/), los [informes](../../active-directory/active-directory-reporting-azure-portal.md) se clasifican de la manera siguiente:
 
 - Informes de anomalías: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
 
@@ -118,19 +119,19 @@ En Azure Portal o a través del [portal de Azure Active Directory](https://aad.p
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) es un servicio de administración de identidades global y de alta disponibilidad para aplicaciones orientadas al consumidor que se puede utilizar con cientos de millones de identidades. Se puede integrar en plataformas móviles y web. Los consumidores pueden iniciar sesión en todas sus aplicaciones con una experiencia totalmente personalizable, usando sus cuentas de las redes sociales o mediante credenciales nuevas.
 
-En el pasado, los desarrolladores de aplicaciones que deseaban [registrar e iniciar la sesión de los consumidores](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) en sus aplicaciones tenían que escribir su propio código. Y usaban bases de datos o sistemas locales para almacenar nombres de usuario y contraseñas. Azure Active Directory B2C ofrece a su organización una manera mejor de integrar la administración de identidades de consumidor en las aplicaciones gracias a la ayuda de una plataforma segura basada en estándares y un amplio conjunto de directivas extensibles.
+En el pasado, los desarrolladores de aplicaciones que deseaban [registrar e iniciar la sesión de los consumidores](../../active-directory-b2c/active-directory-b2c-overview.md) en sus aplicaciones tenían que escribir su propio código. Y usaban bases de datos o sistemas locales para almacenar nombres de usuario y contraseñas. Azure Active Directory B2C ofrece a su organización una manera mejor de integrar la administración de identidades de consumidor en las aplicaciones gracias a la ayuda de una plataforma segura basada en estándares y un amplio conjunto de directivas extensibles.
 
 El uso de Azure Active Directory B2C permite a los consumidores registrarse en las aplicaciones con sus cuentas de redes sociales existentes (Facebook, Google, Amazon, LinkedIn) o creando nuevas credenciales (dirección de correo electrónico y contraseña o nombre de usuario y contraseña).
 
 #### <a name="device-registration"></a>Registro de dispositivos
 
-El [Registro de dispositivos de Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) es la base de los escenarios de [acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional a las aplicaciones que se hospedan en la nube y en el entorno local.
+El [Registro de dispositivos de Azure AD](../../active-directory/devices/overview.md) es la base de los escenarios de [acceso condicional](../../active-directory/devices/overview.md) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional a las aplicaciones que se hospedan en la nube y en el entorno local.
 
 Cuando se combina con una solución de [administración de dispositivos móviles (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) como Intune, los atributos del dispositivo en Azure Active Directory se actualizan con información adicional sobre este. Esto le permite crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento.
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[Privileged Identity Management de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) le permite administrar, controlar y supervisar las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
+[Privileged Identity Management de Azure Active Directory (AD)](../../active-directory/privileged-identity-management/pim-configure.md) le permite administrar, controlar y supervisar las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
 
 A veces, los usuarios necesitan llevar a cabo operaciones con privilegios en recursos de Azure u Office 365 o en otras aplicaciones SaaS. Esto significa a menudo que las organizaciones tienen que concederles acceso con privilegios permanentes en Azure AD. Esto representa un riesgo de seguridad creciente para los recursos hospedados en la nube porque las organizaciones no pueden supervisar suficientemente qué hacen esos usuarios con sus privilegios administrativos. Además, si se pone en peligro una cuenta de usuario que tiene acceso con privilegios, esta situación podría afectar a su seguridad en la nube global. Administración de identidades con privilegios de Azure AD le ayuda a resolver este riesgo.
 
@@ -146,7 +147,7 @@ Azure AD Privileged Identity Management le permite:
 
 #### <a name="identity-protection"></a>Protección de identidad
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) es un servicio de seguridad que proporciona una vista consolidada de eventos de riesgo y puntos vulnerables que afectan a las identidades de su organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure Active Directory (disponibles mediante informes de actividad anómala de Azure AD) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) es un servicio de seguridad que proporciona una vista consolidada de eventos de riesgo y puntos vulnerables que afectan a las identidades de su organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure Active Directory (disponibles mediante informes de actividad anómala de Azure AD) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
 
 ## <a name="secure-resource-access"></a>Protección del acceso a los recursos
 
@@ -156,7 +157,7 @@ El control de acceso de Azure se inicia desde una perspectiva de facturación. E
 
 Las suscripciones también tienen una asociación con un directorio. El directorio define un conjunto de usuarios. Pueden ser usuarios de una cuenta profesional o educativa que crearon el directorio, o bien pueden ser usuarios externos (es decir, Cuentas Microsoft). Las suscripciones son accesibles por un subconjunto de esos usuarios del directorio que se han asignado como administrador de servicios (SA) o coadministrador (CA); la única excepción es que, por razones heredadas, las Cuentas de Microsoft (antes Windows Live ID) pueden asignarse como SA o CA sin estar presentes en el directorio.
 
-Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al [control de acceso basado en roles (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
+Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al [control de acceso basado en roles (RBAC) de Azure](../../role-based-access-control/overview.md), podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
 
 ![Acceso protegido a los recursos](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -205,11 +206,11 @@ Considere el tipo de almacenes que está empleando para almacenar los datos. Por
 
 En cada almacén que use, aproveche la compatibilidad ya existente con el cifrado en reposo.
 
-- Azure Storage: Consulte [Azure Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption)
+- Azure Storage: Consulte [Azure Storage Service Encryption para datos en reposo](../../storage/common/storage-service-encryption.md)
 
 - SQL Azure: Consulte [Cifrado de datos transparente (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
-- Almacenamiento en máquina virtual y disco local ([Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
+- Almacenamiento en máquina virtual y disco local ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
 
 Para el almacenamiento en máquina virtual y disco local use Azure Disk Encryption allí donde sea compatible:
 
@@ -239,7 +240,7 @@ Cuando el cifrado en reposo incluye el cifrado de host, datos de infraestructura
 
 Los servicios que implementan el cifrado en reposo aún se muestran vulnerables a las claves de cifrado o a los datos que se dejan sin cifrar en la unidad del host (por ejemplo, en el archivo de paginación del sistema operativo del host). Por tanto, tales servicios deben asegurarse de que todo el volumen del host destinado a estos está cifrado. Para facilitar este proceso, el equipo de Compute ha habilitado la implementación del cifrado del host, que usa [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP y extensiones al servicio y agente de DCM para cifrar el volumen del host.
 
-La mayoría de los servicios se implementa en máquinas virtuales estándar de Azure. Estos servicios deben realizar el [cifrado del host](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automáticamente cuando Compute lo habilite. Para aquellos servicios que se ejecutan en clústeres administrados de Compute, el cifrado del host se habilita de forma automática cuando se implementa Windows Server 2016.
+La mayoría de los servicios se implementa en máquinas virtuales estándar de Azure. Estos servicios deben realizar el [cifrado del host](../azure-security-disk-encryption-overview.md) automáticamente cuando Compute lo habilite. Para aquellos servicios que se ejecutan en clústeres administrados de Compute, el cifrado del host se habilita de forma automática cuando se implementa Windows Server 2016.
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 
@@ -247,9 +248,9 @@ Proteger los datos en tránsito debe ser una parte esencial de su estrategia de 
 
 Para los datos que se desplazan entre la infraestructura local y Azure, debe plantearse usar medidas de seguridad apropiadas, como HTTPS o VPN.
 
-Para las organizaciones que necesitan proteger el acceso a Azure desde varias estaciones de trabajo locales, use una [VPN de sitio a sitio de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+Para las organizaciones que necesitan proteger el acceso a Azure desde varias estaciones de trabajo locales, use una [VPN de sitio a sitio de Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
-Si la organización necesita proteger el acceso a Azure desde una estación de trabajo local, use una [VPN de punto a sitio](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+Si la organización necesita proteger el acceso a Azure desde una estación de trabajo local, use una [VPN de punto a sitio](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 Los conjuntos de datos más grandes se pueden mover por medio de un vínculo WAN dedicado de alta velocidad como [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante [SSL/TLS](https://support.microsoft.com/kb/257591) u otros protocolos para una mayor protección.
 
@@ -257,7 +258,7 @@ Si interactúa con Azure Storage a través de Azure Portal, todas las transaccio
 
 Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](https://technet.microsoft.com/library/gg195821.aspx), a la [interceptación](https://technet.microsoft.com/library/gg195641.aspx) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
 
-Para más información sobre la opción de VPN de Azure, lea el artículo [Planeamiento y diseño de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+Para más información sobre la opción de VPN de Azure, lea el artículo [Planeamiento y diseño de VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="enforce-file-level-data-encryption"></a>Aplicación del cifrado de datos a nivel de archivos
 
@@ -281,7 +282,7 @@ Las organizaciones con puntos débiles en la [clasificación de datos](https://d
 Aunque Azure se encarga de proteger la infraestructura y la plataforma en las que se ejecuta su aplicación, es responsabilidad suya proteger su propia aplicación. Es decir, debe desarrollar, implementar y administrar el código y el contenido de la aplicación de forma segura. De lo contrario, el código o el contenido de la aplicación pueden seguir siendo vulnerables frente a amenazas.
 
 ### <a name="web-application-firewall"></a>Firewall de aplicaciones web
-[Firewall de aplicaciones web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) es una característica de [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes.
+[Firewall de aplicaciones web (WAF)](../../application-gateway/waf-overview.md) es una característica de [Application Gateway](../../application-gateway/overview.md) que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes.
 
 Firewall de aplicaciones web se basa en las reglas contenidas en [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
 
@@ -302,13 +303,13 @@ Entre las vulnerabilidades web más habituales frente a las que protege el firew
 - Detección de errores de configuración comunes en aplicaciones (es decir, Apache, IIS, etc.)
 
 > [!Note]
-> Para una lista más detallada de las reglas y los mecanismos de protección, consulte el siguiente apartado sobre [conjuntos de reglas principales](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
+> Para una lista más detallada de las reglas y los mecanismos de protección, consulte el siguiente apartado sobre [conjuntos de reglas principales](../../application-gateway/waf-overview.md):
 
 Azure dispone también de varias características fáciles de usar que contribuyen a proteger el tráfico entrante y saliente de la aplicación. Azure ayuda a los clientes a proteger el código de su aplicación con funcionalidad externa para detectar vulnerabilidades en la aplicación web.
 
 - [Configurar la autenticación de Azure Active Directory en la aplicación](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
+- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
 
   - [Forzar todo el tráfico entrante a través de la conexión HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -320,44 +321,44 @@ Azure dispone también de varias características fáciles de usar que contribuy
 
 - [Examinar el código de la aplicación web en búsqueda de vulnerabilidades mediante Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Configurar la autenticación mutua de TLS para requerir certificados de cliente para conectarse a la aplicación web](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
+- [Configurar la autenticación mutua de TLS para requerir certificados de cliente para conectarse a la aplicación web](../../app-service/app-service-web-configure-tls-mutual-auth.md)
 
 - [Configurar un certificado de cliente para usarlo desde la aplicación para conectarse de forma segura a recursos externos](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [Quitar encabezados de servidor estándar para evitar que las herramientas creen huellas digitales en la aplicación](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](../../app-service/web-sites-integrate-with-vnet.md)
 
-- [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
+- [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](../../app-service/app-service-hybrid-connections.md)
 
-Azure App Service usa la misma solución antimalware que usan Azure Cloud Services y Virtual Machines. Para obtener más información al respecto, consulte nuestra [documentación sobre antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+Azure App Service usa la misma solución antimalware que usan Azure Cloud Services y Virtual Machines. Para obtener más información al respecto, consulte nuestra [documentación sobre antimalware](antimalware.md)
 
 ## <a name="secure-your-network"></a>Protección de la red
 Microsoft Azure incluye una sólida infraestructura de red que respalda sus requisitos de conectividad de aplicaciones y servicios. Es posible la conectividad de red entre recursos ubicados en Azure, entre recursos locales y hospedados en Azure y entre Internet y Azure.
 
-La [infraestructura de red de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) le permite conectar de forma segura los recursos de Azure entre sí por medio de [redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la red de nube de Azure dedicada a su suscripción. Puede conectar redes virtuales a las redes locales.
+La [infraestructura de red de Azure](../../virtual-machines/windows/infrastructure-example.md) le permite conectar de forma segura los recursos de Azure entre sí por medio de [redes virtuales](../../virtual-network/virtual-networks-overview.md). Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la red de nube de Azure dedicada a su suscripción. Puede conectar redes virtuales a las redes locales.
 
 ![Protección de la red (protección)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
-Si necesita un control de acceso de nivel de red básico (basado en la dirección IP y los protocolos TCP o UDP), puede usar [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). Un grupo de seguridad de red (NSG) es un firewall de filtrado de paquetes básico con estado que le permite controlar el acceso basado en una [5-tupla](https://www.techopedia.com/definition/28190/5-tuple).
+Si necesita un control de acceso de nivel de red básico (basado en la dirección IP y los protocolos TCP o UDP), puede usar [grupos de seguridad de red](../../virtual-network/virtual-network-vnet-plan-design-arm.md). Un grupo de seguridad de red (NSG) es un firewall de filtrado de paquetes básico con estado que le permite controlar el acceso basado en una [5-tupla](https://www.techopedia.com/definition/28190/5-tuple).
 
-Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en Azure Virtual Network. Para ello, puede configurar [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) en Azure.
+Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en Azure Virtual Network. Para ello, puede configurar [rutas definidas por el usuario](../../virtual-network/virtual-networks-udr-overview.md) en Azure.
 
 [tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet.
 
-Azure es compatible con la conectividad de vínculo WAN dedicado a su red local y a una instancia de Azure Virtual Network con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). El vínculo entre Azure y su sitio utiliza una conexión dedicada que no va por la red pública de Internet. Si su aplicación de Azure se va a ejecutar en varios centros de datos, puede utilizar [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) para enrutar las solicitudes de los usuarios de forma inteligente entre instancias de la aplicación. También puede enrutar tráfico a servicios que no se ejecuten en Azure si se puede obtener acceso a ellos desde Internet.
+Azure es compatible con la conectividad de vínculo WAN dedicado a su red local y a una instancia de Azure Virtual Network con [ExpressRoute](../../expressroute/expressroute-introduction.md). El vínculo entre Azure y su sitio utiliza una conexión dedicada que no va por la red pública de Internet. Si su aplicación de Azure se va a ejecutar en varios centros de datos, puede utilizar [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) para enrutar las solicitudes de los usuarios de forma inteligente entre instancias de la aplicación. También puede enrutar tráfico a servicios que no se ejecuten en Azure si se puede obtener acceso a ellos desde Internet.
 
 ## <a name="virtual-machine-security"></a>Seguridad de máquina virtual
 
-[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) permite implementar una amplia gama de soluciones informáticas con agilidad. Gracias a la compatibilidad con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services, puede implementar cualquier carga de trabajo y cualquier idioma en casi cualquier sistema operativo.
+[Azure Virtual Machines](../../virtual-machines/index.yml) permite implementar una amplia gama de soluciones informáticas con agilidad. Gracias a la compatibilidad con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services, puede implementar cualquier carga de trabajo y cualquier idioma en casi cualquier sistema operativo.
 
-Con Azure, puede usar [software antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas.
+Con Azure, puede usar [software antimalware](antimalware.md) de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas.
 
 Microsoft Antimalware para Azure Cloud Services y Virtual Machines es una funcionalidad de protección en tiempo real que permite identificar y eliminar virus, spyware y otro software malintencionado. Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure.
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) es una solución escalable que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
+[Azure Backup](../../backup/backup-overview.md) es una solución escalable que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
 
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
+[Azure Site Recovery](../../site-recovery/site-recovery-overview.md) ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
 
 ## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Asegurar el cumplimiento: Lista de comprobación de diligencia debida para Cloud Services
 
@@ -381,7 +382,7 @@ Además, la lista de comprobación:
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Validación de la seguridad de la infraestructura y aplicaciones de Azure
 
-Con [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security), se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure.
+Con [seguridad operativa de Azure](operational-security.md), se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure.
 
 ![validación de seguridad (detección)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
@@ -389,7 +390,7 @@ La seguridad operativa de Azure se basa en una plataforma que incorpora el conoc
 
 ### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es la solución de administración de TI para la nube híbrida. Si se usa de forma independiente o para extender la implementación existente de System Center, los registros de Azure Monitor ofrecen la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
+[Azure Monitor](../../azure-monitor/index.yml) es la solución de administración de TI para la nube híbrida. Si se usa de forma independiente o para extender la implementación existente de System Center, los registros de Azure Monitor ofrecen la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
 
 ![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
@@ -405,7 +406,7 @@ Este método permite consolidar datos de varios orígenes, por lo que puede comb
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+[Azure Security Center](../../security-center/security-center-intro.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 El Centro de seguridad analiza el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Una lista de recomendaciones le guiará por el proceso de configuración de los controles necesarios.
 
@@ -433,7 +434,7 @@ El Centro de seguridad recopila, analiza e integra automáticamente los datos de
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) proporciona punteros a la información sobre determinados tipos de recursos. Ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure (registro de actividad) como de cada recurso individual de Azure (registros de diagnóstico).
+[Azure Monitor](../../azure-monitor/overview.md) proporciona punteros a la información sobre determinados tipos de recursos. Ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure (registro de actividad) como de cada recurso individual de Azure (registros de diagnóstico).
 
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes.
 
@@ -443,7 +444,7 @@ La auditoría de la seguridad de la red es fundamental para detectar vulnerabili
 
 ### <a name="network-watcher"></a>Network Watcher
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
 
 ### <a name="storage-analytics"></a>Storage Analytics
 
@@ -451,7 +452,7 @@ La auditoría de la seguridad de la red es fundamental para detectar vulnerabili
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de devOps y tiene puntos de conexión para diversas herramientas de desarrollo.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de devOps y tiene puntos de conexión para diversas herramientas de desarrollo.
 
 Supervisa:
 
@@ -475,7 +476,7 @@ Supervisa:
 
 - **Métricas y eventos personalizados** que usted mismo escribe en el código de cliente o servidor para realizar un seguimiento de eventos empresariales, como artículos vendidos o partidas ganadas.
 
-La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite trabajar con los recursos de la solución como grupo.
+La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabajar con los recursos de la solución como grupo.
 
 Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación.
 
@@ -498,7 +499,7 @@ Administrador de recursos ofrece varias ventajas:
 - Puede aclarar la facturación de su organización viendo los costos de un grupo de recursos que compartan la misma etiqueta.
 
 > [!Note]
-> Resource Manager ofrece una nueva manera de implementar y administrar las soluciones. Si usó el anterior modelo de implementación y desea obtener más información sobre los cambios, consulte [Descripción de la implementación de Resource Manager y la implementación clásica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> Resource Manager ofrece una nueva manera de implementar y administrar las soluciones. Si usó el anterior modelo de implementación y desea obtener más información sobre los cambios, consulte [Descripción de la implementación de Resource Manager y la implementación clásica](../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348547"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729369"
 ---
 Las entradas del documento `deploymentconfig.json` se asignan a los parámetros de [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
 
@@ -24,7 +24,8 @@ Las entradas del documento `deploymentconfig.json` se asignan a los parámetros 
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Uso objetivo (en un porcentaje de 100) que el escalador automático debe intentar mantener para este servicio web. El valor predeterminado es `70`. |
 | `dataCollection` | N/D | Contiene elementos de configuración para la colección de datos. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indica si se debe habilitar la recopilación de datos del modelo para el servicio web. El valor predeterminado es `False`. |
-| `authEnabled` | `auth_enabled` | Indica si se debe habilitar la autenticación para el servicio web. El valor predeterminado es `True`. |
+| `authEnabled` | `auth_enabled` | Indica si se debe habilitar o no la autenticación mediante clave para el servicio web. `tokenAuthEnabled` y `authEnabled` no pueden ser `True`. El valor predeterminado es `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Indica si se debe habilitar o no la autenticación por tokens para el servicio web. `tokenAuthEnabled` y `authEnabled` no pueden ser `True`. El valor predeterminado es `False`. |
 | `containerResourceRequirements` | N/D | Contenedor de las entidades de CPU y memoria. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Número de núcleos de CPU que se asigna a este servicio web. El valor predeterminado es `0.1`. |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Cantidad de memoria (en GB) que se va a asignar a este servicio web. El valor predeterminado es `0.5`. |

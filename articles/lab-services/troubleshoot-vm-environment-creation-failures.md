@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410298"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774410"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs
 DevTest Labs le proporciona advertencias si un nombre de máquina no es válido o si va a infringir una directiva de laboratorio. En ocasiones, verá una `X` roja junto al estado del entorno o la máquina virtual de su laboratorio que le informará de que algo ha ido mal.  En este artículo se proporcionan algunos trucos que puede usar para buscar el problema subyacente y, con suerte, evitar el problema en el futuro.
@@ -26,6 +26,12 @@ DevTest Labs le proporciona advertencias si un nombre de máquina no es válido 
 Si utiliza Azure Portal, el primer lugar donde debe mirar es el **panel de notificaciones**.  El panel de notificaciones, disponible en la barra de comandos principal haciendo clic en el **icono de campana**, le indicará si la creación del entorno o la máquina virtual del laboratorio se ha realizado correctamente o no.  Si se produjo un error, verá el mensaje de error asociado al error de creación. Estos detalles a menudo ofrecen más información que le ayudará a resolver el problema. En el ejemplo siguiente, la máquina virtual no se pudo crear debido a la falta de núcleos. El mensaje detallado le indica cómo corregir el problema y solicitar un aumento de cuota de núcleos.
 
 ![Notificación de Azure Portal](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+
+### <a name="vm-in-corruption-state"></a>Máquina virtual en estado dañado
+Si ve el estado de la máquina virtual en el laboratorio como **dañado**, puede que la máquina virtual subyacente se haya eliminado de la página de la **máquina virtual** a la que el usuario puede navegar desde la página de **máquinas virtuales** (no desde la página de DevTest Labs). Limpie el laboratorio de DevTest Labs mediante la eliminación de la máquina virtual del laboratorio. A continuación, vuelva a crear la máquina virtual en el laboratorio. 
+
+![Máquina virtual con estado dañado](./media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png)
+
 
 
 ## <a name="activity-logs"></a>Registros de actividad

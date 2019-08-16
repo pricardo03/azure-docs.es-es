@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466868"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736720"
 ---
-# <a name="azure-backup-architecture"></a>Arquitectura de Azure Backup
+# <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de los datos en la plataforma de nube de Microsoft Azure. En este artículo se resume la arquitectura, los componentes y los procesos de Azure Backup. 
 

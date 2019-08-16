@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1e17afb2f06265975442c127baecc8cab75d63f7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f90bb86632886d8a2ca6c6e8c60d3b79f5d0b9e9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611257"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780435"
 ---
 # <a name="enable-fusion"></a>Habilitar fusión
 
@@ -31,7 +31,7 @@ ms.locfileid: "67611257"
 
 Las capacidades de Machine Learning en Azure Sentinel están integradas directamente desde el principio. Hemos diseñado cuidadosamente el sistema con innovaciones de Machine Learning con el propósito de que los analistas de seguridad, los científicos de datos de seguridad y los ingenieros sean más productivos. Una de estas innovaciones es la fusión de Azure Sentinel, creada concretamente para reducir el exceso de alertas.
 
-La fusión utiliza algoritmos de Machine Learning basados en gráficos para correlacionar millones actividades anómalas de baja fidelidad de diferentes productos (como Azure AD Identity Protection y Microsoft Cloud App Security) a fin de combinarlas en un número asumible de casos de seguridad de interés.
+La fusión utiliza algoritmos de Machine Learning basados en gráficos para correlacionar millones actividades anómalas de baja fidelidad de diferentes productos (como Azure AD Identity Protection y Microsoft Cloud App Security) a fin de combinarlas en un número asumible de incidentes de seguridad de interés.
 
 ## <a name="enable-fusion"></a>Habilitar fusión
 

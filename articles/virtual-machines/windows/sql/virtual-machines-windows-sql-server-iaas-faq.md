@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876189"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816302"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -121,6 +121,11 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 1. **¿Es posible registrar VM de SQL Server implementadas automáticamente con el proveedor de recursos de VM de SQL?**
 
     Sí. Si ha implementado SQL Server desde sus propios medios e instalado la extensión IaaS de SQL, puede registrar la VM con SQL Server con el proveedor de recursos para obtener las ventajas de capacidad de administración proporcionadas por la extensión IaaS de SQL. Sin embargo, no es posible convertir una máquina virtual de SQL implementada automáticamente a pago por uso.
+
+1. **¿Es posible cambiar el modelo de licencias en una VM con SQL Server implementada con el modelo clásico?**
+
+   No. No es posible cambiar el modelo de licencias en una máquina virtual clásica. Puede migrar la máquina virtual al modelo de Resource Manager (ARM) y registrarla con el proveedor de recursos de la VM con SQL. Una vez que la máquina virtual está registrada con el proveedor de recursos de la VM con SQL, los cambios en el modelo de licencias estarán disponibles en la máquina virtual. 
+   
 
 ## <a name="administration"></a>Administración
 

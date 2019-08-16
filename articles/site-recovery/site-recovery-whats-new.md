@@ -5,20 +5,45 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272867"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717670"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) se actualiza y mejora de manera continua. Para ayudarlo a mantenerse actualizado, en este artículo encontrará información sobre las versiones más recientes, las características nuevas y el nuevo contenido. Esta página se actualiza de manera periódica.
 
 Si tiene sugerencias sobre las características de Site Recovery, nos encantaría [conocer sus comentarios](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="installing-updates"></a>Instalación de actualizaciones
+
+[Revise este artículo](service-updates-how-to.md) para instrucciones y soporte técnico para las actualizaciones de Site Recovery.
+
+## <a name="updates-july-2019"></a>Actualizaciones (julio de 2019)
+
+### <a name="update-rollup-38"></a>Paquete acumulativo de actualizaciones 38
+
+El [Paquete acumulativo de actualizaciones 38](https://support.microsoft.com/help/4513507/) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones)
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
+
+
+### <a name="general"></a>General
+
+Site Recovery ahora admite la utilización de cuentas de almacenamiento de uso general versión 2 para el almacenamiento en caché o el almacenamiento de destino. Anteriormente solo se admitía la versión 1.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Recuperación ante desastres de VMware a Azure
+
+Ahora puede replicar discos de hasta 8 TB al replicar en una máquina virtual de Azure con discos administrados.
 
 
 ## <a name="updates-june-2019"></a>Actualizaciones (junio de 2019)
@@ -94,7 +119,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Característica** | **Detalles**
 --- | ---
 **Discos administrados** | La replicación de servidores físicos y máquinas virtuales de VMware locales es ahora directamente en discos administrados en Azure. Los datos locales se envían a una cuenta de almacenamiento de caché de Azure y los puntos de recuperación se crean en discos administrados en la ubicación de destino. Esto garantiza que no es necesario administrar varias cuentas de almacenamiento de destino.
-**Servidor de configuración** | Site Recovery ahora admite servidores de configuración con diferentes NIC. Debe agregar adaptadores adicionales a la VM del servidor de configuración antes de registrar el servidor de configuración en el almacén. Si lo agrega más tarde, deberá volver a registrar el servidor en el almacén.
+**Servidor de configuración** | Site Recovery ahora admite servidores de configuración con diferentes NIC. Agregue adaptadores adicionales a la máquina virtual del servidor de configuración antes de registrar este en el almacén. Si lo agrega más tarde, deberá volver a registrar el servidor en el almacén.
 
 
 ## <a name="updates-february-2019"></a>Actualizaciones (febrero de 2019)
@@ -143,7 +168,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 ### <a name="accelerated-networking-azure-vms"></a>Redes aceleradas (VM de Azure)
 
-Las redes aceleradas habilitan la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual, lo que mejora su rendimiento en la red. Al habilitar la replicación de una máquina virtual de Azure, Site Recovery detecta si las redes aceleradas están habilitadas. Si es así, después de la conmutación por error, Site Recovery configura automáticamente las redes aceleradas en la máquina virtual de Azure de réplica de destino, tanto para [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) como para [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Redes aceleradas habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual, lo que mejora su rendimiento en la red. Al habilitar la replicación de una máquina virtual de Azure, Site Recovery detecta si las redes aceleradas están habilitadas. Si es así, después de la conmutación por error, Site Recovery configura automáticamente las redes aceleradas en la máquina virtual de Azure de réplica de destino, tanto para [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) como para [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -267,7 +292,7 @@ El [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/hel
 **Proveedores y agentes** | Actualización de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones).
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
-### <a name="azure-vms-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
@@ -296,7 +321,7 @@ El [Paquete acumulativo de actualizaciones 27](https://support.microsoft.com/hel
 **Proveedores y agentes** | Actualización de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones).
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
-### <a name="azure-vms-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
 
 Las características que se agregaron este mes se resumen en la tabla.
 

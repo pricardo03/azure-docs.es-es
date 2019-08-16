@@ -4,14 +4,14 @@ description: Describe la estructura y las propiedades de plantillas de Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204359"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774899"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -503,8 +503,8 @@ Defina recursos con la siguiente estructura:
 |:--- |:--- |:--- |
 | condition | Sin | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](#condition). |
 | apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
-| type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
-| Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
+| type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
+| Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 | location |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. |
 | etiquetas |Sin |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
 | comentarios |Sin |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](resource-group-authoring-templates.md#comments). |
@@ -514,7 +514,7 @@ Defina recursos con la siguiente estructura:
 | sku | Sin | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | Sin | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
 | plan | Sin | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. | 
-| resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte los [recursos secundarios](#child-resources). |
+| resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 
 ### <a name="condition"></a>Condición
 
@@ -653,74 +653,6 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implem
   }
 }
 ```
-
-### <a name="child-resources"></a>Recursos secundarios
-
-En cada tipo recurso puede definir también una matriz de recursos secundarios. Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una base de datos SQL no puede existir sin un servidor SQL, por lo que se trata de un elemento secundario del servidor. Puede definir la base de datos dentro de la definición del servidor.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  ...
-  "resources": [
-    {
-      "apiVersion": "2017-10-01-preview",
-      "type": "databases",
-      "name": "exampledatabase",
-      ...
-    }
-  ]
-}
-```
-
-Sin embargo, no es necesario definir la base de datos en el servidor. Puede definir el recurso secundario en el nivel superior. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar `copy` para crear más de un recurso secundario. En este enfoque, es necesario proporcionar el tipo de recurso completo, así como incluir el nombre del recurso primario en el del secundario.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  "resources": [ 
-  ],
-  ...
-},
-{
-  "apiVersion": "2017-10-01-preview",
-  "type": "Microsoft.Sql/servers/databases",
-  "name": "exampleserver/exampledatabase",
-  ...
-}
-```
-
-Los valores proporcionados para el tipo y el nombre varían en función de si se ha definido el recurso secundario dentro del recurso primario o fuera de él.
-
-Si está anidado en el recurso primario, utilice:
-
-```json
-"type": "{child-resource-type}",
-"name": "{child-resource-name}",
-```
-
-Si está definido fuera del recurso primario, use:
-
-```json
-"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
-"name": "{parent-resource-name}/{child-resource-name}",
-```
-
-Si está anidado, el tipo se establece en `databases`, pero el tipo de recurso completo sigue siendo `Microsoft.Sql/servers/databases`. No se proporciona `Microsoft.Sql/servers/` porque se supone que viene del tipo de recurso primario. El nombre del recurso secundario se establece en `exampledatabase`, pero el nombre completo incluye el primario. No se proporciona `exampleserver` porque se supone que viene del recurso primario.
-
-Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos. En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
-
-```json
-{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
-```
-
-Por ejemplo:
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` es correcto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` no es correcto
 
 ## <a name="outputs"></a>Salidas
 

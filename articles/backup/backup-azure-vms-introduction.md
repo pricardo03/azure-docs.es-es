@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639733"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737161"
 ---
-# <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
+# <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
 En este artículo se describe cómo el [servicio Azure Backup](backup-introduction-to-azure-backup.md) realiza una copia de seguridad de las máquinas virtuales (VM) de Azure.
 

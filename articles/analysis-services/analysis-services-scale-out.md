@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696398"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736749"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -143,9 +143,9 @@ Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure 
 
 ![Nombres de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Escalado y reducción vertical frente a Escalado horizontal
+## <a name="scale-up-scale-down-vs-scale-out"></a>Escalado y reducción verticales frente a Escalado horizontal
 
-Puede cambiar el plan de tarifa del servidor en el servidor con varias réplicas. El mismo plan de tarifa se aplica a todas las réplicas. En primer lugar, la operación de escalado vertical y reducción vertical desactiva todas las réplicas a la vez y, luego, mostrará todas las réplicas en el nuevo plan de tarifa.
+Puede cambiar el plan de tarifa en un servidor con varias réplicas. El mismo plan de tarifa se aplica a todas las réplicas. Una operación de escalado desactiva todas las réplicas a la vez y, luego, muestra todas las réplicas en el nuevo plan de tarifa.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

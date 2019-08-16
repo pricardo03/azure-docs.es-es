@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805971"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742569"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -93,7 +93,13 @@ Causas posibles:
 
 Para resolver el problema:
 - Asegúrese de que el tipo de cuenta de almacenamiento de destino (Standard o Premium) se haya aprovisionado según el requisito de tasa de renovación en el origen.
+- Si ya está replicando en un disco administrado Premium (tipo asrseeddisk), asegúrese de que el tamaño del disco admita la tasa de renovación observada en función de los límites de Site Recovery. Puede aumentar el tamaño de asrseeddisk si es necesario. Siga los pasos siguientes:
+    - Vaya a la hoja Discos de la máquina replicada afectada y copie el nombre del disco de réplica.
+    - Vaya a este disco administrado de réplica.
+    - Es posible que vea un mensaje emergente en la hoja Información general que indica que se ha generado una dirección URL de SAS. Haga clic en este mensaje emergente y cancele la exportación. Omita este paso si no aparece el mensaje emergente.
+    - En cuanto se revoque la dirección URL de SAS, vaya a la hoja Configuración del disco administrado y aumente el tamaño para que ASR admita la tasa de renovación observada en el disco de origen.
 - Si la renovación observada es temporal, espere unas horas a que la carga de datos pendientes se ponga al día y se creen puntos de recuperación.
+- Si el disco contiene datos no críticos como registros temporales, datos de prueba, etc., considere la posibilidad de mover estos datos a otro lugar o excluir completamente este disco de la replicación.
 - Si el problema persiste, use [Deployment Planner](site-recovery-deployment-planner.md#overview) de Site Recovery como ayuda para planear la replicación.
 
 ### <a name="source-machines-with-no-heartbeat-error-78174"></a>Máquinas de origen sin latido [error 78174]
@@ -140,7 +146,7 @@ A continuación se enumeran algunos de los problemas más comunes
 #### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Causa 1: Incidencia conocida en SQL Server 2008/2008 R2 
 **Solución:** Existe una incidencia conocida en SQL Server 2008/2008 R2. Consulte este artículo de KB [Copia de seguridad de ASR Agent u otros VSS no componente falla en un servidor que aloja SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>Causa 2: Se producen errores en los trabajos de Azure Site Recovery en los servidores que alojan cualquier versión de las instancias de SQL Server con bases de datos AUTO_CLOSE 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Causa 2: Se producen errores en los trabajos de Azure Site Recovery en los servidores que alojan cualquier versión de las instancias de SQL Server con bases de datos AUTO_CLOSE 
 **Solución:** Consulte el [artículo](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) de KB 
 
 
@@ -177,7 +183,7 @@ Consulte el [artículo para solucionar problemas con la instalación de VSS Writ
         - Proveedor VSS de Azure Site Recovery
         - Servicio VDS
 
-####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - Error 2147754756
+####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
 **Solución:** Para generar la etiqueta de coherencia de la aplicación, Azure Site Recovery usa Microsoft Volume Shadow Copy Service (VSS). Compruebe si el servicio de proveedor de VSS de Azure Site Recovery está instalado o no. </br>
 

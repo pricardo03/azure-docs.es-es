@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296101"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722698"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Consulta de registros entre recursos en Azure Monitor  
 
@@ -44,9 +44,6 @@ La identificación de un área de trabajo se puede lograr de varias maneras:
 * Nombre del recurso:- es un nombre legible del área de trabajo; a veces se denomina *nombre del componente*. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >En la identificación de un área de trabajo por nombre, se da por supuesto que es único en todas las suscripciones accesibles. Si tiene varias aplicaciones con el nombre especificado, la consulta produce un error debido a la ambigüedad. En este caso debe usar uno de los otros identificadores.
 
 * Nombre completo: es el nombre completo del área de trabajo, compuesto por el nombre de la suscripción, el grupo de recursos y el nombre del componente con este formato: *nombreSuscripción/grupoDeRecursos/nombreDeComponente*. 
 
@@ -75,6 +72,9 @@ Una aplicación de Application Insights se puede identificar con la expresión *
 * Nombre del recurso: es el nombre legible de la aplicación; a veces se denomina *nombre del componente*.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >En la identificación de una aplicación por nombre se da por supuesto que es único en todas las suscripciones accesibles. Si tiene varias aplicaciones con el nombre especificado, la consulta produce un error debido a la ambigüedad. En este caso debe usar uno de los otros identificadores.
 
 * Nombre completo: es el nombre completo de la aplicación, compuesto por el nombre de la suscripción, el grupo de recursos y el nombre del componente con este formato: *nombreSuscripción/grupoDeRecursos/nombreDeComponente*. 
 

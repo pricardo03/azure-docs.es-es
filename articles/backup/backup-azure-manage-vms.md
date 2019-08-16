@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688390"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735569"
 ---
-# <a name="manage-azure-vm-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
 En este artículo se describe cómo administrar máquinas virtuales (VM) de Azure cuya copia de seguridad se realiza con el [servicio Azure Backup](backup-overview.md). El artículo también resume la información de copia de seguridad que puede encontrar en el panel del almacén.
 

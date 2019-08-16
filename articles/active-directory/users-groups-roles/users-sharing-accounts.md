@@ -10,20 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304373"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736769"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
+
 ## <a name="overview"></a>Información general
+
 A veces, las organizaciones necesitan usar un nombre de usuario y una contraseña únicos para varias personas. Esto sucede normalmente en dos casos:
 
 * Al obtener acceso a aplicaciones que requieren un inicio de sesión único y una contraseña para cada usuario, ya sean aplicaciones locales o servicios en la nube de consumidor (por ejemplo, cuentas de medios sociales corporativos).
@@ -40,6 +42,7 @@ El modelo tradicional de uso compartido tiene varias desventajas:
 * Si tiene que quitar el acceso a una aplicación, debe actualizar las credenciales y volver a distribuirlas a todos los usuarios que necesiten acceder a esa aplicación.
 
 ## <a name="azure-active-directory-account-sharing"></a>Uso compartido de cuentas de Azure Active Directory
+
 Azure AD proporciona un enfoque nuevo para el uso de cuentas compartidas que elimina estos inconvenientes.
 
 El administrador de Azure AD configura las aplicaciones a las que un usuario puede tener acceso mediante el panel de acceso y la selección del tipo de inicio de sesión único que mejor se adapta a esa aplicación. Uno de estos tipos, el *inicio de sesión único con contraseña*, permite a Azure AD actuar como una especie de "intermediario" durante el proceso de inicio de sesión de esa aplicación.
@@ -48,7 +51,7 @@ Los usuarios inician sesión una sola vez con sus cuentas profesionales. Estas c
 
 Las cuentas compartidas no solo aumentan la supervisión y mejoran la facilidad de uso, también optimizan la seguridad. Los usuarios con permisos para usar las credenciales no ven la contraseña compartida, sino que obtienen permiso para usar la contraseña como parte de un flujo de autenticación orquestado. Además, algunas aplicaciones de SSO con contraseña le ofrecen la opción de usar Azure AD para sustituir (actualizar) periódicamente las contraseñas. El sistema usa contraseñas largas y complejas, lo que aumenta la seguridad de la cuenta. Gracias a ello, el administrador puede conceder o revocar fácilmente el acceso a una aplicación y saber quién tiene acceso a la cuenta y quién ha accedido a ella previamente.
 
-Azure AD admite las cuentas compartidas de cualquier usuario de Enterprise Mobility Suite (EMS), con licencia Premium o Básica, en todos los tipos de aplicaciones de inicio de sesión único con contraseña. Puede compartir las cuentas de las miles de aplicaciones previamente integradas en la galería de aplicaciones y puede agregar su propia aplicación de autenticación mediante contraseña con [aplicaciones de inicio de sesión único personalizadas](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD admite las cuentas compartidas de cualquier usuario de Enterprise Mobility Suite (EMS) o plan de licencias Azure AD Premium en todos los tipos de aplicaciones de inicio de sesión único con contraseña. Puede compartir las cuentas de las miles de aplicaciones previamente integradas en la galería de aplicaciones y puede agregar su propia aplicación de autenticación mediante contraseña con [aplicaciones de inicio de sesión único personalizadas](../manage-apps/configure-single-sign-on-portal.md).
 
 Entre las características de Azure AD que permiten el uso compartido de las cuentas se incluyen las siguientes:
 
@@ -62,6 +65,7 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Uso compartido de una cuenta
+
 Para usar Azure AD para compartir una cuenta, debe hacer lo siguiente:
 
 * Agregar una aplicación de la [galería de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) o una [aplicación personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
@@ -70,7 +74,8 @@ Para usar Azure AD para compartir una cuenta, debe hacer lo siguiente:
 
 También puede hacer que su cuenta compartida sea más segura con Multi-Factor Authentication (MFA) (más información acerca de la [protección de aplicaciones con Azure AD](../authentication/concept-mfa-whichversion.md)) y puede delegar la capacidad para administrar quién tiene acceso a la aplicación mediante la administración de grupos de [autoservicio de Azure AD](groups-self-service-management.md).
 
-## <a name="related-articles"></a>Artículos relacionados
+## <a name="next-steps"></a>Pasos siguientes
+
 * [Administración de aplicaciones en Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Protección de aplicaciones con acceso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Administración de grupos de autoservicio/SSAA](groups-self-service-management.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908227"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775331"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso de Azure Security Center para dar respuesta a incidentes
 Muchas organizaciones aprenden a responder a incidentes de seguridad solo después de sufrir un ataque. Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
@@ -56,7 +56,7 @@ Judy se encarga de las operaciones de seguridad. Entre sus responsabilidades est
 * Supervisar y responder a amenazas de seguridad durante las 24 horas.
 * Remitirlas al propietario de la carga de trabajo en la nube o al analista de seguridad, según sea necesario.
 
-Sam es un analista de seguridad y sus responsabilidades incluyen:
+Sam es analista de seguridad y sus responsabilidades incluyen:
 
 * Investigar los ataques.
 * Solucionar las alertas.
@@ -75,7 +75,7 @@ Judy usará las alertas de seguridad durante las fases de evaluación y detecci�
 Para ver cómo se utilizaría Azure Security Center en un escenario de respuesta a incidentes, seguiremos los pasos de Judy en las fases de detección y evaluación y, a continuación, veremos lo que hace Sam para diagnosticar el problema.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Etapas de detección y evaluación de respuesta a incidentes
-Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Security Center. Como parte de sus actividades de supervisión diarias comienza a revisar las alertas de seguridad con alta prioridad mediante los pasos siguientes:
+Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Security Center. Como parte de sus actividades de supervisión diarias, comienza a revisar las alertas de seguridad con alta prioridad mediante los pasos siguientes:
 
 1. Hace clic en el icono **Alertas de seguridad** y accede a la hoja **Alertas de seguridad**.
     ![Hoja Alertas de seguridad](./media/security-center-incident-response/security-center-incident-response-fig4.png)

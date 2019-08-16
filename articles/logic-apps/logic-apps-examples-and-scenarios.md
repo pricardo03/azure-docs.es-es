@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplos y escenarios comunes: Azure Logic Apps | Microsoft Docs'
+title: 'Ejemplos y escenarios comunes: Azure Logic Apps'
 description: Ejemplos, escenarios comunes, tutoriales y guías detalladas de Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/2018
-ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.date: 07/31/2019
+ms.openlocfilehash: 000de22105615c3f6aa015b07e13bf8a47955b52
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385509"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706801"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Escenarios comunes, ejemplos, tutoriales y guías detalladas de Azure Logic Apps
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) le ayuda a organizar e integrar servicios diferentes, ya que proporciona [cientos de conectores que se pueden usar en cualquier momento](../connectors/apis-list.md), que van de SQL Server o SAP locales a Azure Cognitive Services. El servicio Logic Apps es "sin servidor", por lo que no tiene que preocuparse de escalados o instancias. Lo único que debe hacer es definir el flujo de trabajo con un desencadenador y las acciones que realiza el flujo de trabajo. La plataforma subyacente controla la escala, la disponibilidad y el rendimiento. Logic Apps es especialmente útil para aquellos casos de uso y escenarios en los que hay que coordinar varias acciones en varios sistemas.
 
-En este artículo se muestran ejemplos y escenarios comunes para que obtenga más información sobre los distintos patrones y funcionalidades que [Azure Logic Apps](../logic-apps/logic-apps-overview.md) admite.
+En este artículo se muestran ejemplos y escenarios comunes para que obtenga más información sobre los distintos patrones y funcionalidades que Azure Logic Apps admite.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Puntos de partida más usados en flujos de trabajo de aplicaciones lógicas
 
@@ -33,23 +33,31 @@ Todas las aplicaciones lógica comienzan con un [*desencadenador*](../logic-apps
 
 Estos son algunos ejemplos de los desencadenadores más usados:
 
-* Sondeo: 
+* Sondeo:
 
-  * El [desencadenador **Programación - Periodicidad**](../connectors/connectors-native-recurrence.md) permite establecer no solo la fecha y hora de inicio sino también la periodicidad con que se activa la aplicación lógica. 
-  Por ejemplo, puede seleccionar los días de la semana y las horas del día en que se activará la aplicación lógica.
+  * El [desencadenador **Periodicidad**](../connectors/connectors-native-recurrence.md) permite establecer no solo la fecha y hora de inicio sino también la periodicidad con que se activa la aplicación lógica. Por ejemplo, puede seleccionar los días de la semana y las horas del día en que se activará la aplicación lógica. Para más información, consulte los temas siguientes:
 
-  * El desencadenador "Cuando llega un correo electrónico nuevo" permite que la aplicación lógica compruebe si hay mensajes de correo electrónico nuevos en todos los proveedores de correo electrónico compatibles con Logic Apps, por ejemplo, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [ Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc.
+    * [Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+    * [Tutorial: Comprobación del tráfico según una programación con Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+
+  * El desencadenador "Cuando llega un correo electrónico nuevo" permite que la aplicación lógica compruebe si hay mensajes de correo electrónico nuevos en todos los proveedores de correo electrónico compatibles con Logic Apps, por ejemplo, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [ Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc. Para más información, consulte los temas siguientes: 
+
+    * [Tutorial: Administración de solicitudes de lista de distribución de correo con Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [Tutorial: Gestión automática de correos electrónicos y datos adjuntos con Azure Logic Apps](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * El [desencadenador **HTTP**](../connectors/connectors-native-http.md) permite que la aplicación lógica compruebe un punto de conexión de servicio especificado, para lo que se comunica a través de HTTP.
   
 * Inserción:
 
-  * El [desencadenador **Solicitud/Respuesta - Solicitud**](../connectors/connectors-native-reqres.md) permite a la aplicación lógica recibir solicitudes HTTP y responder en tiempo real a los eventos de alguna manera.
+  * El [desencadenador **Solicitud**](../connectors/connectors-native-reqres.md) permite a la aplicación lógica recibir solicitudes HTTP y responder en tiempo real a los eventos de alguna manera.
 
-  * El [desencadenador **Webhook de HTTP**](../connectors/connectors-native-webhook.md) realiza la suscripción a un punto de conexión de servicio mediante el registro de una *dirección URL de devolución de llamada* en dicho servicio. 
-  De este modo, el servicio puede simplemente notificar el desencadenador cuando se produce el evento especificado, con el fin de que no sea preciso que este sondee el servicio.
+  * El [desencadenador **Webhook de HTTP**](../connectors/connectors-native-webhook.md) realiza la suscripción a un punto de conexión de servicio mediante el registro de una *dirección URL de devolución de llamada* en dicho servicio. De este modo, el servicio puede simplemente notificar el desencadenador cuando se produce el evento especificado, con el fin de que no sea preciso que este sondee el servicio.
 
-Tras recibir una notificación acerca de datos nuevos o un evento, el desencadenador se activa, crea una nueva instancia de flujo de trabajo de aplicación lógica y ejecuta las acciones en el flujo de trabajo. Para acceder a los datos del desencadenador se usa el flujo de trabajo. Por ejemplo, el desencadenador "Cuando se publica un tweet nuevo" pasa el contenido del tweet a la aplicación lógica que se ejecute. 
+Tras recibir una notificación acerca de datos nuevos o un evento, el desencadenador se activa, crea una nueva instancia de flujo de trabajo de aplicación lógica y ejecuta las acciones en el flujo de trabajo. Para acceder a los datos del desencadenador se usa el flujo de trabajo. Por ejemplo, el desencadenador "Cuando se publica un tweet nuevo" pasa el contenido del tweet a la aplicación lógica que se ejecute. Para empezar a trabajar con Azure Logic Apps, pruebe estos temas de inicio rápido:
+
+* [Inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Inicio rápido: Creación y administración de flujos de trabajo automatizados de aplicaciones lógicas mediante Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Respuesta a desencadenadores y extensión de acciones
 
@@ -81,6 +89,10 @@ Puede desarrollar e implementar aplicaciones lógicas completamente con Visual S
 * [Creación e implementación de aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Automatización de la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Conexión a una función de aplicación de funciones para Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de contenido, conversiones y transformaciones dentro de una ejecución
 
@@ -112,6 +124,5 @@ Sepa cómo Azure Logic Apps, junto con otros servicios de Azure y productos de M
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Compilación de definiciones de aplicación lógica con JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Control de errores y excepciones en aplicaciones lógicas](../logic-apps/logic-apps-exception-handling.md)
-* [Envío de comentarios, preguntas o sugerencias para mejorar Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)
+* Más información sobre [conectores para Logic Apps](../connectors/apis-list.md)
+* Más información sobre [escenarios de integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

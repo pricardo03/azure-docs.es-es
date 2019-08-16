@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498433"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68740893"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -41,7 +41,7 @@ Una aplicación puede usar solo una forma de la característica Integración con
 | Problema  | Solución | 
 |----------|----------|
 | Desea tener acceso a una dirección de RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) en la misma región. | Integración con red virtual regional |
-| Desea tener acceso a una red virtual clásica o a una red virtual en otra región. | Integración con red virtual con requisito de puerta de enlace |
+| Quiere tener acceso a una red virtual clásica o a una red virtual en otra región. | Integración con red virtual con requisito de puerta de enlace |
 | Desea tener acceso a puntos de conexión de RFC 1918 en ExpressRoute. | Integración con red virtual regional |
 | Desea tener acceso a los recursos en puntos de conexión de servicio. | Integración con red virtual regional |
 
@@ -136,11 +136,10 @@ La característica Integración con red virtual con requisito de puerta de enlac
 * Permite la integración con hasta cinco redes virtuales dentro de un plan de App Service. 
 * Permite que varias aplicaciones de un mismo plan de App Service usen la misma red virtual sin que ello afecte al número total que se puede utilizar en un plan de App Service.  Si tiene seis aplicaciones que usan la misma red virtual en el mismo plan de App Service, contará como una sola red virtual en uso. 
 * Requiere una puerta de enlace de red virtual que esté configurada con una VPN de punto a sitio.
-* No se admite para su uso en aplicaciones Linux.
 * Admite un SLA del 99,9 % debido al SLA de la puerta de enlace.
 
 Esta característica no admite lo siguiente:
-
+* Uso con aplicaciones de Linux
 * El acceso a los recursos a través de ExpressRoute 
 * El acceso a los recursos a través de puntos de conexión de servicio 
 

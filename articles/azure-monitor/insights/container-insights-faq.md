@@ -8,18 +8,22 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780005"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741504"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor para contenedores
 
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para contenedores. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
+
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>¿Puedo supervisar el clúster con el motor de AKS con Azure Monitor para contenedores?
+
+Azure Monitor para contenedores admite la supervisión de cargas de trabajo de contenedor implementadas en clústeres con el motor de AKS (anteriormente conocido como motor de ACS) hospedados en Azure. Para más información y una introducción a los pasos necesarios para habilitar la supervisión de este escenario, consulte [Uso de Azure Monitor para contenedores de para el motor de AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 ## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>¿Por qué no veo datos en mi área de trabajo de Log Analytics?
 

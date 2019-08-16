@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306383"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737231"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de Azure Cloud Services con Application Insights
 
@@ -29,11 +29,11 @@ También puede implementar Application Insights Profiler en estos servicios:
 Application Insights Profiler se instala con la extensión de Azure Diagnostics. Solo tiene que configurar Azure Diagnostics para instalar Profiler y enviar perfiles al recurso de Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Habilitación de Profiler para Azure Cloud Services
-1. Asegúrese de que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Es suficiente con confirmar que los archivos *ServiceConfiguration.\*.cscfg* tienen un valor de `osFamily` de "5" o posterior.
+1. Asegúrese de que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Si usa la familia 4 del sistema operativo, deberá instalar .NET Framework 4.6.1 o una versión más reciente con una [tarea de inicio](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet). La familia 5 del sistema operativo incluye una versión compatible de .NET Framework de forma predeterminada. 
 
 1. Agregue el [SDK de Application Insights a Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-    **Se ha corregido el error en el generador de perfiles que se incluye con WAD para Cloud Services.** La versión más reciente de WAD (1.12.2.0) para Cloud Services funciona con todas las versiones recientes del SDK de App Insights. Los hosts de Cloud Services actualizarán WAD automáticamente, pero no es algo inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
+    **Se ha corregido el error en el generador de perfiles que se incluye con WAD para Cloud Services.** La versión más reciente de WAD (1.12.2.0) para Cloud Services funciona con todas las versiones recientes del SDK de App Insights. Los hosts de Cloud Services actualizarán WAD automáticamente, pero no es algo inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
 
 1. Realice un seguimiento de las solicitudes con Application Insights:
 

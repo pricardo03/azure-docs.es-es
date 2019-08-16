@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615806"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741005"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,9 @@ A menudo, las aplicaciones necesitan poder almacenar y recuperar datos. Dado que
 Los volúmenes tradicionales para almacenar y recuperar datos se crean como recursos de Kubernetes respaldados por Azure Storage. Puede crear manualmente estos volúmenes de datos para que se asignen directamente a los pods, o hacer que Kubernetes los cree automáticamente. Estos volúmenes de datos pueden utilizar Azure Disks o Azure Files:
 
 - *Azure Disks* puede usarse para crear un recurso *DataDisk* de Kubernetes. Azure Disks puede usar almacenamiento Premium de Azure, respaldado por SSD de alto rendimiento, o bien almacenamiento estándar de Azure, respaldado por unidades de disco duro normales. Para la mayoría de las cargas de trabajo de producción y desarrollo, utilice el almacenamiento Premium. Los discos de Azure Disks se montan como *ReadWriteOnce*, por lo que solo están disponibles para un único nodo. Para los volúmenes de almacenamiento a los que pueden acceder varios nodos simultáneamente, use Azure Files.
-- *Azure Files* se puede usar para montar un recurso compartido de SMB 3.0 respaldado por una cuenta de Azure Storage en los pods. Azure Files permite compartir datos entre varios nodos y pods. Actualmente, Azure Files solo puede usar el almacenamiento estándar de Azure respaldado por unidades de discos duro normales.
+- *Azure Files* se puede usar para montar un recurso compartido de SMB 3.0 respaldado por una cuenta de Azure Storage en los pods. Azure Files permite compartir datos entre varios nodos y pods. Los archivos pueden usar almacenamiento Standard de Azure, respaldado por HDD normales o almacenamiento Premium de Azure respaldado por SSD de alto rendimiento.
+> [!NOTE] 
+> Azure Files admite el almacenamiento premium en clústeres de AKS que ejecutan Kubernetes 1.13 o superior.
 
 En Kubernetes, los volúmenes pueden representar más que un disco tradicional donde se puede almacenar y recuperar información. Los volúmenes de Kubernetes pueden utilizarse también como una forma de insertar datos en un pod para su uso en contenedores. Algunos tipos de volumen adicional comunes de Kubernetes son:
 

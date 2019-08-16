@@ -4,20 +4,23 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82d15f342e6c0a4f107e8b089be14c0e670a33ca
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968888"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815062"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de Gremlin de Azure Cosmos DB con plantillas de Azure Resource Manager
 
 ## Crear una API de Azure Cosmos DB para la cuenta, la base de datos y la colección de MongoDB <a id="create-resource"></a>
 
 Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para la API de Gremlin con dos grafos que compartirán el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
+
+> [!NOTE]
+> Los nombres de las cuentas deben estar en minúsculas y deben tener 31 caracteres o menos.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 

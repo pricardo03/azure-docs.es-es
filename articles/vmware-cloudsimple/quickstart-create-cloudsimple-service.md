@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 13b07b3b50bdb03373275ca9594baa6357e9f66f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164215"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812296"
 ---
 # <a name="quickstart---create-service"></a>Inicio rápido: creación de un servicio
 
@@ -25,25 +25,13 @@ El servicio CloudSimple le permite consumir la solución de VMware en Azure de C
 
 Para agregar el servicio CloudSimple, debe crear una subred de puerta de enlace. La subred de puerta de enlace se usa al crear la red perimetral y requiere un bloque CIDR /28. El espacio de direcciones de subred de puerta de enlace debe ser único. No puede superponerse con ninguno de los espacios de direcciones de red local ni con el espacio de direcciones de red virtual de Azure.
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+Asigne un bloque CIDR /28 para la subred de puerta de enlace.  Se requiere una subred de puerta de enlace por cada servicio CloudSimple y es única para la región en la que se crea. La subred de puerta de enlace se usa para los servicios de red perimetral y requiere un bloque CIDR /28. El espacio de direcciones de subred de puerta de enlace debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple.  Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure. 
+
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="enable-microsoftvmwarecloudsimple-resource-provider"></a>Habilitación del proveedor de recursos Microsoft.VMwareCloudSimple
-
-Siga los pasos que se indican a continuación para habilitar el proveedor de recursos del servicio CloudSimple.
-
-1. Seleccione **Todos los servicios**.
-2. Busque y seleccione **Suscripciones**.
-
-    ![Selección de suscripciones](media/cloudsimple-service-select-subscriptions.png)
-
-3. Seleccione la suscripción en la que quiera habilitar el servicio CloudSimple.
-4. Haga clic en **Proveedores de recursos** en la suscripción.
-5. Use **Microsoft.VMwareCloudSimple** para filtrar el proveedor de recursos.
-6. Seleccione el proveedor de recursos **Microsoft.VMwareCloudSimple** y haga clic en **Registrar**.
-
-    ![Registro del proveedor de recursos](media/cloudsimple-service-enable-resource-provider.png)
 
 ## <a name="create-the-service"></a>Creación del servicio
 

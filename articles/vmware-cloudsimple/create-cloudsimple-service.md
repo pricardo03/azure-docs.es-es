@@ -5,22 +5,23 @@ author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/04/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a0ccce6f298270b2751307868fdf85697cb7e8ee
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 6986e0a7e6eee6dbbd43c72a415b01df7da7da51
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154966"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812442"
 ---
 # <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>Creación de una solución de VMware en Azure por CloudSimple
 
 Para empezar a trabajar con la solución de VMware en Azure por CloudSimple, cree este servicio en Azure Portal.
 
-> [!NOTE]
-> Antes de crear el servicio CloudSimple, debe registrar el proveedor de recursos Microsoft.VMwareCloudSimple en la suscripción de Azure. Siga los pasos indicados en [Registrar el proveedor de recursos Microsoft.VMwareCloudSimple en su suscripción de Azure](enable-cloudsimple-service.md).
+## <a name="before-you-begin"></a>Antes de empezar
+
+Asigne un bloque CIDR /28 para la subred de puerta de enlace.  Se requiere una subred de puerta de enlace por cada servicio CloudSimple y es única para la región en la que se crea. La subred de puerta de enlace se usa para los servicios de red perimetral y requiere un bloque CIDR /28. El espacio de direcciones de subred de puerta de enlace debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple.  Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

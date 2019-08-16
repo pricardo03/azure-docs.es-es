@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335756"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772898"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 
@@ -88,6 +88,15 @@ Si aprecia que algunos cambios no se han recibido en el desencadenador, el escen
 Además, el escenario se puede validar, si sabe cuántas instancias de la aplicación de función de Azure están ejecutándose. Si inspecciona el contenedor de concesión y cuenta el número de elementos de concesión que contiene, los distintos valores de la propiedad `Owner` en ellos debería ser igual al número de instancias de la aplicación de función. Si hay más propietarios de las instancias de la aplicación de función de Azure conocidas, significa que estos propietarios adicionales son los que están "robando" los cambios.
 
 Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente, o bien probar con un nuevo contenedor de concesión.
+
+### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Necesidad de reiniciar y volver a procesar todos los elementos del contenedor desde el principio 
+Para volver a procesar todos los elementos de un contenedor desde el principio:
+1. Detenga la función de Azure si se está ejecutando actualmente. 
+1. Elimine los documentos de la colección de concesiones (o elimine y vuelva a crear la colección de concesiones para que esté vacía)
+1. Establezca el atributo CosmosDBTrigger de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) de la función en True. 
+1. Reinicie la función de Azure. Ahora se leerán y procesarán todos los cambios desde el principio. 
+
+Cuando se establece [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) en True, indica a la función de Azure que comience a leer los cambios desde el principio del historial de la colección en lugar de desde la hora actual. Esto solo funciona cuando no hay concesiones ya creadas (es decir, documentos en la colección de concesiones). Establecer esta propiedad en True cuando hay concesiones ya creadas no tiene ningún efecto; en este escenario, cuando una función se detiene y se reinicia, comenzará a leer desde el último punto de control, tal y como se define en la colección de concesiones. Para volver a procesar desde el principio, siga los pasos anteriores del 1 al 4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Solo se puede realizar el enlace con IReadOnlyList\<Document> o JArray
 

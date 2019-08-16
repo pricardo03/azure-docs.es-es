@@ -6,18 +6,18 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: a2711339f5e952747adeeb6217b283770cb6cc6b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689042"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774656"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
-En este artículo se proporciona información para la solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure Virtual Machines.
+En este artículo se proporciona información para la solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure Virtual Machines. En la sección siguiente se explican datos conceptuales importantes que son necesarios para diagnosticar errores comunes en las copias de seguridad de SAP HANA.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,6 +56,26 @@ Una vez que se elige una base de datos para la copia de seguridad, el servicio A
 
 > [!NOTE]
 > Asegúrese de que estos parámetros *no* estén presentes en el nivel de host. Los parámetros en el nivel de host invalidarán estos parámetros y pueden causar un comportamiento inesperado.
+
+## <a name="restore-checks"></a>Comprobaciones de restauración
+
+### <a name="single-container-database-sdc-restore"></a>Restauración de una base de datos de contenedor único (SDC)
+
+Ocúpese de las entradas mientras se realiza la restauración de una base de datos de contenedor único (SDC) para HANA a otra máquina de SDC. El nombre de la base de datos debe estar en minúscula con "sdc" anexado entre corchetes. La instancia de HANA se mostrará en mayúsculas.
+
+Supongamos que hay una copia de seguridad de una instancia "H21" de HANA de SDC. En la página de elementos de copia de seguridad aparecerá el nombre del elemento de copia de seguridad como **"h21(sdc)"** . Si intenta restaurar esta base de datos en otra SDC de destino, por ejemplo, H11, es necesario proporcionar las entradas siguientes.
+
+![Entradas de restauración de SDC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Observe lo siguiente
+- De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad, es decir, h21(sdc).
+- Si selecciona el destino como H11, el nombre de la base de datos restaurada NO CAMBIARÁ de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . En el caso de SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
+- Como SDC solo puede tener una base de datos única, también debe hacer clic en la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.
+- Linux distingue mayúsculas de minúsculas, por lo que debe tener cuidado de mantener el formato.
+
+### <a name="multiple-container-database-mdc-restore"></a>Restauración de base de datos de varios contenedores (MDC)
+
+En las bases de datos de varios contenedores para HANA, la configuración estándar es SYSTEMDB + 1 o más bases de datos de inquilino. Restaurar toda una instancia de SAP HANA significa restaurar tanto SYSTEMDB como las bases de datos de inquilino. Primero se restaura SYSTEMDB y, luego, la base de datos de inquilino. Básicamente, restaurar la base de datos del sistema significa reemplazar la información del sistema del destino seleccionado. Esto también reemplaza la información relacionada con BackInt en la instancia de destino. Por lo tanto, una vez que la base de datos del sistema se restaura en una instancia de destino, es necesario volver a ejecutar el script de registro previo. Solo entonces las restauraciones de bases de datos de inquilino subsiguientes se realizarán correctamente.
 
 ## <a name="common-user-errors"></a>Errores de usuario comunes
 

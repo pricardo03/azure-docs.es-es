@@ -9,23 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d3da81fabf55bc0c3944f0c03829dee4fcce46
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304408"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812835"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
 Con Azure Active Directory (Azure AD), puede designar administradores limitados que administren tareas de identidad en roles con menos privilegios. Los administradores se pueden asignar para realizar tareas como agregar usuarios o cambiarlos, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario y administrar nombres de dominio. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
 
-El administrador global tiene acceso a todas las características administrativas. De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de administrador global para el directorio. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol solo a unas pocas personas de su empresa.
+## <a name="limit-the-use-of-global-administrator"></a>Limitación del uso de Administrador global
+
+Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De manera predeterminada, a la persona que se suscribe a Azure se le asigna el rol Administrador global para la organización de Azure AD. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
+
+## <a name="best-practices"></a>Prácticas recomendadas
+
+Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de 5 personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
+
+### <a name="find-the-role-you-need"></a>Búsqueda del rol que necesita
+
+Si buscar el rol que necesita en una lista de muchos roles le resulta frustrante, Azure AD puede proporcionarle listas más cortas según las categorías de rol. Revise nuestro nuevo filtro **Tipo** para [Roles y administradores de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrarle solo los roles del tipo seleccionado.
+
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Ahora existe un rol que no existía cuando asignó el rol Administrador global.
+
+Es posible que uno o varios roles se hayan agregado a Azure AD que proporcionan permisos más específicos que no eran opción cuando elevó algunos usuarios al rol Administrador global. Con el tiempo, se implementan roles adicionales que realizan tareas que antes solo podía realizar el rol Administrador global. Los puede ver reflejados en los [Roles disponibles](#available-roles) siguientes.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 
@@ -138,24 +152,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Invitador de usuarios](#guest-inviter)** : los usuarios con este rol pueden administrar las invitaciones de usuarios invitados de Azure Active Directory B2B cuando la configuración de usuario **Los miembros pueden invitar a otras personas** está establecida en No. Más información sobre la colaboración B2B en [¿Qué es la colaboración B2B de Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) No incluye otros permisos.
 
-* **[Administrador de Intune](#intune-service-administrator)** : los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
-  > [!NOTE]
-  > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Intune". En [Azure Portal](https://portal.azure.com) es "Administrador de Intune".
-  
- * **[Administrador de Kaizala](#kaizala-administrator)** : los usuarios con este rol tienen permisos globales para administrar la configuración en Microsoft Kaizala, cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el mantenimiento del servicio.
-Además, el usuario puede acceder a informes relacionados con la adopción y el uso de Kaizala por parte de miembros de la organización, y a los informes empresariales que generan las acciones de Kaizala. 
-
-* **[Administrador de licencias](#license-administrator)** : los usuarios con este rol pueden agregar, quitar y actualizar las asignaciones de licencias de usuarios y grupos (mediante licencias basadas en grupo) y administrar la ubicación de uso de los usuarios. El rol no otorga la posibilidad de adquirir o administrar suscripciones, crear o administrar grupos o crear o administrar usuarios más allá de la ubicación de uso. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
-
-* **[Lector de privacidad del Centro de mensajes](#message-center-privacy-reader)** : los usuarios con este rol pueden supervisar todas las notificaciones del Centro de mensajes, incluidos los mensajes de privacidad de datos. Los lectores de privacidad del Centro de mensajes reciben notificaciones por correo electrónico, incluidas las relacionadas con la privacidad de los datos, y pueden cancelar la suscripción mediante las preferencias del Centro de mensajes. Solo el administrador global y el lector de privacidad del Centro de mensajes pueden leer los mensajes de privacidad de los datos. Además, este rol incluye la posibilidad de ver los grupos, dominios y suscripciones. Este rol no tiene permiso para ver, crear o administrar solicitudes de servicio.
-
-* **[Lector del centro de mensajes](#message-center-reader)** : los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados, como Exchange, Intune y Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
-
-* **[Soporte para asociados de nivel 1](#partner-tier1-support)** : No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
-
-* **[Soporte para asociados de nivel 2](#partner-tier2-support)** : No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
-
-* **[Administrador del departamento de soporte técnico (contraseñas)](#helpdesk-administrator)** : los usuarios con este rol pueden cambiar contraseñas, invalidar tokens de actualización, administrar solicitudes de servicio y supervisar el estado del servicio. Si invalida un token de actualización, obligará al usuario a iniciar sesión de nuevo. Los administradores del departamento de soporte técnico pueden restablecer las contraseñas e invalidar los tokens de actualización de otros usuarios que no sean administradores o asignar los siguientes roles solamente:
+* **[Administrador del departamento de soporte técnico](#helpdesk-administrator)** : los usuarios con este rol pueden cambiar contraseñas, invalidar tokens de actualización, administrar solicitudes de servicio y supervisar el estado del servicio. Si invalida un token de actualización, obligará al usuario a iniciar sesión de nuevo. Los administradores del departamento de soporte técnico pueden restablecer las contraseñas e invalidar los tokens de actualización de otros usuarios que no sean administradores o asignar los siguientes roles solamente:
   * Lectores de directorios
   * Invitador de usuarios
   * Administrador del departamento de soporte técnico
@@ -175,8 +172,29 @@ Además, el usuario puede acceder a informes relacionados con la adopción y el 
 
 
   > [!NOTE]
-  > Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Portal](https://portal.azure.com/). Se está cambiando el nombre a "Administrador del departamento de soporte técnico" para que el nombre coincida en Azure AD PowerShell, Azure AD Graph API y Microsoft Graph API. Durante un breve período de tiempo, se cambiará el nombre a "Administrador del departamento de soporte técnico (contraseñas)" en Azure Portal antes de cambiarlo a "Administrador del departamento de soporte técnico".
+  > Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Portal](https://portal.azure.com/). Se está cambiando el nombre a "Administrador del departamento de soporte técnico" para que el nombre coincida en Azure AD PowerShell, Azure AD Graph API y Microsoft Graph API.
 
+* **[Administrador de Intune](#intune-service-administrator)** : los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+  > [!NOTE]
+  > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Intune". En [Azure Portal](https://portal.azure.com) es "Administrador de Intune".
+  
+ * **[Administrador de Kaizala](#kaizala-administrator)** : los usuarios con este rol tienen permisos globales para administrar la configuración en Microsoft Kaizala, cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el mantenimiento del servicio.
+Además, el usuario puede acceder a informes relacionados con la adopción y el uso de Kaizala por parte de miembros de la organización, y a los informes empresariales que generan las acciones de Kaizala. 
+
+* **[Administrador de licencias](#license-administrator)** : los usuarios con este rol pueden agregar, quitar y actualizar las asignaciones de licencias de usuarios y grupos (mediante licencias basadas en grupo) y administrar la ubicación de uso de los usuarios. El rol no otorga la posibilidad de adquirir o administrar suscripciones, crear o administrar grupos o crear o administrar usuarios más allá de la ubicación de uso. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
+
+* **[Lector de privacidad del Centro de mensajes](#message-center-privacy-reader)** : los usuarios con este rol pueden supervisar todas las notificaciones del Centro de mensajes, incluidos los mensajes de privacidad de datos. Los lectores de privacidad del Centro de mensajes reciben notificaciones por correo electrónico, incluidas las relacionadas con la privacidad de los datos, y pueden cancelar la suscripción mediante las preferencias del Centro de mensajes. Solo el administrador global y el lector de privacidad del Centro de mensajes pueden leer los mensajes de privacidad de los datos. Además, este rol incluye la posibilidad de ver los grupos, dominios y suscripciones. Este rol no tiene permiso para ver, crear o administrar solicitudes de servicio.
+
+* **[Lector del centro de mensajes](#message-center-reader)** : los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados, como Exchange, Intune y Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
+
+* **[Soporte para asociados de nivel 1](#partner-tier1-support)** : No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+
+* **[Soporte para asociados de nivel 2](#partner-tier2-support)** : No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+
+* **[Administrador de contraseñas](#password-administrator)** : los usuarios con este rol tienen una capacidad limitada para administrar las contraseñas. Este rol no concede la capacidad de administrar solicitudes de servicio ni supervisar el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas de otros usuarios que no son administradores o que solo son miembros de los roles siguientes:
+  * Lectores de directorios
+  * Invitador de usuarios
+  * Administrador de contraseñas
 
 * **[Administrador de Power BI](#power-bi-service-administrator)** : los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el mantenimiento del servicio. Puede obtener más información en el artículo [Descripción del rol de administrador de Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
@@ -984,6 +1002,14 @@ No lo use. No está pensado para el uso general.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 
+### <a name="password-administrator"></a>Administrador de contraseñas
+Puede restablecer contraseñas para usuarios que no son administradores y para administradores de contraseñas.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.aad.directory/users/password/update | Actualiza las contraseñas de todos los usuarios en Azure Active Directory. Para obtener más información, consulte la documentación en línea. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
+
 ### <a name="power-bi-service-administrator"></a>Administrador de servicios de Power BI
 Puede administrar todos los aspectos del producto Power BI.
 
@@ -1333,6 +1359,7 @@ Lector de privacidad del Centro de mensajes | Lector de privacidad del Centro de
 Lector del Centro de mensajes | Lector del centro de mensajes | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Soporte para asociados de nivel 1 | Soporte para asociados de nivel 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Soporte para asociados de nivel 2 | Soporte para asociados de nivel 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Administrador de contraseñas | Administrador de contraseñas | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrador de servicios de Power BI | Administrador de Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrador de autenticación con privilegios | Administrador de autenticación con privilegios | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador de roles con privilegios | Administrador de roles con privilegios | e8611ab8-c189-46e8-94e1-60213ab1f814

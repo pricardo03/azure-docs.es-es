@@ -12,18 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/13/2019
-ms.openlocfilehash: e7dea69b507117ba8a3765b5e9bc1fad46be4c53
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 08/01/2019
+ms.openlocfilehash: e656cd4d901ad9f3180963047a85cd980e56df8b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444207"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774215"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notas de la versión de SQL Server en máquinas virtuales de Azure
 
 Azure permite implementar una máquina virtual con una imagen de SQL Server integrada. En este artículo se resumen las nuevas características y mejoras de las versiones recientes de [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). En el artículo también se enumeran las actualizaciones importantes de contenido que no están directamente relacionadas con la versión, pero que se publican en el mismo período de tiempo. Para mejoras en otros servicios de Azure, consulte [las Actualizaciones del servicio](https://azure.microsoft.com/updates).
 
+## <a name="july-2019"></a>Julio de 2019
+
+### <a name="documentation-improvements"></a>Mejoras en la documentación
+
+| Documentación | Detalles |
+| --- | --- |
+| **Traslado de una máquina virtual de SQL a otra región** | Use Azure Site Recovery para [migrar las máquinas virtuales con SQL Server de una región de Azure a otra](virtual-machines-windows-sql-move-different-region.md). |
+| &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>Junio de 2019
 

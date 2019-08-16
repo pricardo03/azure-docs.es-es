@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613921"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812817"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Con Azure Kubernetes Service (AKS), los componentes principales, como *kube-apis
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si no dispone de un clúster de AKS, cree uno mediante la [CLI de Azure][cli-quickstart] or [Azure portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
+En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si todavía no tiene un clúster de AKS, cree uno con la [CLI de Azure][cli-quickstart] o [Azure Portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
 
 ## <a name="enable-diagnostics-logs"></a>Habilitación del registro de diagnósticos
 
@@ -35,19 +35,6 @@ Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para 
 1. Seleccione un área de trabajo existente o cree uno. Al crear un área de trabajo, proporciónele un nombre, un grupo de recursos y una ubicación.
 1. En la lista de registros disponibles, seleccione los que desea habilitar. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
-
-> [!NOTE]
-> AKS solo captura registros de auditoría para los clústeres que se crearon o actualizaron después de habilitar una marca de característica en la suscripción. Para registrar la marca de característica *AKSAuditLog*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
->
-> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
->
-> Espere a que el estado se muestre como *registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
->
-> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
->
-> Cuando todo esté listo, actualice el registro del proveedor de recursos de AKS con el comando [az provider register][az-provider-register]:
->
-> `az provider register --namespace Microsoft.ContainerService`
 
 La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico*:
 
@@ -131,9 +118,17 @@ Para ayudar a analizar los datos de registro, en la tabla siguiente se describe 
 | *properties.pod*         | Nombre del pod del que procede el registro |
 | *properties.containerID* | Identificador del contenedor de Docker del que procede este registro |
 
+## <a name="log-roles"></a>Roles de registro
+
+| Role                     | DESCRIPCIÓN |
+|--------------------------|-------------|
+| *aksService*             | El nombre para mostrar en el registro de auditoría de la operación de plano de control (desde hcpService). |
+| *masterclient*           | El nombre para mostrar en el registro de auditoría de MasterClientCertificate, el certificado que obtiene desde az aks get-credentials. |
+| *nodeclient*             | El nombre para mostrar de ClientCertificate, que los nodos de agente usan. |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a habilitar y revisar los registros de los componentes principales de Kubernetes en el clúster de AKS. Para seguir supervisando y solucionando problemas, también puede [ver los registros de Kubelet][kubelet-logs] and [enable SSH node access][aks-ssh].
+En este artículo, aprendió a habilitar y revisar los registros de los componentes principales de Kubernetes en el clúster de AKS. Para seguir supervisando y solucionando problemas, también puede [ver los registros de Kubelet][kubelet-logs] y [habilitar el acceso al nodo SSH][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

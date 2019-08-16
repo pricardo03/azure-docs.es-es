@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442415"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774802"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -34,6 +34,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Establecer cuota de uso por suscripción](api-management-access-restriction-policies.md#SetUsageQuota) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
 -   [Establecer cuota de uso por clave](#SetUsageQuotaByKey) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
+
+> [!TIP]
+> Puede usar las directivas de restricción de acceso en distintos ámbitos para distintos propósitos. Por ejemplo, puede proteger toda la API con la autenticación de AAD si aplica la directiva `validate-jwt` en el nivel de API, o bien puede aplicarla en el nivel de operación de API y usar `claims` para un control más detallado.
 
 ## <a name="CheckHTTPHeader"></a> Activar encabezado HTTP
 

@@ -3,24 +3,22 @@ title: 'Conexión de un equipo a una instancia de Azure Virtual Network mediante
 description: Conecte de forma segura los clientes de Windows, Mac OS X y Linux a una red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa Azure Portal.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 6/18/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203060"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706759"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Portal de Azure
 
 Este artículo le ayudará con la conexión segura de clientes que ejecuten Windows, Linux o Mac OS X a una red virtual de Azure. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. También puede usar P2S en lugar de una VPN de sitio a sitio cuando son pocos los clientes que necesitan conectarse a una red virtual. Las conexiones de punto a sitio no requieren un dispositivo VPN ni una dirección IP de acceso público. P2S crea la conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros) o IKEv2. Para más información sobre las conexiones VPN de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 
 ![Conexión de un equipo a una red virtual de Azure: diagrama de conexión de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>Arquitectura
 
@@ -41,7 +39,7 @@ Puede usar los siguientes valores para crear un entorno de prueba o hacer refere
 * **Intervalo de direcciones de subred:** 192.168.1.0/24
 * **Subscription** (Suscripción): si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupos de recursos:** TestRG
-* **Ubicación:** Este de EE. UU
+* **Ubicación:** East US
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **Servidor DNS:** (opcional) dirección IP del servidor DNS que desea usar para la resolución de nombres.
 * **Nombre de la puerta de enlace de red virtual:** VNet1GW
@@ -73,7 +71,7 @@ Después de crear la red virtual, puede agregar la dirección IP de un servidor 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->La SKU básica no admite la autenticación de IKEv2 o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
+>La SKU de puerta de enlace de nivel Básico no admite la autenticación de IKEv2 o RADIUS. Si planea que clientes Mac se conecten a la red virtual, no use la SKU de nivel Básico.
 >
 
 ## <a name="generatecert"></a>5. Generación de certificados

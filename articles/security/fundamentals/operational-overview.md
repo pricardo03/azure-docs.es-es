@@ -8,22 +8,23 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 1940cd3481fbc6ff136e25a2f06fa7152c721c26
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 31e59f913fa29c92bc1b97029d8712bbd9b68ab8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611511"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934657"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
-Con [seguridad operativa de Azure](/azure/security/azure-operational-security), se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. Es un marco que incorpora el conocimiento adquirido a través de una variedad de funcionalidades exclusivas de Microsoft. Estas funcionalidades incluyen el Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento profundo del panorama de amenazas de ciberseguridad.
+[Azure operational security](/azure/security/fundamentals/operational-security se refiere a los servicios, controles y características disponibles para los usuarios a fin de proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. Es un marco que incorpora el conocimiento adquirido a través de una variedad de funcionalidades exclusivas de Microsoft. Estas funcionalidades incluyen el Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento profundo del panorama de amenazas de ciberseguridad.
 
 ## <a name="azure-management-services"></a>Servicios de administración de Azure
 
@@ -86,7 +87,7 @@ Con Azure Active Directory, todas las aplicaciones que publica para sus asociado
 - Validación de cifrado de disco.
 - Ataques basados en la red.
 
-Security Center usa el [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC proporciona [roles integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) que se pueden asignar a usuarios, grupos y servicios de Azure.
+Security Center usa el [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
 Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de propietario, colaborador o lector para la suscripción o grupo de recursos al que pertenece un recurso.
 

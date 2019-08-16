@@ -1,5 +1,5 @@
 ---
-title: Matriz de compatibilidad para la copia de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS) con Azure Backup
+title: 'Matriz de compatibilidad para el agente de Microsoft Azure Recovery Services (MARS): Azure Backup'
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 46863b2eed8e5c5c4074a713b50739820a1e5bc9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639539"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951973"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -72,8 +72,8 @@ Limitación de la red | No está disponible para las máquinas de copia de segur
 
 Puede utilizar al agente de MARS para realizar copias de seguridad directamente en Azure desde algunos sistemas operativos que se ejecutan en máquinas locales y máquinas virtuales de Azure. Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actualizaciones más recientes. En la tabla siguiente se resumen estos sistemas operativos:
 
-**Sistema operativo** | **Archivos/carpetas** | **Estado del sistema**
---- | --- | ---
+**Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** 
+--- | --- | --- 
 Windows 10 (Enterprise, Pro, Home) | Sí | Sin
 Windows 8.1 (Enterprise, Pro)| Sí |Sin
 Windows 8 (Enterprise, Pro) | Sí | Sin

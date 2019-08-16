@@ -1,6 +1,6 @@
 ---
 title: Características de Azure Cloud Shell | Microsoft Docs
-description: Introducción a las características de Bash en Azure Cloud Shell
+description: Introducción a las características en Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752717"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742052"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -72,13 +72,13 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 |Categoría   |NOMBRE   |
 |---|---|
 |Herramientas de Linux            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Herramientas de Azure            |[CLI de Azure](https://github.com/Azure/azure-cli) y [CLI de Azure clásica](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Herramientas de Azure            |[CLI de Azure](https://github.com/Azure/azure-cli) y [CLI de Azure clásica](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI de Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |código (editor de Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Control de código fuente         |git                    |
 |Herramientas de compilación            |make<br> maven<br> npm<br> pip         |
 |Contenedores             |[Máquina de Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI de DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bases de datos              |Cliente de MySQL<br> Cliente de PostgreSql<br> [Utilidad sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Otros                  |Cliente de iPython<br> [CLI de Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
+|Otros                  |Cliente de iPython<br> [CLI de Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet Bolt](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 

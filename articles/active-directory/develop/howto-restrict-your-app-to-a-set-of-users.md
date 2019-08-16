@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07d9f0fa6ec6b4abc7ce96279b7b02faae298fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540197"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812960"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación a un conjunto de usuarios
 
@@ -47,13 +47,17 @@ La opción para restringir una aplicación a un conjunto específico de usuarios
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>Actualización de la aplicación para permitir la asignación de usuarios
 
-1. Vaya a [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+Hay dos maneras de crear una aplicación con la asignación de usuarios habilitada. Una necesita el rol **Administrador global**, la otra no.
+
+### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Aplicaciones empresariales (necesita el rol Administrador global)
+
+1. Vaya a [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global**.
 1. En la barra superior, seleccione la cuenta con sesión iniciada. 
 1. En **Directory**, seleccione el inquilino de Azure AD donde se registrará la aplicación.
-1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**. Si Azure Active Directory no está disponible en el panel de navegación, siga estos pasos:
+1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**. Si Azure Active Directory no está disponible en el panel de navegación, siga estos pasos:
 
     1. Seleccione **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
-    1. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory** en el resultado.
+    1. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtro y seleccione el elemento **Azure Active Directory** en el resultado.
 
 1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo **Azure Active Directory**.
 1. Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
@@ -62,7 +66,20 @@ La opción para restringir una aplicación a un conjunto específico de usuarios
 
 1. Seleccione la aplicación que desea asignar a un usuario o a un grupo de seguridad.
 1. En la página **Información general** de la aplicación, seleccione **Propiedades** en el menú de navegación izquierdo de la aplicación.
-1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios se deben asignar primero a esta aplicación antes de poder acceder a ella.
+1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios primero se deben asignar a esta aplicación antes de poder acceder a ella.
+1. Para guardar este cambio de configuración, seleccione **Guardar**.
+
+### <a name="app-registration"></a>Registro de aplicación
+
+1. Vaya a [**Azure Portal**](https://portal.azure.com/).
+1. En la barra superior, seleccione la cuenta con sesión iniciada. 
+1. En **Directory**, seleccione el inquilino de Azure AD donde se registrará la aplicación.
+1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** en el menú de navegación de la izquierda de **Azure Active Directory**.
+1. Cree o seleccione la aplicación que quiere administrar. Debe ser **Propietario** de este registro de aplicación.
+1. En la página **Información general** de la aplicación, siga el vínculo **Aplicación administrada en el directorio local** en los elementos fundamentales que aparecen en la parte superior de la página. Esto lo llevará a la _aplicación empresarial administrada_ de su registro de aplicación.
+1. En la hoja de navegación de la izquierda, seleccione **Propiedades**.
+1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios primero se deben asignar a esta aplicación antes de poder acceder a ella.
 1. Para guardar este cambio de configuración, seleccione **Guardar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Asignación de usuarios y grupos a la aplicación

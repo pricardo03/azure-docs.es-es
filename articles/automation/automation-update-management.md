@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498412"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741855"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -23,7 +23,7 @@ Puede usar la solución Update Management de Azure Automation para administrar l
 Update Management se puede habilitar en máquinas virtuales directamente desde una cuenta de Azure Automation. Para aprender a habilitar Update Management en máquinas virtuales desde una cuenta de Automation, consulte [Administración de actualizaciones para varias máquinas virtuales](manage-update-multi.md). También puede habilitar Update Management para una máquina virtual desde la página de la máquina virtual en Azure Portal. Este escenario está disponible para máquinas virtuales [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) y [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 > [!NOTE]
-> La solución de Update Management requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [./how-to/region-mappings.md]. Las asignaciones de regiones no afectan a la capacidad de administrar máquinas virtuales en una región independiente de la cuenta de Automation.
+> La solución de Update Management requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [Asignaciones de áreas de trabajo](./how-to/region-mappings.md). Las asignaciones de regiones no afectan a la capacidad de administrar máquinas virtuales en una región independiente de la cuenta de Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 #### <a name="windows"></a>Windows
 
 Los agentes de Windows deben estar configurados para comunicarse con un servidor de WSUS o tener acceso a Microsoft Update. Puede usar Update Management con System Center Configuration Manager. Para más información sobre escenarios de integración, consulte [Integración de System Center Configuration Manager con Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). El [agente de Windows](../azure-monitor/platform/agent-windows.md) es necesario. Este agente se instala automáticamente si va a incorporar una máquina virtual de Azure.
+
+> [!NOTE]
+> Un usuario puede modificar la directiva de grupo para que los reinicios del equipo solo los pueda realizar el usuario, no el sistema. Es posible que las máquinas administradas se bloqueen si Update Management no tiene derechos para reiniciar la máquina sin la intervención manual del usuario.
+>
+> Para obtener más información, consulte [Configuración de directivas de grupo para actualizaciones automáticas](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 

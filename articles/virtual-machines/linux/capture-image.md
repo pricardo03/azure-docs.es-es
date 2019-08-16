@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 96169f8f52ea9d45d8804a7d4fc08827a4f1ea03
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668411"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779400"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -63,13 +63,15 @@ En primer lugar, desaprovisione la máquina virtual con el agente de máquinas v
 ## <a name="step-2-create-vm-image"></a>Paso 2: Crear imagen de máquina virtual
 Use la CLI de Azure para marcar la máquina virtual como generalizada y capture la imagen. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
 
-1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli/azure/vm). En el ejemplo siguiente se desasigna la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
+1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli/azure/vm). En el ejemplo siguiente se desasigna la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
       --resource-group myResourceGroup \
       --name myVM
     ```
+    
+    Espere a que la máquina virtual se desasigne por completo antes de moverla. Esta operación puede tardar algunos minutos en completarse.
 
 2. Marque la máquina virtual como generalizada con [az vm generalize](/cli/azure/vm). En el ejemplo siguiente se marca como generalizada la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
    

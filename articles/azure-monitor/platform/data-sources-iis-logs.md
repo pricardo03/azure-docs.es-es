@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249742"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814225"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-platform.md).
@@ -34,7 +34,7 @@ Configure los registros de IIS en Azure Monitor e el [menú Configuración avanz
 
 
 ## <a name="data-collection"></a>Colección de datos
-Azure Monitor recopila las entradas de registro IIS de todos los agentes cada vez que cambia la marca de tiempo del registro o se crea un archivo. El registro se lee cada 5 minutos. La frecuencia de creación de un registro se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Si por alguna razón IIS no actualiza la marca de tiempo antes de la hora de sustitución, si la configuración es **Hourly** (Por hora), Azure Monitor recopila el registro cada hora. Si la configuración es **Daily** (Diario), Azure Monitor recopila el registro cada 24 horas.
+Azure Monitor recopila las entradas de registro IIS de todos los agentes cada vez que cambia la marca de tiempo del registro. El registro se lee cada **5 minutos**. Si por alguna razón IIS no actualiza la marca de tiempo antes de la hora de sustitución, cuando se crea un archivo, las entradas se recopilarán después de la creación del archivo. La frecuencia de creación de un registro se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Si la configuración es **Hourly** (Por hora), Azure Monitor recopila el registro cada hora. Si la configuración es **Daily** (Diario), Azure Monitor recopila el registro cada 24 horas.
 
 
 ## <a name="iis-log-record-properties"></a>Propiedades de registro de IIS

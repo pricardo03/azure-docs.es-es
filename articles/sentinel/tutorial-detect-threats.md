@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 2cc33a9ac55ae9e906d88b72476d4b5ee244d2c8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370717"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780422"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detección de amenazas con la versión preliminar de Azure Sentinel
 
@@ -28,7 +28,7 @@ ms.locfileid: "68370717"
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan casos que se pueden asignar y usar para investigar las anomalías y las amenazas del entorno de manera exhaustiva. 
+Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan incidentes que se pueden asignar y usar para investigar las anomalías y las amenazas del entorno de manera exhaustiva. 
 
 Este tutorial ayuda a detectar amenazas con Azure Sentinel.
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Este tutorial ayuda a detectar amenazas con Azure Sentinel.
 
 ## <a name="create-detection-rules"></a>Crear reglas de detección
 
-Para investigar los casos, primero debe crear las reglas de detección. 
+Para investigar los incidentes, primero debe crear las reglas de detección. 
 
 > [!NOTE]
 > Las alertas generadas en Azure Sentinel están disponibles a través de [Seguridad de Microsoft Graph](https://aka.ms/securitygraphdocs). Consulte la [documentación de alertas de seguridad de Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) para obtener más detalles y asociados de integración.
@@ -77,9 +77,9 @@ Las reglas de detección se basan en los tipos de amenazas y anomalías que quie
 
 8. Después de pegar su consulta en el campo para **establecer la regla de alerta**, puede ver inmediatamente una simulación de la alerta en **Simulación de alerta lógica** y que así pueda comprobar la cantidad de datos que se generarán durante un intervalo de tiempo específico para la alerta que creó. Esto dependerá de lo que establezca en **Frecuencia** y en **Umbral**. Si ve que su alerta se activa con demasiada frecuencia, le recomendamos que establezca un número mayor de resultados para que esté por encima de la línea de base promedio.
 
-9. Haga clic en **Crear** para inicializar la regla de alerta. Después de crearla, se crea un caso que contiene la alerta. Puede ver las reglas de detección definidas como filas en la pestaña de **Security Analytics**. También puede ver el número de coincidencias de cada regla: las alertas activadas. Desde esta lista puede habilitar, deshabilitar o eliminar cada regla. También puede seleccionar los puntos suspensivos (...) que están a la derecha y al final de la fila para que cada alerta edite, deshabilite, clone, muestre coincidencias o elimine una regla. La página **Analytics** es una galería de todas sus reglas de alerta activas, incluidas las plantillas que habilite y las reglas de alerta que cree basándose en ellas.
+9. Haga clic en **Crear** para inicializar la regla de alerta. Después de crearla, se crea un incidente que contiene la alerta. Puede ver las reglas de detección definidas como filas en la pestaña de **Security Analytics**. También puede ver el número de coincidencias de cada regla: las alertas activadas. Desde esta lista puede habilitar, deshabilitar o eliminar cada regla. También puede seleccionar los puntos suspensivos (...) que están a la derecha y al final de la fila para que cada alerta edite, deshabilite, clone, muestre coincidencias o elimine una regla. La página **Analytics** es una galería de todas sus reglas de alerta activas, incluidas las plantillas que habilite y las reglas de alerta que cree basándose en ellas.
 
-1. Los resultados de las reglas de alerta se pueden ver en la página **Casos**, donde puede clasificar, [investigar casos](tutorial-investigate-cases.md) y solucionar las amenazas.
+1. Los resultados de las reglas de alerta se pueden ver en la página de **incidentes**, donde puede evaluar las prioridades, [investigar los incidentes](tutorial-investigate-cases.md) y solucionar las amenazas.
 
 
 

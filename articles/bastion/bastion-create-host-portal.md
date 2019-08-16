@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 881d89170c82731fca3f6977da486eac5be772f8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c283e840208ab9f53d084ca17221ea2c835b794
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466990"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814145"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Creación de un host de Azure Bastion (versión preliminar)
 
@@ -54,7 +54,7 @@ Esta sección le ayuda a crear un recurso de Azure Bastion desde Azure Portal.
     * **Nombre**: nombre del nuevo recurso de Bastion.
     * **Región**: región pública de Azure en la que se creará el recurso.
     * **Red virtual**: red virtual en la que se creará el recurso de Bastion. Puede crear una red virtual en el portal durante este proceso, en caso de que no la tenga o no quiera usarla. Si usa una red virtual existente, asegúrese de que tenga suficiente espacio de direcciones libre para adaptarse a los requisitos de subred de Bastion.
-    * **Subred**: subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Recomendamos encarecidamente que use al menos una subred /27 o mayor (/27, /26, etc.). Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use los grupos de seguridad de red en **AzureBastionSubnet**, consulte [Trabajar con Grupos de seguridad de red](bastion-nsg.md).
+    * **Subred**: subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos /27 o una subred más grande (/27, /26, etc.). Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use los grupos de seguridad de red en **AzureBastionSubnet**, consulte [Trabajar con Grupos de seguridad de red](bastion-nsg.md).
     * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una dirección IP pública o use una existente. La dirección debe estar en la misma región que el recurso de Bastion que está creando.
     * **Nombre de dirección IP pública**: nombre del recurso de la dirección IP pública.
     * **SKU de la dirección IP pública**: está rellenada previamente de forma predeterminada como **Estándar**. Azure Bastion solo usa o admite la SKU de IP pública estándar.

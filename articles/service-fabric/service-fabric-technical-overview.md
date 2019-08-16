@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543213"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811928"
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Puede [hospedar clústeres de Service Fabric en cualquier lugar](service-fabric-deploy-anywhere.md): Azure, en un centro de datos local o en cualquier proveedor de nube.  Service Fabric es el orquestador que sustenta a [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Puede usar cualquier marco de trabajo para escribir los servicios y elegir entre varias opciones de entorno desde las que ejecutar la aplicación. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.
@@ -142,7 +142,7 @@ También puede ejecutar las aplicaciones existentes en Service Fabric:
 
 **Contenedores**:  Service Fabric admite la implementación de contenedores de Docker en Linux y de contenedores de Windows Server en Windows Server 2016, además de el modo de aislamiento de Hyper-V. En el [modelo de aplicación](service-fabric-application-model.md)de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Service Fabric puede ejecutar cualquier contenedor, y este escenario es similar al escenario del archivo ejecutable invitado, donde se empaqueta una aplicación existente dentro de un contenedor. También puede ejecutar los [servicios de Service Fabric dentro de contenedores](service-fabric-services-inside-containers.md).
 
-**Ejecutables de invitado**: Puede ejecutar cualquier tipo de código, como Node.js, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como archivos ejecutables invitados, que se tratan como servicios sin estado. Entre las ventajas de ejecutar a un archivo ejecutable invitado en un clúster de Service Fabric se incluyen la alta disponibilidad, la supervisión del estado, la administración del ciclo de vida de las aplicaciones, la alta densidad y la detectabilidad.
+**Ejecutables de invitado**: Puede ejecutar cualquier tipo de código, como Node.js, Python, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como archivos ejecutables invitados, que se tratan como servicios sin estado. Entre las ventajas de ejecutar a un archivo ejecutable invitado en un clúster de Service Fabric se incluyen la alta disponibilidad, la supervisión del estado, la administración del ciclo de vida de las aplicaciones, la alta densidad y la detectabilidad.
 
 Para más información, consulte el artículo de [elección de un modelo de programación para el servicio](service-fabric-choose-framework.md).
 

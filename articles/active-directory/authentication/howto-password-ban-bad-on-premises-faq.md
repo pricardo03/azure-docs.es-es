@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666354"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779644"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -40,19 +40,19 @@ No compatible. Una vez implementada y habilitada, la característica Protección
 
 **P: ¿Cuál es la diferencia entre un cambio de contraseña y el establecimiento (o restablecimiento) de una contraseña?**
 
-Un cambio de contraseña es cuando un usuario elige una nueva contraseña después de demostrar que conoce la contraseña antigua. Por ejemplo, esto es lo que sucede cuando un usuario inicia sesión en Windows y, a continuación, debe elegir una contraseña nueva.
+Un cambio de contraseña es cuando un usuario elige una nueva contraseña después de demostrar que conoce la contraseña antigua. Por ejemplo, un cambio de contraseña es lo que sucede cuando un usuario inicia sesión en Windows y, a continuación, debe elegir una contraseña nueva.
 
-Un establecimiento de contraseña (denominado a veces restablecimiento de contraseña) es cuando un administrador reemplaza la contraseña de una cuenta por una contraseña nueva; por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, administrador del dominio) y la persona que realiza la operación normalmente no conoce la contraseña anterior. Los departamentos de soporte técnico suelen hacen esto, por ejemplo cuando ayudan a un usuario que ha olvidado su contraseña. También verá eventos de establecimiento de contraseña cuando se crea por primera vez una nueva cuenta de usuario con contraseña.
+Un establecimiento de contraseña (denominado a veces restablecimiento de contraseña) es cuando un administrador reemplaza la contraseña de una cuenta por una contraseña nueva; por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, administrador del dominio) y la persona que realiza la operación normalmente no conoce la contraseña anterior. Los departamentos de soporte técnico suelen establecer contraseñas, por ejemplo cuando ayudan a un usuario que ha olvidado su contraseña. También verá eventos de establecimiento de contraseña cuando se crea por primera vez una nueva cuenta de usuario con contraseña.
 
 La directiva de validación de contraseña se comporta de la misma forma, independientemente de si se realiza un cambio o un establecimiento de contraseña. El servicio del agente de control de dominio para protección con contraseña de Azure AD registra eventos diferentes para informarle si se realizó una operación de cambio o establecimiento de contraseña.  Consulte [Supervisión y registro de la protección con contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: ¿Por qué se registran eventos de rechazo de contraseña duplicados al intentar establecer una contraseña no segura mediante el complemento de administración Usuarios y equipos de Active Directory?**
 
-El complemento de administración Usuarios y equipos de Active Directory intentará establecer primero la nueva contraseña mediante el protocolo Kerberos. En caso de error, el complemento intentará una segunda vez establecer la contraseña mediante un protocolo heredado (RPC de SAM) (los protocolos concretos que se usan no son importantes). Si Protección con contraseña de Azure AD considera que la nueva contraseña no es segura, se registrarán dos conjuntos de eventos de rechazo de restablecimiento de contraseña.
+El complemento de administración Usuarios y equipos de Active Directory intentará establecer primero la nueva contraseña mediante el protocolo Kerberos. En caso de error, el complemento intentará una segunda vez establecer la contraseña mediante un protocolo heredado (RPC de SAM) (los protocolos concretos que se usan no son importantes). Si Protección con contraseña de Azure AD considera que la nueva contraseña no es segura, este comportamiento de complemento generará el registro de dos conjuntos de eventos de rechazo de restablecimiento de contraseña.
 
 **P: ¿Por qué los eventos de validación de contraseña de la protección con contraseña de Azure AD se registran con un nombre de usuario vacío?**
 
-Active Directory admite la capacidad de probar una contraseña para ver si supera los requisitos de complejidad de contraseña actuales del dominio, por ejemplo, con la API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Cuando una contraseña se valida de esta manera, las pruebas también incluyen la validación por parte de los productos basados en el archivo dll de filtro de contraseñas, como la protección con contraseña de Azure AD, pero los nombres de usuario que se pasan a un archivo dll de filtro de contraseñas dado estarán vacíos. En este escenario, la protección con contraseña de Azure AD aún validará la contraseña con la directiva de contraseñas actualmente en vigor y emitirá un mensaje de registro de eventos para capturar el resultado; sin embargo, el mensaje del registro de eventos tendrá campos de nombre de usuario vacíos.
+Active Directory admite la capacidad de probar una contraseña para ver si supera los requisitos de complejidad de contraseña actuales del dominio, por ejemplo, con la API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Cuando una contraseña se valida de esta manera, las pruebas también incluyen la validación por parte de los productos basados en el archivo dll de filtro de contraseñas, como la protección con contraseña de Azure AD, pero los nombres de usuario que se pasan a un archivo dll de filtro de contraseñas dado estarán vacíos. En este escenario, la protección con contraseña de Azure AD aún validará la contraseña con la directiva de contraseñas actualmente en vigor y emitirá un mensaje de registro de eventos para capturar el resultado; sin embargo, el mensaje del registro de eventos tendrá campos de nombre de usuario vacíos.
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
@@ -115,6 +115,10 @@ Una manera de lograr este objetivo sería implementar parcialmente Protección c
 No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
 
 En resumen, se requiere implementar el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD en el PDC para llegar al 100 % de cobertura de seguridad de la característica en todo el dominio. Si se implementa solamente la característica en el PDC, no se proporcionan las ventajas de seguridad de Protección con contraseña de Azure AD para los otros controladores de dominio del dominio.
+
+**P: ¿Por qué el bloqueo inteligente personalizado no funciona incluso después de que los agentes se instalan en el entorno de Active Directory local?**
+
+El bloqueo inteligente personalizado solo se admite en Azure. Los cambios en la configuración del bloque inteligente personalizado en el portal de administración de Azure no tiene ningún efecto en el entorno de Active Directory local, incluso con los agentes instalados.
 
 **P: ¿Hay algún módulo de administración de Operations Manager disponible para Protección con contraseña de Azure AD?**
 

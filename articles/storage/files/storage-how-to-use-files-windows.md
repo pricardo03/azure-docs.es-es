@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699468"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816642"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -33,8 +33,8 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 | Windows 7              | SMB 2.1     | Sí                   | Sin                   |
 | Windows Server 2008 R2 | SMB 2.1     | Sí                   | Sin                   |
 
-<sup>1</sup>Windows 10, versiones 1507, 1607, 1703, 1709, 1803 y 1809.  
-<sup>2</sup>Windows Server, versión 1709 y 1803.
+<sup>1</sup>Windows 10, versiones 1507, 1607, 1703, 1709, 1803, 1809 y 1903.  
+<sup>2</sup>Windows Server, versiones 1803, 1809 y 1903.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.

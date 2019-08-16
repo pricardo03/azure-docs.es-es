@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e5c03c1d8a865b792ce79e3e2b576a629b71e02c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 02a2bd311ea1e89a49eb12ef57a167a08eea5f98
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332246"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812258"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Crear una nube privada de CloudSimple
 
@@ -32,6 +32,11 @@ Al crear una nube privada, obtendrá un clúster de vSphere único y todas las V
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Los nodos deben aprovisionarse antes de poder crear su propia nube privada.  Para más información sobre el aprovisionamiento de nodos, consulte el artículo [Provision nodes for VMware Solution by CloudSimple - Azure](create-nodes.md) (Aprovisionar nodos para la solución de VMware en Azure de CloudSimple).
+
+Asigne un intervalo de CIDR para las subredes vSphere/vSAN de la nube privada. Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter. Los componentes de administración se implementan en la red seleccionada para CIDR de subredes vSphere/vSAN. El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.  El espacio de direcciones de la subred vSphere/vSAN debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple.  Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure.  Para más información sobre las subredes vSphere/vSAN, consulte [Introducción a las VLAN y subredes](cloudsimple-vlans-subnets.md).
+
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: /24 
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: /21
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

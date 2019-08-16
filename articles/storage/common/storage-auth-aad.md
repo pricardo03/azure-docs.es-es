@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514893"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775342"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas de Azure con Azure Active Directory
 
@@ -22,7 +22,7 @@ Azure Storage admite el uso de Azure Active Directory (AD) para autorizar solici
 
 La autorización de usuarios o aplicaciones mediante un token de OAuth 2.0 devuelto por Azure AD proporciona una seguridad superior y facilidad de uso sobre la autorización de clave compartida y firmas de acceso compartido (SAS). Con Azure AD, no hay ninguna necesidad de almacenar la clave de acceso de cuenta con su código y arriesgarse a posibles vulnerabilidades de seguridad. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. Microsoft recomienda el uso de la autorización de Azure AD con las aplicaciones de Azure Storage cuando sea posible.
 
-La autorización con credenciales de Azure AD está disponible para todas las cuentas de propósito general y de Blob Storage en todas las regiones públicas y nubes nacionales. Solo las cuentas de almacenamiento creadas con el modelo de implementación de Azure Resource Manager admiten la autorización de Azure AD.
+La autorización con credenciales de Azure AD está disponible para todas las cuentas de propósito general y de Blob Storage en todas las regiones públicas y nubes nacionales. Solo las cuentas de almacenamiento creadas con el modelo de implementación de Azure Resource Manager admiten la autorización de Azure AD. La autorización con Azure AD no es compatible con Azure Table Storage.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Información general sobre Azure AD para blobs y colas
 

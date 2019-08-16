@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65922099"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708071"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -64,7 +64,7 @@ Cuando habilita la replicación para una VM iniciándola [desde la vista de la V
 
 
 > [!Note]
-> Cualquiera de las opciones le ofrece información de la cuenta de automatización que se usa para administrar las actualizaciones. Si está usando esta función en un almacén por primera vez, se creará una nueva cuenta de automatización de forma predeterminada. Alternativamente, puede personalizar la configuración y elegir una cuenta de automatización ya existente. Todas las replicaciones habilitadas en el mismo almacén usarán la que se creó anteriormente.
+> Cualquiera de las opciones le ofrece información de la cuenta de automatización que se usa para administrar las actualizaciones. Si está usando esta función en un almacén por primera vez, se creará una nueva cuenta de automatización de forma predeterminada. Alternativamente, puede personalizar la configuración y elegir una cuenta de automatización ya existente. Todas las replicaciones habilitadas en el mismo almacén usarán la que se creó anteriormente. Actualmente, en la lista desplegable solo se muestran las cuentas de Automation que se encuentran en el mismo grupo de recursos que el almacén.  
 
 Para obtener una cuenta de automatización personalizada, use el siguiente script:
 

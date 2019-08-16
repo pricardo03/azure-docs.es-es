@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 87e6f69c06fb9f8bc03d184cfe160964403e7a2a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404306"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780867"
 ---
 # <a name="get-started-with-device-management-java"></a>Introducción a la administración de dispositivos (Java)
 
@@ -62,6 +62,8 @@ Para completar este tutorial, necesita:
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registro de un nuevo dispositivo en el centro de IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -287,7 +289,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     import java.util.HashSet;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace `{yourdeviceconnectionstring}` por la cadena de conexión de dispositivo que anotó en la sección *Creación de una identidad de dispositivo*:
+7. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace `{yourdeviceconnectionstring}` por la cadena de conexión de dispositivo que anotó en la sección [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub):
 
     ```java
     private static final int METHOD_SUCCESS = 200;

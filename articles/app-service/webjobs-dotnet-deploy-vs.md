@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: e66a2ffa6578ed0c9eb5eb19659adf9ba253bbeb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613356"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736111"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
@@ -71,10 +71,7 @@ Puede usar Visual Studio para cambiar el trabajo web de forma que se ejecute con
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Trabajos web como aplicaciones de consola de .NET Framework  
 
-Cuando Visual Studio implementa un proyecto de una aplicación de consola de .NET Framework habilitado para WebJobs, realiza dos tareas:
-
-* Copia los archivos del entorno de ejecución en la carpeta apropiada de la aplicación web (*App_Data/jobs/continuous* en los trabajos web continuos y *App_Data/jobs/triggered* en los trabajos web programados y a petición).
-* Configura trabajos de [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
+Cuando Visual Studio implementa un proyecto de aplicación de consola de .NET Framework habilitado para WebJobs, copia los archivos del entorno de ejecución en la carpeta apropiada de la aplicación web (*App_Data/jobs/continuous* para los trabajos web continuos y *App_Data/jobs/triggered* para los trabajos web programados y a petición).
 
 Un proyecto con funcionalidad WebJobs tiene los siguientes elementos agregados:
 
@@ -231,7 +228,7 @@ Si [crea un trabajo web en Azure Portal](webjobs-create.md), el archivo settings
 
 ### <a name="cron-expressions"></a>Expresiones CRON
 
-WebJobs usa las mismas expresiones CRON para realizar la programación que el desencadenador de temporizador de Azure Functions. Para más información sobre la compatibilidad de CRON, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs usa las mismas expresiones CRON para realizar la programación que el desencadenador de temporizador de Azure Functions. Para más información sobre la compatibilidad de CRON, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 ### <a name="settingjob-reference"></a>Referencia de setting.job
 
@@ -241,7 +238,7 @@ WebJobs admite las siguientes opciones de configuración:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Todo | Permite que el trabajo se ejecute donde está, sin necesidad de copiarlo primero en una carpeta temporal. Para más información, consulte [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory) (Directorio de trabajo de WebJobs). |
 | `is_singleton` | Continuo | Solo debe ejecutar los trabajos web en una única instancia cuando escale horizontalmente. Para más información, consulte [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton) (Establecer un trabajo continuo como singleton). |
-| `schedule` | Desencadenado | Ejecute el trabajo web utilizando una programación basada en CRON. Para más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Desencadenado | Ejecute el trabajo web utilizando una programación basada en CRON. Para más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| Todo | Permite controlar el comportamiento de apagado. Para más información, consulte [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown) (Cierre estable). |
 
 ## <a name="next-steps"></a>Pasos siguientes

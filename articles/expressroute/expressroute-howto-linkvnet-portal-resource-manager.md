@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365627"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775281"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ El usuario del circuito necesita el identificador del recurso y una clave de aut
 
    ![Página Datos básicos](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. En la página **Configuración**, seleccione una opción en **Puerta de enlace de red virtual** y active la casilla **Canjear autorización**.
-6. Escriba un valor en **Clave de autorización** y en **Peer circuit URI** (Emparejar URI de circuito) y asigne un nombre a la conexión. Haga clic en **OK**.
+6. Escriba un valor en **Clave de autorización** y en **Peer circuit URI** (Emparejar URI de circuito) y asigne un nombre a la conexión. Haga clic en **OK**. El **URI de circuito del mismo nivel** es el identificador de recurso del circuito ExpressRoute (que puede encontrar en el panel de configuración de las propiedades del circuito ExpressRoute).
 
    ![Página Configuración](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Revise la información de la página **Resumen** y haga clic en **Aceptar**.

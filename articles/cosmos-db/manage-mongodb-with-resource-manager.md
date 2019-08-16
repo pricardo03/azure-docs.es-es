@@ -4,20 +4,23 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 99f1e41107c277c8b3f1b21f81952d5d5cadaa29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683da62ad78cde1a4f72b2ac0554e90d78b3ac6e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968871"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815020"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de MongoDB de Azure Cosmos DB con plantillas de Azure Resource Manager
 
 ## Crear una API de Azure Cosmos DB para la cuenta, la base de datos y la colección de MongoDB <a id="create-resource"></a>
 
 Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para la API de MongoDB con dos colecciones que compartirán el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
+
+> [!NOTE]
+> Los nombres de las cuentas deben estar en minúsculas y deben tener 31 caracteres o menos.
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 

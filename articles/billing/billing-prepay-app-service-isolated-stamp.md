@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298168"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779999"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Pago por adelantado del impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
 
@@ -62,13 +62,9 @@ Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure P
 
 Una vez termine la compra, vaya a [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para ver el estado de la compra y supervisarlo en cualquier momento.
 
-## <a name="cancellations-and-exchanges"></a>Cancelaciones e intercambios
+## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Si tiene que cancelar la capacidad reservada del timbre en entorno aislado,es posible que se le aplique una tarifa del 12 % por terminación anticipada. Los reembolsos se basan en el precio más bajo de su precio de compra o en el precio actual de la reserva. Los reembolsos están limitados a 50 000,00 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para cancelar, vaya a la reserva en Azure Portal y seleccione **Reembolso**.
-
-Si necesita cambiar la capacidad reservada del timbre en entorno aislado a otra región, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva, empieza el período de 3 años. Para cambiarla, vaya a Azure Portal, seleccione la reserva que quiera cambiar y seleccione **Cambiar**.
-
-Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](billing-azure-reservations-self-service-exchange-and-refund.md).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Cómo se muestra la aplicación del descuento en los datos de uso
 

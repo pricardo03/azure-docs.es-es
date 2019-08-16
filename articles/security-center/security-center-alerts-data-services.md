@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501480"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782460"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detección de amenazas en servicios de datos en Azure Security Center
 
@@ -44,7 +44,7 @@ La detección de amenazas de SQL detecta actividades anómalas que indican inten
 
 Para más información sobre la detección de alertas por amenazas de SQL, consulte [Detección de amenazas de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) y revise la sección de alertas de detección de amenazas. Consulte también [cómo Azure Security Center ayuda a desvelar un ciberataque](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) para ver un ejemplo de cómo Security Center usa la detección de actividad SQL malintencionada para detectar un ataque.
 
-## Azure Storage<a name="azure-storage"></a>
+## Azure Storage <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection para Azure Storage está actualmente disponible solo para Blob Storage.
@@ -60,6 +60,7 @@ Security Center analiza los registros de diagnóstico de solicitudes de lectura,
 |**Anomalía de acceso desde ubicaciones inusuales**|El análisis de las muestras de tráfico ha detectado una comunicación del Protocolo de escritorio remoto (RDP) saliente anómala con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno y puede indicar que el recurso está en peligro y ahora se usa para el punto de conexión RDP externo atacado por fuerza bruta. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
 |**Anomalía de acceso de aplicaciones**|Indica que una aplicación inusual ha accedido a esta cuenta de almacenamiento. Una posible causa es que un atacante ha accedido a la cuenta de almacenamiento con una aplicación nueva.|
 |**Anomalía de acceso anónimo**|Indica que se ha producido un cambio en el patrón de acceso a una cuenta de almacenamiento. Por ejemplo, se ha accedido de forma anónima a la cuenta (sin autenticación), algo que resulta inesperado si se tiene en cuenta el patrón de acceso reciente en la cuenta. Una causa posible es que un atacante se haya aprovechado del acceso de lectura público a un contenedor que incluye almacenamiento en blobs.|
+|**Anomalía de Tor**|Indica que se accedió a esta cuenta correctamente desde una dirección IP conocida como nodo de salida activo de Tor (proxy anónimo). La gravedad de esta alerta considera el tipo de autenticación usado (si existe) y si es la primera vez que se produce tal acceso. Las causas posibles pueden ser que un atacante accedió a su cuenta de almacenamiento mediante Tor o que un usuario legítimo accedió a su cuenta de almacenamiento mediante Tor.|
 |**Anomalía de filtración de datos**|Indica que se ha extraído una cantidad de datos inusualmente grande en comparación con la actividad reciente en este contenedor de almacenamiento. Una causa posible es que un atacante haya extraído una gran cantidad de datos de un contenedor que incluye almacenamiento en blobs.|
 |**Anomalía de eliminación inesperada**|Indica que se han producido una o varias operaciones de eliminación inesperadas en una cuenta de almacenamiento, en comparación con la actividad reciente en la cuenta. Una posible causa es que un atacante haya eliminado datos de la cuenta de almacenamiento.|
 |**Carga de paquetes de Azure Cloud Services**|Indica que se ha cargado un paquete de Azure Cloud Services (archivo .cspkg) en una cuenta de almacenamiento de manera inusual, en comparación con la actividad reciente en esta cuenta. Una posible causa es que un atacante ha estado preparándose para implementar código malintencionado desde la cuenta de almacenamiento en un servicio en la nube de Azure.|
@@ -70,7 +71,7 @@ Security Center analiza los registros de diagnóstico de solicitudes de lectura,
 >[!NOTE]
 >Advanced Threat Protection para Azure Storage no está disponible actualmente en Azure Government ni en regiones de nube soberana.
 
-Para más información acerca de las alertas de almacenamiento, consulte el artículo [Advanced Threat Protection para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) y revise la sección de alertas de protección.
+Para más información acerca de las alertas de almacenamiento, consulte el artículo [Advanced Threat Protection para Azure Storage](../storage/common/storage-advanced-threat-protection.md) y revise la sección de alertas de protección.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

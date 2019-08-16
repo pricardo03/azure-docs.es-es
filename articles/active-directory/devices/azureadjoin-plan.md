@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562222"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741380"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
@@ -68,7 +68,11 @@ Estos escenarios no requieren que se configure un servidor de federación para l
 Un entorno federado debe tener un proveedor de identidades que admita los protocolos WS-Trust y WS-Fed:
 
 - **WS-Fed:** este protocolo es necesario para unir un dispositivo a Azure AD.
-- **WS-Trust:** este protocolo es necesario para iniciar sesión en un dispositivo unido a Azure AD. 
+- **WS-Trust:** este protocolo es necesario para iniciar sesión en un dispositivo unido a Azure AD.
+Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust: `/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica en vista previa y no se recomienda para las implementaciones de producción.
 

@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 23139755af812f99bce8c2c255805eaf9e30b2da
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477056"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782286"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -296,6 +296,27 @@ Si no puede resolver un problema de aplicación de revisiones, realice una copia
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
+
+### <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
+
+### <a name="issue"></a>Problema
+
+Tiene un problema que no se resuelve en los otros escenarios que aparecen en la lista.
+
+### <a name="cause"></a>Causa
+
+Las claves del Registro faltantes o configuradas de manera incorrecta pueden provocar problemas con Update Management.
+
+### <a name="resolution"></a>Resolución
+
+Elimine la clave del Registro `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` y reinicie **HealthService**.
+
+También puede usar estos comandos de PowerShell.
+
+```powershell
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
+Restart-Service healthservice
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

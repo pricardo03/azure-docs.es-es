@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799842"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815672"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo crear una cuenta de Video Indexer que está v
 
     Si no tiene un dominio de Azure AD, créelo con su suscripción de Azure. Para más información, consulte [Administración de nombres de dominio personalizados en Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md).
 
-* Un usuario y un miembro del dominio de Azure AD. Usará a este miembro para conectar su cuenta de Video Indexer a Azure.
+* Un usuario en el dominio de Azure AD con un rol **Administrador de aplicaciones**. Usará a este miembro para conectar su cuenta de Video Indexer a Azure.
 
     Este usuario debe ser un usuario de Azure AD con una cuenta profesional o educativa, no una cuenta personal, como outlook.com, live.com o hotmail.com.
 
@@ -58,6 +58,9 @@ Busque **Microsoft.Media** y **Microsoft.EventGrid**. Si no se encuentra en el e
 ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Conexión a Azure
+
+> [!NOTE]
+> Si su suscripción de Azure usa la autenticación multifactor basada en certificados, resulta fundamental que siga estos pasos en un dispositivo que tenga instalados los certificados necesarios.
 
 1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
 

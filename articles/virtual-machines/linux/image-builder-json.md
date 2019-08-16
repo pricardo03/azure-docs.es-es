@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695397"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816312"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -65,7 +65,11 @@ La ubicación es la región donde se creará la imagen personalizada. Para la ve
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Etiquetas
+
+Estos son los pares clave-valor que puede especificar para la imagen que se genera.
+
 ## <a name="depends-on-optional"></a>Dependencia (opcional)
 
 Esta sección opcional se puede usar para asegurarse de que las dependencias se completan antes de continuar. 
@@ -344,7 +348,8 @@ Los directorios de Windows y las rutas de acceso de Linux lo admiten, aunque hay
  
 Si se produce un error al intentar descargar el archivo o colocarlo en un directorio concreto, se producirá un error en el paso de personalización, que se registrará en customization.log.
 
->> Tenga en cuenta lo siguiente: el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado, el código de uso para descargar archivos, como `wget` o `curl` de Linux, o `Invoke-WebRequest` de Windows.
+> [!NOTE]
+> el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado, el código de uso para descargar archivos, como `wget` o `curl` de Linux, o `Invoke-WebRequest` de Windows.
 
 Los archivos del personalizador de archivos se pueden descargar desde Azure Storage mediante [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

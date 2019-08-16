@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639480"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735418"
 ---
-# <a name="azure-backup-support-matrix"></a>Matriz de compatibilidad de Azure Backup
+# <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
 Puede usar [Azure Backup](backup-overview.md) para realizar una copia de seguridad de los datos en la plataforma de nube de Microsoft Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad generales para los escenarios e implementaciones de Azure Backup.
 

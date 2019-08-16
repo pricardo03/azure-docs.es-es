@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c06e297d3d81623b7224082cb66f8faa6879205d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448011"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774961"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
+
+>[!IMPORTANT]
+> Tenga en cuenta que el nivel Desarrollador no es para evaluaciones ni casos de uso que no son de producción. No proporciona Acuerdos de Nivel de Servicio. 
 
 Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un conjunto diferente de características y [capacidad](api-management-capacity.md) por unidad. En la tabla siguiente se resumen las características clave disponibles en cada uno de los planes. Algunas características podrían funcionar de manera diferente o tener funcionalidades diferentes según el plan. En tales casos, se indican las diferencias en los artículos de documentación que describen estas características individuales.
 

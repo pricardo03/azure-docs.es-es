@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 ms.author: orspodek
-ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a7ac0bdc2bd5eed802f6959a628dee4c8141dbd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449646"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720804"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory
 
@@ -62,15 +62,15 @@ El conector de Azure Data Explorer utiliza la autenticación de entidad de servi
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
 
 >[!NOTE]
->Cuando se utiliza la interfaz de usuario de ADF para crear, es posible que las operaciones de listado de bases de datos en el servicio vinculado o de listado de tablas en el conjunto de datos requieran que se conceda a la entidad de servicio el permiso con el privilegio más alto. También puede escribir manualmente el nombre de base de datos y el nombre de tabla. La ejecución de la actividad de copia funciona en tanto se conceda a la entidad de servicio el permiso adecuado para leer y escribir datos.
+>Al usar la interfaz de usuario de ADF para crear, la cuenta de usuario de inicio de sesión se usa para enumerar clústeres, bases de datos y tablas de Azure Data Explorer. Escriba manualmente el nombre si no tiene permiso para esta operación.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** se debe establecer en **AzureDataExplorer** | Sí |
-| punto de conexión | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
-| Base de datos | Nombre de la base de datos. | Sí |
+| endpoint | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
+| database | Nombre de la base de datos. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Es lo que normalmente conoce como "**Id. de autoridad**" en la [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. Es lo que normalmente conoce como "**Id. de cliente de aplicación de AAD**" en la [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Es lo que normalmente conoce como "**Clave de aplicación de AAD**" en la [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
@@ -116,12 +116,13 @@ Se admiten las siguientes propiedades:
    "name": "AzureDataExplorerDataset",
     "properties": {
         "type": "AzureDataExplorerTable",
+        "typeProperties": {
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Data Explorer linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "table": "<table name>"
         }
     }
 }

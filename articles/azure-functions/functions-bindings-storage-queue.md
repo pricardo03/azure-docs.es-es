@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bf5219f8e147baba0e89a8c0e1fa6cb7b371473c
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480154"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774750"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -54,6 +54,7 @@ Vea el ejemplo específico del lenguaje:
 * [Script de C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -188,6 +189,54 @@ En el siguiente ejemplo de Java se muestra una función de desencadenador de col
  }
  ```
 
+### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
+
+En el ejemplo siguiente se muestra cómo leer un mensaje en cola pasado a una función a través de un desencadenador.
+
+Un desencadenador de cola de almacenamiento se define en *function.json*, donde *type* está establecido en `queueTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+El código *_\_init_\_.py* declara un parámetro como `func.ServiceBusMessage`, que permite leer el mensaje de la cola en la función.
+
+```python
+import logging
+import json
+
+import azure.functions as func
+
+def main(msg: func.QueueMessage):
+    logging.info('Python queue trigger function processed a queue item.')
+
+    result = json.dumps({
+        'id': msg.id,
+        'body': msg.get_body().decode('utf-8'),
+        'expiration_time': (msg.expiration_time.isoformat()
+                            if msg.expiration_time else None),
+        'insertion_time': (msg.insertion_time.isoformat()
+                           if msg.insertion_time else None),
+        'time_next_visible': (msg.time_next_visible.isoformat()
+                              if msg.time_next_visible else None),
+        'pop_receipt': msg.pop_receipt,
+        'dequeue_count': msg.dequeue_count
+    })
+
+    logging.info(result)
+```
+
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de cola:
@@ -251,7 +300,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D| Se debe establecer en `queueTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección**| N/D | Solo en el archivo *function.json*. Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction**| N/D | Solo en el archivo *function.json*. Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D |El nombre de la variable que contiene la carga del elemento de cola en el código de función.  |
 |**queueName** | **QueueName**| Nombre de la cola que se sondea. |
 |**conexión** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
@@ -319,6 +368,7 @@ Vea el ejemplo específico del lenguaje:
 * [Script de C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
@@ -467,6 +517,68 @@ module.exports = function(context) {
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
 
+### <a name="output---python-example"></a>Salida: ejemplo de Python
+
+En el ejemplo siguiente se muestra cómo generar valores únicos y múltiples en las colas de almacenamiento. La configuración necesaria para *function.json* es la misma en cualquier caso.
+
+Un enlace de cola de almacenamiento se define en *function.json*, donde *type* está establecido en `queue`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+Para establecer un mensaje individual en la cola, se pasa un valor único al método `set`.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
+Para crear varios mensajes en la cola, declare un parámetro como el tipo de lista adecuado y pase una matriz de valores (que coincidan con el tipo de lista) al método `set`.
+
+```python
+import azure.functions as func
+import typing
+
+def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
+
+    msg.set(['one', 'two'])
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Salida: atributos
 
@@ -505,7 +617,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `queue`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa la cola en el código de la función. Se establece en `$return` para hacer referencia al valor devuelto de la función.|
 |**queueName** |**QueueName** | Nombre de la cola. |
 |**conexión** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|

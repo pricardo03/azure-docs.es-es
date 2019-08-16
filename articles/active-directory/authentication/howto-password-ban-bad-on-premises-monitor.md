@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414807"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736836"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervisión y registro de la protección con contraseña de Azure AD
 
@@ -98,7 +98,7 @@ El ámbito de los informes del cmdlet puede condicionarse con uno de los paráme
 
 El cmdlet `Get-AzureADPasswordProtectionSummaryReport` funciona mediante la consulta del registro de eventos de administración del agente de controlador de dominio y el posterior recuento del número total de eventos correspondiente a cada categoría de resultados mostrada. La tabla siguiente contiene las asignaciones entre cada resultado y su identificador de evento correspondiente:
 
-|Propiedad Get-AzureADPasswordProtectionSummaryReport |Id. de evento correspondiente|
+|Propiedad Get-AzureADPasswordProtectionSummaryReport |Identificador de evento correspondiente|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -271,6 +271,27 @@ Si el valor HeartbeatUTC se queda obsoleto, puede ser indicativo de que el agent
 
 Si el valor PasswordPolicyDateUTC se queda obsoleto, puede ser indicativo de que el agente de controlador de dominio de protección con contraseña de Azure AD de dicha máquina no funciona correctamente.
 
+## <a name="dc-agent-newer-version-available"></a>Versión más reciente del agente de controlador de dominio disponible
+
+El servicio del agente de controlador de dominio registrará un evento de advertencia 30034 en el registro operativo cuando detecte que hay disponible una versión más reciente del software de dicho agente, por ejemplo:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+El evento anterior no especifica la versión del software más reciente. Debe ir al vínculo en el mensaje de evento para esa información.
+
+> [!NOTE]
+> A pesar de las referencias a la actualización automática en el mensaje de evento anterior, el software del agente de controlador de dominio no admite actualmente esta característica.
+
 ## <a name="proxy-service-event-logging"></a>Registros de eventos del servicio de proxy
 
 El servicio de proxy emite un conjunto mínimo de eventos para los registros de eventos siguientes:
@@ -339,6 +360,27 @@ Cada servicio de proxy actualiza las diversas propiedades una vez cada hora apro
 Se puede influenciar el ámbito de la consulta del cmdlet con los parámetros –Forest o –Domain.
 
 Si el valor HeartbeatUTC se queda obsoleto, puede ser indicativo de que el proxy de la protección con contraseña de Azure AD de dicha máquina no está en ejecución o se ha desinstalado.
+
+## <a name="proxy-agent-newer-version-available"></a>Versión más reciente del agente proxy disponible
+
+El servicio Proxy registrará un evento de advertencia 20002 en el registro operativo cuando detecte que hay disponible una versión más reciente del software del proxy, por ejemplo:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+El evento anterior no especifica la versión del software más reciente. Debe ir al vínculo en el mensaje de evento para esa información.
+
+Este evento se emitirá incluso si el agente proxy está configurado con la opción de actualización automática habilitada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

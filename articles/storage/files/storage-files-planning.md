@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1845107998bfefde4c604744c3c09f5356010f7b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699701"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816609"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -205,12 +205,16 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 
 Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, está disponible con un límite de 100 TiB. Estas regiones se muestran en la tabla siguiente:
 
-|Region  |Redundancia admitida  |Admite cuentas de almacenamiento existentes  |
-|---------|---------|---------|
-|Este de Australia     |LRS|Sin         |
-|Sudeste Asiático     |LRS|Sin         |
-|Europa occidental     |LRS, ZRS|Sin         |
-|Oeste de EE. UU. 2     |LRS, ZRS|Sin         |
+|Region |Redundancia admitida |Admite cuentas de almacenamiento existentes |Soporte técnico del portal*   |
+|-------|---------|---------|---------|
+|Este de Australia  |LRS     |Sin    |Sí|
+|Centro de Francia  |LRS     |Sin    |Aún no|
+|Sur de Francia    |LRS     |Sin    |Aún no|
+|Sudeste Asiático  |LRS, ZRS|Sin    |Sí|
+|Europa occidental     |LRS, ZRS|Sin    |Sí|
+|Oeste de EE. UU. 2       |LRS, ZRS|Sin    |Sí|
+
+*En el caso de las regiones sin soporte técnico del portal, de todos modos puede usar PowerShell en la Interfaz de la línea de comandos (CLI) de Azure para crear recursos compartidos de más de 5 TiB. Además, puede crear un recurso compartido a través del portal sin especificar ninguna cuota. Esto creará un recurso compartido con un tamaño predeterminado de 100 TiB que se pueden actualizar más adelante a través de PowerShell o la CLI de Azure.
 
 Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
 

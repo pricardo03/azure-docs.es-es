@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479899"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782581"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
@@ -46,7 +46,7 @@ Advanced Threat Protection de Azure Storage ingiere los registros de diagnóstic
 
 Cuando se suscribe al nivel Estándar en Azure Security Center, se configura automáticamente Advanced Threat Protection en las cuentas de almacenamiento. Puede habilitar o deshabilitar Advanced Threat Protection para las cuentas de almacenamiento en una suscripción específica de la manera siguiente:
 
-1. Inicie **Azure Security Center** en [Azure Portal]([https://portal.azure.com).
+1. Inicie **Azure Security Center** en [Azure Portal](https://portal.azure.com).
 1. En el menú principal, haga clic en **Pricing & settings** (Precios y configuración).
 1. Haga clic en la suscripción que desea habilitar o deshabilitar la protección contra amenazas para las cuentas de almacenamiento.
 
@@ -117,62 +117,7 @@ Las alertas de seguridad actuales se pueden revisar y administrar desde el [icon
 
 ## <a name="protection-alerts"></a>Alertas de protección
 
-Las alertas las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de almacenamiento. Estos eventos pueden desencadenar las siguientes alertas:
-
-### <a name="anomalous-access-pattern-alerts"></a>Alertas de patrón de acceso anómalo
-
-* **Acceso desde una ubicación inusual**: La alerta se desencadena cuando alguien accede a una cuenta de almacenamiento desde una ubicación geográfica inusual.
-Causas posibles:
-   * Un atacante ha accedido a la cuenta de almacenamiento.
-   * Un usuario legítimo ha accedido a la cuenta de almacenamiento desde una ubicación nueva.
- 
-* **Anomalía de aplicación**: esta alerta indica que una aplicación inusual ha accedido a esta cuenta de almacenamiento. Causas posibles:
-   * Un atacante ha accedido a la cuenta de almacenamiento con una aplicación nueva.
-   * Un usuario legítimo ha usado una nueva aplicación o explorador para acceder a la cuenta de almacenamiento.
-
-* **Acceso anónimo**: Esta alerta indica que se ha accedido de forma anónima a la cuenta (es decir, sin autenticación), algo que resulta inesperado si se tiene en cuenta el patrón de acceso reciente en la cuenta.
-Causas posibles:
-   * Un atacante ha aprovechado el acceso de lectura público a un contenedor.
-   * Una aplicación o usuario legítimo ha usado el acceso de lectura público a un contenedor.
-
-* **Anomalía de Tor**: Esta alerta indica que se ha accedido a esta cuenta correctamente desde una dirección IP conocida como nodo de salida activo de Tor (proxy anónimo). La gravedad de esta alerta considera el tipo de autenticación usado (si existe) y si es la primera vez que se produce tal acceso.
-Causas posibles:
-   * Un atacante ha accedido a la cuenta de almacenamiento mediante Tor.
-   * Un usuario legítimo ha accedido a la cuenta de almacenamiento mediante Tor.
-
-
-### <a name="anomalous-extractupload-alerts"></a>Alertas de extracción o carga anómalas
-
-* **Filtración de datos**: esta alerta indica que se ha extraído una cantidad de datos inusualmente grande en comparación con la actividad reciente en este contenedor de almacenamiento. Causas posibles:
-   * Un atacante ha extraído una gran cantidad de datos de un contenedor. (Por ejemplo: filtración o vulneración de datos, transferencia no autorizada de datos).
-   * Una aplicación o usuario legítimo ha extraído un importe inusual de datos de un contenedor. (Por ejemplo: actividad de mantenimiento).
-
-* **Eliminación inesperada**: esta alerta indica que se han producido una o varias operaciones de eliminación inesperadas en una cuenta de almacenamiento, en comparación con la actividad reciente en la cuenta. Causas posibles:
-   * Un atacante ha eliminado datos de la cuenta de almacenamiento.
-   * Un usuario legítimo ha realizado una eliminación inusual.
-
-* **Carga de paquete de Azure Cloud Services**: esta alerta indica que se ha cargado un paquete de Azure Cloud Services (archivo .cspkg) en una cuenta de almacenamiento de manera inusual, en comparación con la actividad reciente en esta cuenta. Causas posibles: 
-   * Un atacante ha estado preparándose para implementar código malintencionado desde la cuenta de almacenamiento en un servicio en la nube de Azure.
-   * Un usuario legítimo ha estado preparándose para implementar un servicio legítimo.
-
-### <a name="suspicious-storage-activities-alerts"></a>Alertas de actividades de almacenamiento sospechosas
-
-* **Cambio en el permiso de acceso**: esta alerta indica que los permisos de acceso a un contenedor de almacenamiento se han cambiado de un modo no habitual. Causas posibles: 
-   * Un atacante ha cambiado los permisos del contenedor para debilitar su seguridad.
-   * Un usuario legítimo ha cambiado los permisos del contenedor.
-
-* **Inspección de acceso**: esta alerta indica que los permisos de acceso de una cuenta de almacenamiento se han inspeccionado de un modo no habitual, en comparación con la actividad reciente de esta cuenta. Causas posibles: 
-   * Un atacante ha realizado un reconocimiento para un ataque futuro.
-   * Un usuario legítimo ha realizado mantenimiento en la cuenta de almacenamiento.
-
-* **Exploración de datos**: esta alerta indica que los blobs o los contenedores de una cuenta de almacenamiento se han enumerado de un modo no habitual, en comparación con la actividad reciente de esta cuenta. Causas posibles: 
-   * Un atacante ha realizado un reconocimiento para un ataque futuro.
-   * Un usuario legítimo o la lógica de la aplicación han explorado los datos de la cuenta de almacenamiento.
-
-
-
-
-
+Las alertas las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de almacenamiento. Para una lista de estas alertas, consulte las alertas de [Azure Storage](../../security-center/security-center-alerts-data-services.md#azure-storage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
