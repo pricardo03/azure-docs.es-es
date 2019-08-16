@@ -181,10 +181,6 @@
           href: security-center-search.md
         - name: Planeamiento y operaciones
           href: security-center-planning-and-operations-guide.md
-        - name: Descripción de las alertas de seguridad
-          href: security-center-alerts-type.md
-        - name: UEBA para los usuarios y recursos de Azure
-          href: security-center-ueba-mcas.md
         - name: Personalización de la configuración de seguridad
           href: security-center-customize-os-security-config.md
 - name: Referencia
