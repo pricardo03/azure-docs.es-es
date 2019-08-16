@@ -120,12 +120,8 @@
         - name: 'Implementación: API REST'
           displayName: 'deployment,rollback on error,redeploy'
           href: resource-group-template-deploy-rest.md
-        - name: Protección de plantillas con el token de SAS
-          items:
-            - name: Uso de la CLI de Azure
-              href: resource-manager-cli-sas-token.md
-            - name: Uso de Azure PowerShell
-              href: resource-manager-powershell-sas-token.md
+        - name: Protección de plantillas con un token de SAS
+          href: secure-template-with-sas-token.md
         - name: Implementación en varios grupos de recursos o suscripciones
           href: resource-manager-cross-resource-group-deployment.md
     - name: CI/CD

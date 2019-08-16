@@ -13,7 +13,7 @@
       items:
         - name: Creación y uso de un índice
           href: search-get-started-portal.md
-        - name: Enriquecimiento con inteligencia artificial (Cognitive Search)
+        - name: Enriquecimiento con búsquedas cognitivas (IA)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -59,6 +59,8 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
     - name: Ejemplos de Java
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: Ejemplos de JavaScript
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
     - name: Ejemplos de Python
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
     - name: Ejemplos de REST
