@@ -103,7 +103,7 @@ Para copiar datos desde Vertica, establezca la propiedad type del conjunto de da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **VerticaTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **VerticaTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -132,7 +132,7 @@ Para copiar datos desde Vertica, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **VerticaSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **VerticaSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
