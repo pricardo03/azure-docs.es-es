@@ -95,7 +95,7 @@ Para copiar datos de Xero, establezca la propiedad type del conjunto de datos en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **XeroObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **XeroObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -124,7 +124,7 @@ Para copiar datos de Xero, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **XeroSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **XeroSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Contacts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
