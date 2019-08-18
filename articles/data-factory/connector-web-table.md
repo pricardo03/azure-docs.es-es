@@ -56,7 +56,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de tabla we
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Web** |Sí |
 | url | Dirección URL para el origen de Web |Sí |
-| authenticationType | El valor permitido es: **Anónima**. |Sí |
+| authenticationType | El valor permitido es: **Anonymous**. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
