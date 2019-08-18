@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md
     - name: Programación de la actualización de la región Gen2
       href: gen2-migration-schedule.md
-    - name: Notas de la versión archivadas
-      items:
-        - name: Septiembre de 2018
-          href: release-notes-september-2018.md
-        - name: Agosto de 2018
-          href: release-notes-august-2018.md
-        - name: Julio de 2018
-          href: release-notes-july-2018.md
-        - name: Junio de 2018
-          href: release-notes-june-2018.md
-        - name: Mayo de 2018
-          href: release-notes-may-2018.md
-        - name: 2018 de abril de 2018
-          href: release-notes-april-2018.md
 - name: Guías de inicio rápido
   expanded: true
   items:
