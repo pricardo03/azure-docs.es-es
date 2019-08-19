@@ -288,7 +288,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Recurso|Establecimiento de propiedades de administración de derechos|
 |Recurso|Actualización de compañía|
 |Recurso|Actualización de configuración de compañía|
-|Recurso| Actualizar dominio|
+|Recurso|Actualizar dominio|
 |Recurso|Comprobar dominio|
 |Recurso|Comprobar dominio verificado por correo electrónico|
 |Recurso|Incorporación|

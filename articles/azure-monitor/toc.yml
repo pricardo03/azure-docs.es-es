@@ -509,6 +509,10 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Supervisión de contenedores de Docker y Windows
               href: insights/containers.md
+        - name: Storage
+          items:
+            - name: Azure Monitor para Storage
+              href: insights/storage-insights-overview.md
         - name: Máquinas virtuales
           items:
             - name: Agentes
@@ -1044,8 +1048,10 @@
               href: app/data-model-metric-telemetry.md
             - name: Context
               href: app/data-model-context.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/monitor?view=azure-cli-latest
+    - name: 'CLI de Azure: Application Insights (versión preliminar)'
+      href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
     - name: Azure Functions
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell

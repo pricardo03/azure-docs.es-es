@@ -213,29 +213,29 @@
         - name: Dónde y cómo implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Máquinas virtuales de Notebook
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: Azure Kubernetes Service
+        - name: Implementación en Azure Kubernetes Service
           displayName: 'aks, aad, authentication, azure active directory'
           href: how-to-deploy-azure-kubernetes-service.md
-        - name: Inferencia de GPU
+        - name: Implementación para inferencia de GPU
           href: how-to-deploy-inferencing-gpus.md
-        - name: Inferencia de FPGA
-          href: how-to-deploy-fpga-web-service.md
-        - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Azure App Service
+        - name: Implementación en Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Personalización de una imagen de Docker
+        - name: Implementación en Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: Implementación en máquinas virtuales de Notebook
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Uso de una imagen personalizada de Docker
           href: how-to-deploy-custom-docker-image.md
         - name: Implementación de los modelos existentes
           displayName: publish existing model
           href: how-to-deploy-existing-model.md
-        - name: Solución de problemas y depuración
+        - name: Implementación en IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Implementación para la inferencia de FPGA
+          href: how-to-deploy-fpga-web-service.md
+        - name: Solución de problemas y depuración de implementaciones
           href: how-to-troubleshoot-deployment.md
     - name: Consumo de servicios web
       items:

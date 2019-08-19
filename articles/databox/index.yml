@@ -1,46 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 'Documentación de Azure Data Box: Transferencia sin conexión'
+summary: Use los dispositivos de Azure Data Box para la transferencia de datos sin conexión cuando tenga limitaciones de tiempo, red o costo. Según el tamaño de los datos, elija entre Data Box Disk, Data Box o Data Box Heavy.
 metadata:
   title: 'Documentación de Azure Data Box: Transferencia sin conexión'
-  description: 'Use los dispositivos de Data Box para la transferencia de datos sin conexión a Azure cuando tenga limitaciones de tiempo, red o costo.'
+  description: Use los dispositivos de Data Box para la transferencia de datos sin conexión a Azure cuando tenga limitaciones de tiempo, red o costo.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 07/03/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box para la transferencia de datos sin conexión cuando tenga limitaciones de tiempo, red o costo.<p>Según el tamaño de los datos, elija entre Data Box Disk, Data Box o Data Box Heavy. Para cada dispositivo, la transferencia a Azure tiene lugar en 4 pasos sencillos: solicitar, recibir, copiar datos en el dispositivo y devolver el dispositivo a Azure. En el centro de datos de Azure, los datos se cargan y luego se borran.</p><p>Obtenga información sobre cómo aprovechar Data Box para la transferencia de datos sin conexión con nuestros inicios rápidos y tutoriales.</p>'
-sections:
-  - title: Guía de inicio rápido
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configuración de Data Box en Azure Portal
-            href: /azure/databox/data-box-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configuración de Data Box Disk en Azure Portal
-            href: /azure/databox/data-box-disk-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configuración de Data Box Heavy en Azure Portal
-            href: /azure/databox/data-box-heavy-quickstart-portal
-  - title: Tutoriales
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Para Data Box
-            html: <p><a href="/azure/databox/data-box-deploy-ordered">Solicitud de Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Cable y conexión de Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copia de datos a Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Devolución de Azure Data Box y comprobación de la carga</a></p>
-          - title: Para Data Box Disk
-            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Solicitud de Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Desempaquetado, conexión y desbloqueo de Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copia de datos a Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Devolución de Azure Data Box Disk y comprobación de la carga</a></p>'
-          - title: Para Data Box Heavy
-            html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Pedir Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Cable y conexión de Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Copia de datos en Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Devolución de Azure Data Box Heavy y comprobación de la carga</a></p>
+  ms.date: 08/14/2019
+  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
+  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/16/2019
+  ms.locfileid: "69557839"
+landingContent:
+- title: Acerca de la familia de productos de Azure Data Box
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Data Box?
+      url: data-box-overview.md
+    - text: ¿Qué es Data Box Disk?
+      url: data-box-disk-overview.md
+    - text: ¿Qué es Data Box Heavy?
+      url: data-box-heavy-overview.md
+  - linkListType: architecture
+    links:
+    - text: Elección de opciones de transferencia de datos de Azure
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configuración de Data Box
+      url: data-box-quickstart-portal.md
+    - text: Configuración de Data Box Disk
+      url: data-box-disk-quickstart-portal.md
+    - text: Configuración de Data Box Heavy
+      url: data-box-heavy-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Importación de datos sin conexión con Data Box
+      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+- title: Ver requisitos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Para Data Box
+      url: data-box-system-requirements.md
+    - text: Para el almacenamiento de blobs de Data Box
+      url: data-box-system-requirements-rest.md
+    - text: Para Data Box Disk
+      url: data-box-disk-system-requirements.md
+    - text: Para Data Box Heavy
+      url: data-box-heavy-system-requirements.md
+- title: Implementación de Data Box
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Orden
+      url: data-box-deploy-ordered.md
+    - text: Cable
+      url: data-box-deploy-set-up.md
+    - text: Conexión y copia de datos mediante SMB
+      url: data-box-deploy-copy-data.md
+    - text: Devolución, carga y comprobación de datos de Azure
+      url: data-box-deploy-picked-up.md
+- title: Implementación de Data Box Disk
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Orden
+      url: data-box-disk-deploy-ordered.md
+    - text: Desbloqueo y conexión
+      url: data-box-disk-deploy-set-up.md
+    - text: Copia y validación de datos
+      url: data-box-disk-deploy-copy-data.md
+    - text: Devolución, carga y comprobación de datos de Azure
+      url: data-box-disk-deploy-picked-up.md
+- title: Implementación de Data Box Heavy
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Orden
+      url: data-box-heavy-deploy-ordered.md
+    - text: Cable
+      url: data-box-heavy-deploy-set-up.md
+    - text: Conexión y copia de datos mediante SMB
+      url: data-box-heavy-deploy-copy-data.md
+    - text: Devolución, carga y comprobación de datos de Azure
+      url: data-box-heavy-deploy-picked-up.md
+- title: Administración de un dispositivo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box, Data Box Heavy en Azure
+      url: data-box-portal-admin.md
+    - text: Data Box, Data Box Heavy a través de interfaz de usuario local
+      url: data-box-local-web-ui-admin.md
+    - text: Data Box Disk en Azure
+      url: data-box-portal-ui-admin.md
+- title: Preguntas más frecuentes
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Preguntas más frecuentes sobre Data Box
+      url: data-box-faq.md
+    - text: Preguntas más frecuentes sobre Data Box Disk
+      url: data-box-disk-faq.md
+- title: Solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box, Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Almacenamiento de blobs de Azure Data Box
+      url: data-box-troubleshoot-rest.md
+    - text: Data Box Disk
+      url: data-box-disk-troubleshoot.md
+    - text: Abrir una incidencia de soporte técnico
+      url: data-box-disk-contact-microsoft-support.md

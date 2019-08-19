@@ -32,6 +32,8 @@
       href: create-host-pools-arm-template.md
     - name: Creación de un grupo host con PowerShell
       href: create-host-pools-powershell.md
+    - name: Aplicación de una licencia de Windows a hosts de sesión de Windows Virtual Desktop
+      href: apply-windows-license.md
     - name: Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host
       href: create-host-pools-user-profile.md
     - name: Configuración del método de equilibrio de carga de Windows Virtual Desktop
@@ -48,6 +50,8 @@
       href: customize-feed-for-virtual-desktop-users.md
     - name: Personalización de propiedades de RDP
       href: customize-rdp-properties.md
+    - name: Implementación de la herramienta de diagnósticos
+      href: deploy-diagnostics.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop
