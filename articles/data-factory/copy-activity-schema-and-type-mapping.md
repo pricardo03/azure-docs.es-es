@@ -203,7 +203,7 @@ Puede especificar actividad de copia -> `translator` -> `schemaMapping` para rea
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
+| type | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
 | schemaMapping | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor**.<br/>- **Clave:** representa el origen. Para un **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz.  | Sí |
 | collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | Sin |
 
