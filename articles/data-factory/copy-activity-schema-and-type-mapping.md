@@ -90,12 +90,12 @@ Se admiten las siguientes propiedades en `translator` -> `mappings` -> objeto co
 
 | Propiedad | DESCRIPCIÓN                                                  | Obligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
-| Nombre     | Nombre de la columna de origen o receptor.                           | Sí      |
+| name     | Nombre de la columna de origen o receptor.                           | Sí      |
 | ordinal  | Índice de columna. Comienza con 1. <br>Se aplica y es obligatoria cuando se usa texto delimitado sin línea de encabezado. | Sin       |
 | path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Se aplica para los datos jerárquicos; por ejemplo, MongoDB o REST.<br>Para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sin       |
-| Tipo     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. | Sin       |
+| type     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. | Sin       |
 | culture  | Cultura de la columna de origen o receptor.Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. <br>Apply when type is <ph id="ph1">`Datetime`</ph> or <ph id="ph2">`Datetimeoffset`</ph>. El valor predeterminado es `en-us`. | Sin       |
-| formato   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin       |
+| format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin       |
 
 Se admiten las siguientes propiedades en `translator` -> `mappings`, así como en un objeto con `source` y `sink`:
 
