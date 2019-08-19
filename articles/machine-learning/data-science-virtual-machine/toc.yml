@@ -6,8 +6,6 @@
   items:
     - name: ¿Qué es la máquina virtual de ciencia de datos?
       href: overview.md
-    - name: ¿Qué es la máquina virtual de aprendizaje profundo?
-      href: deep-learning-dsvm-overview.md
     - name: ¿Qué es la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial?
       href: geo-ai-dsvm-overview.md
 - name: Guías de inicio rápido
@@ -23,8 +21,6 @@
       href: provision-geo-ai-dsvm.md
 - name: Conceptos
   items:
-    - name: Detección de Data Science Virtual Machine
-      href: dsvm-tools-overview.md
     - name: Marcos de aprendizaje profundo y de AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Lenguajes de programación
@@ -49,8 +45,6 @@
       href: vm-do-ten-things.md
     - name: Uso de una instancia de DSVM de Linux
       href: linux-dsvm-walkthrough.md
-    - name: Uso de una máquina virtual de aprendizaje profundo
-      href: use-deep-learning-dsvm.md
     - name: Uso de una instancia de DSVM para Geo AI
       href: use-geo-ai-dsvm.md
     - name: Creación de un grupo de DSVM con escalabilidad automática
