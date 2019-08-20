@@ -145,7 +145,7 @@
     - name: Escala
       items:
         - name: Escalado vertical de una aplicación
-          href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+          href: ../app-service/manage-scale-up.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Entorno de App Service
           href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
           items:
@@ -186,7 +186,7 @@
               href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
             - name: Detalles de configuración de red con ExpressRoute
               href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Autenticación con proveedores de identidades
           items:

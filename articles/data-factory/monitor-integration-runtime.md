@@ -70,7 +70,7 @@ En la tabla siguiente se proporcionan las descripciones de las propiedades de su
 
 | Propiedad | Descripción | 
 | -------- | ----------- | 
-| NOMBRE | Nombre de la instancia de Integration Runtime autohospedada y sus nodos asociados. Un nodo es una máquina Windows local con la instancia de Integration Runtime autohospedada instalada. |  
+| Name | Nombre de la instancia de Integration Runtime autohospedada y sus nodos asociados. Un nodo es una máquina Windows local con la instancia de Integration Runtime autohospedada instalada. |  
 | Status | Estado de la instancia general de Integration Runtime autohospedada y de los nodos. Ejemplo: En línea, Sin conexión, Limitado, etc. Para información acerca de estos estados, consulte la siguiente sección. | 
 | Versión | Versión de la instancia de Integration Runtime autohospedada y de los nodos. La versión de la instancia de Integration Runtime autohospedada se determina en función de la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la instancia de Integration Runtime autohospedada, solo los nodos con el mismo número de versión que la instancia lógica de Integration Runtime autohospedada funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). | 
 | Memoria disponible | Memoria disponible en un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
@@ -92,7 +92,7 @@ El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione
 ### <a name="status-per-node"></a>Estado (por nodo)
 En la tabla siguiente se proporcionan los estados posibles de los nodos de una instancia de Integration Runtime autohospedada:
 
-| Status | DESCRIPCIÓN |
+| Status | Description |
 | ------ | ------------------ | 
 | En línea | Nodo conectado al servicio Data Factory. |
 | Sin conexión | El nodo está sin conexión. |
@@ -105,7 +105,7 @@ Un nodo puede estar inactivo cuando no se puede conectar a otros nodos.
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Estado (instancia general de Integration Runtime autohospedada)
 En la tabla siguiente se proporcionan los estados posibles de una instancia de Integration Runtime autohospedada. Este estado depende de los de todos los nodos que pertenecen a la instancia de Runtime. 
 
-| Status | DESCRIPCIÓN |
+| Status | Description |
 | ------ | ----------- | 
 | Need registration (Se necesita registro) | No hay nodos registrados para esta instancia de Integration Runtime autohospedada aún. |
 | En línea | Todos los nodos están en línea. |
@@ -157,14 +157,14 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Propiedad/estado | DESCRIPCIÓN |
+| Propiedad/estado | Description |
 | --------------- | ----------- |
 | CreateTime | Hora UTC a la que se creó la instancia de Integration Runtime de SSIS de Azure. |
 | Nodos | Nodos asignados/disponibles de la instancia de Integration Runtime de SSIS de Azure con estados específicos de nodo (Starting/Available/Recycling/Unavailable) y errores que requieren acción. |
 | OtherErrors | Errores inespecíficos del nodo que no requieren acción en la instancia de Integration Runtime de SSIS de Azure. |
 | LastOperation | Resultado de la última operación de inicio/detención en la instancia de Integration Runtime de SSIS de Azure con errores que requieren acción, en caso de error de esta. |
-| Estado | Estado general (Initial/Starting/Started/Stopping/Stopped) de la instancia de Integration Runtime de SSIS de Azure. |
-| Ubicación | Ubicación de la instancia de Integration Runtime de SSIS de Azure. |
+| State | Estado general (Initial/Starting/Started/Stopping/Stopped) de la instancia de Integration Runtime de SSIS de Azure. |
+| Location | Ubicación de la instancia de Integration Runtime de SSIS de Azure. |
 | NodeSize | Tamaño de cada nodo de la instancia de Integration Runtime de SSIS de Azure. |
 | NodeCount | Número de nodos de la instancia de Integration Runtime de SSIS de Azure. |
 | MaxParallelExecutionsPerNode | Número de ejecuciones en paralelo por nodo en la instancia de Integration Runtime de SSIS de Azure. |
@@ -178,13 +178,13 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | Type | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se crearon las instancias de Data Factory y de Integration Runtime de SSIS de Azure. |
 | DataFactoryName | Nombre de la instancia de Azure Data Factory. |
-| NOMBRE | Nombre de la instancia de Integration Runtime de SSIS de Azure. |
-| DESCRIPCIÓN | Descripción de la instancia de Integration Runtime de SSIS de Azure. |
+| Name | Nombre de la instancia de Integration Runtime de SSIS de Azure. |
+| Description | Descripción de la instancia de Integration Runtime de SSIS de Azure. |
 
   
 ### <a name="status-per-node"></a>Estado (por nodo)
 
-| Status | DESCRIPCIÓN |
+| Status | Description |
 | ------ | ----------- | 
 | Iniciando | Este nodo se está preparando. |
 | Disponible | Este nodo está listo para la implementación y ejecución de paquetes SSIS. |
@@ -193,7 +193,7 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (instancia general de Integration Runtime de SSIS de Azure)
 
-| Estado general | DESCRIPCIÓN | 
+| Estado general | Description | 
 | -------------- | ----------- | 
 | Inicial | Los nodos de la instancia de Integration Runtime de SSIS de Azure no se han asignado/preparado. | 
 | Iniciando | Los nodos de la instancia de Integration Runtime de SSIS de Azure se están asignando/preparando y la facturación ha comenzado. |

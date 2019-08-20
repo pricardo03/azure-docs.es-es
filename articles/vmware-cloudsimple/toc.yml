@@ -117,7 +117,7 @@
     - name: Guías de procedimientos
       items:
         - name: Protección del entorno
-          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+          href: private-cloud-secure.md
         - name: Administración de la nube privada
           items:
             - name: Escalado de privilegios de nube privada
@@ -143,7 +143,7 @@
             - name: Azure Application Gateway con máquinas virtuales de VMware
               href: azure-application-gateway.md
             - name: Configuración del servidor vCenter de la nube privada como punto de conexión de automatización de vRealize
-              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+              href: configure-server-vrealize-automation-endpoint.md
             - name: Migración de máquinas virtuales de cargas de trabajo a una nube privada
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Garantía de alta disponibilidad de la aplicación en VMware en Azure

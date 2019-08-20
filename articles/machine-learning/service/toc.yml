@@ -148,9 +148,6 @@
         - name: Adición y registro de conjuntos de datos
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: Exploración de los datos
-          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
         - name: Preparación con azureml.dataprep
           items:
             - name: Carga de datos
