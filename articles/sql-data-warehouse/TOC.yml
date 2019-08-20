@@ -273,6 +273,8 @@
       items:
         - name: Actualización a Gen2
           href: upgrade-to-latest-generation.md
+        - name: Administración de procesos
+          href: manage-compute-with-azure-functions.md
         - name: 'Supervisión de la carga de trabajo: Portal'
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 'Supervisión de la carga de trabajo: Vistas de administración dinámica'

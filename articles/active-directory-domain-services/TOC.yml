@@ -1,93 +1,80 @@
 - name: Documentación de Azure AD Domain Services
   href: index.yml
 - name: Información general
-  expanded: true
   items:
     - name: ¿Qué es Azure AD Domain Services?
       href: overview.md
-    - name: Comparación con Windows Server AD
-      href: comparison.md
-    - name: Comparación con la combinación de Azure AD
-      href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: Características
-      href: active-directory-ds-features.md
+    - name: Comparación de servicios de identidad
+      href: compare-identity-solutions.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Creación de un dominio administrado
+      href: tutorial-create-instance.md
+    - name: Unión a dominio de una máquina virtual de Windows Server
+      href: join-windows-vm.md
+    - name: Instalación de herramientas de administración
+      href: tutorial-create-management-vm.md
+    - name: Configuración de LDAP seguro
+      href: tutorial-configure-ldaps.md
 - name: Ejemplos
   items:
     - name: Creación de una instancia de Azure AD DS mediante Azure PowerShell
       href: powershell-create-instance.md
 - name: Conceptos
   items:
-    - name: Funcionamiento de la sincronización
+    - name: Cómo funciona la sincronización de Azure AD DS
       href: synchronization.md
+    - name: Funcionamiento de la sincronización de hash de contraseñas
+      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: ¿Qué es Azure Active Directory?
+      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Arquitectura de Azure Active Directory
+      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Implementación de modelos administrativos con privilegios mínimos
+      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: Procedimientos
   items:
-    - name: Creación de una instancia de Azure AD DS
+    - name: Configuración de valores habituales
       items:
-        - name: 'Tarea 1: Configuración básica'
-          href: create-instance.md
-        - name: 'Tarea 2: Configuración de red'
-          href: active-directory-ds-getting-started-network.md
-        - name: 'Tarea 3: Configuración del grupo de administradores y habilitación de Azure AD Domain Services'
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: 'Tarea 4: Actualización de la configuración DNS para la red virtual'
-          href: active-directory-ds-getting-started-dns.md
-        - name: 'Tarea 5: Habilitación de la sincronización de hash de contraseñas'
-          href: active-directory-ds-getting-started-password-sync.md
+        - name: Habilitación de la sincronización de hash de contraseñas
+          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
+        - name: Configuración de la sincronización con ámbito desde Azure AD
+          href: scoped-synchronization.md
+        - name: Creación de una unidad organizativa
+          href: create-ou.md
+        - name: Creación de una cuenta de servicio administrada de grupo
+          href: create-gmsa.md
     - name: Plan para Azure AD DS
       items:
-        - name: Escenarios
+        - name: Escenarios comunes
           href: scenarios.md
-        - name: Planeamiento de una red virtual
+        - name: Consideraciones sobre la red virtual
           href: network-considerations.md
     - name: Administración de Azure AD DS
       items:
-        - name: Habilitar eventos de auditoría de seguridad (versión preliminar)
-          href: security-audit-events.md
-        - name: Comprobación del mantenimiento de un dominio administrado
-          href: check-health.md
-        - name: Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado
-          href: scoped-synchronization.md
-        - name: Protección de un dominio administrado
-          href: secure-your-domain.md
-        - name: Crear una unidad organizativa en un dominio administrado
-          href: create-ou.md
-        - name: Creación de una cuenta de servicio administrada de grupos en un dominio administrado
-          href: create-gmsa.md
-        - name: Administración de la directiva de grupo para Azure AD Domain Services
+        - name: Administración de la directiva de grupo
           href: manage-group-policy.md
-        - name: Configuración de directivas de contraseña en un dominio administrado
-          href: password-policy.md
+        - name: Administración de DNS
+          href: manage-dns.md
+        - name: Comprobación del estado de mantenimiento
+          href: check-health.md
+        - name: Configuración de notificaciones de correo electrónico
+          href: notifications.md
         - name: Eliminación de un dominio administrado
           href: delete-aadds.md
-        - name: Creación de una máquina virtual administrativa de Azure AD DS
-          href: manage-domain.md
-        - name: Administración de DNS para Azure AD Domain Services
-          href: manage-dns.md
-        - name: Actualización de notificaciones por correo electrónico
-          href: notifications.md
-        - name: Configuración de LDAP seguro (LDAPS) en un dominio de Azure AD Domain Services
-          href: configure-ldaps.md
-          items:
-            - name: 'Tarea 2: Exportación del certificado LDAP seguro'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-            - name: 'Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante Azure Portal'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-            - name: 'Tarea 4: Configuración de DNS para acceder al dominio administrado desde Internet'
-              href: active-directory-ds-ldaps-configure-dns.md
-            - name: 'Tarea 5: Vinculación al dominio administrado y bloqueo del acceso mediante LDAP seguro'
-              href: active-directory-ds-ldaps-bind-lockdown.md
-    - name: Implementación de aplicaciones en Azure AD
+    - name: Protección de Azure AD DS
       items:
-        - name: Configuración de la compatibilidad con la sincronización de perfiles de SharePoint Server
-          href: deploy-sp-profile-sync.md
+        - name: Protección de un dominio administrado
+          href: secure-your-domain.md
         - name: Configuración de la delegación restringida de Kerberos
           href: deploy-kcd.md
-        - name: Implementación de Azure AD Application Proxy
-          href: deploy-azure-app-proxy.md
-    - name: Unión de máquinas virtuales a Azure AD DS
+        - name: Configuración de las directivas de bloqueo de cuenta y contraseña
+          href: password-policy.md
+        - name: Habilitar eventos de auditoría de seguridad (versión preliminar)
+          href: security-audit-events.md
+    - name: Unión a dominio de máquinas virtuales
       items:
-        - name: Máquina virtual Windows Server
-          href: join-windows-vm.md
         - name: Máquina virtual Windows Server a partir de plantilla
           href: join-windows-vm-template.md
         - name: CentOS
@@ -98,24 +85,31 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Solución de problemas de Azure AD DS
+    - name: Implementación de aplicaciones en Azure AD
       items:
-        - name: Guía de solución de problemas
+        - name: Implementación de Azure AD Application Proxy
+          href: deploy-azure-app-proxy.md
+        - name: Configuración de la compatibilidad con la sincronización de perfiles de SharePoint Server
+          href: deploy-sp-profile-sync.md
+    - name: Solución de problemas
+      items:
+        - name: Errores comunes
           href: troubleshoot.md
-        - name: Alertas de solución de problemas
-          href: troubleshoot-alerts.md
+        - name: Alertas comunes
           items:
-            - name: Corrección de una configuración dañada del grupo de seguridad de red
+            - name: Alertas comunes
+              href: troubleshoot-alerts.md
+            - name: Corrección de una configuración de red dañada
               href: alert-nsg.md
             - name: Restauración de las entidades de servicio que faltan
               href: alert-service-principal.md
-            - name: Errores de LDAP seguro
+            - name: Alertas de LDAP seguro
               href: alert-ldaps.md
-        - name: Resolución de errores de inquilinos que no coinciden
+        - name: Errores de inquilinos que no coinciden
           href: mismatched-tenant-error.md
         - name: Dominios suspendidos
           href: suspension.md
-        - name: Solución de problemas de acceso mediante LDAP seguro
+        - name: LDAP seguro
           href: tshoot-ldaps.md
 - name: Recursos
   items:

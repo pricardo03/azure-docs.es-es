@@ -4,8 +4,16 @@
   items:
     - name: Información general
       href: user-help-two-step-verification-overview.md
-    - name: Configuración de mi cuenta
-      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configuración de los métodos de comprobación de dos factores
+      items:
+        - name: Información general
+          href: multi-factor-authentication-end-user-first-time.md
+        - name: Configuración de una aplicación autenticadora
+          href: multi-factor-authentication-setup-auth-app.md
+        - name: Configuración de un dispositivo móvil
+          href: multi-factor-authentication-setup-phone-number.md
+        - name: Configuración de un teléfono de la oficina
+          href: multi-factor-authentication-setup-office-phone.md
     - name: Administración de la configuración
       href: multi-factor-authentication-end-user-manage-settings.md
     - name: Obtención de ayuda

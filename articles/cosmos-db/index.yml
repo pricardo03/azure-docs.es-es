@@ -64,7 +64,7 @@ sections:
               src: media/index/spark-logo.png
             title: Análisis integrado con Apache Spark
           - href: /azure/cosmos-db/change-feed/
-            html: <p>Ejecute análisis en tiempo real con fuente de cambios mediante la lectura de la lista ordenada de documentos de un contenedor de Azure Cosmos DB en el orden en que se modificaron. </p>
+            html: <p>Ejecute análisis en tiempo real con fuente de cambios mediante la lectura de la lista ordenada de documentos de un contenedor de Azure Cosmos en el orden en que se modificaron. </p>
             image:
               src: media/index/change-feed-logo.png
             title: Fuente de cambios
