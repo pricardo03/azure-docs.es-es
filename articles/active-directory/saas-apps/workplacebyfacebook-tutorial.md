@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Workplace by Facebook | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4328c6b5b85050ae5caf30fd4d321e50428f10b9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68825354"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986041"
 ---
-# <a name="tutorial-integrate-workplace-by-facebook-with-azure-active-directory"></a>Tutorial: Integración de Workplace by Facebook con Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
 En este tutorial, obtendrá información sobre cómo integrar Workplace by Facebook con Azure Active Directory (Azure AD). Cuando integra Workplace by Facebook con Azure Active AD, puede:
 
@@ -64,20 +64,20 @@ Para configurar la integración de Workplace by Facebook en Azure AD, deberá ag
 1. Seleccione **Workplace by Facebook** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>Configuración y prueba del inicio de sesión único (SSO) de Azure AD para Workplace by Facebook
 
 Configure y pruebe el inicio de sesión único de Azure AD con Workplace by Facebook mediante un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Workplace by Facebook.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Workplace by Facebook, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único de Workplace by Facebook](#configure-workplace-by-facebook-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Workplace by Facebook](#create-workplace-by-facebook-test-user)** : para tener un homólogo de B. Simon en Workplace by Facebook que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+    1. **[Creación de un usuario de prueba de Workplace by Facebook](#create-workplace-by-facebook-test-user)** : para tener un homólogo de B. Simon en Workplace by Facebook que esté vinculado a la representación del usuario en Azure AD.
+3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -104,7 +104,37 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-### <a name="configure-workplace-by-facebook-sso"></a>Configuración del inicio de sesión único de Workplace by Facebook
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
+
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Create**(Crear).
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a B. Simon para usar el inicio de sesión único de Azure al concederle acceso a Workplace by Facebook.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Workplace by Facebook**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+
+    ![Vínculo de Agregar usuario](common/add-assign-user.png)
+
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-workplace-by-facebook-sso"></a>Configuración del inicio de sesión único de Workplace by Facebook
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de empresa de Workplace by Facebook como administrador.
   
@@ -152,36 +182,6 @@ Puede configurar Workplace para que solicite una comprobación SAML cada día, c
 
 También puede forzar un restablecimiento de SAML para todos los usuarios con este botón: Require SAML authentication for all users now (Requerir autenticación de SAML para todos los usuarios ahora).
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
-
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a B. Simon para usar el inicio de sesión único de Azure al concederle acceso a Workplace by Facebook.
-
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Workplace by Facebook**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
 ### <a name="create-workplace-by-facebook-test-user"></a>Creación de un usuario de prueba de Workplace by Facebook
 
 En esta sección se crea un usuario llamado B. Simon en Workplace by Facebook. Workplace by Facebook admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
@@ -191,13 +191,13 @@ El usuario no tiene que hacer nada en esta sección. Si no existe un usuario en 
 >[!Note]
 >Si necesita crear un usuario de forma manual, póngase en contacto con el [equipo de soporte de cliente de Workplace by Facebook](https://workplace.fb.com/faq/)
 
-### <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, debería iniciar sesión automáticamente en la versión de Workplace by Facebook para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Prueba del inicio de sesión único para Workplace by Facebook (Mobile)
+## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Prueba del inicio de sesión único para Workplace by Facebook (móvil)
 
 1. Abra la aplicación de Workplace by Facebook Mobile. En la página de inicio de sesión, haga clic en **LOG IN** (iniciar sesión).
 
@@ -228,4 +228,6 @@ Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, deber�
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configuración del aprovisionamiento de usuarios](workplacebyfacebook-provisioning-tutorial.md)
+
+- [Prueba de Workplace by Facebook con Azure AD](https://aad.portal.azure.com)
 

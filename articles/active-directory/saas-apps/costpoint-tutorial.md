@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 6c1a8b916feb2ad67623434f2b63468be72bf1aa
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536847"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879585"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutorial: Integración de Costpoint con Azure Active Directory
 
@@ -38,7 +38,7 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Suscripción habilitada para el inicio de sesión único (SSO) en Costpoint.
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Costpoint.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -78,34 +78,49 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CostpointURI>`
+    > [!NOTE]
+    > Obtendrá el archivo de metadatos del proveedor de servicios en la sección **Generación de metadatos de Costpoint**, que se explica más adelante en el tutorial.
+ 
+    1. Haga clic en **Cargar el archivo de metadatos**.
+    
+    1. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+    
+    1. Cuando se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **URL de respuesta** se rellenarán automáticamente en los cuadros de texto de la sección de Costpoint.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CostpointURI>/LoginServlet.cps`
+        > [!Note]
+        > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades. Compruebe que los valores de **Identificador (id. de entidad)** y **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** estén establecidos correctamente y que la **dirección URL de ACS** sea una dirección URL válida de Costpoint que finalice con **/LoginServlet.cps**.
 
-    c. Haga clic en **Establecer direcciones URL adicionales**.
+    1. Haga clic en **Establecer direcciones URL adicionales**.
 
-    d. En el cuadro de texto **Estado de la retransmisión**, escriba un valor con el siguiente patrón:`<SYSTEM VALUE>`
+    1. En el cuadro de texto **Estado de la retransmisión**, escriba un valor con el siguiente patrón:`system=[your system], (for example, **system=DELTEKCP**)`
+
+1. Si quiere configurar la aplicación en modo iniciado por **SP**, realice el siguiente paso:
+    
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://costpointteea.deltek.com/cpweb/cploginform.htm`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador real, la dirección URL de respuesta y la dirección URL de estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de Costpoint](https://www.deltek.com/about/contact-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. Si quiere configurar la aplicación en modo iniciado por **SP**, realice el siguiente paso:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://costpointteea.deltek.com/cpweb/cploginform.htm`
-
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **dirección URL de metadatos de federación de aplicación** y guárdela en el Bloc de notas.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de copia para copiar la **dirección URL de metadatos de federación de aplicación** y guárdela en el Bloc de notas.
 
    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-1. En la sección **Configurar Costpoint**, copie las direcciones URL adecuadas según sus necesidades.
+### <a name="generate-costpoint-metadata"></a>Generación de metadatos de Costpoint
 
-   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+La configuración del inicio de sesión único de SAML de Costpoint se explica en la guía **DeltekCostpoint711Security.pdf**. En ella, consulte la sección **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Azure AD** (Configuración del inicio de sesión único de SAML -> Configuración del inicio de sesión único de SAML entre Costpoint y Azure AD). Siga las instrucciones y genere el archivo **XML de metadatos de federación del proveedor de servicios de Costpoint**. Úselo en **Configuración básica de SAML** en Azure Portal.
+
+![Utilidad de configuración de Costpoint](./media/costpoint-tutorial/config02.png)
+
+> [!NOTE]
+> Solicite la guía **DeltekCostpoint711Security.pdf** al [equipo de atención al cliente de Costpoint Client](https://www.deltek.com/about/contact-us). Si no tiene este archivo, póngase en contacto con ellos para obtenerlo.
 
 ### <a name="configure-costpoint"></a>Configuración de Costpoint
 
-Para configurar el inicio de sesión único en **Costpoint**, tiene que enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Costpoint](https://www.deltek.com/about/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Vuelva a la **utilidad de configuración de Costpoint** y pegue la **dirección URL de metadatos de federación de aplicación** en el cuadro de texto **IdP Federation Metadata XML** (XML de metadatos de federación de IdP). A continuación, siga las instrucciones de la guía **DeltekCostpoint711Security.pdf** para finalizar la configuración de SAML de Costpoint. 
+
+![Utilidad de configuración de Costpoint](./media/costpoint-tutorial/config01.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -121,25 +136,29 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B. Simon acceda a Costpoint mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a Costpoint mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Costpoint**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** y, después, **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-costpoint-test-user"></a>Creación de un usuario de prueba de Costpoint
 
-En esta sección, creará un usuario llamado B. Simon en Costpoint. Trabaje con el  [equipo de soporte técnico de Costpoint](https://www.deltek.com/about/contact-us) para agregar los usuarios a la plataforma de Costpoint. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario en Costpoint. Suponga que el valor de **User ID** (Id. de usuario) es **B.SIMON** y que el nombre es **B.Simon**. Trabaje con el [equipo de atención al cliente de Costpoint](https://www.deltek.com/about/contact-us) para agregar el usuario a la plataforma de Costpoint. El usuario se debe crear y activar antes de usar el inicio de sesión único.
+ 
+Una vez creado, la selección de **Authentication Method** (Método de autenticación) del usuario debe ser **Active Directory**, la casilla **SAML Single Sign-on** (Inicio de sesión único de SAML) debe estar activada y el nombre de usuario de Azure Active Directory debe ser **Active Directory or Certificate ID** (Active Directory o id. de certificado) (como se muestra a continuación).
+
+![Usuario de Costpoint](./media/costpoint-tutorial/user01.png)
 
 ### <a name="test-sso"></a>Prueba de SSO
 

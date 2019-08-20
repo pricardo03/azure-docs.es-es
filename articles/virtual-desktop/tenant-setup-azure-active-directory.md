@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3d418d9f18c98e1b6fdf39924ab41dae77fba291
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204743"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014088"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop (versión preliminar)
 
@@ -42,17 +42,25 @@ Conceder permisos al servicio Windows Virtual Desktop le permite consultar Azure
 
 Para conceder los permisos de servicio:
 
-1. Abra un explorador y conéctese a la [página de consentimiento de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com).
-2. En **Consent Option** (Opción de consentimiento) > **Server App**, escriba el nombre del inquilino de Azure Active Directory o el identificador de directorio y, después, seleccione **Submit** (Enviar).
-        
-   Para clientes de proveedores de soluciones en la nube, el identificador es el identificador de Microsoft del cliente de Partner Portal. Para los clientes empresariales, el identificador se encuentra en **Azure Active Directory** > **Propiedades** > **Id. de directorio**.
-3. Inicie sesión en la página de consentimiento de Windows Virtual Desktop con una cuenta de administrador global. Por ejemplo, si pertenecía a la organización Contoso, su cuenta podría ser admin@contoso.com o admin@contoso.onmicrosoft.com.  
-4. Seleccione **Aceptar**.
-5. Espere un minuto.
-6. Vuelva a la [página de consentimiento de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com).
-7. Vaya a **Consent Option** (Opción de consentimiento) > **Client App** (Aplicación cliente) y escriba el mismo nombre de inquilino de Azure Active Directory o identificador de directorio y, después, seleccione **Submit** (Enviar).
-8. Inicie sesión en la página de consentimiento de Windows Virtual Desktop como administrador global como hizo en el paso 3 anterior.
-9. Seleccione **Aceptar**.
+1. Abra un explorador e inicie el flujo de consentimiento del administrador a la [aplicación de servidor de Windows Virtual Desktop](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   > [!NOTE]
+   > Si administra un cliente y necesita conceder el consentimiento del administrador para el directorio del cliente, escriba la siguiente dirección URL en el explorador y reemplace {tenant} por el nombre de dominio de Azure AD del cliente. Por ejemplo, si la organización del cliente ha registrado el nombre de dominio de Azure AD contoso.onmicrosoft.com, reemplace {tenant} por contoso.onmicrosoft.com.
+   >```
+   >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+2. Inicie sesión en la página de consentimiento de Windows Virtual Desktop con una cuenta de administrador global. Por ejemplo, si pertenecía a la organización Contoso, su cuenta podría ser admin@contoso.com o admin@contoso.onmicrosoft.com.  
+3. Seleccione **Aceptar**.
+4. Espere un minuto para que Azure AD pueda registrar el consentimiento.
+5. Abra un explorador e inicie el flujo de consentimiento del administrador en la [aplicación cliente de Windows Virtual Desktop](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   >[!NOTE]
+   > Si administra un cliente y necesita conceder el consentimiento del administrador para el directorio del cliente, escriba la siguiente dirección URL en el explorador y reemplace {tenant} por el nombre de dominio de Azure AD del cliente. Por ejemplo, si la organización del cliente ha registrado el nombre de dominio de Azure AD contoso.onmicrosoft.com, reemplace {tenant} por contoso.onmicrosoft.com.
+   >```
+   > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+6. Inicie sesión en la página de consentimiento de Windows Virtual Desktop como administrador global, como hizo en el paso 2 anterior.
+7. Seleccione **Aceptar**.
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory
 

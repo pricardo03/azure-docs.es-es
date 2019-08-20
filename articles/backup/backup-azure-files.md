@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737257"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954732"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Copia de seguridad y restauración de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.

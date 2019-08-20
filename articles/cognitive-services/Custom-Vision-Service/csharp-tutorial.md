@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: anroth
-ms.openlocfilehash: e79dcef1bdf415c13dafe31e925b08a4bd0f0cbf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef5e1d7bb2c5b4404ce1a43bc719b7b5a242b1c7
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564259"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946248"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Inicio rápido: Creación de un proyecto de clasificación de imágenes con SDK de Custom Vision para .NET
 
@@ -52,7 +52,7 @@ Las siguientes líneas de código ejecutan la funcionalidad principal del proyec
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Creación de un proyecto de Custom Vision Service
 
-El proyecto creado se mostrará en el [sitio web de Custom Vision](https://customvision.ai/) que ha visitado anteriormente. 
+El proyecto creado se mostrará en el [sitio web de Custom Vision](https://customvision.ai/) que ha visitado anteriormente. Consulte el método [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](getting-started-build-a-classifier.md)).   
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
 
@@ -62,7 +62,7 @@ El proyecto creado se mostrará en el [sitio web de Custom Vision](https://custo
 
 ### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-Se incluyen las imágenes de este proyecto. Se hace referencia a ellas en el método **LoadImagesFromDisk** de _Program.cs_.
+Se incluyen las imágenes de este proyecto. Se hace referencia a ellas en el método **LoadImagesFromDisk** de _Program.cs_. Puede cargar hasta 64 imágenes en un único lote.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 

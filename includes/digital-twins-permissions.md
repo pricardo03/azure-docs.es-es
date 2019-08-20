@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/28/2019
+ms.date: 08/12/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 324f41055cf333081f308a3ff533ff7df6b33038
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: fc2e2fc05de66de6f428e6b8ca7c94f82003ba2a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "67479247"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012274"
 ---
 >[!NOTE]
 >En esta sección se proporcionan instrucciones para el [nuevo registro de la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Si todavía tiene registro de aplicaciones nativas heredadas, puede utilizarlo siempre que sea compatible. Además, si por alguna razón la nueva forma de registro de la aplicación no funciona en su configuración, puede intentar crear una aplicación nativa de AAD heredada. Consulte [Register your Azure Digital Twins app with Azure Active Directory legacy](../articles/digital-twins/how-to-use-legacy-aad.md) (Registro de la aplicación Azure Digital Twins con Azure Active Directory heredado) para obtener más instrucciones. 
@@ -37,9 +37,18 @@ ms.locfileid: "67479247"
 
     ![Identificador de la aplicación de Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Abra el panel **Permisos de API** para el registro de la aplicación. Seleccione el botón **Agregar un permiso**. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API usadas en mi organización** y, a continuación, busque **Azure Smart Spaces**. Seleccione la API de **Azure Smart Spaces Service**.
+1. Abra el panel **Permisos de API** para el registro de la aplicación. Seleccione el botón **Agregar un permiso**. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API usadas en mi organización** y, a continuación, busque:
+    
+    1. **Azure Digital Twins**. Seleccione la API **Azure Digital Twins**.
 
-    ![API de búsqueda](./media/digital-twins-permissions/aad-app-search-api.png)
+        ![Busque la API o seleccione Azure Digital Twins.](./media/digital-twins-permissions/aad-aap-search-api-dt.png)
+
+    1. También puede buscar **Azure Smart Spaces**. Seleccione la API de **Azure Smart Spaces Service**.
+
+        ![Busque la API de Azure Smart Spaces.](./media/digital-twins-permissions/aad-app-search-api.png)
+
+    > [!NOTE]
+    > El nombre exacto que aparecerá cuando se realice la búsqueda puede variar en función del inquilino de Azure al que pertenezca.
 
 1. La API seleccionada se muestra como **Azure Digital Twins** en el mismo panel **Solicitud de permisos de API**. Seleccione la lista desplegable **Read (1)** (Lectura [1]) y, a continuación, activa la casilla **Read.Write**. Seleccione el botón **Agregar permisos**.
 

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721612"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854772"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -38,15 +38,22 @@ Con Anomaly Detector, puede detectar automáticamente las anomalías existentes 
 
 ## <a name="demo"></a>Demostración
 
-Para empezar rápidamente a usar Anomaly Detector API, pruebe una [demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) que puede ejecutarse en el explorador. En esta demostración se ejecuta en un cuaderno de Jupyter hospedado en web y se muestra cómo enviar una solicitud de API y visualizar el resultado.
+Consulte esta [demostración interactiva](https://aka.ms/adDemo) para comprender cómo funciona Anomaly Detector.
+Para ejecutar la demostración, debe crear un recurso de Anomaly Detector y obtener la clave de API y el punto de conexión.
 
-Para ejecutar la demostración, haga lo siguiente:
+## <a name="notebook"></a>Bloc de notas
 
-1. Obtenga una clave de suscripción válida de Anomaly Detector API y un punto de conexión de API. En la siguiente sección se proporcionan instrucciones para registrarse. 
-2. Inicie sesión y haga clic en la opción de clonación en la esquina superior derecha.
-3. Haga clic en **Run on Free Compute** (Ejecutar en un proceso gratuito).
-4. Seleccione uno de los cuadernos de este ejemplo.
-5. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com`
+Para saber cómo llamar a Anomaly Detector API, pruebe este [cuaderno de Azure Notebooks](https://aka.ms/adNotebook). En esta instancia de Jupyter Notebook hospedada en web se muestra cómo enviar una solicitud de API y visualizar el resultado.
+
+Para ejecutar el cuaderno, haga lo siguiente:
+
+1. Obtenga una clave de suscripción válida de Anomaly Detector API y un punto de conexión de API. En la siguiente sección se proporcionan instrucciones para registrarse.
+1. Inicie sesión y haga clic en la opción de clonación en la esquina superior derecha.
+1. Desactive la opción "público" en el cuadro de diálogo antes de completar la operación de clonación, ya que si no, el cuaderno, incluidas las claves de suscripción, será público.
+1. Haga clic en **Run on Free Compute** (Ejecutar en un proceso gratuito).
+1. Seleccione uno de los cuadernos.
+1. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`. 
+1. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. En la barra de menús superior, haga clic en **Cell** (celda) y, luego, en **Run All** (Ejecutar todo).
 
 ## <a name="workflow"></a>Flujo de trabajo
@@ -62,6 +69,13 @@ Después del registro:
 1. Tome sus datos de serie temporal y conviértalos en un formato JSON válido. Use los [procedimientos recomendados](concepts/anomaly-detection-best-practices.md) al preparar los datos para obtener los mejores resultados.
 1. Envíe una solicitud a Anomaly Detector API con sus datos.
 1. Analice el mensaje JSON devuelto para procesar la respuesta de API.
+
+## <a name="algorithms"></a>Algoritmos
+
+* Consulte este blog técnico de [introducción a Anomaly Detector API de Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) sobre los algoritmos en segundo plano.
+* Consulte el artículo [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (Servicio de detección de anomalías de Time Series) (aceptado por KDD 2019) para conocer los algoritmos SR-CNN más modernos desarrollados por Microsoft.
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

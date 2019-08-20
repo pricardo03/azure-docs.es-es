@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8760606c981f494b38d4eb8ac1b2cd50ceb8582c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088208"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integración de Azure Active Directory con Uberflip
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Uberflip, siga estos
 
    ![Opción de descarga del XML de metadatos de federación](common/metadataxml.png)
 
-1. En el panel **Configurar Uberflip**, copie la dirección o direcciones URL que necesita:
+1. En el panel **Configurar Uberflip**, copie las direcciones URL que necesite:
 
    * **Dirección URL de inicio de sesión**
    * **Identificador de Azure AD**

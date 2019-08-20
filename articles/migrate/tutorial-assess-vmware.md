@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828304"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952096"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Azure Migrate: Server Assessment
 
@@ -180,8 +180,39 @@ De esta forma comienza la detección. Los metadatos de las máquinas virtuales d
 
 ### <a name="scoping-discovery"></a>Ámbito de detección
 
-El ámbito de la detección se puede limitar. Para ello, es preciso limitar el acceso de la cuenta de vCenter usada para la detección. Puede establecer el ámbito en centros de datos, clústeres, carpeta de clústeres, hosts, carpeta de hosts o máquinas virtuales individuales de vCenter Server. 
+El ámbito de la detección se puede limitar. Para ello, es preciso limitar el acceso de la cuenta de vCenter usada para la detección. Puede establecer el ámbito en centros de datos, clústeres, carpeta de clústeres, hosts, carpeta de hosts o máquinas virtuales individuales de vCenter Server.
 
+Para establecer el ámbito, tiene que realizar los siguientes pasos:
+1.  Crear una cuenta de usuario de vCenter.
+2.  Definir un nuevo rol con los privilegios necesarios. (<em>necesario para la migración de un servidor sin agente</em>)
+3.  Asignar permisos a la cuenta de usuario en los objetos de vCenter.
+
+**Creación de una cuenta de vCenter**
+1.  Inicie sesión en el cliente web de vSphere como administrador de vCenter Server.
+2.  Haga clic en la pestaña **Administration** > **SSO users and Groups** > **Users** (Administración > Usuarios y grupos de SSO > Usuarios).
+3.  Haga clic en el icono **New User** (Nuevo usuario).
+4.  Rellene la información necesaria para crear un usuario y haga clic en **OK** (Aceptar).
+
+**Defina un nuevo rol con los privilegios requeridos** (<em>necesario para la migración del servidor sin agente</em>)
+1.  Inicie sesión en el cliente web de vSphere como administrador de vCenter Server.
+2.  Vaya a **Administration** > **Role Manager** (Administración > Administrador de roles).
+3.  Seleccione el servidor vCenter Server en el menú desplegable.
+4.  Haga clic en la acción **Create role** (Crear rol).
+5.  Escriba un nombre para el nuevo rol. (Por ejemplo, <em>Azure_Migrate</em>).
+6.  Asigne estos [permisos](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) al rol recién definido.
+7.  Haga clic en **OK**.
+
+**Asignación de permisos de objetos de vCenter**
+
+Hay dos enfoques para asignar permisos de objetos de inventario en vCenter a la cuenta de usuario de vCenter con un rol asignado.
+- En Server Assesment, el rol de **solo lectura** debe aplicarse a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a detectar. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. Estos permisos se propagan a los objetos secundarios en la jerarquía. 
+
+    De forma similar en Server Migration, debe aplicarse un rol definido por el usuario (se puede llamar <em>Azure _Migrate</em>) con estos [privilegios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) asignados a la cuenta de usuario de vCenter para todos los objetos primarios donde se hospeden las máquinas virtuales que se van a migrar.
+
+![Asignación de permisos](./media/tutorial-assess-vmware/assign-perms.png)
+
+- La alternativa consiste en asignar la cuenta y el rol de usuario en el nivel de centro de datos y propagarlos a los objetos secundarios. A continuación, conceda a la cuenta un rol **Sin acceso** para cada objeto (como las máquinas virtuales) que no quiera detectar o migrar. Esta configuración es complicada. Expone controles de acceso accidental, ya que cada nuevo objeto secundario también concede automáticamente el acceso que se hereda del objeto primario. Por lo tanto, se recomienda usar el primer enfoque.
+ 
 > [!NOTE]
 > En la actualidad, Server Assessment no puede detectar máquinas virtuales si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de máquina virtual de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de máquina virtual, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de máquina virtual.  A continuación se proporcionan instrucciones para hacerlo:
 >

@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e571c65e64fad73c646aa05366cab685aa745caa
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689604"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968937"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68689604"
 
     ![Creación del espacio de trabajo](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   Campo|DESCRIPCIÓN
+   Campo|DESCRIPCIÓN 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros.  
    Subscription |Seleccione la suscripción de Azure que quiera usar.
@@ -44,3 +44,14 @@ ms.locfileid: "68689604"
    Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. También está presente en la sección de notificaciones. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 
    ![Estado de creación del área de trabajo](./media/aml-create-in-portal/notifications.png)
+
+1. Si va a usar una opción sin código del portal, como la interfaz visual o los experimentos automatizados de Machine Learning, ya está preparado. Si va a crear una [máquina virtual de Notebook](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure), también está preparado. 
+
+1. Si tiene previsto usar código en el entorno local que haga referencia a esta área de trabajo, seleccione **Descargar config.json** en la sección **Información general** del área de trabajo.  
+
+   ![Descargar config.json](./media/aml-create-in-portal/configure.png)
+   
+   Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una máquina virtual de Notebook, este archivo se agrega al directorio correcto de la máquina virtual.
+
+    
+

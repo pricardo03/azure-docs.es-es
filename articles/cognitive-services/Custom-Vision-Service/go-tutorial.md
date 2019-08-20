@@ -8,14 +8,14 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: f21ab53b3beeead8cbd4ba781cd54b23420661f0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ed49d5763db4c9ffcb11d24dfa835c899d76aeec
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561016"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946203"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Inicio rápido: Creación de un proyecto de clasificación de imágenes con SDK de Custom Vision para Go
 
@@ -48,7 +48,7 @@ Cree un archivo llamado *sample.go* en el directorio de proyecto que prefiera.
 
 ### <a name="create-the-custom-vision-service-project"></a>Creación del proyecto de Custom Vision Service
 
-Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes.
+Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes. Consulte el método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](getting-started-build-a-classifier.md)).
 
 ```go
 import(
@@ -98,7 +98,7 @@ cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese
 
 ### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Deberá especificar la ruta de acceso de la dirección URL de la imagen base, en función del lugar en que descargó el proyecto Cognitive Services Go SDK Samples.
+Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Puede cargar hasta 64 imágenes en un único lote.
 
 > [!NOTE]
 > Tendrá que cambiar la ruta de acceso a las imágenes en función de donde haya descargado anteriormente el proyecto Cognitive Services Go SDK Samples.

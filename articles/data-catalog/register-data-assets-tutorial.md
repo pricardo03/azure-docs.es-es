@@ -1,17 +1,17 @@
 ---
 title: Registro de recursos de datos en Azure Data Catalog
-description: Procedimientos para registrar recursos de datos en Azure Data Catalog
+description: Este tutorial describe cómo registrar recursos de datos en Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735206"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950246"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registro de recursos de datos en Azure Data Catalog
 

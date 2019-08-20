@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827650"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954533"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -58,7 +58,7 @@ Recientemente, Azure Backup anunció compatibilidad con los [servidores EOS SQL 
 2. .NET Framework 4.5.2 y versiones posteriores debe estar instalado en la VM
 3. No se admite la copia de seguridad de bases de datos FCI y reflejadas
 
-No se cobrará a los usuarios por esta característica hasta que esté disponible de manera general. Todas las demás [consideraciones y limitaciones de características](#feature-consideration-and-limitations) se aplican a estas versiones también. Antes de configurar la protección en servidores SQL Server 2008 y 2008 R2 que incluyen la configuración de la [clave del Registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (este paso no será necesario cuando la característica esté disponible de manera general), consulte los [requisitos previos](backup-sql-server-database-azure-vms.md#prerequisites).
+No se cobrará a los usuarios por esta característica hasta que esté disponible de manera general. Todas las demás [consideraciones y limitaciones de características](#feature-consideration-and-limitations) se aplican a estas versiones también. Antes de configurar la protección en servidores SQL Server 2008 y 2008 R2 que incluyen la configuración de la [clave del Registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (este paso no será necesario cuando la característica esté disponible de manera general), consulte los [requisitos previos](backup-sql-server-database-azure-vms.md#prerequisites).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
@@ -74,8 +74,8 @@ No se cobrará a los usuarios por esta característica hasta que esté disponibl
 - Las bases de datos con un gran número de archivos no se pueden proteger. El número máximo de archivos admitidos es **aproximadamente 1000**.  
 - Puede hacer una copia de seguridad de hasta **aproximadamente 2000** bases de datos de SQL Server en un almacén. Si tiene un número mayor de bases de datos, puede crear varios almacenes.
 - Puede configurar la copia de seguridad de hasta **50** bases de datos a la vez; esta restricción ayuda a optimizar la carga de copias de seguridad.
-- Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor pueden surgir problemas de rendimiento.
-- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. [Descargue](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) la herramienta de planeamiento de recursos que proporciona el número aproximado de bases de datos que puede tener por servidor según los recursos de la máquina virtual y la directiva de copia de seguridad.
+- Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor, pueden surgir problemas de rendimiento.
+- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. [Descargue](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) la herramienta de planeamiento de recursos que proporciona el número aproximado de bases de datos que puede tener por servidor según los recursos de la máquina virtual y la directiva de copia de seguridad.
 - En el caso de los grupos de disponibilidad, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad en el caso de los grupos de disponibilidad Always On

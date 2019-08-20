@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b91ab53ba7b5ce30c1dfa4a2bd90390875b8615
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bcf3964fb289be9b7410938f9e2eac843e795d4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102692"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: integración de Azure Active Directory con Figma
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Figma, realice los s
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá el `TENANT ID` del paso 11 del artículo de Figma [Configuración del proceso de Azure Active Directory SAML SSO](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. La aplicación espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo  **Atributos de usuario** .
+6. La aplicación espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 

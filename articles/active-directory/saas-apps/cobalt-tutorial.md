@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc2cb6e3aa23ffef03dc129f1f8cea520d1025
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda55cbdaf87d80d239ed284919394f83c7e69b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105260"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>Tutorial: Integración de Azure Active Directory con Cobalt
 
@@ -111,11 +111,11 @@ Para configurar el inicio de sesión único de Azure AD con Cobalt, realice los 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Cobalt](https://www.cobalt.net/support/) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación Cobalt espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+5. La aplicación Cobalt espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
-6. Además de lo anterior, la aplicación Cobalt espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguiente:
+6. Además de lo anterior, la aplicación Cobalt espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, haga lo siguiente para agregar el atributo Token SAML como se muestra en la tabla siguiente:
 
     | NOMBRE | Atributo de origen|
     | ---------------| --------- |
@@ -210,7 +210,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-cobalt-test-user"></a>Creación de usuario de prueba de Cobalt
 
-En esta sección, creará un usuario llamado Britta Simon en Cobalt. Trabaje con el  [equipo de soporte técnico de Cobalt](https://www.cobalt.net/support/) para agregar los usuarios a la plataforma de Cobalt. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Cobalt. Trabaje con el [equipo de soporte técnico de Cobalt](https://www.cobalt.net/support/) para agregar los usuarios a la plataforma de Cobalt. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

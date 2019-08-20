@@ -9,24 +9,37 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfa65c655d1508510282fe66e90e4076278b29b
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186089"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949941"
 ---
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
-El comando siguiente inicia la aplicación de función. La aplicación se ejecuta con el mismo tiempo de ejecución de Azure Functions que en Azure.
+El comando siguiente inicia la aplicación de función. La aplicación se ejecuta con el mismo tiempo de ejecución de Azure Functions que en Azure. El comando de inicio varía en función del lenguaje del proyecto.
 
-```bash
-func host start --build
+### <a name="c"></a>C\#
+
+```command
+func start --build
 ```
 
-La opción `--build` es necesaria para compilar proyectos de C#. Para los proyectos de JavaScript no lo es.
+### <a name="javascript"></a>JavaScript
 
-Cuando se inicia el host de Functions, escribe una salida similar a la siguiente, la que se truncó para mejorar la legibilidad:
+```command
+func start
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+Cuando se inicia el host de Functions, escribe una salida similar a la siguiente, que se truncó para mejorar la legibilidad:
 
 ```output
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2994d696f463c32ed05fd42b694f29fa2035b9d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5de456cb4f5779cbef58ffaf0ccb89e9e9134e0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564156"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946113"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python
 
@@ -46,7 +46,7 @@ Cree un archivo llamado *sample.py* en el directorio del proyecto que prefiera.
 
 ### <a name="create-the-custom-vision-service-project"></a>Creación del proyecto de Custom Vision Service
 
-Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes. La diferencia entre la creación de un proyecto de detección de objetos y de clasificación de imágenes es el dominio especificado en la llamada de **create_project**.
+Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes. Consulte el método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Creación de un detector](get-started-build-detector.md)).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -135,7 +135,7 @@ scissors_image_regions = {
 }
 ```
 
-Luego, use esta asignación de asociaciones para cargar cada imagen de ejemplo con sus coordenadas de región. Agregue el siguiente código.
+Luego, use esta asignación de asociaciones para cargar cada imagen de ejemplo con sus coordenadas de región (puede cargar hasta 64 imágenes en un único lote). Agregue el siguiente código.
 
 ```Python
 # Update this with the path to where you downloaded the images.

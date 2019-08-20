@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7c1a59e3b0650badd75a1170a4daaa6561bd23c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101746"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: integración de Azure Active Directory con GetThere
 
@@ -120,7 +120,7 @@ Para configurar el inicio de sesión único de Azure AD con GetThere, siga estos
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
 
-5. La aplicación GetThere espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+5. La aplicación GetThere espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-getthere-test-user"></a>Creación de un usuario de prueba de GetThere
 
-En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el  [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com) para agregar usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com) para agregar usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

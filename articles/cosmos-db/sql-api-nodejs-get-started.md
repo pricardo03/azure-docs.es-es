@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: ba1ec821bd25e3b9f4479c3d09fdf5ab981ab0a7
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 213794828b838010b526026ae15f24122748e141
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305508"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989421"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -81,7 +81,7 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
 
 1. Abra ```config.js``` en el editor de texto que prefiera.
 
-1. Copie y pegue el siguiente fragmento de código y defina las propiedades ```config.endpoint``` y ```config.primaryKey``` para el identificador URI del punto de conexión de Azure Cosmos DB y la clave principal. Ambas opciones de configuración se encuentran en [Azure Portal](https://portal.azure.com).
+1. Copie y pegue el siguiente fragmento de código y defina las propiedades ```config.endpoint``` y ```config.key``` para el identificador URI del punto de conexión de Azure Cosmos DB y la clave principal. Ambas opciones de configuración se encuentran en [Azure Portal](https://portal.azure.com).
 
    ![Captura de pantalla de obtención de claves en Azure Portal][keys]
 
@@ -90,10 +90,10 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
-   config.primaryKey = "~your primary key here~";
+   config.key = "~your primary key here~";
    ``` 
 
-1. Copie y pegue los datos de ```database```, ```container``` y ```items``` en el objeto ```config``` siguiente, donde se definen las propiedades de ```config.endpoint``` y ```config.primaryKey```. Si ya dispone de los datos que quiere almacenar en la base de datos, puede usar la herramienta de migración de datos de Azure Cosmos DB, en lugar de definir los datos aquí. El archivo config.js debe tener el siguiente código:
+1. Copie y pegue los datos de ```database```, ```container``` y ```items``` en el objeto ```config``` siguiente, donde se definen las propiedades de ```config.endpoint``` y ```config.key```. Si ya dispone de los datos que quiere almacenar en la base de datos, puede usar la herramienta de migración de datos de Azure Cosmos DB, en lugar de definir los datos aquí. El archivo config.js debe tener el siguiente código:
 
    [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
 
@@ -112,26 +112,23 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
    const config = require('./config');
    ```
 
-1. Copie y pegue el código para usar las propiedades ```config.endpoint``` y ```config.primaryKey``` que guardó anteriormente para crear un nuevo CosmosClient.
+1. Copie y pegue el código para usar las propiedades ```config.endpoint``` y ```config.key``` que guardó anteriormente para crear un nuevo CosmosClient.
 
    ```javascript
    const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
    ```
    
 > [!Note]
-> Si se conecta al **emulador de Cosmos DB**, deshabilite la comprobación de SSL mediante la creación de una directiva de conexión personalizada.
+> Si se conecta al **emulador de Cosmos DB**, deshabilite la comprobación de SSL mediante para el proceso de los nodos:
 >   ```
->   const ConnectionPolicy = require('@azure/cosmos').ConnectionPolicy;
->   const connectionPolicy = new ConnectionPolicy();
->   connectionPolicy.DisableSSLVerification = true;
->
->   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+>   const client = new CosmosClient({ endpoint, key });
 >   ```
 
 Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos DB, se explicará cómo usar los recursos de este servicio.
@@ -141,7 +138,7 @@ Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos
 1. Copie y pegue el código siguiente para establecer el identificador de la base de datos y el identificador del contenedor. Dichos identificadores son la forma en que el cliente de Azure Cosmos DB encuentra la base de datos y el contenedor correctos.
 
    ```javascript
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key } });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -168,7 +165,7 @@ Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos
    * Read the database definition
    */
    async function readDatabase() {
-      const { body: databaseDefinition } = await client.database(databaseId).read();
+      const { resource: databaseDefinition } = await client.database(databaseId).read();
       console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
    ```
@@ -203,9 +200,9 @@ Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -225,7 +222,7 @@ Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos
    * Read the database definition
    */
    async function readDatabase() {
-     const { body: databaseDefinition } = await client.database(databaseId).read();
+     const { resource: databaseDefinition } = await client.database(databaseId).read();
     console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
 
@@ -279,7 +276,7 @@ Para crear un contenedor se pueden usar las funciones `createIfNotExists` o crea
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
    ```
@@ -307,9 +304,9 @@ Para crear un contenedor se pueden usar las funciones `createIfNotExists` o crea
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -347,7 +344,7 @@ Para crear un contenedor se pueden usar las funciones `createIfNotExists` o crea
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
 
@@ -441,8 +438,8 @@ Azure Cosmos DB admite consultas enriquecidas en los documentos JSON que se alma
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
     }

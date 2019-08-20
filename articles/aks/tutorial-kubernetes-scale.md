@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614192"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019185"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -70,18 +70,19 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Escalado automático de pods
 
-Kubernetes admite el [escalado automático horizontal de pods][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de AKS de la versión 1.10 o posteriores. Para ver la versión del clúster de AKS, use el comando [az aks show][az-aks-show], tal y como se muestra en el ejemplo siguiente:
+Kubernetes admite el [escalado horizontal automático de pods][kubernetes-hpa] para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección. El [servidor de medición][metrics-server] se usa para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de Azure Kubernetes Service de la versión 1.10 o posteriores. Para ver la versión del clúster de Azure Kubernetes Service, use el comando [az aks show][az-aks-show], tal y como se muestra en el ejemplo siguiente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Si el clúster de AKS es de una versión inferior a la *1.10*, instale el servidor de medición. En caso contrario, omita este paso. Para realizar la instalación, clone el repositorio de GitHub `metrics-server` e instale las definiciones de recursos de ejemplo. Para ver el contenido de estas definiciones de YAML, consulte [Servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> Si la versión del clúster de Azure Kubernetes Service es anterior a *1.10*, el servidor de métricas no se instala automáticamente. Para realizar la instalación, clone el repositorio de GitHub `metrics-server` e instale las definiciones de recursos de ejemplo. Para ver el contenido de estas definiciones de YAML, consulte [Servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 Para usar la autoescala, todos los contenedores de los pod y los pods deben tener definidos solicitudes y límites de CPU. En la implementación de `azure-vote-front`, el contenedor del front-end ya solicita 0,25 CPU, con un límite de 0,5 CPU. Estas solicitudes de recursos y los límites se definen tal y como se muestra en el siguiente fragmento de código de ejemplo:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357810"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989154"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
@@ -86,7 +86,7 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 Realice dos cambios en la plantilla existente:
 
 * Incorporación de un parámetro de nombre de cuenta de almacenamiento. Los usuarios pueden especificar un nuevo nombre de cuenta de almacenamiento o uno que ya exista.
-* Agregue un nuevo parámetro llamado **newOrExisting**. En la implementación se usa este parámetro para determinar dónde crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
+* Agregue un nuevo parámetro llamado **newOrExisting**. En la implementación se usa este parámetro para determinar si crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
 
 Éste es el procedimiento para realizar los cambios:
 
@@ -163,7 +163,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
 
-Intente otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
+Pruebe otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

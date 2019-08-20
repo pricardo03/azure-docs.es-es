@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424237"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976914"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 1. Escriba el nombre y la dirección de la empresa en la nota de entrega como información del remitente.
 2. Envíe un correo electrónico a Quantium Solutions mediante la plantilla de correo electrónico que tiene a continuación.
 
-    - Tanto si no se incluyó la nota de entrega de Japan Post Chakubarai como si falta, especifíquelo en este correo electrónico. Quantium Solutions Japan se encargará de solicitar a Japan Post que le proporcionen una nota de entrega en la recogida.
-    - Si tiene varios pedidos, envíe un correo electrónico para comprobar cada recogida individual.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **Si va a recoger en Osaka**, modifique el asunto de la plantilla de correo electrónico por `Pickup request for Microsoft Azure OSA`.
+    - Tanto si no se incluyó la nota de entrega de Japan Post Chakubarai como si falta, especifíquelo en este correo electrónico. Quantium Solutions Japan se encargará de solicitar a Japan Post que le proporcionen una nota de entrega en la recogida.
+    - Si tiene varios pedidos, envíe un correo electrónico para comprobar cada recogida individual.
 
 3. Recibirá un correo electrónico de confirmación de Quantium Solutions tras concertar una recogida. Este correo electrónico también incluye información sobre la nota de entrega de Chakubarai.
 

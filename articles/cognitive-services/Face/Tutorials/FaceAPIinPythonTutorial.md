@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: sbowles
-ms.openlocfilehash: 2f2245b4f6e4b38e0b071678ac0f3bddeb72f7ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 502523e3c62f993af4484c8ab922c36fa51a60f1
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277520"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945885"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Inicio rápido: Creación de un script de Python para detectar y enmarcar caras en una imagen
 
@@ -34,33 +34,33 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para instalar el SDK de Python de Face, abra un símbolo del sistema y ejecute el comando siguiente:
 
 ```shell
-pip install cognitive_face
+pip install azure-cognitiveservices-vision-face
 ```
 
 ## <a name="detect-faces-in-an-image"></a>Detección de caras en una imagen
 
 Cree un nuevo script de Python denominado _FaceQuickstart.py_ y agregue el código siguiente. Este código administra la funcionalidad básica de detección de caras. Tendrá que reemplazar `<Subscription Key>` por el valor de la clave. Puede que también necesite cambiar el valor de `BASE_URL` para usar el identificador de región correcto para la clave (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**. Opcionalmente, puede establecer `img_url` en la dirección URL de cualquier imagen que desee usar.
 
-El script detectará las caras mediante una llamada al método **cognitive_face.face.detect**, que incluye la API REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de caras.
+El script detectará las caras mediante una llamada al método **FaceClient.face.detect_with_url**, que incluye la API de REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de caras.
 
 ```python
-import cognitive_face as CF
+from azure.cognitiveservices.vision.face import FaceClient
 
 # Replace with a valid subscription key (keeping the quotes in place).
 KEY = '<Subscription Key>'
-CF.Key.set(KEY)
 
 # Replace with your regional Base URL
-BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'
-CF.BaseUrl.set(BASE_URL)
+BASE_URL = 'https://westus.api.cognitive.microsoft.com/'
+
+faceClient = FaceClient(BASE_URL, CognitiveServicesCredentials(KEY))
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
 img_url = 'https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/detection1.jpg'
-faces = CF.face.detect(img_url)
+faces = faceClient.face.detect_with_url(img_url)
 print(faces)
 ```
 
-### <a name="try-the-app"></a>Pruebe la aplicación
+### <a name="try-the-app"></a>Prueba de la aplicación
 
 Ejecute la aplicación con el comando `python FaceQuickstart.py`. Debería obtener una respuesta de texto en la ventana de la consola, parecida a la siguiente:
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371035"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990476"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -54,7 +54,7 @@ Vaya a [Configuración del entorno de desarrollo](#start) para leer los pasos de
 
 Obtenga todos estos requisitos previos de cualquiera de las siguientes secciones.
 
-* Uso de un [servidor de cuadernos en la nube en el área de trabajo](#azure) 
+* Uso de un [servidor de cuadernos en la nube en el área de trabajo](#azure)
 * Uso del [propio servidor de Notebook](#server)
 
 ### <a name="azure"></a>Uso de un servidor de cuadernos en la nube en el área de trabajo
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
+
 ### <a name="train-the-automatic-regression-model"></a>Entrenamiento del modelo de regresión automática
 
 Inicie el experimento para ejecutarlo localmente. Pase el objeto `automated_ml_config` definido para el experimento. Establezca la salida en `True` para ver el progreso durante el experimento:
@@ -764,7 +767,7 @@ Los mismos resultados se almacenan en el área de trabajo.  Puede obtener un ví
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opción 2: Obtener y examinar todas las iteraciones de ejecución de Python
 

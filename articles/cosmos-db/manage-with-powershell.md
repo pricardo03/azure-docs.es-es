@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 79302fc0f9addc70461d21c03b02416d15a6fa6c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814927"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965103"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Administración de recursos de SQL API de Azure Cosmos DB mediante PowerShell
 
@@ -87,7 +87,7 @@ Las cuentas de Azure Cosmos se pueden configurar con firewall de IP, así como c
 
 ### <a id="list-accounts"></a> Enumeración de todas las cuentas de Azure Cosmos DB de una suscripción
 
-Este comando permite mostrar todas las cuentas de Azure Cosmos DB de una suscripción.
+Este comando permite mostrar todas las cuentas de Azure Cosmos DB de una suscripción.
 
 ```azurepowershell-interactive
 # List Azure Cosmos Accounts
@@ -116,16 +116,15 @@ Este comando permite actualizar las propiedades de la cuenta de base de datos de
 
 * Adición o eliminación de registros
 * Cambio de la directiva de coherencia predeterminada
-* Cambio de la directiva de conmutación por error
 * Cambio del filtro del intervalo de direcciones IP
 * Cambio de las configuraciones de la red virtual
 * Habilitación de la arquitectura multimaestro
 
 > [!NOTE]
-> Este comando le permite agregar y quitar regiones, pero no le permite modificar las prioridades de conmutación por error. Para modificar la prioridad de la conmutación por error, consulte [Modificación de la prioridad de conmutación por error de una cuenta de Azure Cosmos](#modify-failover-priority).
+> Este comando le permite agregar y quitar regiones, pero no le permite modificar las prioridades de conmutación por error ni cambiar la región con `failoverPriority=0`. Para modificar la prioridad de la conmutación por error, consulte [Modificación de la prioridad de conmutación por error de una cuenta de Azure Cosmos](#modify-failover-priority).
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account and set Consistency level to Session
+# Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "myaccountname"
@@ -133,9 +132,13 @@ $accountName = "myaccountname"
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
 
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$locations = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="South Central US"; "failoverPriority"=2 }
+)
 
-$account.Properties.consistencyPolicy = $consistencyPolicy
+$account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
 Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -235,9 +238,9 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modificación de la prioridad de conmutación por error
 
-En el caso de cuentas de bases de datos de varias regiones, puede cambiar el orden en que una cuenta de Cosmos promoverá las réplicas de lectura secundarias en caso de que se produzca una conmutación por error regional en la réplica de escritura principal. Cuando se modifica la región con `failoverPriority=0`, este comando también se puede usar para iniciar una exploración de recuperación ante desastres para probar la planeación de esta última.
+En el caso de cuentas de bases de datos de varias regiones, puede cambiar el orden en que una cuenta de Cosmos promoverá las réplicas de lectura secundarias en caso de que se produzca una conmutación por error regional en la réplica de escritura principal. La modificación de `failoverPriority=0` también puede servir para iniciar una exploración de recuperación ante desastres para probar la planeación de esta última.
 
-Para el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutación por error actual de westus=0 y eastus=1 y que se invierten las regiones.
+En el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutación por error actual de `West US 2 = 0` y `East US 2 = 1`, y que se invierten las regiones.
 
 > [!CAUTION]
 > Cambiar `locationName` por `failoverPriority=0` desencadenará una conmutación por error manual de una cuenta de Azure cosmos. Cualquier otro cambio de prioridad no desencadenará ninguna conmutación por error.
@@ -248,10 +251,14 @@ Para el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutac
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
-$failoverPolicies = @(
-    @{ "locationName"="East US"; "failoverPriority"=0 },
-    @{ "locationName"="West US"; "failoverPriority"=1 }
+$failoverRegions = @(
+    @{ "locationName"="East US 2"; "failoverPriority"=0 },
+    @{ "locationName"="West US 2"; "failoverPriority"=1 }
 )
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `

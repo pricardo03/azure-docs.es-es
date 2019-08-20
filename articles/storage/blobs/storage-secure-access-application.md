@@ -9,12 +9,12 @@ ms.date: 05/30/2018
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 8e56b02b84c0324f723ead1bbf156c847edbbeb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787986"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986697"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger el acceso a los datos de una aplicación en la nube
 
@@ -49,7 +49,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configuración de los tokens de SAS para las vistas en miniatura
 
-En la primera parte de esta serie de tutoriales, la aplicación web mostraba imágenes desde un contenedor público. En esta parte de la serie, se usan tokens de [Firma de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para recuperar las imágenes en miniatura. Los tokens de SAS permiten proporcionar acceso restringido a un contenedor o blob en función del IP, el protocolo, el intervalo de tiempo o los derechos permitidos.
+En la primera parte de esta serie de tutoriales, la aplicación web mostraba imágenes desde un contenedor público. En esta parte de la serie, se usan tokens de firmas de acceso compartido (SAS) para recuperar las imágenes en miniatura. Los tokens de SAS permiten proporcionar acceso restringido a un contenedor o blob en función del IP, el protocolo, el intervalo de tiempo o los derechos permitidos. Para más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).
 
 En este ejemplo, el repositorio de código fuente usa la rama `sasTokens`, que tiene un ejemplo de código actualizado. Elimine la implementación de GitHub existente con [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Luego configure la implementación de GitHub en la aplicación web con el comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
@@ -128,7 +128,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 En la tarea anterior se usan las clases, las propiedades y los métodos siguientes:
 
-|Clase  |Properties (Propiedades)| Métodos  |
+|Clase  |properties (Propiedades)| Métodos  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

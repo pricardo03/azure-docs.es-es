@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 25ee212bbcabb1697de1611cc67c5bfdf615c617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 87c504fa936d89707020f1bf3ac9a0ccd4f81946
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560992"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946091"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Inicio rápido: Creación de un proyecto de clasificación de imágenes con SDK de Custom Vision para Python
 
@@ -45,7 +45,7 @@ Cree un archivo llamado *sample.py* en el directorio del proyecto que prefiera.
 
 ### <a name="create-the-custom-vision-service-project"></a>Creación del proyecto de Custom Vision Service
 
-Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes.
+Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes. Consulte el método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](getting-started-build-a-classifier.md)).   
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -79,7 +79,7 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Deberá especificar la ruta de acceso de la dirección URL de la imagen base, en función del lugar en que descargó el proyecto Cognitive Services Python SDK Samples.
+Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Puede cargar hasta 64 imágenes en un único lote.
 
 > [!NOTE]
 > Tendrá que cambiar la ruta de acceso a las imágenes en función del lugar en que descargó el proyecto Cognitive Services Python SDK Samples antes.

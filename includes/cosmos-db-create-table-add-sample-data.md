@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 1ebd645b740ab0f454d006d003518fbb8cb5e9e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67186857"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854673"
 ---
 Ahora puede agregar datos a la nueva tabla mediante el Explorador de datos.
 
-1. En el Explorador de datos, expanda **sample-table** y haga clic en **Entidades** y en **Agregar entidad**.
+1. En el Explorador de datos, expanda **sample-table** y seleccione **Entidades** y, después, seleccione **Agregar entidad**.
 
    ![Creación de nuevas entidades en el Explorador de datos en Azure Portal](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. Ahora agregue datos al cuadro de valores de PartitionKey y RowKey y haga clic en **Agregar entidad**.
+2. Ahora agregue datos al cuadro de valores de PartitionKey y RowKey y seleccione **Agregar entidad**.
 
    ![Establecimiento de la clave de partición y la clave de fila para una nueva entidad](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

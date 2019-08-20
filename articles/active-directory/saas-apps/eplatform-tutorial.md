@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 61946f77ddffe999e55acd09e3957d91c621492b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 557f07f3e99365bbfca7f0b0d70c0c0cd928c2e6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103233"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Tutorial: Integración de Azure Active Directory con ePlatform
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con ePlatform, siga esto
 
     ![Copia del valor de la huella digital](common/copy-thumbprint.png)
 
-7. La aplicación ePlatform espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+7. La aplicación ePlatform espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-eplatform-test-user"></a>Creación de un usuario de prueba de ePlatform
 
-En esta sección, creará un usuario llamado Britta Simon en ePlatform. Trabaje con el  [equipo de soporte técnico de ePlatform](https://help.eplatform.co/hc/en-us) para agregar los usuarios a la plataforma de ePlatform. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ePlatform. Trabaje con el [equipo de soporte técnico de ePlatform](https://help.eplatform.co/hc/en-us) para agregar los usuarios a la plataforma de ePlatform. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

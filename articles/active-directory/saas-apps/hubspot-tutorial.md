@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b2c765778fc2bdd8425cc3f375831c0d317e753
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100893"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
 
@@ -161,7 +161,7 @@ En esta sección, configurará el inicio de sesión único de Azure AD con HubS
 
     1. En HubSpot, en el cuadro de texto **Identity Provider Single Sign-On URL** (dirección URL de inicio de sesión único del proveedor de identidades), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    1. En el Bloc de notas de Windows, abra el archivo de certificado (base64) descargado. Seleccione y copie el contenido del archivo. A continuación, en HubSpot, péguelo en el cuadro de texto  **X.509 Certificate** (Certificado X.509).
+    1. En el Bloc de notas de Windows, abra el archivo de certificado (base64) descargado. Seleccione y copie el contenido del archivo. A continuación, en HubSpot, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509).
 
     1. Seleccione **Comprobar**.
 

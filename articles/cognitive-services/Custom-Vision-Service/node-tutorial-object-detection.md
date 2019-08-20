@@ -8,14 +8,14 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 306f812ab10c0ef247fdc1201e7df2a23b949a54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7f43507566109a52b914f27e37e5392345ec2eaf
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564181"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946162"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Node.js
 
@@ -87,7 +87,7 @@ Para crear etiquetas de clasificación al proyecto, agregue el código siguiente
 
 Cuando se etiquetan imágenes en los proyectos de detección de objetos, es preciso especificar la región de cada objeto etiquetado mediante coordenadas normalizadas.
 
-Para agregar las imágenes, etiquetas y regiones al proyecto, inserte el siguiente código después de crear la etiqueta. Tenga en cuenta que, para este tutorial, las regiones se codificaron de forma rígida alineadas con el código. Las regiones especifican el rectángulo delimitador en coordenadas normalizadas y las coordenadas se proporcionan en el siguiente orden: izquierda, superior, ancho y alto.
+Para agregar las imágenes, etiquetas y regiones al proyecto, inserte el siguiente código después de crear la etiqueta. Tenga en cuenta que, para este tutorial, las regiones se codificaron de forma rígida alineadas con el código. Las regiones especifican el rectángulo delimitador en coordenadas normalizadas y las coordenadas se proporcionan en el siguiente orden: izquierda, superior, ancho y alto. Puede cargar hasta 64 imágenes en un único lote.
 
 ```javascript
 const forkImageRegions = {

@@ -9,18 +9,23 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: ce8b117a3cbe0e3a5c4265729ccf5c0264241013
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 6c93d1243db1b3c4277a54cf71e10f6bbc648d26
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391773"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846023"
 ---
-1. Use las instrucciones del artículo [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md#portal) (Creación de un área de trabajo de Azure Machine Learning Service) para hacer lo siguiente:
-    * Crear un entorno Miniconda
+- El SDK de Azure Machine Learning para Python instalado. Siga las instrucciones que se indican en el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para hacer lo siguiente:
+
+
+1. Siga las instrucciones que se indican en el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para hacer lo siguiente:
+    * Creación de un entorno de Miniconda [Creación y administración de áreas de trabajo de Azure Machine Learning Service]
     * Instalar el SDK de Azure Machine Learning para Python
-    * Crear un área de trabajo
-    * Escribir un archivo de configuración de área de trabajo (**aml_config/config.json**).
+
+1. Cree un área de trabajo de [Azure Machine Learning Service](../articles/machine-learning/service/how-to-manage-workspace.md).
+
+1. Escriba un [archivo de configuración](../articles/machine-learning/service/how-to-configure-environment.md#workspace) (**aml_config/config.json**).
 
 1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks).
 

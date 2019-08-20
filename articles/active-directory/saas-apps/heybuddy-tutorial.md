@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29d20c434a7306b016fe9a549415242f5977a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101111"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integración de Azure Active Directory con HeyBuddy
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único de Azure AD con HeyBuddy, siga estos
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con los valores reales de dirección URL de inicio de sesión e identificador (Id. de entidad). El identificador `Entity ID` en la dirección URL de inicio de sesión se genera automáticamente para cada organización. Póngase en contacto con el [equipo de soporte técnico al cliente de HeyBuddy](mailto:support@heybuddy.com) para obtener estos valores.
 
-5. La aplicación HeyBuddy espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+5. La aplicación HeyBuddy espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, se crea un usuario llamado Britta Simon en HeyBuddy. HeyBuddy admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en HeyBuddy, se crea otro después de la autenticación.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de HeyBuddy](mailto:support@heybuddy.com).
+> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de HeyBuddy](mailto:support@heybuddy.com).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
