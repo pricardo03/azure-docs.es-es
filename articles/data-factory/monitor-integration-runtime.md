@@ -43,12 +43,12 @@ En la siguiente tabla se proporcionan las descripciones de las propiedades que d
 
 | Propiedad | Descripción |
 -------- | ------------- | 
-| NOMBRE | Nombre de la instancia de Azure Integration Runtime. |  
-| Estado | Estado de la instancia de Azure Integration Runtime. | 
-| Ubicación | Ubicación de la instancia de Azure Integration Runtime. Para más información sobre la ubicación de una instancia de Azure Integration Runtime, consulte la [introducción a Integration Runtime](concepts-integration-runtime.md). |
+| Name | Nombre de la instancia de Azure Integration Runtime. |  
+| State | Estado de la instancia de Azure Integration Runtime. | 
+| Location | Ubicación de la instancia de Azure Integration Runtime. Para más información sobre la ubicación de una instancia de Azure Integration Runtime, consulte la [introducción a Integration Runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Nombre de la instancia de Data Factory a la que pertenece la instancia de Azure Integration Runtime. | 
 | ResourceGroupName | Nombre del grupo de recursos al que pertenece la instancia de Data Factory.  |
-| DESCRIPCIÓN | Descripción de la instancia de Integration Runtime.  |
+| Description | Descripción de la instancia de Integration Runtime.  |
 
 ### <a name="status"></a>Status
 En la tabla siguiente se proporcionan los estados posibles de una instancia de Azure Integration Runtime:
