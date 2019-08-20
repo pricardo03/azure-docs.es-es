@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567867"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935187"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
@@ -44,7 +44,7 @@ Son varios los escenarios en los que podría usar la automatización de trabajos
 Las siguientes tecnologías de programación de trabajos están disponibles en Azure SQL Database:
 
 - Los **trabajos del Agente SQL** son componentes de programación de trabajos de SQL Server clásicos y probados que están disponibles en Instancia administrada. Los trabajos del Agente SQL no están disponibles en bases de datos únicas.
-- Los **trabajos de Elastic Database** son el servicio de programación de trabajos que ejecuta trabajos personalizados en una o varias bases de datos de Azure SQL.
+- Los **trabajos de Elastic Database (versión preliminar)** son el servicio de programación de trabajos que ejecuta trabajos personalizados en una o varias bases de datos de Azure SQL.
 
 Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL Database) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en SQL Data Warehouse).
 
@@ -56,7 +56,7 @@ Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo loca
 ## <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
 
 Los trabajos del Agente SQL son una serie especificada de scripts de T-SQL que se ejecutan en la base de datos. Use trabajos para definir una tarea administrativa que se puede ejecutar una o varias veces y supervisar para detectar si lo hace correctamente o con errores.
-Un trabajo se puede ejecutar en un servidor local o en varios servidores remotos. El trabajo del Agente SQL es un componente interno del motor de base de datos que se ejecuta dentro del servicio Instancia administrada.
+Un trabajo se puede ejecutar en un servidor local o en varios servidores remotos. Los trabajos del Agente SQL son un componente interno del motor de base de datos que se ejecuta dentro del servicio Instancia administrada.
 En los trabajos del Agente SQL, hay varios conceptos clave que conviene describir:
 
 - **Pasos del trabajo**: conjunto de uno o varios pasos que se deben ejecutar dentro del trabajo. Para cada paso de trabajo se puede definir la estrategia de reintento y la acción que tendrá lugar si el paso del trabajo se realiza correctamente o con errores.
@@ -94,7 +94,7 @@ Una programación puede definir las condiciones siguientes para el momento en qu
 
 ### <a name="job-notifications"></a>Notificaciones del trabajo
 
-Los trabajos del Agente SQL le permiten recibir notificaciones cuando el trabajo finaliza correctamente o con errores. Puede recibir una notificación de correo electrónico por correo electrónico.
+Los trabajos del Agente SQL le permiten recibir notificaciones cuando el trabajo finaliza correctamente o con errores. Puede recibir notificaciones por correo electrónico.
 
 En primer lugar, deberá configurar la cuenta de correo electrónico que se usará para enviar las notificaciones de correo electrónico y asignar la cuenta al perfil de correo electrónico denominado `AzureManagedInstance_dbmail_profile`, como se muestra en el ejemplo siguiente:
 
@@ -158,17 +158,17 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Algunas de las características del Agente SQL que están disponibles en SQL Server no se admiten en Instancia administrada:
 - La configuración del Agente SQL es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada.
-- La habilitación o deshabilitación del agente no se admite actualmente en Instancia administrada. El Agente SQL siempre está en ejecución.
+- La habilitación o deshabilitación del Agente SQL no se admite actualmente en Instancia administrada. El Agente SQL siempre está en ejecución.
 - Las notificaciones se admiten parcialmente.
   - No se admite el paginador.
   - No se admite NetSend.
-  - Aún no se admiten las alertas.
+  - No se admiten las alertas.
 - No se admiten servidores proxy.
 - No se admite Eventlog.
 
 Para más información acerca del Agente SQL Server, consulte [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## <a name="elastic-database-jobs"></a>Trabajos de Elastic Database
+## <a name="elastic-database-jobs-preview"></a>Trabajos de Elastic Database (versión preliminar)
 
 Los **trabajos de Elastic Database** proporcionan la posibilidad de ejecutar uno o varios scripts de T-SQL en paralelo, en un gran número de bases de datos, bajo una programación o a petición.
 

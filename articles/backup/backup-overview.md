@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737114"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950024"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -66,7 +66,7 @@ Azure Backup puede hacer copias de seguridad tanto de las máquinas locales como
 **Máquina** | **Escenario de copia de seguridad**
 --- | ---
 **Copia de seguridad local** |  1) Ejecute el agente de Microsoft Azure Recovery Services (MARS) de Azure Backup en máquinas Windows locales para realizar la copia de seguridad de archivos individuales y del estado del sistema. <br/><br/>2) Realice una copia de seguridad de las máquinas locales en un servidor de copia de seguridad (System Center Data Protection Manager [DPM] o Microsoft Azure Backup Server [MABS]) y, luego, configure el servidor de copia de seguridad para la copia de seguridad en un almacén de Azure Backup Recovery Services de Azure.
-**Máquinas virtuales de Azure** | 1) Habilite la copia de seguridad de máquinas virtuales de Azure individuales. Al habilitar la copia de seguridad, Azure Backup instala una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. El agente realiza una copia de seguridad de toda la máquina virtual.<br/><br/> (2) Ejecute al agente de MARS en una máquina virtual de Azure. Esto es útil si quiere realizar la copia de seguridad de archivos y carpetas individuales en la máquina virtual.<br/><br/> (3) Realice una copia de una máquina virtual de Azure en un servidor DPM o MABS que se ejecuta en Azure. A continuación, realice la copia de seguridad del servidor DPM o MABS en un almacén mediante Azure Backup.
+**Máquinas virtuales de Azure** | 1) Habilite la copia de seguridad de máquinas virtuales de Azure individuales. Al habilitar la copia de seguridad, Azure Backup instala una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. El agente realiza una copia de seguridad de toda la máquina virtual.<br/><br/> (2) Ejecute al agente de MARS en una máquina virtual de Azure. Esto es útil si quiere realizar la copia de seguridad de archivos y carpetas individuales en la máquina virtual.<br/><br/> 
 
 
 ## <a name="why-use-a-backup-server"></a>¿Por qué usar un servidor de copia de seguridad?
@@ -116,7 +116,7 @@ Azure Backup tiene un límite de 9999 puntos de recuperación, también conocido
 - Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo configurada para realizar copias de seguridad en Azure. Una instancia está protegida una vez que se ha guardado una copia de seguridad de los datos.
 - La copia de seguridad de los datos es la protección. Si los datos de origen se pierden o dañan, la copia de seguridad puede restaurar los datos de origen.
 
-En la tabla siguiente se muestra la frecuencia de copia de seguridad máxima para cada componente. La configuración de la directiva de copia de seguridad determina la rapidez con la que se consumen los puntos de recuperación. Por ejemplo, si crea un punto de recuperación cada día, puede conservarlos durante 27 años antes de que se agoten. Si crea un punto de recuperación cada mes, puede conservarlos durante 833 años antes de que se agoten. El servicio Backup no establece un límite de tiempo de expiración para un punto de recuperación.
+En la tabla siguiente se muestra la frecuencia máxima de copia de seguridad para cada componente. La configuración de la directiva de copia de seguridad determina la rapidez con que se consumen los puntos de recuperación. Por ejemplo, si crea un punto de recuperación cada día, puede conservarlos durante 27 años antes de que se agoten. Si crea un punto de recuperación cada mes, puede conservarlos durante 833 años antes de que se agoten. El servicio Backup no establece un límite de tiempo de expiración para un punto de recuperación.
 
 |  | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |

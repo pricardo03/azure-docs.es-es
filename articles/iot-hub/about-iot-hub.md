@@ -3,18 +3,17 @@ title: Introducción a Azure IoT Hub | Microsoft Docs
 description: Obtenga más información acerca de Azure IoT Hub. Este servicio de IoT está pensado para la ingesta de datos escalables, la administración de dispositivos y la seguridad.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726744"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950465"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
@@ -26,7 +25,7 @@ Las funcionalidades de IoT Hub le ayudan a compilar soluciones de IoT escalables
 
 ## <a name="scale-your-solution"></a>Escalado de la solución
 
-IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. IoT Hub ofrece varios niveles de servicio que se ajustan a sus necesidades de escalabilidad. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. Para obtener más información sobre cómo escalar el IoT Hub, vea [Escalado de IOT Hub](iot-hub-scaling.md?branch=release-iotbasic). Para obtener más información sobre los distintos niveles de servicio ofrecidos por IoT Hub y cómo ajustarse mejor a sus necesidades de escalabilidad, vea la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Proteger las comunicaciones
 
@@ -50,7 +49,7 @@ IoT Hub ofrece un canal de comunicación seguro para que los dispositivos envíe
 
 La funcionalidad integrada de redirección de mensajes le ofrece flexibilidad para configurar distribuciones ramificadas de mensajes basadas en reglas de manera automática:
 
-* Use el enrutamiento de mensajes para controlar dónde envía el centro los datos de telemetría del dispositivo.
+* Use el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) para controlar dónde envía el centro los datos de telemetría del dispositivo.
 
 * Enrutar mensajes a varios puntos de conexión no tiene ningún costo adicional.
 
@@ -110,7 +109,7 @@ Si la solución no puede usar ninguno de los protocolos compatibles, puede ampli
 
 ## <a name="quotas-and-limits"></a>Cuotas y límites
 
-Cada suscripción de Azure tiene límites de cuota predeterminados para impedir el abuso del servicio y pueden afectar al ámbito de la solución de IoT. El límite actual es de 50 de centros de IoT Hub por suscripción. Puede solicitar un aumento de la cuota si se pone en contacto con el soporte técnico. Más información sobre los límites de cuota:
+Cada suscripción de Azure tiene límites de cuota predeterminados para impedir el abuso del servicio y pueden afectar al ámbito de la solución de IoT. El límite actual es de 50 de centros de IoT Hub por suscripción. Puede solicitar un aumento de la cuota si se pone en contacto con el soporte técnico. Para obtener más información, consulte las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md). Para obtener más información sobre los límites de cuota, vea alguno de los siguientes artículos:
 
 * [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
 

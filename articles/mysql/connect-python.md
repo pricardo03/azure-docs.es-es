@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350979"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931625"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de Python para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for MySQL. Se emplean instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos en las plataformas Mac OS, Ubuntu Linux y Windows. En este tema se da por hecho que está familiarizado con el desarrollo mediante Python y que nunca ha usado Azure Database for MySQL.
@@ -30,9 +30,9 @@ Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para
 > Esta guía de inicio rápido usa un enfoque de consulta SQL sin procesar para conectarse a MySQL para ejecutar consultas. Si usa una plataforma web, use el conector recomendado para ella. Por ejemplo, [mysqlclient](https://pypi.org/project/mysqlclient/) se sugiere para usarlo con Django.
 >
 
-### <a name="windows"></a> Windows
-1. Descargue e instale Python 2.7 desde [python.org](https://www.python.org/downloads/windows/). 
-2. Para comprobar la instalación de Python, inicie el símbolo del sistema. Ejecute el comando `C:\python27\python.exe -V` mediante el modificador V mayúscula para ver el número de versión.
+### <a name="windows"></a>Windows
+1. Descargue e instale Python 3.7 desde [python.org](https://www.python.org/downloads/windows/). 
+2. Para comprobar la instalación de Python, inicie el símbolo del sistema. Ejecute el comando `C:\python37\python.exe -V` mediante el modificador V mayúscula para ver el número de versión.
 3. Instale el conector de Python para MySQL desde [mysql.com](https://dev.mysql.com/downloads/connector/python/) que corresponda a su versión de Python.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)

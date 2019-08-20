@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d9f96f0b61129a0f881c8fe8676bd5df7376ad
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: fb2e3e45da0a072eadb0eac9f8a0266f9e14cda2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494579"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031978"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -195,7 +195,7 @@ No todos los tipos de aplicaciones están disponibles en todas las plataformas. 
 | [Aplicación de escritorio que llama a las API web](scenario-desktop-overview.md) <br/> [![Aplicación de escritorio que llama a las API web](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![Flujo de código de dispositivo](media/scenarios/device-code-flow-app.svg) | ![MSAL.NET](media/sample-v2-code/logo_NET.png)  MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL
 | [Aplicación móvil que llama a las API web](scenario-mobile-overview.md) <br/> [![Aplicación móvil que llama a las API web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS / Objective C o Swift](media/sample-v2-code/logo_iOS.png) MSAL.iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL.Android
 | [Aplicación de demonio](scenario-daemon-overview.md) <br/> [![Aplicación de demonio](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL
-| [API web que llama a API web](scenario-web-api-call-api-overview.md) <br/> [![API web que llama a API web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) <br/> ASP.NET y MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core y MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core y MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png)<br/> ASP.NET Core y MSAL.NET
+| [API web que llama a API web](scenario-web-api-call-api-overview.md) <br/> [![API web que llama a API web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/logo_java.png) msal4j ![Python de MSAL](media/sample-v2-code/logo_python.png) Python de MSAL
 
 Consulte también [Bibliotecas compatibles con Microsoft por sistema operativo y lenguaje](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 

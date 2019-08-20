@@ -1,6 +1,5 @@
 ---
-title: ¿Qué es?
-titleSuffix: Azure Machine Learning service
+title: Qué es Azure Machine Learning Service
 description: 'Introducción a Azure Machine Learning Service: una solución integrada y completa de ciencia de datos que permite a los científicos de datos profesionales desarrollar, experimentar e implementar aplicaciones de análisis avanzado a escala de nube.'
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828110"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018244"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>¿Qué es el servicio Azure Machine Learning?
 
@@ -50,15 +49,15 @@ Comience a entrenar en su máquina local mediante el <a href="https://aka.ms/aml
 
 También puede [automatizar el entrenamiento y optimización del modelo](tutorial-auto-train-models.md) mediante el SDK.
 
-### <a name="code-free--low-code-experience"></a>Experiencia sin código o con poco código
+### <a name="ui-based-low-code-experience"></a>Experiencia con poco trabajo de programación basada en interfaz de usuario
 
 Para el entrenamiento sin código, pruebe:
 
-+ La interfaz visual para arrastrar y colocar los experimentos y las implementaciones
++ La creación de [experimentos de ML automatizados](tutorial-first-experiment-automated-ml.md) en la interfaz fácil de usar.
++ Los [experimentos de arrastrar y colocar en la interfaz visual](ui-tutorial-automobile-price-train-score.md).
+  ![Interfaz visual para Azure Machine Learning Service](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Interfaz visual para Azure Machine Learning Service](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ La opción de Azure portal para experimentos automatizados de Machine Learning
 
 ### <a name="operationalization-mlops"></a>Operacionalización (MLOps)
 
@@ -106,7 +105,7 @@ Puede obtener créditos para gastarlos en servicios de Azure. Después de que se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cree un área de trabajo de Machine Learning Service](setup-create-workspace.md) para empezar a trabajar.
+- [Cree un área de trabajo de Machine Learning Service](how-to-manage-workspace.md) para empezar a trabajar.
 
 - Siga los tutoriales completos:
   + [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md)

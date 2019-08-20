@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482670"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989270"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Inicio rápido: Configuración de una aplicación para exponer las API web
 
@@ -116,8 +116,9 @@ Para exponer un ámbito nuevo mediante el manifiesto de aplicación:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Comprobación de que la web API se expone a otras aplicaciones
 
 1. Vuelva al inquilino de Azure AD, seleccione **Registros de aplicaciones** y busque o seleccione la aplicación cliente que desea configurar.
-1. Repita los pasos descritos en Configuración de una aplicación cliente para tener acceso a las API web.
-1. Cuando llegue al paso **Seleccionar una API**, seleccione el recurso. Debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
+1. Repita los pasos descritos en [Configuración de una aplicación cliente para tener acceso a las API web](quickstart-configure-app-access-web-apis.md).
+1. Cuando llegue al paso [Seleccionar una API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), seleccione el recurso. Debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Más sobre el manifiesto de aplicación
 

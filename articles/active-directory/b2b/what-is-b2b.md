@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c5c133fe728126ea07834c8ff5b02b1203ec326
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62bc550a809d596b5378c03aa95877db5e15febb
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112690"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019506"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
@@ -46,7 +46,7 @@ Los usuarios invitados inician sesión en las aplicaciones y los servicios con s
 ![Captura de pantalla que muestra la página Revisar permisos](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Uso de directivas para compartir de forma segura sus aplicaciones y servicios
-Puede usar la protección de las directivas de autorización al contenido corporativo. Las directivas de acceso condicional, como la autenticación multifactor, se pueden aplicar:
+Puede usar las directivas de autorización para proteger el contenido corporativo. Las directivas de acceso condicional, como la autenticación multifactor, se pueden aplicar:
 - En el nivel de inquilino.
 - En el nivel de aplicación.
 - A usuarios invitados específicos para proteger los datos y las aplicaciones empresariales.

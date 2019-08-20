@@ -1,17 +1,17 @@
 ---
 title: Creación de una instancia de Azure Data Catalog
-description: Inicio rápido sobre cómo crear una instancia de Azure Data Catalog.
+description: En este inicio rápido, se describe cómo crear una instancia de Azure Data Catalog mediante Azure Portal.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736491"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976857"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Inicio rápido: Creación de una instancia de Azure Data Catalog
 
@@ -36,7 +36,7 @@ Solo se puede aprovisionar un catálogo de datos por organización (dominio de A
 
 1. Vaya a [Azure Portal](https://portal.azure.com) > **Crear un recurso** y seleccione **Data Catalog**.
 
-    ![Creación de un catálogo de datos](media/data-catalog-get-started/data-catalog-create.png)
+    ![Botón Crear de Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Especifique el **nombre**, la **suscripción** que desea usar, la **ubicación** y el **plan de tarifa** del catálogo de datos. Seleccione **Crear**.
 

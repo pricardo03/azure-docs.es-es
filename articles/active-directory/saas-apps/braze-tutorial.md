@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a32548bdafa999fe72e8b2f8e3b80961ebe3c9a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165086"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Tutorial: Integración de Azure Active Directory con Braze
 
@@ -115,7 +115,7 @@ Para configurar el inicio de sesión único de Azure AD con Braze, realice los p
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.braze.com/sign_in`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Braze](mailto:support@braze.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Para el subdominio, use el subdominio de coordinación que aparece en la URL de la instancia de Braze. Por ejemplo, si la instancia es US-01, su URL es https://dashboard-01.braze.com. Esto significa que el subdominio será dashboard-01.
 
 6. La aplicación Braze espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
@@ -164,7 +164,7 @@ Para configurar el inicio de sesión único de Azure AD con Braze, realice los p
 
 ### <a name="configure-braze-single-sign-on"></a>Configurar inicio de sesión único de Braze
 
-Para configurar el inicio de sesión único en **Braze**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Braze](mailto:support@braze.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en el lado de **Braze**, debe asegurarse de que un administrador de cuentas de Braze haya habilitado el SSO de SAML para su cuenta. Una vez habilitado, puede ir a Configuración de la empresa > Configuración de seguridad y activar la sección de SSO de SAML. En esta sección, tendrá que copiar y pegar el **Certificado (Base64)** descargado, además de agregar un nombre de SAML. 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -218,7 +218,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-braze-test-user"></a>Creación de un usuario de prueba de Braze
 
-En esta sección, creará un usuario llamado Britta Simon en Braze. Trabaje con el  [equipo de soporte técnico de Braze](mailto:support@braze.com) para agregar los usuarios a la plataforma de Braze. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Braze. Puede agregar los usuarios en la plataforma de Braze. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

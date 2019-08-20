@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591919"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013593"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -86,32 +86,35 @@ Antes de que pueda crear una instancia de Data Science Virtual Machine para Linu
 A continuación le indicamos los pasos para crear una instancia de Data Science Virtual Machine para Linux:
 
 1. Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Es posible que se le pida que inicie sesión en su cuenta de Azure si todavía no lo ha hecho. 
-1. Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+1. Haga clic en **Crear** para abrir el asistente.
+    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. En las secciones siguientes, se proporcionan los datos para cada uno de los pasos del asistente usados para crear la instancia de Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
-   a. **Aspectos básicos**:
-
-   * **Nombre**: nombre del servidor de ciencia de datos que está creando.
-   * **Tipo de disco de máquina virtual**: elija **SSD Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **HDD estándar**. 
-   * **Nombre de usuario**: identificador de acceso de la primera cuenta.
-   * **Contraseña**: contraseña de la primera cuenta (puede usar una clave pública SSH en lugar de una contraseña).
-   * **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
-   * **Grupos de recursos**: Puede crear uno nuevo o utilizar un grupo ya existente.
-   * **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red.
-
-   b. **Tamaño**:
-
-   * Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Seleccione una VM de clase NC o ND para instancias de VM basadas en GPU. La página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) muestra las regiones con GPU.
-
-   c. **Configuración**:
-
-   * En la mayoría de los casos, puede usar simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
-
-   d. **Resumen**:
-
-   * Compruebe que toda la información que ha especificado es correcta. Se proporciona un vínculo a las condiciones de uso. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . Para iniciar el aprovisionamiento, haga clic en **Crear**. 
-
-El aprovisionamiento tardará alrededor de 5 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+    a. **Aspectos básicos**:
+    
+    * **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
+    * **Grupos de recursos**: Puede crear uno nuevo o utilizar un grupo ya existente.
+    * **Nombre de la máquina virtual**: nombre del servidor de ciencia de datos que está creando.
+    * **Región**: seleccione el centro de datos más adecuado. Normalmente, es el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red.
+    * **Opciones de disponibilidad**: configure esta opción si quiere usar esta VM en zonas o conjuntos de disponibilidad; de lo contrario, no modifique el valor predeterminado.
+    * **Imagen**: use el valor predeterminado.
+    * **Tamaño**: Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Seleccione una VM de la serie NC o ND para instancias de VM basadas en GPU. 
+    * **Nombre de usuario**: Nombre de usuario del administrador
+    * **Clave pública SSH**: clave pública RSA en formato de línea única (puede usar una contraseña en lugar de una clave SSH).
+    
+    b. **Discos**:
+    
+    * **Tipo de disco del sistema operativo**: elija **SSD Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **HDD estándar**.
+    
+    c. Para el resto de las opciones, puede usar los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
+    
+    Por último, seleccione **Revisar y crear**.
+    
+    d. **Revisar y crear**:
+    
+    * una vez completada correctamente la validación, asegúrese de que sea correcta toda la información que haya especificado. Se proporciona un vínculo a las condiciones de uso. No se realizarán cargos adicionales en la VM más allá del procesamiento del tamaño del servidor que haya seleccionado en la opción Tamaño. Para iniciar el aprovisionamiento, haga clic en **Crear**.
+    
+    El aprovisionamiento tardará alrededor de 5 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Acceso a Data Science Virtual Machine para Linux
 

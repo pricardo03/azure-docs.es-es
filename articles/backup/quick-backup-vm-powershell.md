@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e7a343e257a926f010b52f9833d7acb321c8aeb6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5c800e1b07fab2026ab74209a41bc07cc56238f
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639468"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019492"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 
@@ -104,7 +104,6 @@ Habilite la copia de seguridad de la manera siguiente:
         -Policy $policy
     ```
 
-
 ## <a name="start-a-backup-job"></a>Inicio de un trabajo de copia de seguridad
 
 Las copias de seguridad se ejecutan según la programación especificada en la directiva de copia de seguridad. También puede ejecutar una copia de seguridad ad hoc:
@@ -158,7 +157,7 @@ Ejecute un trabajo de copia de seguridad ad hoc de la siguiente manera:
 ## <a name="clean-up-the-deployment"></a>Limpieza de la implementación
 
 Si ya no necesita realizar copias de seguridad de la máquina virtual, puede limpiarla.
-- Si desea restaurar la máquina virtual, omita el paso de limpieza.
+- Para restaurar la VM, omita el paso de limpieza.
 - Si ha usado una máquina virtual existente, puede omitir el último cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para dejar tanto el grupo de recursos como la máquina virtual en su lugar.
 
 Deshabilite la protección, elimine los puntos de restauración y el almacén. A continuación, elimine el grupo de recursos y los recursos de máquina virtual asociados como se indica a continuación:

@@ -1,5 +1,5 @@
 ---
-title: Creación de una aplicación de Spring Boot de Service Fabric en Azure | Microsoft Docs
+title: 'Inicio rápido: Creación de una aplicación de Spring Boot de Azure Service Fabric'
 description: En esta guía de inicio rápido, implementará una aplicación de Spring Boot para Azure Service Fabric con la aplicación de ejemplo Spring Boot.
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: 403eec7bf4d45b5b210009588c783cc244d24387
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327165"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977084"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de Java Spring Boot en Service Fabric
 
@@ -149,7 +149,7 @@ En este punto, ha creado una aplicación de Service Fabric del ejemplo Getting S
     
     ![Estado correcto del clúster local](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. Vaya a la carpeta `gs-spring-boot/SpringServiceFabric`.
+1. Abra la carpeta `gs-spring-boot/SpringServiceFabric`.
 1. Ejecute el comando siguiente para conectarse a su clúster local.
 
     ```bash
@@ -176,13 +176,13 @@ Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y s
 Para escalar el servicio front-end web, realice estas operaciones:
 
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
-1. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
+1. Seleccione los puntos suspensivos ( **...** ) al lado del nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y seleccione **Escalar servicio**.
 
     ![Escalar servicio de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Ahora puede escalar el número de instancias del servicio.
 
-1. Cambie el número a **3** y haga clic en **Scale Service** (Escalar servicio).
+1. Cambie el número a **3** y seleccione **Scale Service** (Escalar servicio).
 
     También puede escalar el servicio mediante la línea de comandos.
 
@@ -194,7 +194,7 @@ Para escalar el servicio front-end web, realice estas operaciones:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Haga clic en el nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
+1. Seleccione el nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
 
     ![Escalar servicio de Service Fabric Explorer completado](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Mediante esta sencilla tarea de administración, hemos duplicado los recursos di
 Para demostrar la conmutación por error del servicio, se simula un reinicio del nodo mediante Service Fabric Explorer. Asegúrese de que solo se esté ejecutando una instancia del servicio.
 
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
-1. Haga clic en el botón de puntos suspensivos (tres puntos) junto al nodo que ejecuta la instancia del servicio y reinicie el nodo.
+1. Seleccione los puntos suspensivos ( **...** ) junto al nodo que ejecuta la instancia del servicio y reinicie el nodo.
 
     ![Reinicio del nodo de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. La instancia del servicio se moverá a otro nodo y la aplicación no tendrá ningún tiempo de inactividad.
