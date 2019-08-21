@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318195"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016364"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparación de una máquina de origen para la instalación de inserción del agente de Mobility
 
@@ -66,6 +66,6 @@ Si las máquinas que desea replicar tiene software antivirus activo en ejecució
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de instalar Mobility Service, en Azure Portal, seleccione **+Replicar** para empezar a proteger estas máquinas virtuales. Más información sobre cómo habilitar la replicación para [máquinas virtuales de VMware(vmware-azure-enable-replication.md) y [servidores físicos](physical-azure-disaster-recovery.md#enable-replication).
+Después de instalar Mobility Service, en Azure Portal, seleccione **+Replicar** para empezar a proteger estas máquinas virtuales. Obtenga más información sobre cómo habilitar la replicación para [máquinas virtuales de VMware](vmware-azure-enable-replication.md) y [servidores físicos](physical-azure-disaster-recovery.md#enable-replication).
 
 

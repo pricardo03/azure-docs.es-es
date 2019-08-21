@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817248"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968938"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Directiva: para los usuarios del directorio
 
@@ -35,7 +35,7 @@ Siga estos pasos si quiere que la directiva sea para los usuarios que están en 
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Directiva: para los usuarios que no están en el directorio
 
-Siga estos pasos si quiere que la directiva sea para los usuarios que no están en el directorio que pueden solicitar este paquete de acceso. Los **usuarios que no están en el directorio** hacen referencia a los usuarios que se encuentran en otro directorio de Azure AD y que posiblemente aún no se los haya invitado al directorio.  Los directorios deben configurarse para que se permitan en la configuración **Organizational relationships collaboration restrictions** (Restricciones de colaboración de relaciones de la organización).
+Siga estos pasos si quiere que la directiva sea para los usuarios que no están en el directorio que pueden solicitar este paquete de acceso. Los **usuarios que no están en el directorio** hacen referencia a los usuarios que se encuentran en otro directorio de Azure AD y que posiblemente aún no se los haya invitado al directorio. Actualmente, solo puede agregar usuarios de organizaciones que tienen Azure AD. Los directorios deben configurarse para que se permitan en la configuración **Organizational relationships collaboration restrictions** (Restricciones de colaboración de relaciones de la organización).
 
 > [!NOTE]
 > Se creará una cuenta de usuario invitado externo para un usuario que aún no esté en el directorio cuya solicitud se haya aprobado o aprobado automáticamente. Se invitará al invitado, pero no recibirá un correo electrónico de invitación. En su lugar, recibirá un correo electrónico cuando se entregue su asignación de paquete de acceso. De forma predeterminada, más adelante cuando ese usuario invitado ya no tenga ninguna asignación de paquete de acceso porque su última asignación ha expirado o se ha cancelado, se bloqueará el inicio de sesión de esa cuenta de usuario invitado y se eliminará posteriormente. Si quiere que los usuarios invitados permanezcan en el directorio de manera indefinida, incluso si no tienen ninguna asignación de paquete de acceso, puede cambiar la configuración de la administración de derechos.

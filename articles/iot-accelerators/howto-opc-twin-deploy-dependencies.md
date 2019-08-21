@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 95c2130727c0cef889771c181fec53557a2a4b0f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603709"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016511"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implementación de dependencias para el desarrollo local
 
-En este artículo se explica la necesidad de operaciones de desarrollo y depuración locales para implementar solo los servicios de la plataforma Azure.   Al final, tendrá un grupo de recursos implementado con todo lo necesario para el desarrollo y la depuración locales.
+En este artículo se explica cómo implementar solo los servicios de la plataforma Azure necesarios para el desarrollo local y la depuración.   Al final, tendrá un grupo de recursos implementado con todo lo necesario para el desarrollo y la depuración locales.
 
 ## <a name="deploy-azure-platform-services"></a>Implementación de servicios de la plataforma Azure
 
-1. Asegúrese de que tiene las extensiones de PowerShell y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) instaladas.  Abra un símbolo del sistema o un terminal y ejecute:
+1. Asegúrese de que tiene las extensiones de PowerShell y [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas.  Abra un símbolo del sistema o un terminal y ejecute:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -44,9 +44,9 @@ Asegúrese de usar un nombre de grupo de recursos corto y sencillo.  El nombre s
 
 ### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
 
-El script de implementación intenta registrar aplicaciones de AAD en Azure Active Directory.  En función de sus derechos para el inquilino de AAD seleccionado, esto podría generar un error.   Existen tres opciones:
+El script de implementación intenta registrar aplicaciones de AAD en Azure Active Directory.  En función de sus derechos para el inquilino de AAD seleccionado, esto podría generar un error.   Hay tres opciones:
 
-1. Si ha elegido un inquilino de AAD de una lista de los inquilinos, reinicie el script y elija otro de la lista.
+1. Si ha elegido un inquilino de AAD de una lista de inquilinos, reinicie el script y elija otro de la lista.
 2. Como alternativa, implemente un inquilino de AAD privado, reinicie el script y seleccione la opción para usarlo.
 3. Continúe con la autenticación.  Puesto que los microservicios se ejecutan localmente, esta operación es aceptable, pero no imita los entornos de producción.  
 

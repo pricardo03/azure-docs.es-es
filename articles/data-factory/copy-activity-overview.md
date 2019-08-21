@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827461"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966389"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -33,7 +33,7 @@ En Azure Data Factory, puede usar la actividad de copia para copiar datos entre 
 
 La actividad de copia se ejecuta en una instancia de [Integration Runtime](concepts-integration-runtime.md). Para otro escenario de copia de datos, se pueden usar otros tipos de Integration Runtime:
 
-* Cuando copie datos entre almacenes de datos y ambos sean accesibles públicamente, la actividad de copia puede usar **Azure Integration Runtime**, que es seguro, confiable, escalable y con carácter de [disponibilidad global](concepts-integration-runtime.md#integration-runtime-location).
+* Cuando copie datos entre almacenes de datos y ambos sean accesibles públicamente a través de Internet desde cualquier IP, la actividad de copia puede usar **Azure Integration Runtime**, que es seguro, confiable, escalable y con carácter de [disponibilidad global](concepts-integration-runtime.md#integration-runtime-location).
 * Cuando copie datos con almacenes de datos como origen o destino ubicados en el entorno local o en una red con control de acceso (por ejemplo, Azure Virtual Network), debe configurar una instancia de **Integrated Runtime autohospedado** para impulsar la copia de datos.
 
 Integration Runtime se debe asociar con todos los almacenes de datos receptores y de origen. Obtenga detalles sobre cómo la actividad de copia [determina el tipo de IR que se usará](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -130,7 +130,7 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
+| Tipo | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
 | inputs | Especifique el conjunto de datos que creó y que señala los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala los datos de receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
@@ -193,7 +193,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | usedDataIntegrationUnits | Unidades de integración de datos vigentes durante la copia. | Valor Int32 |
 | usedParallelCopies | El número de parallelCopies efectivo durante la copia. | Valor Int32 |
 | redirectRowPath | Ruta de acceso al registro de las filas incompatibles omitidas en la instancia de Blob Storage que configura en "redirectIncompatibleRowSettings". Consulte el ejemplo siguiente. | Texto (cadena) |
-| executionDetails | Más detalles sobre las fases por las que pasa la actividad de copia y los pasos, la duración, las configuraciones usadas, etc. correspondientes. No se recomienda analizar esta sección, porque podría modificarse.<br/><br/>ADF también informa sobre las duraciones detalladas (en segundos) empleadas en los pasos correspondientes en `detailedDurations`:<br/>- **Duración de puesta en cola** (`queuingDuration`): tiempo hasta que la actividad de copia se inicia realmente en el entorno de ejecución de integración. Si usa un IR autohospedado y este valor es grande, le recomendamos que compruebe la capacidad y el uso del entorno, y que lo escale vertical u horizontalmente según la carga de trabajo. <br/>- **Duración del script anterior a la copia** (`preCopyScriptDuration`): tiempo empleado en ejecutar el script anterior a la copia en el almacén de datos receptor. Se aplica cuando se configura el script anterior a la copia. <br/>- **Tiempo hasta el primer byte** (`timeToFirstByte`): tiempo que el entorno de ejecución de integración tarda en recibir el primer byte del almacén de datos de origen. Se aplica en un origen no basado en archivos. Si este valor es grande, se recomienda comprobar y optimizar la consulta o el servidor.<br/>- **Duración de la transferencia** (`transferDuration`): tiempo para que el entorno de ejecución de integración transfiera todos los datos del origen al receptor después de obtener el primer byte. | Array |
+| executionDetails | Más detalles sobre las fases por las que pasa la actividad de copia y los pasos, la duración, las configuraciones usadas, etc. correspondientes. No se recomienda analizar esta sección, porque podría modificarse.<br/><br/>ADF también informa sobre las duraciones detalladas (en segundos) empleadas en los pasos correspondientes en `detailedDurations`. Las duraciones de estos pasos son exclusivas y solo se mostrarán las que correspondan a la ejecución de actividad de copia determinada:<br/>- **Duración de puesta en cola** (`queuingDuration`): Tiempo transcurrido hasta que la actividad de copia se inicia realmente en el entorno de ejecución de integración. Si usa un IR autohospedado y este valor es grande, le recomendamos que compruebe la capacidad y el uso del entorno, y que lo escale vertical u horizontalmente según la carga de trabajo. <br/>- **Duración del script anterior a la copia** (`preCopyScriptDuration`): Tiempo transcurrido entre la actividad de copia que comienza en IR y la actividad de copia que finaliza la ejecución del script anterior a la copia en el almacén de datos receptor. Se aplica cuando se configura el script anterior a la copia. <br/>- **Tiempo hasta el primer byte** (`timeToFirstByte`): Tiempo transcurrido entre el final del paso anterior y el IR que recibe el primer byte del almacén de datos de origen. Se aplica en un origen no basado en archivos. Si este valor es grande, se recomienda comprobar y optimizar la consulta o el servidor.<br/>- **Duración de la transferencia** (`transferDuration`): Tiempo transcurrido entre el final del paso anterior y el IR que transfiere todos los datos del origen al receptor. | Array |
 | perfRecommendation | Sugerencias de optimización del rendimiento de la copia. Consulte la sección sobre [Rendimiento y optimización](#performance-and-tuning) para más detalles. | Array |
 
 ```json

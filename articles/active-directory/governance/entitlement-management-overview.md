@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678155"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032546"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
@@ -33,6 +33,10 @@ ms.locfileid: "68678155"
 Los empleados de las organizaciones necesitan tener acceso a varios grupos, aplicaciones y sitios para realizar su trabajo. La administración de este acceso es un reto. En la mayoría de los casos, no existe una lista organizada de todos los recursos que un usuario necesita para un proyecto. El jefe de proyecto tiene un buen entendimiento de los recursos necesarios, de las personas implicadas y de cuánto tiempo durará el proyecto. Sin embargo, el jefe de proyecto normalmente no tiene permisos para aprobar o conceder acceso a otros. Este escenario se complica cuando se intenta trabajar con personas o compañías externas.
 
 La administración de derechos de Azure Active Directory (Azure AD) puede ayudarle a administrar el acceso a grupos, aplicaciones y sitios de SharePoint Online para usuarios internos también para usuarios que están fuera de la organización.
+
+Este vídeo proporciona información general sobre la administración de derechos y su valor empresarial:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>¿Qué es la administración de derechos?
 

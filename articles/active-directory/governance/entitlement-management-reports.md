@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489060"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032451"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visualización de informes y registros en la administración de derechos de Azure AD (versión preliminar)
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489060"
 > La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+El informe de asignaciones de usuarios y el registro de auditoría de Azure Active Directory proporcionan detalles adicionales sobre los usuarios del directorio. Como administrador, puede ver los recursos a los que un usuario tiene acceso. Además, puede ver los registros de solicitudes para auditarlos o para determinar el estado de la solicitud de un usuario. En este artículo se describe cómo usar el informe de asignaciones del usuario y los registros de auditoría de Azure AD.
+
+Vea el siguiente vídeo para obtener información sobre cómo usar la administración de derechos para administrar el acceso de los usuarios en Azure Active Directory:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>Visualización de los recursos a los que tiene acceso un usuario
 

@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638428"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990527"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar un modelo con una imagen personalizada de Docker
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Implementación de un modelo con una imagen de Docker personalizada
 
-Aprenda a usar una imagen de Docker al implementar modelos entrenados con Azure Machine Learning Service.
+Aprenda a usar una imagen de Docker personalizada al implementar modelos entrenados con Azure Machine Learning Service.
 
 Al implementar un modelo entrenado en un servicio web o dispositivo IoT Edge, se crea una imagen de Docker. Esta imagen contiene el modelo, el entorno de Conda y los recursos necesarios para usar el modelo. También contiene un servidor web para controlar las solicitudes entrantes cuando se implementa como servicio web y los componentes necesarios para trabajar con Azure IoT Hub.
 
@@ -40,8 +40,8 @@ Este documento se divide en dos secciones:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un grupo de trabajo de Azure Machine Learning Service. Para más información, consulte el artículo [Crear un área de trabajo](setup-create-workspace.md).
-* El SDK de Azure Machine Learning. Para obtener más información, consulte la sección del SDK de Python en [Crear un área de trabajo](setup-create-workspace.md#sdk).
+* Un grupo de trabajo de Azure Machine Learning Service. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
+* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
@@ -98,6 +98,8 @@ Si ya ha entrenado o implementado modelos mediante Azure Machine Learning Servic
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     La información devuelta es similar al texto siguiente:
 

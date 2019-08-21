@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154163"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030945"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configuración de las claves administradas del cliente para el cifrado de Azure Storage desde Azure Portal
 
@@ -25,6 +25,7 @@ En este artículo se muestra cómo configurar un almacén de claves con claves a
 
 > [!IMPORTANT]
 > El uso de claves administradas del cliente con el cifrado de Azure Storage requiere que el almacén de claves tenga configuradas dos propiedades obligatorias, **Eliminación temporal** y **No purgar**. Estas propiedades están habilitadas de manera predeterminada cuando crea un nuevo almacén de claves en Azure Portal. Sin embargo, si tiene que habilitar estas propiedades en un almacén de claves existente, deberá usar PowerShell o la CLI de Azure.
+> Solo se admiten claves RSA y el tamaño de clave 2048.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 
@@ -71,5 +72,5 @@ Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de al
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
-- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
+- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

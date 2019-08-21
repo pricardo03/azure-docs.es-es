@@ -4,7 +4,7 @@ description: Referencia e información general conceptual de la característica 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515185"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030843"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -119,17 +119,17 @@ Para los exploradores del cliente, App Service puede dirigir automáticamente to
 
 ## <a name="authorization-behavior"></a>Comportamiento de la autorización
 
-En [Azure Portal](https://portal.azure.com), puede configurar la autorización de App Service con varios comportamientos.
+En [Azure Portal](https://portal.azure.com), puede configurar la autorización de App Service con varios comportamientos cuando la solicitud entrante no esté autenticada.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 Los encabezados siguientes describen las opciones.
 
-### <a name="allow-all-requests-default"></a>Permitir todas las solicitudes (opción predeterminada)
+### <a name="allow-anonymous-requests-no-action"></a>Permitir solicitudes anónimas (ninguna acción)
 
-App Service no administra la autenticación ni la autorización (desactivadas). 
+Esta opción traslada la autorización del tráfico sin autenticar al código de aplicación. Para las solicitudes autenticadas, App Service también transfiere información de autenticación en los encabezados HTTP. 
 
-Elija esta opción si no necesita autenticación ni autorización, o si desea escribir su propio código de autenticación y autorización.
+Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presentar varios proveedores de inicio de sesión](app-service-authentication-how-to.md#use-multiple-sign-in-providers) a los usuarios. Sin embargo, debe escribir código. 
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir solo solicitudes autenticadas
 
@@ -137,11 +137,8 @@ La opción es **Iniciar sesión con \<proveedor>** . App Service redirige todas 
 
 Con esta opción, no es necesario escribir ningún código de autenticación en la aplicación. Una autorización más precisa, como la autorización específica de rol, se puede controlarse mediante la inspección de las notificaciones del usuario (consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario)).
 
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Permitir todas las solicitudes, pero validar las autenticadas
-
-La opción es **Permitir solicitudes anónimas** . Esta opción activa la autenticación y autorización de App Service, pero traslada las decisiones de autorización al código de aplicación. Para las solicitudes autenticadas, App Service también transfiere información de autenticación en los encabezados HTTP. 
-
-Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presentar varios proveedores de inicio de sesión](app-service-authentication-how-to.md#use-multiple-sign-in-providers) a los usuarios. Sin embargo, debe escribir código. 
+> [!CAUTION]
+> Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página.
 
 ## <a name="more-resources"></a>Más recursos
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65524226"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030803"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de costo de Azure NetApp Files 
 
@@ -27,7 +27,7 @@ Entender el modelo de costo de Azure NetApp Files ayuda a administrar los gastos
 
 ## <a name="calculation-of-capacity-consumption"></a>Cálculo del consumo de la capacidad
 
-Azure NetApp Files se factura en función de la capacidad de almacenamiento aprovisionada.  La capacidad aprovisionada se asigna mediante la creación de grupos de capacidad.  Los grupos de capacidad se facturan en función del importe en dólares, la cantidad aprovisionada de GiB y el mes en incrementos de una hora. El tamaño mínimo de un grupo de capacidad es de 4 TiB, y los grupos de capacidad se pueden expandir posteriormente en incrementos de 1 TiB. Los volúmenes se crean dentro de grupos de capacidad.  A cada volumen se le asigna una cuota que disminuye a partir de la capacidad aprovisionada de los grupos. La cuota que se puede asignar a los volúmenes oscila entre un mínimo de 100 GiB a un máximo de 92 TiB.  
+Azure NetApp Files se factura en función de la capacidad de almacenamiento aprovisionada.  La capacidad aprovisionada se asigna mediante la creación de grupos de capacidad.  Los grupos de capacidad se facturan en función del importe en dólares, la cantidad aprovisionada de GiB y el mes en incrementos de una hora. El tamaño mínimo de un grupo de capacidad es de 4 TiB, y los grupos de capacidad se pueden expandir posteriormente en incrementos de 1 TiB. Los volúmenes se crean dentro de grupos de capacidad.  A cada volumen se le asigna una cuota que disminuye a partir de la capacidad aprovisionada de los grupos. La cuota que se puede asignar a los volúmenes oscila entre un mínimo de 100 GiB y un máximo de 100 TiB.  
 
 Para un volumen activo, el consumo de la capacidad con respecto a la cuota se basa en la capacidad lógica (efectiva).
 

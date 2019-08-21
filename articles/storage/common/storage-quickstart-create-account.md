@@ -6,19 +6,19 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72f8c3ed0658765827c4a9b0669c08fefd9044f
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234188"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016327"
 ---
 # <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage accesibles desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
 En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
@@ -141,6 +141,8 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 |Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
 |Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
 |Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
+|Almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)    |Standard_GZRS         |
+|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) (versión preliminar)    |Standard_RAGZRS         |
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -179,6 +181,8 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 |Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
 |Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
 |Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
+|Almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)    |Standard_GZRS         |
+|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) (versión preliminar)    |Standard_RAGZRS         |
 
 # <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720236"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990585"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creación, exploración e implementación de experimentos de Machine Learning automatizado en Azure Portal (versión preliminar)
 
@@ -28,7 +28,7 @@ ms.locfileid: "68720236"
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Primeros pasos
 
@@ -66,6 +66,10 @@ Seleccione **Create Experiment** (Crear experimento) y complete el formulario **
 1. Seleccione un contenedor de almacenamiento.
 
 1. Seleccione un archivo de datos en el contenedor de almacenamiento o cargue un archivo desde el equipo local al contenedor. La versión preliminar pública solo admite cargas de archivos locales y cuentas de Azure Blob Storage.
+    >[!Important]
+    > Requisitos para los datos de aprendizaje:
+    >* Los datos deben estar en formato tabular.
+    >* El valor que quiere predecir (columna de destino) debe estar presente en los datos.
 
     [![Seleccionar el archivo de datos](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 

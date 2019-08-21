@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720524"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966355"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -43,7 +43,9 @@ En concreto, este conector Teradata admite las siguientes funcionalidades:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si Teradata no está accesible públicamente, debe configurar un [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md). El entorno de ejecución de integración proporciona un controlador de Teradata integrado a partir de la versión 3.18. No es necesario instalar manualmente ninguno. El controlador requiere "Visual C++ Redistributable 2012 Update 4" en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalada, descárguela de [aquí](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+El entorno de ejecución de integración proporciona un controlador de Teradata integrado a partir de la versión 3.18. No es necesario instalar manualmente ninguno. El controlador requiere "Visual C++ Redistributable 2012 Update 4" en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalada, descárguela de [aquí](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 Si tiene una versión de IR autohospedado anterior a 3.18, instale el [Proveedor de datos .NET para Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), versión 14 o una posterior, en la máquina del entorno de ejecución de integración. 
 
@@ -59,11 +61,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type se debe establecer en **Teradata**. | Sí |
+| Tipo | La propiedad type se debe establecer en **Teradata**. | Sí |
 | connectionString | Especifica la información necesaria para conectarse a la instancia de Base de datos de Teradata. Consulte los ejemplos siguientes.<br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada. | Sí |
 | username | Especifique un nombre de usuario para conectarse a la base de datos Teradata. Se aplica cuando se usa autenticación de Windows. | Sin |
 | password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). <br>Se aplica al utilizar la autenticación de Windows o hacer referencia a la contraseña en Key Vault para la autenticación básica. | Sin |
-| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno de ejecución de integración autohospedado. |Sí |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sí |
 
 **Ejemplo de uso de la autenticación básica**
 
@@ -139,7 +141,7 @@ Para copiar datos de Teradata, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en `TeradataTable`. | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en `TeradataTable`. | Sí |
 | database | El nombre de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
 | table | El nombre de la tabla de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
 
@@ -184,23 +186,22 @@ Para copiar datos de Teradata, se admiten las siguientes propiedades:
 
 En esta sección se proporciona una lista de las propiedades que admite el origen de Teradata. Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte [Canalizaciones](concepts-pipelines-activities.md). 
 
-### <a name="teradata-as-a-source-type"></a>Teradata como tipo de origen
+### <a name="teradata-as-source"></a>Teradata como origen
 
-> [!TIP]
->
-> Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para cargar datos desde Teradata de forma eficaz con la creación de particiones de datos.
+>[!TIP]
+>Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para cargar datos desde Teradata de forma eficaz con la creación de particiones de datos.
 
 Para copiar datos desde Teradata, en la sección **source** de la actividad de copia se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en `TeradataSource`. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en `TeradataSource`. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para obtener algunos ejemplos. | No (si se especifica la tabla en el conjunto de datos) |
 | partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Si una opción de partición está habilitada (es decir, una diferente a `None`), configure también el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Esto determina el grado en paralelo para cargar los datos simultáneamente desde una base de datos Teradata. Por ejemplo, podría establecer este valor en 4. | Sin |
 | partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica cuando la opción de partición no es `None`. | Sin |
 | partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | Sin |
 | partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
-| PartitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
+| partitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
 
 > [!NOTE]
 >

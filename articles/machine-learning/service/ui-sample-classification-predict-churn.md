@@ -1,21 +1,21 @@
 ---
-title: 'Clasificación: Predicción de la deserción de clientes, la apetencia y las ventas adicionales'
+title: 'Ejemplo de interfaz visual n.º 5: clasificación para predecir la deserción de clientes, la apetencia y las ventas adicionales'
 titleSuffix: Azure Machine Learning service
 description: Este experimento de ejemplo de interfaz visual muestra la predicción del clasificador binario de la deserción de clientes, una tarea común en administración de relaciones con clientes (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742298"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016463"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Ejemplo 5 - Clasificación: predicción de la deserción de clientes, la apetencia y las ventas adicionales 
 

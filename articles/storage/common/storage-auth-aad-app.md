@@ -1,21 +1,21 @@
 ---
-title: Autenticación con Azure Active Directory para acceder a los datos de blob y cola desde la aplicación cliente
+title: 'Autorizar el acceso a blobs y colas con Azure Active Directory desde una aplicación cliente: Azure Storage'
 description: Use Azure Active Directory para autenticarse desde una aplicación cliente, adquiera un token de OAuth 2.0 y autorice solicitudes de Azure Blob Storage y Queue Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250004"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986800"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizar el acceso a blobs y colas con Azure Active Directory desde una aplicación cliente
 
 Una ventaja clave del uso de Azure Active Directory (Azure AD) con Azure Blob Storage o Queue Storage es que ya no necesita almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft (anteriormente Azure AD). Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve el token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar las solicitudes de Azure Blob Storage o Queue Storage.
 

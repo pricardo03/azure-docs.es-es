@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478621"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952996"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -34,7 +34,7 @@ Las siguientes versiones del sistema operativo Windows son compatibles oficialme
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
 
-Las distribuciones Linux siguientes son compatibles oficialmente. Aunque también se puede ejecutar el agente de Linux en otras distribuciones que no se enumeran. A menos que se indique lo contrario, todas las versiones secundarias son compatibles con cada versión principal de la lista.  
+Las distribuciones Linux siguientes son compatibles oficialmente. Aunque también se puede ejecutar el agente de Linux en otras distribuciones que no se enumeran. A menos que se indique lo contrario, todas las versiones secundarias son compatibles con cada versión principal de la lista.
 
 ### <a name="64-bit"></a>64 bits
 
@@ -68,6 +68,24 @@ Para iniciar el seguimiento de cambios, debe habilitar la solución Change Track
 Para obtener información sobre cómo incorporar equipos a la solución, consulte: [Soluciones de automatización de la incorporación](automation-onboard-solutions-from-automation-account.md). Una vez que tenga la incorporación de una máquina con las soluciones Change Tracking e Inventory puede configurar los elementos a los que se va a realizar un seguimiento. Cuando se habilita un nuevo archivo o una clave del registro para realizar su seguimiento, está habilitado tanto para Change Tracking como para Inventory.
 
 Para realizar el seguimiento de los cambios en los archivos de Windows y Linux, se utilizan los algoritmos hash MD5 de los archivos. Estos algoritmos hash se utilizan para detectar si se ha realizado algún cambio desde el último inventario.
+
+### <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
+
+Azure Security Center ha agregado Supervisión de la integridad de los archivos (FIM) integrada en Azure Change Tracking. Mientras que FIM solo supervisa archivos y registros, la solución Change Tracking completa también incluye:
+
+- Cambios de software
+- Servicios de Windows
+- Demonios de Linux
+
+Si ya ha habilitado FIM y quiere probar la solución Change Tracking completa, debe seguir los pasos a continuación. Este proceso no quita los valores de configuración.
+
+> [!NOTE]
+> Habilitar la solución Change Tracking completa puede generar cargos adicionales, para más información, consulte [Precios de Automation](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
+1. Para quitar la solución de supervisión, desplácese hasta el área de trabajo y búsquela en la [Lista de soluciones de supervisión instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en Eliminar, según se detalla en [Eliminación de una solución de supervisión](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Vuelva a habilitar la solución; para ello, vaya a la cuenta de Automation y seleccione **Change Tracking** en el menú de recursos de **Administración de configuración**.
+4. Confirme los detalles de configuración del área de trabajo y haga clic en **Habilitar**.
 
 ### <a name="configure-linux-files-to-track"></a>Configuración de los archivos de Linux de los que se realizará un seguimiento
 
@@ -197,7 +215,7 @@ El agente solo realiza un seguimiento de los cambios, esto optimiza su rendimien
 
 > [!NOTE]
 > Aunque el agente puede seguir los cambios hasta en intervalos de 10 segundos, los datos todavía tardan unos minutos en mostrarse en el portal. Durante el tiempo que lleva la visualización en el portal, se continúa realizando el seguimiento y registro de los cambios.
-  
+
 ### <a name="registry-key-change-tracking"></a>Seguimiento de cambios en las claves del Registro
 
 El objetivo de supervisar los cambios en las claves del Registro identificar los puntos de extensibilidad en los que se puede activar código de terceros y malware. En la lista siguiente se muestra la lista de claves del registro configuradas previamente. Estas claves están configuradas pero no habilitadas. Para realizar el seguimiento de estas claves del registro, debe habilitar cada una de ellas.
@@ -278,7 +296,7 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 ## <a name="alert-on-changes"></a>Alerta sobre los cambios
 
-Una funcionalidad clave de Change Tracking y del inventario es la posibilidad de recibir alertas sobre el estado de configuración y de todos los cambios del estado de configuración de su entorno híbrido.  
+Una funcionalidad clave de Change Tracking y del inventario es la posibilidad de recibir alertas sobre el estado de configuración y de todos los cambios del estado de configuración de su entorno híbrido.
 
 En el ejemplo siguiente, la captura de pantalla muestra que el archivo `C:\windows\system32\drivers\etc\hosts` se ha modificado en una máquina. Este archivo es importante porque Windows utiliza el archivo de hosts para resolver los nombres de host en direcciones IP y prevalece incluso sobre DNS, que podría provocar problemas de conectividad o el redireccionamiento del tráfico a sitios web malintencionados o peligrosos.
 

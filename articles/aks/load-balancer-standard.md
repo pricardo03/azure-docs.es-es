@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476810"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032241"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Vista previa: Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Azure Load Balancer está disponible en dos SKU: *Básica* y *Estándar*. De for
 
 En este artículo se muestra cómo crear y usar una instancia de Azure Load Balancer con la SKU *estándar* con Azure Kubernetes Service (AKS).
 
-Se presupone que tiene un conocimiento básico de los conceptos de Kubernetes y Azure Load Balancer. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts]and [What is Azure Load Balancer?][azure-lb].
+Se presupone que tiene un conocimiento básico de los conceptos de Kubernetes y Azure Load Balancer. Para obtener más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts] y [¿Qué es Azure Load Balancer?][azure-lb].
 
 Esta funcionalidad actualmente está en su versión preliminar.
 
@@ -39,14 +39,14 @@ Si usa una subred o un grupo de recursos existentes, la entidad de servicio del 
 Debe crear un clúster de AKS que establezca la SKU del equilibrador de carga en *estándar* y no *básica*, que es la predeterminada. La creación de un clúster de AKS se trata en el último paso, pero primero debe habilitar varias características en vista previa.
 
 > [!IMPORTANT]
-> Las características en versión preliminar de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
+> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
 >
 > * [Directivas de soporte técnico para AKS][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para usar la SKU estándar del equilibrador de carga de Azure, necesita la extensión *aks-preview* de la CLI, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]:
+Para usar la SKU estándar del equilibrador de carga de Azure, necesita la extensión *aks-preview* de la CLI, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -92,6 +92,7 @@ Las siguientes limitaciones se aplican al crear y administrar clústeres de AKS 
 
 * Cuando se use la SKU *estándar* para un equilibrador de carga, debe permitir direcciones públicas y evitar la creación de cualquier directiva de Azure que prohíba la creación de direcciones IP. El clúster de AKS crea automáticamente una IP pública de SKU *estándar* en el mismo grupo de recursos creado para el clúster de AKS, que normalmente se nombra con *MC_* al principio. AKS asigna la dirección IP pública al equilibrador de carga de SKU *estándar*. La dirección IP pública es necesaria para permitir el tráfico de salida desde el clúster de AKS. Esta dirección IP pública también es necesaria para mantener la conectividad entre el plano de control y los nodos agente, así como para mantener la compatibilidad con versiones anteriores de AKS.
 * Cuando se usa la SKU *estándar* para un equilibrador de carga, debe utilizar la versión de Kubernetes 1.13.5 o superior.
+* Si usa la [característica de IP pública de nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) con instancias de Standard Load Balancer, puede establecer una regla de salida de SLB o una dirección IP pública para el nodo. Debe seleccionar una de las dos opciones, ya que una máquina virtual no se puede adjuntar a una regla de salida de SLB y a una dirección IP pública simultáneamente.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
@@ -135,7 +136,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -166,7 +166,7 @@ La salida del ejemplo siguiente muestra el nodo único creado en los pasos anter
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Comprobación de que el clúster usa la SKU *estándar*

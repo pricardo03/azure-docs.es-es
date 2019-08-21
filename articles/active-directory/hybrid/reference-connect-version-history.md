@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 196ee5546a5065aebfae36d0af1fccff6b271a70
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654057"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032465"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -410,16 +410,16 @@ Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguie
 
 type     | NOMBRE                          | Access               | Se aplica a
 ---------|-------------------------------|----------------------|--------------|
-PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
-PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |
-PERMITIR    | Administradores de dominio                 | Control total         | Este objeto  |
-PERMITIR    | Administradores                | Control total         | Este objeto  |
-PERMITIR    | Enterprise Domain Controllers | Contenido de la lista        | Este objeto  |
-PERMITIR    | Enterprise Domain Controllers | Lectura de todas las propiedades  | Este objeto  |
-PERMITIR    | Enterprise Domain Controllers | Permisos de lectura     | Este objeto  |
-PERMITIR    | Usuarios autenticados           | Contenido de la lista        | Este objeto  |
-PERMITIR    | Usuarios autenticados           | Lectura de todas las propiedades  | Este objeto  |
-PERMITIR    | Usuarios autenticados           | Permisos de lectura     | Este objeto  |
+Allow    | SYSTEM                        | Control total         | Este objeto  |
+Allow    | Administradores de empresas             | Control total         | Este objeto  |
+Allow    | Administradores de dominio                 | Control total         | Este objeto  |
+Allow    | Administradores                | Control total         | Este objeto  |
+Allow    | Enterprise Domain Controllers | Contenido de la lista        | Este objeto  |
+Allow    | Enterprise Domain Controllers | Lectura de todas las propiedades  | Este objeto  |
+Allow    | Enterprise Domain Controllers | Permisos de lectura     | Este objeto  |
+Allow    | Usuarios autenticados           | Contenido de la lista        | Este objeto  |
+Allow    | Usuarios autenticados           | Lectura de todas las propiedades  | Este objeto  |
+Allow    | Usuarios autenticados           | Permisos de lectura     | Este objeto  |
 
 Para reforzar la configuración de la cuenta de AD DS, puede ejecutar [este script de PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). El script de PowerShell asignará los permisos mencionados anteriormente a la cuenta de AD DS.
 
@@ -508,7 +508,7 @@ Estado: 19 de octubre de 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 > [!NOTE]
-> Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que deseen personalizar la programación de sincronización deben utilizar el [programador integrado (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que quieran personalizar la programación de sincronizaciones deben utilizar el [programador integrado](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemas corregidos
 * Cuando el asistente de Azure AD Connect crea la cuenta de AD Connector necesaria para sincronizar los cambios de la instancia local de Active Directory, no asigna correctamente a la cuenta el permiso necesario para leer objetos PublicFolder. Este problema afecta a la instalación rápida y a la instalación personalizada. Este cambio corrige el problema.

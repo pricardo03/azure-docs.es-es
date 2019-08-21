@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145894"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016343"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -131,7 +131,7 @@ Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-AzS
 
 * Las **etiquetas** asignadas a la cuenta de almacenamiento. Las etiquetas se suelen usar para categorizar recursos de facturación.
 
-* La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar Standard\_ZRS o Premium\_LRS a otra SKU, ni cambiar otras SKU a estos niveles.
+* La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar Standard\_ZRS, Standard\_GZRS, Standard\_RAGZRS o Premium\_LRS a otra SKU, ni cambiar otras SKU a estos niveles.
 
 * El **nivel de acceso** para las cuentas de Blob Storage. El valor del nivel de acceso se establece en **frecuente** o **esporádico** y permite minimizar los costes gracias a la selección del nivel de acceso que mejor se adapta a la forma de utilizar la cuenta de almacenamiento. Para más información, vea [Niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 

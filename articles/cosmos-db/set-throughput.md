@@ -4,14 +4,14 @@ description: Aprenda cómo establecer el rendimiento aprovisionado para las base
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
-ms.openlocfilehash: 2bcd428e2de90251d4d64111b1c3e6b6f812ac4c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467622"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987391"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -40,7 +40,7 @@ En la imagen siguiente se muestra cómo una partición física hospeda una o var
 
 ## <a name="set-throughput-on-a-database"></a>Establecimiento del rendimiento en una base de datos
 
-Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores de la base de datos. Compartir el rendimiento aprovisionado de nivel de base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para obtener información sobre cómo configurar el rendimiento aprovisionado en una base de datos, consulte [Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores (denominados contenedores de base de datos compartidos) de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores de la base de datos. Compartir el rendimiento aprovisionado de nivel de base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para obtener información sobre cómo configurar el rendimiento aprovisionado en una base de datos, consulte [Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
 
 La configuración del rendimiento en una base de datos de Azure Cosmos garantiza la recepción del rendimiento aprovisionado para esa base de datos todo el tiempo. Dado que todos los contenedores de la base de datos comparten el rendimiento aprovisionado, Azure Cosmos DB no proporciona ninguna garantía de rendimiento predecible para un contenedor determinado de dicha base de datos. La parte del rendimiento que puede recibir un contenedor específico depende de los siguientes factores:
 
@@ -60,7 +60,9 @@ Todos los contenedores creados en una base de datos con rendimiento aprovisionad
 
 Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de toda la base de datos o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Varias particiones lógicas pertenecientes a distintos contenedores que comparten el rendimiento aprovisionado en una base de datos se pueden hospedar en una partición física única. Mientras que una única partición lógica de un contenedor siempre se encuentra dentro del ámbito de una partición física, las particiones lógicas de *"L"* en los contenedores de *"C"* que comparten el rendimiento aprovisionado de una base de datos pueden asignarse a particiones físicas de *"R"* y hospedarse en ellas. 
+Los contenedores de una base de datos pueden compartir el rendimiento aprovisionado en esa base de datos. Un máximo de 25 contenedores puede compartir el rendimiento aprovisionado en la base de datos. Más allá de los 25 contenedores, para cada nuevo contenedor creado dentro de esa base de datos, se puede compartir una parte del rendimiento de la base de datos con otras colecciones que ya están disponibles en la base de datos. La cantidad de rendimiento que se puede compartir depende del número de contenedores aprovisionados en la base de datos. 
+
+Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección.
 
 En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
@@ -77,6 +79,9 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 
 * El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A*, *C*, *D* y *E*. La cantidad exacta de rendimiento disponible en *A*, *C*, *D* o *E* varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor llamado *B* obtendrá el rendimiento de las Unidades de solicitud de *"P"* todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
+
+> [!NOTE]
+> No se puede convertir un contenedor con rendimiento aprovisionado en un contenedor de base de datos compartido. A la inversa, un contenedor de base de datos compartido no se puede convertir para tener un rendimiento dedicado.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Actualización del rendimiento en un contenedor o una base de datos
 

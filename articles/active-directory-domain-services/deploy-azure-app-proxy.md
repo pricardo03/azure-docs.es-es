@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234169"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031027"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementación del proxy de aplicación de Azure AD en dominios administrados de Azure Active Directory Domain Services.
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Con Azure AD Domain Services, ahora podrá trasladar aplicaciones heredadas que se ejecutan de forma local en los servicios de infraestructura de Azure. Después, podrá publicar estas aplicaciones mediante el proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a los usuarios de su organización.
@@ -34,7 +34,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 1. Una **suscripción de Azure**válida.
 2. Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
-3. Se necesita una **licencia de Azure AD Basic y Premium** para usar el proxy de aplicación de Azure AD.
+3. Se necesita una **licencia de Azure AD Premium** para usar Azure AD Application Proxy.
 4. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](create-instance.md).
 
 <br>
@@ -46,13 +46,10 @@ Realice los pasos siguientes para habilitar el proxy de aplicación de Azure AD 
 
 2. Haga clic en **Azure Active Directory** para que aparezca la información general del directorio. Haga clic en **Aplicaciones empresariales**.
 
-    ![Selección de un directorio de Azure AD](./media/app-proxy/app-proxy-enable-start.png)
-3. Haga clic en **Proxy de aplicación**. Si no tiene una suscripción de Azure AD Basic o Premium, verá una opción para habilitar una versión de prueba. Establezca **Habilitar el proxy de la aplicación** en **Habilitar** y haga clic en **Guardar**.
+3. Haga clic en **Proxy de aplicación**.
 
-    ![Habilitación del proxy de aplicación](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. Para descargar el conector, haga clic en el botón **Conector**.
 
-    ![Descarga del conector](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. En la página de descarga, acepte el acuerdo de privacidad y los términos de licencia, y haga clic en el botón **Descargar**.
 
     ![Confirmación de la descarga](./media/app-proxy/app-proxy-enabled-confirm-download.png)
@@ -75,7 +72,7 @@ Anteriormente, aprovisionó una máquina virtual Windows Server y la unió al do
 
     ![Aceptación de los términos de instalación](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Durante la instalación, se le pedirá que registre el conector en el proxy de aplicación de su directorio de Azure AD.
-   * Proporcione sus **credenciales de administrador global de Azure AD**. Su inquilino de administrador global puede ser diferente de sus credenciales de Microsoft Azure.
+   * Proporcione sus **credenciales de administrador de la aplicación de Azure AD**. Su inquilino de administrador de la aplicación puede ser distinto de sus credenciales de Microsoft Azure.
    * La cuenta de administrador que se usa para registrar el conector debe pertenecer al mismo directorio donde haya habilitado el servicio de proxy de aplicación. Por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias válido de ese dominio.
    * Si Configuración de seguridad mejorada de IE está activado en el servidor donde va a instalar el conector, la pantalla de registro podría bloquearse. Siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
    * Si el registro del conector no funciona, consulte [Solucionar problemas de Proxy de aplicación](../active-directory/manage-apps/application-proxy-troubleshoot.md).

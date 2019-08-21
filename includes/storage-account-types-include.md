@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 14de5283197778464993b80b312a690662e066ab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 280ef8550177a514a6704a8bfab226745222f91e
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443739"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69029858"
 ---
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
@@ -27,7 +27,7 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 | Tipo de cuenta de almacenamiento | Servicios admitidos                       | Niveles de rendimiento admitidos      | Niveles de acceso admitidos         | Opciones de replicación               | Modelo de implementación<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Cifrado<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
+| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, ZGRS (versión preliminar), RA-ZGRS (versión preliminar)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
 | Uso general v1   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, clásico    | Cifrados              |
 | Almacenamiento de blobs en bloque   | Blob (solo blobs en bloques y blobs en anexos) | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |
 | FileStorage   | Solo archivos | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |
@@ -39,6 +39,6 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 <div id="archive"><sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo</a>.</div>
 
-<div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) solo está disponible para las cuentas de almacenamiento de uso general estándar v2. Para obtener más información sobre ZRS, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad</a>. Para obtener más información acerca de otras opciones de replicación, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Replicación de Azure Storage</a>.</div>
+<div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar) solo están disponibles para las cuentas de almacenamiento de uso general estándar v2. Para obtener más información sobre ZRS, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad</a>. Para obtener más información acerca de GZRS, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">Almacenamiento con redundancia de zona geográfica para obtener alta disponibilidad y durabilidad máxima (versión preliminar)</a>. Para obtener más información acerca de otras opciones de replicación, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Replicación de Azure Storage</a>.</div>
 
 <div id="premium-performance"><sup>5</sup>El rendimiento prémium para las cuentas v2 y v1 de uso general está disponible solo para blobs en páginas y en disco.</div>

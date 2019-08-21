@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427721"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987471"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -123,7 +123,7 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 2. Haga clic en **Descargar el historial de pedidos**. En el historial descargado verá un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos en un dispositivo Data Box Heavy. Al desplazarse hasta el final de este registro verá los vínculos a:
     
    - **Registros de copia**: lista de los archivos sin errores durante la copia de datos de Data Box a la cuenta de almacenamiento de Azure.
-   - **Registros de auditoría**: contienen información sobre el encendido y el acceso compartido en Data Box cuando está fuera del centro de datos de Azure.
+   - **Registros de auditoría**: Contienen información sobre cómo encender y compartir los recursos compartidos en Data Box cuando está fuera del centro de datos de Azure.
    - **BOM files**(Archivos de listas de materiales): lista de archivos (también conocida como el manifiesto de archivos) que puede descargar durante el proceso de **Preparación para el envío** y que tiene los nombres de archivo, los tamaños de archivo y las sumas de comprobación de archivo.
 
        ```
@@ -207,7 +207,8 @@ Cuando cambie el estado del dispositivo en el portal, se le notificará por corr
 |Received     | El dispositivo se recibió y examinó en el centro de datos de Azure. <br> Una vez que se inspecciona el envío, se iniciará la carga del dispositivo.      |
 |Copia de datos     | La copia de datos está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
 |Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
-|Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal.   |
+|Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la carga se completa con errores](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Completado con advertencias| Se completó la copia de datos, pero se modificaron los datos. Los datos tenían errores de nombre de archivo o blob no críticos que se corrigieron cambiando los nombres de archivo o blob. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de las modificaciones en los datos. Consulte los [ejemplos de registros de copia cuando la carga se completa con advertencias](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
 |Limpieza | Se borran los datos en los discos del dispositivo. La limpieza del dispositivo se considera completa cuando el historial de pedidos está disponible para su descarga en Azure Portal.|
 

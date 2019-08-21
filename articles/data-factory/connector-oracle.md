@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a71c7ffe9040c3002b1f5378ce298a047554b15
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640198"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966460"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,11 +33,13 @@ Puede copiar datos desde una base de datos de Oracle en cualquier almacén de da
 En concreto, este conector de Oracle admite lo siguiente:
 
 - Las siguientes versiones de una base de datos de Oracle:
-  - Oracle 12c R1 (12.1)
-  - Oracle 11g R1, R2 (11.1, 11.2)
-  - Oracle 10g R1, R2 (10.1, 10.2)
-  - Oracle 9i R1, R2 (9.0.1, 9.2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18.1) y superior
+    - Oracle 12c R1 (12.1) y superior
+    - Oracle 11g R1 (11.1) y superior
+    - Oracle 10g R1 (10.1) y superior
+    - Oracle 9i R2 (9.2) y superior
+    - Oracle 8i R3 (8.1.7) y superior
+    - Oracle Database Cloud Exadata Service
 - La copia de datos con las autenticaciones básica o de OID.
 - Copia en paralelo desde un origen de Oracle. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para obtener más detalles.
 
@@ -46,7 +48,9 @@ En concreto, este conector de Oracle admite lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para copiar datos con una base de datos Oracle como origen o destino que no es accesible públicamente, debe configurar un [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md). El entorno de ejecución de integración proporciona un controlador de Oracle integrado. Por tanto, no es necesario instalar manualmente un controlador para copiar datos con Oracle como origen y destino.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+El entorno de ejecución de integración proporciona un controlador de Oracle integrado. Por tanto, no es necesario instalar manualmente un controlador para copiar datos con Oracle como origen y destino.
 
 ## <a name="get-started"></a>Primeros pasos
 
@@ -62,7 +66,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 |:--- |:--- |:--- |
 | type | La propiedad type se debe establecer en: **Oracle**. | Sí |
 | connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>Marque este campo como `SecureString` para almacenarlo de forma segura en Data Factory. También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sí |
-| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar un entorno de ejecución de integración autohospedado o un entorno de ejecución de integración de Azure (si el almacén de datos es accesible públicamente). Si no se especifica, esta propiedad usará el entorno de ejecución de integración de Azure predeterminado. |Sin |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
 
 >[!TIP]
 >Si recibe un error, "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión. A continuación, inténtelo de nuevo.
@@ -191,17 +195,16 @@ Para copiar datos con Oracle como origen o destino, establezca la propiedad type
 
 En esta sección se proporciona una lista de las propiedades que admiten el receptor y el origen Oracle. Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte [Canalizaciones](concepts-pipelines-activities.md). 
 
-### <a name="oracle-as-a-source-type"></a>Oracle como tipo de origen
+### <a name="oracle-as-source"></a>Oracle como origen
 
-> [!TIP]
->
-> Consulte [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para cargar datos desde Oracle de forma eficaz con la creación de particiones de datos.
+>[!TIP]
+>Consulte [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para cargar datos desde Oracle de forma eficaz con la creación de particiones de datos.
 
 Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de copia en `OracleSource`. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: `OracleSource`. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en `OracleSource`. | Sí |
 | oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para obtener algunos ejemplos. | Sin |
 | partitionOptions | Especifica los opciones de creación de particiones de datos que se usan para cargar datos desde Oracle. <br>Los valores permitidos son: **None** (valor predeterminado), **PhysicalPartitionsOfTable** y **DynamicRange**.<br>Si una opción de partición está habilitada (es decir, una diferente a `None`), configure también el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Esto determina el grado en paralelo para cargar los datos simultáneamente desde una base de datos de Oracle. Por ejemplo, podría establecer este valor en 4. | Sin |
 | partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica si la opción de partición no es `None`. | Sin |
@@ -242,7 +245,7 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle como tipo de receptor
+### <a name="oracle-as-sink"></a>Oracle como receptor
 
 Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad de copia en `OracleSink`. En la sección **sink** de la actividad de copia se admiten las siguientes propiedades.
 

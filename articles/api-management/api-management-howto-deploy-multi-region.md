@@ -11,32 +11,32 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a37df18d91f77dbeb306fd8b028cb14eded812e7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658196"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975751"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
-Azure API Management admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio Azure API Management en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
+Azure API Management admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio Azure API Management en el número de regiones de Azure admitidas. La característica multirregional ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente, y mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
-Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. El servidor de puerta de enlace de API Management se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana en términos de latencia. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
+Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Se pueden agregar regiones adicionales a las regiones primaria o secundarias. Un componente de puerta de enlace de API Management se implementa en cada región primaria y secundaria seleccionada. Las solicitudes de la API entrantes se dirigen automáticamente a la región más cercana. Si una región se queda sin conexión, las solicitudes de la API se enrutarán automáticamente para evitar la región con errores hacia la siguiente puerta de enlace más cercana.
 
 > [!NOTE]
-> Azure API Management replica solo el componente de la puerta de enlace de API entre regiones. El componente de administración de servicio se hospeda solo en la región primaria. En caso de interrupción en la región primaria, no se pueden aplicar cambios de configuración en una instancia del servicio Azure API Management, incluidas las configuraciones y las actualizaciones de directivas.
+> Solo el componente de puerta de enlace de API Management se implementa en todas las regiones. El componente de administración de servicios y el portal para desarrolladores se hospedan en la región primaria únicamente. Por lo tanto, en caso de interrupción de la región primaria, el acceso al portal para desarrolladores y la capacidad de cambiar la configuración (por ejemplo, agregar API y aplicar directivas) se verán impedidos hasta que la región primaria vuelva a estar en línea. Mientras la región principal esté sin conexión, las regiones secundarias seguirán atendiendo al tráfico de las API con la configuración más reciente disponible.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>Implementación de una instancia del servicio Administración de API en una nueva región
 
 > [!NOTE]
-> Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance].
+> Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][create an api management service instance].
 
-En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management. 
+En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
 
 ![Pestaña Escala][api-management-scale-service]
 
@@ -48,13 +48,13 @@ Seleccione la ubicación en la lista desplegable y establezca el número de unid
 
 ![Especificar unidades][api-management-select-location-units]
 
-Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones. 
+Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones.
 
 Repita este proceso hasta que haya configurado todas las ubicaciones y haga clic en **Guardar** en la barra de herramientas para iniciar el proceso de implementación.
 
 ## <a name="remove-region"></a>Eliminación de una instancia de servicio de API Management de una ubicación
 
-En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management. 
+En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
 
 ![Pestaña Escala][api-management-scale-service]
 
@@ -111,7 +111,7 @@ Para aprovechar completamente la distribución geográfica de su sistema, debe t
 
 ## <a name="custom-routing"> </a>Uso del enrutamiento personalizado a puertas de enlace regionales de API Management
 
-API Management enruta las solicitudes a una *puerta de enlace* regional en función de la [latencia más baja](../traffic-manager/traffic-manager-routing-methods.md#performance). Aunque no es posible invalidar esta configuración en API Management, puede usar su propia instancia de Traffic Manager con reglas de enrutamiento personalizadas.
+API Management enruta las solicitudes a una _puerta de enlace_ regional en función de la [latencia más baja](../traffic-manager/traffic-manager-routing-methods.md#performance). Aunque no es posible invalidar esta configuración en API Management, puede usar su propia instancia de Traffic Manager con reglas de enrutamiento personalizadas.
 
 1. Cree su propio perfil de [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
 1. Si usa un dominio personalizado, [úselo con Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) y no con el servicio API Management.
@@ -119,19 +119,14 @@ API Management enruta las solicitudes a una *puerta de enlace* regional en func
 1. [Configure los puntos de conexión de estado regional de API Management en Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Los puntos de conexión de estado regional siguen el patrón de dirección URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, por ejemplo `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Especifique [el método de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
 
-
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
 [api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
-
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Get started with Azure API Management]: get-started-create-service-instance.md
-
-[Deploy an API Management service instance to a new region]: #add-region
-[Delete an API Management service instance from a region]: #remove-region
-
+[create an api management service instance]: get-started-create-service-instance.md
+[get started with azure api management]: get-started-create-service-instance.md
+[deploy an api management service instance to a new region]: #add-region
+[delete an api management service instance from a region]: #remove-region
 [unit]: https://azure.microsoft.com/pricing/details/api-management/
-[Premium]: https://azure.microsoft.com/pricing/details/api-management/
+[premium]: https://azure.microsoft.com/pricing/details/api-management/

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827499"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966342"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
@@ -138,8 +138,8 @@ Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
 fieldList | Enumera los tipos de información de metadatos necesarios. Consulte los detalles en la sección [Opciones de metadatos](#metadata-options) sobre metadatos compatibles. | Sí 
 dataset | Conjunto de datos de referencia cuya actividad de metadatos debe recuperar la actividad GetMetadata. Vea la sección [Funcionalidades admitidas](#supported-capabilities) sobre conectores compatibles y consulte el tema del conector sobre los detalles de la sintaxis de los conjuntos de datos. | Sí
-formatSettings | Se aplica cuando se usa el tipo de formato dataset (Parquet, DelimitedText). | Sin
-storeSettings | Se aplica cuando se usa el tipo de formato dataset (Parquet, DelimitedText). | Sin
+formatSettings | Se aplica cuando se usa el tipo de formato dataset. | Sin
+storeSettings | Se aplica cuando se usa el tipo de formato dataset. | Sin
 
 ## <a name="sample-output"></a>Salida de ejemplo
 
