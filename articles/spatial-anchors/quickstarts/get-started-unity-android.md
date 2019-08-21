@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 24a3424a73fb21530f3cde227aa9f05f16bd6ad0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ba50b8317e85d09aeaf32c1acc62342ee2683bc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562456"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847708"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Unity Android con Azure Spatial Anchors
 
@@ -34,10 +34,11 @@ Aprenderá a:
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una máquina Windows o MacOS <a href="https://unity3d.com/get-unity/download" target="_blank">con Unity 2019.1 o superior</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools, así como <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 o superior</a>.
+- Un equipo con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
   - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
+  - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. Para obtener más información e instrucciones, visite [este vínculo](https://developer.android.com/studio/run/device.html).
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

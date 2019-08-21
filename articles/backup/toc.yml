@@ -114,6 +114,8 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Recuperación de datos de Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+        - name: Restauración de máquinas virtuales de VMware con Azure Backup Server
+          href: restore-azure-backup-server-vmware.md
     - name: Azure Backup Server en Azure Stack
       items:
         - name: Instalar Azure Backup Server
@@ -242,7 +244,7 @@
           href: backup-azure-manage-windows-server.md
     - name: Solución de problemas
       items:
-        - name: MV de Azure
+        - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
         - name: El agente de Azure Backup o la extensión de máquina virtual han agotado el tiempo de espera
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md

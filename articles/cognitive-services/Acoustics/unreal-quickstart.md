@@ -3,27 +3,27 @@ title: Inicio rápido de Project Acoustics con Unreal
 titlesuffix: Azure Cognitive Services
 description: Con el contenido de ejemplo, experimente con los controles de diseño de Project Acoustics en Unreal y Wwise y realice la implementación en Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704764"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933007"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal o Wwise
 En este inicio rápido, experimentará con los controles de diseño de Project Acoustics con el contenido de ejemplo proporcionado para Unreal Engine y Wwise.
 
-Requisitos de software:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Requisitos de software para el uso de contenido de ejemplo:
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Descarga del paquete de ejemplo
 Descargue el [paquete de ejemplo Project Acoustics Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). El paquete de ejemplo contiene un proyecto de Unreal Engine, el proyecto de Wwise para ese proyecto de Unreal y el complemento Wwise para Project Acoustics.
@@ -55,12 +55,16 @@ El complemento Unreal de Project Acoustics requiere la exposición de comportami
 
     ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
 
+* Si compila con Visual Studio 2019, para solucionar un error de vinculación con Wwise, cambie de forma manual el valor `VSVersion` predeterminado en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` a `vc150`:
+
+    ![Captura de pantalla del editor de código donde se muestra el cambio de VSVersion a vc150](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>Abra el proyecto de Unreal. 
 Le pide que vuelva a generar los módulos; diga que sí.
 
 >Si no se puede abrir el proyecto por errores de compilación, compruebe que ha instalado el complemento Wwise de Project Acoustics en la misma versión de Wwise usada en el proyecto de ejemplo de Project Acoustics.
 
->Si no utiliza [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, necesitará regenerar los bancos de sonido antes de que el audio se reproduzca en el proyecto de ejemplo.
+>Si usa una versión de [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) anterior a 2019.1, no podrá generar bancos de sonidos con el proyecto de ejemplo Project Acoustics.  Es necesario integrar Wwise versión 2019.1 en el proyecto de ejemplo para usarlo correctamente.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentación con los controles de diseño de Project Acoustics
 Para escuchar cómo suena la escena, haga clic en el botón de reproducción en el editor de Unreal. En el escritorio, use W, A, S, D y el mouse para desplazarse. Para ver los métodos abreviados de teclado de otros controles, presione **F1**. Estas son algunas actividades de diseño que puede probar:

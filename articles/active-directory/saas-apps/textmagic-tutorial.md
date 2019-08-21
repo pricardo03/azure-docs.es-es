@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088872"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integración de Azure Active Directory con TextMagic
 
@@ -166,13 +166,13 @@ Para configurar el inicio de sesión único de Azure AD con TextMagic, realice l
 
     ![Configuración de TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. En el cuadro de texto **Identity provider Entity ID:**  (Identificador de entidad del proveedor de identidades), pegue el valor de  **Identificador de Azure AD**, que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Identificador de entidad del proveedor de identidades:** , pegue el valor del campo **Identificador de Azure AD** que ha copiado de Azure Portal.
 
-    b. En el cuadro de texto **Identity provider SSO URL:**  (Dirección URL de SSO de proveedor de identidades), pegue el valor de  **Dirección URL de inicio de sesión**, que ha copiado de Azure Portal.
+    b. En el cuadro de texto **URL de SSO del proveedor de identidades:** , pegue el valor de **Dirección URL de inicio de sesión**  que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **Identity provider SLO URL:**  (Dirección URL de SLO de proveedor de identidades), pegue el valor de  **URL de cierre de sesión**, que ha copiado de Azure Portal.
+    c. En el cuadro de texto **URL de SLO del proveedor de identidades:** , pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    d. Abra el **certificado codificado en base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado x509 público:**  .
+    d. Abra el **certificado codificado en base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado x509 público**.
 
     e. Haga clic en **Save**(Guardar).
 

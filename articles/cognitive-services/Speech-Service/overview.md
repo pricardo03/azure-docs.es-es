@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es el servicio Voz?
+title: ¿Qué son los servicios Voz?
 titleSuffix: Azure Cognitive Services
-description: Servicios de voz es la unificación de las conversiones de voz a texto o texto a voz y la traducción de voz en una sola suscripción a Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de voz, el SDK de dispositivos de voz o las API de REST. Agregue la funcionalidad de voz a un bot de chat existente, convierta texto a voz en una aplicación de traducción o transcriba grandes volúmenes de datos del centro de llamadas.
+description: Los servicios de voz son la unificación de los servicios de voz a texto, texto a voz y traducción de voz en una única suscripción de Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de voz, el SDK de dispositivos de voz o las API de REST. Agregue la funcionalidad de voz a un bot de chat existente, convierta texto a voz en una aplicación de traducción o transcriba grandes volúmenes de datos del centro de llamadas.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554182"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967622"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
-Los servicios de voz de Azure son la unificación de voz a texto, texto a voz y traducción de voz en una sola suscripción a Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart) o las [API de REST](rest-apis.md).
+Los servicios de voz son la unificación de los servicios de voz a texto, texto a voz y traducción de voz en una única suscripción de Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart) o las [API de REST](rest-apis.md).
 
 > [!IMPORTANT]
 > Los servicios de voz han reemplazado Bing Speech API, Translator Speech y Custom Speech. Consulte *Guías de procedimientos > Migración* para obtener instrucciones de migración.
@@ -41,14 +41,14 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 
 Obtenga información sobre las novedades con los servicios de voz de Azure.
 
+* Agosto de 2019
+  * **Nuevo tutorial**: [Habilitar el bot con Voz mediante Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * Junio de 2019
-    * El SDK de Voz versión 1.6.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
+  * El SDK de Voz versión 1.6.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 * Mayo de 2019: ya hay documentación disponible para [Transcripción de conversaciones](conversation-transcription-service.md), [Transcripción de centros de llamadas](call-center-transcription.md) y [Asistentes virtuales por voz](voice-first-virtual-assistants.md).
 * Mayo de 2019
-    * Speech SDK versión 1.5.1 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
-    * Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
-* Abril de 2019: publicación del SDK de Voz 1.4.0 con compatibilidad con conversión de texto a voz (Beta) para C++, C# y Java en Windows y Linux. Además, el SDK ahora admite formatos de audio MP3 y Opus/Ogg para C++ y C# en Linux. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
-* Marzo de 2019: está disponible un nuevo punto de conexión para la conversión de texto a voz (TTS) que devuelve una lista completa de las voces disponibles en una región concreta. Además, ahora se admiten regiones nuevas para TTS. Para más información, consulte la [referencia de Text-to-speech API (REST)](rest-text-to-speech.md).
+  * Speech SDK versión 1.5.1 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
+  * Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Prueba de los servicios de voz
 
@@ -67,6 +67,7 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
 
 * [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutorial: activación del bot con voz mediante el SDK de Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * [Tutorial: Compilación de una aplicación de Flask para traducir texto, analizar opiniones y sintetizar la voz de texto a voz, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Obtención de código de ejemplo
@@ -76,6 +77,7 @@ El código de ejemplo está disponible en GitHub para cada uno de los servicios 
 * [Ejemplos de conversión de voz a texto, texto a voz y traducción de voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Ejemplos del asistente virtual por voz (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Personalización de su experiencia de voz
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: f558b33079821efcf56731eb95073e0170a72795
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274197"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943546"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Tutorial: Integración de Otsuka Shokai con Azure Active Directory
 
@@ -80,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar el inicio de sesión único con SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. La aplicación Otsuka Shokai espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde  **nameidentifier** se asigna con  **user.userprincipalname**. La aplicación Otsuka Shokai espera que  **nameidentifier**  se asigne a  **user.objectid**, por lo que debe editar la asignación de atributos, para lo que debe hacer clic en el icono  **Editar**  y cambiar dicha asignación.
+1. La aplicación Otsuka Shokai espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación Otsuka Shokai espera que **nameidentifier** se asigne a **user.objectid**, por lo que necesita editar la asignación de atributos; para ello, haga clic en el icono de **Editar** y cambie esa asignación.
 
     ![imagen](common/edit-attribute.png)
 
@@ -165,4 +165,4 @@ Al seleccionar el icono de Otsuka Shokai en el Panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

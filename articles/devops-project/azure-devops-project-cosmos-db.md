@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con Azure DevOps Projects'
-description: Con Azure DevOps Projects es fácil empezar a usar Azure. Con DevOps Projects, puede implementar la aplicación de Node.js con tecnología de Azure Cosmos DB en Windows Web App en tan solo unos pocos pasos.
+description: Con Azure DevOps Projects es fácil empezar a usar Azure. Con DevOps Projects, puede implementar la aplicación de Node.js con tecnología de Azure Cosmos DB en App Service en Windows en tan solo unos pocos pasos rápidos.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,29 +9,29 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 4310807423600b96078ee48a04a5ad6dab68cd7e
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 38fc4aa04269924ad0acd529e961dd3228ec236e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813121"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884413"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Projects
 
-Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o seleccionar una aplicación de ejemplo para crear una canalización de integración (CI) y entrega continuas (CD) en Azure.
+Azure DevOps Projects ofrece una experiencia simplificada, con la que puede crear una canalización de integración continua (CI) y de implementación continua (CD) en Azure. Para hacerlo, use el código y el repositorio Git existentes, o bien seleccione una aplicación de ejemplo.
 
 DevOps Projects también:
 
-* Crea automáticamente recursos de Azure, como Azure Cosmos DB, Application Insights y App Service.
+* Crea automáticamente recursos de Azure, como Azure Cosmos DB, Azure Application Insights, Azure App Service y planes de App Service.
 
-* Crea y configura una canalización de versión en Azure DevOps para CI/CD.
+* Crea y configura una canalización de versión de CI/CD en Azure DevOps.
 
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * Usar DevOps Projects para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
 > * Configuración de Azure DevOps y una suscripción de Azure
-> * Examinar la base de datos de Azure Cosmos DB
+> * Examen de Azure Cosmos DB
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmar los cambios en Git e implementarlos automáticamente en Azure
@@ -39,29 +39,29 @@ En este tutorial, aprenderá lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+Necesita una suscripción de Azure, que puede obtener de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Uso de DevOps Projects para implementar una aplicación de Node.js
 
-DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como Azure Cosmos DB, Application Insights, App Service y App Service Plan, en la suscripción de Azure que elija.
+DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure (como Azure Cosmos DB, Application Insights, App Service y planes de App Service) en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. En el panel izquierdo, seleccione la sección **Crear un recurso**.
+1. En el panel izquierdo, seleccione **Crear un recurso**.
 
-1. En el cuadro de búsqueda, escriba **DevOps Projects** y, después, haga clic en **Agregar**.
+1. En el cuadro de búsqueda, escriba **DevOps Projects** y, después, seleccione **Agregar**.
 
-   ![DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
+   ![Panel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
 
 1. Seleccione **Node. js** como entorno de ejecución y, después, seleccione **Siguiente**. En **Elegir un marco de trabajo de la aplicación**, seleccione **Express.js**.
 
-1. Habilite la sección **Agregar una base de datos** para **Cosmos DB** y haga clic en **Siguiente**.
+1. Habilite la sección **Agregar una base de datos** para **Cosmos DB** y, después, seleccione **Siguiente**.
 
-    ![Agregar base de datos](_img/azure-devops-project-cosmos-db/add-database.png)
+    ![Adición de una base de datos](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Cosmos DB admite diversos marcos de trabajo de la aplicación como **Express.js**, **Node.js** y **Sail.js**. En este tutorial, vamos a considerar **Express.js**.
+    Azure DevOps Projects admite varios marcos de aplicaciones, como **Express.js**, **aplicaciones de ejemplo de Node.js** y **Sail.js**. En este tutorial, usaremos **Express.js**.
 
-1. Seleccione un servicio de Azure para implementar la aplicación. Tiene servicios diferentes como Windows Web App, Kubernetes Service y Web App for Containers. En este tutorial, usaremos **Windows Web App**. Haga clic en **Siguiente**.
+1. Seleccione un servicio de Azure donde quiera implementar la aplicación y, después, haga clic en **Siguiente**. Entre sus opciones, se incluyen App Service en Windows, Azure Kubernetes Service y Azure Web App for Containers. En este tutorial, usaremos **App Service en Windows**.
 
 ## <a name="configure-azure-devops-and-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure
 
@@ -71,27 +71,27 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. Seleccione su suscripción a Azure.
 
-1. Para ver más opciones de configuración de Azure e identificar el plan de tarifa y la ubicación, haga clic en Configuración adicional. Este panel muestra varias opciones para configurar el plan de tarifa y la ubicación de los servicios de Azure.
+1. Para ver otras opciones de configuración de Azure o identificar la ubicación y el plan de tarifa, seleccione **Configuración adicional**. En este panel, se muestran varias opciones para configurar el plan de tarifa y la ubicación de los servicios de Azure.
 
 1. Salga del área de configuración de Azure y seleccione **Listo**.
 
-1. Pocos minutos después el proceso se ha completado. Una aplicación de Node.js de ejemplo se configura en un repositorio de Git de su organización de Azure DevOps, se crea una instancia de Azure Cosmos DB, App Service, un plan de App Service y Application Insights, se ejecuta una canalización de CI/CD y se implementa la aplicación en Azure.
+1. El proceso se completará en unos minutos. Se configurará una aplicación de ejemplo de Node.js en un repositorio Git de la organización de Azure DevOps. Después, se crearán recursos de Azure Cosmos DB, App Service, plan de App Service y Application Insights, así como la canalización de CI/CD. En el paso siguiente, la aplicación se implementará en Azure.
 
-   Cuando todo esto finaliza, se muestra el panel de Azure DevOps Projects en Azure Portal. También puede ir al panel de DevOps Projects directamente desde la opción **Todos los recursos** de Azure Portal.
+   Cuando se completen todos estos procesos, se mostrará el panel de Azure DevOps Projects en Azure Portal. También puede ir al panel de DevOps Projects directamente desde la opción **Todos los recursos** de Azure Portal.
 
-   Este panel proporciona visibilidad sobre el repositorio de código de Azure DevOps, la canalización de CI/CD y la instancia de Azure Cosmos DB. En la canalización de Azure DevOps se pueden configurar otras opciones de CI/CD. A la derecha, seleccione **Azure Cosmos DB** para que se vea.
+   Este panel permite obtener información sobre el repositorio de código de Azure DevOps, la canalización de CI/CD y la base de datos de Azure Cosmos DB. En la canalización de Azure DevOps se pueden configurar otras opciones de CI/CD. En la parte derecha del panel, seleccione **Azure Cosmos DB** para ver estas opciones.
 
-## <a name="examine-the-azure-cosmos-db"></a>Examinar la base de datos de Azure Cosmos DB
+## <a name="examine-azure-cosmos-db"></a>Examen de Azure Cosmos DB
 
-DevOps Projects configura automáticamente una instancia de Cosmos DB que puede explorar y personalizar. Para familiarizarse con ella, siga estos pasos:
+DevOps Projects configura automáticamente una instancia de Azure Cosmos DB que puede explorar y personalizar. Para familiarizarse con Azure Cosmos DB, siga este procedimiento:
 
 1. Vaya al panel de DevOps Projects.
 
     ![Panel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
-1. A la derecha, seleccione el servicio Cosmos DB. Se abre un panel para la instancia de Cosmos DB. En esta vista puede realizar varias acciones, como la supervisión de operaciones y la búsqueda de registros.
+1. En la parte derecha, seleccione Azure Cosmos DB. Se abrirá un panel de Azure Cosmos DB. En esta vista, puede realizar varias acciones, como supervisar operaciones y buscar registros.
 
-    ![Function App](_img/azure-devops-project-cosmos-db/cosmos-db.png)
+    ![Panel de Azure Cosmos DB](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examen de la canalización de CI
 
@@ -99,13 +99,13 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 1. Vaya al panel de DevOps Projects.
 
-1. Haga clic en el hipervínculo en **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
+1. Seleccione el hipervínculo debajo de **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
 
-    ![Compilación](_img/azure-devops-project-cosmos-db/build.png)
+    ![Panel Compilar](_img/azure-devops-project-cosmos-db/build.png)
 
 1. Seleccione **Editar**. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio de Git, compilar la aplicación, ejecutar pruebas unitarias y publicar salidas que se usan para implementaciones.
 
-1. Seleccione **Desencadenadores**. DevOps Projects crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
+1. Seleccione **Desencadenadores**. DevOps Projects crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. De manera opcional, también puede incluir o excluir ramas del proceso de CI.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
@@ -119,52 +119,56 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 DevOps Projects crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
 
-1. Vaya a **Canalizaciones | Versiones**.
+1. Vaya a **Canalizaciones** y seleccione **Versiones**.
 
-1. Haga clic en **Editar**.
+1. Seleccione **Editar**.
 
 1. En **Artefactos**, seleccione **Colocar**. La canalización de compilación que ha examinado en los pasos anteriores genera la salida que se usa para el artefacto.
 
-1. A la derecha del icono **Colocar**, seleccione **Desencadenador de implementación continua**. Esta canalización de versión tiene un desencadenador de implementación continua habilitado, que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible. Opcionalmente, puede deshabilitar el desencadenador, con lo que las implementaciones van a requerir una ejecución manual.
+1. A la derecha del icono **Colocar**, seleccione **Desencadenador de implementación continua**. Esta canalización de versión ha habilitado un desencadenador de implementación continua, que ejecuta una implementación cada vez que hay disponible un nuevo artefacto de compilación. Puede deshabilitar el desencadenador para que las implementaciones se ejecuten de forma manual.
 
 1. A la derecha, seleccione la sección **Ver versiones** para mostrar un historial de las versiones.
 
-1. Haga clic en la versión que mostrará la canalización. Haga clic en cualquier entorno para comprobar los **Elementos de trabajo** asociados al **resumen y confirmaciones** de la versión.
+1. Al seleccionar la versión, se mostrará la canalización. Seleccione un entorno para comprobar el resumen de la publicación, las confirmaciones o los elementos de trabajo asociados.
 
 1. Seleccione **Confirmaciones**. Esta vista muestra las confirmaciones de código que están asociadas a esta implementación. Compare las versiones para ver las diferencias de confirmación entre las implementaciones.
 
 1. Seleccione **Ver registros**. Los registros contienen información útil sobre el proceso de implementación. Se pueden ver tanto durante las implementaciones como después de ellas.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
+## <a name="commit-code-changes-and-execute-the-cicd-pipeline"></a>Confirmación de cambios de código y ejecución de la canalización de CI/CD
 
 > [!NOTE]
 > El siguiente procedimiento prueba la canalización de CI/CD. Para ello, realiza un cambio de texto simple.
 
-A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en Azure App Service. Cada cambio que se realiza en el repositorio de Git inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure. Siga el procedimiento descrito en esta sección o utilice otra técnica para confirmar los cambios en el repositorio. Por ejemplo, puede clonar el repositorio de Git en su herramienta favorita o IDE, y luego insertar los cambios en este repositorio.
+Ya está preparado para colaborar con un equipo en su aplicación mediante un proceso de CI/CD que implemente el trabajo más reciente en su instancia de App Service. Cada cambio que se realiza en el repositorio de Git inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure. Siga el procedimiento descrito en esta sección o utilice otra técnica para confirmar los cambios en el repositorio. Por ejemplo, puede clonar el repositorio de Git en su herramienta favorita o IDE, y luego insertar los cambios en este repositorio.
 
-1. En el menú de Azure DevOps, seleccione **Repositorio | Archivos** y, a continuación, vaya al repositorio.
+1. En el menú de Azure DevOps, seleccione **Repositorios** y, después, **Archivos**. Después, vaya al repositorio.
 
-1. El repositorio ya incluye código basado en el lenguaje de la aplicación que eligió en el proceso de creación. Abra el archivo **Application/views/index.pug**.
+1. En el repositorio, ya se incluye código basado en el lenguaje de la aplicación que haya seleccionado en el proceso de creación. Abra el archivo **Application/views/index.pug**.
 
-1. Seleccione **Editar** y, a continuación, haga un cambio en el **número de línea 15**. Por ejemplo, puede actualizarlo a **Mi primera implementación en Azure App Service con tecnología de Azure Cosmos DB**
+1. Seleccione **Editar** y, después, realice un cambio en la **línea número 15**. Por ejemplo, puede cambiarla a “Mi primera implementación en Azure App Service con tecnología de Azure Cosmos DB”.
 
-1. En la parte superior derecha, seleccione **Confirmar** y, después, seleccione **Confirmar** de nuevo para insertar el cambio.
+1. En la esquina superior derecha, seleccione **Confirmar** y, después, vuelva a seleccionar **Confirmar** para insertar los cambios.
 
-     Tras unos instantes, se inicia una compilación se inicia en Azure DevOps y se ejecuta una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Projects o en el explorador con la organización de Azure DevOps.
+     Después de unos instantes, se iniciará una compilación en Azure DevOps y se ejecutará una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Projects o en el explorador con la organización de Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no necesite los recursos relacionados que haya creado puede eliminarlos. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
+Cuando ya no necesite los recursos relacionados que haya creado, elimínelos. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Usar DevOps Projects para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
 > * Configuración de Azure DevOps y una suscripción de Azure 
-> * Examinar la base de datos de Azure Cosmos DB
+> * Examen de Azure Cosmos DB
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
+
+Para obtener más información y conocer los pasos siguientes, vea [Definición de la canalización de implementación continua (CD) de varias fases](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
+
+

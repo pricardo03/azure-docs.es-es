@@ -10,16 +10,16 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774174"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942801"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
-Azure Active Directory (Azure AD) es un servicio de administración de acceso y de identidades basado en la nube de Microsoft que ayuda a los recursos de acceso y de inicio de sesión de los empleados en:
+Azure Active Directory (Azure AD) es un servicio de administración de identidades y acceso basado en la nube de Microsoft que ayuda a los empleados a iniciar sesión y acceder a recursos en:
 
 - Recursos externos, como Microsoft Office 365, Azure Portal y miles de otras aplicaciones SaaS.
 
@@ -50,9 +50,9 @@ Para mejorar la implementación de Azure AD, también puede agregar funcionalid
 
 - **Azure Active Directory Free.** Proporciona administración de grupos y usuarios, sincronización de directorios locales, informes básicos, cambio de contraseñas de autoservicio para usuarios en la nube e inicio de sesión único en Azure, Office 365 y muchas aplicaciones SaaS populares.
 
-- **Azure Active Directory Premium P1.** Además de las características de las licencias Free y Basic, P1 también permite a los usuarios de entornos híbridos acceder a recursos locales y en la nube. También admite la administración avanzada, como grupos dinámicos, administración de grupos de autoservicio, Microsoft Identity Manager (un conjunto de administración local de identidades y acceso) y funcionalidades de reescritura en la nube, que permiten el restablecimiento de contraseña de autoservicio a los usuarios locales.
+- **Azure Active Directory Premium P1.** Además de las características de la versión Free, P1 también permite a los usuarios de entornos híbridos acceder a recursos locales y en la nube. También admite la administración avanzada, como grupos dinámicos, administración de grupos de autoservicio, Microsoft Identity Manager (un conjunto de administración local de identidades y acceso) y funcionalidades de reescritura en la nube, que permiten el restablecimiento de contraseña de autoservicio a los usuarios locales.
 
-- **Azure Active Directory Premium P2.** Además de las características de las licencias Free, Basic y P1, la licencia P2 ofrece también [Azure Active Directory Identity Protection](../identity-protection/enable.md), que ayuda a proporcionar acceso condicional basado en riesgos a sus aplicaciones y datos críticos de la empresa, y [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), que ayuda a detectar, restringir y supervisar los administradores y su acceso a los recursos, y a proporcionar acceso Just-In-Time cuando sea necesario.
+- **Azure Active Directory Premium P2.** Además de las características de las licencias Free y P1, la licencia P2 ofrece también [Azure Active Directory Identity Protection](../identity-protection/enable.md), que proporciona acceso condicional basado en riesgos a sus aplicaciones y datos críticos de la compañía, y [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), que permite detectar, restringir y supervisar los administradores y su acceso a los recursos, además de proporcionar acceso Just-In-Time cuando sea necesario.
 
 - **Licencias de la característica de "Pago por uso".** También puede obtener licencias de características adicionales, como Azure Active Directory Business-to-Customer (B2C). B2C puede ayudarle a proporcionar soluciones de administración de acceso y de identidad para las aplicaciones orientadas al cliente. Para más información, consulte [Documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 

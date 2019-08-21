@@ -108,7 +108,7 @@
 - name: Ejemplos
   items:
     - name: Ejemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: CLI de Service Fabric
@@ -354,7 +354,7 @@
       href: service-fabric-api-management-overview.md
     - name: Modelo de recursos de aplicación
       href: service-fabric-concept-resource-model.md
-    - name: Identidad administrada
+    - name: Identidad administrada (versión preliminar)
       href: concepts-managed-identity.md
 - name: Guías de procedimientos
   items:
@@ -747,7 +747,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Solución de problemas de un clúster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Uso de Identidad administrada para aplicaciones de Service Fabric
+    - name: Uso de Identidad administrada para aplicaciones de Service Fabric (versión preliminar)
       items:
         - name: Configuración del clúster
           items:

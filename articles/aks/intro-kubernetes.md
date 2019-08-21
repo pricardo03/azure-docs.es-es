@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615157"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
@@ -23,7 +23,7 @@ Puede crear un clúster de AKS en Azure Portal con la CLI de Azure, o bien opcio
 
 Para más información sobre los conceptos básicos de Kubernetes, consulte [Conceptos básicos de Kubernetes para AKS][concepts-clusters-workloads].
 
-Para empezar, complete el inicio rápido de AKS [en Azure Portal][aks-portal] or [with the Azure CLI][aks-cli].
+Para empezar, complete el inicio rápido de AKS [en Azure Portal][aks-portal] o [con la CLI de Azure][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Acceso, seguridad y supervisión
 
@@ -57,7 +57,7 @@ Para más información, consulte [Escalado de un clúster de Azure Kubernetes Se
 
 Azure Kubernetes Service ofrece varias versiones de Kubernetes. A medida que hay nuevas versiones disponibles en AKS, el clúster se puede actualizar mediante Azure Portal o la CLI de Azure. Durante el proceso de actualización, los nodos se acordonan y vacían minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.
 
-Para obtener más información sobre las versiones del ciclo de vida, consulte [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade] (Versiones de Kubernetes compatibles en AKS).
+Para obtener más información sobre las versiones del ciclo de vida, vea [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported versions]. Para obtener información sobre los pasos de actualización, vea [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nodos habilitados para GPU
 
@@ -71,7 +71,7 @@ Para admitir las cargas de trabajo de la aplicación, puede montar volúmenes de
 
 Para más información, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 
-Empiece con volúmenes persistentes dinámicos con [Azure Disks][azure-disk] or [Azure Files][azure-files].
+Empiece con volúmenes persistentes dinámicos mediante [Azure Disks][azure-disk] o [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuales y entrada
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827923"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882857"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -32,9 +32,9 @@ Azure Security Center aborda los tres desafíos de seguridad más urgentes:
 
 -   **Cargas de trabajo que cambian con rapidez**: se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
 
--   **Ataques cada vez más sofisticados** : dondequiera que ejecute las cargas de trabajo, los ataques siguen siendo cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
+-   **Ataques cada vez más sofisticados**: no importa dónde ejecute las cargas de trabajo, los ataques son cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
 
--   **Las aptitudes de seguridad son escasas** : el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes que se requieren para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
+-   **Las aptitudes de seguridad son escasas**: el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes necesarios para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
 
 Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las herramientas para que haga lo siguiente:
 
@@ -60,15 +60,15 @@ Azure Security Center le permite reforzar su posición de seguridad. Esto signif
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Administración de la directiva de seguridad y del cumplimiento de la organización
 
-En lo que respecta a la seguridad, resulta fundamental saber que las cargas de trabajo están protegidas y asegurarse de ello, y todo esto comienza con la implementación de directivas de seguridad a la medida. Como todas las directivas de Security Center se basan en los controles de directivas de Azure, el usuario obtiene toda la variedad y flexibilidad de una  **solución de directivas de clase mundial**. En Security Center, puede establecer que las directivas se ejecuten en grupos de administración, entre distintas suscripciones e, incluso, en un inquilino completo.
+En lo que respecta a la seguridad, resulta fundamental saber que las cargas de trabajo están protegidas y asegurarse de ello, y todo esto comienza con la implementación de directivas de seguridad a la medida. Como todas las directivas de Security Center se basan en los controles de directivas de Azure, el usuario obtiene toda la variedad y flexibilidad de una **solución de directivas de primer nivel**. En Security Center, puede establecer que las directivas se ejecuten en grupos de administración, entre distintas suscripciones e, incluso, en un inquilino completo.
 
 ![Panel de Security Center](media/security-center-intro/sc-dashboard.png)
 
-Security Center ayuda a  **identificar las suscripciones de Shadow IT**. Si echa un vistazo a las suscripciones con la etiqueta **not covered** (no cubierta) en el panel, puede saber de inmediato cuando hay suscripciones recién creadas y asegurarse de que estén cubiertas por las directivas, además de protegidas por Azure Security Center.
+Security Center ayuda a **identificar las suscripciones de shadow IT**. Si echa un vistazo a las suscripciones con la etiqueta **not covered** (no cubierta) en el panel, puede saber de inmediato cuando hay suscripciones recién creadas y asegurarse de que estén cubiertas por las directivas, además de protegidas por Azure Security Center.
 
 ![Panel de directivas de Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-Las funcionalidades avanzadas de supervisión de Security Center también le permiten  **hacer seguimiento del cumplimiento y la gobernanza, y administrarlos a lo largo del tiempo**. El  **cumplimiento general**  le permite medir qué tan compatibles son las suscripciones con respecto a las directivas asociadas con la carga de trabajo. 
+Las funciones avanzadas de supervisión de Security Center también le permiten **hacer un seguimiento del cumplimiento y el gobierno, y administrarlos a lo largo del tiempo**. El **cumplimiento general** le permite medir la compatibilidad de las suscripciones en relación con las directivas asociadas a la carga de trabajo. 
 
 ![Directiva de Security Center en el tiempo](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Las funcionalidades avanzadas de supervisión de Security Center también le per
 
 Security Center siempre está detectando los recursos nuevos que se implementan en las cargas de trabajo y evalúa si están configurados según los procedimientos recomendados de seguridad. Si no es así, se marcan y el usuario recibe una lista de recomendaciones clasificadas por orden de prioridad de lo que debe corregir con el fin de proteger las máquinas.
 
-Una de las herramientas más poderosas que proporciona Security Center para la supervisión continua del estado de la seguridad de la red es el  **mapa de red**. El mapa le permite ver la topología de las cargas de trabajo para que pueda notar si cada nodo está configurado correctamente. Ahora puede ver cómo están conectados los nodos, lo que le permite bloquear las conexiones no deseadas que podrían facilitar que un atacante se deslice por la red.
+Una de las herramientas más avanzadas que proporciona Security Center para la supervisión continua del estado de la seguridad de la red es el **Mapa de red**. El mapa le permite ver la topología de las cargas de trabajo para que pueda notar si cada nodo está configurado correctamente. Ahora puede ver cómo están conectados los nodos, lo que le permite bloquear las conexiones no deseadas que podrían facilitar que un atacante se deslice por la red.
 
 ![Mapa de red de Security Center](media/security-center-intro/sc-net-map.png)
 
-Security Center facilita la migración de las alertas de seguridad, al agregar una  **puntuación segura**. Las puntuaciones seguras ahora están asociadas con cada recomendación que recibe para ayudarlo a comprender la importancia que cada una de ellas tiene para la posición de seguridad general. Esto resulta fundamental para permitirle  **clasificar por orden de prioridad el trabajo de seguridad**.
+Security Center facilita la mitigación de las alertas de seguridad al agregar una **Puntuación de seguridad**. Las puntuaciones seguras ahora están asociadas con cada recomendación que recibe para ayudarlo a comprender la importancia que cada una de ellas tiene para la posición de seguridad general. Esto resulta esencial para permitirle **clasificar por orden de prioridad el trabajo de seguridad**.
 
 ![Puntuación segura de Security Center](media/security-center-intro/sc-secure-score.png)
 

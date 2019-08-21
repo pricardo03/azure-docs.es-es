@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615073"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68880679"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -100,12 +100,12 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En esta guía de inicio rápido, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] también se crean, uno interno para la instancia de Redis y otro externo para acceder a la aplicación Azure Vote desde Internet. En esta guía de inicio rápido, se crean e implementan manualmente los manifiestos de aplicación en el clúster de AKS.
+Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En esta guía de inicio rápido, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment], una para las aplicaciones Python de Azure Vote de ejemplo y otra para una instancia de Redis. También se crean dos [servicios de Kubernetes][kubernetes-service], uno interno para la instancia de Redis y otro externo para acceder a la aplicación Azure Vote desde Internet.
 
 > [!TIP]
-> En escenarios más reales, puede usar [Azure Dev Spaces][azure-dev-spaces] para iterar rápidamente y depurar el código directamente en el clúster de AKS. Puede usar Dev Spaces entre plataformas de sistemas operativos y entornos de desarrollo, y trabajar junto con otras personas de su equipo. Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML.
+> En esta guía de inicio rápido, se crean e implementan manualmente los manifiestos de aplicación en el clúster de AKS. En escenarios más reales, puede usar [Azure Dev Spaces][azure-dev-spaces] para iterar rápidamente y depurar el código directamente en el clúster de AKS. Puede usar Dev Spaces entre plataformas de sistemas operativos y entornos de desarrollo, y trabajar junto con otras personas de su equipo.
 
-Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual: Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
+Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual:
 
 ```yaml
 apiVersion: apps/v1
@@ -192,13 +192,13 @@ spec:
     app: azure-vote-front
 ```
 
-En la salida de ejemplo siguiente se muestran las implementaciones y los servicios creados correctamente:
+Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
 ```
 
-Prueba de la aplicación
+En la salida de ejemplo siguiente se muestran las implementaciones y los servicios creados correctamente:
 
 ```output
 deployment "azure-vote-back" created
@@ -207,79 +207,79 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Cuando se ejecuta la aplicación, un servicio de Kubernetes expone el front-end de la aplicación a Internet.
+## <a name="test-the-application"></a>Prueba de la aplicación
 
-Este proceso puede tardar unos minutos en completarse. Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-get] con el argumento `--watch`.
+Cuando se ejecuta la aplicación, un servicio de Kubernetes expone el front-end de la aplicación a Internet. Este proceso puede tardar unos minutos en completarse.
 
-En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
+Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-get] con el argumento `--watch`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` pata detener el proceso de inspección de `kubectl`.
+En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio: Para ver la aplicación Azure Vote en acción, abra un explorador web en la dirección IP externa del servicio.
+Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` pata detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Imagen de la exploración hasta Azure Vote
+Para ver la aplicación Azure Vote en acción, abra un explorador web en la dirección IP externa del servicio.
 
-![Supervisión de estado y registros](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Cuando se creó el clúster de AKS, se habilitó Azure Monitor para los contenedores a fin de capturar métricas de mantenimiento para los nodos de clúster y los pods.
+## <a name="monitor-health-and-logs"></a>Supervisión de estado y registros
 
-Estas métricas de mantenimiento están disponibles en Azure Portal. Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Azure Vote, haga lo siguiente:
+Cuando se creó el clúster de AKS, se habilitó Azure Monitor para los contenedores a fin de capturar métricas de mantenimiento para los nodos de clúster y los pods. Estas métricas de mantenimiento están disponibles en Azure Portal.
 
-En un explorador web, vaya a Azure Portal[https://portal.azure.com][azure-portal].
+Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Azure Vote, haga lo siguiente:
 
+1. En un explorador web, vaya a Azure Portal[https://portal.azure.com][azure-portal].
 1. Seleccione el grupo de recursos, como *myResourceGroup*, a continuación, seleccione el clúster de AKS, como *myAKSCluster*.
-1. En la opción **Supervisión** de la izquierda, elija **Insights**.
-1. En la parte superior, elija **+ Agregar filtro**
-1. Seleccione *Namespace* como propiedad y, después, elija *\<All but kube-system\>*
-1. Elija ver los **contenedores**.
-1. Se muestran los contenedores *azure-vote-back* y *azure-vote-front*, como aparece en el ejemplo siguiente:
+1. En **Supervisión** (en la parte izquierda), seleccione **Insights**.
+1. En la parte superior, seleccione **+ Agregar filtro**.
+1. Seleccione *Espacio de nombres* como la propiedad y, después, haga clic en *\<All but kube-system\>*
+1. Seleccione **Contenedores**.
 
-Visualización del estado de ejecución de contenedores en AKS
+Se muestran los contenedores *azure-vote-back* y *azure-vote-front*, como aparece en el ejemplo siguiente:
 
-![Para ver los registros del pod `azure-vote-back`, seleccione la opción **Ver en Analytics** y, después, seleccione el vínculo **Ver registros del contenedor** en el lado derecho de la lista de contenedores.](media/kubernetes-walkthrough/monitor-containers.png)
+![Visualización del estado de ejecución de contenedores en AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Estos registros incluyen los flujos *stdout* y *stderr* del contenedor. Visualización de los registros de contenedores en AKS
+Para ver los registros del pod `azure-vote-back`, seleccione la opción **Ver en Analytics** y, después, haga clic en el vínculo **Ver registros del contenedor** a la derecha de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
 
-![Eliminación del clúster](media/kubernetes-walkthrough/monitor-container-logs.png)
+![Visualización de los registros de contenedores en AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-the-cluster"></a>Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para eliminar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
+## <a name="delete-the-cluster"></a>Eliminación del clúster
 
-Cuando elimina el clúster, la entidad de servicio Azure Active Directory que utiliza el clúster de AKS no se quita.
+Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para eliminar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Para conocer los pasos que hay que realizar para quitar la entidad de servicio, consulte [Consideraciones principales y eliminación de AKS][sp-delete]. Obtención del código
+> Cuando elimina el clúster, la entidad de servicio Azure Active Directory que utiliza el clúster de AKS no se quita. Para conocer los pasos que hay que realizar para quitar la entidad de servicio, consulte [Consideraciones principales y eliminación de AKS][sp-delete].
 
-## <a name="get-the-code"></a>En este inicio rápido, se han usado imágenes de un contenedor creado previamente para crear una implementación de Kubernetes.
+## <a name="get-the-code"></a>Obtención del código
 
-El código de la aplicación relacionada, Dockerfile, y el archivo de manifiesto de Kubernetes están disponibles en GitHub. Pasos siguientes
+En este inicio rápido, se han usado imágenes de un contenedor creado previamente para crear una implementación de Kubernetes. El código de la aplicación relacionada, Dockerfile, y el archivo de manifiesto de Kubernetes están disponibles en GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>En esta guía de inicio rápido, ha implementado un clúster de Kubernetes y una aplicación de varios contenedores en él.
+## <a name="next-steps"></a>Pasos siguientes
 
-También puede [acceder al panel web de Kubernetes][kubernetes-dashboard] del clúster de AKS. Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
+En esta guía de inicio rápido, ha implementado un clúster de Kubernetes y una aplicación de varios contenedores en él. También puede [acceder al panel web de Kubernetes][kubernetes-dashboard] del clúster de AKS.
 
-[Tutorial de AKS][aks-tutorial]
+Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
 
 > [!div class="nextstepaction"]
-> <bpt id="p1">[</bpt>AKS tutorial<ept id="p1">][aks-tutorial]</ept>
+> [Tutorial de AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

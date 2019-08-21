@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561893"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942879"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -53,7 +53,7 @@ Cree un nuevo grupo llamado _MDM policy - West_. Para más información acerca d
 3. Seleccione **Crear**.
 
 ## <a name="create-a-new-user"></a>Creación de un nuevo usuario
-Cree un nuevo usuario llamado _Alain Charon_. El usuario debe existir antes de ser agregado como miembro del grupo. Para más información acerca de cómo crear un usuario, consulte [Cómo agregar o eliminar usuarios](add-users-azure-active-directory.md).
+Cree un nuevo usuario llamado _Alain Charon_. El usuario debe existir antes de ser agregado como miembro del grupo. Revise primero la pestaña “Nombres de dominio personalizados” para obtener el nombre de dominio verificado en el que quiera crear usuarios. Para más información acerca de cómo crear un usuario, consulte [Cómo agregar o eliminar usuarios](add-users-azure-active-directory.md).
 
 1. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione **Nuevo usuario**.
 

@@ -149,6 +149,8 @@
           href: display-feature-information-android.md
         - name: Adición de una capa de icono
           href: how-to-add-tile-layer-android-map.md
+    - name: Proporcionar comentarios sobre datos
+      href: how-to-use-feedback-tool.md
 - name: Referencia
   items:
     - name: Extensiones de API y de parámetros

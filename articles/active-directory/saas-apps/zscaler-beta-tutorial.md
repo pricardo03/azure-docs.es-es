@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086067"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
     > [!NOTE]
     > Este valor no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Zscaler Beta](https://www.zscaler.com/company/contact) para obtener este valor.
 
-5. La aplicación Zscaler Beta espera las aserciones de SAML en un formato específico. Debe agregar asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Seleccione  **Editar** para abrir el cuadro de diálogo **Atributos de usuario** .
+5. La aplicación Zscaler Beta espera las aserciones de SAML en un formato específico. Debe agregar asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Seleccione **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![Cuadro de diálogo Atributos de usuario](common/edit-attribute.png)
 
@@ -295,7 +295,7 @@ Habilite a Britta Simon para que use el inicio de sesión único de Azure conced
 En esta sección, se crea el usuario Britta Simon en Zscaler Beta. Zscaler Beta admite el **aprovisionamiento de usuarios Just-In-Time**, que está habilitado de forma predeterminada. No hay nada para hacer en esta sección. Si un usuario deja de existir en Zscaler Beta, se crea uno después de la autenticación.
 
 >[!Note]
->Para crear un usuario manualmente, póngase en contacto con el [equipo de soporte técnico de Zscaler Beta](https://www.zscaler.com/company/contact).
+>Para crear un usuario de forma manual, póngase en contacto con el [equipo de soporte técnico de Zscaler Beta](https://www.zscaler.com/company/contact).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

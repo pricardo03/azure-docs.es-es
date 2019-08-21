@@ -219,7 +219,7 @@ Sin embargo, si puede realizar la migración durante una ventana de mantenimient
 [Configuración del espacio de nombres: elección de un nombre posterior a la migración]: ./media/service-bus-standard-premium-migration/4.png
 [Configuración del espacio de nombres: sincronización de entidades, inicio]: ./media/service-bus-standard-premium-migration/5.png
 [Configuración del espacio de nombres: sincronización de entidades, progreso]: ./media/service-bus-standard-premium-migration/8.png
-[Cambio del espacio de nombres: menú de cambio]: ./media/service-bus-standard-premium-migration/9.png
+[Cambio de espacio de nombres: menú de cambio]: ./media/service-bus-standard-premium-migration/9.png
 [Cambio de espacio de nombres: correcto]: ./media/service-bus-standard-premium-migration/12.png
 
 [Flujo de anulación: anulación de la sincronización]: ./media/service-bus-standard-premium-migration/abort1.png

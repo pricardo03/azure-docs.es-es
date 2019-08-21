@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración del entono y el área de trabajo'
+title: 'Tutorial: configuración del entorno y el área de trabajo.'
 titleSuffix: Azure Machine Learning service
 description: En esta serie de tutoriales, realizará los pasos completos para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  La primera parte cubre la creación de un entorno de servidor de cuaderno en la nube, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828634"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934426"
 ---
-# <a name="tutorial-setup-environment-and-workspace"></a>Tutorial: Configuración del entorno y el área de trabajo
+# <a name="tutorial-set-up-environment-and-workspace"></a>Tutorial: configuración del entorno y el área de trabajo
 
 En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter. Este tutorial es la **parte uno de una serie de tutoriales de dos partes**, y abarca la instalación y la configuración del entorno de Python, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático. En la [**segunda parte**](tutorial-1st-experiment-sdk-train.md) se usa este área de trabajo para entrenar varios modelos de aprendizaje automático e introducir el proceso de administración de modelos mediante Azure Portal y el SDK.
 
@@ -25,7 +25,7 @@ En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Creará un área de trabajo de aprendizaje automático para usarla en el siguiente tutorial
-> * Cree una máquina virtual de cuaderno, un servidor de Jupyter Notebook basado en la nube con el SDK de Python para Azure Machine Learning preinstalado y preconfigurado.
+> * Cree una VM de Jupyter Notebook basada en la nube que tenga instalado y preconfigurado el SDK de Python de Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

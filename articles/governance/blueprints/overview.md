@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428777"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848433"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -79,7 +79,7 @@ Cuando se crea por primera vez un plano técnico, se considera que está en modo
 
 ## <a name="blueprint-assignment"></a>Asignación de plano técnico
 
-Cada **versión** **publicada** de un plano técnico se puede asignar a una suscripción existente. En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto (o parámetros de plano técnico), se definirán durante el proceso de asignación.
+Cada **versión** **publicada** de un plano técnico se puede asignar a una suscripción existente (con una longitud máxima del nombre de 90 caracteres). En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto (o parámetros de plano técnico), se definirán durante el proceso de asignación.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permisos de Azure Blueprint
 
@@ -110,6 +110,17 @@ Todos los permisos anteriores se incluyen en el rol **Propietario**. El rol **Co
 
 > [!NOTE]
 > Si usa una identidad administrada asignada por el sistema, la entidad de servicio para Azure Blueprints requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación. Si usa una identidad administrada asignada por el usuario, solo el usuario que crea la asignación de plano técnico necesita permisos de **propietario**.
+
+## <a name="naming-limits"></a>Límites de nomenclatura
+
+Esta es una lista de las limitaciones que existen para determinados campos:
+
+|Object|Campo|Caracteres permitidos|Máx. Length|
+|-|-|-|-|
+|Plano técnico|NOMBRE|letras, números, guiones y puntos|48|
+|Plano técnico|Versión|letras, números, guiones y puntos|20|
+|Asignación de plano técnico|NOMBRE|letras, números, guiones y puntos|90|
+|Artefactos de plano técnico|NOMBRE|letras, números, guiones y puntos|48|
 
 ## <a name="video-overview"></a>Introducción en vídeo
 

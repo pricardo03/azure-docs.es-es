@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227810"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845835"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -50,9 +50,9 @@ Además de las herramientas nativas de Azure, Azure Migrate se integra con varia
 
 ### <a name="selecting-an-isv-tool"></a>Seleccionar una herramienta de ISV
 
-Después de agregar una herramienta de ISV a un proyecto de Azure Migrate, comience con la herramienta. Para ello, obtenga una licencia o regístrese para obtener una evaluación gratuita de acuerdo con la directiva de ISV. En cada herramienta, existe una opción para conectarse a Azure Migrate. Siga las instrucciones y la documentación de la herramienta para conectar la herramienta con Azure Migrate.
+Después de agregar una herramienta de ISV a un proyecto de Azure Migrate, comience con la herramienta. Para ello, obtenga una licencia o regístrese para obtener una evaluación gratuita de acuerdo con la directiva de ISV. En cada herramienta, existe una opción para conectarse a Azure Migrate. Siga las instrucciones y la documentación de la herramienta para conectar la herramienta con Azure Migrate. La licencia para las herramientas de ISV se conceden de conformidad con el modelo de licencias de ISV.
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate Server Assessment
+## <a name="azure-migrate-server-assessment"></a>Evaluación de servidores de Azure Migrate
 
 Azure Migrate Server Assessment detecta y evalúa máquinas virtuales de VMware locales y máquinas virtuales de Hyper-V para la migración a Azure. Le ayuda a identificar lo siguiente:
 

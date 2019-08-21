@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d38ca8bdf93ff201b3f5842f4cb0e8409dcd0c3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481672"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851763"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -46,7 +46,7 @@ Para obtener un dispositivo en Azure AD, tiene varias opciones:
    - Los dispositivos que están unidos a Azure AD son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a la organización. Solo existen en la nube.
       - Windows 10 
 - **Unido a Azure AD híbrido**
-   - Los dispositivos que están unidos a Azure AD híbridos son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a la organización. Solo existen en la nube y en 
+   - Los dispositivos que están unidos a Azure AD híbridos son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a la organización. Existen en la nube y en el entorno local.
       - Windows 7, 8.1 o 10
       - Windows Server 2008 o versiones posteriores
 
@@ -90,8 +90,8 @@ Con la administración de identidades de dispositivos en Azure AD, puede:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre los [dispositivos registrados en Azure AD](concept-azure-ad-register.md).
-- Más información sobre los [dispositivos unidos a Azure AD](concept-azure-ad-join.md).
+- Obtenga más información sobre los [dispositivos registrados en Azure AD](concept-azure-ad-register.md).
+- Obtenga más información sobre los [dispositivos unidos a Azure AD](concept-azure-ad-join.md).
 - Más información sobre los [dispositivos híbridos unidos a Azure AD](concept-azure-ad-join-hybrid.md).
 - Para obtener información general sobre cómo administrar identidades de dispositivos en Azure Portal, consulte [Administración de identidades de dispositivos mediante Azure Portal](device-management-azure-portal.md).
 - Para más información sobre el acceso condicional basado en dispositivo, consulte [Configuración de directivas de acceso condicional basadas en dispositivo de Azure Active Directory](../conditional-access/require-managed-devices.md).

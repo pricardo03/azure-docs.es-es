@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736867"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931584"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -108,6 +108,11 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
    ![Seleccionar la versión de los registros de flujo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
+   > [!NOTE]
+   > Los registros de flujos de NSG no funcionan con las cuentas de almacenamiento si:
+   > * Las cuentas de almacenamiento tienen un firewall habilitado.
+   > * Las cuentas de almacenamiento tienen habilitado un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 
 ## <a name="download-flow-log"></a>Descargar el registro de flujos
@@ -212,7 +217,7 @@ El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de
 | Una            | .                 | Si el tráfico está permitido (A) o si está denegado (D).  
 | C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los estados posibles son**B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas. |
 | 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
-| 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. | 
+| 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. |
 | 24 | Paquetes enviados: destino a origen **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización. |
 | 14008| Bytes enviados: destino a origen **solo versión 2** | El número total de bytes de paquetes TCP y UDP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.|
 

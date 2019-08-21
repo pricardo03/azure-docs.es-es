@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444570"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912496"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
@@ -91,7 +91,7 @@ Tendría que pagar para el servicio en el centro. Por ejemplo, si diez ramas o d
 
 Envíe un correo electrónico a azurevirtualwan@microsoft.com. Un asociado ideal es aquel que tiene un dispositivo que se puede aprovisionar para la conectividad IPsec de IKEv1 o IKEv2.
 
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>¿Qué pasa si el dispositivo que estoy usando no está en la lista de asociados de Virtual WAN? ¿Lo puedo usar a pesar de todo para conectarme a una VPN de Azure Virtual WAN?
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>¿Qué ocurre si el dispositivo que uso no está en la lista de partners de Virtual WAN? ¿Lo puedo usar a pesar de todo para conectarme a una VPN de Azure Virtual WAN?
 
 Sí, siempre que el dispositivo admita IPsec IKEv1 o IKEv2. Los asociados de Virtual WAN automatizan la conectividad desde el dispositivo hasta los puntos de conexión de VPN de Azure. Esto implica la automatización de pasos como la carga de la información de rama, IPsec y configuración y conectividad. Puesto que el dispositivo no procede del ecosistema de un asociado de Virtual WAN, deberá realizar el trabajo pesado de tomar manualmente la configuración de Azure y actualizar el dispositivo para configurar la conectividad IPsec. 
 
@@ -122,6 +122,10 @@ No. Usa la conectividad de sitio a sitio IPsec estándar a través de vínculos 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento de la red al utilizar Azure Virtual WAN?
 
 El número de ramas se limita a 1000 conexiones por cada región o concentrador y a un total de 20 Gbps en el concentrador.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>No veo la configuración de 20 Gbps para el centro virtual en el portal. ¿Cómo puedo configurarlo?
+
+Actualmente, puede configurar las unidades de escalado de la puerta de enlace para 20 Gbps con el cmdlet [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway). Esta configuración está actualmente en desarrollo y estará disponible próximamente en el portal.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>¿Cuántas conexiones VPN admite un concentrador de Virtual WAN?
 

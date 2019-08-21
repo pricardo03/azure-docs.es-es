@@ -72,7 +72,7 @@
   items:
     - name: Laboratorios educativos
       items:
-        - name: Creación y configuración de cuentas de laboratorio
+        - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)
           items:
             - name: Creación y administración de cuentas de laboratorio
               href: classroom-labs/how-to-manage-lab-accounts.md
@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Asociación o desasociación de una galería de imágenes compartidas
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: 'Creación, configuración y uso de laboratorios educativos'
+        - name: Creación y configuración de laboratorios educativos (profesor)
           items:
             - name: Creación y administración de laboratorios educativos
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -90,8 +90,6 @@
               href: classroom-labs/how-to-create-manage-template.md
             - name: Configuración y control del uso
               href: classroom-labs/how-to-configure-student-usage.md
-            - name: Acceso a laboratorios educativos
-              href: classroom-labs/how-to-use-classroom-lab.md
             - name: Creación y administración de programaciones
               href: classroom-labs/how-to-create-schedules.md
             - name: Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla
@@ -102,6 +100,10 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+        - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
+          items:
+            - name: Acceso a laboratorios educativos
+              href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest Labs
       items:
         - name: Configuración de un laboratorio
@@ -120,6 +122,8 @@
               href: configure-lab-remote-desktop-gateway.md
             - name: Anuncio de entrada de blog en un laboratorio
               href: devtest-lab-announcements.md
+            - name: Habilitar la conexión del explorador en máquinas virtuales
+              href: enable-browser-connection-lab-virtual-machines.md
             - name: Configure cost management (Configuración de la administración de costos)
               href: devtest-lab-configure-cost-management.md
             - name: Envío de notificaciones de parada automática
@@ -166,6 +170,8 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Creación de una máquina virtual con una imagen de la galería de imágenes compartidas
               href: add-vm-use-shared-image.md
+            - name: Conexión a la máquina virtual mediante un explorador
+              href: connect-virtual-machine-through-browser.md
             - name: Inicio o detención de una máquina virtual mediante PowerShell o la CLI
               href: use-command-line-start-stop-virtual-machines.md
             - name: Reinicio de una máquina virtual

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086135"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integración de Azure Active Directory con ZIVVER
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con ZIVVER, siga estos p
 
     En el cuadro de texto **Identificador**, escriba una dirección URL: `https://app.zivver.com/SAML/Zivver`
 
-5. La aplicación ZIVVER espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde  **nameidentifier** se asigna con  **user.userprincipalname**. La aplicación ZIVVER espera que  **nameidentifier**  se asigne a  **user.mail**, por lo que debe editar la asignación de atributos, para lo que debe hacer clic en el icono  **Editar**  y cambiar dicha asignación.
+5. La aplicación ZIVVER espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación ZIVVER espera que **nameidentifier** se asigne a **user.mail**, por lo que necesita editar la asignación de atributos; para ello, haga clic en el icono de **Editar** y cambie esa asignación.
 
     ![imagen](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-zivver-test-user"></a>Creación de un usuario de prueba en ZIVVER
 
-En esta sección, creará un usuario llamado Britta Simon en ZIVVER. Colabore con el  [equipo de soporte técnico de ZIVVER](https://support.zivver.com/) para agregar los usuarios a la plataforma ZIVVER. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ZIVVER. Colabore con el [equipo de soporte técnico de ZIVVER](https://support.zivver.com/) para agregar los usuarios a la plataforma de ZIVVER. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

@@ -7,13 +7,13 @@ services: time-series-insights
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 07/02/2019
-ms.openlocfilehash: a463e3cf475909c34054717460dc10dbba4ad8f0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 08/08/2019
+ms.openlocfilehash: ed5cd9424630a90b989b8a4d76959961f82a53ec
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543920"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935251"
 ---
 > [!IMPORTANT]
 > * La nueva hoja **Azure Active Directory** > **Registros de aplicaciones** sustituye a la hoja heredada **Azure Active Directory** > **Registros de aplicaciones (heredada)** desde mayo de 2019.
@@ -51,6 +51,15 @@ ms.locfileid: "67543920"
    [![Creación de un secreto de cliente](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Haga clic en **Save**(Guardar).
+
+1. Seleccione **Certificados y secretos** y, después, haga clic en **Nuevo secreto de cliente** para crear una contraseña de aplicación que el cliente puede usar para demostrar su identidad.
+
+   [![Creación de un secreto de cliente](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+
+   Se mostrará la contraseña del secreto de cliente. Copie la clave en el editor de texto que prefiera.
+
+   > [!NOTE]
+   > En su lugar, también puede importar un certificado. Para mejorar la seguridad, le recomendamos que use un certificado. Para usar un certificado, seleccione **Cargar certificado**.
 
 1. Asocie la aplicación de Azure Active Directory a Azure TIme Series Insights. Seleccione **Permisos de API** > **Agregar un permiso** > **API usadas en mi organización**. 
 

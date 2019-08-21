@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089172"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integración de Azure Active Directory con TAS
 
@@ -150,7 +150,7 @@ Para configurar el inicio de sesión único de Azure AD con TAS, realice los pas
 
     c. En el cuadro de texto **Enter URL** (Escribir dirección URL), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
 
-    d. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro de texto  **Enter Certification**  (Especificar certificado).
+    d. En el Bloc de notas, abra el certificado codificado en Base 64 que ha descargado de Azure Portal, copie el contenido y, después, péguelo en el cuadro de texto **Especificar certificación**.
 
     e. En el cuadro de texto **Enter New IP** (Escribir nueva dirección IP), escriba la dirección IP.
 
@@ -216,7 +216,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-tas-test-user"></a>Creación de un usuario de prueba de TAS
 
-En esta sección, creará un usuario llamado Britta Simon en TAS. Trabaje con el  [equipo de soporte técnico de TAS](mailto:support@combtas.com) para agregar los usuarios a la plataforma de TAS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en TAS. Trabaje con el [equipo de soporte técnico de TAS](mailto:support@combtas.com) para agregar los usuarios a la plataforma de TAS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 40b3e0260e08ab5a8870c726042d06d80393fb15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447044"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849080"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="onboard-to-app-center"></a>Incorporación a App Center
 
-Antes de poder usar Application Insights con su aplicación móvil, debe integrar la aplicación en [App Center](https://docs.microsoft.com/mobile-center/). Application Insights no recibe datos de telemetría de su aplicación móvil directamente. En su lugar, la aplicación envía telemetría de eventos personalizada a App Center. A continuación, App Center exporta continuamente copias de estos eventos personalizados a Application Insights a medida que se reciben los eventos.
+Antes de poder usar Application Insights con su aplicación móvil, debe integrar la aplicación en [App Center](https://docs.microsoft.com/mobile-center/). Application Insights no recibe datos de telemetría de su aplicación móvil directamente. En su lugar, la aplicación envía telemetría de eventos personalizada a App Center. A continuación, App Center exporta continuamente copias de estos eventos personalizados a Application Insights a medida que se reciben los eventos. (Esto no es válido para el [SDK de Application Insights JS](https://github.com/Microsoft/ApplicationInsights-JS) ni para el [complemento React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native), donde la telemetría se envía directamente a Application Insights).
 
 Para incorporar la aplicación, siga la guía de inicio rápido de App Center para cada plataforma que admita la aplicación. Cree instancias de App Center independientes para cada plataforma:
 

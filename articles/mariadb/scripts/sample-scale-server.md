@@ -7,24 +7,24 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/01/2019
-ms.openlocfilehash: 99f85abe0c8f08bedb3e9808d2b740d4b7842257
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 08/07/2019
+ms.openlocfilehash: 772c4de9c53f618d0c7c5d8b8d6acc2830595f55
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720357"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884145"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Supervisión y escalado de un servidor de Azure Database for MariaDB mediante la CLI de Azure
-Este script de la CLI de ejemplo escala el proceso y el almacenamiento de un servidor individual de Azure Database for MariaDB después de consultar las métricas.
+Este script de la CLI de ejemplo escala el proceso y el almacenamiento de un servidor individual de Azure Database for MariaDB después de consultar las métricas. La capacidad de procesamiento se puede ampliar o reducir. El almacenamiento solo se puede ampliar.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 Si decide ejecutar la CLI localmente, este artículo necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para comprobar la versión. Consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli) para instalar o actualizar su versión de la CLI de Azure. 
 
 ## <a name="sample-script"></a>Script de ejemplo
-En este script de ejemplo, va a modificar las líneas resaltadas para actualizar el nombre de usuario administrador y la contraseña a los suyos propios. Reemplace el identificador de suscripción que se usa en los comandos `az monitor` por su propio identificador de suscripción.  
-[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh?highlight=15-16 "Create and scale Azure Database for MariaDB.")]
+Actualice el script con el identificador de su suscripción.
+[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh "Create and scale Azure Database for MariaDB.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 Use el comando siguiente para quitar el grupo de recursos y todos los recursos asociados a él después de ejecutarse el script de ejemplo. 
