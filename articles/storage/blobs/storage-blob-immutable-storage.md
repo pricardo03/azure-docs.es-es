@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618399"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941946"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -175,7 +175,7 @@ Sí. Para documentar el cumplimiento, Microsoft usó una de las principales empr
 
 **¿La característica se aplica solo a los blobs en bloques o también a los blobs en páginas y a los blobs en anexos?**
 
-El almacenamiento inmutable puede utilizarse con cualquier tipo de blob, pero se recomienda usarlo principalmente con blobs en bloques. A diferencia de los blobs en bloques, los blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor WORM, no se permiten más *anexos* a un blob en anexos ni cambios en un blob en páginas.
+El almacenamiento inmutable se puede usar con cualquier tipo de blobs cuando se establece en el nivel de contenedor, pero se recomienda usar WORM para los contenedores que almacenan principalmente blobs en bloques. A diferencia de los blobs en bloques, los nuevos blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor WORM, no se permiten más *anexos* a un blob en anexos ni cambios en un blob en páginas. Por lo tanto, no se recomienda establecer una directiva de WORM en un contenedor que almacene discos duros virtuales (blobs en páginas) para cualquier máquina virtual activa, ya que bloqueará el disco de la máquina virtual.
 
 **¿Es necesario crear una cuenta de almacenamiento para usar esta característica?**
 
