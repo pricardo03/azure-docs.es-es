@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694342"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847976"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
@@ -31,9 +31,9 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md).
+* Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
 
-* Un entorno de desarrollo de Python con el SDK de Azure Machine Learning instalado. Para obtener más información, consulte la sección del [SDK de Python](setup-create-workspace.md#sdk) del artículo Crear un área de trabajo.
+* Un entorno de desarrollo de Python con el SDK de Azure Machine Learning instalado. Para más información, consulte [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * Un modelo registrado que use una GPU.
 
@@ -48,7 +48,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 Para conectarse a un área de trabajo existente, use el código siguiente:
 
 > [!IMPORTANT]
-> Este fragmento de código espera que la configuración del área de trabajo se guarde en el directorio actual o en su elemento primario. Para obtener más información sobre cómo crear un área de trabajo y guardar la configuración en el archivo, consulte [Creación de un área de trabajo de Azure Machine Learning Studio](setup-create-workspace.md).
+> Este fragmento de código espera que la configuración del área de trabajo se guarde en el directorio actual o en su elemento primario. Para más información sobre cómo crear un área de trabajo, consulte [Creación y administración de áreas de trabajo del servicio Azure Machine Learning](how-to-manage-workspace.md).   Para más información sobre cómo guardar la configuración en un archivo, consulte [Creación de un archivo de configuración de área de trabajo](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace

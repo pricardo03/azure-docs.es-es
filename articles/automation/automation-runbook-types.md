@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8d90f1c03a9ed892a9dc8a4fecbeb9815c2dd376
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476899"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850355"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -34,11 +34,11 @@ Azure Automation admite numerosos tipos de runbooks que se describen brevemente 
 
 ### <a name="advantages"></a>Ventajas
 
-* Modelo de creación visual para insertar, vincular y configurar.  
-* Se centra en cómo fluyen los datos por el proceso.  
-* Representa visualmente los procesos de administración.  
-* Permite incluir otros runbooks como runbooks secundarios para crear flujos de trabajo de nivel alto.  
-* Anima a usar la programación modular.  
+* Modelo de creación visual para insertar, vincular y configurar.
+* Se centra en cómo fluyen los datos por el proceso.
+* Representa visualmente los procesos de administración.
+* Permite incluir otros runbooks como runbooks secundarios para crear flujos de trabajo de nivel alto.
+* Anima a usar la programación modular.
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -119,4 +119,4 @@ Tenga en cuenta las siguientes consideraciones adicionales al determinar qué ti
 * Para más información sobre la creación de runbooks de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 * Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](manage-runbooks.md)
-
+* Para más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

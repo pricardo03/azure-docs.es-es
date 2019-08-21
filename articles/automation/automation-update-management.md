@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741855"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952984"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -84,6 +84,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 
 > [!NOTE]
 > Los conjuntos de escalado de máquinas virtuales de Azure se pueden administrar con Update Management. Update Management funciona en las propias instancias y no en la imagen base. Deberá programar las actualizaciones de forma incremental, para no actualizar todas las instancias de la máquina virtual a la vez.
+> Se pueden agregar nodos VMSS siguiendo los pasos descritos en [Incorporación de una máquina que no es de Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
@@ -93,6 +94,7 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 |---------|---------|
 |Cliente Windows     | No se admiten sistemas operativos cliente (por ejemplo, Windows 7 y Windows 10).        |
 |Windows Server 2016 Nano Server     | No compatible.       |
+|Nodos de Azure Kubernetes Service | No compatible. Use el proceso de aplicación de revisiones descrito en [Aplicación de actualizaciones de kernel y seguridad en los nodos de Linux en Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos del cliente
 
@@ -359,6 +361,10 @@ Las direcciones siguientes se requieren específicamente para Update Management.
 |\* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |\* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |\* .azure-automation.net|*.azure-automation.us|
+
+En el caso de máquinas Windows, también debe permitir el tráfico a los puntos de conexión que necesita Windows Update.  Puede encontrar una lista actualizada de los puntos de conexión necesarios en el artículo sobre [problemas relacionados con HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si tiene un [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, también debe permitir el tráfico al servidor especificado en la [clave de WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+En el caso de máquinas de Red Hat Linux, consulte las [direcciones IP de los servidores de entrega de contenido de RHUI](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) de los puntos de conexión necesarios. Para otras distribuciones de Linux, consulte la documentación del proveedor.
 
 Para más información sobre los puertos que necesita Hybrid Runbook Worker, consulte los [puertos de roles de Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

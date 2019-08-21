@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834636"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851791"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -72,7 +72,7 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
       1. Ruta de acceso de la clave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nombre del valor: **TenantName**
       1. Tipo de valor: **REG_SZ**
-      1. Datos del valor: El **nombre de dominio** comprobado si usa un entorno federado como AD FS. Su "nombre de dominio" o el nombre de dominio de onmicrosoft.com comprobados, por ejemplo, `contoso.onmicrosoft.com` si usa un entorno administrado
+      1. Datos del valor: El **nombre de dominio** comprobado si usa un entorno federado como AD FS. El **nombre de dominio** comprobado o el nombre de dominio de onmicrosoft.com (por ejemplo, `contoso.onmicrosoft.com`) si usa un entorno administrado.
    1. Haga clic en **Aceptar**
 1. Cierre el editor para el GPO recién creado.
 1. Vincule el GPO recién creado a la OU deseada que contiene equipos unidos a un dominio que pertenecen a la población de lanzamiento controlado

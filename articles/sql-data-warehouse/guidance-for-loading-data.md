@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/31/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: bb170b53946a014d4aa69ce628c2e4bef7459b93
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595584"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882474"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse
 
@@ -69,8 +69,8 @@ A menudo, es necesario que varios usuarios puedan cargar datos en un almacén de
 Por ejemplo: tenemos los esquemas de base de datos schema_A para el departamento A, schema_B para el departamento B y los usuarios de PolyBase user_A y user_B con cargas en los departamentos A y B respectivamente. A ambos se les ha concedido permiso de CONTROL sobre la base de datos. Ahora, los creadores de los esquemas A y B bloquean dichos esquemas utilizando DENY:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 User_A y user_B estarán ahora bloqueados en el esquema de los otros departamentos.
@@ -87,6 +87,9 @@ Los índices de almacén de columnas necesitan mucha memoria para comprimir los 
 
 - Para asegurarse de que el usuario de carga tenga suficiente memoria para lograr la tasa de compresión máxima, utilice usuarios de carga que sean miembros de una clase de recursos mediana o grande. 
 - Cargue filas suficientes para rellenar completamente los nuevos grupos de filas. Durante una carga masiva, cada 1.048.576 filas se comprime directamente en el almacén de columnas como un grupo de filas completo. Las cargas con menos de 102.400 filas envían las filas al almacén delta, donde se mantienen las filas en un índice de árbol b. Si carga muy pocas filas, puede que pasen todas al almacén delta y que no se compriman inmediatamente con el formato de almacén de columnas.
+
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumento del tamaño de lote al usar SQLBulkCopy API o BCP
+Como se ha indicado anteriormente, la carga con PolyBase proporcionará el mayor rendimiento con SQL Data Warehouse. Si no puede usar PolyBase para cargar y debe usar SQLBulkCopy API (o BCP), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento. 
 
 ## <a name="handling-loading-failures"></a>Control de errores de carga
 
@@ -128,7 +131,7 @@ Se crea la clave original
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 Se cambia de la clave 1 a la clave 2.
 
@@ -143,6 +146,3 @@ No es necesario cambiar nada más en los orígenes de datos externos subyacentes
 - Para más información acerca de PolyBase y del diseño de un proceso de extracción, carga y transformación (ETL), consulte [Design ELT for SQL Data Warehouse](design-elt-data-loading.md) (Diseño de ELT para SQL Data Warehouse).
 - Si desea un tutorial sobre carga, consulte [Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 - Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md).
-
-
-

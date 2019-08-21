@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233871"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853600"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |
@@ -46,7 +46,7 @@ Con la federación directa, los usuarios invitados inician sesión en el inquili
 ## <a name="limitations"></a>Limitaciones
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
-La federación directa está permitida solo para los dominios que ***no*** están comprobados por DNS en Azure AD. La federación directa se permite para los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
+El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
 ### <a name="authentication-url"></a>Dirección URL de autenticación
 La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
 -   accounts.google.com
@@ -66,7 +66,7 @@ Si especifica la dirección URL de metadatos en la configuración del proveedor 
 Actualmente, se admite un máximo de 1000 relaciones de federación. Este límite incluye tanto las [federaciones internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como las federaciones directas.
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>¿Puedo configurar la federación directa con un dominio para el que existe un inquilino no administrado (verificado por correo electrónico)? 
-Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../users-groups-roles/domains-admin-takeover.md), puede configurar una federación directa. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación directa con estos dominios. Si intenta configurar la federación directa con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, verá un error.
+Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../users-groups-roles/domains-admin-takeover.md), puede configurar una federación directa con el dominio. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación directa con estos dominios. Si intenta configurar la federación directa con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, verá un error.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la federación directa y la autenticación con código de acceso de un solo uso por correo electrónico están habilitadas, ¿qué método tiene prioridad?
 Cuando se establece la federación directa con una organización asociada, tiene prioridad sobre la autenticación con código de acceso de un solo uso por correo electrónico para los nuevos usuarios invitados de esa organización. Si un usuario invitado ha canjeado una invitación mediante la autenticación de código de acceso de un solo uso antes de configurar la federación directa, seguirá utilizando la autenticación de código de acceso de un solo uso. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>¿La federación directa se ocupa de los problemas de inicio de sesión debido a un inquilinato parcialmente sincronizado?

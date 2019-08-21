@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483275"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879164"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Protección de un dominio administrado con Azure AD Domain Services
 Este artículo sirve de ayuda para proteger un dominio administrado. Puede desactivar el uso de conjuntos de cifrado débil y deshabilitar la sincronización de códigos hash de credenciales NTLM.
@@ -36,9 +36,12 @@ Siga las instrucciones que aparecen en el artículo para [instalar el módulo de
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Deshabilitación de la sincronización de hash de credenciales NTLM y de conjuntos de cifrado débil
 Use el siguiente script de PowerShell para:
+
 1. Deshabilitar la compatibilidad con NTLM v1 en el dominio administrado.
 2. Deshabilitar la sincronización de códigos hash de contraseñas NTLM desde su instancia de Active Directory local.
 3. Deshabilitar TLS v1 en el dominio administrado.
+
+Si se produce un error con el comando `Get-AzResource` y se indica que no existe el recurso *Microsoft.AAD/DomainServices*, [eleve el acceso para administrar todas las suscripciones y grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant

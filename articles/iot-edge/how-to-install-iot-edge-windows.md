@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 0122b76592ce9e1179a3d65f7db681679bda6f37
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677462"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988607"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -202,7 +202,7 @@ Examine los registros de servicio de los últimos 5 minutos. Si acaba de instala
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Enumere los módulos en ejecución. Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md), verá otros. 
+Enumere los módulos en ejecución. Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md) por primera vez, el otro módulo del sistema, **edgeHub**, se iniciará también en el dispositivo. 
 
 ```powershell
 iotedge list
@@ -262,6 +262,7 @@ Para más información acerca de estas opciones de actualización, use el comand
 Si quiere quitar la instalación de IoT Edge del dispositivo Windows, use el siguiente comando de una ventana de PowerShell administrativa. Este comando quita el entorno de ejecución de IoT Edge, junto con la configuración existente y los datos de motor de Moby. 
 
 ```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
 

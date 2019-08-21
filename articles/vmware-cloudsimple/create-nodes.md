@@ -8,18 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812367"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883224"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Aprovisionamiento de nodos de la solución de VMware de CloudSimple: Azure
 
 Aprovisione nodos en Azure Portal. Después puede configurar la capacidad de pago por uso de su entorno de nube privada de CloudSimple.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Adición de un nodo aprovisionado a la nube privada de CloudSimple
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+
+
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Incorporación de un nodo a la nube privada de CloudSimple
 
 1. Seleccione **Todos los servicios**.
 2. Busque **Nodos CloudSimple**.
@@ -44,4 +49,4 @@ Aprovisione nodos en Azure Portal. Después puede configurar la capacidad de pag
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Create Private Cloud](https://docs.azure.cloudsimple.com/create-private-cloud/) (Creación de una nube privada)
+* [Create Private Cloud](create-private-cloud.md) (Creación de una nube privada)

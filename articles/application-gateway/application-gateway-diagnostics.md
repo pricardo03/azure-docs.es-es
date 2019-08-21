@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655389"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850993"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -172,52 +172,8 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |sentBytes| Tamaño de paquete enviado, en bytes.|
 |timeTaken| Período de tiempo (en milisegundos) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
 |sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
-```json
-{
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
-    "category": "ApplicationGatewayAccessLog",
-    "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
-        "clientPort": 46886,
-        "httpMethod": "GET",
-        "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
-        "userAgent": "-",
-        "httpStatus": 404,
-        "httpVersion": "HTTP/1.0",
-        "receivedBytes": 65,
-        "sentBytes": 553,
-        "timeTaken": 205,
-        "sslEnabled": "off"
-    }
-}
-```
-En el caso de Application Gateway y WAF v2, los registros muestran un poco más información:
-
-|Valor  |DESCRIPCIÓN  |
-|---------|---------|
-|instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
-|clientIP     | IP de origen de la solicitud.        |
-|clientPort     | Puerto de origen de la solicitud.       |
-|httpMethod     | Método HTTP utilizado por la solicitud.       |
-|requestUri     | URI de la solicitud recibida.        |
-|RequestQuery     | **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.       |
-|UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
-|httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
-|HttpVersion     | Versión HTTP de la solicitud.        |
-|receivedBytes     | Tamaño de paquete recibido, en bytes.        |
-|sentBytes| Tamaño de paquete enviado, en bytes.|
-|timeTaken| Período de tiempo (en milisegundos) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
-|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
-|sslCipher| Conjunto de cifrado que se usa para la comunicación SSL (si SSL está habilitado).|
-|sslProtocol| Protocolo SSL que se usa (si se ha habilitado SSL).|
-|serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
-|serverStatus| Código de estado HTTP del servidor back-end.|
-|serverResponseLatency| Latencia de la respuesta del servidor back-end.|
-|host| Dirección que aparece en el encabezado de host de la solicitud.|
+|host| El nombre de host con el que se envió la solicitud al servidor back-end. Si se está reemplazando el nombre de host de back-end, se reflejará en este nombre.|
+|originalHost| Nombre de host con el que Application Gateway recibió la solicitud del cliente.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -238,12 +194,58 @@ En el caso de Application Gateway y WAF v2, los registros muestran un poco más 
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
+    }
+}
+```
+En el caso de Application Gateway y WAF v2, los registros muestran un poco más información:
+
+|Valor  |DESCRIPCIÓN  |
+|---------|---------|
+|instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
+|clientIP     | IP de origen de la solicitud.        |
+|clientPort     | Puerto de origen de la solicitud.       |
+|httpMethod     | Método HTTP utilizado por la solicitud.       |
+|requestUri     | URI de la solicitud recibida.        |
+|UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
+|httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
+|HttpVersion     | Versión HTTP de la solicitud.        |
+|receivedBytes     | Tamaño de paquete recibido, en bytes.        |
+|sentBytes| Tamaño de paquete enviado, en bytes.|
+|timeTaken| Período de tiempo (en milisegundos) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
+|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
+|sslCipher| Conjunto de cifrado que se usa para la comunicación SSL (si SSL está habilitado).|
+|sslProtocol| Protocolo SSL que se usa (si se ha habilitado SSL).|
+|serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
+|serverStatus| Código de estado HTTP del servidor back-end.|
+|serverResponseLatency| Latencia de la respuesta del servidor back-end.|
+|host| Dirección que aparece en el encabezado de host de la solicitud.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "appgw_1",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
         "serverResponseLatency": "0.023",
-        "host": "52.231.230.101"
+        "host": "www.contoso.com",
     }
 }
 ```

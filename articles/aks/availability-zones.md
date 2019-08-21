@@ -2,17 +2,17 @@
 title: Usar Availability Zones en Azure Kubernetes Service (AKS)
 description: Aprenda a crear un clúster que distribuya nodos a través de las zonas de disponibilidad en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 0f99386aa9eeb75a990507e383c32412fb39eceb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: mlearned
+ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67840460"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033138"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Versión preliminar: cree un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -23,7 +23,7 @@ Para proporcionar un mayor nivel de disponibilidad a sus aplicaciones, los clús
 En este artículo le mostraremos cómo crear un clúster de AKS y distribuir los componentes del nodo en las zonas de disponibilidad. Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
+> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
 >
 > * [Directivas de soporte técnico para AKS][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
@@ -124,7 +124,6 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --load-balancer-sku standard \

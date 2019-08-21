@@ -16,17 +16,17 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeb97f88c2482cb9d091afb1c205e9b09a85ce0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b80539181e6614283b6170b9cd9d4db85f812a5f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784585"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879892"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>No se aprovisionan usuarios en una aplicación de la galería de Azure AD
 Una vez que se ha configurado el aprovisionamiento automático de una aplicación (incluida la comprobación de que las credenciales de la aplicación proporcionadas a Azure AD para conectarse a la aplicación son válidas), se aprovisionan los usuarios y los grupos en la aplicación. El aprovisionamiento se determina mediante lo siguiente:
 
--   Qué usuarios y grupos se han **asignado** a la aplicación. Para más información sobre la asignación, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](assign-user-or-group-access-portal.md).
+-   Qué usuarios y grupos se han **asignado** a la aplicación. Tenga en cuenta que no se admite el aprovisionamiento de grupos anidados o grupos de Office 365. Para más información sobre la asignación, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](assign-user-or-group-access-portal.md).
 -   Si las **asignaciones de atributos** están habilitadas o no, y configuradas para sincronizar atributos válidos de Azure AD a la aplicación. Para más información sobre las asignaciones de atributos, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md).
 -   Si hay o no presente un **filtro de ámbito** que filtre usuarios en función de valores de atributo concretos. Para más información sobre los filtros de ámbito, consulte [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md).
   

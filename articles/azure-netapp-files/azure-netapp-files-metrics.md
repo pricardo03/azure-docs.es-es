@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839237"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848788"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -29,27 +29,40 @@ Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el us
 
 <!-- 
 - *Volume pool allocated size*  
-    This is the size (GiB) of the provisioned capacity pool.  
+    The size (GiB) of the provisioned capacity pool  
 --> 
 - *Uso asignado del grupo de volumen*  
-    Es la cuota de volumen (GiB) total en un grupo de capacidad determinado (es decir, el total de los tamaños aprovisionados de los volúmenes en el grupo de capacidad). Este es el tamaño que se selecciona durante la creación del volumen.  
+    La cuota de volumen (GiB) total en un grupo de capacidad determinado (es decir, el total de los tamaños aprovisionados de los volúmenes en el grupo de capacidad).  
+    Este es el tamaño que se selecciona durante la creación del volumen.  
 - *Tamaño lógico total del grupo de volumen*  
-    Es el espacio lógico (GiB) total usado en todos los volúmenes de un grupo de capacidad.  
+    El espacio lógico (GiB) total usado en todos los volúmenes de un grupo de capacidad.  
 <!-- 
 - *Volume pool total snapshot size*  
-    This is the total of incremental logical space used by the snapshots.  
+    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>Métricas de uso de volúmenes
 
 <!-- 
 - *Volume allocated size*   
-    This is the volume size (quota) provisioned in GiB.  
+    The volume size (quota) provisioned in GiB  
 --> 
 - *Tamaño lógico del volumen*   
-    Es el espacio lógico total usado en un volumen (GiB). Este tamaño incluye el espacio lógico usado por las instantáneas y los sistemas de archivos activos.  
+    El espacio lógico total usado en un volumen (GiB).  
+    Este tamaño incluye el espacio lógico usado por las instantáneas y los sistemas de archivos activos.  
 - *Tamaño de instantánea de volumen*   
-    Es el espacio lógico incremental usado por las instantáneas de un volumen.  
+   El espacio lógico incremental usado por las instantáneas de un volumen.  
+
+## <a name="performance-metrics-for-volumes"></a>Métricas de rendimiento de los volúmenes
+
+- *AverageReadLatency*   
+    Tiempo promedio de las lecturas del volumen en milisegundos.
+- *AverageWriteLatency*   
+    Tiempo promedio de las escrituras del volumen en milisegundos.
+- *ReadIops*   
+    Número de lecturas en el volumen por segundo.
+- *WriteIops*   
+    Número de escrituras en el volumen por segundo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

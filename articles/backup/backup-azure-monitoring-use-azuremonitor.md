@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689207"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954619"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -212,7 +212,7 @@ Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Ana
 - En todas las soluciones, los trabajos de copia de seguridad ad hoc y los trabajos de restauración se insertan en cuanto *finalizan*.
 - En todas las soluciones salvo la copia de seguridad SQL, los trabajos de copia de seguridad programados se insertan en cuanto *finalizan*.
 - En el caso de la copia de seguridad de SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
-- En todas las soluciones, el resto de información como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos *una vez al día.*
+- En todas las soluciones, el resto de la información, como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos *una vez al día.*
 - Un cambio en la configuración de copia de seguridad (como por ejemplo un cambio de directiva o la edición de la directiva) desencadena la inserción de toda la información de copia de seguridad relacionada.
 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Uso de los registros de actividad del almacén de Recovery Services
@@ -238,7 +238,7 @@ Para identificar el registro adecuado y crear una alerta:
 
    ![Nueva alerta de reglas](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Aquí, el recurso es el propio almacén de Recovery Services. Debe repetir los mismos pasos para todos los almacenes en los que desea recibir notificaciones a través de registros de actividad. La condición no tendrá un umbral, un período o una frecuencia, ya que esta alerta está basada en eventos. En cuanto se genera el registro de actividad pertinente, lo hace también la alerta.
+Aquí, el recurso es el propio almacén de Recovery Services. Repita los mismos pasos para todos los almacenes en los que desee recibir notificaciones a través de registros de actividad. La condición no tendrá un umbral, un período o una frecuencia, ya que esta alerta está basada en eventos. En cuanto se genera el registro de actividad pertinente, lo hace también la alerta.
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>Uso de Log Analytics para supervisar a escala
 

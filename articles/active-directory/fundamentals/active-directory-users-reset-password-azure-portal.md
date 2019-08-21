@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561738"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032670"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario con Azure Active Directory
 
@@ -43,7 +43,8 @@ Como administrador, puede restablecer la contraseña de un usuario si se olvida 
 
 3. En la página **Restablecer contraseña**, seleccione **Restablecer contraseña**.
 
-    Una contraseña temporal se genera automáticamente para el usuario.
+    > [!Note]
+    > Al usar Azure Active Directory, una contraseña temporal se genera automáticamente para el usuario. En cambio cuando se usa Active Directory local, se crea la contraseña del usuario.
 
 4. Copie la contraseña y proporciónela al usuario. El usuario deberá cambiar la contraseña durante el siguiente proceso de inicio de sesión.
 

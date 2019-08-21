@@ -3,20 +3,20 @@ title: Integración e implementación de Unity para Project Acoustics
 titlesuffix: Azure Cognitive Services
 description: Se explica la integración del complemento de Unity de Project Acoustics en el proyecto de Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706639"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933140"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integración de Unity con Project Acoustics
 Se explica la integración del complemento de Unity de Project Acoustics en el proyecto de Unity.
@@ -32,6 +32,10 @@ Importe el paquete UnityPackage de acústica al proyecto.
     ![Captura de pantalla del menú de importación de paquetes de Unity](media/import-package.png)  
 
 * Elija **ProjectAcoustics.unitypackage**
+
+* Haga clic en el botón **Import** (Importar) para integrar el paquete de Unity en el proyecto.  
+
+    ![Captura de pantalla del cuadro de diálogo de importación del paquete de Unity](media/import-dialog.png)  
 
 Si va a importar el complemento a un proyecto existente, es posible que el proyecto ya tenga un archivo **mcs.rsp** en la raíz del proyecto, que especifica las opciones del compilador de C#. Deberá combinar el contenido de ese archivo con el archivo mcs.rsp que se incluye con el complemento de Elementos acústicos de un proyecto.
 

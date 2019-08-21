@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689190"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954604"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -231,7 +231,7 @@ Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, c
 | En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar**. Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
 | Salida del ejecutable: el script se ejecuta correctamente, pero no se muestra en la salida del script el mensaje que indica que se han conectado nuevos volúmenes. |    Se trata de un problema transitorio.    | Los volúmenes ya deberían estar conectados. Abra el Explorador para examinarlos. Si usa siempre la misma máquina para ejecutar scripts, considere la posibilidad de reiniciarla; debería mostrarse la lista en las ejecuciones posteriores del ejecutable. |
 | Específico de Linux: no se pueden ver los volúmenes deseados. | El sistema operativo de la máquina en que se ejecuta el script puede no reconocer el sistema de archivos subyacente de la máquina virtual protegida. | Compruebe si el punto de recuperación es coherente frente a bloqueos o coherente con archivo. En caso de coherencia con archivo, ejecute el script en otra máquina cuyo sistema operativo reconozca el sistema de archivos de la máquina virtual protegida. |
-| Específico de Windows: no se pueden ver los volúmenes deseados. | Se han adjuntado los discos, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si alguno de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, haciendo clic en 'En línea'|
+| Específico de Windows: no se pueden ver los volúmenes deseados. | Se han adjuntado los discos, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si cualquiera de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, haciendo clic en "En línea"|
 
 ## <a name="security"></a>Seguridad
 
@@ -257,11 +257,11 @@ El script generado se firma con el certificado oficial de Microsoft para el serv
 
 Solo un administrador puede ejecutar el script y debe hacerlo en modo elevado. El script solo ejecuta un conjunto de pasos generado previamente y no acepta la entrada desde ningún origen externo.
 
-Para ejecutar el script, es necesaria una contraseña que solo puede ver el usuario autorizado al generarse el script en Azure Portal, o bien en PowerShell o CLI. De esta forma, se garantiza que el usuario autorizado que descarga el script sea también responsable de la ejecución del mismo.
+Para ejecutar el script, se requiere una contraseña que solo puede ver el usuario autorizado en el momento de generarse el script en Azure Portal, o bien en PowerShell o la CLI. De esta forma, se garantiza que el usuario autorizado que descarga el script sea también responsable de la ejecución del mismo.
 
 #### <a name="browse-files-and-folders"></a>Examen de archivos y carpetas
 
-Para examinar archivos y carpetas, el script usa el iniciador iSCSI en la máquina y se conecta al punto de recuperación configurado como destino iSCSI. Aquí es posible suponer escenarios en los que se intenta imitar o suplantar todos los componentes o cualquiera de ellos.
+Para examinar los archivos y carpetas, el script usa el iniciador iSCSI de la máquina y se conecta al punto de recuperación configurado como destino iSCSI. Aquí es posible suponer escenarios en los que se intenta imitar o suplantar todos los componentes o cualquiera de ellos.
 
 Usamos el mecanismo de autenticación CHAP para que los componentes se autentiquen entre sí. Esto significa que un iniciador falso lo tiene muy difícil para conectarse al destino iSCSI, mientras que un destino falso lo tiene muy difícil para conectarse a la máquina donde se ejecuta el script.
 

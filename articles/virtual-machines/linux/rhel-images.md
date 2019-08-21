@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: f7ae82b0376489e21b35e4e94dce32805bea69c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d34e480dd3cf90f1948e83ea1d18c04f1dcdce2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708384"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854437"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.
@@ -132,6 +132,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6.7 for SAP HANA
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 for SAP HANA
 RHEL-SAP-APPS | 6,8      | RAW    | Agente Linux | RHEL 6.8 for SAP Business Applications
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 for SAP Business Applications
+RHEL-HA       | 7.4      | RAW    | Agente Linux | RHEL 7.4 con el complemento de alta disponibilidad
+|             | 7.5      | RAW    | Agente Linux | RHEL 7.5 con el complemento de alta disponibilidad
+|             | 7.6      | RAW    | Agente Linux | RHEL 7.6 con el complemento de alta disponibilidad
+RHEL-SAP-HA   | 7.4      | RAW    | Agente Linux | RHEL 7.4 for SAP con el complemento de alta disponibilidad
+|             | 7.5      | RAW    | Agente Linux | RHEL 7.5 for SAP con el complemento de alta disponibilidad
+|             | 7.6      | RAW    | Agente Linux | RHEL 7.6 for SAP con el complemento de alta disponibilidad
 
 ### <a name="old-naming-convention"></a>Convención de nomenclatura anterior
 La familia de imágenes de RHEL 7 y la familia de imágenes de RHEL 6 usan versiones específicas en sus SKU hasta el cambio de convención de nomenclatura explicado anteriormente.

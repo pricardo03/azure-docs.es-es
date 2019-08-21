@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67613952"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
@@ -76,7 +76,7 @@ Para ver las directivas de red en acción, vamos a crear y luego expandir una di
 
 En primer lugar, crearemos un clúster de AKS que admite la directiva de red. La característica de directiva de red solo se puede habilitar cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
 
-Para usar la directiva de red con un clúster de AKS, debe usar el [complemento de CNI de Azure][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
+Para usar la directiva de red con un clúster de AKS, debe usar el [complemento CNI de Azure][azure-cni] y definir su propia red virtual y subredes. Para más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking].
 
 En el ejemplo siguiente se invoca el script:
 

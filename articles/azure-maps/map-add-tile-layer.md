@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de mosaico a Azure Maps | Microsoft Docs
-description: Cómo agregar una capa de mosaico al mapa de JavaScript
+description: Procedimiento para agregar una capa de mosaico al SDK de Azure Maps para web.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638987"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976452"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adición de una capa de mosaico a un mapa
 
 En este artículo se explica cómo puede superponer una capa de mosaico en el mapa. Las capas de mosaico permiten superponer imágenes encima de los mosaicos de mapa base de Azure Maps. Puede encontrar más información en el sistema de mosaico de Azure Maps en la documentación [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
-Una carga de capa de mosaico en los mosaicos desde un servidor. Estas imágenes pueden ser representadas previamente y almacenadas como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entiende la capa de mosaico o un servicio dinámico que genera las imágenes sobre la marcha. Hay tres convenciones diferentes de nomenclatura de servicio de mosaico compatibles con la clase [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) de Azure Maps: 
+Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes pueden ser representadas previamente y almacenadas como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entiende la capa de mosaico o un servicio dinámico que genera las imágenes sobre la marcha. Hay tres convenciones diferentes de nomenclatura de servicio de mosaico compatibles con la clase [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) de Azure Maps: 
 
 * X, Y notación de zoom: según el nivel de zoom, x es la columna e y es la posición de fila del mosaico en la cuadrícula de mosaico.
 * Notación Quadkey: combinación de la información de x, y y zoom en un solo valor de cadena que es un identificador único de un mosaico.
@@ -40,20 +40,28 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 
 ## <a name="add-a-tile-layer"></a>Adición de una capa de icono
 
- En este ejemplo se muestra cómo crear una capa de mosaico que apunte a un conjunto de mosaicos que usan el sistema de mosaico de zoom, x e y. La fuente de esta capa de mosaico es una superposición de radar meteorológico de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ En este ejemplo se muestra cómo crear una capa de mosaico que apunte a un conjunto de mosaicos que usan el sistema de mosaico de zoom, x e y. La fuente de esta capa de mosaico es una superposición de radar meteorológico de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Al ver los datos de radar, los usuarios podrían ver claramente las etiquetas de las ciudades mientras navegan por el mapa, lo que se puede hacer al insertar la capa de mosaico debajo de la capa `labels`.
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+A continuación se muestra el código de ejemplo de ejecución completo de la funcionalidad anterior.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Capa de mosaico que usa X, Y y Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>capa de mosaico que usa X, Y y Z</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
-
-En el segundo bloque de código, se crea un elemento [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) pasando una dirección URL con formato a un servicio de mosaico, el tamaño de mosaico y una opacidad para que sea semitransparente. Además, al agregar la capa de mosaico al mapa, se agrega a continuación de la capa `labels` para que las etiquetas sigan siendo claramente visibles.
-
 ## <a name="customize-a-tile-layer"></a>Personalizar una capa de mosaico
 
-La capa de mosaico solo tiene muchas opciones de estilo. Esta es una herramienta para probarlas.
+La clase de la capa de mosaico tiene muchas opciones de estilo. Esta es una herramienta para probarlas.
 
 <br/>
 

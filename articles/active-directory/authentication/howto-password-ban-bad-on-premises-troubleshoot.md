@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779621"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952801"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
@@ -41,6 +41,8 @@ El síntoma principal de este problema son eventos 30018 en el registro de event
 1. La máquina host de proxy está bloqueando el acceso al punto de conexión de RPC (dinámico o estático) que escucha el servicio de proxy
 
    El instalador de proxy de protección de contraseña de Azure AD crea automáticamente una regla de entrada de firewall de Windows que permite el acceso a cualquier puerto de entrada que escuche el servicio de proxy de Protección con contraseña de Azure AD. Si más adelante se elimina o se deshabilita esta regla, los agentes de controlador de dominio no pueden comunicarse con el servicio de proxy. Si se ha deshabilitado el firewall de Windows integrado en lugar de otro producto de firewall, debe configurar el firewall para permitir el acceso a cualquier puerto de entrada que escuche el servicio de proxy de Protección con contraseña de Azure AD. Esta configuración puede ser más específica si se ha configurado el servicio de proxy para que escuche un puerto estático de RPC específico (mediante el cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`).
+
+1. La máquina host del proxy no está configurada para permitir que los controladores de dominio puedan iniciar sesión en la máquina. Este comportamiento se controla a través de la asignación del privilegio de usuario "Tener acceso a este equipo desde la red". Se debe conceder este privilegio a todos los controladores de dominio de todos los dominios del bosque. Esta configuración suele estar restringida como parte de un esfuerzo más amplio de protección de la red.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>El servicio proxy no se puede comunicar con Azure
 

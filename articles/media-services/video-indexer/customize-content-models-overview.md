@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 855004c23df933fc2ebc71455b7b946d667fe7dc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454643"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878811"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Personalización de modelos de contenido en Video Indexer
 
@@ -37,9 +37,9 @@ En este artículo se proporcionan los vínculos a los artículos conceptuales qu
  
 ## <a name="person-model"></a>Modelo de persona
 
-* [Customizing language models overview](customize-person-model-overview.md) (Introducción para personalizar modelos de lenguaje)
-* [Customizing language models using the Video Indexer website](customize-language-model-with-website.md) (Personalizar modelos de lenguaje mediante el sitio web de Video Indexer)
-* [Customizing language models using the Video Indexer API](customize-person-model-with-api.md) (Personalizar modelos e lenguaje mediante la API de Video Indexer)
+* [Personalización de un modelo de persona en Video Indexer](customize-person-model-overview.md)
+* [Personalización de un modelo de persona con el sitio web de Video Indexer](customize-person-model-with-website.md)
+* [Personalización de un modelo de persona con la API de Video Indexer](customize-person-model-with-api.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b17e5f16b988bfa562b00bc6f5b9dfd34be4ca43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247970"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881030"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
@@ -116,8 +116,8 @@ La recomendación **"Resolver problemas de estado de protección de puntos de co
 
 Rutas de acceso del Registro:
 
-**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;** 
- **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection para Windows
 
@@ -136,6 +136,42 @@ La recomendación **"Resolver problemas de estado de protección de puntos de co
 * Buscar la fecha de la firma: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 
 * Buscar la fecha del examen: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
+
+## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security for Linux Threat Prevention 
+
+La recomendación **Install endpoint protection solutions on virtual machine** (Instalar soluciones de Endpoint Protection en la máquina virtual) se genera si no se cumple al menos una de las siguientes comprobaciones:  
+
+- El archivo **/opt/isec/ens/threatprevention/bin/isecav** se cierra 
+
+- El resultado de **"/opt/isec/ens/threatprevention/bin/isecav --version"** es: **El nombre de McAfee = McAfee Endpoint Security for Linux Threat Prevention y la versión de McAfee >= 10**
+
+La recomendación **Resolve endpoint protection health issues on your machines** (Resolver problemas de estado de protección de puntos de conexión en las máquinas) se genera si no se cumple al menos una de las siguientes comprobaciones:
+
+- **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** devuelve **Quick scan, Full scan** (Examen rápido, examen completo) y ambos exámenes < = 7 días
+
+- **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** devuelve **DAT and engine Update time** (Motor DAT y hora de actualización) y ambos exámenes < = 7 días
+
+- **"/opt/ISEC/ENS/threatprevention/bin/isecav--getoasconfig--summary"** devuelve el estado **On Access Scan** (En el examen de acceso)
+
+## <a name="sophos-antivirus-for-linux"></a>Antivirus Sophos para Linux 
+
+La recomendación **Install endpoint protection solutions on virtual machine** (Instalar soluciones de Endpoint Protection en la máquina virtual) se genera si no se cumple al menos una de las siguientes comprobaciones:
+
+- El archivo **/opt/Sophos-AV/bin/savdstatus** se cierra o busca la ubicación **"readlink $(which savscan)"**
+
+- **"/opt/sophos-av/bin/savdstatus --version"** devuelve el nombre de Sophos = **Sophos Anti-Virus y la versión de Sophos >= 9**
+
+La recomendación **Resolve endpoint protection health issues on your machines** (Resolver problemas de estado de protección de puntos de conexión en las máquinas) se genera si no se cumple al menos una de las siguientes comprobaciones:
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , devuelve un valor   
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", devuelve un valor   
+
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** devuelve lastUpdate que debe ser <= 7 días 
+
+- - **"/opt/sophos-av/bin/savdstatus -v"** es igual a **"On-access scanning is running"** (se ejecuta el examen en el acceso) 
+
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** devuelve enabled (habilitado)  
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 

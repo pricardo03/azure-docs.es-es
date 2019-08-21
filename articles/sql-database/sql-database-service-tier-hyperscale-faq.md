@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 70ba6c5507cf31732d679a61c3e185a520b4c5f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566668"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847406"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescala de Azure SQL
 
@@ -44,7 +44,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 - El nivel de servicio Crítico para la empresa es adecuado para cargas de trabajo en las que la latencia de E/S es una prioridad.
 
 | | Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** |Todo|  La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | Aplicaciones de datos con requisitos de gran capacidad de datos y la posibilidad de escalar automáticamente el almacenamiento y de escalar los procesos con fluidez. | Aplicaciones de OLTP con una alta tasa de transacciones y la latencia de E/S más baja. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
 |  **Tipo de recurso** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico * | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales* | 1 a 80 núcleos virtuales |
@@ -55,7 +55,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 | **Rendimiento de E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
 | | Instancia administrada | Depende del tamaño del archivo | N/D | Instancia administrada: Depende del tamaño del archivo|
 |**Disponibilidad**|Todo|1 réplica, sin escalado de lectura, sin caché local | Varias réplicas, hasta el 15 escalados de lectura, caché local parcial | 3 replicas, 1 escalado de lectura, alta disponibilidad con redundancia de zona, caché local completa |
-|**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, de 7 a 35 días (7 días de forma predeterminada), recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
+|**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 
 \* Los grupos elásticos no se admiten en el nivel de servicio Hiperescala
 

@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709084"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
@@ -396,7 +396,7 @@ Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La 
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Para obtener más información sobre la agrupación en clústeres de la instancia de ASCS/SCS de SAP mediante el marco de clústeres de SLES, vea [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
+> Para más información sobre la agrupación en clústeres de la instancia de ASCS/SCS de SAP mediante el marco de clústeres de SLES, consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sap-suse-ascs-ha]. Para información sobre la arquitectura de alta disponibilidad alternativa en SLES, que no requiere NFS de alta disponibilidad, consulte [Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server con Azure NetApp Files para aplicaciones SAP][sap-suse-ascs-ha-anf].
 
 Para más información acerca de la agrupación en clústeres de la instancia de ASCS/SCS de SAP mediante la plataforma de Red Hat, consulte [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).
 

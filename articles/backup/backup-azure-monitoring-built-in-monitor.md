@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688375"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954579"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -87,6 +87,9 @@ Después de que se genere una alerta, se notifica a los usuarios. Azure Backup p
 
 ![Notificación por correo electrónico integrada del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> Las alertas de las copias de seguridad de SQL se consolidarán y el correo electrónico se enviará solo en la primera repetición. Pero si el usuario desactiva la alerta, la siguiente repetición desencadenará otro correo electrónico.
+
 Cuando configure una notificación, recibirá un correo electrónico de bienvenida o de introducción. De esta forma, se confirma que Azure Backup puede enviar mensajes de correo electrónico a estas direcciones cuando se genere una alerta.<br>
 
 Si la frecuencia se ha establecido en un resumen cada hora y una alerta se genera y resuelve en el plazo de una hora, dicha alerta no formará parte del próximo resumen de cada hora.
@@ -95,6 +98,14 @@ Si la frecuencia se ha establecido en un resumen cada hora y una alerta se gener
 >
 > * Si se lleva a cabo una operación de destrucción, como **Detener la protección con eliminación de datos**, se generará una alerta y se enviará un correo electrónico a los propietarios de suscripciones, administradores y coadministradores, aun cuando las notificaciones NO estén configuradas en el almacén de Recovery Services.
 > * Para configurar notificaciones que informen de los trabajos realizados correctamente, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## <a name="inactivating-alerts"></a>Desactivación de alertas
+
+Para desactivar o resolver una alerta activa, puede hacer clic en el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla que muestra información detallada acerca de la alerta, con un botón "Desactivar" en la parte superior. Al hacer clic en este botón el estado de la alerta cambia a "Inactivo". Otra forma de desactivar una alerta es hacer clic con el botón derecho en el elemento de lista correspondiente a la alerta y seleccionar "Desactivar".
+
+![Inactivación de alertas de un depósito de RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d7b91e3e74c65919a3afe80addfbd0fadd23b03c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620412"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931802"
 ---
 # <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
@@ -65,7 +65,7 @@ A continuación, deberá crear las credenciales almacenadas de forma segura:
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Abra el panel de edición y cargue el archivo **Function-PSStoredCredentials.ps1**.
+3. Abra el panel de edición y cargue el archivo **Function-PSStoredCredentials.ps1**. A continuación, ejecute el script entero (F5).
 4. Ejecute el siguiente cmdlet:
     
     ```powershell
@@ -111,7 +111,7 @@ Después de configurar el archivo .xml de configuración, deberá configurar el 
 4. Vaya a la pestaña **Desencadenadores** y seleccione **Nuevo...**
 5. En el cuadro de diálogo **Nuevo desencadenador**, en **Configuración avanzada**, active **Repetir cada** y seleccione el período y la duración adecuados (por ejemplo, **15 minutos** o **indefinidamente**).
 6. Seleccione la pestaña **Acciones** y **Nuevo…**
-7. En el cuadro de diálogo **Nueva acción**, escriba **powershell.exe** en el campo **Program/script** campo y, después, escriba **C:\\escalado\\ RDSScaler.ps1** en el campo **Agregar argumentos (opcional)** .
+7. En el cuadro de diálogo **Nueva acción**, escriba **powershell.exe** en el campo **Programa o script** y, después, escriba **C:\\scaling\\basicScale.ps1** en el campo **Agregar argumentos (opcional)** .
 8. Vaya a las pestañas **Condiciones** y **Configuración**, y seleccione **Aceptar** para aceptar la configuración predeterminada en cada uno.
 9. Escriba la contraseña de la cuenta administrativa en la que planea ejecutar el script de escalado.
 

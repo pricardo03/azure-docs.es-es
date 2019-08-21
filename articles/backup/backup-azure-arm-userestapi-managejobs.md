@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: a8ba5727dea214343e7696ff3193aba13922be03
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689449"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954910"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
-El servicio Azure Backup desencadena los trabajos que se ejecutan en segundo plano en diversos escenarios, como al desencadenar la copia de seguridad, en las operaciones de restauración o al deshabilitar la copia de seguridad. Estos trabajos se pueden seguir mediante sus identificadores.
+El servicio Azure Backup desencadena trabajos que se ejecutan en segundo plano en diversos escenarios, como desencadenar una copia de seguridad, las operaciones de restauración o deshabilitar la copia de seguridad. Estos trabajos se pueden seguir mediante sus identificadores.
 
 ## <a name="fetch-job-information-from-operations"></a>Captura de información sobre el trabajo de las operaciones
 
-Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo, la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) es como sigue:
+Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo:  la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) es como sigue:
 
 ```http
 {

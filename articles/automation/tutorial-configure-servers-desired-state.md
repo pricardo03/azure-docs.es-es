@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144194"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850244"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configuración de servidores en un estado deseado y administración de desviaciones
 
@@ -63,6 +63,9 @@ configuration TestConfig {
    }
 }
 ```
+
+> [!NOTE]
+> En escenarios más avanzados en los que se requiere la importación de varios módulos que proporcionen recursos de DSC, asegúrese de que cada módulo tenga una línea única `Import-DscResource` en la configuración.
 
 Llame al cmdlet `Import-AzureRmAutomationDscConfiguration` para cargar la configuración en la cuenta de Automation:
 
@@ -130,6 +133,17 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 Esto asigna la configuración de nodo llamada `TestConfig.WebServer` al nodo DSC registrado llamado `DscVm`.
 De forma predeterminada, se comprueba el cumplimiento de la configuración del nodo DSC cada 30 minutos.
 Para obtener información sobre cómo cambiar el intervalo de comprobación de cumplimiento, consulte [Configuración del administrador de configuración Local](/PowerShell/DSC/metaConfig).
+
+## <a name="working-with-partial-configurations"></a>Uso de configuraciones parciales
+
+State Configuration de Azure Automation admite el uso de [configuraciones parciales](/powershell/dsc/pull-server/partialconfigs).
+En este escenario, DSC está configurado para administrar varias configuraciones de forma independiente, y cada configuración se recupera de Azure Automation.
+Sin embargo, solo se puede asignar una configuración a un nodo por cuenta de Automation.
+Esto significa que si usa dos configuraciones para un nodo, requerirá dos cuentas de Automation.
+
+Para más información sobre cómo registrar una configuración parcial del servicio de extracción, consulte la documentación sobre [configuraciones parciales](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+Para obtener más información acerca de cómo los equipos pueden trabajar juntos para administrar de forma colaborativa los servidores con la configuración como código, consulte [Descripción del rol de DSC en una canalización de CI/CD](/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Comprobación del estado de cumplimiento de un nodo administrado
 

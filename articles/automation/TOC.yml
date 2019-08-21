@@ -216,9 +216,6 @@
         - name: Solución de los problemas de los cambios en una máquina virtual
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: Administración de una máquina virtual con la recopilación de inventario
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: Solución de problemas
       items:
         - name: Incorporación

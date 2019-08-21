@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: fcdd46ea60ea53088ffacd7d13693b16a208d527
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 309c481c0ebf0e6061524a12356e67394e5db8d2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707469"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880828"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
 
@@ -29,7 +29,7 @@ Microsoft y Oracle se han asociado para proporcionar baja latencia y conectivida
 Mediante esta conectividad entre nubes, puede particionar una aplicación de niveles múltiples para que ejecute su nivel de base de datos en Oracle Cloud Infrastructure (OCI) y la aplicación y los restantes niveles en Microsoft Azure. La experiencia es similar a ejecutar la pila de toda la solución en una nube individual. 
 
 > [!IMPORTANT]
-> Esta funcionalidad está actualmente en versión preliminar y se [aplican ciertas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Esta funcionalidad está actualmente en versión preliminar y se [aplican ciertas limitaciones](#preview-limitations). Para habilitar la conectividad de baja latencia entre Azure y OCI, la suscripción a Azure debe incluirse en la lista de elementos permitidos de esta funcionalidad. Debe enviar un correo electrónico a oracleconnect@microsoft.com con su identificador de suscripción para inscribirse en la versión preliminar. Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. También puede contactar con su representante de ventas de Microsoft para que le tengan en cuenta para esta versión preliminar. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 Si está interesado en implementar soluciones de Oracle por completo en la infraestructura de Azure, consulte [Imágenes de máquina virtual de Oracle y su implementación en Microsoft Azure](oracle-vm-solutions.md).
 

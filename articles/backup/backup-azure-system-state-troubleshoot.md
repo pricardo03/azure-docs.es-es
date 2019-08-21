@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688655"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018779"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -45,14 +45,14 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
 
 ## <a name="pre-requisite"></a>Requisito previo
 
-Antes de solucionar problemas de copia de seguridad de estado del sistema con Azure Backup, asegúrese de realizar la comprobación de los requisitos previos siguientes.  
+Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos siguientes.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Comprobación de que Copias de seguridad de Windows Server está instalado
 
-Asegúrese de que Copias de seguridad de Windows Server está instalado y habilitado en el servidor. Para comprobar el estado de la instalación, ejecute el comando de PowerShell siguiente:
+Asegúrese de que Copias de seguridad de Windows Server está instalado y habilitado en el servidor. Para comprobar el estado de la instalación, ejecute este comando de PowerShell:
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 Si en la salida se muestra **Instalar estado** como **disponible**, significa que la característica de copia de seguridad de Windows Server está disponible para la instalación pero no está instalada en el servidor. Pero si Copias de seguridad de Windows Server no está instalado, use uno de los métodos siguientes para instalarlo.
 
@@ -60,13 +60,13 @@ Si en la salida se muestra **Instalar estado** como **disponible**, significa qu
 
 Para instalar Copias de seguridad de Windows Server con PowerShell, ejecute el comando siguiente:
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **Método 2: Instalación de Copias de seguridad de Windows Server mediante Administrador del servidor**
 
-Para instalar Copias de seguridad de Windows Server mediante Administrador del servidor, ejecute el comando siguiente:
+Para instalar Copias de seguridad de Windows Server mediante Administrador del servidor, ejecute los pasos siguientes:
 
 1. En **Administrador del servidor**, haga clic en **Agregar roles y características**. Aparecerá el **Asistente para agregar roles y características**.
 
@@ -114,7 +114,7 @@ Para validar el estado de Copias de seguridad de Windows Server, siga estos paso
     > [!WARNING]
     > Get-WBJob: El término "Get-WBJob" no se reconoce como nombre de un cmdlet, una función, un archivo de script o un programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
 
-    -   Si se produce este error, vuelva a instalar la característica Copias de seguridad de Windows Server en el equipo del servidor como se ha mencionado en los requisitos previos del paso 1.
+    -   Si se produce este error, vuelva a instalar la característica Copias de seguridad de Windows Server en el equipo del servidor como se ha mencionado en los requisitos previos del paso 1.
 
   * Asegúrese de que la copia de seguridad de WSB funciona correctamente, mediante la ejecución del comando siguiente desde el símbolo del sistema con privilegios elevados:
 
@@ -141,7 +141,7 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 | Síntoma | Resolución
 | -- | --
-| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas; para más información vea este [artículo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax).
 
 
 ### <a name="efi-partition-locked"></a>Partición EFI bloqueada

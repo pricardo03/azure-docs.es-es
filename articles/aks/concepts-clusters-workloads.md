@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
 ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67616014"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
@@ -132,7 +132,7 @@ Kubernetes utiliza *pods* para ejecutar una instancia de la aplicación. Un pod 
 
 Al crear un pod, puede definir *límites de recursos* para solicitar una determinada cantidad de recursos de memoria o CPU. Scheduler de Kubernetes intenta programar los pods para que se ejecuten en un nodo con recursos disponibles para satisfacer la solicitud. También puede especificar los límites de recursos máximos que impiden que un determinado pod consuma demasiados recursos de proceso del nodo subyacente. Un procedimiento recomendado consiste en incluir los límites de recursos de todos los pods para ayudar a Scheduler de Kubernetes a comprender qué recursos son necesarios y cuáles se permiten.
 
-Para más información, consulte los [pods de Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
+Para obtener más información, consulte [Pods de Kubernetes][kubernetes-pods] y [Ciclo de vida de pods de Kubernetes][kubernetes-pod-lifecycle].
 
 Un pod es un recurso lógico, pero los contenedores se refieren al lugar donde se ejecutan las cargas de trabajo de la aplicación. Normalmente los pods son recursos desechables y efímeros, y los pods programados individualmente pierden algunas de las características de redundancia y alta disponibilidad que proporciona Kubernetes. En su lugar, los pods suelen implementarse y administrarse mediante *controladores* de Kubernetes, como el controlador de implementación.
 

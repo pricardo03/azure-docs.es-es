@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814521"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933688"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Uso de Jupyter Notebook y una extensión de Kqlmagic para analizar datos en Azure Data Explorer
 
@@ -39,7 +39,9 @@ Jupyter Notebook es una aplicación web de código abierto que le permite crear 
     ```python
     %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Cambie la versión del kernel a Python 3.6; para ello, haga clic en Kernel > Change Kernel > Python 3.6 (Kernel > Cambiar kernel > Python 3.6).
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Conectarse al clúster de ayuda de Azure Data Explorer
 
 Use el comando siguiente para conectarse a la base de datos *Samples* (Ejemplos) hospedada en el clúster *Help* (Ayuda). Para usuarios de un entorno de AAD distinto de Microsoft, reemplace el nombre del inquilino `Microsoft.com` por su inquilino de AAD.

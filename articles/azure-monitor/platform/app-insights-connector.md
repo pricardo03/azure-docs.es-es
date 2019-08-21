@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606743"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849183"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -183,7 +183,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora del registro |
 | ApplicationId | Clave de instrumentación de la aplicación de Application Insights |
@@ -192,16 +192,16 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 | DeviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continent | El continente donde se originó la solicitud |
-| País | País o región donde se originó la solicitud |
+| Country | País o región donde se originó la solicitud |
 | Province | La provincia, el estado o la localidad donde se originó la solicitud |
 | City | La ciudad o el pueblo donde se originó la solicitud |
-| isSynthetic | Indica si la solicitud la creó un usuario o un método automatizado. True = generada por el usuario o false = método automatizado |
+| isSynthetic | Indica si la solicitud la creó un usuario o un método automatizado. True = método automatizado o false = generado por el usuario |
 | SamplingRate | Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0. |
 | SampledCount | 100/(SamplingRate). Por ejemplo, 4 =&gt; 25 % |
 | IsAuthenticated | Verdadero o falso |
 | OperationID | Los elementos que tienen el mismo identificador de operación se muestran como elementos relacionados en el portal. Normalmente, el identificador de solicitud |
 | ParentOperationID | El identificador de la operación principal |
-| nombreOperación |   |
+| OperationName |   |
 | SessionId | GUID para identificar de forma única la sesión en que se creó la solicitud |
 | SourceSystem | ApplicationInsights |
 
@@ -232,7 +232,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="exception-specific-fields"></a>Campos específicos de excepción
 
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Excepción |
 | ExceptionType | Tipo de la excepción |
@@ -251,7 +251,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | Solicitud |
 | ResponseCode | Respuesta HTTP enviada al cliente |
 | RequestSuccess | Indica una solicitud correcta o errónea. True o false. |

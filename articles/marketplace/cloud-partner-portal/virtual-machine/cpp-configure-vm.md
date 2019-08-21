@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654029"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880357"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar la máquina virtual hospedada en Azure
 
@@ -70,7 +70,7 @@ Para obtener más información sobre la ejecución de sysprep, consulte [Pasos p
 
 ### <a name="linux"></a>Linux
 
-El siguiente proceso de dos pasos generaliza una máquina virtual Linux y la vuelve a implementar como una máquina virtual independiente.  Para obtener más información, vea [Creación de una imagen de una máquina virtual o un disco duro virtual](../../../virtual-machines/linux/capture-image.md). 
+El siguiente proceso de dos estapas generaliza una máquina virtual Linux y la vuelve a implementar como una máquina virtual independiente. Estas dos estapas son solo los aspectos básicos del proceso. Para más información sobre estas dos estapas y por qué se deben llevar a cabo, consulte [Creación de una imagen de una máquina virtual o un disco duro virtual](../../../virtual-machines/linux/capture-image.md). Con el fin de crear el disco duro virtual para la oferta de Azure Marketplace, puede detenerse cuando llegue a la sección "Creación de una máquina virtual desde la imagen capturada".
 
 #### <a name="remove-the-azure-linux-agent"></a>Quitar el agente de Linux de Azure
 1.  Conexión a una máquina virtual Linux de Azure mediante un cliente SSH.
@@ -95,4 +95,4 @@ Crear copias de máquina virtual suele resultar útil para las copias de segurid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada la máquina virtual, está listo para [implementar una máquina virtual desde un disco duro virtual](./cpp-deploy-vm-vhd.md).
+Una vez que la máquina virtual está generalizada, se ha desasignado y ha creado una imagen de ella, está preparado para [implementar una máquina virtual desde un disco duro virtual](./cpp-deploy-vm-vhd.md).

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568747"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033256"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adición de un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -76,11 +76,11 @@ En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-
 1. Seleccione **Servidores SQL Server** y elija el servidor que ha creado en la sección 1.
 1. Seleccione **Grupos de conmutación por error** en el panel **Configuración** y, después, seleccione **Agregar grupo** para crear un nuevo grupo de conmutación por error. 
 
-    ![Adición de un grupo de conmutación por error](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Adición de un grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. En la página **Grupo de conmutación por error**, escriba o seleccione los valores siguientes y, después, seleccione **Crear**:
     - **Nombre del grupo de conmutación por error** Escriba un nombre del grupo de conmutación por error único, como `failovergrouptutorial`. 
-    - **Servidor secundario**: Seleccione la opción para *configurar los valores obligatorios* y, a continuación, elija **Crear un nuevo servidor**. Como alternativa, puede elegir un servidor ya existente como servidor secundario. Después de escribir los valores siguientes, elija **Seleccionar**. 
+    - **Servidor secundario**: Seleccione la opción para *configurar los valores obligatorios* y, a continuación, elija **Crear un nuevo servidor**. Como alternativa, puede elegir un servidor ya existente como servidor secundario. Después de especificar los siguientes valores para el nuevo servidor secundario, haga clic en **Seleccionar**. 
         - **Nombre del servidor**: Escriba un nombre único para el servidor secundario, como `mysqlsecondary`. 
         - **Inicio de sesión del administrador del servidor**: Escriba `azureuser`
         - **Contraseña**: Escriba una contraseña compleja que cumpla los requisitos de contraseña.
@@ -91,9 +91,9 @@ En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-
     
        ![Creación de un servidor secundario para el grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Cuando se selecciona un servidor secundario, la opción **Databases within the group** (Bases de datos en el grupo) se desbloquea. Selecciónelo para **seleccionar las bases de datos que quiera agregar.** y después elija el grupo elástico que ha creado en la sección 2. Debería aparecer una advertencia que le pide que cree un grupo elástico en el servidor secundario. Seleccione la advertencia y, a continuación, elija **Aceptar** para crear el grupo elástico en el servidor secundario. 
+1. Seleccione **Bases de datos del grupo** y, a continuación, seleccione el grupo elástico que creó en la sección 2. Debería aparecer una advertencia que le pide que cree un grupo elástico en el servidor secundario. Seleccione la advertencia y, a continuación, elija **Aceptar** para crear el grupo elástico en el servidor secundario. 
         
-    ![Adición de la base de datos SQL a un grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Agregar un grupo elástico a un grupo de conmutación por error](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Elija **Seleccionar** para aplicar la configuración del grupo elástico al grupo de conmutación por error y, después, seleccione **Crear** para crear el grupo de conmutación por error. Al agregar el grupo elástico al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica. 
 

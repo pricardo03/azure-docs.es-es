@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 62115dd519336c728b679e4e698182a50660a464
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460215"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949884"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -584,20 +584,44 @@ Cuando se implementa la aplicación de función en Azure mediante el botón **De
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
+Hay varias cuestiones en las que un proyecto de TypeScript difiere de un proyecto de JavaScript cuando se usa Core Tools.
+
+#### <a name="create-project"></a>Crear proyecto
+
 Para crear un proyecto de aplicación de función de TypeScript con Core Tools, debe especificar la opción de lenguaje TypeScript al crear la aplicación de función. Para ello, siga uno de estos métodos:
 
 - Ejecute el comando `func init`, seleccione `node` como la pila de lenguaje y, luego, seleccione `typescript`.
 
 - Ejecute el comando `func init --worker-runtime typescript`.
 
-Para ejecutar el código de aplicación de función localmente mediante Core Tools, use el comando `npm start` en lugar de `func host start`. El comando `npm start` es equivalente a los siguientes comandos:
+#### <a name="run-local"></a>Ejecución local
+
+Para ejecutar el código de la aplicación de función localmente mediante Core Tools, use los comandos siguientes en lugar de `func host start`: 
+
+```command
+npm install
+npm start
+```
+
+El comando `npm start` es equivalente a los siguientes comandos:
 
 - `npm run build`
 - `func extensions install`
 - `tsc`
 - `func start`
 
-Antes de usar el comando [`func azure functionapp publish`] para realizar la implementación en Azure, primero debe ejecutar el comando `npm run build:production`. Este comando crea una compilación lista para producción de archivos JavaScript a partir de los archivos de origen de TypeScript, que se puede implementar mediante [`func azure functionapp publish`].
+#### <a name="publish-to-azure"></a>Publicación en Azure
+
+Antes de usar el comando [`func azure functionapp publish`] para implementar en Azure, puede crear una compilación lista para producción de archivos de JavaScript a partir de los archivos de origen de TypeScript. 
+
+Los siguientes comandos preparan y publican el proyecto de TypeScript mediante Core Tools: 
+
+```command
+npm run build:production 
+func azure functionapp publish <APP_NAME>
+```
+
+En este comando, reemplace `<APP_NAME>` por el nombre de la aplicación de función.
 
 ## <a name="considerations-for-javascript-functions"></a>Consideraciones para las funciones de JavaScript
 

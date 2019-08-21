@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386972"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936897"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 No, BGP se admite solo en las puertas de enlace VPN de Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** y **HighPerformance**. **Basic** NO se admite.
@@ -39,6 +39,13 @@ Estos ASN no se pueden especificar para sus dispositivos VPN locales al conectar
 Sí, los siguientes ASN están [reservados por IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) y no se pueden configurar en Azure VPN Gateway:
 
 23456, 64496-64511, 65535-65551 y 429496729
+
+### <a name="what-private-asns-can-i-use"></a>¿Qué ASN privados puedo usar?
+El intervalo de ASN privados disponible que se puede usar es:
+
+* 64512-65514, 65521-65534
+
+Estos ASN no están reservados por IANA ni por Azure para su uso y, por tanto, se pueden utilizar para asignarlos a su instancia de Azure VPN Gateway.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>¿Puedo usar el mismo ASN para redes VPN locales y redes virtuales de Azure?
 No, debe asignar ASN diferentes entre las redes locales y sus redes virtuales de Azure si las está conectando con BGP. Azure VPN Gateway tiene un ASN de 65515 predeterminado asignado, independientemente de que BGP esté habilitado, o no, para la conectividad entre locales. Para invalidar este valor predeterminado, asigne otro ASN al crear la puerta de enlace de VPN o cambie el ASN después de crearla. Debe asignar los ASN locales a las puertas de enlace de red local de Azure correspondientes.

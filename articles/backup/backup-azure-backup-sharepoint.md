@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 75916655f1b46cd1b84220cba9db441d54486927
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 875c2002d477a95b44ad1491cb716e2ef70697e7
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735658"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954845"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante System Center Data Protection Manager (DPM) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. DPM ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
@@ -43,7 +43,7 @@ DPM se ejecuta como una cuenta LocalSystem. Para realizar una copia de seguridad
 Si la granja de SharePoint tiene bases de datos SQL Server que están configuradas con alias de SQL Server, instale los componentes de cliente de SQL Server en el servidor web front-end que DPM vaya a proteger.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-Si bien el rendimiento depende de muchos factores, como el tamaño de la granja de SharePoint, de forma orientativa, un servidor DPM puede proteger una granja de SharePoint de 25 TB.
+Aunque el rendimiento depende de muchos factores, como el tamaño de la granja de SharePoint, de forma orientativa, un servidor DPM puede proteger una granja de SharePoint de 25 TB.
 
 ### <a name="dpm-update-rollup-5"></a>Paquete acumulativo de actualizaciones 5 de DPM
 Para empezar a proteger una granja de SharePoint en Azure, debe instalar el paquete acumulativo de actualizaciones 5 o superior de DPM. El paquete acumulativo de actualizaciones 5 ofrece la posibilidad de proteger una granja de SharePoint en Azure si está configurada con SQL AlwaysOn.

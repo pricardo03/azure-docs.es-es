@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a73500d17a0dd5d55e60700f7c0b6dbe92a3f96b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382521"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880792"
 ---
 # <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 
@@ -40,6 +40,9 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
     ![Pantalla que proporciona el código QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Abra la aplicación Microsoft Authenticator, seleccione **Agregar cuenta** en el icono **Personalizar y controlar** en la esquina superior derecha y, a continuación, seleccione **Cuenta profesional o educativa**.
+
+    >[!Note]
+    >Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
 4. Use la cámara del dispositivo para detectar el código QR desde la pantalla **Configurar aplicación móvil** del equipo y, después, elija **Listo**.
 

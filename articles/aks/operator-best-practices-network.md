@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
 ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67614750"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
@@ -108,7 +108,7 @@ Hay muchos escenarios de entrada, incluidas las siguientes guías paso a paso:
 * [Creación de un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 * [Creación de un controlador de entrada que use una red privada interna y una dirección IP][aks-ingress-internal]
 * [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
-* Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS [con una dirección IP pública dinámica][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* Creación de un controlador de entrada que use Let's Encrypt para generar certificados TLS de forma automática [con una dirección IP pública dinámica][aks-ingress-tls] o [con una dirección IP pública estática][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Protección del tráfico con un firewall de aplicaciones web (WAF)
 
@@ -158,7 +158,7 @@ La mayoría de las operaciones en AKS puede realizarse con las herramientas de a
 
 ![Conexión a los nodos de AKS mediante una pasarela de aplicaciones o host de salto](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-La red de administración para la pasarela de aplicaciones también debe protegerse. Use [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] para conectarse a una red local y controlar el acceso con grupos de seguridad de red.
+La red de administración para la pasarela de aplicaciones también debe protegerse. Use [Azure ExpressRoute][expressroute] o [VPN Gateway][vpn-gateway] para conectarse a una red local y controlar el acceso con grupos de seguridad de red.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

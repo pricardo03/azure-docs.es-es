@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c53a3e01d471f2ca9b0878c374b00ce83848ca28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871008"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976593"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adición de formas a un mapa mediante el Android SDK de Azure Maps
 
@@ -82,6 +82,7 @@ Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos 
     
     ```Java
     package com.example.myapplication;
+
     import android.app.Activity;
     import android.os.Bundle;
     import com.mapbox.geojson.LineString;
@@ -96,8 +97,7 @@ Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos 
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-    
-    
+        
     public class MainActivity extends AppCompatActivity {
     
         static{
@@ -133,8 +133,7 @@ Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos 
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(5f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -171,8 +170,7 @@ Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos 
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -307,8 +305,7 @@ La **capa de polígono** le permite representar el área del polígono en el map
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(2f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -345,8 +342,7 @@ La **capa de polígono** le permite representar el área del polígono en el map
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -359,7 +355,13 @@ Si ejecuta la aplicación ahora, debe ver un polígono en el mapa tal como se mu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el siguiente artículo para obtener más información sobre las formas de establecer estilos de mapa
+Para agregar más datos al mapa:
 
 > [!div class="nextstepaction"]
-> [Cambio de estilos de mapa en mapas de Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Adición de una capa de símbolo](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de icono](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Presentación de la información de características](display-feature-information-android.md)

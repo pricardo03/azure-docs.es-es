@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 1d2a0c9e1531ace16335ea57acaccedfe2c1a3c8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815898"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990073"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Tutorial: Uso del aprendizaje automático automatizado para entrenar e implementar su primer modelo de clasificación (versión preliminar)
 
@@ -95,7 +95,7 @@ En este tutorial, ha aprendido las tareas siguientes:
     Simultaneidad| Seleccione **5** como número máximo de iteraciones simultáneas.
 
    >[!NOTE]
-   > Para este experimento, no se establece una métrica ni un umbral máximo de iteraciones. Tampoco se impide que se pruebe ningún algoritmo.
+   > Para este experimento, no se establece una métrica ni núcleos máximos por umbral de iteraciones. Tampoco se impide que se pruebe ningún algoritmo.
 
 1. Para ejecutar el experimento, seleccione **Iniciar**.
 

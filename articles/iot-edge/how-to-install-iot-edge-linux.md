@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: bb23ee1e51be178f93e05b728f7b8c2e9bb18e0d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414495"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988629"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian
 
@@ -262,6 +262,8 @@ Y, enumere los módulos en ejecución con:
 ```bash
 sudo iotedge list
 ```
+
+Después de una instalación de IoT Edge en el dispositivo, el único módulo que debería en ejecución es **edgeAgent**. Una vez creada la primera implementación, el otro módulo del sistema **$edgeHub** se iniciará también en el dispositivo. Para más información, consulte [Implementación de módulos IoT Edge](how-to-deploy-modules-portal.md).
 
 ## <a name="tips-and-troubleshooting"></a>Sugerencias y solución de problemas
 

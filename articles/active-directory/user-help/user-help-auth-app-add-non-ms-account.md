@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effe48c859e711f0efc41c1a4d651e5d15d5ada9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382607"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942928"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adición de cuentas que no sean de Microsoft
 
@@ -33,6 +33,9 @@ Por lo general, para todas las cuentas personales, debe realizar los siguientes 
 1. Inicie sesión en la cuenta y, a continuación, active la verificación en dos fases con el dispositivo o su equipo.
 
 2. Agregue la cuenta a la aplicación Microsoft Authenticator. Puede que se le pida que lea un código QR como parte de este proceso.
+
+    >[!Note]
+    >Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
 Ofrecemos aquí el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para cualquier otra aplicación, como Adobe, Netflix o Instagram.
 

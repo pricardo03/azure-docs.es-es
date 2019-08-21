@@ -1,29 +1,29 @@
 ---
-title: Entrenamiento y registro de modelos de TensorFlow
+title: Entrenamiento de una red neuronal de aprendizaje profundo con TensorFlow
 titleSuffix: Azure Machine Learning service
-description: En este artículo se muestra cómo entrenar y registrar un modelo de TensorFlow mediante Azure Machine Learning Service.
+description: Aprenda a ejecutar los scripts de entrenamiento de TensorFlow a escala mediante Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f6aaa4f1b8f58f7cd6c1f02f424614d33863fc5
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815879"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966804"
 ---
-# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning Service
+# <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Creación de un modelo de aprendizaje profundo de TensorFlow a escala con Azure Machine Learning
 
-En este artículo se muestra cómo entrenar y registrar un modelo de TensorFlow mediante Azure Machine Learning Service. Se usa el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar dígitos escritos a mano mediante una red neuronal profunda creada con la [biblioteca TensorFlow de Python](https://www.tensorflow.org/overview).
+En este artículo se muestra cómo ejecutar los scripts de entrenamiento de [TensorFlow](https://www.tensorflow.org/overview) a escala mediante la clase [estimator de TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) de Azure Machine Learning. En este ejemplo se entrena y registra un modelo de TensorFlow para clasificar dígitos manuscritos mediante una red neuronal profunda (DNN).
 
-TensorFlow es un marco de proceso de código abierto utilizado habitualmente para crear redes neuronales profundas (DNN). Con Azure Machine Learning Service, puede escalar horizontalmente con rapidez trabajos de entrenamiento de código abierto mediante recursos de proceso elásticos en la nube. También puede realizar un seguimiento de las ejecuciones de entrenamientos, los modelos de versión, los modelos de implementación y mucho más.
+Tanto si se va a desarrollar un modelo de TensorFlow desde el principio como si va a incorporar un [modelo existente](how-to-deploy-existing-model.md) a la nube, puede usar Azure Machine Learning para escalar horizontalmente trabajos de entrenamiento de código abierto para crear, implementar, versionar y supervisar modelos de nivel de producción.
 
-Con independencia de que desarrolle un modelo de TensorFlow desde el principio o lleve un [modelo existente](how-to-deploy-existing-model.md) a la nube, Azure Machine Learning Service le puede ayudar a crear modelos para entornos de producción.
+Más información sobre las diferencias entre [aprendizaje profundo y aprendizaje automático](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,12 +32,12 @@ Ejecute este código en cualquiera de estos entornos:
  - Máquina virtual de Notebook de Azure Machine Learning: no se necesitan descargas ni instalación
 
      - Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
-    - En la carpeta de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow**, para encontrar un cuaderno completado y expandido. 
+    - En la carpeta de aprendizaje profundo de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow**, ya que ahí encontrará un cuaderno completado y expandido. 
  
  - Su propio servidor de Jupyter Notebook
 
-     - [Instalación del SDK de Azure Machine Learning para Python](setup-create-workspace.md#sdk)
-    - [Creación de un archivo de configuración del área de trabajo](setup-create-workspace.md#write-a-configuration-file)
+    - [Instalación del SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Creación de un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - [Descarga de los archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` y `utils.py`
      
     También puede encontrar una [versión de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) completada de esta guía en la página de ejemplos de GitHub. El cuaderno incluye secciones expandidas que abarcan el ajuste de hiperparámetros inteligente, la implementación de modelos y los widgets del cuaderno.
@@ -73,7 +73,7 @@ Cree un objeto de área de trabajo a partir del archivo `config.json` creado en 
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Creación de un experimento
+### <a name="create-a-deep-learning-experiment"></a>Creación de un experimento de aprendizaje profundo
 
 Cree un experimento y una carpeta para almacenar los scripts de entrenamiento. En este ejemplo, cree un experimento llamado "tf-mnist".
 
@@ -292,5 +292,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 En este artículo, ha entrenado y registrado un modelo de TensorFlow. Para obtener información sobre cómo implementar un modelo en un clúster habilitado para GPU, continúe con nuestro artículo de implementación del modelo GPU.
 
-[Cómo implementar para la inferencia con GPU](how-to-deploy-inferencing-gpus.md)
-[Cómo supervisar con Tensorboard](how-to-monitor-tensorboard.md)
+> [!div class="nextstepaction"]
+> [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
+* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+* [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
+* [Implementar un modelo entrenado](how-to-deploy-and-where.md)
+* [Arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360709"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945347"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
 
@@ -21,7 +21,7 @@ La actualización de un servicio en la nube, incluidos sus roles y el sistema op
 ## <a name="update-an-azure-service"></a>Actualización de un servicio de Azure
 Azure organiza las instancias de rol en agrupaciones lógicas denominadas dominios de actualización (UD). Los dominios de actualización (UD) son conjuntos lógicos de instancias de rol que se actualizan como un grupo.  Azure actualiza un servicio en la nube con los UD de uno en uno, lo que permite a las instancias de otros UD continuar atendiendo el tráfico.
 
-El número predeterminado de dominios de actualización es 5. Puede especificar un número diferente de dominios de actualización incluyendo el atributo upgradeDomainCount en el archivo de definición de servicio (.csdef). Para más información sobre el atributo upgradeDomainCount, consulte [Esquema WebRole](/previous-versions/azure/reference/gg557553(v=azure.100)) o [Esquema WorkerRole](/previous-versions/azure/reference/gg557552(v=azure.100)).
+El número predeterminado de dominios de actualización es 5. Puede especificar un número diferente de dominios de actualización incluyendo el atributo upgradeDomainCount en el archivo de definición de servicio (.csdef). Para más información sobre el atributo upgradeDomainCount, consulte [Esquema de definición de Azure Cloud Services (archivo .csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Al realizar una actualización local de uno o varios roles en el servicio, Azure actualiza los conjuntos de instancias de rol según el dominio de actualización al que pertenecen. Azure actualiza todas las instancias de un dominio de actualización dado (deteniéndolas, actualizándolas, conectándolas de nuevo), y luego pasa al dominio siguiente. Al detener solo las instancias que se ejecutan en el dominio de actualización en ese moment, Azure se asegura de que una actualización se realiza con el menor impacto posible en el servicio que está en ejecución. Para obtener más información, consulte [Cómo se realiza una actualización](#howanupgradeproceeds) más adelante en este artículo.
 

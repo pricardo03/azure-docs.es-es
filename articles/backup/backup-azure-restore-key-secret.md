@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: dacurwin
-ms.openlocfilehash: 379dd87edbbfa878a034cd61854ee15f215b0228
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: cca8cf3a222b71954e6727e184ff5d16839a6a68
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689108"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954556"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo usar Azure Backup para restaurar máquinas vi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Realizar una copia de seguridad de las máquinas virtuales cifradas**: se realizó una copia de seguridad de las máquinas virtuales cifradas de Azure mediante Azure Backup. Consulte el artículo [Implementación y administración de copias de seguridad para las máquinas virtuales implementadas según el modelo de Resource Manager mediante PowerShell](backup-azure-vms-automation.md) para más información acerca de cómo hacer una copia de seguridad cifrada de las máquinas virtuales de Azure.
+* **Realizar una copia de seguridad de las máquinas virtuales cifradas**: se realizó una copia de seguridad de las máquinas virtuales cifradas de Azure mediante Azure Backup. Para obtener información acerca de cómo hacer copias de seguridad de máquinas virtuales de Azure cifradas, consulte el artículo [Administración de operaciones de copia de seguridad y restauración de máquinas virtuales de Azure mediante PowerShell](backup-azure-vms-automation.md).
 * **Configurar Azure Key Vault**: asegúrese de que ya exista el almacén de claves donde deben restaurarse las claves y los secretos. Consulte el artículo [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md) para más información sobre la administración de almacenes de claves.
 * **Restaurar disco**: asegúrese de que ha desencadenado el trabajo de restauración para restaurar los discos de la máquina virtual cifrada con los [pasos de PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Esto se debe a que este trabajo genera un archivo JSON en la cuenta de almacenamiento que contiene las claves y secretos para la máquina virtual cifrada que se va a restaurar.
 
@@ -138,4 +138,4 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de restaurar la clave y el secreto de nuevo en el almacén de claves, consulte el artículo [Administración de copias de seguridad y restauración de las máquinas virtuales de Azure mediante PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para restaurar las máquinas virtuales cifradas a partir del disco, la clave y el secreto restaurados.
+Después de restaurar la clave y el secreto en el almacén de claves, consulte el artículo [Administración de operaciones de copia de seguridad y restauración de máquinas virtuales de Azure mediante PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para crear máquinas virtuales cifradas a partir del disco, la clave y el secreto restaurados.

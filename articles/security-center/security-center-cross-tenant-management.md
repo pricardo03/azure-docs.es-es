@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
+ms.date: 08/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b8d27178a75cb39c7d7769f2db6a193292a3f9f1
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782540"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950549"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -28,8 +28,6 @@ La administración entre inquilinos le permite ver y administrar la posición de
 - Los proveedores de servicios pueden administrar la posición de seguridad de los recursos, para varios clientes, desde su propio inquilino.
 
 - Los equipos de seguridad de las organizaciones con varios inquilinos pueden ver y administrar su posición de seguridad desde una ubicación única.
-
-  ![Administración entre inquilinos](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
 
 ## <a name="set-up-cross-tenant-management"></a>Configuración de la administración entre inquilinos
 
@@ -48,22 +46,13 @@ En la barra de menús superior, haga clic en el icono de filtro y seleccione las
 
 Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 
-- **Administrar directivas de seguridad**: desde una vista, administre la posición de seguridad de muchos recursos con las [directivas](tutorial-security-policy.md), haga acciones con las recomendaciones de seguridad y recopile y administre los datos relacionados con la seguridad. Por ejemplo, en la imagen siguiente, hay cuatro directorios de inquilino distintos (Doug.Lora, Microsoft, SSO, Wilde Company) y cada inquilino tiene suscripciones. Las suscripciones seleccionadas de los distintos inquilinos se muestran en esta lista de administración de directivas.
-
-     ![Administración de directivas entre inquilinos](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
-
-- **Mejorar la puntuación segura y la posición de cumplimiento**: la visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación segura](security-center-secure-score.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos, como se muestra en la imagen siguiente.
-
-     ![Puntuación segura](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
-
-- **Corrección de recomendaciones**: supervise y corrija una [recomendación](security-center-recommendations.md) para varios recursos de varios inquilinos de una sola vez (como se muestra en la imagen siguiente). Luego, puede abordar de inmediato las vulnerabilidades que presentan el riesgo más alto en todos los inquilinos.
-
-  ![Administración de recomendaciones entre inquilinos](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
+- **Administrar directivas de seguridad**: desde una vista, administre la posición de seguridad de muchos recursos con las [directivas](tutorial-security-policy.md), haga acciones con las recomendaciones de seguridad y recopile y administre los datos relacionados con la seguridad.
+- **Mejorar la puntuación segura y la posición de cumplimiento**: la visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación segura](security-center-secure-score.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos.
+- **Corrección de recomendaciones**: supervise y corrija una [recomendación](security-center-recommendations.md) para varios recursos de varios inquilinos de una sola vez. Luego, puede abordar de inmediato las vulnerabilidades que presentan el riesgo más alto en todos los inquilinos.
 - **Administrar alertas**: detecte [alertas](security-center-alerts-overview.md) en los distintos inquilinos. Tome medidas en los recursos que no cumplen con los [pasos de corrección](security-center-managing-and-responding-alerts.md) accionables.
 
 - **Administrar las características de protección en la nube avanzada y mucho más**: administre los distintos servicios de detección y protección ante amenazas, como el [acceso a VM Just-in-Time (JIT)](security-center-just-in-time.md), la [protección de red adaptable](security-center-adaptive-network-hardening.md), los [controles de aplicaciones adaptables](security-center-adaptive-application.md), etc.
-
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explica cómo funciona la administración entre inquilinos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

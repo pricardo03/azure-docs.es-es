@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1e14e9819f4b3344d0f0155ac5c15337a45952dc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c739a6e79cab14ecc8e5a4be23c551d2774cbbd8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828056"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933974"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migración de los datos a una cuenta de Cassandra API de Azure Cosmos DB mediante Striim
 
-La imagen de Striim en Azure Marketplace ofrece una migración continua de los datos en tiempo real desde almacenes de datos y bases de datos a Azure. Durante la migración de los datos, puede realizar una desnormalización insertada, trasformar los datos y habilitar análisis en tiempo real y escenarios de creación de informes de datos. Es fácil empezar a trabajar con Striim para migrar continuamente datos empresariales a Cassandra API de Azure Cosmos DB. Azure proporciona una oferta de Marketplace que facilita la implementación de Striim y la migración de los datos a Azure Cosmos DB. 
+La imagen de Striim en Azure Marketplace ofrece una migración continua de los datos en tiempo real desde almacenes de datos y bases de datos a Azure. Durante la migración de los datos, puede realizar una desnormalización insertada, trasformar los datos y habilitar análisis en tiempo real y escenarios de creación de informes de datos. Es fácil empezar a trabajar con Striim para migrar continuamente datos empresariales a Cassandra API de Azure Cosmos DB. Azure proporciona una oferta de Marketplace que facilita la implementación de Striim y la migración de los datos a Azure Cosmos DB. 
 
 En este artículo se muestra cómo usar Striim para migrar datos desde una instancia de **Oracle Database** a una **cuenta de Cassandra API de Azure Cosmos DB**.
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo usar Striim para migrar datos desde una insta
 
 * Si no tiene una [suscripción a Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-* Una instancia de Oracle Database que se ejecuta localmente con algunos datos en ella.
+* Una instancia de Oracle Database que se ejecute localmente y que contenga algunos datos.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Implementación de la solución de Marketplace de Striim
 
@@ -43,23 +43,23 @@ En este artículo se muestra cómo usar Striim para migrar datos desde una insta
 
    |Configuración | Valor | DESCRIPCIÓN |
    | ---| ---| ---|
-   |Tipo de implementación de Striim |Independiente | Striim se puede ejecutar en un tipo de implementación **independiente** o del **clúster**. El modo independiente implementará el servidor Striim en una sola máquina virtual y puede seleccionar el tamaño de las máquinas virtuales dependiendo de su volumen de datos. El modo de clúster implementará el servidor Striim en dos o más máquinas virtuales con el tamaño seleccionado. Los entornos de clúster con más de dos nodos ofrecen conmutación por error y alta disponibilidad automáticas.</br></br> En este tutorial, puede seleccionar la opción Independiente. Use el tamaño "Standard_F4s" predeterminado de la máquina virtual. | 
+   |Tipo de implementación de Striim |Independiente | Striim se puede ejecutar en un tipo de implementación **independiente** o de **clúster**. El modo independiente implementará el servidor Striim en una sola máquina virtual, y lepermite seleccionar el tamaño de las máquinas virtuales dependiendo de su volumen de datos. El modo de clúster implementará el servidor Striim en dos o más máquinas virtuales con el tamaño seleccionado. Los entornos de clúster con más de dos nodos ofrecen conmutación por error y alta disponibilidad automáticas.</br></br> En este tutorial, puede seleccionar la opción Independiente. Use el tamaño "Standard_F4s" predeterminado de la máquina virtual. | 
    | Nombre del clúster de Striim|    <Striim_cluster_Name>|  Nombre del clúster de Striim.|
-   | Contraseña del clúster de Striim|   <Striim_cluster_password>|  Contraseña del clúster.|
+   | Contraseña del clúster de Striim|   <Striim_cluster_password>|  Contraseña para el clúster.|
 
    Una vez que rellene el formulario, seleccione **Aceptar** para continuar.
 
-1. En el panel **Striim access settings** (Configuración de acceso de Striim), configure la **Dirección IP pública** (elija los valores predeterminados), **Domain name for Striim** (Nombre de dominio para Striim) y la **Contraseña de administrador** que desea usar para iniciar sesión en la interfaz de usuario de Striim. Configure una red virtual y una subred (elija los valores predeterminados). Tras rellenar los datos, seleccione **Aceptar** para continuar.
+1. En el panel **Striim access settings** (Configuración de acceso de Striim), configure la **Dirección IP pública** (elija los valores predeterminados), **Domain name for Striim** (Nombre de dominio para Striim) y la **Contraseña de administrador** que desea usar para iniciar sesión en la interfaz de usuario de Striim. Configure una red virtual y una subred (elija los valores predeterminados). Tras rellenar los detalles, seleccione **Aceptar** para continuar.
 
    ![Configuración de acceso de Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png)
 
-1. Azure validará la implementación y se asegurará de que todo parezca correcto; la validación tarda algunos minutos en completarse. Una vez completada la validación, seleccione **Aceptar**.
+1. Azure validará la implementación y se asegurará de que todo esté bien; la validación tarda algunos minutos en completarse. Una vez completada la validación, seleccione **Aceptar**.
   
 1. Por último, revise las condiciones de uso y seleccione **Crear** para crear su instancia de Striim. 
 
 ## <a name="configure-the-source-database"></a>Configuración de la base de datos de origen
 
-En esta sección, configura la instancia de Oracle Database como origen del movimiento de datos.  Necesitará el [controlador JDBC de Oracle](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) para conectarse a Oracle. Para leer los cambios en su instancia de Oracle Database de origen, puede usar las [API XStream](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647) o [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html). El controlador JDBC de Oracle debe estar presente en classpath de Java de Striim para leer, escribir o conservar datos de la instancia de Oracle Database.
+En esta sección, va a configurar la instancia de Oracle Database como origen del movimiento de datos.  Necesitará el [controlador JDBC de Oracle](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) para conectarse a Oracle. Para leer los cambios en su instancia de Oracle Database de origen, puede usar [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html) o las [API XStream](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647). El controlador JDBC de Oracle tiene que estar presente en classpath de Java de Striim para leer, escribir o conservar datos de la instancia de Oracle Database.
 
 Descargue el controlador [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) en su máquina local. Lo instalará en el clúster de Striim posteriormente.
 
@@ -81,7 +81,7 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
    ![Obtención de la dirección URL de SSH](./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png)
 
-1. Abra una nueva ventana de terminal y ejecute el comando SSH que copió desde Azure Portal. En este artículo se usa el terminal en macOS. Puede seguir las instrucciones similares mediante PuTTY u otro cliente SSH en una máquina Windows. Cuando se le solicite, escriba **sí** para continuar y la **contraseña** que ha establecido para la máquina virtual en el paso anterior.
+1. Abra una nueva ventana de terminal y ejecute el comando SSH que copió desde Azure Portal. En este artículo se usa el terminal en MacOS. Puede seguir las instrucciones similares mediante PuTTY u otro cliente SSH en una máquina Windows. Cuando se le solicite, escriba **sí** para continuar y la **contraseña** que ha establecido para la máquina virtual en el paso anterior.
 
    ![Conexión a la máquina virtual de Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png)
 
@@ -94,7 +94,7 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
    ![Copia del archivo Jar desde la ubicación de la máquina en Striim](./media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png)
 
-1. A continuación, vuelva a la ventana donde usó SSH en la instancia de Striim e inició sesión como sudo. Mueva el archivo **ojdbc8.jar** del directorio **/tmp** al directorio **lib** de su instancia de Striim con los siguientes comandos:
+1. A continuación, vuelva a la ventana donde usó SSH en la instancia de Striim e inicie sesión como sudo. Mueva el archivo **ojdbc8.jar** del directorio **/tmp** al directorio **lib** de su instancia de Striim con los siguientes comandos:
 
    ```bash
    sudo su
@@ -129,11 +129,11 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
    ![Inicio de sesión en Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png)
 
-1. Ahora llegará a la página principal de Striim. Hay tres paneles diferentes: **Dashboards**, **Apps** y **SourcePreview**. El panel Dashboards le permite migrar datos en tiempo real y visualizarlos. En el panel Apps se incluyen sus canalizaciones de streaming de datos o flujos de datos. En el lado derecho de la página se encuentra SourcePreview, donde puede obtener una versión preliminar de sus datos antes de migrarlos.
+1. Ahora llegará a la página principal de Striim. Hay tres paneles diferentes: **Dashboards**, **Apps** y **SourcePreview**. El panel Dashboards le permite mover datos en tiempo real y visualizarlos. En el panel Apps se incluyen sus canalizaciones de streaming de datos o flujos de datos. En el lado derecho de la página se encuentra SourcePreview, donde puede obtener una versión preliminar de sus datos antes de moverlos.
 
-1. Seleccione el panel **Apps**, nos centraremos en este panel por ahora. Existen numerosas aplicaciones de ejemplo que puede usar para obtener información sobre Striim. En este artículo, sin embargo, creará las suyas propias. Seleccione el botón **Agregar aplicación** en la esquina superior derecha.
+1. Seleccione el panel **Apps**, por ahora nos centraremos en este panel. Existen numerosas aplicaciones de ejemplo que puede usar para aprender sobre Striim. De todas formas, en este artículo creará las suyas propias. Seleccione el botón **Agregar aplicación** en la esquina superior derecha.
 
-   ![Adición de la aplicación Striim](./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png)
+   ![Incorporación de la aplicación Striim](./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png)
 
 1. Hay diversas formas de crear aplicaciones Striim. Seleccione **Empezar de cero** para este escenario.
 
@@ -183,6 +183,6 @@ Mediante el uso de la solución de Striim en Azure, puede migrar datos continuam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si va a migrar datos a la API de SQL de Azure Cosmos DB, consulte [cómo migrar datos a la cuenta de Cassandra API mediante Striim](cosmosdb-sql-api-migrate-data-striim.md)
+* Si va a migrar datos a SQL API de Azure Cosmos DB, consulte [cómo migrar datos a la cuenta de Cassandra API mediante Striim](cosmosdb-sql-api-migrate-data-striim.md)
 
-* [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md)
+* [Supervisión y depuración de los datos con métricas de Azure Cosmos DB](use-metrics.md)

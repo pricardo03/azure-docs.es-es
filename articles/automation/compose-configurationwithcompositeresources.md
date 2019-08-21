@@ -10,18 +10,19 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303987"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850410"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration (DSC) mediante recursos compuestos
 
 Cuando un recurso debe administrarse con más de una configuración de estado deseado (DSC), la mejor ruta es usar [recursos compuestos](/powershell/dsc/authoringresourcecomposite). Un recurso compuesto es una configuración anidada y parametrizada que se usa como recurso de DSC dentro de otra configuración. Esto permite la creación de configuraciones complejas, al tiempo que permite administrar y compilar individualmente los recursos compuestos subyacentes (configuraciones parametrizadas).
 
-Azure Automation permite la [importación y compilación de recursos compuestos](automation-dsc-compile.md#composite-resources). Una vez que se han importado los recursos compuestos de su cuenta de Automation, pueden usar la experiencia **Configuración de Compose** en la página **State Configuration (DSC)** (Configuración de estado [DSC]).
+Azure Automation permite la [importación y compilación de recursos compuestos](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Una vez que se han importado los recursos compuestos de su cuenta de Automation, pueden usar la experiencia **Configuración de Compose** en la página **State Configuration (DSC)** (Configuración de estado [DSC]).
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Creación de una configuración a partir de recursos compuestos
 

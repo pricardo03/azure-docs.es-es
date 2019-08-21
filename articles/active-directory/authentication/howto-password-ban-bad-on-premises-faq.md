@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779644"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879256"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -33,6 +33,8 @@ La guía actual de Microsoft sobre este tema puede encontrarse en el siguiente v
 **P: ¿La protección con contraseña de Azure AD local se admite en las nubes que no son públicas?**
 
 No, la protección con contraseña de Azure AD local solo se admite en las nubes públicas. No se ha anunciado ninguna fecha de disponibilidad de la nube no pública.
+
+El portal de Azure AD permite la modificación de la configuración de "protección mediante contraseña para Windows Server Active Directory" en el entorno local, incluso en nubes no públicas. Estos cambios se conservarán; si no fuera así, nunca surtirán efecto. No se admite el registro de agentes o bosques de proxy local cuando se usan credenciales de nube no públicas y cualquier otro intento de registro siempre producirá un error.
 
 **P: ¿Cómo puedo aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de mis usuarios locales?**
 
@@ -64,7 +66,7 @@ No compatible. Protección con contraseña de AD Azure es una característica de
 
 **P: ¿Cómo puedo modificar el contenido de la directiva en el nivel de Active Directory?**
 
-No compatible. La directiva solo se puede administrar mediante el portal de administración de Azure AD. Consulte también la pregunta anterior.
+No compatible. La directiva solo se puede administrar mediante el portal de Azure AD. Consulte también la pregunta anterior.
 
 **P: ¿Por qué se requiere DFSR para la replicación SYSVOL?**
 
@@ -118,15 +120,15 @@ En resumen, se requiere implementar el servicio de agente de controlador de domi
 
 **P: ¿Por qué el bloqueo inteligente personalizado no funciona incluso después de que los agentes se instalan en el entorno de Active Directory local?**
 
-El bloqueo inteligente personalizado solo se admite en Azure. Los cambios en la configuración del bloque inteligente personalizado en el portal de administración de Azure no tiene ningún efecto en el entorno de Active Directory local, incluso con los agentes instalados.
+El bloqueo inteligente personalizado solo se admite en Azure AD. Los cambios en la configuración del bloqueo inteligente personalizado en el portal de Azure AD no tiene ningún efecto en el entorno de Active Directory local, incluso con los agentes instalados.
 
 **P: ¿Hay algún módulo de administración de Operations Manager disponible para Protección con contraseña de Azure AD?**
 
 No.
 
-**P: ¿Por qué Azure sigue rechazando las contraseñas no segura, aunque configuré la directiva para que esté en modo de auditoría?**
+**P: ¿Por qué Azure AD sigue rechazando las contraseñas no seguras, aunque haya configurado la directiva para que esté en modo de auditoría?**
 
-Solo se admite el modo de auditoría en el entorno de Active Directory local. Azure implícitamente siempre está en modo "aplicar" cuando evalúa las contraseñas.
+Solo se admite el modo de auditoría en el entorno de Active Directory local. Azure AD siempre está implícitamente en modo "aplicar" cuando evalúa las contraseñas.
 
 ## <a name="additional-content"></a>Contenido adicional
 

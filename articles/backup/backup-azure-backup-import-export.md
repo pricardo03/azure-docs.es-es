@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1d3dc50d141a4e1d2864a56aff5c3adb3d2ca0b1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736685"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954870"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -93,7 +93,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
 4. En la página de confirmación del asistente, haga clic en **Back Up** (Hacer una copia de seguridad). La copia de seguridad inicial se escribe en el área de ensayo como parte de esta configuración.
 
-   ![Confirmación de que está listo para realizar la copia de seguridad ahora](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
+   ![Confirmación de que está listo para hacer una copia de seguridad](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
     Una vez finalizada la operación, la ubicación de ensayo estará lista para usarse en la preparación del disco.
 

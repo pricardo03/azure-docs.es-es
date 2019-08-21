@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689022"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018769"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Cambio de la directiva para los elementos de copia de seguridad
 
-El usuario puede modificar la directiva existente o cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, simplemente capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) con el elemento de copia de seguridad como parámetro.
+El usuario puede modificar la directiva existente o cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) con el elemento de copia de seguridad como parámetro.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -653,7 +653,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
 
    * **Máquinas virtuales administradas y cifradas con Azure AD (BEK y KEK)** : en estas máquinas virtuales con Azure AD (cifradas mediante BEK y KEK), adjunte los discos administrados que ha restaurado. Para obtener información detallada, consulte [Conexión de un disco a una VM con Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Máquinas virtuales cifradas y administradas sin Azure AD (solo mediante BEK)** : En el caso de las máquinas virtuales cifradas y administradas sin Azure AD (cifradas solo mediante BEK), si **no están disponibles los secretos de keyVault/secret** del origen, restaure los secretos al almacén de claves mediante el procedimiento descrito en [Restauración de una máquina virtual no cifrada desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). A continuación, ejecute los siguientes scripts para establecer los detalles de cifrado en el disco del sistema operativo restaurado (este paso no es necesario para un disco de datos). $dekurl se puede recuperar del almacén de claves restaurado.
+   * **Máquinas virtuales cifradas y administradas sin Azure AD (solo mediante BEK)** : en el caso de las máquinas virtuales cifradas y administradas sin Azure AD (cifradas solo mediante BEK), si **no están disponibles los secretos de keyVault/secret** del origen, restaure los secretos al almacén de claves mediante el procedimiento descrito en [Restauración de una máquina virtual no cifrada desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). A continuación, ejecute los siguientes scripts para establecer los detalles de cifrado en el disco del sistema operativo restaurado (este paso no es necesario para un disco de datos). $dekurl se puede recuperar del almacén de claves restaurado.
 
      El siguiente script solo se debe ejecutar cuando no están disponibles los secretos de keyVault/secret del origen.  
 
@@ -667,7 +667,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
 
      Una vez que estén disponibles los secretos y los detalles de cifrado también estén establecidos en el disco del sistema operativo, para adjuntar los discos administrados restaurados, consulte [Conexión de un disco a una VM con Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Máquinas virtuales cifradas y administradas sin Azure AD (BEK y KEK)** : En el caso de las máquinas virtuales cifradas y administradas sin Azure AD (cifradas mediante BEK y KEK), si **no están disponibles los secretos de keyVault/key/secret** del origen, restaure la clave y los secretos al almacén de claves mediante el procedimiento descrito en [Restauración de una máquina virtual no cifrada desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). A continuación, ejecute los siguientes scripts para establecer los detalles de cifrado en el disco del sistema operativo restaurado (este paso no es necesario para un disco de datos). $dekurl y $kekurl se pueden recuperar del almacén de claves restaurado.
+   * **Máquinas virtuales cifradas y administradas sin Azure AD (BEK y KEK)** : en el caso de las máquinas virtuales cifradas y administradas sin Azure AD (cifradas mediante BEK y KEK), si **no están disponibles los secretos de keyVault/key/secret** del origen, restaure la clave y los secretos al almacén de claves mediante el procedimiento descrito en [Restauración de una máquina virtual no cifrada desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). A continuación, ejecute los siguientes scripts para establecer los detalles de cifrado en el disco del sistema operativo restaurado (este paso no es necesario para un disco de datos). $dekurl y $kekurl se pueden recuperar del almacén de claves restaurado.
 
    El siguiente script solo se debe ejecutar cuando no están disponibles los secretos de keyVault/key/secret del origen.
 
@@ -720,7 +720,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
 
    * **Para máquinas virtuales sin Azure AD**: Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.
 
-     Si durante la ejecución del comando se solicitará AADClientID, debe actualizar Azure PowerShell.
+     Si durante la ejecución del comando se solicitara AADClientID, debe actualizar Azure PowerShell.
 
      **Solo BEK**
 
@@ -806,7 +806,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-Ejecute el script en la máquina en la que desea recuperar los archivos. Para ejecutar el script, debe escribir la contraseña proporcionada. Después de que los discos se conecten, use el Explorador de archivos de Windows para navegar por los nuevos volúmenes y archivos. Para obtener más información, consulte el artículo de Backup, [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](backup-azure-restore-files-from-vm.md).
+Ejecute el script en la máquina en la que desea recuperar los archivos. Para ejecutar el script, debe escribir la contraseña proporcionada. Después de que los discos se conecten, use el Explorador de archivos de Windows para navegar por los nuevos volúmenes y archivos. Para más información, consulte el artículo de Backup, [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](backup-azure-restore-files-from-vm.md).
 
 ### <a name="unmount-the-disks"></a>Desmontaje de los discos
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d81c1941f114efbfd4ede559152317e907edeaea
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076907"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882390"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 
@@ -42,7 +42,7 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 | --- | --- |
 | [Tamaño de VM](#vm-size-guidance) | - [DS3_v2](../sizes-general.md), o superior, para la edición SQL Enterprise.<br/><br/> - [DS2_v2](../sizes-general.md), o superior, para las ediciones SQL Standard y Web. |
 | [Storage](#storage-guidance) | - Use [unidades de estado sólido prémium](../disks-types.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/> - Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la máquina virtual con SQL Server en la misma región.<br/><br/> * Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
-| [Discos](#disks-guidance) | - Use un mínimo de dos [discos P30](../disks-types.md#premium-ssd) (uno para archivos de registro y otro para archivos de datos, lo que incluye TempDB). Para cargas de trabajo que requieran aproximadamente 50.000 E/S por segundo, considere la posibilidad de usar un SSD Ultra. <br/><br/> - Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/> - Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y los archivos de datos de TempDB.<br/><br/> - No habilite el almacenamiento en caché en los discos que hospedan el archivo de registro.  **Importante**: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/> - Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/> - Formatee con tamaños de asignación documentados. <br/><br/> - Coloque TempDB en un disco SSD local para cargas de trabajo de SQL Server críticas (después de elegir el tamaño de máquina virtual correcto). |
+| [Discos](#disks-guidance) | - Use un mínimo de dos [discos P30](../disks-types.md#premium-ssd) (uno para archivos de registro y otro para archivos de datos, lo que incluye TempDB). Para cargas de trabajo que requieran aproximadamente 50.000 E/S por segundo, considere la posibilidad de usar un SSD Ultra. <br/><br/> - Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/> - Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y los archivos de datos de TempDB.<br/><br/> - No habilite el almacenamiento en caché en los discos que hospedan el archivo de registro.  **Importante**: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/> - Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/> - Formatee con tamaños de asignación documentados. <br/><br/> - Coloque TempDB en el disco SSD local `D:\` para cargas de trabajo de SQL Server críticas (después de elegir el tamaño de máquina virtual correcto). Más información en el blog [Uso de SSD para almacenar TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).  |
 | [E/S](#io-guidance) |- Habilite la compresión de páginas de bases de datos.<br/><br/> - Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/> - Limite el crecimiento automático de la base de datos.<br/><br/> - Deshabilite la reducción automática de la base de datos.<br/><br/> - Mueva todas las bases de datos a discos de datos, incluidas las bases de datos del sistema.<br/><br/> - Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/> - Configure ubicaciones predeterminadas para los archivos de base de datos y de copia de seguridad.<br/><br/> - Habilite páginas bloqueadas.<br/><br/> - Aplique correcciones de rendimiento de SQL Server. |
 | [Características específicas](#feature-specific-guidance) | - Realice copias de seguridad directamente en el almacenamiento de blobs. |
 
@@ -90,11 +90,11 @@ En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicad
 
 En las máquinas virtuales que admiten SSD prémium (series DS, DSv2 y GS), se recomienda almacenar TempDB en un disco que admita SSD prémium y que tenga habilitado el almacenamiento en caché de lectura.
 
-Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si lo almacena en la unidad **D** local, que en estos tamaños de equipos también es un disco SSD._
+Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si lo almacena en la unidad **D** local, que en estos tamaños de equipos también es un disco SSD._ Consulte el blog [Uso de SSD con TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) para más información. 
 
 ### <a name="data-disks"></a>Discos de datos.
 
-* **Uso de discos de datos para archivos de datos y de registro.** : si no usa seccionamiento de discos, utilice dos discos P30 de SSD prémium, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada SSD proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre la [Selección del tipo de disco](../disks-types.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
+* **Uso de discos de datos para archivos de datos y de registro.** : si no usa seccionamiento de discos, utilice dos discos P30 de SSD prémium, uno para los archivos de registro y otro para los archivos de datos y TempDB (excepto para cargas de trabajo críticas y con escritura intensiva, como se ha indicado anteriormente). Cada SSD proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre la [Selección del tipo de disco](../disks-types.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
 
    > [!TIP]
    > - Para obtener resultados de la pruebas con varias configuraciones de discos y cargas de trabajo, consulte la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración del almacenamiento para SQL Server en máquinas virtuales de Azure).

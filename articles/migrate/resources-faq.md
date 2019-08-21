@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372492"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856276"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -71,7 +71,8 @@ El dispositivo se conecta vCenter Server (puerto 443) mediante las credenciales 
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>¿Puedo conectar el mismo dispositivo en varios servidores de vCenter?
 
-Sí, se puede usar un único dispositivo de Azure Migrate para detectar varios servidores de vCenter, aunque no al mismo tiempo. Tiene que ejecutar las detecciones una detrás de otra.
+No. Hay una asignación unívoca entre un dispositivo y vCenter Server. Si tiene que detectar máquinas virtuales en varias instancias de vCenter Server, debe implementar varios dispositivos. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>He cambiado el tamaño de mi máquina. ¿Puedo volver a ejecutar una valoración?
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707437"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033398"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Permisos y subtipos del registro de aplicaciones en Azure Active Directory
 
@@ -46,12 +46,12 @@ Los detalles de los siguientes permisos para la versión preliminar de roles per
 
 ### <a name="create-and-delete"></a>Creación y eliminación
 
-Hay dos permisos disponibles para conceder la capacidad de crear registros de aplicaciones:
+Hay dos permisos disponibles para conceder la capacidad de crear registros de aplicaciones, cada uno con un comportamiento diferente.
 
-- **microsoft.directory/applications/createAsOwner**
-- **microsoft.directory/applications/create**
+- **microsoft.directory/applications/createAsOwner**: Al asignar este permiso, el creador se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado contará en la cuota de objetos creados de 250 del creador.
+- **microsoft.directory/applicationPolicies/create**: Al asignar este permiso, el creador no se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado no contará en la cuota de objetos creados de 250 del creador. Use este permiso con precaución, ya que no hay nada que impida que la persona asignada cree registros de aplicaciones hasta que se alcance la cuota de nivel de directorio. Si se asignan ambos permisos, el permiso de creación tiene prioridad.
 
-Si se asignan ambos permisos, el permiso de creación tendrá prioridad. Aunque el permiso createAsOwner no agrega automáticamente el creador como primer propietario, los propietarios se pueden especificar durante la creación del registro de aplicaciones al usar Graph API o los cmdlets de PowerShell.
+Si se asignan ambos permisos, el permiso /create tendrá prioridad. Aunque el permiso /createAsOwner no agrega automáticamente el creador como primer propietario, los propietarios se pueden especificar durante la creación del registro de aplicaciones al usar Graph API o los cmdlets de PowerShell.
 
 La creación de permisos concede acceso al comando **Nuevo registro**.
 

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775161"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68962995"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Creación de modelos de Scikit-learn a escala con Azure Machine Learning Service
 
@@ -35,8 +35,8 @@ Ejecute este código en cualquiera de estos entornos:
 
  - Su propio servidor de Jupyter Notebook
 
-    - [Instalación del SDK de Azure Machine Learning para Python](setup-create-workspace.md#sdk)
-    - [Creación de un archivo de configuración del área de trabajo](setup-create-workspace.md#write-a-configuration-file)
+    - [Instalación del SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Creación de un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - Descarga del conjunto de datos y el archivo de script de ejemplo 
         - [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
@@ -133,7 +133,7 @@ Para más información sobre los destinos de proceso, vea el artículo [¿Qué e
 
 ## <a name="create-a-scikit-learn-estimator"></a>Creación de un estimador de scikit-learn
 
-El [estimador de scikit-learn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) proporciona una manera sencilla de iniciar un trabajo de entrenamiento de scikit-learn en un destino de proceso. Se implementa a través de la clase [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), que se puede usar para admitir el entrenamiento de CPU de nodo único.
+El [estimador de scikit-learn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) proporciona una manera sencilla de iniciar un trabajo de entrenamiento de scikit-learn en un destino de proceso. Se implementa a través de la clase [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), que se puede usar para admitir el entrenamiento de CPU de nodo único.
 
 Si su script de entrenamiento necesita paquetes adicionales PIP o Conda para ejecutarse, puede hacer que los paquetes se instalen en la imagen de docker resultante. Para ello, pase sus nombres mediante los argumentos `pip_packages` y `conda_packages`.
 
@@ -192,12 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, entrenó y registró un modelo de clasificación de Machine Learning con scikit-learn en Azure Machine Learning Service.
 
-* Para obtener información sobre cómo implementar un modelo, continúe con nuestro artículo sobre [implementación de modelos](how-to-deploy-and-where.md).
+En este artículo, ha entrenado y registrado un modelo Keras en el servicio Azure Machine Learning. Para obtener información sobre cómo implementar un modelo, continúe con nuestro artículo sobre implementación de modelos.
 
-* [Ajuste de hiperparámetros](how-to-tune-hyperparameters.md).
-
-* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md).
-
-* Más información sobre [aprendizaje profundo frente a aprendizaje automático](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
+* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+* [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
+* [Implementar un modelo entrenado](how-to-deploy-and-where.md)
+* [Arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

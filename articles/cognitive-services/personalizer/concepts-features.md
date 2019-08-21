@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663839"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989084"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -25,7 +25,7 @@ Personalizer usa **características**, que es la información acerca del **conte
 
 Por ejemplo, puede tener una **característica** acerca de:
 
-* El _usuario_, como `UserID`. 
+* _Rol de usuario_, como `Sports_Shopper`. No debe ser un identificador de usuario individual. 
 * El _contenido_, como por ejemplo, si un vídeo es de las categorías `Documentary`, `Movie` o `TV Series`, o si un artículo comercial está disponible en el almacén.
 * El periodo _actual_, como qué día de la semana es.
 
@@ -150,7 +150,7 @@ Se pueden usar otros elementos de [Azure Cognitive Services](https://www.microso
 
 Cada acción:
 
-* Tiene un identificador.
+* Tiene un identificador de _evento_. Si ya tiene un identificador de evento, debe enviarlo. Si no tiene un identificador de evento, no envíe ninguno, Personalizer crea uno automáticamente y lo devuelve en respuesta a la solicitud de Rank. El identificador está asociado al evento de Rank, no al usuario. Si crea un identificador, un GUID funciona mejor. 
 * Tiene una lista de características.
 * La lista de características puede ser grande (centenares), pero se recomienda evaluar la eficacia de estas para quitar las que no contribuyen a obtener recompensas. 
 * Las características de las **acciones** pueden tener, o no, correlación con las características del **contexto** que usa Personalizer.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625543"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879912"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -292,15 +292,21 @@ Sin embargo, los usuarios aún necesitan llevar a cabo operaciones con privilegi
 
 ### <a name="reporting-and-monitoring"></a>Creación de informes y supervisión
 
-Azure AD puede proporcionar información adicional acerca del uso del aprovisionamiento de usuarios y el estado operativo mediante registros de auditoría e informes. 
+Azure AD proporciona información adicional acerca del uso de las aplicaciones de la organización y del estado operativo mediante [registros de auditoría e informes](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Proxy de aplicación también facilita la supervisión de conectores desde el portal de Azure AD y los registros de eventos de Windows.
 
 #### <a name="application-audit-logs"></a>Registros de auditoría de la aplicación
 
-Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. Los registros de auditoría se pueden exportar desde Azure Portal y la API de auditoría.
+Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. [Los registros de auditoría](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) se pueden exportar desde Azure Portal y [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta). Además, los [informes de uso y de información](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) también están disponibles para la aplicación.
+
+#### <a name="application-proxy-connector-monitoring"></a>Supervisión de conectores de Application Proxy
+
+Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Puede supervisar el estado de los conectores desde la página Proxy de aplicación en Azure AD Portal. Para más información sobre el mantenimiento de los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+
+![Ejemplo: Conectores de Azure AD Application Proxy](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Contadores de rendimiento y registros de eventos de Windows
 
-Los conectores tienen registros de administración y sesión. Los registros de administración incluyen eventos importantes y sus errores. Los registros de sesión incluyen todas las transacciones y sus detalles de procesamiento. Los contadores y los registros se encuentran en los registros de eventos de Windows. Siga este [tutorial para configurar los orígenes de datos del registro de eventos en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Los conectores tienen registros de administración y sesión. Los registros de administración incluyen eventos importantes y sus errores. Los registros de sesión incluyen todas las transacciones y sus detalles de procesamiento. Los registros y contadores se encuentran en los registros de eventos de Windows; para más información, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Siga este [tutorial para configurar orígenes de datos de registro de eventos en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guía y pasos para la solución de problemas
 

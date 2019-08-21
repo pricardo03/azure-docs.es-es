@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67707238"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificación y solución de problemas de configuración de alta disponibilidad con escalabilidad horizontal de SAP HANA en SLES 12 SP3 
@@ -94,7 +94,7 @@ Según las recomendaciones de red de SAP HANA, se crearon tres subredes en una r
 
 Para obtener información sobre la configuración de SAP HANA relativa al uso de varias redes, consulte [SAP HANA global.ini](#sap-hana-globalini).
 
-Las máquinas virtuales del clúster tienen tres NIC virtuales que se corresponden con el número de subredes. [Creación de una máquina virtual Linux en Azure con varias tarjetas de interfaz de red][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
+Las máquinas virtuales del clúster tienen tres NIC virtuales que se corresponden con el número de subredes. En [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red][azure-linux-multiple-nics] se describe un posible problema de enrutamiento en Azure al implementar una máquina virtual Linux. Este artículo sobre enrutamiento se aplica solo al uso de varias NIC virtuales. El problema se resuelve en SUSE de forma predeterminada en SLES 12 SP3. Para más información, consulte [Varias NIC con cloud-netconfig en EC2 y Azure][suse-cloud-netconfig].
 
 
 Para comprobar que SAP HANA está configurado correctamente para utilizar varias redes, ejecute los siguientes comandos. El primer paso es comprobar de nuevo en el nivel de sistema operativo que las tres direcciones IP internas de las tres subredes estén activas. En caso de que haya definido las subredes con distintos intervalos de direcciones IP, debe adaptar los comandos:
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Mantenimiento planeado 
 
 Hay distintos casos de uso en cuanto a mantenimiento planeado. Una de las consideraciones es, por ejemplo, si se trata solo de mantenimiento de la infraestructura, como cambios a nivel de sistema operativo y configuración de disco, o de una actualización de HANA.
-Puede encontrar información adicional en los documentos de SUSE como [Towards Zero Downtime][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap] (Objetivo: tiempo de inactividad cero). Estos documentos también incluyen ejemplos de cómo migrar manualmente un sitio principal.
+Puede encontrar información adicional en los documentos de SUSE como [Hacia el tiempo de inactividad cero][sles-zero-downtime-paper] o [ Escenario optimizado para el rendimiento de SAP HANA SR][sles-12-for-sap]. Estos documentos también incluyen ejemplos de cómo migrar manualmente un sitio principal.
 
 Se han realizado pruebas internas minuciosas para verificar el caso de uso de mantenimiento de la infraestructura. Para evitar cualquier tipo de problema relacionado con la migración de la réplica principal, se decidió migrarla siempre antes de que el clúster pase a modo de mantenimiento. De este modo no es necesario que el clúster olvide la situación anterior (qué lado era principal y qué lado era secundario).
 
@@ -821,7 +821,7 @@ Al final del trabajo de mantenimiento, detenga el modo de mantenimiento del clú
 
 
 
-## <a name="hbreport-to-collect-log-files"></a>hb_report para recopilar los archivos de registro
+## <a name="hb_report-to-collect-log-files"></a>hb_report para recopilar los archivos de registro
 
 Para analizar problemas de clúster de Pacemaker, resulta útil (y el soporte técnico SUSE lo pide) ejecutar la utilidad **hb_report**. Recopila todos los archivos de registro importantes que necesita para analizar qué ocurrió. Esta llamada de ejemplo usa un tiempo de inicio y finalización donde se ha producido un incidente específico. Consulte también [Notas importantes](#important-notes):
 

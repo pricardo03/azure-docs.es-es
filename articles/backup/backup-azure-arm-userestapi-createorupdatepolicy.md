@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688741"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954964"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -36,7 +36,7 @@ Los pasos para crear una directiva de copia de seguridad para un almacén de Azu
 - La retención puede definirse para los puntos de copia de seguridad "diarios", "semanal", "mensual" o "anual" .
 - "Semanal" se refiere a una copia de seguridad en un determinado día de la semana, "mensual" significa una copia de seguridad en un determinado día del mes y "anual" a una copia de seguridad en un determinado día del año.
 - La retención de los puntos de copia de seguridad "anuales", y "mensuales" se conoce como "LongTermRetention".
-- Cuando se crea un almacén, también se crea una directiva para las copias de seguridad de máquinas virtuales de Azure denominada "DefaultPolicy" que se puede usar para dichas copias de seguridad .
+- Cuando se crea un almacén, también se crea una directiva para las copias de seguridad de máquinas virtuales de Azure denominada "DefaultPolicy" que se puede usar para dichas copias de seguridad.
 
 Para crear o actualizar una directiva de Azure Backup, use la siguiente operación *PUT*:
 

@@ -2,21 +2,21 @@
 title: Conexión RDP con los nodos de Windows Server de un clúster de Azure Kubernetes Service (AKS)
 description: Aprenda a crear una conexión RDP con los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para la solución de problemas y las tareas de mantenimiento.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: twhitney
-ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688635"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67614574"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas
 
-Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de Windows Server de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Puede acceder a los nodos de Windows Server de AKS mediante conexión RDP. Como alternativa, si desea usar SSH para acceder a los nodos de Windows Server de AKS y tiene acceso al mismo par de claves que se usó durante la creación del clúster, puede seguir los pasos descritos en [Conexión SSH a los nodos de clúster de Azure Kubernetes Service (AKS) ][ssh-steps]. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet.
+Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de Windows Server de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Puede acceder a los nodos de Windows Server de AKS mediante conexión RDP. Como alternativa, si desea usar SSH para acceder a los nodos de Windows Server de AKS y tiene acceso al mismo par de claves que se usó durante la creación del clúster, puede seguir los pasos descritos en [Conexión SSH a los nodos de clúster de Azure Kubernetes Service (AKS)][ssh-steps]. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet.
 
 La compatibilidad de los nodos de Windows Server está actualmente en versión preliminar en AKS.
 
@@ -24,9 +24,9 @@ En este artículo se muestra cómo crear una conexión RDP con un nodo de AKS me
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo de [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
+En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo sobre la [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
 
-También es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Implementación de una máquina virtual en la misma subred que el clúster
 

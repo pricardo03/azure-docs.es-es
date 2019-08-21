@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774563"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941817"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configuración de una galería de imágenes compartidas en Azure DevTest Labs
 DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Esta característica permite que los usuarios de laboratorios accedan a imágenes de una ubicación compartida cuando crean recursos de laboratorio. También facilita la estructuración y la organización de las imágenes de máquina virtual administradas y personalizadas. La característica Shared Image Gallery admite lo siguiente:
@@ -36,7 +36,7 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
 ## <a name="considerations"></a>Consideraciones
 - Solo es posible asociar una galería de imágenes compartidas a un laboratorio cada vez. Si quiere asociar otra galería, deberá desasociar la existente y asociar otra. 
 - DevTest Labs no admite actualmente la carga de imágenes en la galería mediante el laboratorio. 
-- Al crear una máquina virtual mediante una imagen de la galería de imágenes compartidas, DevTest Labs usa siempre la última versión publicada de esta imagen.
+- Al crear una máquina virtual mediante una imagen de la galería de imágenes compartidas, DevTest Labs usa siempre la última versión publicada de esta imagen. Sin embargo, si una imagen tiene varias versiones, el usuario puede optar por crear una máquina a partir de una versión anterior. Para ello, vaya a la pestaña Configuración avanzada durante la creación de la máquina virtual.  
 - Aunque DevTest Labs hace automáticamente todo lo que puede por garantizar que la galería de imágenes compartidas replica las imágenes en la región en la que existe el laboratorio, no siempre resulta posible. Para evitar que los usuarios tengan problemas al crear máquinas virtuales con estas imágenes, asegúrese de que las imágenes ya se hayan replicado en la región del laboratorio.
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal

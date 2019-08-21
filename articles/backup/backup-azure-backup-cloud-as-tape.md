@@ -1,18 +1,18 @@
 ---
 title: Usar Azure Backup para cambiar su infraestructura de cintas
-description: Aprenda cómo Microsoft Azure Backup proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
+description: Aprenda la forma en que Azure Backup proporciona una semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146017"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954873"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 Los clientes de Microsoft Azure Backup y System Center Data Protection Manager pueden:

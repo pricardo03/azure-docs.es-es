@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809006"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882304"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -122,15 +122,44 @@ Ejemplo:
 }
 ```
 
-#### <a name="azure"></a>Azure
+#### <a name="cloud---azure-functions-cors"></a>Nube - CORS en Azure Functions
 
 Para habilitar CORS en una aplicación de función de Azure, vaya a la pantalla de configuración de CORS en la pestaña *Características de la plataforma* de la aplicación de función en Azure Portal.
+
+> [!NOTE]
+> La configuración de CORS todavía no está disponible en el plan de Consumo para Linux de Azure Functions. Use [Azure API Management](#cloud---azure-api-management) para habilitar CORS.
 
 Debe estar habilitado CORS con Access-Control-Allow-Credentials para que el cliente de SignalR llame a la función de negociación. Active la casilla para habilitarlo.
 
 En la sección *Orígenes permitidos*, agregue una entrada con la dirección URL base de origen de la aplicación web.
 
 ![Configuración de CORS](media/signalr-concept-serverless-development-config/cors-settings.png)
+
+#### <a name="cloud---azure-api-management"></a>Nube: Azure API Management
+
+Azure API Management proporciona una puerta de enlace de API que agrega funcionalidades a los servicios back-end existentes. Puede usarlo para agregar CORS a la aplicación de función. Ofrece un nivel de consumo con precios de pago por acción y una concesión gratuita mensual.
+
+Consulte la documentación de API Management para obtener información sobre cómo [importar una aplicación de Azure Function](../api-management/import-function-app-as-api.md). Una vez importado, puede agregar una directiva de entrada para habilitar CORS con compatibilidad Access-Control-Allow-Credentials.
+
+```xml
+<cors allow-credentials="true">
+  <allowed-origins>
+    <origin>https://azure-samples.github.io</origin>
+  </allowed-origins>
+  <allowed-methods>
+    <method>GET</method>
+    <method>POST</method>
+  </allowed-methods>
+  <allowed-headers>
+    <header>*</header>
+  </allowed-headers>
+  <expose-headers>
+    <header>*</header>
+  </expose-headers>
+</cors>
+```
+
+Configure los clientes SignalR para usar la dirección URL de API Management.
 
 ### <a name="using-app-service-authentication"></a>Uso de la autenticación de App Service
 

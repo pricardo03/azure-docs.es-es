@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742301"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013640"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 El aprendizaje automático automatizado es compatible con los datos que residen en el escritorio local o en la nube, como Azure Blob Storage. Los datos pueden leerse en los formatos de datos compatibles con scikit-learn. Puede leer los datos en:
 * Matrices de Numpy X (características) e y (variable de destino o también denominada etiqueta)
 * Dataframe de Pandas
+
+>[!Important]
+> Requisitos para los datos de entrenamiento:
+>* Los datos deben estar en formato tabular.
+>* El valor que quiere predecir (columna de destino) debe estar presente en los datos.
 
 Ejemplos:
 
@@ -215,6 +220,9 @@ La métrica principal, como se muestra en los ejemplos anteriores, determina la 
 En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a que los algoritmos funcionen bien.  Sin embargo, también puede habilitar el preprocesamiento o la caracterización adicionales, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess).
 
 Para habilitar la caracterización, especifique `"preprocess": True` para la clase [`AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+> [!NOTE]
+> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
 
 ### <a name="time-series-forecasting"></a>Previsión de series temporales
 Para el tipo de tarea de previsión de series temporales, tiene que definir parámetros adicionales.

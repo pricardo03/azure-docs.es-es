@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567233"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879054"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 
@@ -27,7 +27,7 @@ La replicación transaccional es una característica de Azure SQL Database y SQL
 La replicación transaccional resulta útil en los siguientes escenarios:
 - Publique los cambios realizados en una o varias tablas de una base de datos y distribúyalos por una o varias de las bases de datos de SQL Server o Azure SQL que se suscribieron para los cambios.
 - Mantenga varias bases de datos distribuidas en estado sincronizado.
-- Migre las bases de datos de SQL Server o Instancia administrada a otra base de datos mediante la publicación continua de los cambios.
+- Migre las bases de datos de una instancia administrada o de SQL Server a otra base de datos mediante la publicación continua de los cambios.
 
 ## <a name="overview"></a>Información general
 
@@ -45,7 +45,7 @@ El **publicador** es una instancia o un servidor que publica los cambios realiza
 - SQL Server 2012 SP2 CU8 (11.0.5634.0)
 - Para otras versiones de SQL Server que no admiten la publicación en los objetos de Azure e puede utilizar el método de [volver a publicar datos](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover datos a versiones más recientes de SQL Server. 
 
-El **distribuidor** es una instancia o un servidor que recopila los cambios en los artículos de un publicador y los distribuye a los suscriptores. El distribuidor puede ser la Instancia administrada de Azure SQL Database o SQL Server (cualquier versión, siempre que sea igual o superior que la versión del publicador). 
+El **distribuidor** es una instancia o un servidor que recopila los cambios en los artículos de un publicador y los distribuye a los suscriptores. El distribuidor puede ser la instancia administrada de Azure SQL Database o SQL Server (cualquier versión, siempre que sea igual o superior que la versión del publicador). 
 
 El **suscriptor** es una instancia o un servidor que recibe los cambios realizados en el publicador. Los suscriptores pueden ser bases de datos únicas, agrupadas o de instancia en bases de datos de Azure SQL Database o SQL Server. Un suscriptor en una base de datos única o agrupada debe configurarse como suscriptor de inserción. 
 
@@ -94,10 +94,12 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación. 
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo empleado para la replicación. 
 - El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de la instancia administrada para acceder al recurso compartido de archivos de Azure. 
-- El puerto 1433 (salida TCP) debe estar abierto si el publicador o distribuidor se encuentran en una instancia administrada y el suscriptor es local.
+- El puerto 1433 (salida TCP) debe estar abierto si el publicador o distribuidor se encuentran en una instancia administrada y el suscriptor es local.
 
-  >[!NOTE]
-  > Podría producirse el error 53 al conectarse a un archivo de Azure Storage si el puerto 445 del grupo de seguridad de red (NSG) saliente está bloqueado cuando el distribuidor es una base de datos de instancia y el suscriptor es local. [Actualice el NSG de la red virtual](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema. 
+
+>[!NOTE]
+> - Podría producirse el error 53 al conectarse a un archivo de Azure Storage si el puerto 445 del grupo de seguridad de red (NSG) saliente está bloqueado cuando el distribuidor es una base de datos de instancia y el suscriptor es local. [Actualice el NSG de la red virtual](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema. 
+> - Si las bases de datos del publicador y del distribuidor de una instancia administrada usan [grupos de conmutación por error automática](sql-database-auto-failover-group.md), el administrador de la instancia administrada debe [eliminar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva principal después de producirse una conmutación por error](sql-database-managed-instance-transact-sql-information.md#replication).
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparación de Data Sync con replicación transaccional
 
@@ -115,19 +117,19 @@ En general, el publicador y el distribuidor deben estar en la nube o en el entor
 
 ![Instancia única como publicador y distribuidor](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-El publicador y el distribuidor se configuran dentro de una única Instancia administrada y los cambios se distribuyen a otra Instancia administrada, a una base de datos única, una base de datos agrupada o una instancia local de SQL Server. En esta configuración, el publicador o distribuidor de la instancia administrada no puede configurarse con [grupos de conmutación por error automática y replicación geográfica](sql-database-auto-failover-group.md).
+El publicador y el distribuidor se configuran dentro de una única instancia administrada y los cambios se distribuyen a otra instancia administrada, a una base de datos única, una base de datos agrupada o una instancia local de SQL Server. 
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Publicador con distribuidor remoto en una instancia administrada
 
-En esta configuración, una Instancia administrada publica los cambios al distribuidor que se encuentra en otra Instancia administrada, que puede atender muchas Instancias administradas de origen y distribuir los cambios a uno o varios destinos en Instancias administradas, bases de datos únicas, bases de datos agrupadas o SQL Server.
+En esta configuración, una instancia administrada publica los cambios al distribuidor que se encuentra en otra instancia administrada, que puede atender muchas instancias administradas de origen y distribuir los cambios a uno o varios destinos en una instancia administrada, base de datos única, base de datos agrupada o instancia de SQL Server.
 
 ![Instancias independientes para el publicador y el distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-El publicador y el distribuidor se configuran en dos instancias administradas. En esta configuración
+El publicador y el distribuidor se configuran en dos Instancias administradas. Esta configuración presenta algunas restricciones: 
 
 - Las dos instancias administradas están en la misma red virtual.
-- Las dos instancias administradas están en la misma ubicación.
-- Las instancias administradas que hospedan bases de datos de publicador y distribuidor no se pueden [replicar geográficamente mediante grupos de conmutación por error automática](sql-database-auto-failover-group.md).
+- Las dos Instancias administradas están en la misma ubicación.
+
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Publicador y distribuidor locales con un suscriptor en una base de datos única, agrupada o de instancia 
 
@@ -141,13 +143,15 @@ En esta configuración, el suscriptor es una base de datos de Azure SQL (base de
 1. [Configure la replicación entre dos instancias administradas](replication-with-sql-database-managed-instance.md). 
 1. [Cree una publicación](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Cree una suscripción de inserción](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks**. )
+1. Obtenga información sobre las [limitaciones de la replicación transaccional para una instancia administrada](sql-database-managed-instance-transact-sql-information.md#replication).
 
 
 
 ## <a name="see-also"></a>Otras referencias  
 
+- [Replicación con una instancia administrada y un grupo de conmutación por error](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replicación en SQL Database](replication-to-sql-database.md)
-- [Replicación en Instancia administrada](replication-with-sql-database-managed-instance.md)
+- [Replicación en una instancia administrada](replication-with-sql-database-managed-instance.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción)
 - [Tipos de replicación](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

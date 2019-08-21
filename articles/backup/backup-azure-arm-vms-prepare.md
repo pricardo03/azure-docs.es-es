@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663702"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954951"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -102,7 +102,7 @@ Configurar una directiva de copia de seguridad para el almacén.
    ![Botón Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
 
-2. En **Objetivo de copia de seguridad** >  **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Azure**. En **¿De qué quiere realizar una copia de seguridad?** , seleccione **Máquina virtual** >  **Aceptar**. Esto registra la extensión de la máquina virtual en el almacén.
+2. En **Objetivo de copia de seguridad** >  **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Azure**. En **What do you want to back up?** (¿De qué desea realizar una copia de seguridad?), seleccione **Máquina virtual** >  **Aceptar**. Esto registra la extensión de la máquina virtual en el almacén.
 
    ![Paneles Backup y Objetivo de Backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -138,7 +138,7 @@ Después de habilitar la copia de seguridad:
 Si creó una nueva directiva de copia de seguridad, complete la configuración de la misma.
 
 1. En **Nombre de directiva**, especifique un nombre descriptivo.
-2. En **Programación de copia de seguridad** especifique cuándo se deben realizar las copias de seguridad. Puede realizar copias de seguridad diarias o semanales para VM de Azure.
+2. En **Programación de copia de seguridad**, especifique cuándo se deben realizar las copias de seguridad. Puede realizar copias de seguridad diarias o semanales para VM de Azure.
 2. En **Restauración instantánea**, especifique cuánto tiempo quiere conservar las instantáneas localmente para la restauración instantánea.
     - Cuando realice la restauración, los discos de la VM con copia de seguridad se copian desde el almacén a través de la red, hasta la ubicación de almacenamiento de recuperación. Con la restauración instantánea, puede aprovechar las instantáneas almacenadas localmente y que se tomaron durante un trabajo de copia de seguridad, sin esperar a que los datos de la copia de seguridad se transfieran al almacén.
     - Puede conservar las instantáneas para la restauración instantánea durante uno y cinco días. Dos días es la configuración predeterminada.
@@ -164,12 +164,12 @@ La copia de seguridad inicial se ejecutará según la programación, peor puede 
 
 ## <a name="verify-backup-job-status"></a>Comprobar el estado del trabajo de copia de seguridad
 
-Los detalles del trabajo de copia de seguridad para cada copia de seguridad de VM consta de 2 fases: la fase **Instantánea** seguida de la fase **Transferir datos al almacén**.<br/>
-La fase de instantánea garantiza la disponibilidad de un punto de recuperación almacenado junto con los discos para realizar **Restauraciones instantáneas** que están disponibles por un máximo de 5 días, según la retención de instantáneas que haya configurado el usuario. La transferencia de datos al almacén crea un punto de recuperación en el mismo para la retención a largo plazo. La transferencia de datos al almacén solo comienza una vez que se completa la fase de instantánea.
+Los detalles del trabajo de la copia de seguridad de cada una de las máquinas virtuales constan de dos fases: la fase **Instantánea** y, después, la fase **Transferir datos al almacén**.<br/>
+La primera de estas fases garantiza la disponibilidad de un punto de recuperación almacenado junto con los discos para realizar **Restauraciones instantáneas** y está disponibles un máximo de cinco días, en función del valor de conservación de instantáneas que haya configurado el usuario. Transferir datos al almacén crea un punto de recuperación en el almacén para la retención a largo plazo. La transferencia de datos al almacén solo comienza una vez que se completa la fase de instantánea.
 
   ![Estado del trabajo de copia de seguridad](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Existen dos **Tareas secundarias** que se ejecutan en el back-end; una de ellas se usa en el trabajo de copia de seguridad del front-end que se puede comprobar desde la hoja de detalles de la **Tarea de copia de seguridad** tal como se indica a continuación:
+Existen dos **tareas secundarias** que se ejecutan en el back-end; una de ellas se usa en el trabajo de copia de seguridad del front-end que se puede comprobar desde la hoja de detalles de la **Tarea de copia de seguridad** como se indica a continuación:
 
   ![Estado del trabajo de copia de seguridad](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 

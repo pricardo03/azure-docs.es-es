@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/14/2019
-ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 08/12/2019
+ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147930"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976281"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
 La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Puede crear hasta cinco réplicas desde el servidor maestro. Las réplicas se actualizan de manera asincrónica mediante la tecnología de replicación nativa del motor de PostgreSQL.
-
-> [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. La replicación entre regiones se encuentra actualmente en la versión preliminar pública.
 
 Las réplicas son nuevos servidores que se administran de forma similar a los servidores de Azure Database for PostgreSQL normales. En cada réplica de lectura, se le cobra por el proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes.
 
@@ -33,7 +30,32 @@ Dado que las réplicas son de solo lectura, no reducen directamente las cargas d
 
 Esta característica de réplica de lectura utiliza la replicación asincrónica nativa de PostgreSQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor maestro y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
-Las réplicas de lectura pueden mejorar el plan de recuperación ante desastres. Primero deberá tener una réplica en otra región de Azure del servidor maestro. Si se produce un desastre en una región, puede detener la replicación en la réplica y redirigir la carga de trabajo a ella. Al detener la replicación, permite a la réplica comenzar a aceptar operaciones de escritura y también de lectura. Obtenga más información en la sección sobre cómo [detener la replicación](#stop-replication). 
+## <a name="cross-region-replication"></a>Replicación entre regiones
+Puede crear una réplica de lectura en una región distinta del servidor maestro. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
+
+> [!IMPORTANT]
+> La replicación entre regiones se encuentra actualmente en versión preliminar pública.
+
+Puede tener un servidor maestro en cualquier [región de Azure Database for PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Un servidor maestro puede tener una réplica emparejada en su región o en las regiones de la réplica universal.
+
+### <a name="universal-replica-regions"></a>Regiones de réplica universal
+Siempre puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Estas son las regiones de réplica universal:
+
+Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2.
+
+
+### <a name="paired-regions"></a>Regiones emparejadas
+Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Si usa réplicas entre regiones para planear la recuperación ante desastres, se recomienda que cree la réplica en la región emparejada en lugar de en una de las otras regiones. Las regiones emparejadas evitan actualizaciones simultáneas y priorizan el aislamiento físico y la residencia de datos.  
+
+Sin embargo, existen limitaciones que deben considerarse: 
+
+* Disponibilidad regional: Azure Database for PostgreSQL está disponible en Oeste de EE. UU. 2, Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
+    
+* Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
+   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India meridional. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en India occidental. Esto es debido a que la región secundaria del Oeste de la India es India meridional, pero la región secundaria de esta última no es India occidental.
+
 
 ## <a name="create-a-replica"></a>Creación de una réplica
 El servidor maestro debe tener el `azure.replication_support` establecido en **RÉPLICA**. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto. Este parámetro `azure.replication_support` se aplica únicamente a los niveles De uso General y Optimizado para memoria.
@@ -123,7 +145,7 @@ PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica
 
 Si trata de actualizar los valores del servidor, pero no cumple los límites, recibirá un error.
 
-### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [PostgreSQL requiere](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que el valor del parámetro `max_prepared_transactions` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. Si quiere cambiar `max_prepared_transactions` en el servidor maestro, primero cámbielo en las réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas

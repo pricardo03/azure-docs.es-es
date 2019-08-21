@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942538"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884445"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran los tipos de oferta actuales compatibles con [
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Paquete que extiende al sistema de planeación de recursos de empresariales (ERP) y administración empresarial. |
 | [Dynamics 365 for Customer Engagement ](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Paquete que extiende este sistema de administración de recursos del usuario (CRM) gracias a los módulos de ventas, servicios, servicio de proyecto y servicio de campo.  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Paquete que extiende al servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. |
-| [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Contenedor compatible con Docker que se ejecuta en un dispositivo IoT Edge.  Contiene módulos pequeños de cálculo que usan una combinación de código personalizado, otros servicios de Azure y servicios de terceros. |
+| [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Contenedor compatible con Docker que se ejecuta en un dispositivo IoT Edge.  Está formado por módulos pequeños de cálculo que usan una combinación de código personalizado, otros servicios de Azure y servicios de terceros. |
 | [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Aplicación de Power BI que empaqueta contenido de Power BI personalizable, incluidos conjuntos de datos, informes y paneles. |
 | [Aplicación SaaS](./saas-app/cpp-saas-offer.md) | Azure | Suscripción de software como servicio administrada por el anunciante en la que los usuarios inician sesión mediante una interfaz personalizada que usa Azure Active Directory. |
 | [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solución contenida dentro de una sola máquina virtual que se implementa en la suscripción del cliente.  |

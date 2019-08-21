@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639563"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949844"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -55,7 +55,7 @@ Para obtener más información:
 **Escenario** | **Agent** | **Ubicación**
 --- | --- | ---
 **Copia de seguridad de cargas de trabajo/máquinas locales** | El agente de protección de DPM/MABS se ejecuta en las máquinas de las que desea realizar una copia de seguridad.<br/><br/> El agente de MARS en el servidor de DPM/MABS.<br/> La versión mínima del agente de Microsoft Azure Recovery Services, o agente de Azure Backup, que se requiere para habilitar esta característica es 2.0.8719.0.  | DPM/MABS debe ejecutarse en el entorno local.
-**Copia de seguridad de cargas de trabajo/máquinas virtuales de Azure** | Agente de protección de DPM/MABS en la máquina protegida.<br/><br/> El agente de MARS en el servidor de DPM/MABS. | DPM/MABS debe ejecutarse en una máquina virtual de Azure.
+
 
 ## <a name="supported-deployments"></a>Implementaciones admitidas
 
@@ -166,9 +166,9 @@ En la tabla siguiente se resume de lo que se puede realizar una copia de segurid
 **Windows Server 2012 R2 (Datacenter y Standard)**<br/><br/> 64/32 bits | MABS v3, v2 | Máquina virtual local y en Azure. | **Protección local**: Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.<br/><br/> **Protección de máquina virtual de Azure**: Volumen, recurso compartido, carpeta y archivo.<br/><br/> Volúmenes desduplicados admitidos. |
 **Windows Server 2012 con SP1 (Datacenter y Standard)**<br/><br/> 64/32 bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) debe estar instalado. | Máquina virtual local y en Azure. | **Protección local**: Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.<br/><br/> **Protección de máquina virtual de Azure**: Volumen, recurso compartido, carpeta y archivo.<br/><br/> Volúmenes desduplicados admitidos. |
 **Windows 2008 R2 con SP1 (Standard y Enterprise)**<br/><br/> 64/32 bits | Compatible con MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) debe estar instalado. | Máquina virtual local y en Azure. |   **Protección local**: Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.<br/><br/> **Protección de máquina virtual de Azure**: Volumen, recurso compartido, carpeta y archivo.<br/><br/> Volúmenes desduplicados admitidos. |
-**Windows 2008 R2 (Standard y Enterprise)**<br/><br/> 64/32 bits | Para MABS v2/v3, el sistema operativo debe ejecutar SP1. | Máquina virtual local y en Azure. | **Protección local**: Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.<br/><br/> **Protección de máquina virtual de Azure**: Volumen, recurso compartido, carpeta y archivo.<br/><br/> Volúmenes desduplicados admitidos. |
-**Windows Server 2008 con SP2**<br/><br/> 64/32 bits | MABS v2, v3 | MABS v2 y v3 es compatible cuando MABS se implementa como una máquina virtual de VMware.<br/><br/> No se admite para MABS en ejecución en máquinas virtuales de Azure. | Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa. |
-**Windows Storage Server 2008** | MABS v2, v3 | MABS como servidor físico local/máquina virtual de Hyper-V. <br/><br/> No se admite para MABS en ejecución en máquinas virtuales de Azure. | Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.
+**Windows 2008 R2 (Standard y Enterprise)**<br/><br/> 64/32 bits | Para MABS v3 o v2, el sistema operativo debe ejecutar SP1. | Máquina virtual local y en Azure. | **Protección local**: Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.<br/><br/> **Protección de máquina virtual de Azure**: Volumen, recurso compartido, carpeta y archivo.<br/><br/> Volúmenes desduplicados admitidos. |
+**Windows Server 2008 con SP2**<br/><br/> 64/32 bits | MABS v3, v2 | MABS v2 y v3 es compatible cuando MABS se implementa como una máquina virtual de VMware.<br/><br/> No se admite para MABS en ejecución en máquinas virtuales de Azure. | Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa. |
+**Windows Storage Server 2008** | MABS v3, v2 | MABS como servidor físico local/máquina virtual de Hyper-V. <br/><br/> No se admite para MABS en ejecución en máquinas virtuales de Azure. | Volumen, recurso compartido, carpeta, archivo, estado del sistema y reconstrucción completa.
 **SQL Server 2017** | MABS v3 | Máquina virtual local y en Azure.| Copia de seguridad de base de datos SQL Server.<br/><br/> Copia de seguridad del clúster de SQL Server admitida.<br/><br/>No se admiten las bases de datos almacenadas en volúmenes compartidos de clúster (CSV). |
 **SQL Server 2016/2016 con SP1** | MABS v3, v2 | Máquina virtual local y en Azure.| Copia de seguridad de base de datos SQL Server.<br/><br/> Copia de seguridad del clúster de SQL Server admitida.<br/><br/>No se admiten las bases de datos almacenadas en volúmenes compartidos de clúster (CSV). |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | Máquina virtual local y en Azure.| Copia de seguridad de base de datos SQL Server.<br/><br/> Copia de seguridad del clúster de SQL Server admitida.<br/><br/>No se admiten las bases de datos almacenadas en volúmenes compartidos de clúster (CSV). |

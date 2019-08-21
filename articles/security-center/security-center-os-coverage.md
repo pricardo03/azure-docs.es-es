@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295601"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883593"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Características y plataformas compatibles con Azure Security Center
 
@@ -115,8 +115,10 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 | Trend Micro: todas las versiones | Familia de Windows Server  | Sin | Sí |
 | Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
 | McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
-| Kaspersky| Familia de Windows Server  | Sin | Sin  |
-| Sophos| Familia de Windows Server  | Sin | Sin  |
+| McAfee v10 o posterior | Familia de Linux Server  | Sin | Sí **\*** |
+| Sophos V9+| Familia de Linux Server  | Sin | Sí **\***  |
+
+ **\*** El estado de cobertura y los datos auxiliares solo están disponibles en el área de trabajo Log Analytics asociada con las suscripciones protegidas y no se refleja en el portal de Azure Security Center.
 
 > [!NOTE]
 > - La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 3.0 (o una versión superior).

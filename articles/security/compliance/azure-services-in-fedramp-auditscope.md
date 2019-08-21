@@ -1,18 +1,18 @@
 ---
 title: Servicios de Azure en el ámbito de auditoría de FedRAMP y DoD SRG
 description: Este artículo contiene tablas de Azure público y Azure Government que muestran qué ámbito de auditoría de FedRAMP (moderado frente a elevado) y de DoD SRG (nivel de impacto 2, 4 o 5) ha alcanzado un servicio determinado.
-author: davib
-ms.author: davib
+author: Jain-Garima
+ms.author: gjain
 ms.date: 5/17/2019
 ms.topic: article
 ms.service: security
 ms.reviewer: rochiou
-ms.openlocfilehash: 922098a67d148d5860145663ea1c5bf543c8aaec
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f4bf6b90c06a2c17f44c693e5062d66be756347a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294825"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845766"
 ---
 # <a name="azure-services-by-fedramp-and-dod-cc-srg-audit-scope"></a>Servicios de Azure según el ámbito de auditoría de FedRAMP y DoD CC SRG
 
@@ -23,14 +23,14 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 #### <a name="terminologysymbols-used"></a>Terminología y símbolos utilizados
 
 * DoD CC SRG = siglas en ingles de Department of Defense Cloud Computing Security Requirements Guide (Guía de requisitos de seguridad de informática en la nube del Departamento de defensa)
-* IIL = nivel de impacto en el ámbito de la información
+* IL = nivel de impacto
 * FedRAMP = Federal Risk and Authorization Management Program (Programa de administración federal de riesgos y autorizaciones)  
 * :heavy_check_mark: = indica que el servicio ha alcanzado este ámbito de auditoría.
 
 ## <a name="azure-public-services-by-audit-scope"></a>Servicios públicos de Azure por ámbito de auditoría
-| _Última actualización: Junio de 2019_ |
+| _Última actualización: julio de 2019_ |
 
-| Servicio de Azure| IIL 2 de DoD CC SRG | FedRAMP Moderate | FedRAMP High | Planeado para 2019 |
+| Servicio de Azure| IIL 2 de DoD CC SRG | FedRAMP Moderate | FedRAMP High | Planeado para 2019 |
 | ------------ |:---------------:|:----------------:|:------------:|:------------:|
 | [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -47,13 +47,16 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 | [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) |  |  |  | :heavy_check_mark: |
 | [Azure Container Service](https://docs.microsoft.com/azure/container-service/) |  |  |  | :heavy_check_mark: |
 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Azure Cost Management](https://azure.microsoft.com/en-us/services/cost-management/) | |  |  | :heavy_check_mark: |
 | [Azure Data Box](https://azure.microsoft.com/services/databox/) | |  |  | :heavy_check_mark: |
+| [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) | |  |  | :heavy_check_mark: |
 | [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/) |  |  |  | :heavy_check_mark: |
 | [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database para PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) |  |  |  | :heavy_check_mark: |
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) |  |  |  |  |
+| [Almacén de Azure Data Lake](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/) |  |  |  | :heavy_check_mark: |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) |  |  |  | :heavy_check_mark: |
 | [Azure DevOps (anteriormente VSTS)](https://azure.microsoft.com/services/devops/) | |  |  | |
@@ -64,6 +67,7 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Intune](https://docs.microsoft.com/intune/what-is-intune) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | |  |  | :heavy_check_mark: |
+| [Azure Managed Applications](https://azure.microsoft.com/en-us/services/managed-applications/) | |  |  | :heavy_check_mark: |
 | [Azure Maps](https://azure.microsoft.com/services/azure-maps/) |  |  |  | :heavy_check_mark: |
 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -96,7 +100,7 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Flujo](https://docs.microsoft.com/flow/getting-started) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Funciones](https://azure.microsoft.com/services/functions/) |  |  |  | :heavy_check_mark: |
+| [Funciones](https://azure.microsoft.com/services/functions/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Import / Export](https://azure.microsoft.com/services/storage/import-export/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [IoT Central](https://azure.microsoft.com/services/iot-central/) |  |  |  | :heavy_check_mark: |
@@ -143,9 +147,9 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 
 
 ## <a name="azure-government-services-by-audit-scope"></a>Servicios de Azure Government por ámbito de auditoría
-| _Última actualización: Junio de 2019_ |
+| _Última actualización: julio de 2019_ |
 
-| Servicio de Azure | IIL 2 de DoD CC SRG | IIL 4 de DoD CC SRG | IIL 5 de DoD CC SRG | FedRAMP High | Planeado para 2019
+| Servicio de Azure | IIL 2 de DoD CC SRG | IIL 4 de DoD CC SRG | IIL 5 de DoD CC SRG | FedRAMP High | Planeado para 2019
 | ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:
 | [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -155,14 +159,18 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 | [Azure Active Directory (Premium P1 + P2)](https://azure.microsoft.com/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Advisor](https://azure.microsoft.com/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Azure Blueprints](https://azure.microsoft.com/en-us/services/blueprints/)  |  |  |  |  | :heavy_check_mark:
 | [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/) |  |  |  |  | :heavy_check_mark:
+| [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) |  |  |  |  | :heavy_check_mark:
 | [Container Registry](https://azure.microsoft.com/services/container-registry/) |  |  |  |  | :heavy_check_mark:
 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Factoría de datos](https://azure.microsoft.com/services/data-factory/)  |  |  |  |  | :heavy_check_mark:
+| [Azure Databox Edge](https://azure.microsoft.com/en-us/services/databox/edge/) |  |  |  |  | :heavy_check_mark:
+| [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)  |  |  |  |  | :heavy_check_mark:
 | [Azure DB para MySQL](https://azure.microsoft.com/services/mysql/)| :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure DB para PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure DB for MariaDB](https://azure.microsoft.com/services/mariadb/)  |  |  |  |  | :heavy_check_mark:
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) |  |  |  |  | :heavy_check_mark:
+| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) |  |  |  |  | :heavy_check_mark:
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)  |  |  |  |  | :heavy_check_mark:
 | [DNS de Azure](https://azure.microsoft.com/services/dns/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)  |  |  |  |  | :heavy_check_mark:
@@ -170,6 +178,7 @@ En este artículo se proporciona una lista detallada de los servicios en la nube
 | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Intune](https://docs.microsoft.com/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
+| [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) |  |  |  |  | :heavy_check_mark:
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

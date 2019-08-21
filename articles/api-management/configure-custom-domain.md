@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736251"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975734"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -34,7 +34,8 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   Una instancia de API Management Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
--   Nombre de dominio personalizado que sea de su propiedad. El nombre de dominio personalizado que desee usar debe adquirirse por separado y hospedarse en un servidor DNS. Este tema no contiene instrucciones acerca de cómo hospedar un nombre de dominio personalizado.
+-   Nombre de dominio personalizado que propiedad de su organización o suyo. En este tema no se dan instrucciones para adquirir un nombre de dominio personalizado.
+-   Un registro CNAME hospedado en un servidor DNS que asigna el nombre de dominio personalizado al nombre de dominio predeterminado de una instancia de API Management. En este tema no se dan instrucciones para hospedar un registro CNAME.
 -   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, API Management puede exponer de forma segura direcciones URL a través de SSL.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
@@ -52,13 +53,17 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     > [!NOTE]
     > Solo el punto de conexión **Puerta de enlace** está disponible para la configuración en el nivel Consumo.
     > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Puerta de enlace** (esta dirección URL se utiliza para llamar a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador).
-    > Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado. El nivel **Premium** admite la configuración de varios nombres de host para el punto de conexión **Puerta de enlace**.
+    > Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado.
+    > El nivel **Premium** admite la configuración de varios nombres de host para el punto de conexión **Puerta de enlace**.
 
 1. Seleccione el punto de conexión que desee actualizar.
 1. En la ventana de la derecha, haga clic en **Personalizar**.
 
-    - En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`. También se pueden usar nombres de dominio comodín (por ejemplo, \*. dominio.com).
+    - En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`.
     - En **Certificado**, seleccione un certificado de Key Vault. También puede cargar un archivo .PFX válido y proporcionar su **contraseña**, si el certificado está protegido con una contraseña.
+
+    > [!NOTE]
+    > Los nombres de dominio con caracteres comodín, como por ejemplo,`*.contoso.com`, se admiten en todos los niveles, salvo en el nivel de consumo.
 
     > [!TIP]
     > Se recomienda usar Azure Key Vault para administrar certificados y configurarlos para la rotación automática.
@@ -71,7 +76,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 1. Haga clic en Aplicar.
 
     > [!NOTE]
-    > El proceso de asignación del certificado puede tardar unos 15 minutos o más según el tamaño de la implementación. La SKU de desarrollador tiene un tiempo de inactividad, mientras que las SKU básica y superiores no.
+    > El proceso de asignación del certificado puede tardar unos 15 minutos o más según el tamaño de la implementación. La SKU de desarrollo tiene un tiempo de inactividad, mientras que las SKU básica y superiores no lo tienen.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
@@ -79,8 +84,8 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 Al configurar DNS para el nombre de dominio personalizado, tiene dos opciones:
 
-- Configurar un registro CNAME que apunte al punto de conexión del nombre de dominio personalizado configurado.
-- Configurar un registro A que apunte a la dirección IP de la puerta de enlace de API Management.
+-   Configurar un registro CNAME que apunte al punto de conexión del nombre de dominio personalizado configurado.
+-   Configurar un registro A que apunte a la dirección IP de la puerta de enlace de API Management.
 
 > [!NOTE]
 > Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Lea más en las [preguntas más frecuentes sobre API Management](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

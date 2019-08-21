@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688720"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954977"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
-En este artículo se describe cómo administrar las copias de seguridad para una máquina virtual de Azure mediante Azure Backup a través de la API REST. Configurará la protección por primera vez para una máquina virtual de Azure que no se haya protegido anteriormente, desencadenará una copia de seguridad a petición para una máquina virtual de Azure protegida y modificará las propiedades de copia de seguridad de una copia de seguridad de máquina virtual a través de la API REST, tal como se explica aquí.
+En este artículo se describe cómo administrar las copias de seguridad para una máquina virtual de Azure mediante Azure Backup a través de la API REST. Configurará la protección por primera vez para una máquina virtual de Azure que no se haya protegido anteriormente, desencadenará una copia de seguridad a petición para una máquina virtual de Azure protegida y modificará las propiedades de copia de seguridad de una copia de seguridad de máquina virtual a través de la API REST, como se explica aquí.
 
 Consulte los tutoriales de API REST sobre [create vault](backup-azure-arm-userestapi-createorupdatevault.md) y [create polity](backup-azure-arm-userestapi-createorupdatepolicy.md) para crear nuevos almacenes y las directivas.
 
@@ -393,7 +393,7 @@ Puesto que el trabajo de copia de seguridad es una operación de larga duración
 
 ### <a name="changing-the-policy-of-protection"></a>Cambiar la directiva de protección
 
-Para cambiar la directiva con la que la máquina virtual se protege, puede usar el mismo formato que para [habilitar la protección](#enabling-protection-for-the-azure-vm). Basta con que proporcione el identificador de la nueva directiva en [el cuerpo de solicitud](#example-request-body) y envíe la solicitud. Por ejemplo, para cambiar la directiva testVM de "DefaultPolicy" a "ProdPolicy", proporcione el identificador "ProdPolicy" en el cuerpo de solicitud.
+Para cambiar la directiva con la que la máquina virtual se protege, puede usar el mismo formato que para [habilitar la protección](#enabling-protection-for-the-azure-vm). Basta con que proporcione el identificador de la nueva directiva en [el cuerpo de solicitud](#example-request-body) y envíe la solicitud. Por ejemplo:  para cambiar la directiva testVM de "DefaultPolicy" a "ProdPolicy", especifique el identificador "ProdPolicy" en el cuerpo de la solicitud.
 
 ```http
 {

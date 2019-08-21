@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67705759"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
@@ -33,7 +33,7 @@ Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con la dirección VIP en una dirección IP interna, llamada a menudo instancia de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
 
-En este artículo se muestra cómo crear un ASE externo. Para obtener información general sobre ASE, consulte [Introducción a App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
+En este artículo se muestra cómo crear un ASE externo. Para información general sobre el ASE, consulte [Introducción a App Service Environment][Intro]. Para información sobre cómo crear una instancia de ASE con un ILB, consulte [Creación y uso de una instancia de ASE con un ILB][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 
@@ -41,7 +41,7 @@ Después de crear la instancia de ASE, no puede cambiar los siguientes parámetr
 
 - Location
 - Subscription
-- Grupos de recursos
+- Resource group
 - Red virtual usada
 - La subred usada
 - Tamaño de la subred
@@ -176,7 +176,7 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
 
 Todavía puede crear instancias de la primera versión de App Service Environment (ASEv1). Para iniciar ese proceso, busque **App Service Environment v1** en Marketplace. Cree la instancia de ASE de la misma forma que ha creado la instancia de ASE independiente. Cuando termine, la instancia de ASEv1 tendrá dos servidores front-end y dos trabajos. Con ASEv1 necesita administrar los servidores front-end y los trabajos. No se agregan de forma automática al crear los planes de App Service. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos. Los trabajos son roles que hospedan las aplicaciones. Puede ajustar la cantidad de servidores front-end y de trabajos después de crear la instancia de ASE. 
 
-Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
+Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. Para más información sobre el escalado, la administración y la supervisión de ASEv1, consulte [Configuración de App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

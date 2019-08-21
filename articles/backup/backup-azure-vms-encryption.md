@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688598"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882057"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -154,10 +154,11 @@ Restaure las máquinas virtuales cifradas de la manera siguiente:
 2. Luego, realice una de las operaciones siguientes:
     - Use la plantilla que se generó durante la operación de restauración para personalizar la configuración de la máquina virtual y desencadene la implementación de la máquina virtual. [Más información](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - En el caso de las máquinas virtuales Linux, restablezca la extensión ADE para que los discos de datos estén abiertos y montados. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si experimenta algún problema, consulte:
+Si experimenta algún problema, consulte estos artículos:
 
 - [Errores comunes](backup-azure-vms-troubleshoot.md) al realizar una copia de seguridad de máquinas virtuales de Azure cifradas y restaurarlas.
 - Problemas de la [extensión de copia de seguridad o del agente de máquina virtual de Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).

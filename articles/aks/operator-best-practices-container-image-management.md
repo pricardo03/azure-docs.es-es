@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
 ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67614829"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
@@ -24,13 +24,13 @@ En este artículo se indica cómo proteger los contenedores de AKS. Aprenderá a
 > * Buscar y corregir vulnerabilidades de la imagen
 > * Desencadenar automáticamente y volver a implementar imágenes de contenedor cuando se actualiza una imagen base
 
-También puede leer los procedimientos recomendados para la [seguridad del clúster][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
+También puede leer los procedimientos recomendados para la [seguridad del clúster][best-practices-cluster-security] y la [seguridad de pod][best-practices-pod-security].
 
 ## <a name="secure-the-images-and-run-time"></a>Proteger las imágenes y el tiempo de ejecución
 
 **Orientación con procedimientos recomendados**: analizar las imágenes del contenedor en busca de vulnerabilidades y solo implementar las imágenes que han pasado dicha validación. Actualizar regularmente las imágenes base y el entorno de ejecución de la aplicación y luego volver a implementar las cargas de trabajo en el clúster de AKS.
 
-Un problema con la adopción de cargas de trabajo basadas en contenedores es comprobar la seguridad de las imágenes y el entorno de ejecución usados para compilar sus propias aplicaciones. ¿Cómo asegurarse de que no introduce vulnerabilidades de seguridad en sus implementaciones? El flujo de trabajo de implementación debe incluir un proceso para examinar imágenes de contenedor con herramientas como [Twistlock][twistlock] or [Aqua][aqua] y solo permitir que se implementen imágenes comprobadas.
+Un problema con la adopción de cargas de trabajo basadas en contenedores es comprobar la seguridad de las imágenes y el entorno de ejecución usados para compilar sus propias aplicaciones. ¿Cómo asegurarse de que no introduce vulnerabilidades de seguridad en sus implementaciones? El flujo de trabajo de implementación debe incluir un proceso para examinar las imágenes de contenedor con herramientas como [Twistlock][twistlock] o [Aqua][aqua], y, después, solo permitir que se implementen imágenes comprobadas.
 
 ![Analizar y corregir imágenes de contenedor, validar e implementar](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689266"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954682"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -61,7 +61,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Copia de seguridad | Hubo un error en los trabajos de creación de puntos de recuperación en línea para la máquina virtual de VMware. DPM detectó un error de VMware al intentar obtener información de ChangeTracking. ErrorCode - FileFaultFault (Id. 33621 ) |  <ol><li> Restablezca el CTK en VMware, para las máquinas virtuales afectadas.</li> <li>Compruebe que los discos independientes no están en VMware.</li> <li>Detenga la protección de las máquinas virtuales afectadas y vuelva a proteger con el botón **Actualizar**. </li><li>Ejecute CC para las máquinas virtuales afectadas.</li></ol>|
+| Copia de seguridad | Hubo un error en los trabajos de creación de puntos de recuperación en línea para la máquina virtual de VMware. DPM detectó un error de VMware al intentar obtener información de ChangeTracking. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Restablezca el CTK en VMware, para las máquinas virtuales afectadas.</li> <li>Compruebe que los discos independientes no están en VMware.</li> <li>Detenga la protección de las máquinas virtuales afectadas y vuelva a protegerlas con el botón **Actualizar**. </li><li>Ejecute CC para las máquinas virtuales afectadas.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Error en la operación del agente debido a un error de comunicación con el servicio Coordinador de agentes DPM en el servidor
@@ -102,7 +102,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Copia de seguridad | Se produjo un error inesperado mientras se ejecutaba el trabajo. El dispositivo no está listo. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes:** <br> <ul><li>Configure el espacio de almacenamiento de instantáneas como ilimitado para los elementos del grupo de protección y, después, ejecute la comprobación de coherencia.<br></li> O BIEN <li>Intente eliminar el grupo de protección existente y la creación de varios grupos nuevos. Cada nuevo grupo de protección debe tener un elemento individual.</li></ul> |
 | Copia de seguridad | Si está haciendo una copia de seguridad solo del Estado del sistema, compruebe si hay suficiente espacio disponible en el equipo protegido para almacenarla. | <ol><li>Compruebe que Windows Server Backup está instalado en la máquina protegida.</li><li>Compruebe que hay suficiente espacio en el equipo protegido para el estado del sistema. La manera más fácil de comprobar esto consiste en ir al equipo protegido, abrir Windows Server Backup, hacer clic en las diferentes selecciones y, después, seleccionar BMR. A continuación, la interfaz de usuario indica cuánto espacio es necesario. Abra **WSB** > **Copia de seguridad local** > **Programación de copia de seguridad** > **Seleccionar configuración de copia de seguridad** > **Servidor completo** (se muestra el tamaño). Use este tamaño para la comprobación.</li></ol>
 | Copia de seguridad | Error en la copia de seguridad de BMR | Si el tamaño de la reconstrucción completa es grande, mueva algunos archivos de aplicación a la unidad de sistema operativo y vuelva a intentarlo. |
-| Copia de seguridad | La opción para volver a proteger una máquina virtual de VMware en una instancia nueva de Microsoft Azure Backup Server no se muestra como disponible para agregar. | Las propiedades de VMware señalan a una instancia anterior y retirada de Microsoft Azure Backup Server. Para resolver este problema:<br><ol><li>En VCenter (equivalente a SC-VMM), vaya a la pestaña **Resumen** y, después, a **Atributos personalizados**.</li>  <li>Elimine el nombre antiguo de Microsoft Azure Backup Server del valor de **DPMServer**.</li>  <li>Vuelva a la nueva instancia de Microsoft Azure Backup Server y modifique el PG.  Después de usar el botón **Actualizar**, se presentará la máquina virtual con una casilla disponible para agregar a la protección.</li></ol> |
+| Copia de seguridad | La opción para volver a proteger una máquina virtual de VMware en una instancia nueva de Microsoft Azure Backup Server no se muestra como disponible para agregarla. | Las propiedades de VMware señalan a una instancia anterior y retirada de Microsoft Azure Backup Server. Para resolver este problema:<br><ol><li>En VCenter (equivalente a SC-VMM), vaya a la pestaña **Resumen** y, después, a **Atributos personalizados**.</li>  <li>Elimine el nombre antiguo de Microsoft Azure Backup Server del valor de **DPMServer**.</li>  <li>Vuelva a la nueva instancia de Microsoft Azure Backup Server y modifique el PG.  Después de usar el botón **Actualizar**, se presentará la máquina virtual con una casilla disponible para agregar a la protección.</li></ol> |
 | Copia de seguridad | Error al acceder a carpetas o archivos compartidos | Intente modificar la configuración del antivirus como se sugiere en el artículo [Ejecución de software antivirus en el servidor DPM](https://technet.microsoft.com/library/hh757911.aspx) de TechNet.|
 
 

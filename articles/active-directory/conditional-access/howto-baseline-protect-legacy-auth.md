@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608075"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931945"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)
 
@@ -37,7 +37,7 @@ Para poder bloquear la autenticación heredada en su directorio, primero debe en
 
 1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
 1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
-1. Filtre por **Aplicación cliente** > **Otros clientes** y haga clic en **Aplicar**.
+1. **Agregar filtros** > **Aplicación cliente** > seleccione todas las opciones de **Otros clientes** y haga clic en **Aplicar**.
 
 Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
 

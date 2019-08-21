@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88e3c0514861da0bd11acffd26cced54717e4418
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f41263bfb930d3aab41fd8ace86cd6afb0ace26
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478486"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850584"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG le guiará por los pasos para crear el par de claves. Deberá proporcionar un nombre, una dirección de correo electrónico, una fecha de expiración, la frase de contraseña y esperar la suficiente entropía en el equipo para que la clave se genere.
 
-Como el directorio GPG se generó con sudo, deberá cambiar el propietario a `nxautomation`. 
+Como el directorio GPG se generó con sudo, deberá cambiar el propietario a `nxautomation`.
 
 Ejecute el siguiente comando para cambiar el propietario.
 
@@ -312,3 +312,4 @@ El runbook firmado ahora se puede cargar en Azure Automation y se puede ejecutar
 * Para más información sobre los distintos métodos que se pueden utilizar para iniciar un runbook, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).
 * Para entender las diferentes formas para trabajar con runbooks de PowerShell en Azure Automation mediante el editor de texto, consulte [Edición de un runbook en Azure Automation](automation-edit-textual-runbook.md)
 * Si los runbooks no finalizan correctamente, revise la guía de solución de problemas sobre [errores de ejecución de un runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* Para más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

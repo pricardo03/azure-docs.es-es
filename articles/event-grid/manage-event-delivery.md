@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119559"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933375"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensajes fallidos y directivas de reintento
 
@@ -25,9 +25,11 @@ Cuando crea una suscripción a eventos, puede personalizar la configuración de 
 Para establecer una ubicación de la cola de mensajes fallidos, se necesita una cuenta de almacenamiento para mantener los eventos que no se pueden entregar a un punto de conexión. Los ejemplos obtienen el identificador de recurso de una cuenta de almacenamiento existente. Crean una suscripción de eventos que usa un contenedor en esa cuenta de almacenamiento para el punto de conexión de mensajes con problemas de entrega.
 
 > [!NOTE]
-> Cree una cuenta de almacenamiento y un contenedor de blobs en el almacenamiento antes de ejecutar los comandos de este artículo.
+> - Cree una cuenta de almacenamiento y un contenedor de blobs en el almacenamiento antes de ejecutar los comandos de este artículo.
+> - El servicio Event Grid crea blobs en este contenedor. Los nombres de los blobs tendrán el nombre de la suscripción de Event Grid con todas las letras en mayúsculas. Por ejemplo, si el nombre de la suscripción es My-Blob-Subscription, los nombres de los blobs de mensajes con problemas de entrega tendrán MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). Este comportamiento sirve para proteger contra las diferencias en el control de las mayúsculas y minúsculas entre servicios de Azure.
 
-### <a name="azure-cli"></a>Azure CLI
+
+### <a name="azure-cli"></a>CLI de Azure
 
 ```azurecli-interactive
 containername=testcontainer
@@ -73,7 +75,7 @@ Al crear una suscripción a Event Grid, puede establecer durante cuanto tiempo d
 
 No se puede configurar la [programación de reintentos](delivery-and-retry.md#retry-schedule-and-duration).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para establecer el período de vida del evento en otro valor distinto de 1440 minutos, use:
 

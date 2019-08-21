@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
 ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67613857"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Uso de Virtual Kubelet con Azure Kubernetes Service (AKS)
@@ -22,7 +22,7 @@ Azure Container Instances (ACI) proporciona un entorno hospedado para ejecutar c
 Al usar el proveedor de Virtual Kubelet para Azure Container Instances, los contenedores de Linux y Windows se pueden programar en una instancia de contenedor como si fueran un nodo de Kubernetes estándar. Esta configuración le permite aprovechar las funcionalidades de Kubernetes y la ventaja de valor y costo de administración de las instancias de contenedor.
 
 > [!NOTE]
-> AKS ahora tiene compatibilidad integrada para programar los contenedores en ACI, que se conocen como *nodos virtuales*. Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Si tiene que programar instancias de contenedor de Windows, puede seguir usando Virtual Kubelet. En caso contrario, debe usar los nodos virtuales en lugar de las instrucciones manuales de Virtual Kubelet que se han indicado en este artículo. Puede empezar a trabajar con los nodos virtuales mediante la [CLI de Azure][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
+> AKS ahora tiene compatibilidad integrada para programar los contenedores en ACI, que se conocen como *nodos virtuales*. Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Si tiene que programar instancias de contenedor de Windows, puede seguir usando Virtual Kubelet. En caso contrario, debe usar los nodos virtuales en lugar de las instrucciones manuales de Virtual Kubelet que se han indicado en este artículo. Puede empezar a trabajar con los nodos virtuales mediante la [CLI de Azure][virtual-nodes-cli] o [Azure Portal][virtual-nodes-portal].
 >
 > Virtual Kubelet es un proyecto de código abierto experimental y debe usarse como tal. Para contribuir, registrar problemas y leer más información acerca de Virtual Kubelet, consulte el [proyecto Virtual Kubelet de GitHub][vk-github].
 
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>Ejecución del contenedor de Linux
 
-Cree un archivo denominado `virtual-kubelet-linux.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] and [toleration][toleration] para programar el contenedor en el nodo.
+Cree un archivo denominado `virtual-kubelet-linux.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] y un campo [toleration][toleration] para programar el contenedor en el nodo.
 
 ```yaml
 apiVersion: apps/v1
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>Ejecución del contenedor de Windows
 
-Cree un archivo denominado `virtual-kubelet-windows.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] and [toleration][toleration] para programar el contenedor en el nodo.
+Cree un archivo denominado `virtual-kubelet-windows.yaml` y cópielo en el siguiente código YAML. Observe que se usa un campo [nodeSelector][node-selector] y un campo [toleration][toleration] para programar el contenedor en el nodo.
 
 ```yaml
 apiVersion: apps/v1
@@ -254,7 +254,7 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para posibles problemas con Virtual Kubelet, consulte el artículo sobre [peculiaridades conocidas y soluciones alternativas][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
+Para posibles problemas con Virtual Kubelet, consulte el artículo sobre [peculiaridades conocidas y soluciones alternativas][vk-troubleshooting]. Para informar de problemas con Virtual Kubelet, [abra una incidencia de GitHub][vk-issues].
 
 Obtenga más información sobre Virtual Kubelet en el [proyecto Virtual Kubelet de GitHub][vk-github].
 

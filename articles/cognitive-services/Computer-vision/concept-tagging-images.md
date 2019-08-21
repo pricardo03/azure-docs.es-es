@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación de etiquetas de contenido a imágenes: Computer Vision'
+title: 'Etiquetas de contenido: Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre los conceptos relacionados con la característica de etiquetado de imágenes de Computer Vision API.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759680"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945103"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicación de etiquetas de contenido a imágenes
 

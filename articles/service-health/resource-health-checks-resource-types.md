@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622290"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955036"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -25,6 +25,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿El servicio API Management está en funcionamiento?</li></ul>|
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Funciona la cuenta de Batch?</li><li>¿Se ha superado la cuota de grupos de esta cuenta de Batch?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Comprobaciones ejecutadas|
@@ -72,6 +77,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿El servicio de migración de la base de datos ha dado un error al aprovisionar?</li><li>¿El servicio de migración de la base de datos se detuvo debido a inactividad o a una solicitud de usuario?</li></ul>|
 
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Funciona la cuenta de Data Share?</li><li>¿Está disponible el clúster que hospeda la instancia de Data Share?</li></ul>|
+
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Comprobaciones ejecutadas|
 |---|
@@ -112,6 +122,16 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Las solicitudes al almacén de claves producen errores debido a problemas de la plataforma de Azure KeyVault?</li><li>¿Se están limitando las solicitudes al almacén de claves porque el cliente está realizando demasiadas solicitudes?</li></ul>|
 
+## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Funciona el servicio web?</li></ul>|
+
+## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Funciona el servicio multimedia?</li></ul>|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |Comprobaciones ejecutadas|
 |---|
@@ -131,6 +151,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Los elementos de back-end de Front Door devuelven errores en los sondeos de mantenimiento?</li><li>¿Se han retrasado los cambios en la configuración?</li></ul>|
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.network/LoadBalancers
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Están disponibles los puntos de conexión de equilibrio de carga?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Comprobaciones ejecutadas|
@@ -167,10 +192,15 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Los clientes experimentan errores de Service Bus generados por el usuario?</li><li>¿Los usuarios están experimentando un aumento de los errores transitorios debido a una actualización del espacio de nombres de Service Bus?</li></ul>|
 
-## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li> ¿Se han producido inicios de sesión en la base de datos?</li></ul>|
+|<ul><li>¿Funciona la base de datos?</li></ul>|
+
+## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/databases
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Se han producido inicios de sesión en la base de datos?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |Comprobaciones ejecutadas|
@@ -192,7 +222,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ejecuta Internet Information Server?</li><li>¿Funciona el equilibrador de carga?</li><li>¿Se puede acceder a la aplicación web desde el centro de datos?</li><li>¿Hospeda la cuenta de almacenamiento el contenido del sitio disponible?</li></ul>|
 
-# <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 -  Consulte la [introducción al panel de Azure Service Health](service-health-overview.md) y la [introducción a Azure Resource Health](resource-health-overview.md) para más información sobre ellos. 
 -  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.md)
 - Configure alertas de forma que se le notifiquen los problemas de estado. Para más información, consulte el artículo de [configuración de alertas para eventos de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

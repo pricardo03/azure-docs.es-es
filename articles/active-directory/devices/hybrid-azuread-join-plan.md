@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779454"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989254"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -101,7 +101,7 @@ Es posible las organizaciones estén interesadas en realizar una validación con
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Seleccione el escenario según la infraestructura de identidad
 
-La unión a Azure AD híbrido funciona con entornos administrados y federados.  
+La unión a Azure AD híbrido funciona con entornos administrados y federados, en función de si la UPN es enrutable o no enrutable. En la parte inferior de la página puede consultar una tabla sobre los escenarios admitidos.  
 
 ### <a name="managed-environment"></a>Entorno administrado
 

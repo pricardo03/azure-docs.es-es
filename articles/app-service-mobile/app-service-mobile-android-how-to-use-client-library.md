@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67443538"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
 
 > [!NOTE]
-> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar las canalizaciones de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que usan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Visite [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) hoy mismo.
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Visite [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) hoy mismo.
 >
 
 En esta guía se muestra cómo utilizar el SDK cliente de Android para Mobile Apps con el objetivo de implementar escenarios comunes, como los siguientes:
@@ -33,7 +33,7 @@ En esta guía se muestra cómo utilizar el SDK cliente de Android para Mobile Ap
 * Control de errores
 * Personalización del cliente
 
-Esta guía se centra en el SDK de Android del cliente.  Para obtener más información sobre los SDK del lado servidor para Mobile Apps, consulte [Trabajar con el SDK del back-end de .NET][10] or [How to use the Node.js backend SDK][11].
+Esta guía se centra en el SDK de Android del cliente.  Para más información sobre los SDK del lado servidor para Mobile Apps, consulte [Trabajar con el SDK del back-end de .NET][10] o [Cómo usar el SDK del back-end de Node.js][11].
 
 ## <a name="reference-documentation"></a>Documentación de referencia
 
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para aprender a crear tablas adicionales en su back-end de Mobile Apps, consulte [Definición Definición de un controlador de tabla][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (back-end Node.js).
+Para aprender a crear tablas adicionales en su back-end de Mobile Apps, consulte [Definición de un controlador de tabla][15] (back-end de .NET) o [Definición de tablas con un esquema dinámico][16] (back-end de Node.js).
 
 Una tabla de back-end de Azure Mobile Apps define cinco campos especiales, cuatro de los cuales están disponibles para los clientes:
 
@@ -701,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Cuando haya creado una instancia de **MobileServiceJsonTable**, tendrá disponible prácticamente la misma API que con el modelo de programación con tipo. En algunos casos, los métodos toman un parámetro sin tipo en lugar de uno con tipo.
 
 ### <a name="json_insert"></a>Inserción de una tabla sin tipo
-El código siguiente muestra cómo realizar una inserción. El primer paso es crear una biblioteca [JsonObject][1], which is part of the [gson][3].
+El código siguiente muestra cómo realizar una inserción. El primer paso es crear un [JsonObject][1], que forma parte de la biblioteca de [gson][3].
 
 ```java
 JsonObject jsonItem = new JsonObject();

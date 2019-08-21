@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788675"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976740"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -59,6 +59,8 @@ Actividad de transformación de datos | Entorno de procesos
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Código personalizado](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Actividad de Jar en Databricks](transform-data-databricks-jar.md) | Azure Databricks
+[Actividad de Python en Databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Para obtener más información, consulte el artículo sobre las [actividades de transformación de datos](transform-data.md).
 
@@ -94,7 +96,7 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 }
 ```
 
-Etiqueta | DESCRIPCIÓN | Type | Obligatorio
+Etiqueta | DESCRIPCIÓN | type | Obligatorio
 --- | ----------- | ---- | --------
 name | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | Cadena | Sí
 description | Especifique el texto que describe para qué se usa la canalización. | Cadena | Sin

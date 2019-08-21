@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3c179cfbf86c2dddfb34b46540aba8898038751
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61399934"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966489"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory
 
@@ -29,7 +29,11 @@ Puede copiar datos de Netezza en cualquier almacén de datos de receptor admitid
 
 Azure Data Factory proporciona un controlador integrado para permitir la conectividad. No es necesario instalar manualmente uno para usar este conector.
 
-## <a name="get-started"></a>Introducción
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+## <a name="get-started"></a>Primeros pasos
 
 Puede crear una canalización que use una actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o una plantilla de Azure Resource Manager. Consulte el [tutorial de la actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
@@ -43,7 +47,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Netezza:
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** debe establecerse en **Netezza**. | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Netezza. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
-| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede elegir una instancia autohospedada de Integration Runtime o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
 
 Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. En la tabla siguiente se describen más propiedades que puede establecer:
 
@@ -112,7 +116,7 @@ Para copiar datos desde Netezza, establezca la propiedad **type** del conjunto d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **NetezzaTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **NetezzaTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**

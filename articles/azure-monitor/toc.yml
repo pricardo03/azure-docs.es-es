@@ -930,6 +930,8 @@
               href: platform/alerts-understand-migration.md
             - name: Uso de la herramienta de migración
               href: platform/alerts-using-migration-tool.md
+            - name: Proceso de automático de migración
+              href: platform/alerts-automatic-migration.md
             - name: Administración de alertas de métricas clásicas
               href: platform/alerts-classic-portal.md
             - name: Alerta de métricas clásica mediante una plantilla de Resource Manager

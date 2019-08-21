@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 6525be97d9317791f39cb51a8fa819d38bd49c73
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689445"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954904"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -123,7 +123,7 @@ El punto de recuperación se identifica con el campo `{name}` en la respuesta an
 
 ## <a name="restore-disks"></a>Restauración de los discos
 
-Si es necesario personalizar la creación de una máquina virtual a partir de los datos de copia de seguridad, se puede restaurar solo los discos en una cuenta de almacenamiento elegida y crear una máquina virtual a partir de esos discos según sus requisitos. La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services y no debe ser una zona redundante. Los discos, así como la configuración de la copia de seguridad de máquina virtual ("vmconfig.json") se almacenarán en la cuenta de almacenamiento dada.
+Si es necesario personalizar la creación de una máquina virtual a partir de los datos de copia de seguridad, se puede restaurar solo los discos en una cuenta de almacenamiento elegida y crear una máquina virtual a partir de esos discos según sus requisitos. La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services y no debe ser una zona redundante. Tanto los discos como la configuración de la copia de seguridad de la máquina virtual ("vmconfig.json") se almacenarán en la cuenta de almacenamiento dada.
 
 Desencadenar la restauración de discos es una solicitud *POST*. Para más información acerca de la operación de restauración de discos, consulte la [API REST "desencadenar restauración"](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 

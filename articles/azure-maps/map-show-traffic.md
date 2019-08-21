@@ -1,6 +1,6 @@
 ---
 title: Visualización del tráfico con Azure Maps | Microsoft Docs
-description: Cómo mostrar los datos de tráfico en un mapa de Javascript
+description: Procedimiento para mostrar los datos de tráfico en el SDK de Azure Maps para web.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,42 +9,67 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 55bfc434082b2d5b7de193e969fc34f710657cdb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 145e2246703441a08868c8aae311573e95d4de42
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638635"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976433"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
-En este artículo se muestra cómo mostrar información de tráfico e incidentes en el mapa.
+Hay dos tipos de datos de tráfico disponibles en Azure Maps:
 
-## <a name="understand-the-code"></a>Comprendiendo el código
+- Datos de incidentes, que se componen de datos basados en puntos y líneas para aspectos como construcción, cierres de carreteras y accidentes.
+- Datos de flujo, que proporcionan métricas sobre el flujo de tráfico en las carreteras. Los datos de flujo de tráfico se suelen usar para colorear las carreteras en función de la cantidad de tráfico que ralentiza el flujo en relación con el límite de velocidad o alguna otra métrica. Los datos de flujo de tráfico en Azure Maps tienen tres métricas de medida diferentes:
+    - `relative`: está relacionada con la velocidad de flujo libre de la carretera.
+    - `absolute`: es la velocidad absoluta de todos los vehículos de la carretera.
+    - `relative-delay`: muestra las áreas que son más lentas que el retraso promedio esperado.
 
-<iframe height='456' scrolling='no' title='Visualización del tráfico en un mapa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Mostrar tráfico en un mapa</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+En el código siguiente se muestra cómo mostrar los datos de tráfico en el mapa.
+
+```javascript
+//Show traffic on the map using the traffic options.
+map.setTraffic({
+    incidents: true,
+    flow: 'relative'
+});
+```
+
+A continuación se muestra el código de ejemplo de ejecución completo de la funcionalidad anterior.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Visualización del tráfico en un mapa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Mostrar tráfico en un mapa</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](map-create.md) para obtener instrucciones.
+## <a name="traffic-overlay-options"></a>Opciones de superposición de tráfico
 
-El segundo bloque de código utiliza la función [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la función [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para mostrar los flujos de tráfico y las incidencias en el mapa.
+La siguiente herramienta le permite cambiar entre las diferentes configuraciones de superposición de tráfico para ver cómo cambia la representación. 
+
+<br/>
+
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de superposición de tráfico" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opciones de superposición de tráfico</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-
-Consulte los siguientes artículos para obtener ejemplos de código completos:
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Página de ejemplos de código](https://aka.ms/AzureMapsSamples)
+> [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
 
 Mejore sus experiencias de usuario:
 
 > [!div class="nextstepaction"]
-> [Interacción del mapa con eventos del mouse](./map-events.md)
+> [Interacción del mapa con eventos del mouse](map-events.md)
 
 > [!div class="nextstepaction"]
-> [Building an accessible map](./map-accessibility.md) (Creación de un mapa accesible)
+> [Building an accessible map](map-accessibility.md) (Creación de un mapa accesible)
+
+> [!div class="nextstepaction"]
+> [Página de ejemplos de código](https://aka.ms/AzureMapsSamples)

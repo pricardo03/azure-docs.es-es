@@ -8,14 +8,30 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f732ab6ceb17dcd013c6d032ef3943f6ad9bef71
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782336"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850320"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
+
+En este artículo se detallan problemas comunes con los runbooks y cómo resolverlos.
+
+## <a name="steps-to-troubleshoot-runbooks"></a>Pasos para solucionar problemas de runbooks
+
+Si se producen errores al ejecutar runbooks en Azure Automation, puede usar los pasos siguientes para ayudar a diagnosticar el problema.
+
+1. **Asegúrese de que el script de runbook se ejecuta correctamente en la máquina local**:  consulte en la [documentación de PowerShell](/powershell/scripting/overview) o la [documentación de Python](https://docs.python.org/3/) los módulos de referencia de lenguaje y aprendizaje.
+
+   La ejecución local del script puede detectar y resolver errores comunes, como, por ejemplo:
+
+   - **Módulos faltantes**
+   - **Errores de sintaxis**
+   - **Errores lógicos**
+
+2. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Si el runbook importa algún módulo, asegúrese de que está disponible en la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Para más información, consulte [Solución de problemas de módulos](shared-resources.md#modules).
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errores de autenticación al trabajar con runbooks de Azure Automation
 

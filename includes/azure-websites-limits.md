@@ -2,14 +2,14 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 203f0eda7e2e9d1545e7bf5cc2bb6eff9c2c3c55
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186692"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936898"
 ---
 | Recurso | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -36,7 +36,7 @@ ms.locfileid: "67186692"
 | [Compatibilidad con Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Espacios de ensayo](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| Contrato de nivel de servicio | |  |99,9 % |99,95 %|99,95 %|99,95 %|  
+| Contrato de nivel de servicio | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
 
 <sup>1</sup>Las aplicaciones y las cuotas de almacenamiento son por plan de App Service, a menos que se indique lo contrario.  
 <sup>2</sup>El número real de aplicaciones que puedes hospedar en estas máquinas depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y el correspondiente uso de los recursos.  
@@ -44,7 +44,7 @@ ms.locfileid: "67186692"
 <sup>4</sup>Se permiten más a petición.  
 <sup>5</sup>El límite de almacenamiento es el tamaño total del contenido en todas las aplicaciones en el mismo plan de App Service.  
 <sup>6</sup>Estos recursos están limitados por los recursos físicos en las instancias dedicadas (el tamaño de la instancia y el número de instancias).  
-<sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos.  
+<sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos. En el nivel Estándar u otro superior, no hay ningún límite teórico para los sockets web, pero otros factores pueden limitar el número de estos. Por ejemplo, el número máximo de solicitudes simultáneas permitidas (que define `maxConcurrentRequestsPerCpu`) es: 7500 por máquina virtual pequeña, 15 000 por máquina virtual mediana (7500 x 2 núcleos) y 75 000 por máquina virtual de gran tamaño (18 750 x 4 núcleos).  
 <sup>8</sup>Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere Azure Scheduler de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de trabajos web que se pueden ejecutar en una instancia de App Service. Hay límites prácticos que dependen de lo que el código de aplicación intente hacer.  
-<sup>9</sup>Las SKU de App Service aislado tienen la capacidad de equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.  
+<sup>9</sup>Las SKU de App Service aislado pueden tener equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.  
 <sup>10</sup> El límite de cuota de App Service Certificate por suscripción se puede aumentar mediante una solicitud de soporte técnico hasta un límite máximo de 200.  

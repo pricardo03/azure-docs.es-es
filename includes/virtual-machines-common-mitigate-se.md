@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/04/2019
+ms.date: 08/08/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 169e25aeb8503a11f768a2a3062022eef51a76b8
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: b13b809b04f6cf878d68311b756ed2ca826f9697
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659901"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935309"
 ---
-**Última actualización del documento**: 4 de junio de 2019 3:00 p. m. hora del Pacífico.
+**Última actualización del documento**: 9 de agosto de 2019 a las 10:00 a. m. PST.
 
 La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
@@ -168,6 +168,7 @@ Este artículo proporciona instrucciones para los siguientes ataques de canal la
 - CVE-2017-5715: inserción de destino de rama (BTI)  
 - CVE-2017-5754: aislamiento de tabla de páginas de kernel (KPTI)
 - CVE-2018-3639: omisión especulativa de almacén (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125): información del kernel de Windows, variante de Spectre variante 1
  
 [Error de terminal L1 (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615: extensiones de protección de software de Intel (Intel SGX)

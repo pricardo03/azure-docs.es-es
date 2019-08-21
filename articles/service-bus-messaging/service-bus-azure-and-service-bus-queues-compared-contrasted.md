@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799350"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017788"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que actualmente ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -52,7 +52,7 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 * Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
 * Su solución requiere un comportamiento transaccional y atomicidad al enviar o recibir varios mensajes desde una cola.
 * Su aplicación administra mensajes que pueden superar los 64 KB pero probablemente no alcanzarán el límite de 256 KB.
-* Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores.
+* Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores. Para más información, consulte [Control de acceso basado en rol de Active Directory (versión preliminar)](service-bus-role-based-access-control.md).
 * El tamaño de la cola no aumentará a más de 80 GB.
 * Quiere usar el protocolo de mensajería basado en estándares AMQP 1.0. Para obtener más información sobre AMQP, vea [Introducción al AMQP de Service Bus](service-bus-amqp-overview.md).
 * Puede idear una migración eventual desde la comunicación punto a punto basada en cola a un patrón de intercambio de mensajes que permite la integración perfecta de receptores adicionales (suscriptores), cada uno de los cuales recibe copias independientes de algunos o todos los mensajes enviados a la cola. El segundo se refiere a la capacidad de publicación o suscripción ofrecida por Service Bus de forma nativa.
@@ -143,7 +143,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 * Con las colas de Storage, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
 * Con las colas de Service Bus, cada mensaje almacenado en una cola consta de dos partes: un encabezado y un cuerpo. El tamaño total del mensaje no puede superar el tamaño máximo admitido por el nivel de servicio.
 * Cuando los clientes se comunican con colas de Service Bus por el protocolo TCP, el número máximo de conexiones simultáneas a una única cola de Service Bus se limita a 100. Este número se comparte entre remitentes y receptores. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Este límite no se impone en clientes que se conectan a las colas mediante la API basada en REST.
-* Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10 000 colas con Service Bus, también puede crear espacios de nombres adicionales mediante [Azure Portal][Azure portal].
+* Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10.000 colas con Service Bus, también puede crear espacios de nombres adicionales mediante [Azure Portal][Azure portal].
 
 ## <a name="management-and-operations"></a>Administración y operaciones
 En esta sección se comparan algunas de las características de administración ofrecidas por las colas de Storage y las colas de Service Bus.

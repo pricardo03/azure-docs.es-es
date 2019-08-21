@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779400"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879968"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -40,9 +40,9 @@ Necesitará los siguientes elementos antes de crear una imagen:
 
 * Necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).
 
-## <a name="quick-commands"></a>Comandos rápidos
+## <a name="prefer-a-tutorial-instead"></a>¿Prefiere un tutorial en su lugar?
 
-Para una versión simplificada de este artículo, con fines de prueba, evaluación o aprendizaje sobre máquinas virtuales de Azure, consulte [Creación de una imagen personalizada de una máquina virtual de Azure mediante la CLI](tutorial-custom-images.md).
+Para una versión simplificada de este artículo, con fines de prueba, evaluación o aprendizaje sobre máquinas virtuales de Azure, consulte [Creación de una imagen personalizada de una máquina virtual de Azure mediante la CLI](tutorial-custom-images.md).  De lo contrario, siga leyendo para obtener la imagen completa.
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Paso 1: Desaprovisionar la máquina virtual
@@ -58,7 +58,7 @@ En primer lugar, desaprovisione la máquina virtual con el agente de máquinas v
    > Solo puede ejecutar este comando en una máquina virtual que quiera capturar como imagen. Este comando no garantiza que se haya borrado toda información confidencial de la imagen o que sea adecuada para su redistribución. El parámetro `+user` también elimina la última cuenta de usuario aprovisionada. Para mantener las credenciales de la cuenta de usuario en la máquina virtual, use solo `-deprovision`.
  
 3. Escriba **s** para continuar. Puede agregar el parámetro `-force` para evitar este paso de confirmación.
-4. Una vez finalizado el comando, escriba **exit** para cerrar el cliente de SSH.
+4. Una vez finalizado el comando, escriba **exit** para cerrar el cliente de SSH.  La máquina virtual seguirá ejecutándose en este momento.
 
 ## <a name="step-2-create-vm-image"></a>Paso 2: Crear imagen de máquina virtual
 Use la CLI de Azure para marcar la máquina virtual como generalizada y capture la imagen. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
@@ -71,7 +71,7 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
       --name myVM
     ```
     
-    Espere a que la máquina virtual se desasigne por completo antes de moverla. Esta operación puede tardar algunos minutos en completarse.
+    Espere a que la máquina virtual se desasigne por completo antes de moverla. Esta operación puede tardar algunos minutos en completarse.  La máquina virtual se apaga durante la desasignación.
 
 2. Marque la máquina virtual como generalizada con [az vm generalize](/cli/azure/vm). En el ejemplo siguiente se marca como generalizada la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
    
@@ -80,6 +80,8 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
       --resource-group myResourceGroup \
       --name myVM
     ```
+
+    Una máquina virtual que ha sido generalizada ya no se puede reiniciar.
 
 3. Cree una imagen del recurso de máquina virtual con [az image create](/cli/azure/image#az-image-create). En el ejemplo siguiente se crea una imagen llamada *myImage* en el grupo de recursos llamado *myResourceGroup* por medio del recurso de máquina virtual llamado *myVM*.
    
@@ -93,6 +95,8 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
    > La imagen se crea en el mismo grupo de recursos que la VM de origen. Puede crear VM en cualquier grupo de recursos dentro de la suscripción a partir de esta imagen. Desde una perspectiva de administración, puede que desee crear un grupo de recursos específico para las imágenes y los recursos de VM.
    >
    > Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `--zone-resilient true`.
+   
+Este comando devuelve JSON que describe la imagen de la máquina virtual. Guarde esta salida para su posterior referencia.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Paso 3: Crear una máquina virtual a partir de la imagen capturada
 Cree una máquina virtual con la imagen que ha creado con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual llamada *myVMDeployed* a partir de la imagen *myImage*.

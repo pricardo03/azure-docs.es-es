@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
-ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780401"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036242"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Recursos útiles al trabajar con Azure Sentinel, versión preliminar
 
@@ -41,8 +41,12 @@ Conectores de Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 | PaloAlto| Configuración de CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Curso del lenguaje de consulta Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## <a name="blogs-and-forums"></a>Blogs y foros
+
+Publique sus preguntas en el [espacio de TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para Azure Sentinel.
+
+Lea las entradas del blog de Azure Sentinel desde [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) y [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha obtenido una lista de recursos de gran utilidad al trabajar con Azure Sentinel. Para obtener más información sobre Azure Sentinel, consulte los siguientes artículos:
-
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
+En este documento, ha obtenido una lista de recursos de gran utilidad al trabajar con Azure Sentinel. Encontrará información adicional sobre la seguridad y el cumplimiento de Azure en el [Blog sobre seguridad y cumplimiento de Microsoft Azure](https://blogs.msdn.com/b/azuresecurity/).

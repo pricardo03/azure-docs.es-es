@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780896"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946408"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Seguridad de empresa para Azure Machine Learning Service
 
 En este artículo conocerá las funciones de seguridad disponibles con el Azure Machine Learning Service.
 
-Cuando se usa un servicio en la nube, se recomienda restringir el acceso únicamente a los usuarios que lo necesitan. Esto comienza por comprender el modelo de autenticación y autorización que usa el servicio. Es posible que también desee restringir el acceso a la red o unir de forma segura los recursos de la red local con los de la nube. También es fundamental el cifrado de datos, tanto si están en reposo como si se mueven entre los servicios. Por último, debe ser capaz de supervisar el servicio y generar un registro de auditoría de todas las actividades.
+Cuando se usa un servicio en la nube, se recomienda restringir el acceso únicamente a los usuarios que lo necesitan. Esto comienza por comprender el modelo de autenticación y autorización que usa el servicio. Es posible que también desee restringir el acceso a la red o unir de forma segura los recursos de la red local con la nube. También es fundamental el cifrado de datos, tanto si están en reposo como si se mueven entre los servicios. Por último, debe ser capaz de supervisar el servicio y generar un registro de auditoría de todas las actividades.
 
 ## <a name="authentication"></a>Authentication
 
@@ -29,7 +29,7 @@ Si Azure Active Directory (Azure AD) se ha configurado para la autenticación mu
 
 * El cliente inicia sesión en Azure AD y obtiene el token de Azure Resource Manager.  Los usuarios y entidades de servicio son totalmente compatibles.
 * El cliente presenta el token a Azure Resource Manager y a todos los servicios de Azure Machine Learning Service.
-* La instancia de Azure Machine Learning Service proporciona un token de Azure Machine Learning al proceso del usuario. Por ejemplo, Proceso de Machine Learning. Este token de Azure Machine Learning se utiliza en el proceso del usuario para volver a llamar a la instancia de Azure Machine Learning Service (limita el ámbito al área de trabajo) una vez que ha finalizado la ejecución.
+* La instancia de Azure Machine Learning Service proporciona un token de Azure Machine Learning al proceso del usuario. Por ejemplo, Proceso de Machine Learning. Este token se utiliza en el proceso del usuario para volver a llamar a la instancia de Azure Machine Learning Service (limita el ámbito al área de trabajo) una vez que ha finalizado la ejecución.
 
 ![La captura de pantalla muestra cómo funciona la autenticación en Azure Machine Learning Service](./media/enterprise-readiness/authentication.png)
 
@@ -159,8 +159,8 @@ Todas las imágenes del contenedor en el registro (ACR) se cifran en reposo. Azu
 
 #### <a name="machine-learning-compute"></a>Proceso de Machine Learning
 
-El disco del sistema operativo para cada nodo de ejecución almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning Service. Este proceso es efímero y por lo general los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Los discos del sistema operativo no admiten el cifrado de discos de Azure.
-Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Este disco también se puede usar para almacenar los datos de entrenamiento. Este disco no se cifra.
+El disco del sistema operativo para cada nodo de ejecución almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning Service. Este destino de proceso es efímero y por lo general los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Los discos del sistema operativo no admiten el cifrado de discos de Azure.
+Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. El disco también se puede usar para almacenar los datos de entrenamiento. El disco no se cifra.
 Para más información sobre cómo funciona el cifrado en reposo en Azure, consulte [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
@@ -181,13 +181,30 @@ Cada área de trabajo tiene asociada una identidad administrada asignada por el 
 
 ## <a name="monitoring"></a>Supervisión
 
-Los usuarios pueden consultar el registro de actividad en el área de trabajo para ver diferentes operaciones realizadas en ella y obtener información básica, como el nombre de la operación, quién inició el evento, la marca de tiempo, etc.
+### <a name="metrics"></a>Métricas
+
+Las métricas de Azure Monitor se pueden usar para ver y supervisar las métricas del área de trabajo de Azure Machine Learning Service. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo y, a continuación, siga el vínculo __Métricas__.
+
+![Captura de pantalla que muestra las métricas de ejemplo de un área de trabajo](./media/enterprise-readiness/workspace-metrics.png)
+
+Métricas incluye información sobre ejecuciones, implementaciones y registros.
+
+Para más información, consulte [Métricas en Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+
+### <a name="activity-log"></a>Registro de actividades
+
+Puede consultar el registro de actividad en el área de trabajo para ver diferentes operaciones realizadas en ella y obtener información básica, como el nombre de la operación, quién inició el evento, la marca de tiempo, etc.
 
 En la siguiente captura de pantalla se muestra el registro de actividad de un área de trabajo:
 
 ![Captura de pantalla que muestra el registro de actividad en un área de trabajo](./media/enterprise-readiness/workspace-activity-log.png)
 
-Los detalles de la solicitud de puntuación se almacenan en AppInsights, que se crea en la suscripción del usuario al crear el área de trabajo. Se incluyen campos como HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration, etc.
+Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se crea en la suscripción del usuario al crear el área de trabajo. La información registrada incluye campos como HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration, etc.
+
+> [!IMPORTANT]
+> Algunas acciones dentro del área de trabajo Azure Machine Learning no registran información en el registro de actividad. Por ejemplo, el inicio de una ejecución de entrenamiento o el registro de un modelo.
+>
+> Algunas de estas acciones aparecen en el área __Actividades__ del área de trabajo, pero no indican quién inició la actividad.
 
 ## <a name="data-flow-diagram"></a>Diagrama de flujo de datos
 
@@ -208,7 +225,7 @@ Según sea necesario, también se pueden aprovisionar otros procesos asociados a
 ### <a name="save-source-code-training-scripts"></a>Almacenamiento del código fuente (scripts de entrenamiento)
 
 En el siguiente diagrama se muestra el flujo de trabajo de la instantánea de código.
-Un área de trabajo de Azure Machine Learning Service tiene asociados directorios (experimentos), que contienen el código fuente (scripts de entrenamiento).  Estos directorios se almacenan en el equipo local del cliente y en la nube (en Azure Blob Storage, bajo la suscripción del cliente). Las instantáneas de código se utilizan para la ejecución o inspección de auditorías históricas.
+Un área de trabajo de Azure Machine Learning Service tiene asociados directorios (experimentos), que contienen el código fuente (scripts de entrenamiento).  Estos scripts se almacenan en la máquina local del cliente y en la nube (en Azure Blob Storage, bajo la suscripción del cliente). Las instantáneas de código se utilizan para la ejecución o inspección de auditorías históricas.
 
 ![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/code-snapshot.png)
 
@@ -221,12 +238,12 @@ En el siguiente diagrama se muestra el flujo de trabajo de entrenamiento.
 * Puede elegir un proceso administrado (por ejemplo, Proceso de Machine Learning) o un proceso no administrado (por ejemplo, VM) para ejecutar los trabajos de entrenamiento. A continuación se explica el flujo de datos para ambos escenarios:
 * (VM/HDInsight: se accede a ellos con credenciales SSH en Key Vault en la suscripción a Microsoft) Azure Machine Learning Service ejecuta código de administración en el destino de proceso que:
 
-   1. Prepara el entorno. (Observe que Docker es una opción también para la máquina virtual y el entorno local. Consulte los pasos de Proceso de Machine Learning siguientes para entender cómo funciona la ejecución de experimentos en el contenedor de Docker).
+   1. Prepara el entorno. (Docker también es una opción para VM y local. Consulte los pasos de Proceso de Machine Learning siguientes para entender cómo funciona la ejecución de experimentos en el contenedor de Docker).
    1. Descarga el código.
    1. Define las variables de entorno y las configuraciones.
    1. Ejecuta el script de usuario (la instantánea de código mencionada antes).
 
-* (Proceso de Machine Learning: se accede a él mediante la identidad administrada del área de trabajo) Tenga en cuenta que, puesto que el Proceso de Machine Learning es un proceso administrado, es decir, está administrado por Microsoft, se ejecuta bajo la suscripción a Microsoft.
+* (Proceso de Machine Learning: se accede a él mediante la identidad administrada del área de trabajo) Puesto que Proceso de Machine Learning es un proceso administrado, es decir, está administrado por Microsoft, se ejecuta bajo la suscripción a Microsoft.
 
    1. Si es necesario, pone en marcha la construcción de un Docker remoto.
    1. Escribe el código de administración en el recurso compartido de archivos de Azure del usuario.
@@ -247,7 +264,7 @@ Vea los detalles a continuación:
 * El usuario crea una imagen usando el modelo, el archivo de puntuación y otras dependencias del modelo.
 * La imagen de Docker se crea y se almacena en ACR.
 * El servicio web se implementa en el destino de proceso (ACI o AKS) con la imagen creada anteriormente.
-* Los detalles de la solicitud de puntuación se almacenan en AppInsights, que se incluye en la suscripción del usuario.
+* Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se incluye en la suscripción del usuario.
 * También se insertan datos de telemetría en la suscripción a Microsoft o Azure.
 
 ![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/inferencing.png)

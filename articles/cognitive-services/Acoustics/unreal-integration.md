@@ -3,26 +3,26 @@ title: Integración de Unreal y Wwise de Project Acoustics
 titlesuffix: Azure Cognitive Services
 description: Se describe la integración de los complementos Unreal y Wwise de Project Acoustics en el proyecto.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706619"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933185"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integración de Unreal y Wwise de Project Acoustics
 Este procedimiento proporciona pasos de integración detallados del paquete de complementos Project Acoustics en el proyecto de juegos existente de Unreal y Wwise. 
 
 Requisitos de software:
-* [Unreal Engine](https://www.unrealengine.com/) 4.20 o 4.21
+* [Unreal Engine](https://www.unrealengine.com/) 4.20+
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Complemento de Wwise para Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Si va a usar una integración directa del SDK de Wwise en lugar de los complementos de Unreal para Wwise, consulte el complemento Unreal de Project Acoustics y ajuste las llamadas API de Wwise.
@@ -52,7 +52,7 @@ Existen estos pasos principales para instalar el paquete e implementarlo en el j
 
 * Elija el directorio `AcousticsWwisePlugin\ProjectAcoustics` que se incluyó en el paquete descargado. Contiene el paquete del complemento mezclador de Wwise.
 
-* Wwise instalará el complemento. Project Acoustics debería aparecer ahora en la lista de complementos instalados en Wwise.
+* Wwise instalará el complemento. Project Acoustics debería aparecer ahora en la lista de complementos instalados en Wwise.  
 ![Captura de pantalla de la lista de complementos instalados de Wwise después de la instalación de Project Acoustics](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (Re)implementar Wwise en el juego
@@ -81,9 +81,13 @@ Vuelva a implementar Wwise en su juego, aunque ya haya integrado Wwise. Esta acc
 
     ![Captura de pantalla de una ventana del Explorador de Windows que resalta el script proporcionado para revisión de Wwise](media/patch-wwise-script.png)
 
-* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`.
+* Si no tiene instalado el SDK de DirectX, dependiendo de la versión de Wwise que utilice, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
+
+* Si compila con Visual Studio 2019, para solucionar un error de vinculación con Wwise, cambie manualmente el valor `VSVersion` predeterminado en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` por `vc150`:
+
+    ![Captura de pantalla del editor de código que muestra el cambio de VSVersion a vc150](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Compilar el juego y comprobar que Python está habilitado
 
@@ -167,7 +171,7 @@ Lamentablemente, en este momento no se admiten otros complementos espacializador
 
 1. Agregue un componente de audio acústico al actor. Este componente amplía el componente de audio de Wwise con funcionalidad de Project Acoustics.
 2. El cuadro Play on Start (Reproducir al inicio) está activado de forma predeterminada, lo que desencadenará el evento de Wwise asociado al inicio del nivel.
-3. Use la casilla Show Acoustics Parameters (Mostrar parámetros de acústica) para imprimir la información de depuración en pantalla sobre la fuente.
+3. Use la casilla Show Acoustics Parameters (Mostrar parámetros de acústica) para imprimir la información de depuración en pantalla sobre la fuente.  
     ![Captura de pantalla del panel de acústica de Unreal Editor en la fuente de sonido con los valores de depuración habilitados](media/debug-values.png)
 4. Asignación de un evento de Wwise por el flujo de trabajo habitual de Wwise
 5. Asegúrese de que está activada la opción "Use Spatial Audio" (Usar audio espacial). En este momento, si usa Project Acoustics para un componente de audio en particular, no puede usar simultáneamente el motor de audio espacial de Wwise para la acústica.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689348"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933331"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se muestran los pasos a seguir para configurar informes para Azure Backup mediante un almacén de Recovery Services. También muestra cómo acceder a informes mediante Power BI. Cuando haya completado estos pasos, puede ir directamente a Power BI para ver, personalizar y crear informes.
@@ -37,7 +37,7 @@ Descargue la aplicación más reciente (versión 1.8) para evitar este problema.
 - Registre el proveedor de recursos **Microsoft.insights**, si todavía no está registrado. Utilice las suscripciones para la cuenta de almacenamiento y el almacén de Recovery Services para que los datos de informes puedan fluir a la cuenta de almacenamiento. Para hacer lo mismo, debe ir a Azure Portal, seleccione **Suscripción** > **Proveedores de recursos** y busque este proveedor para registrarlo.
 
 ## <a name="configure-storage-account-for-reports"></a>Configuración de la cuenta de Storage para los informes
-Siga estos pasos para configurar la cuenta de almacenamiento para el almacén de Recovery Services mediante Azure Portal. Esta configuración solo se realiza una vez. Después de configurar la cuenta de almacenamiento, puede ir directamente a Power BI para ver el paquete de contenido y usar los informes.
+Siga estos pasos para configurar la cuenta de almacenamiento para el almacén de Recovery Services mediante Azure Portal. Esta configuración solo se realiza una vez. Después de configurar la cuenta de almacenamiento, puede ir directamente a Power BI para ver la aplicación de plantilla y usar los informes.
 
 1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto ningún almacén de Recovery Services, pero está en Azure Portal, seleccione **Todos los servicios**.
 
@@ -80,11 +80,11 @@ Después de configurar la cuenta de almacenamiento para informes con el almacén
 Si desea personalizar y compartir el informe, cree un área de trabajo y realice los pasos siguientes:
 
 1. [Inicie sesión](https://powerbi.microsoft.com/landing/signin/) en Power BI.
-2. Seleccione **Obtener datos**. En **Más formas de crear su propio contenido**, seleccione **Paquetes de contenido de servicio**. Siga los pasos de la [documentación de Power BI para conectarse a un servicio](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+2. Vaya a **Aplicaciones > Obtener más aplicaciones de Microsoft AppSource**. Siga los pasos de la [documentación de Power BI para conectarse a un servicio](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
 3. En la barra **Búsqueda**, escriba **Azure Backup** y seleccione **Obtenerla ahora**.
 
-      ![Obtención del paquete de contenido](./media/backup-azure-configure-reports/content-pack-get.png)
+      ![Obtención de la aplicación de plantilla](./media/backup-azure-configure-reports/template-app-get.png)
 4. Escriba el nombre de la cuenta de almacenamiento que se configuró en el paso 5 anterior y seleccione **Siguiente**.
 
     ![Escribir el nombre de la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -96,11 +96,11 @@ Si desea personalizar y compartir el informe, cree un área de trabajo y realice
 
     ![Importando paquete de contenido](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
 
-    Una vez finalizada la importación, verá la notificación **Correcto**. Si hay muchos datos en la cuenta de almacenamiento, la importación del paquete de contenido podría tardar un poco más.
+    Una vez finalizada la importación, verá la notificación **Correcto**. Si la cantidad de datos en la cuenta de almacenamiento es grande, la importación de la aplicación de plantilla podría tardar un poco más.
 
     ![Importación correcta del paquete de contenido](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
 
-7. Cuando los datos se importan correctamente, el paquete de contenido de **Azure Backup** se muestra en **Aplicaciones** en el panel de navegación. En **Paneles**, **Informes** y **Conjuntos de datos**, la lista muestra ahora Azure Backup.
+7. Cuando los datos se importan correctamente, la aplicación de plantilla de **Azure Backup** está visible en **Aplicaciones** en el panel de navegación. En **Paneles**, **Informes** y **Conjuntos de datos**, la lista muestra ahora Azure Backup.
 
 8. En **Paneles**, seleccione **Azure Backup**, donde se muestra un conjunto de informes clave anclados.
 
@@ -117,10 +117,10 @@ Si desea personalizar y compartir el informe, cree un área de trabajo y realice
 | Detalles del error | Resolución |
 | --- | --- |
 | Después de configurar la cuenta de almacenamiento para los informes de Backup, la **cuenta de almacenamiento** sigue mostrando **No configurado**. | Si ha configurado correctamente la cuenta de almacenamiento, los datos de los informes se transmiten a pesar de este problema. Para resolver este problema, vaya a Azure Portal y seleccione **Todos los servicios** > **Configuración de diagnóstico** > **Almacén de Recovery Services** > **Editar configuración**. Elimine el valor configurado previamente y cree una nueva configuración en la misma hoja. Esta vez, en el cuadro **Nombre**, seleccione **Servicio**. Ahora, se muestra la cuenta de almacenamiento configurada. |
-|Después de importar el paquete de contenido de Azure Backup en Power BI, aparece un mensaje de error "404-no se encuentra el contenedor". | Como se ha mencionado anteriormente, debe esperar 24 horas después de configurar los informes en el almacén de Recovery Services para verlos correctamente en Power BI. Si intenta acceder a los informes antes de 24 horas, este error se muestra porque aún no hay datos completos para mostrar informes válidos. |
+|Después de importar la aplicación de plantilla de Azure Backup en Power BI, aparece un mensaje de error "404-no se encuentra el contenedor". | Como se ha mencionado anteriormente, debe esperar 24 horas después de configurar los informes en el almacén de Recovery Services para verlos correctamente en Power BI. Si intenta acceder a los informes antes de 24 horas, este error se muestra porque aún no hay datos completos para mostrar informes válidos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de configurar la cuenta de almacenamiento y ha importado el paquete de contenido de Azure Backup, el siguiente paso es personalizar los informes y usar el modelo de datos de informes para crear informes. Para obtener más información, consulte los siguientes artículos.
+Después de configurar la cuenta de almacenamiento e importar la aplicación de plantilla de Azure Backup, los siguientes pasos son personalizar los informes y usar un modelo de datos de informes para crear informes. Para obtener más información, consulte los siguientes artículos.
 
 * [Uso del modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
 * [Filtrado de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

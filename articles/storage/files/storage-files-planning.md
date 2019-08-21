@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816609"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015915"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816609"
 
 * **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte el artículo sobre los [objetivos de escalado y rendimiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para información sobre la capacidad de la cuenta de almacenamiento.
 
-* **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos, y un recurso compartido puede almacenar un número ilimitado de archivos, hasta la capacidad total de 5 TiB del recurso compartido de archivos.
+* **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta una capacidad total del recurso compartido de archivos. En el caso de los recursos compartidos de archivos estándar, la capacidad total es de hasta 5 TiB (GA) o 100 TiB (versión preliminar), para los recursos compartidos de archivos prémium, la capacidad total es de hasta 100 TiB.
 
 * **Directorio**: una jerarquía de directorios opcional.
 
@@ -155,7 +155,7 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 
 ## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 
-Los recursos compartidos estándar de Azure Files admiten tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica (GRS).
+Los recursos compartidos estándar de Azure Files admiten tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS),almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona geográfica (GZRS) [versión preliminar].
 
 Los recursos compartidos prémium de Azure Files solo admiten el almacenamiento con redundancia local (LRS).
 
@@ -186,6 +186,7 @@ Las regiones primarias y secundarias administran las réplicas entre dominios de
 
 Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 
+* El almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar) proporciona alta disponibilidad junto con el máximo de durabilidad al replicar los datos de forma sincrónica en tres zonas de disponibilidad de Azure y, después, replicar los datos de forma asincrónica en la región secundaria. También puede habilitar el acceso de lectura a la región secundaria. El almacenamiento con redundancia de zona geográfica (GZRS) está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos en un año determinado. Para obtener más información acerca de GZRS, consulte [Almacenamiento con redundancia de zona geográfica para obtener alta disponibilidad y durabilidad máxima (versión preliminar)](../common/storage-redundancy-gzrs.md).
 * El almacenamiento con redundancia de zona (ZRS) ofrece alta disponibilidad con replicación sincrónica y puede ser una mejor opción para algunos escenarios que GRS. Para más información sobre ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
 * La replicación asincrónica implica un retraso desde el momento en que se escriben los datos en la región principal hasta que se replican en la región secundaria. En el caso de un desastre regional, los cambios que no se hayan replicado en la región secundaria pueden perderse si dichos datos no se pueden recuperar desde la región principal.
 * Con GRS, la réplica no está disponible para acceso de lectura o escritura a menos que Microsoft inicie la conmutación por error en la región secundaria. En el caso de una conmutación por error, tendrá acceso de lectura y escritura a dichos datos después de que se haya completado la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](../common/storage-disaster-recovery-guidance.md).
@@ -198,7 +199,7 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 
 - Los [términos](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de la versión preliminar de Azure se aplican a recursos compartidos de archivos grandes mientras están en versión preliminar, incluso cuando se usan con las implementaciones de Azure File Sync.
 - Requiere que cree una nueva cuenta de almacenamiento de uso general (las cuentas de almacenamiento existentes no se pueden ampliar).
-- La conversión de cuentas de LRS/ZRS a GRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
+- La conversión de cuentas de LRS/ZRS a GRS/GZRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
 
 
 ### <a name="regional-availability"></a>Disponibilidad regional
@@ -214,7 +215,7 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |Europa occidental     |LRS, ZRS|Sin    |Sí|
 |Oeste de EE. UU. 2       |LRS, ZRS|Sin    |Sí|
 
-*En el caso de las regiones sin soporte técnico del portal, de todos modos puede usar PowerShell en la Interfaz de la línea de comandos (CLI) de Azure para crear recursos compartidos de más de 5 TiB. Además, puede crear un recurso compartido a través del portal sin especificar ninguna cuota. Esto creará un recurso compartido con un tamaño predeterminado de 100 TiB que se pueden actualizar más adelante a través de PowerShell o la CLI de Azure.
+*En el caso de las regiones sin soporte técnico del portal, de todos modos puede usar PowerShell en la Interfaz de la línea de comandos (CLI) de Azure para crear recursos compartidos de más de 5 TiB. Además, puede crear un recurso compartido mediante el portal sin especificar ninguna cuota. Esto creará un recurso compartido con un tamaño predeterminado de 100 TiB que se pueden actualizar más adelante a través de PowerShell o la CLI de Azure.
 
 Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a294c444f10719f69716b25b97cd137874a3e0be
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807476"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954154"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -41,7 +41,7 @@ Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. 
 | Usa proveedores de servicios para permitir la incorporación y la conectividad de forma rápida en la infraestructura existente | Requiere una infraestructura de 100 Gbps/10 Gbps y administración completa de todas las capas
 | Se integra con cientos de proveedores, incluidos Ethernet y MPLS | Capacidad dedicada o de Direct para los sectores regulados y la ingesta de datos masivos |
 | SKU de circuitos de 50 Mbps a 10 Gbps | El consumidor puede seleccionar una combinación de las SKU de circuito siguientes en instancias de ExpressRoute Direct de 100 Gbps: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> El consumidor puede seleccionar una combinación de las SKU de circuito siguientes en instancias de ExpressRoute Direct de 10 Gbps:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
-| Optimizado para un solo inquilino | Optimizado para un único inquilino, proveedores de servicios en la nube o varias unidades de negocio
+| Optimizado para un solo inquilino | Optimizado para un solo inquilino con varias unidades de negocio y varios entornos de trabajo
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos de ExpressRoute Direct
 

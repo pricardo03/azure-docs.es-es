@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722147"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942843"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Almacenamiento de datos de identidad para los clientes europeos en Azure Active Directory
 Azure AD almacena los datos de identidad en una ubicación geográfica en función de la dirección que proporcione la organización al suscribirse a un servicio de Microsoft Online, como Office 365 y Azure. Para obtener información sobre dónde se almacenan los datos de identidad, puede consultar la sección [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Dónde se encuentran sus datos) de Microsoft Trust Center.
@@ -43,6 +43,15 @@ Azure AD B2B almacena las invitaciones con vínculos de canje y la información 
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
 Azure AD DS almacena los datos de usuario en la misma ubicación que la instancia de Azure Virtual Network que seleccionó el cliente. Por lo tanto, si la red está fuera de Europa, los datos se replican y almacenan fuera de Europa.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Federación en Microsoft Exchange Server 2013
+    
+- Identificador de la aplicación (AppID): un número único que genera el sistema de autenticación de Azure Active Directory para identificar las organizaciones de Exchange.
+- Lista de dominios federados aprobados para la aplicación
+- Clave pública de firma de tokens de la aplicación 
+
+Para más información acerca de la federación en Microsoft Exchange Server, consulte el artículo [Federación: Ayuda de Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help).
+
 
 ## <a name="other-considerations"></a>Otras consideraciones
 

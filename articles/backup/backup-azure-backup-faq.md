@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827636"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954808"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -27,7 +27,7 @@ Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el 
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>¿Cuántos orígenes de datos o elementos se pueden proteger en un almacén? 
 Puede proteger hasta 2 000 orígenes de datos o elementos entre todas las cargas de trabajo (máquina virtual de IaaS, SQL, AFS, etc.) en un almacén.<br>  
-Por ejemplo, si ya ha protegido 500 máquinas virtuales y 400 recursos compartidos de Azure Files en el almacén, solo puede proteger hasta 1 100 bases de datos SQL. 
+Por ejemplo, si ya ha protegido 500 máquinas virtuales y 400 recursos compartidos de Azure Files en el almacén, no puede proteger más de 1100 bases de datos SQL en él. 
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>¿Cuántas directivas se pueden crear por almacén? 
 Solo puede tener hasta 200 directivas por almacén.
@@ -36,7 +36,7 @@ Solo puede tener hasta 200 directivas por almacén.
 Los datos del servidor que desea recuperar de forma conjunta deben usar la misma frase de contraseña al configurar la copia de seguridad. Si desea aislar la recuperación en un uno o varios servidores específicos, use una frase de contraseña solo para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>¿Puedo mover mi almacén entre suscripciones?
-Sí. Para mover un almacén de Recovery Services, consulte este [artículo](backup-azure-move-recovery-services-vault.md).
+Sí. Para mover un almacén de Recovery Services, consulte este [artículo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>¿Puedo mover datos de copia de seguridad a otro almacén?
 No. Los datos de copia de seguridad almacenados en un almacén no se pueden mover a otro almacén.
@@ -45,7 +45,7 @@ No. Los datos de copia de seguridad almacenados en un almacén no se pueden move
 No. Un almacén de Recovery Services solo puede cambiar las opciones de almacenamiento antes de almacenar ninguna copia de seguridad.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
-- ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md).
+- ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md)
 - ILR no se admite para puntos de recuperación en línea de VM locales cuya copia de seguridad se realiza mediante el servidor de Azure Backup o DPM de System Center.
 
 
@@ -54,7 +54,7 @@ No. Un almacén de Recovery Services solo puede cambiar las opciones de almacena
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>¿Dónde puedo encontrar preguntas comunes sobre el agente de Azure Backup para la copia de seguridad de máquinas virtuales de Azure?
 
 - Para el agente que se ejecuta en máquinas virtuales de Azure, lea estas [preguntas más frecuentes](backup-azure-vm-backup-faq.md).
-- Para el agente utilizado para realizar copias de seguridad de carpetas de archivos de Azure, lea esta [preguntas más frecuentes sobre](backup-azure-file-folder-backup-faq.md).
+- En el caso del agente utilizado para realizar copias de seguridad de las carpetas de archivos de Azure, lea estas [preguntas frecuentes](backup-azure-file-folder-backup-faq.md).
 
 
 ## <a name="general-backup"></a>Copia de seguridad general
@@ -125,7 +125,7 @@ No. Todos los datos transferidos al almacén, antes de que se cancelara el traba
 
 - Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad.
 - Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos.
-- El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
+- El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
 
 Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
 
@@ -138,7 +138,7 @@ Sí, los dos tipos tienen directivas de retención diarias, semanales, mensuales
 Sí, puede personalizarlas. Por ejemplo, puede configurar requisitos de retención semanales y diarios, pero no anuales ni mensuales.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>¿Puedo usar distintas horas para la programación de copias de seguridad y las directivas de retención?
-No. Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. Por ejemplo, esta imagen muestra una directiva de retención para copias de seguridad realizadas a las 12 a. m. y a las 6 p. m.
+No. Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. Por ejemplo, esta imagen muestra una directiva de retención para las copias de seguridad realizadas a las 12 a. m. y a las 6 p. m.
 
 ![Programar copia de seguridad y retención](./media/backup-azure-backup-faq/Schedule.png)
 

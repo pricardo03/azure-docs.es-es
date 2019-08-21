@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b55e979c3056f89eb76a1d2c86f9a770d2d3e05
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077638"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935391"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -173,7 +173,7 @@ En el documento [SAP HANA TDI Storage Requirements](https://www.sap.com/document
 Suponiendo que use una máquina virtual de Azure M128s para la escalabilidad horizontal en SAP HANA con 2 TB de memoria aproximadamente, las recomendaciones de SAP pueden resumirse como sigue:
 
 - Un nodo maestro y hasta cuatro nodos de trabajo; el tamaño del volumen **/hana/shared** debe ser de 2 TB. 
-- Un nodo maestro y de cinco a ocho nodos de trabajo; el tamaño de **/hana/shared** debe ser de 4 TB. 
+- Un nodo maestro y de cinco a ocho nodos de trabajo; el tamaño de **/hana/shared** debe ser de 4 TB. 
 - Un nodo maestro y de nueve a doce nodos de trabajo; el tamaño de **/hana/shared** debe ser de 6 TB. 
 - Un nodo maestro y entre doce y quince nodos de trabajo; se requiere que proporcione un volumen **/hana/shared** con un tamaño de 8 TB.
 
@@ -216,7 +216,7 @@ Si desea compartir el clúster NFS de alta disponibilidad entre las configuracio
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>Instalación de la escalabilidad horizontal de SAP HANA en Azure
 Para instalar una configuración de SAP para escalabilidad horizontal, debe seguir estos pasos:
 
-- Implementar una nueva infraestructura de Azure Virtual Network o adaptarla.
+- Implementación de una nueva infraestructura de red virtual de Azure o adaptación de una existente
 - Implementación de las nuevas máquinas virtuales con volúmenes administrados de Azure Premium Storage
 - Implementar un nuevo clúster NFS de alta disponibilidad o adoptar uno existente.
 - Adaptar el enrutamiento de red para asegurarse de que, por ejemplo, la comunicación entre nodos de las máquinas virtuales no se enruta mediante una [NVA](https://azure.microsoft.com/solutions/network-appliances/). Sucede lo mismo para el tráfico entre las máquinas virtuales y el clúster NFS de alta disponibilidad.

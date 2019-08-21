@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737161"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951861"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -138,6 +138,50 @@ Disco de datos 1 | 4095 GB | 30 GB
 Disco de datos 2 | 4095 GB | 0 GB
 
 El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 0 GB = 47 GB. Este tamaño de instancias protegidas (47 GB) se convierte en la base de la factura mensual. A medida que crece la cantidad de datos en la VM, el tamaño de instancia protegida usado para la facturación también cambia para que coincida.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Versión preliminar pública limitada: Copia de seguridad de máquinas virtuales con tamaños de disco de hasta 30 TB
+
+Azure Backup admite ya una versión preliminar pública limitada de instancias de [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) más grandes y potentes de hasta 30 TB de tamaño. Esta versión preliminar proporciona compatibilidad en el nivel de producción con las máquinas virtuales administradas.
+
+Puede inscribirse sin problemas en la versión preliminar sin que afecte de ninguna manera a sus copias de seguridad en curso. Una vez que la suscripción esté inscrita en la versión preliminar, deben realizarse correctamente copias de seguridad de todas las máquinas virtuales con tamaños de disco superiores a 30 TB. Para inscribirse en la versión preliminar:
+ 
+Ejecute los siguientes cmdlets desde un terminal de PowerShell con privilegios elevados:
+
+1. Inicie sesión en la cuenta de Azure.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Seleccione la suscripción que desea registrar para la actualización:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Registre esta suscripción en el programa de la versión preliminar: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Espere 30 minutos a que la suscripción se inscriba en el versión preliminar. 
+
+ 4. Para comprobar el estado, ejecute los siguientes cmdlets:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. Cuando la suscripción se muestre como registrada, ejecute el siguiente comando:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Las máquinas virtuales cifradas con discos de más de 4 TB no se admiten en esta versión preliminar.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

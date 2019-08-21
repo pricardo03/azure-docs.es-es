@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562115"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942898"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -101,7 +101,7 @@ Para realizar la limpieza de Azure AD:
 - **Windows 7/8**: deshabilite o elimine primero los dispositivos Windows 7/8 en Azure AD en el entorno local. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD. En su lugar, cuando realice el cambio en su entorno local, debe deshabilitarlos o eliminarlos en Azure AD.
 
 > [!NOTE]
->* La eliminación de dispositivos en AD el entorno local o en Azure AD no se registra en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como identidad (por ejemplo, el acceso condicional). Lea información adicional sobre cómo [quitar el registro en el cliente](faq.md#hybrid-azure-ad-join-faq).
+>* La eliminación de dispositivos en la instancia de AD en el entorno local o en Azure AD no elimina el registro en el cliente. Solo impedirá el acceso a los recursos que usan el dispositivo como identidad (por ejemplo, el acceso condicional). Lea información adicional sobre cómo [quitar el registro en el cliente](faq.md#hybrid-azure-ad-join-faq).
 >* La eliminación de un dispositivo Windows 10 solo en Azure AD volverá a sincronizar el dispositivo desde el entorno local mediante Azure AD Connect, pero como un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro en el dispositivo.
 >* Al quitar el dispositivo del ámbito de sincronización para dispositivos con Windows 10 o Server 2016, se eliminará el dispositivo Azure AD. Al volver a agregarlo al ámbito de sincronización, se colocará un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro del dispositivo.
 >* Si no usa Azure AD Connect para que los dispositivos Windows 10 se sincronicen (por ejemplo, usando solo AD FS para el registro), debe administrar el ciclo de vida similar para los dispositivos Windows 7 o Windows 8.

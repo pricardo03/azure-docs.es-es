@@ -9,10 +9,10 @@ ms.date: 07/07/2017
 ms.author: rajram
 ms.subservice: autoscale
 ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60788591"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
@@ -23,7 +23,7 @@ La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Detección de la configuración de escalado automático en la suscripción
 Puede detectar todos los recursos a los que se aplica el escalado automático en Azure Monitor. Siga los pasos siguientes para obtener un tutorial paso a paso:
 
-1. Abra [Azure Portal.][1]
+1. Abra [Azure Portal][1].
 1. Haga clic en el icono de Azure Monitor en el panel izquierdo.
   ![Abrir Azure Monitor][2]
 1. Haga clic en **Escalado automático** para ver todos los recursos para los que se puede aplicar el escalado automático, junto con su estado de escalado automático actual.

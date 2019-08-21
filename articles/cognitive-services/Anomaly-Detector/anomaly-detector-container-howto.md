@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321426"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854834"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector
 
@@ -198,4 +198,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la descar
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise [Configure containers](anomaly-detector-container-configuration.md) (Configuración de contenedores) para ver las opciones de configuración.
+* [Implementación de un contenedor Anomaly Detector en Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

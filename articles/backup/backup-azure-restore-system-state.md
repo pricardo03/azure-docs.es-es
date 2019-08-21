@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689126"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018802"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -124,9 +124,9 @@ Una vez que haya recuperado el estado del sistema como archivos con el agente de
 
 1. Use los siguientes comandos para reiniciar el servidor en *Modo de reparación de servicios de directorio*. En un símbolo del sistema con privilegios elevados:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. Después del reinicio, abra el complemento Copias de seguridad de Windows Server. Si no conoce la ubicación donde se instaló el complemento, busque **Copias de seguridad de Windows Server** en el equipo o servidor.
@@ -189,14 +189,14 @@ Si el proceso anterior consistente en aplicar el estado del sistema no se comple
 
 5. Al abrir el símbolo del sistema en modo de administrador, ejecute el siguiente comando para obtener las versiones de copia de seguridad del estado del sistema.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![Obtención de las versiones de copia de seguridad del estado del sistema](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Ejecute el siguiente comando para obtener todos los volúmenes disponibles en la copia de seguridad.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Si el proceso anterior consistente en aplicar el estado del sistema no se comple
 
 7. El comando siguiente recupera todos los volúmenes que forman parte de la copia de seguridad del estado del sistema. Tenga en cuenta que este paso solo recupera los volúmenes críticos que forman parte del estado del sistema. Se borran todos los datos que no son del sistema.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![Obtención de las versiones de copia de seguridad del estado del sistema](./media/backup-azure-restore-system-state/winre-6.png)

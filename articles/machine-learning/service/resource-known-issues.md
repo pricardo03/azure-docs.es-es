@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 74d345249e1cbaeb45a1a35d3c3d2f61a4c0b9cf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716530"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032966"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -49,6 +49,14 @@ SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de Di
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
+**Mensaje de error: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+La distribución Python 3.7.4 de Anaconda tiene un error que interrumpe la instalación de azureml-sdk. Este problema se trata en esta [incidencia de GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) y se puede solucionar creando un nuevo entorno de Conda mediante este comando:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+El cual crea un entorno de Conda mediante Python 3.7.3, que no tiene la incidencia de instalación en la versión 3.7.4.
+
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas al crear la instancia de Proceso de Azure Machine Learning
 
 Es posible que algunos usuarios que crearon su área de trabajo de Azure Machine Learning en Azure Portal antes de la versión disponible de forma general no puedan crear la instancia de Proceso de Azure Machine Learning en esa área de trabajo. Puede generar una solicitud de soporte técnico en el servicio o crear una nueva área de trabajo mediante el portal o el SDK para desbloquearse a sí mismo inmediatamente.
@@ -71,7 +79,7 @@ El aprendizaje automático automatizado de TensorFlow no admite actualmente la v
 
 ### <a name="experiment-charts"></a>Gráficos de experimento
 
-Los gráficos de clasificación binaria (precisión-retirada, ROC, curva de ganancia, etc.) que se muestran en las iteraciones de experimentos de aprendizaje automático automatizados no se representan correctamente en la interfaz de usuario desde 4/12. Los trazados de los gráficos actualmente muestran resultados inversos, donde los modelos con mejor rendimiento se muestran con resultados inferiores. Se está investigando una resolución.
+Los gráficos de clasificación binaria (precisión-retirada, ROC, curva de ganancia, etc.) que se muestran en las iteraciones de experimentos de ML automatizados no se representan correctamente en la interfaz de usuario desde el 12/04. Los trazados de los gráficos actualmente muestran resultados inversos, donde los modelos con mejor rendimiento se muestran con resultados inferiores. Se está investigando una resolución.
 
 ## <a name="databricks"></a>Databricks
 
@@ -134,6 +142,15 @@ Si ve directamente el área de trabajo desde un vínculo de recurso compartido d
 
 A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Portal](https://portal.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.
 
+> [!NOTE]
+> Azure Machine Learning Service registra información de varios orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Muchos de estos registros no están documentados. Si encuentra problemas y se pone en contacto con el soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
+
+## <a name="activity-logs"></a>Registros de actividad
+
+Algunas acciones dentro del área de trabajo de Azure Machine Learning no registran información en el __registro de actividad__. Por ejemplo, el inicio de una ejecución de entrenamiento o el registro de un modelo.
+
+Algunas de estas acciones aparecen en el área __Actividades__ del área de trabajo, pero no indican quién inició la actividad.
+
 ## <a name="resource-quotas"></a>Cuotas de recursos
 
 Obtenga información sobre la [cuotas de recursos](how-to-manage-quotas.md) que puede encontrar al trabajar con Azure Machine Learning.
@@ -154,6 +171,6 @@ Por ejemplo, si intenta crear o asociar un destino de proceso desde una canaliza
 
 ## <a name="overloaded-azurefile-storage"></a>Almacenamiento AzureFile sobrecargado
 
-Si recibe un error "Unable to upload project files to working directory in AzureFile because the storage is overloaded" (No se pueden cargar los archivos del proyecto en el directorio de trabajo en AzureFile porque el almacenamiento está sobrecargado), aplique las siguientes soluciones alternativas.
+Si recibe un error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, aplique las siguientes soluciones alternativas.
 
 Si usa un recurso compartido de archivos para otras cargas de trabajo, como la transferencia de datos, se recomienda usar blobs para que el recurso compartido de archivos se pueda usar para el envío de ejecuciones. También puede dividir la carga de trabajo entre dos áreas de trabajo diferentes.

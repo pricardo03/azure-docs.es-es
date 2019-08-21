@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a19b97e36bc28e5e629391f799b69370cf0fa38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e31c875f31f118716feea0c73bc2ca70a4ecd9a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737272"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954823"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante Microsoft Azure Backup Server ((MABS) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. También ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
@@ -43,7 +43,7 @@ Azure Backup Server se ejecuta como una cuenta LocalSystem. Para realizar una co
 Si la granja de SharePoint tiene bases de datos SQL Server que están configuradas con alias de SQL Server, instale los componentes de cliente de SQL Server en el servidor web front-end que MABS vaya a proteger.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-Si bien el rendimiento depende de muchos factores, como el tamaño de la granja de SharePoint, de forma orientativa, un servidor MABS puede proteger una granja de SharePoint de 25 TB.
+Aunque el rendimiento depende de muchos factores, como el tamaño de la granja de SharePoint, de forma orientativa, un servidor MABS puede proteger una granja de SharePoint de 25 TB.
 
 ### <a name="whats-not-supported"></a>Lo que no se admite
 * Que MABS proteja una granja de SharePoint y no proteja índices de búsqueda o bases de datos de servicios de aplicaciones. Deberá configurar la protección de estas bases de datos por separado.

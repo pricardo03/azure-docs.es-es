@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710596"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846594"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader, que es probablemente lo primero que verá al arrancar una máquina virtual. Al mostrarse antes de que se haya iniciado el sistema operativo, no se puede acceder a él mediante SSH. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -132,6 +132,7 @@ Puede que las imágenes de Ubuntu no muestren de forma predeterminada la pantall
 1. Cambie el valor de `GRUB_TIMEOUT` por un valor distinto de cero.
 1. Abra `/etc/default/grub` en el editor de texto que prefiera.
 1. Marque como comentario la línea `GRUB_HIDDEN_TIMEOUT=1`.
+1. Asegúrese de que hay una línea que dice `GRUB_TIMEOUT_STYLE=menu`.
 1. Ejecute `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modo de usuario único en Ubuntu
@@ -193,7 +194,7 @@ Se le pondrá automáticamente en el shell de emergencia si SLES no puede arranc
 De forma similar a Red Hat Enterprise Linux, el modo de usuario único en Oracle Linux requiere que GRUB y el usuario raíz estén habilitados.
 
 ### <a name="grub-access-in-oracle-linux"></a>Acceso a GRUB en Oracle Linux
-Oracle Linux viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione "Esc". Aparecerá la pantalla de GRUB.
+Oracle Linux viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione "Esc". Aparecerá la pantalla de GRUB. Si no ve GRUB, asegúrese de que el valor de la línea `GRUB_TERMINAL` contiene "serial console", como: `GRUB_TERMINAL="serial console"`.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Modo de usuario único en Oracle Linux
 Siga las instrucciones anteriores para RHEL para habilitar el modo de usuario único en Oracle Linux.

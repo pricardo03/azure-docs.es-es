@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736720"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881867"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -119,8 +119,8 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 1. Después de tomar la instantánea, los datos se transfieren al almacén. 
     - Solo se copian los bloques de datos que han cambiado desde la última copia de seguridad.
     - Los datos no se cifran. Azure Backup puede hacer una copia de seguridad de las máquinas virtuales de Azure que se cifraron mediante Azure Disk Encryption.
-    - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una máquina virtual será inferior a 24 horas para las directivas de copia de seguridad diarias.
-1. Una vez enviados los datos al almacén, se elimina la instantánea y se crea un punto de recuperación.
+    - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
+1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
 Las máquinas virtuales de Azure necesitan acceso a Internet para usar los comandos de control. Si va a realizar la copia de seguridad de las cargas de trabajo que contiene la máquina virtual (por ejemplo, la copia de seguridad de la base de datos de SQL Server), los datos del back-end también necesitan acceso a Internet. 
 

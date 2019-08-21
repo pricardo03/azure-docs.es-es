@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258812"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017737"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -57,7 +57,7 @@ Cuando se crea un espacio de nombres de Service Bus, se crea automáticamente un
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuración de la autenticación de firma de acceso compartido
 
-Puede configurar la regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en los espacios de nombres, las colas o los temas de Service Bus. La configuración de una regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en una suscripción de Service Bus no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+Puede configurar la regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en los espacios de nombres, las colas o los temas de Service Bus. La configuración de una regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en una suscripción de Service Bus no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para obtener un ejemplo funcional que muestra este procedimiento, consulte el ejemplo de [administración de colas de Azure Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +88,7 @@ El token contiene los valores sin el hash para que el destinatario pueda volver 
 
 El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**El URI debe estar [codificado por porcentaje](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**El URI debe estar [codificado por porcentaje](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
 
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 
@@ -104,8 +104,8 @@ Si está seguro o sospecha que una clave está en peligro y debe revocar las cla
 
 Los escenarios descritos a continuación incluyen la configuración de reglas de autorización, la generación de tokens SAS y la autorización del cliente.
 
-Para un ejemplo funcional completo de una aplicación del Bus de servicio que ilustra la configuración y usa la autorización SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Hay un ejemplo relacionado que ilustra el uso de reglas de autorización SAS configuradas en espacios de nombres o temas para proteger las suscripciones de Service Bus disponible aquí: [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
-
+Para un ejemplo funcional completo de una aplicación de Service Bus que ilustra la configuración y usa la autorización SAS, consulte el ejemplo siguiente en nuestro repositorio de GitHub: [Administración de colas de Azure Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+ 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Acceso a las reglas de autorización de acceso compartido en una entidad
 
 Gracias a las bibliotecas de .NET Framework de Service Bus, puede acceder a un objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurado en una cola o un tema de Service Bus mediante la colección [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) en los objetos [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) correspondientes.

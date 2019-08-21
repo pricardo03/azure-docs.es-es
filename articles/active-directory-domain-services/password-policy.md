@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472760"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879188"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 En este artículo se describen las directivas de contraseña predeterminadas en un dominio administrado. También se describe cómo puede configurar estas directivas.
@@ -38,7 +38,8 @@ Con FGPP puede configurar las siguientes opciones de contraseña:
     * Duración de bloqueo de cuenta
     * Número de intentos de inicio de sesión con error permitidos
     * Restablecer el número de intentos de inicio de sesión con error después de
-
+    
+FGPP solo afecta a los usuarios creados directamente en Azure AD DS. Los usuarios de la nube y los usuarios del dominio sincronizados en el dominio administrado de Azure AD DS desde Azure AD no se ven afectados por la configuración de complejidad de las contraseñas. FGPP se distribuye en la asociación de grupos, en el dominio administrado de Azure AD DS. Los cambios que realice se aplicarán en el siguiente inicio de sesión de usuario. Al cambiar la directiva, no se desbloquea una cuenta de usuario que ya esté bloqueada.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Configuración predeterminada de la directiva de contraseña específica en un dominio administrado
 En la siguiente captura de pantalla se ilustra la directiva de contraseña específica configurada en un dominio administrado de Azure AD Domain Services.
@@ -80,7 +81,7 @@ Puede configurar una directiva FGPP personalizada por los siguientes motivos:
 * Para configurar un valor de duración de contraseña predeterminado para el dominio administrado
 
 Para crear una directiva FGPP personalizada en el dominio administrado:
-1. Inicie sesión en la máquina virtual Windows que use para administrar el dominio administrado. Si no tiene uno, siga las instrucciones para [administrar un dominio de Azure AD Domain Services](manage-domain.md).
+1. Inicie sesión en la máquina virtual Windows que use para administrar el dominio administrado (debe ser Windows Server 2012 R2, como mínimo). Si no tiene uno, siga las instrucciones para [administrar un dominio de Azure AD Domain Services](manage-domain.md).
 2. Inicie el **Centro de administración de Active Directory** en la máquina virtual.
 3. Haga clic en el nombre de dominio (por ejemplo, "contoso100.com").
 4. Haga doble clic en **System** (Sistema) para abrir el contenedor del sistema.

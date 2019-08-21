@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321448"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932992"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configuración de los contenedores de Anomaly Detector
 
 El entorno de tiempo de ejecución de los contenedores de **Anomaly Detector** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-# <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Valores de configuración
 
 Este contenedor tiene las siguientes opciones de configuración:
 
@@ -134,3 +134,8 @@ Los siguientes ejemplos de Docker son para el contenedor de Anomaly Detector.
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Implementar un contenedor de Anomaly Detector en Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

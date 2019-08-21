@@ -1,6 +1,6 @@
 ---
-title: Introducción y comparación de codificadores multimedia a petición de Azure | Microsoft Docs
-description: En este tema se proporciona información general y una comparación de los codificadores multimedia a petición de Azure.
+title: Introducción a los codificadores multimedia a petición de Azure | Microsoft Docs
+description: En este tema se proporciona información general de los codificadores multimedia a petición de Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464188"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "69015820"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Introducción a los codificadores multimedia a petición de Azure 
 
 ## <a name="encoding-overview"></a>Información general sobre la codificación
 
@@ -35,7 +35,10 @@ Los códecs son el software que implementa los algoritmos de compresión/descomp
 
 Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Media Services (MPEG-DASH, HLS y Smooth Streaming) sin tener que volver a realizar el empaquetamiento en estos formatos de streaming.
 
-Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).
+
+> [!Note]
+> La facturación de los puntos de conexión de streaming se produce siempre que el punto de conexión se encuentra en estado de **ejecución**.
 
 Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
@@ -84,7 +87,6 @@ El flujo de trabajo del Codificador multimedia Premium se configura mediante flu
 
 ### <a name="known-issues"></a>Problemas conocidos
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
-
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

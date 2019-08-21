@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612629"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879111"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
-Azure Active Directory (Azure AD) está disponible en cuatro versiones: Gratis, Básico, Prémium P1 y Prémium P2. Hay distintas características que componen el autoservicio de restablecimiento de contraseña, entre las que se incluyen el cambio, el restablecimiento, el desbloqueo y la escritura diferida, que se encuentran disponibles en las diferentes ediciones de Azure AD. En este artículo se intenta explicar las diferencias. Encontrará más detalles acerca de las características incluidas en cada edición de Azure AD en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) está disponible en varias ediciones: Gratis, Premium P1 y Premium P2. Hay distintas características que componen el autoservicio de restablecimiento de contraseña, entre las que se incluyen el cambio, el restablecimiento, el desbloqueo y la escritura diferida, que se encuentran disponibles en las diferentes ediciones de Azure AD. En este artículo se intenta explicar las diferencias. Encontrará más detalles acerca de las características incluidas en cada edición de Azure AD en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Comparación de ediciones y características
 
@@ -34,7 +34,7 @@ El autoservicio de restablecimiento de contraseña de Azure AD se ofrece con lic
 * Restablecimiento de contraseña de autoservicio para usuarios en la nube
    * Soy un **usuario solo de nube** y he olvidado mi contraseña.
       * Me gustaría **cambiarla** por otra que conozca.
-   * Esta funcionalidad se incluye en las ediciones Basic, Premium P1 o Premium P2 de Azure AD, o Microsoft 365 Empresa.
+   * Esta funcionalidad se incluye en las ediciones Premium P1 o Premium P2 de Azure AD, o Microsoft 365 Empresa.
 
 * Autoservicio de restablecimiento/cambio/desbloqueo **con escritura diferida local**
    * Soy un **usuario de implementación híbrida**, mi cuenta de usuario de Active Directory local se sincroniza con mi cuenta de Azure AD con Azure AD Connect. Me gustaría cambiar la contraseña, la he olvidado o se ha bloqueado.

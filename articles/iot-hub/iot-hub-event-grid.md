@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754772"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934097"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -174,9 +174,9 @@ El asunto de los eventos de IoT Hub utiliza el formato:
 devices/{deviceId}
 ```
 
-Event Grid también permite filtrar los atributos de cada evento, incluido el contenido de datos. Esto le permite elegir qué eventos se entregan en función del contenido del mensaje de telemetría. Consulte el [filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) para ver ejemplos.
+Event Grid también permite filtrar los atributos de cada evento, incluido el contenido de datos. Esto le permite elegir qué eventos se entregan en función del contenido del mensaje de telemetría. Consulte el [filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) para ver ejemplos. Para filtrar por el cuerpo del mensaje de telemetría, debe establecer contentType en JSON y contentEncoding en UTF-8 en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
 
-Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. Creamos una [ruta](iot-hub-devguide-messages-d2c.md) predeterminada en IoT Hub, en función de su suscripción de Event Grid para la telemetría del dispositivo. Esta ruta única puede controlar todas las suscripciones de Event Grid. Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON.
+Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. Creamos una [ruta](iot-hub-devguide-messages-d2c.md) predeterminada en IoT Hub, en función de su suscripción de Event Grid para la telemetría del dispositivo. Esta ruta única puede controlar todas las suscripciones de Event Grid. Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON. También debe establecer contentType en JSON y contentEncoding en UTF-8 en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado
 

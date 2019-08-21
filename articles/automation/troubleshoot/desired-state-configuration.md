@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688109"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850252"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
@@ -24,23 +24,24 @@ En este artículo se ofrece información sobre la solución de problemas con Des
 
 Si se producen errores al compilar o implementar configuraciones en Azure State Configuration, aquí tiene algunos pasos que le ayudarán a diagnosticar el problema.
 
-1. **Asegúrese de que la configuración se compila correctamente en la máquina local:**  Azure State Configuration se basa en DSC de PowerShell. Puede encontrar la documentación del lenguaje y la sintaxis de DSC en los [documentos de DSC de PowerShell](/powershell/dsc/overview/overview).
+1. **Asegúrese de que la configuración se compila correctamente en la máquina local:**  Azure State Configuration se basa en DSC de PowerShell. Puede encontrar la documentación del lenguaje y la sintaxis de DSC en los [documentos de DSC de PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
    Al compilar la configuración de DSC en la máquina local, puede detectar y resolver errores comunes, por ejemplo:
 
    - **Módulos faltantes**
    - **Errores de sintaxis**
    - **Errores lógicos**
+
 2. **Vea los registros de DSC en el nodo:** Si la configuración se compila correctamente, pero se produce un error cuando se aplica a un nodo, puede encontrar información detallada en los registros. Para obtener información sobre dónde encontrar los registros de DSC, consulte [¿Dónde se encuentran los registros de eventos de DSC?](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)
 
-   Además, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) puede ayudarle a analizar información detallada de los registros de DSC. Si se pone en contacto con el soporte técnico, necesitará estos registros para diagnosticar el problema.
+   Además, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) puede ayudarlo a analizar información detallada de los registros de DSC. Si se pone en contacto con el soporte técnico, necesitarán estos registros para diagnosticar el problema.
 
    Puede instalar **xDscDiagnostics** en la máquina local con las instrucciones que se encuentran en [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module) (Instalar el módulo de versión estable).
 
    Para instalar **xDscDiagnostics** en la máquina de Azure, puede usar [az vm run-command](/cli/azure/vm/run-command) o [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). También puede usar la opción **Ejecutar comando** desde el portal, siguiendo los pasos que se describen en [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](../../virtual-machines/windows/run-command.md).
 
    Para obtener información sobre **xDscDiagnostics**, consulte [Uso de xDscDiagnostics para analizar registros de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), así como los [cmdlets de xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Desired State Configuration depende de los módulos instalados en el nodo.  Al usar Azure Automation State Configuration, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos.  Para más información, consulte [Solución de problemas de módulos](shared-resources.md#modules).
+3. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Desired State Configuration depende de los módulos instalados en el nodo.  Al usar Azure Automation State Configuration, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos.  Para más información, consulte [Solución de problemas de los módulos](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)
 
@@ -130,7 +131,7 @@ Cuando la expresión que aparece junto a la palabra clave **Node** en la configu
 Cualquiera de las siguientes soluciones resolverá el problema:
 
 * Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.
-* Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
 
@@ -166,7 +167,7 @@ Ha usado una credencial en una configuración pero no ha proporcionado el valor 
 
 #### <a name="resolution"></a>Resolución
 
-* Asegúrese de pasar el valor adecuado de **ConfigurationData** para establecer **PSDAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#assets).
+* Asegúrese de pasar el valor adecuado de **ConfigurationData** para establecer **PSDAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Escenario: Se produce un error de procesamiento de la extensión al realizar la incorporación desde la extensión DSC
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Los clientes han identificado que si se establece la ubicación/tmp en noexec, la versión actual de DSC no podrá aplicar las configuraciones.
+Los clientes han identificado que si se establece la ubicación `/tmp` en `noexec`, la versión actual de DSC no podrá aplicar las configuraciones.
 
 #### <a name="resolution"></a>Resolución
 
-* Quite la opción noexec de la ubicación/tmp.
+* Quite la opción `noexec` de la ubicación `/tmp`.
+
+### <a name="compilation-node-name-overlap"></a>Escenario: los nombres de configuración de nodos que se superponen podrían provocar una versión incorrecta
+
+#### <a name="issue"></a>Problema
+
+Si se usa un único script de configuración para generar varias configuraciones de nodo y algunas de ellas tienen un nombre que es un subconjunto de otros, un problema en el servicio de compilación podría dar lugar a la asignación de la configuración incorrecta.  Este problema solo se produce cuando se usa un único script para generar configuraciones con datos de configuración por nodo y solo cuando la superposición de los nombres tiene lugar al principio de la cadena.
+
+Por ejemplo, si se usa un único script de configuración para generar configuraciones basadas en los datos de nodo pasados como una tabla hash mediante cmdlets, y los datos del nodo incluyen un servidor llamado "server" y "1server".
+
+#### <a name="cause"></a>Causa
+
+Problema conocido con el servicio de compilación.
+
+#### <a name="resolution"></a>Resolución
+
+La mejor solución sería realizar la compilación localmente o en una canalización de CI/CD y cargar los archivos MOF directamente en el servicio.  Si es necesario que la compilación tenga lugar en el servicio, la siguiente mejor solución sería dividir los trabajos de compilación para que no haya nombres superpuestos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

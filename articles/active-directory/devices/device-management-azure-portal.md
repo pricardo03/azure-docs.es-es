@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562237"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942970"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -116,7 +116,7 @@ En esta sección, se proporciona información sobre las tareas comunes de admini
 
 ### <a name="manage-an-intune-device"></a>Administración de un dispositivo de Intune
 
-Si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**.
+Si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**. Si el dispositivo no está inscrito con Microsoft Intune la opción "Administrar" estará atenuada.
 
 ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/31.png)
 

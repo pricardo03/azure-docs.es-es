@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780881"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966829"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning Service
 
@@ -38,9 +38,9 @@ Ejecute este código en cualquiera de estos entornos:
 
 - Su propio servidor de Jupyter Notebook
 
-    - [Instalación del SDK de Azure Machine Learning para Python](setup-create-workspace.md#sdk)
-    - [Creación de un archivo de configuración del área de trabajo](setup-create-workspace.md#write-a-configuration-file)
-    - Descarga del archivo de script de ejemplo [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+    - [Instalación del SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Creación de un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
+    - Descarga del archivo de script de ejemplo [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py).
      - También puede encontrar una [versión de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) completada de esta guía en la página de ejemplos de GitHub. El cuaderno incluye secciones expandidas que abarcan el ajuste de hiperparámetros inteligente, la implementación de modelos y widgets de cuaderno.
 
 ## <a name="set-up-the-experiment"></a>Configuración del experimento
@@ -214,3 +214,5 @@ En este artículo, ha entrenado y registrado un aprendizaje profundo y una red n
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
 
 * [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+
+* [Vea nuestra arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

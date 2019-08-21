@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67786685"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migración de Analytics desde Excel a Azure Machine Learning Studio
@@ -111,7 +111,7 @@ Con el libro abierto, copie los parámetros predefinidos en la sección de pará
 ### <a name="optimization-and-further-experiments"></a>Optimización y otros experimentos
 Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Machine Learning. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Esto nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. En proyectos futuros, se usará esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para encontrar el conjunto correcto de características que se utilizará para el modelado. 
 
-A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento. 
+A continuación, tenemos previsto incluir algoritmos adicionales como los [bayesianos][bayesian-linear-regression] o los [árboles de decisiones incrementados][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento. 
 
 Si desea experimentar con regresión, un buen conjunto de datos para probar es el conjunto de datos de ejemplo de Energy Efficiency Regression, que tiene muchos atributos numéricos. El conjunto de datos se proporciona como parte de los conjuntos de datos de muestra en Studio. Puede usar diversos módulos de entrenamiento para predecir la carga de calefacción o refrigeración. En el gráfico siguiente, se muestra una comparación de distintos entrenamientos de regresión efectuados con el conjunto de datos Energy Efficiency para predecir una variable de destino sobre la carga de refrigeración: 
 

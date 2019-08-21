@@ -4,18 +4,18 @@ description: Describe cómo probar la experiencia del usuario para la creación 
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257669"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845926"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Prueba de la interfaz de su portal para Azure Managed Applications
 
-Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) para la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de espacio aislado que cargue el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual y en pantalla completa. O bien, puede usar un script de PowerShell para probar la interfaz, pero usa una vista del portal heredada. En este artículo se muestran ambos enfoques. El espacio aislado es la manera recomendada de obtener una vista previa de la interfaz.
+Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) para la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de espacio aislado que cargue el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual y en pantalla completa. O bien, puede usar un script para probar la interfaz. En este artículo se muestran ambos enfoques. El espacio aislado es la manera recomendada de obtener una vista previa de la interfaz.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +51,8 @@ Si no se muestra el formulario y, en su lugar, ve un icono de una nube con una g
 
 Para probar la interfaz en el portal, copie uno de los siguientes scripts en la máquina local:
 
-* [Script de carga en PowerShell](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [Script de carga en PowerShell - Módulo Az ](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [Script de carga en PowerShell - Módulo Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Script de carga en la CLI de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
 Para ver el archivo de interfaz en el portal, ejecute el script descargado. El script crea una cuenta de almacenamiento en la suscripción de Azure y carga el archivo createUiDefinition.json en la cuenta de almacenamiento. La cuenta de almacenamiento se crea la primera vez que ejecute el script o si la cuenta de almacenamiento se ha eliminado. Si ya existe la cuenta de almacenamiento en su suscripción de Azure, el script la reutiliza. El script abre el portal y carga el archivo de la cuenta de almacenamiento.
@@ -61,7 +62,7 @@ Proporcione una ubicación para la cuenta de almacenamiento y especifique la car
 Para PowerShell, use:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -79,7 +80,7 @@ Si el archivo createUiDefinition.json está en la misma carpeta que el script y 
 Para PowerShell, use:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 Para la CLI de Azure, utilice:
@@ -89,8 +90,6 @@ Para la CLI de Azure, utilice:
 ```
 
 El script abre una nueva pestaña en el explorador. Muestra el portal con la interfaz para crear la aplicación administrada.
-
-![Visualización del portal](./media/test-createuidefinition/view-portal.png)
 
 Proporcione los valores para los campos. Cuando termine, verá los valores que se han pasado a la plantilla.
 

@@ -7,19 +7,24 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fc1ed9928bd988faca4537202ac57fee74b0b00
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 32728b5c1ede303cc4000ef8c10e4456e784df9b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721413"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882460"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Contenido destacado generado por el usuario para Anomaly Detector API
 
 Use este artículo para descubrir qué piensan otros clientes de Anomaly Detector API y cómo la utilizan. Los siguientes recursos se crearon en la comunidad de usuarios de Anomaly Detector. Entre ellos hay blogs, proyectos de código abierto y otras contribuciones creadas por usuarios de Microsoft y terceros. Algunos de los siguientes vínculos se hospedan en sitios web que son externos a Microsoft, por lo que Microsoft no es responsable de su contenido. Tenga precaución al utilizar estos recursos.
+
+## <a name="demos"></a>Demostraciones
+
+* [Demostración interactiva con animación](https://aka.ms/adDemo)
+* [Demostración de Azure Notebook](https://aka.ms/adNotebook)
 
 ## <a name="technical-blogs"></a>Blogs técnicos
 

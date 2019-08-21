@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499876"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879242"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -31,7 +31,7 @@ El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash
 
 Las implementaciones federadas que usan AD FS 2016 y AF FS 2019 pueden habilitar ventajas similares mediante el [bloqueo de extranet de AD FS y el bloqueo inteligente de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-El bloqueo inteligente está siempre activado para todos los clientes de Azure AD con la configuración predeterminada que ofrece la combinación correcta de seguridad y facilidad de uso. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan una licencia de Azure AD Basic o superior.
+El bloqueo inteligente está siempre activado para todos los clientes de Azure AD con la configuración predeterminada que ofrece la combinación correcta de seguridad y facilidad de uso. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan licencias de Azure AD de pago.
 
 El uso del bloqueo inteligente no garantiza que nunca se bloqueará un usuario original. Cuando el bloqueo inteligente bloquea una cuenta de usuario, hacemos todo lo posible para no bloquear al usuario original. El servicio de bloqueo intenta garantizar que los actores no válidos no puedan obtener acceso a una cuenta de usuarios genuina.  
 
@@ -63,7 +63,7 @@ Siga estas instrucciones para comprobar la directiva de bloqueo de cuentas de Ac
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Administración de los valores de bloqueo inteligente de Azure AD
 
-En función de los requisitos de su organización, puede ser necesario personalizar los valores de bloqueo inteligente. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan una licencia de Azure AD Basic o superior.
+En función de los requisitos de su organización, puede ser necesario personalizar los valores de bloqueo inteligente. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan licencias de Azure AD de pago.
 
 Para comprobar o modificar los valores de bloqueo inteligente para su organización, siga estos pasos:
 

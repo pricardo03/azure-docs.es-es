@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446765"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934220"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy
 
@@ -28,7 +28,7 @@ En la tabla siguiente se muestra un resumen de los pasos del pedido de Data Box 
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)                                              |
 | Copia de los datos a un dispositivo        | [Visualización de los archivos *error.xml*](#view-error-log-during-data-copy) para la copia de datos                                                             |
 | Preparación para el envío            | [Inspección de los archivos BOM](#inspect-bom-during-prepare-to-ship) o los archivo de manifiesto en el dispositivo                                      |
-| Carga de datos en Azure       | [Revisión de las *copias de registros* ](#review-copy-log-during-upload-to-azure) en busca de errores durante la carga de datos en el centro de datos de Azure                         |
+| Carga de datos en Azure       | [Revisión de los registros de copia](#review-copy-log-during-upload-to-azure) en busca de errores durante la carga de datos en el centro de datos de Azure                         |
 | Eliminación de datos del dispositivo   | [Visualización de los registros de la cadena de custodia](#get-chain-of-custody-logs-after-data-erasure), incluidos los registros de auditoría y el historial de pedidos                |
 
 En este artículo se describen detalladamente los distintos mecanismos o herramientas disponibles para realizar el seguimiento y auditar un pedido de Data Box o Data Box Heavy. La información de este artículo se aplica tanto a Data Box como a Data Box Heavy. En las secciones posteriores, todas las referencias a Data Box también se aplican a Data Box Heavy.
@@ -195,11 +195,11 @@ Los archivos de BOM o de manifiesto también se copian en la cuenta de almacenam
 
 ## <a name="review-copy-log-during-upload-to-azure"></a>Revisión del registro de copia durante la carga en Azure
 
-Durante la carga de datos en Azure, se crea un *registro de copia*.
+Durante la carga de datos en Azure, se crea un registro de copia.
 
-### <a name="copylog"></a>Registro de copia
+### <a name="copy-log"></a>Registro de copia
 
-Para cada pedido que se procesa, el servicio de Data Box crea un *registro de copia* en la cuenta de almacenamiento asociada. El *registro de copia* tiene el número total de archivos que se han cargado y el número de archivos que dieron errores durante la copia de datos de Data Box a su cuenta de almacenamiento de Azure.
+Para cada pedido que se procesa, el servicio Data Box crea un registro de copia en la cuenta de almacenamiento asociada. El registro de copia tiene el número total de archivos que se han cargado y el número de archivos que dieron errores durante la copia de datos de Data Box en su cuenta de almacenamiento de Azure.
 
 Se realiza una prueba cíclica de redundancia (CRC) durante la carga en Azure. Se comparan las CRC de la copia de datos y después de que se carguen los datos. Un error de coincidencia de CRC indica que no se pudieron cargar los archivos correspondientes.
 
@@ -207,11 +207,13 @@ De forma predeterminada, los registros se escriben en un contenedor denominado �
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-La ruta de acceso del registro de copia también se muestra en la hoja **Introducción** del portal.
+La ruta de acceso del registro de copia también se muestra en la hoja **Información general** del portal.
 
-![Ruta de acceso al registro de copia en la hoja Introducción cuando de complete.](media/data-box-logs/copy-log-path-1.png)
+![Ruta de acceso al registro de copia en la hoja Información general cuando se completa](media/data-box-logs/copy-log-path-1.png)
 
-El ejemplo siguiente describe el formato general de un archivo de registro de copia para una carga de Data Box que se ha realizado correctamente:
+### <a name="upload-completed-successfully"></a>La carga se completó correctamente 
+
+En el ejemplo siguiente se describe el formato general de un registro de copia para una carga de Data Box que se ha completado correctamente:
 
 ```
 <?xml version="1.0"?>
@@ -222,9 +224,11 @@ El ejemplo siguiente describe el formato general de un archivo de registro de co
 </CopyLog>
 ```
 
+### <a name="upload-completed-with-errors"></a>La carga se completó con errores 
+
 La carga en Azure también puede finalizar con errores.
 
-![Ruta de acceso al registro de copia en la hoja Introducción cuando de complete con errores.](media/data-box-logs/copy-log-path-2.png)
+![Ruta de acceso al registro de copia en la hoja Información general cuando se completa con errores](media/data-box-logs/copy-log-path-2.png)
 
 Este es un ejemplo de un registro de copia donde la carga se completó con errores:
 
@@ -245,9 +249,15 @@ Este es un ejemplo de un registro de copia donde la carga se completó con error
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-Este es un ejemplo de un `copylog` donde los contenedores que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron el nombre durante la carga de datos en Azure.
+### <a name="upload-completed-with-warnings"></a>Carga completada con advertencias
 
-Los nuevos nombres únicos para los contenedores tienen el formato: `DataBox-GUID` y los datos del contenedor se colocan en el nuevo contenedor. El `copylog` especifica el nombre del contenedor nuevo y antiguo para el contenedor.
+La carga en Azure se completa con advertencias si los datos tenían nombres de contenedor, blob o archivo que no se ajustaban a las convenciones de nomenclatura de Azure y los nombres se modificaron para cargar los datos en Azure.
+
+![Ruta de acceso al registro de copia en la hoja Información general cuando se completa con advertencias](media/data-box-logs/copy-log-path-3.png)
+
+Este es un ejemplo de un registro de copia donde los contenedores que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron de nombre durante la carga de datos en Azure.
+
+Los nuevos nombres únicos para los contenedores tienen el formato: `DataBox-GUID` y los datos del contenedor se colocan en el nuevo contenedor. El registro de copia especifica el nombre del contenedor nuevo y antiguo.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -258,7 +268,7 @@ Los nuevos nombres únicos para los contenedores tienen el formato: `DataBox-GUI
 </ErroredEntity>
 ```
 
-Este es un ejemplo de un `copylog` donde los blobs o archivos que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron el nombre durante la carga de datos en Azure. Los nuevos nombres de blob o de archivo se convierten en el resumen de SHA256 de la ruta de acceso relativa al contenedor y se cargan en la ruta de acceso basada en el tipo de destino. El destino puede ser blobs en bloques, blobs en páginas o Azure Files.
+Este es un ejemplo de un registro de copia donde los blobs o archivos que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron de nombre durante la carga de datos en Azure. Los nuevos nombres de blob o de archivo se convierten en el resumen de SHA256 de la ruta de acceso relativa al contenedor y se cargan en la ruta de acceso basada en el tipo de destino. El destino puede ser blobs en bloques, blobs en páginas o Azure Files.
 
 El `copylog` especifica el nombre de archivo o blob antiguo y el nuevo, y la ruta de acceso en Azure.
 
@@ -287,7 +297,7 @@ Cuando se borren los datos de los discos de Data Box las directrices de revisió
 
 ### <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría: contienen información sobre el encendido y el acceso compartido en Data Box o Data Box Heavy cuando está fuera del centro de datos de Azure. Estos registros se encuentran en `storage-account/azuredatabox-chainofcustodylogs`.
+Los registros de auditoría contienen información sobre cómo encender recursos compartidos y acceder a ellos en Data Box o Data Box Heavy cuando están fuera del centro de datos de Azure. Estos registros se encuentran en `storage-account/azuredatabox-chainofcustodylogs`.
 
 Este es un ejemplo del registro de auditoría de un Data Box:
 

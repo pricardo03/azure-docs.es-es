@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358800"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848161"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -27,17 +27,17 @@ En este artículo aprenderá a entrenar un modelo de regresión de previsión de
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Puede usar aprendizaje automático automatizado para combinar las técnicas y enfoques y obtener una previsión recomendada y de alta calidad de series temporales. Un experimento automatizado de series temporales se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores. 
+Puede usar aprendizaje automático automatizado para combinar las técnicas y enfoques y obtener una previsión recomendada y de alta calidad de series temporales. Un experimento automatizado de series temporales se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores.
 
 Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene una ventaja de incorporar de forma natural varias variables contextuales y su relación entre sí durante el entrenamiento. En aplicaciones de previsión del mundo real, varios factores pueden influir en un pronóstico. Por ejemplo, al prever ventas, las interacciones de las tendencias históricas, la tasa de cambio y el precio son motores conjuntos del resultado de ventas. Una ventaja adicional es que todas las innovaciones recientes hechas en los modelos de regresión se aplican inmediatamente a la previsión.
 
-También puede [configurar](#config) hasta qué punto en el futuro debe extenderse la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único, pero a menudo internamente bifurcado para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series no antes vistas. 
+También puede [configurar](#config) hasta qué punto en el futuro debe extenderse la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único, pero a menudo internamente bifurcado para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series no antes vistas.
 
-Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. Y el aprendizaje automático automatizada lleva a cabo los pasos previos al procesamiento estándares y genera características adicionales de series temporales para capturar los efectos de temporada y maximizar la precisión de predicción. 
+Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. Y el aprendizaje automático automatizada lleva a cabo los pasos previos al procesamiento estándares y genera características adicionales de series temporales para capturar los efectos de temporada y maximizar la precisión de predicción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Create an Azure Machine Learning service workspace](setup-create-workspace.md) (Creación de un área de trabajo del servicio Azure Machine Learning).
+* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md) (Creación de un área de trabajo del servicio Azure Machine Learning).
 * En este artículo se presupone una familiarización básica con la configuración de una experimento de aprendizaje de automático automatizado. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los patrones de diseño del experimento de aprendizaje automático automatizado.
 
 ## <a name="preparing-data"></a>Preparación de los datos
@@ -106,9 +106,13 @@ time_series_settings = {
     "grain_column_names": ["store"],
     "max_horizon": 50,
     "target_lags": 2,
-    "target_rolling_window_size": 10
+    "target_rolling_window_size": 10,
+    "preprocess": True,
 }
 ```
+
+> [!NOTE]
+> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se usa el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
 
 Ahora cree un objeto `AutoMLConfig` estándar y especifique el tipo de tarea `forecasting`; a continuación, envíe el experimento. Una vez finalizado el modelo, recupere la iteración con la mejor ejecución.
 

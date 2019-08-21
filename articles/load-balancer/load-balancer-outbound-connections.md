@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385546"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881067"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -133,6 +133,10 @@ Si hay varios flujos, cada uno de ellos dirigido a una dirección IP, un puerto 
 
 Los puertos UDP SNAT se administran mediante un algoritmo diferente que los puertos TCP SNAT.  Load Balancer utiliza un algoritmo que se conoce como "NAT de cono restringido de puertos" para UDP.  Se consume un puerto SNAT por cada flujo, con independencia de la combinación de dirección IP y puerto de destino.
 
+#### <a name="snat-port-reuse"></a>Reutilización del puerto SNAT
+
+Una vez que se ha liberado un puerto, está disponible para reutilizarse según sea necesario.  Puede pensar en los puertos SNAT como una secuencia del menor al mayor disponibles para un escenario determinado. El primer puerto SNAT disponible se usa para las nuevas conexiones. 
+ 
 #### <a name="exhaustion"></a>Agotamiento
 
 Cuando se agotan los recursos de los puertos SNAT, los flujos de salida generan errores hasta que los flujos ya existentes liberan puertos SNAT. Load Balancer reclama puertos SNAT cuando el flujo se cierra y usa un [tiempo de espera de inactividad de 4 minutos](#idletimeout) para reclamar puertos SNAT de los flujos inactivos.

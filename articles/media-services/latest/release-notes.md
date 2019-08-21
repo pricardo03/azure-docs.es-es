@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311809"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856308"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -33,6 +33,14 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>El par regional de Sudáfrica está abierto para Media Services 
+
+Media Services ya está disponible en las regiones Norte de Sudáfrica y Oeste de Sudáfrica.
+
+Si desea obtener más información, vea [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
 
 ## <a name="july-2019"></a>Julio de 2019
 

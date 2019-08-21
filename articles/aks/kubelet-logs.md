@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: mlearned
 ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615175"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
-Como parte del funcionamiento de un clúster de AKS, puede que deba revisar los registros para solucionar un problema. Azure Portal incorpora la posibilidad de ver los registros de los [componentes maestros de AKS][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. En ocasiones, necesitará obtener registros de *kubelet* de un nodo de AKS para solucionar problemas.
+Como parte del funcionamiento de un clúster de AKS, puede que deba revisar los registros para solucionar un problema. Azure Portal incorpora la posibilidad de ver los registros de los [componentes maestros de AKS][aks-master-logs] o de los [contenedores de un clúster AKS][azure-container-logs]. En ocasiones, necesitará obtener registros de *kubelet* de un nodo de AKS para solucionar problemas.
 
 En este artículo se muestra cómo puede usar `journalctl` para ver los registros de *kubelet* en un nodo de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Creación de una conexión SSH
 

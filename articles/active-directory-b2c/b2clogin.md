@@ -10,23 +10,26 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511696"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927279"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Establecimiento de direcciones URL de redireccionamiento en b2clogin.com para Azure Active Directory B2C
 
 Cuando se configura un proveedor de identidades para registrarse e iniciar sesión en la aplicación Azure Active Directory (Azure AD) B2C, debe especificar una dirección URL de redireccionamiento. En el pasado, se utilizaba login.microsoftonline.com, ahora debería utilizar b2clogin.com.
+
+> [!NOTE]
+> Puede usar el código de cliente de JavaScript (actualmente en versión preliminar) en b2clogin.com. Si usa login.microsoftonline.com, se quitará el código de JavaScript de la página personalizada. También se aplican restricciones de seguridad adicionales a login.microsoftonline.com, como quitar elementos de formulario HTML de la página personalizada. 
 
 El uso de b2clogin.com ofrece ventajas adicionales, como:
 
 - Se reduce el espacio que los servicios de Microsoft consumen en el encabezado de las cookies.
 - Las direcciones URL ya no incluyen una referencia a Microsoft. Por ejemplo, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
->[!NOTE]
+> [!NOTE]
 > Puede usar el nombre del inquilino y el GUID del inquilino como se muestra a continuación:
 > * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (que aún hace referencia a `onmicrosoft.com`).
 > * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (en que no hay ninguna referencia a Microsoft).
