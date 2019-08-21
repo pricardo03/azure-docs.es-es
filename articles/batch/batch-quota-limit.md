@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323159"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036674"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -70,6 +70,7 @@ El servicio Batch establece límites adicionales. A diferencia de [las cuotas de
 | Paquetes de aplicación por aplicación | 40 |
 | Paquetes de aplicación por grupo | 10 |
 | Duración máxima de la tarea | 180 días<sup>1</sup> |
+| [Montajes](virtual-file-mount.md) por nodo de ejecución | 10 |
 
 <sup>1</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 180 días. Las tareas completadas se mantienen durante siete días; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 

@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/23/2019
+ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 2b9d6832422b98c1064a4e9e99774c4788e801e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4770c0bfd9c6fe6effa9cdf200d89ca7ff6eb768
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323654"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036662"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
 El [servicio Azure Batch](https://azure.microsoft.com/services/batch/) establece las siguientes variables del entorno en nodos de proceso. Puede hacer referencia a estas variables del entorno en líneas de comandos de la tarea y en los programas y secuencias de comandos que ejecutan las líneas de comandos.
 
-Para obtener más información sobre el uso de variables del entorno con Batch, consulte [Configuración del entorno para las tareas](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Para obtener más información sobre el uso de variables de entorno con Batch, consulte [Configuración del entorno para las tareas](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Visibilidad de la variable del entorno
 
@@ -51,7 +51,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 | AZ_BATCH_ACCOUNT_URL            | La dirección URL de la cuenta de Batch. | Todas las tareas. | `https://myaccount.westus.batch.azure.com` |
 | AZ_BATCH_APP_PACKAGE            | Un prefijo de todas las variables de entorno de paquete de aplicación. Por ejemplo, si la aplicación "Foo" versión "1" se instala en un grupo, la variable de entorno es AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 apunta a la ubicación en la que se descargó el paquete (una carpeta). | Cualquier tarea con un paquete de aplicación asociado. También está disponible para todas las tareas si el nodo mismo tiene paquetes de aplicación. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Token de autenticación que concede acceso a un conjunto limitado de operaciones de servicio de Batch. Esta variable de entorno solo está presente si [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) está establecido al [agregar la tarea](/rest/api/batchservice/task/add#request-body). El valor del token se usa en las API de Batch como credenciales para crear un cliente de Batch, como en [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas las tareas. | Token de acceso de OAuth2 |
-| AZ_BATCH_CERTIFICATES_DIR       | Un directorio en el [directorio de trabajo de la tarea][files_dirs] en el que se almacenan los certificados para nodos de proceso de Linux. Tenga en cuenta que esta variable del entorno no se aplica a los nodos de proceso de Windows.                                                  | Todas las tareas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Un directorio en el [directorio de trabajo de la tarea][files_dirs] en el que se almacenan los certificados para nodos de proceso de Linux. Esta variable de entorno no se aplica a los nodos de ejecución de Windows.                                                  | Todas las tareas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | La lista de nodos que se asignan a una [tarea de varias instancias][multi_instance] en el formato `nodeIP,nodeIP`. | Tareas principales y secundarias de varias instancias. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Especifica si el nodo actual es el nodo maestro de una [tarea de varias instancias][multi_instance]. Los valores posibles son `true` y `false`.| Tareas principales y secundarias de varias instancias. | `true` |
 | AZ_BATCH_JOB_ID                 | El identificador de la cuenta a la que pertenece la tarea. | Todas las tareas excepto la tarea de inicio. | batchjob001 |
@@ -61,6 +61,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 | AZ_BATCH_NODE_ID                | El identificador del nodo al que se asignó la tarea. | Todas las tareas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Si `true`, el nodo actual es un nodo dedicado. Si `false`, es un [nodo de prioridad baja](batch-low-pri-vms.md). | Todas las tareas. | `true` |
 | AZ_BATCH_NODE_LIST              | La lista de nodos que se asignan a una [tarea de varias instancias][multi_instance] en el formato `nodeIP;nodeIP`. | Tareas principales y secundarias de varias instancias. | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | Ruta de acceso completa de la ubicación de [montaje del sistema de archivos](virtual-file-mount.md) de nivel de nodo donde residen todos los directorios de montaje. Los recursos compartidos de archivos de Windows usan una letra de unidad, por lo que, para Windows, la unidad de montaje forma parte de dispositivos y unidades.  |  Todas las tareas, incluida la tarea de inicio, tienen acceso al usuario, dado que el usuario es consciente de los permisos de montaje para el directorio montado. | En Ubuntu, por ejemplo, la ubicación es `/mnt/batch/tasks/fsmounts`. |
 | AZ_BATCH_NODE_ROOT_DIR          | La ruta de acceso completa de la raíz de todos los [directorios de Batch][files_dirs] en el nodo. | Todas las tareas. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | La ruta de acceso completa del [directorio compartido][files_dirs] en el nodo. Todas las tareas que se ejecutan en un nodo tienen acceso de lectura/escritura a este directorio. Las tareas que se ejecutan en otros nodos no tienen acceso remoto a este directorio (no es un directorio de red "compartido"). | Todas las tareas. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | La ruta de acceso completa del [directorio de la tarea de inicio][files_dirs] en el nodo. | Todas las tareas. | C:\user\tasks\startup |

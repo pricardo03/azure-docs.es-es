@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4d8ba44cdd5161a1a5ff108837cb57af4cd98835
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798585"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034800"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -403,43 +403,43 @@ Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
    ```blkid /dev/sda2```<br>
    ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
+   ```
 
 
 
-1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+1. Ahora, sustituya el nombre del dispositivo por su UUID con el formato "root=UUID=\<UUID>". Por ejemplo, si reemplazamos los nombres de dispositivo por el UUID de root y reanudamos el parámetro mencionado anteriormente en los archivos "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub:", las líneas de los archivos serán parecidas a las siguientes: <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
-1. Restart the protection again
+1. Reinicie la protección
 
-## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
-**Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
+## <a name="enable-protection-failed-as-device-mentioned-in-the-grub-configuration-doesnt-existerror-code-151124"></a>No se pudo habilitar la protección debido a que el dispositivo que se menciona en la configuración de GRUB no existe (código de error 151124)
+**Causa posible:** </br>
+Los archivos de configuración de GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub") pueden contener los parámetros "rd.lvm.lv" o "rd_LVM_LV" para indicar el dispositivo LVM que debe detectarse en el momento del arranque. Si estos dispositivos LVM no existen, el sistema protegido no se iniciará ni se atascará en el proceso de arranque. Se observará lo mismo con la VM de conmutación por error. Estos son algunos ejemplos:
 
-Few examples: </br>
+Ejemplos: </br>
 
-1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
+1. La línea siguiente procede del archivo GRUB **"/boot/grub2/grub.cfg"** en RHEL7. </br>
    *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
+   La parte resaltada muestra que GRUB tiene que detectar dos dispositivos LVM con los nombres **"root"** y **"swap"** del grupo de volúmenes "rootvg".
+1. La línea siguiente procede del archivo GRUB **"/etc/default/grub"** en RHEL7. </br>
    *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
+   La parte resaltada muestra que GRUB tiene que detectar dos dispositivos LVM con los nombres **"root"** y **"swap"** del grupo de volúmenes "rootvg".
+1. La línea siguiente procede del archivo GRUB **"/boot/grub/menu.lst"** en RHEL6. </br>
    *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+   La parte resaltada muestra que GRUB tiene que detectar dos dispositivos LVM con los nombres **"root"** y **"swap"** del grupo de volúmenes "rootvg".<br>
 
-**How to Fix:**<br>
+**Solución:**<br>
 
-If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
+Si el dispositivo LVM no existe, corríjalo mediante su creación o quite el parámetro del mismo de los archivos de configuración de GRUB y, a continuación, vuelva a intentar habilitar la protección. </br>
 
-## Site Recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
-**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>Actualización del servicio de movilidad de Site Recovery completada con advertencias (código de error 151083)
+El servicio de movilidad de Site Recovery tiene muchos componentes, uno de los cuales es el controlador del filtro. El controlador del filtro solamente se carga en el sistema cuando se reinicia el sistema. Siempre que haya actualizaciones del servicio de movilidad de Site Recovery que tengan cambios en el controlador del filtro, se actualiza la máquina, pero se sigue generando una advertencia de que algunas correcciones requieren un reinicio. Esto significa que las correcciones del controlador del filtro solo pueden aplicarse cuando se carga un nuevo controlador del filtro, lo que solo ocurre cuando se reinicia el sistema.<br>
+**Tenga en cuenta** que solo se trata de una advertencia y que la replicación existente seguirá funcionando incluso después de que se realice la nueva actualización del agente. Puede reiniciar el sistema en cualquier momento para aprovechar las ventajas del nuevo controlador del filtro, pero, si no reinicia, el antiguo controlador seguirá funcionando. A parte del controlador del filtro, **se aplicarán todas las demás mejoras y correcciones del servicio de movilidad sin necesidad de reiniciar cuando se actualice el agente**.  
 
 
-## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+## <a name="protection-couldnt-be-enabled-as-replica-managed-disk-diskname-replica-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>No se pudo habilitar la protección porque el disco administrado de la réplica "diskname-replica" ya existe sin las etiquetas esperadas en el grupo de recursos de destino (código de error 150161)
 
-**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
-**How to fix:**
-Delete the mentioned replica disk in the error message and restart the failed protection job again.
+**Causa**: Puede producirse si la máquina virtual se protegió anteriormente y durante la deshabilitación de la replicación el disco de la réplica no se limpió debido a alguna razón.</br>
+**Solución:** Elimine el disco de la réplica mencionado en el mensaje de error y vuelva a reiniciar el trabajo de protección con error.
 
-## Next steps
-[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Replicación de máquinas virtuales de Azure](site-recovery-replicate-azure-to-azure.md)

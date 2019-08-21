@@ -1,22 +1,22 @@
 ---
-title: 'Lista de comprobación para la creación de ofertas: Marketplace comercial para Azure'
-description: Los detalles que puede incluir en el proceso de creación de ofertas. - Marketplace comercial para Azure
+title: 'Lista de comprobación para la creación de ofertas de SaaS: Marketplace comercial para Azure'
+description: Los detalles que puede incluir en el proceso de creación de ofertas de SaaS. - Marketplace comercial para Azure
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 08/14/2019
+ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701163"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036374"
 ---
-# <a name="offer-creation-checklist"></a>Lista de comprobación de creación de ofertas
+# <a name="saas-offer-creation-checklist"></a>Lista de comprobación de creación de ofertas de SaaS
 
-El proceso de creación de ofertas le llevará a través de varias páginas. Estos son los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
+El proceso de creación de ofertas de SaaS le llevará a través de varias páginas. Estos son los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
 
 Los elementos que tiene que proporcionar o especificar se detallan a continuación. Algunas áreas son opcionales o tienen aplicados los valores proporcionados, que puede cambiar según desee. No es necesario que trabaje en estas secciones en el orden que se muestra aquí.
 

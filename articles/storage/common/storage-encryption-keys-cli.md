@@ -9,12 +9,12 @@ ms.date: 06/24/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 925b69e064e260a78a102a068f052ad7d396c380
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 837e3be209da1fe42ced9e4a23a75c46612cebd2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357055"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036625"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar las claves que administra el cliente para el cifrado de Azure Storage desde la CLI de Azure.
 
@@ -22,7 +22,11 @@ ms.locfileid: "67357055"
 
 En este artículo se muestra cómo configurar un almacén de claves con claves que administra el cliente mediante la CLI de Azure.
 
-## <a name="assign-an-identity-to-the-storage-account"></a>Asignar una identidad a la cuenta de almacenamiento
+> [!IMPORTANT]
+> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere que el almacén de claves tenga configuradas dos propiedades obligatorias, **Eliminación temporal** y **No purgar**. Estas propiedades están habilitadas de manera predeterminada cuando crea un nuevo almacén de claves en Azure Portal. Sin embargo, si tiene que habilitar estas propiedades en un almacén de claves existente, deberá usar PowerShell o la CLI de Azure.
+> Solo se admiten claves RSA y el tamaño de clave 2048.
+
+## <a name="assign-an-identity-to-the-storage-account"></a>Asignación de una identidad a la cuenta de almacenamiento
 
 Para habilitar claves que administra el cliente para la cuenta de almacenamiento, debe asignar primero una identidad administrada que haya asignado el sistema a la cuenta de almacenamiento. Usará esta identidad administrada para conceder los permisos de la cuenta de almacenamiento para obtener acceso al almacén de claves.
 

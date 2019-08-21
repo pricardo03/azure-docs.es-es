@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60950348"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035430"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
 
 > [!NOTE]
 > El complemento de Eclipse no se admite actualmente en Windows. 
+
+> [!IMPORTANT]
+> Asegúrese de que JDK 8 esté instalado en el sistema y seleccionado en Eclipse.
 
 ## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>Instalación o actualización del complemento de Service Fabric en Eclipse
 En Eclipse se puede instalar un complemento Service Fabric. El complemento puede ayudar a simplificar el proceso de compilación e implementación de servicios de Java.

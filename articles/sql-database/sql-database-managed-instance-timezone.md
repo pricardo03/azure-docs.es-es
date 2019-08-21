@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/14/2019
+ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567283"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035833"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Zonas horarias en la Instancia administrada de Azure SQL Database
 
@@ -83,10 +83,10 @@ Puede restaurar un archivo de copia de seguridad o importar datos en una instanc
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-<del>Al realizar una restauración a un momento dado, la hora a la que realizar la restauración se interpreta como hora UTC. Esta configuración evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.<del>
+<del>Al realizar una restauración a un momento dado, la hora a la que realizar la restauración se interpreta como hora UTC. De esta forma, se evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.<del>
 
  >[!WARNING]
-  > El comportamiento actual no coincide con la instrucción anterior y la hora a la que se va a restaurar se interpreta según la zona horaria de la instancia administrada de origen de la que se toman las copias de seguridad automáticas de la base de datos. Estamos trabajando para corregir este comportamiento con el fin de interpretar el momento dado en el tiempo como hora UTC. Consulte [Problemas conocidos](sql-database-managed-instance-timezone.md#known-issues) para obtener más detalles.
+  > El comportamiento actual no coincide con la instrucción anterior y la hora a la que se va a restaurar se interpreta según la zona horaria de la instancia administrada de origen de la que se toman las copias de seguridad automáticas de la base de datos. Estamos trabajando para corregir este comportamiento con el fin de interpretar el momento dado en el tiempo como hora UTC.
 
 ### <a name="auto-failover-groups"></a>Grupos de conmutación por error automática
 

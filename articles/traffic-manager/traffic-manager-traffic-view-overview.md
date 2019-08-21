@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333701"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035448"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -44,6 +44,8 @@ La frecuencia de actualización de datos de la vista Tráfico depende de varias 
 ## <a name="visual-overview"></a>Información general visual
 
 Cuando se desplaza a la sección **Vista de tráfico** en la página de Traffic Manager, se le mostrará un mapa geográfico con una superposición de información detallada de Vista de tráfico. El mapa proporciona información acerca de la base de usuarios y los puntos de conexión para el perfil de Traffic Manager.
+
+![Vista geográfica de vista de tráfico de Traffic Manager][1]
 
 ### <a name="user-base-information"></a>Información de base de usuarios
 
@@ -94,3 +96,5 @@ Cuando use Traffic View, se le facturará en función del número de puntos de d
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
 - Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370385"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036190"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
 
@@ -46,12 +46,14 @@ Al usar Azure Machine Learning Service, el desfase de datos se supervisa a trav�
 
 - Una suscripción de Azure. Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-- Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Use las instrucciones del artículo [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk) (Creación de un área de trabajo de Azure Machine Learning Service) para hacer lo siguiente:
+- El SDK de Azure Machine Learning para Python instalado. Siga las instrucciones que se indican en el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para hacer lo siguiente:
 
     - Crear un entorno Miniconda
     - Instalar el SDK de Azure Machine Learning para Python
-    - Crear un área de trabajo
-    - Escriba un archivo de configuración de área de trabajo (aml_config/config.json).
+
+- Un [área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
+
+- Un [archivo de configuración](how-to-configure-environment.md#workspace) del área de trabajo.
 
 - Instale el SDK de desfase de datos con el comando siguiente:
 
@@ -160,9 +162,9 @@ La configuración del detector de desfase de datos puede consultarse en la pági
 
 ![Configuración del desfase de datos en Azure Portal](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Visualización de los resultados en la interfaz de usuario del área de trabajo de Azure ML
+## <a name="view-results-in-azure-portal"></a>Visualización de resultados en Azure Portal
 
-Para ver los resultados en la interfaz de usuario del área de trabajo de Azure ML, vaya a la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña "Data Drift (Preview)" (Desfase de datos (versión preliminar)) con las métricas del desfase de datos. 
+Para ver los resultados en el área de trabajo en [Azure Portal](https://portal.azure.com), vaya a la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña "Data Drift (Preview)" (Desfase de datos (versión preliminar)) con las métricas del desfase de datos. 
 
 ![Desfase de datos en Azure Portal](media/how-to-monitor-data-drift/drift_ui.png)
 
@@ -195,6 +197,6 @@ En función de la salida del código anterior, puede que le interese volver a en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener un ejemplo completo del uso del desfase de datos, consulte el [cuaderno de desfase de datos de Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). En este cuaderno de Jupyter Notebook se muestra cómo se usa una instancia de [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) con el objetivo de entrenar un modelo para predecir el tiempo, implementarlo en AKS y supervisar el desfase de datos. 
+* Para obtener un ejemplo completo del uso del desfase de datos, consulte el [cuaderno de desfase de datos de Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). En este cuaderno de Jupyter Notebook se muestra cómo se usa una instancia de [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) con el objetivo de entrenar un modelo para predecir el tiempo, implementarlo en AKS y supervisar el desfase de datos. 
 
 * Nos encantaría que nos hiciera llegar sus preguntas, comentarios o sugerencias a medida que el desfase de datos evoluciona hacia la disponibilidad general. Use el botón de comentarios sobre el producto que aparece más abajo. 

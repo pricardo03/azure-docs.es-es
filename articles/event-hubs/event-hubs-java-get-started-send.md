@@ -1,5 +1,5 @@
 ---
-title: 'Envío y recepción de eventos mediante Java: Azure Event Hubs | Microsoft Docs'
+title: Uso de Java para enviar datos a y desde Azure Event Hubs
 description: En este artículo se ofrece un tutorial para crear una aplicación de Java que envía eventos a Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822916"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034807"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Envío o recepción de eventos en Azure Event Hubs mediante Java
 
@@ -178,12 +178,12 @@ El código de este tutorial se basa en el [código EventProcessorSample en GitHu
 
 Para usar EventProcessorHost, debe tener una [cuenta de Azure Storage][cuenta de Azure Storage]:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **+ Crear un recurso** en la parte izquierda de la pantalla.
-2. Haga clic en **Storage** y luego en **Cuenta de Storage**. En la ventana **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Complete el resto de los campos, seleccione la región que desee y, finalmente, haga clic en **Crear**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso** en la parte izquierda de la pantalla.
+2. Seleccione **Almacenamiento** y, luego, **Cuenta de almacenamiento**. En la ventana **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Complete el resto de los campos, seleccione la región deseada y, finalmente, seleccione **Crear**.
    
     ![Crear cuenta de almacenamiento](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Haga clic en la cuenta de almacenamiento recién creada y, a continuación, en **Claves de acceso**:
+3. Seleccione la cuenta de almacenamiento recién creada y, a continuación, **Claves de acceso**:
    
     ![Obtención de las claves de acceso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 

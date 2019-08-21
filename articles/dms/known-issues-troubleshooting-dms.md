@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249978"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034828"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas y errores comunes de Azure Database Migration Service
 
@@ -98,9 +98,9 @@ Al intentar conectarse al origen en el Asistente para proyectos de servicio de A
 | ------------- | ------------- |
 | Cuando se usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiere](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) que se aprovisionen tres puntos de conexión de servicio en la subred de Virtual Network asociada con el servicio:<br> --Punto de conexión de Service Bus<br> --Punto de conexión de Storage<br> --Punto de conexión de base de datos de destino (p. ej., punto de conexión de SQL, punto de conexión de Cosmos DB)<br><br><br><br><br> | [Habilite](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) los puntos de conexión de servicio necesarios para la conectividad de ExpressRoute entre el origen y Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Error de tiempo de espera al migrar una base de datos MySQL a Azure MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Error de tiempo de espera de bloqueo al migrar una base de datos MySQL a Azure DB for MySQL
 
-Al migrar una base de datos MySQL a una instancia de Azure Database for MySQL a través de Azure Database Migration Service, se produce el siguiente error de tiempo de espera en la migración:
+Al migrar una base de datos MySQL a una instancia de Azure Database for MySQL a través de Azure Database Migration Service, se produce el siguiente error de tiempo de espera de bloqueo en la migración:
 
 * **Error**: Error de migración de base de datos: no se pudo cargar el archivo. No se pudo iniciar el proceso de carga del archivo 'n' RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 Mensaje: [MySQL][ODBC Driver][mysqld] Se ha superado el tiempo de expiración de bloqueo; pruebe a reiniciar la transacción
 

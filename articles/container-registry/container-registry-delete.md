@@ -1,21 +1,21 @@
 ---
 title: Eliminación de recursos de imagen en Azure Container Registry
-description: Detalles sobre cómo administrar de forma eficaz el tamaño del registro mediante la eliminación de datos de imagen de contenedor.
+description: Detalles sobre cómo administrar de forma eficaz el tamaño del registro mediante la eliminación de datos de imagen de contenedor con comandos de la CLI de Azure.
 services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309640"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035152"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Eliminación de imágenes de contenedor en Azure Container Registry
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminación de imágenes de contenedor en Azure Container Registry con la CLI de Azure
 
 Para mantener el tamaño del registro de contenedor de Azure, debe eliminar periódicamente los datos de imagen obsoletos. Aunque algunas imágenes de contenedor implementadas en producción pueden requerir un almacenamiento a largo plazo, otras normalmente se pueden eliminar antes. Por ejemplo, en un escenario de compilación y prueba automatizado, el registro se puede rellenar rápidamente con imágenes que es posible que nunca se implementen y se pueden purgar poco después de completar el paso de compilación y prueba.
 
@@ -113,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Después de identificar los resúmenes de manifiesto obsoletos, puede ejecutar el siguiente script de Bash para eliminar los resúmenes de manifiesto anteriores a una marca de tiempo especificada. Requiere la CLI de Azure y **xargs**. De forma predeterminada, el script no realiza ninguna eliminación. Establezca el valor de `ENABLE_DELETE` en `true` para habilitar la eliminación de imágenes.
 
 > [!WARNING]
-> Use el siguiente script de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES. Si tiene sistemas que extraen imágenes por resumen de manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar estos scripts. La eliminación de los resúmenes de manifiesto impide que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices]. 
+> Use el siguiente script de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES. Si tiene sistemas que extraen imágenes por resumen de manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar estos scripts. La eliminación de los resúmenes de manifiesto impide que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -201,7 +201,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Al usar este comando en un script, puede eliminar todas las imágenes sin etiquetas en un repositorio.
 
 > [!WARNING]
-> Utilice los siguientes scripts de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES. Si tiene sistemas que extraen imágenes por resumen de manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar estos scripts. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices].
+> Utilice los siguientes scripts de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES. Si tiene sistemas que extraen imágenes por resumen de manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar estos scripts. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado](container-registry-image-tag-version.md).
 
 **CLI de Azure en Bash**
 
@@ -260,6 +260,10 @@ if ($enableDelete) {
 }
 ```
 
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Purga automática de etiquetas y manifiestos (versión preliminar)
+
+Como alternativa a los comandos de la CLI de Azure de scripting, ejecute una instancia de ACR Tasks a petición o programada para eliminar todas las etiquetas que tengan más de una duración determinada o que coincidan con un filtro de nombre especificado. Para más información, consulte [Automatically purge images from an Azure Container Registry](container-registry-auto-purge.md) (Purga automática de imágenes a partir de una instancia de Azure Container Registry).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el almacenamiento de imágenes en Azure Container Registry, consulte [Almacenamiento de imágenes de contenedor en Azure Container Registry](container-registry-storage.md).
@@ -270,7 +274,6 @@ Para más información sobre el almacenamiento de imágenes en Azure Container R
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

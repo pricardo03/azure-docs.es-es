@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113990"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035766"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -106,7 +106,7 @@ Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Ma
    ![certificado](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. En **Choose An Identity** (Elegir una identidad) se muestra una lista de certificados para elegir. Seleccione el certificado adecuado y haga clic en **Continuar**.
 
-   ![identidad](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. En el campo **Id. local**, especifique el nombre del certificado (del paso 6). En este ejemplo, es "ikev2Client.com". A continuación, haga clic en el botón **Aplicar** para guardar los cambios.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -114,23 +114,15 @@ Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Ma
 
 ## <a name="linuxgui"></a>Linux (GUI de StrongSwan)
 
-### <a name="extract-the-key-and-certificate"></a>Extracción de la clave y del certificado
+### <a name="installstrongswan"></a>Instalación de strongSwan
 
-Para strongSwan, debe extraer la clave y el certificado del certificado de cliente (archivo .pfx) y guardarlos en archivos .pem individuales.
-Siga estos pasos:
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Descargue e instale OpenSSL desde [OpenSSL](https://www.openssl.org/source/).
-2. Abra una ventana de línea de comandos y cambie al directorio donde instaló OpenSSL, por ejemplo, "c:\OpenSLL-Win64\bin\'.
-3. Ejecute el comando siguiente para extraer la clave privada y guárdela en un archivo nuevo llamado "privatekey.pem" del certificado de cliente:
+### <a name="genlinuxcerts"></a>Generación de certificados
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Ahora ejecute el comando siguiente para extraer el certificado público y guárdelo en un archivo nuevo:
+Si aún no ha generado certificados, siga estos pasos:
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Instalación y configuración
 
@@ -163,10 +155,13 @@ Las siguientes instrucciones se crearon mediante strongSwan 5.5.1 en Ubuntu 17.0
 
 ### <a name="install-strongswan"></a>Instalación de strongSwan
 
-Puede usar los siguientes comandos de la CLI o los pasos de strongSwan en la [GUI](#install) para instalar strongSwan.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### <a name="generate-certificates"></a>Generación de certificados
+
+Si aún no ha generado certificados, siga estos pasos:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install-and-configure"></a>Instalación y configuración
 

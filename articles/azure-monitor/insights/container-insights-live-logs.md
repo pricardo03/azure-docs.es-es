@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990032"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035354"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Visualización de registros y eventos en tiempo real (versión preliminar)
 Azure Monitor para contenedores incluye una característica (actualmente en versión preliminar) que proporciona una vista en vivo de los registros de contenedor (stdout y stderr) y los eventos de Azure Kubernetes Service (AKS) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona cualquiera de las opciones, aparece un nuevo panel debajo de la tabla de datos de rendimiento en la vista **Nodos**, **Controladores** y **Contenedores**. En este panel se muestran el registro y los eventos en vivo generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
@@ -72,7 +72,7 @@ Si ha habilitado la autorización de RBAC de Kubernetes, deberá aplicar el enla
 
 Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si lo va a configurar por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/azure-ad-integration.md#create-the-client-application), especifique lo siguiente:
 
-- **URI de redirección** (opcional): es un tipo de aplicación **web** y el valor de la dirección URL base debería ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+-  **URI de redirección**: Deben crearse dos tipos de aplicaciones **web**. El primer valor de URL base debe ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - Después de registrar la aplicación, desde la página **Información general**, seleccione **Autenticación** en el panel izquierdo. En la página **Autenticación**, en **Configuración avanzada**, conceda implícitamente **tokens de acceso** y **tokens de identidad** y, luego, guarde su cambios.
 
 >[!NOTE]
@@ -119,4 +119,4 @@ Puede ir a los registros de Azure Monitor para ver los registros de contenedor h
 
 - Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
 
-- Vea los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.
+- En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.

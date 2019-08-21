@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621855"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933647"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -128,12 +128,19 @@ Una posible causa es que el nombre de usuario o la contraseña con Azure Multi-F
 
 Asegúrese de no configurar el método de autenticación del administrador de conexiones como **Autenticación de contraseña de Active Directory** cuando el parámetro *ConnectUsingManagedIdentity* sea **True** . Puede configurarlo como **Autenticación de SQL**, que se ignora si *ConnectUsingManagedIdentity* está definido.
 
+### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Se desencadenan varias ejecuciones de paquetes de forma inesperada
+
+* Causa posible y acción recomendada:
+  * La actividad de procedimiento almacenado de ADF se usa para desencadenar la ejecución de paquetes de SSIS. El comando t-sql puede encontrarse con problemas transitorios y desencadenar una nueva ejecución, lo que provocaría varias ejecuciones de paquetes.
+  * Use la actividad ExecuteSSISPackage en su lugar, que garantiza que la ejecución de paquetes no volverá a ejecutarse a menos que el usuario establezca un recuento de reintentos en la actividad. Se puede encontrar más información en [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+
 ### <a name="package-execution-takes-too-long"></a>La ejecución del paquete tarda demasiado
 
 Estas son las posibles causas y las acciones recomendadas:
+
 * Se han programado demasiadas ejecuciones de paquetes en SSIS Integration Runtime. Todas estas ejecuciones estarán esperando su turno en una cola.
-  * Para determinar el valor máximo, use esta fórmula: 
-    
+  * Para determinar el valor máximo, use esta fórmula:
+
     Recuento de ejecución en paralelo máximo por IR = recuento de nodos * Máxima ejecución en paralelo por nodo
   * Para obtener información sobre cómo establecer el número de nodos y la ejecución en paralelo máxima por nodo, vea [Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * SSIS Integration Runtime se ha detenido o su estado es incorrecto. Para obtener información sobre cómo comprobar el estado y los errores de SSIS Integration Runtime, vea [Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).

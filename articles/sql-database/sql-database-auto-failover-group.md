@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640095"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035059"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -133,9 +133,13 @@ Para conmutar por error un grupo de conmutación por error, necesita acceso de e
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y grupos elásticos
 
-El grupo de conmutación por error automática debe estar configurado en el servidor de SQL Database principal y se conectará al servidor de SQL Database secundario de una región de Azure diferente.  Los grupos pueden incluir todas las bases de datos de estos servidores o algunas de ellas. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.
+El grupo de conmutación por error automática debe estar configurado en el servidor de SQL Database principal y se conectará al servidor de SQL Database secundario de una región de Azure diferente. Los grupos pueden incluir todas las bases de datos de estos servidores o algunas de ellas. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.
 
 ![conmutación por error automática](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Consulte [Adición de una base de datos única a un grupo de conmutación por error](sql-database-single-database-failover-group-tutorial.md) para obtener un tutorial detallado paso a paso para agregar una base de datos única a un grupo de conmutación por error. 
+
 
 Al diseñar un servicio teniendo en cuenta la continuidad empresarial, siga estas directrices:
 
@@ -167,12 +171,17 @@ Al diseñar un servicio teniendo en cuenta la continuidad empresarial, siga esta
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas
 
-El grupo de conmutación por error automática debe estar configurado en la instancia principal y se conectará a la instancia secundaria de una región de Azure diferente.  Todas las bases de datos de la instancia se replicarán en la instancia secundaria. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa instancia administrada y un grupo de conmutación por error automática.
+> [!IMPORTANT]
+> Los grupos de conmutación por error automática para Instancia administrada están en versión preliminar pública.
+
+El grupo de conmutación por error automática debe estar configurado en la instancia principal y se conectará a la instancia secundaria de una región de Azure diferente.  Todas las bases de datos de la instancia se replicarán en la instancia secundaria. 
+
+En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa instancia administrada y un grupo de conmutación por error automática.
 
 ![conmutación por error automática](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Los grupos de conmutación por error automática para Instancia administrada están en versión preliminar pública.
+> [!NOTE]
+> Consulte [Adición de una instancia administrada a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md) para obtener un tutorial detallado paso a paso para agregar una instancia administrada para usar un grupo de conmutación por error. 
 
 Si la aplicación usa una instancia administrada como capa de datos, siga estas directrices generales al diseñar para la continuidad empresarial:
 
@@ -260,7 +269,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 1. Las dos instancias administradas deben estar en diferentes regiones de Azure.
 1. Las dos instancias administradas deben ser del mismo nivel de servicio y tener el mismo tamaño de almacenamiento. 
 1. La instancia administrada secundaria debe estar vacía (sin bases de datos de usuario).
-1. Las redes virtuales que usan las instancias administradas deben estar conectadas mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o Express Route. Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. No se admite el emparejamiento de VNet global.
+1. Las redes virtuales que usan las instancias administradas deben estar conectadas mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o ExpressRoute. Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. No se admite el emparejamiento de VNet global.
 1. Las dos redes virtuales de instancia administrada no pueden tener direcciones IP superpuestas.
 1. Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes desde la otra subred con instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.
 
@@ -367,6 +376,10 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para ver tutoriales detallados, consulte
+    - [Adición de una base de datos única a un grupo de conmutación por error](sql-database-single-database-failover-group-tutorial.md)
+    - [Adición de un grupo elástico a un grupo de conmutación por error](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Adición de una instancia administrada a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md)
 - Para los scripts de ejemplo, vea:
   - [Uso de PowerShell para configurar la replicación geográfica activa para una base de datos única en Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Uso de PowerShell para configurar la replicación geográfica activa para una base de datos agrupada en Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

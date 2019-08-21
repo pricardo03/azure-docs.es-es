@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: deb6482c0419a5872ccf86f0014adbecc7be6c9d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694390"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036199"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md).
+- Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
 
 - Un modelo de Machine Learning registrado en el área de trabajo. Si no tiene un modelo registrado, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
@@ -61,6 +61,9 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 Crear o asociar un clúster de AKS es un proceso único en el área de trabajo. Puede volver a usar este clúster con diferentes implementaciones. Si elimina el clúster o el grupo de recursos que lo contiene, tendrá que crear un nuevo clúster la próxima vez que tenga que realizar una implementación. Puede tener varios clústeres de AKS asociados al área de trabajo.
 
 Si desea crear un clúster de AKS para __desarrollo__,  __validación__y __pruebas__, en lugar de producción, en __cluster purpose__ puede especificar __dev test__.
+
+> [!WARNING]
+> Si establece `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, el clúster que se crea no es adecuado para un tráfico de nivel de producción y puede aumentar los tiempos de inferencia. Los clústeres de desarrollo y pruebas tampoco garantizan la tolerancia a errores. Se recomiendan al menos dos CPU virtuales para los clústeres de desarrollo y pruebas.
 
 En los siguientes ejemplos se muestra cómo crear un clúster de AKS mediante el SDK y la CLI:
 
@@ -85,7 +88,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si elige valores personalizados para agent_count y vm_size, deberá asegurarse de que agent_count multiplicado por vm_size sea mayor o igual que 12 CPU virtuales. Por ejemplo, si usa un valor de vm_size de "Standard_D3_v2", que tiene 4 CPU virtuales, debe elegir un valor de agent_count de 3 o mayor.
+> Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si elige valores personalizados para `agent_count` y `vm_size`, y `cluster_purpose` no es `DEV_TEST`, deberá asegurarse de que `agent_count` multiplicado por `vm_size` sea mayor o igual que 12 CPU virtuales. Por ejemplo, si usa un valor de `vm_size` de "Standard_D3_v2", que tiene cuatro CPU virtuales, debe elegir un valor de `agent_count` de 3 o mayor.
 >
 > El SDK de Azure Machine Learning no admite escalar un clúster de AKS. Para escalar los nodos en el clúster, use la interfaz de usuario para el clúster de AKS en Azure Portal. Solo puede cambiar el número de nodos, no el tamaño de máquina virtual del clúster.
 
@@ -118,7 +121,7 @@ Si ya tiene un clúster de AKS en su suscripción a Azure y es de la versión 1.
 >
 > Si no establece el parámetro `cluster_purpose`, o establece `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, el clúster deberá tener al menos 12 CPU virtuales disponibles.
 >
-> Si establece `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, el clúster no necesitará tener 12 CPU virtuales. No obstante, un clúster que está configurado para desarrollo y pruebas no es adecuado para un tráfico de nivel de producción y puede aumentar los tiempos de inferencia.
+> Si establece `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, el clúster no necesitará tener 12 CPU virtuales. Se recomiendan al menos dos CPU virtuales para desarrollo y pruebas. No obstante, un clúster que está configurado para desarrollo y pruebas no es adecuado para un tráfico de nivel de producción y puede aumentar los tiempos de inferencia. Los clústeres de desarrollo y pruebas tampoco garantizan la tolerancia a errores.
 
 Para más información acerca de cómo crear un clúster de AKS mediante la CLI de Azure o Azure Portal, consulte los artículos siguientes:
 
@@ -209,12 +212,56 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Para obtener más información, consulte la referencia [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy). 
 
-## <a name="using-vs-code"></a>Uso de Visual Studio Code
+### <a name="using-vs-code"></a>Uso de Visual Studio Code
 
 Para obtener información acerca del uso de Visual Studio Code, consulte cómo se [realiza la implementación en AKS a través de la extensión de Visual Studio Code](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > La implementación a través de Visual Studio Code requiere que el clúster de AKS se cree o se adjunte al área de trabajo de antemano.
+
+## <a name="web-service-authentication"></a>Autenticación de servicio web
+
+Cuando se implementa en Azure Kubernetes Service, la autenticación __basada en claves__ se habilita de manera predeterminada. También puede habilitar la autenticación de __tokens__. La autenticación de tokens requiere que los clientes utilicen una cuenta de Azure Active Directory para solicitar un token de autenticación, que se usa para hacer solicitudes al servicio implementado.
+
+Para __deshabilitar__ la autenticación, establezca el parámetro `auth_enabled=False` al crear la configuración de implementación. En el siguiente ejemplo se deshabilita la autenticación mediante el SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
+```
+
+Para obtener información sobre la autenticación desde una aplicación cliente, consulte [Consumir un modelo de Azure Machine Learning que está implementado como un servicio web](how-to-consume-web-service.md).
+
+### <a name="authentication-with-keys"></a>Autenticación con claves
+
+Si la autenticación con claves está habilitada, puede usar el método `get_keys` para recuperar una clave de autenticación primaria y secundaria:
+
+```python
+primary, secondary = service.get_keys()
+print(primary)
+```
+
+> [!IMPORTANT]
+> Si necesita regenerar una clave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+### <a name="authentication-with-tokens"></a>Autenticación con tokens
+
+Para habilitar la autenticación por tokens, establezca el parámetro `token_auth_enabled=True` cuando cree o actualice una implementación. En el ejemplo siguiente se habilita la autenticación por tokens con el SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
+```
+
+Si la autenticación por tokens está habilitada, puede usar el método `get_token` para recuperar un token JWT y la hora de expiración de los tokens:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Tendrá que solicitar un nuevo token después de la hora del token `refresh_by`.
+>
+> Microsoft recomienda crear el área de trabajo de Azure Machine Learning en la misma región que el clúster de Azure Kubernetes Service. Para autenticarse con un token, el servicio web hará una llamada a la región en la que se crea el área de trabajo de Azure Machine Learning. Si la región del área de trabajo no está disponible, no se podrá capturar un token para el servicio web, incluso si el clúster está en una región distinta del área de trabajo. Esto da como resultado que el servicio Autenticación de Azure AD no esté disponible hasta que la región del área de trabajo vuelva a estarlo. Además, cuanto mayor sea la distancia entre la región del clúster y la región del área de trabajo, más tiempo tardará la captura de un token.
 
 ## <a name="update-the-web-service"></a>Actualizar el servicio web
 

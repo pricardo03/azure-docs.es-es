@@ -4,23 +4,22 @@ description: Uso de Visual Studio Code para desarrollar, compilar y depurar un m
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565348"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035078"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
 Puede convertir la lógica de negocios en módulos de Azure IoT Edge. En este artículo se muestra cómo usar Visual Studio Code como herramienta principal para desarrollar y depurar módulos.
 
-Para los módulos escritos en C#, Node.js o Java, hay dos maneras de depurar el módulo en Visual Studio Code: Puede agregar un proceso a un contenedor de módulo o iniciar el código del módulo en modo de depuración. En el caso de los módulos escritos en Python o C, solo se pueden depurar mediante la asociación a un proceso en contenedores de Linux amd64.
+Hay dos maneras de depurar los módulos escritos en C#, Node.js o Java en Visual Studio Code: Puede agregar un proceso a un contenedor de módulo o iniciar el código del módulo en modo de depuración. Para depurar los módulos escritos en Python o C, solo puede agregar un proceso en contenedores de Linux amd64.
 
 Si no está familiarizado con las funcionalidades de depuración de Visual Studio Code, consulte más información sobre [depuración](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -31,7 +30,7 @@ En este artículo se proporcionan instrucciones para desarrollar y depurar módu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. Un dispositivo IoT Edge puede ser otro dispositivo físico.
+Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Instale [Visual Studio Code](https://code.visualstudio.com/) y después agregue las siguientes extensiones:
 
@@ -107,7 +106,7 @@ Hay cuatro elementos dentro de la solución:
   > [!NOTE]
   > Solo se crea el archivo de entorno si proporciona un repositorio de imágenes para el módulo. Si aceptó los valores predeterminados de localhost para probar y depurar localmente, no es necesario declarar las variables de entorno.
 
-- Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md).
+- Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **SimulatedTemperatureSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md).
 
 ## <a name="add-additional-modules"></a>Agregar módulos adicionales
 
@@ -124,7 +123,7 @@ El código del módulo predeterminado que se incluye con la solución se encuent
 - Java: **módulos > *&lt;el nombre del módulo&gt;* > src > main > java > com > edgemodulemodules > App.java**
 - C: **módulos > *&lt;el nombre del módulo&gt;* > main.c**
 
-El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub.
+El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para recibir entradas de un origen (en este caso, el módulo SimulatedTemperatureSensor que simula datos) y canalizarlo a IoT Hub.
 
 Cuando tenga todo listo para personalizar la plantilla de C con su propio código, use los [SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para compilar módulos que aborden las necesidades principales de las soluciones de IoT, como seguridad, administración de dispositivos y confiabilidad.
 
@@ -227,7 +226,7 @@ En el equipo de desarrollo, puede iniciar un simulador de IoT Edge en lugar de i
 
 1. En la vista Explorador de Visual Studio Code, haga clic con el botón derecho en el archivo `deployment.debug.template.json` para la solución y después seleccione **Compilar y ejecutar solución de IoT Edge en el Simulador**. Puede inspeccionar todos los registros del contenedor del módulo en la misma ventana. También puede navegar hasta la vista Docker para observar el estado del contenedor.
 
-   ![Inspección de variables](media/how-to-develop-csharp-module/view-log.png)
+   ![Inspección de variables](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Vaya a la vista Depuración de Visual Studio Code y seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser similar a ***&lt;nombre del módulo&gt;* Remote Debug**
 
