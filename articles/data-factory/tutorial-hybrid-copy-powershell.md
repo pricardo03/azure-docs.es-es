@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f49bed0253a380dbcb0a526364c85c2031b0116
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328296"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640314"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube. 
@@ -76,13 +76,11 @@ En este tutorial, use el nombre y la clave de su cuenta de Azure Storage. Para o
 
 1. En el panel izquierdo, seleccione **Más servicios**, use la palabra clave **Almacenamiento** para realizar el filtro y, luego, seleccione **Cuentas de almacenamiento**.
 
-    ![Buscar cuenta de Storage](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Buscar cuenta de Storage](media/doc-common-process/search-storage-account.png)
 
 1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento (si fuera necesario) y, después, seleccione su cuenta de almacenamiento. 
 
 1. En la ventana **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
-
-    ![Obtener nombre y clave de la cuenta de Storage](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial. 
 
@@ -107,7 +105,6 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. Mantenga abierta la ventana **contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
-    ![Ventana Contenedor](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -266,7 +263,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 1. En **Ha completado el Asistente para la instalación de Microsoft Integration Runtime Setup**, seleccione **Finalizar**.
 
-1. En la ventana **Registro de Integration Runtime (autohospedado)**, pegue la clave que guardó en la sección anterior y haga clic en **Registrar**. 
+1. En la ventana **Registro de Integration Runtime (autohospedado)** , pegue la clave que guardó en la sección anterior y haga clic en **Registrar**. 
 
     ![Registro de Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
@@ -274,7 +271,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Se registró correctamente](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. En la página **Nuevo nodo de Integration Runtime (autohospedado)**, haga clic en **Siguiente**. 
+1. En la página **Nuevo nodo de Integration Runtime (autohospedado)** , haga clic en **Siguiente**. 
 
     ![Ventana Nuevo nodo de Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -283,7 +280,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Ventana Canal de comunicaciones de intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-1. En la ventana **Registro de Integration Runtime (autohospedado)**, haga clic en **Iniciar Configuration Manager**. 
+1. En la ventana **Registro de Integration Runtime (autohospedado)** , haga clic en **Iniciar Configuration Manager**. 
 
 1. Cuando el nodo se conecte al servicio en la nube, se mostrará el servicio en la nube:
 
@@ -415,7 +412,7 @@ En este paso, vincula la instancia de SQL Server local a la factoría de datos.
     > [!IMPORTANT]
     > - Seleccione la sección que se basa en la autenticación que usa para conectarse a su instancia de SQL Server.
     > - Reemplace **\<integration runtime name>** por el nombre de su instancia de Integration Runtime.
-    > - Antes de guardar el archivo, reemplace **\<servername>**, **\<databasename>**, **\<username>** y **\<password>** por los valores de su instancia de SQL Server.
+    > - Antes de guardar el archivo, reemplace **\<servername>** , **\<databasename>** , **\<username>** y **\<password>** por los valores de su instancia de SQL Server.
     > - Si necesita usar una barra diagonal inversa (\\) en la cuenta del usuario o en el nombre del servidor, utilice el carácter de escape (\\) antes. Por ejemplo, use *mydomain\\\\myuser*. 
 
 1. Para cifrar los datos confidenciales (nombre de usuario, contraseña, etc.), ejecute el cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  

@@ -2,20 +2,18 @@
 title: 'Los indizadores para rastrear orígenes de datos durante la indexación: Azure Search'
 description: Rastree Azure SQL Database, Azure Cosmos DB o Azure Storage para extraer los datos utilizables en búsquedas y rellenar un índice de Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: af01b6127a8a3e20edfac19ce3b54cecb9d561d1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303435"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640585"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores de Azure Search
 

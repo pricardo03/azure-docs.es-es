@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 230d1a28ba15a8736e46c02cb08217a28fc18599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695196"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900622"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Gateway
 
@@ -33,7 +33,7 @@ La solución Data Box Gateway consta de cuatro componentes principales que inter
 
 Data Box Gateway es un servicio de administración que se hospeda en Azure. El servicio se usa para configurar y administrar el dispositivo.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
 
 ## <a name="data-box-gateway-device-protection"></a>Protección del dispositivo Data Box Gateway
 
@@ -48,7 +48,7 @@ El dispositivo Data Box Gateway es un dispositivo virtual que se aprovisiona en 
 
 Solo se permite a un dispositivo Data Box Gateway autorizado unirse al servicio Data Box Gateway que crea en su suscripción de Azure. Si quiere autorizar un dispositivo, debe usar una clave de activación para activarlo con el servicio Data Box Gateway.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
 
 Para obtener más información, consulte [Obtención de la clave de activación](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
@@ -61,7 +61,7 @@ Puede:
 - Conectarse a la interfaz de usuario web local del dispositivo mediante un explorador y, a continuación, proporcionar una contraseña para iniciar sesión en el dispositivo.
 - Conectarse de forma remota a la interfaz de PowerShell del dispositivo a través de HTTP. La administración remota está activada de manera predeterminada. A continuación, puede proporcionar la contraseña del dispositivo para iniciar sesión en el dispositivo. Para obtener más información, consulte el tema sobre la [conexión remota al dispositivo Data Box Gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
+[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use la interfaz de usuario web local para [cambiar la contraseña](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si cambia la contraseña, asegúrese de notificar a todos los usuarios de acceso remoto para que no experimenten problemas al iniciar sesión.
 
 
@@ -75,18 +75,18 @@ En esta sección se describen las características de seguridad de Data Box Gate
 
 ### <a name="protect-data-in-flight"></a>Protección de los datos en tránsito
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
 ### <a name="protect-data-via-storage-accounts"></a>Protección de datos a través de cuentas de almacenamiento
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
-- Gire y, a continuación, [sincronice las claves de la cuenta de almacenamiento](data-box-gateway-manage-shares.md#sync-storage-keys) periódicamente para proteger su cuenta de almacenamiento de usuarios no autorizados.
+[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+- Rote y, a continuación, [sincronice las claves de la cuenta de almacenamiento](data-box-gateway-manage-shares.md#sync-storage-keys) periódicamente para proteger su cuenta de almacenamiento de usuarios no autorizados.
 
 ## <a name="manage-personal-information"></a>Administración de información personal
 
 El servicio Data Box Gateway recopila información personal en los escenarios siguientes:
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
 Para ver la lista de usuarios que pueden acceder a un recurso compartido o eliminarlo, siga los pasos que se indican en el tema sobre la [administración de recursos compartidos en Data Box Gateway](data-box-gateway-manage-shares.md).
 

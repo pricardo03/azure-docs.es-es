@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848983"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877304"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central permite el desarrollo rápido de aplicaciones de IoT. Puede iterar rápidamente por los diseños de plantilla de dispositivo agregando, editando o eliminando las medidas, las configuraciones o las propiedades. Algunos de estos cambios podrían ser intrusivos para los dispositivos conectados actualmente. Azure IoT Central identifica estos cambios importantes y proporciona una manera de implementar de forma segura estas actualizaciones en los dispositivos.
 

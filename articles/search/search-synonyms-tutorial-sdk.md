@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de sinónimos de C#: Azure Search'
 description: En este ejemplo de C#, obtendrá información sobre cómo agregar la característica de sinónimos a un índice de Azure Search. Un mapa de sinónimos es una lista de términos equivalentes. Los campos que incluyen compatibilidad con sinónimos amplían las consultas para incluir el término proporcionado por el usuario y todos los sinónimos relacionados.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025167"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647763"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Ejemplo: Adición de sinónimos para Azure Search en C#
 

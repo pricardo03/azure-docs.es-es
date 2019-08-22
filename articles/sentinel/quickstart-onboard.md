@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: c9f2f011acb9d815202aa6c6a38ed364ffb0f9cd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619647"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611905"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Incorporación en Azure Sentinel (versión preliminar)
 
@@ -58,7 +58,6 @@ Después de conectar los orígenes de datos, puede elegir de una galería de pan
    ![búsqueda](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - **Ubicación del área de trabajo**: es importante entender que todos los datos que se transmiten a Azure Sentinel se almacenan en la ubicación geográfica del área de trabajo seleccionada.  
    > - Las áreas de trabajo predeterminadas creadas por Azure Security Center no aparecerán en la lista; no puede instalar Azure Sentinel en ellas.
    > - Puede ejecutar Azure Sentinel en áreas de trabajo que se implementan en cualquiera de las siguientes regiones:  Sudeste de Australia, Centro de Canadá, Centro de la India, Este de EE. UU., EUAP de Este de EE. UU. 2 (Canary), Japón Oriental, Sudeste Asiático, Sur de Reino Unido, Europa Occidental y Oeste de EE. UU. 2.
 

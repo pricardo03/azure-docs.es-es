@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234189"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613157"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services: solución de problemas de configuración del protocolo LDAP seguro
 
-Este artículo proporciona soluciones para los problemas comunes de [configuración del protocolo LDAP seguro](configure-ldaps.md) para Azure AD Domain Services.
+Este artículo proporciona soluciones para los problemas comunes de [configuración del protocolo LDAP seguro](tutorial-configure-ldaps.md) para Azure AD Domain Services.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: configuración del grupo de seguridad de red de LDAP seguro
 
@@ -62,7 +62,7 @@ Con LDAP seguro habilitado, se recomienda crear reglas adicionales para permitir
 
 **Resolución:**
 
-Cree un nuevo certificado LDAP seguro mediante los pasos descritos en el artículo [Configuración de LDAP seguro](configure-ldaps.md).
+Cree un nuevo certificado LDAP seguro mediante los pasos descritos en el artículo [Configuración de LDAP seguro](tutorial-configure-ldaps.md).
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](contact-us.md).

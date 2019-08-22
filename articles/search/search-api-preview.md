@@ -3,7 +3,7 @@ title: Versión preliminar de la API de REST para Azure Search 2019-05-06, versi
 description: La API de REST del servicio Azure Search, 2019-05-06, versión preliminar, incluye características experimentales como almacén de conocimiento y claves de cifrado administradas por el cliente.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 29d079c4e21352ced5fdcde44acaee66b79f6af9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7fa280742556b7bc42d2c7fb30c880f836eef62b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876652"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649975"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>API de REST del servicio Azure Search, 2019-05-06, versión preliminar
 En este artículo se describe la versión `api-version=2019-05-06-Preview` de la API de REST del servicio Azure Search y se proporcionan características experimentales que normalmente no están disponibles.

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019674"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896998"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar la autenticación de Azure Active Directory para autenticación con SQL
 
@@ -116,8 +116,9 @@ Para crear un usuario de base de datos independiente en Azure SQL Database, Inst
 
 La autenticación de Azure Active Directory admite los siguientes métodos de conexión a una base de datos mediante identidades de Azure AD:
 
-- Mediante la autenticación integrada de Windows.
-- Mediante el nombre y contraseña de una entidad de seguridad de Azure AD
+- Contraseña de Azure Active Directory
+- Azure Active Directory integrado
+- Azure Active Directory Universal con MFA
 - Mediante la autenticación de token de aplicación
 
 Se admiten los siguientes métodos de autenticación para entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**):
@@ -125,7 +126,6 @@ Se admiten los siguientes métodos de autenticación para entidades de seguridad
 - Contraseña de Azure Active Directory
 - Azure Active Directory integrado
 - Azure Active Directory Universal con MFA
-- Azure Active Directory interactivo
 
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales

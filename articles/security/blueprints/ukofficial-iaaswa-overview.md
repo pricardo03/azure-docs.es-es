@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946541"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899941"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -186,7 +186,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 [Directrices para implementar Windows Server Active Directory en Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) o [Active Directory en Azure unido a un bosque local](/azure/architecture/reference-architectures/identity.md).
+**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](/azure/architecture/reference-architectures/identity) o [Active Directory en Azure unido a un bosque local](/azure/architecture/reference-architectures/identity).
 
 ### <a name="security"></a>Seguridad
 
@@ -200,9 +200,9 @@ Los clientes también puede usar un [modelo administrativo de seguridad mejorada
 
 **Intervalos IP**: los intervalos IP en la arquitectura son intervalos sugeridos. Se recomienda que los clientes consideren la posibilidad de tener su propio entorno y usar intervalos adecuados.
 
-**Conectividad híbrida**: las cargas de trabajo basadas en la nube están conectadas con el centro de datos local a través de VPN con IPSEC mediante Azure VPN Gateway. Los clientes deben asegurarse de que estén usando una instancia de VPN Gateway adecuada para conectarse a Azure. Ejemplo: [Plantilla de Resource Manager de VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Es posible que los clientes que ejecuten cargas de trabajo críticas a gran escala con requisitos de macrodatos quieran considerar la opción de usar una arquitectura de red híbrida con [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) para la conectividad de red privada con los Servicios en la nube de Microsoft.
+**Conectividad híbrida**: las cargas de trabajo basadas en la nube están conectadas con el centro de datos local a través de VPN con IPSEC mediante Azure VPN Gateway. Los clientes deben asegurarse de que estén usando una instancia de VPN Gateway adecuada para conectarse a Azure. Ejemplo: [Plantilla de Resource Manager de VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Es posible que los clientes que ejecuten cargas de trabajo críticas a gran escala con requisitos de macrodatos quieran considerar la opción de usar una arquitectura de red híbrida con [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) para la conectividad de red privada con los Servicios en la nube de Microsoft.
 
-**Separación de intereses**: esta arquitectura de referencia separa las redes virtuales para las operaciones empresariales y de administración. Las redes virtuales y subredes independientes admiten la administración del tráfico, incluidas las restricciones de entrada y salida del tráfico, mediante NSG entre segmentos de red de acuerdo con los procedimientos recomendados de [Servicios en la nube de Microsoft y seguridad de red](/azure/architecture/vdc/networking-virtual-datacenter.md).
+**Separación de intereses**: esta arquitectura de referencia separa las redes virtuales para las operaciones empresariales y de administración. Las redes virtuales y subredes independientes admiten la administración del tráfico, incluidas las restricciones de entrada y salida del tráfico, mediante NSG entre segmentos de red de acuerdo con los procedimientos recomendados de [Servicios en la nube de Microsoft y seguridad de red](/azure/architecture/vdc/networking-virtual-datacenter).
 
 **Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](../../azure-resource-manager/resource-group-overview.md). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
 

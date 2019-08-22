@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 10419240f730a6b68f1161f158f7f903a98a9933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035613"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650578"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Ejemplos de manifiestos de servicio y de aplicación de Service Fabric
 Esta sección contiene ejemplos de manifiestos de servicio y de aplicación. Estos ejemplos no están diseñados para mostrar escenarios importantes, sino para explicar las distintas configuraciones que están disponibles y cómo usarlas. 
@@ -39,7 +39,7 @@ El siguiente es un índice de las características mostradas y los manifiestos d
 |[Declaración de un paquete de datos](service-fabric-application-and-service-manifests.md)|[Manifiesto del servicio VotingData](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[Invalidación de variables de entorno](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Configuración de la asignación de puerto a host de contenedor](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[Configuración de la autenticación de Container Registry](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Configuración de la autenticación de Container Registry](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Establecimiento del modo de aislamiento](service-fabric-get-started-containers.md#configure-isolation-mode)|[Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Especificación de las imágenes de contenedores de compilación específica del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[Manifiesto de la aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Establecimiento de variables de entorno](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifiesto del servicio FrontEndService de contenedor](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Manifiesto del servicio BackEndService de contenedor](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

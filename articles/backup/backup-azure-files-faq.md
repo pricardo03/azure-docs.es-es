@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 05b591137a53e60b3197feb7f57564a8d4af7a44
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601769"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624277"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -83,8 +83,6 @@ Actualmente, Azure Backup admite la configuración de copias de seguridad progra
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>¿Cuántas copias de seguridad a petición se pueden realizar por recurso compartido de archivos? <br/>
 En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso compartido de archivos. El límite incluye las instantáneas que toma Azure Backup como se define en la directiva. Si las copias de seguridad empiezan a generar errores después de alcanzar el límite, elimine los puntos de restauración a petición para que las próximas copias de seguridad sean correctas.
 
-### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Después de habilitar las redes virtuales en mi cuenta de almacenamiento, la copia de seguridad de los recursos compartidos de archivos de la cuenta comienzan a generar errores. ¿Por qué?
-La copia de seguridad de recursos compartidos de archivos de Azure no admite cuentas de almacenamiento que tengan habilitadas las redes virtuales. Deshabilite las redes virtuales en las cuentas de almacenamiento para poder realizar copias de seguridad correctas.
 
 ## <a name="restore"></a>Restauración
 

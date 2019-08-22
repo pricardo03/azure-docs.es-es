@@ -3,19 +3,19 @@ title: 'Indexación de blobs JSON desde el indexador de blobs de Azure para la b
 description: Rastree el contenido de texto de los blobs JSON de Azure mediante el indexador de blobs de Azure Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Blob Storage.
 ms.date: 05/02/2019
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485435"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656674"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexación de blobs JSON con el indexador de blobs de Azure Search
 En este artículo se muestra cómo configurar un [indexador](search-indexer-overview.md) de blobs de Azure Search para extraer contenido estructurado de los documentos JSON en Azure Blob Storage y permitir que se hagan búsquedas en él con Azure Search. Este flujo de trabajo crea un índice de Azure Search y lo carga con texto extraído de los blobs JSON. 

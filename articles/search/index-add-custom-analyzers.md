@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 25edc52be90b6133ec0a0f0b5e8ea525d75d4800
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0cd2cf4b7847b767bac391f2547c0a5c3e3a9135
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881528"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891569"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Search
 
@@ -279,7 +279,7 @@ En esta sección se proporcionan los valores válidos para los atributos especif
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Descripción y opciones**|  
 |-|-|-|  
 |[keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (el tipo solo se aplica cuando las opciones están disponibles) |Trata todo el contenido de un campo como un solo token. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Separa el texto de manera flexible en términos a través de un patrón de expresión regular.<br /><br /> **Opciones**<br /><br /> lowercase (tipo: booleano): determina si los términos se ponen en minúsculas. El valor predeterminado es true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (tipo: cadena): un patrón de expresión regular para que coincida con los separadores de token. El valor predeterminado es \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadena): marcas de expresión regular. El valor predeterminado es una cadena vacía. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (tipo: matriz de cadenas): una lista de palabras irrelevantes. El valor predeterminado es una lista vacía.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Separa el texto de manera flexible en términos a través de un patrón de expresión regular.<br /><br /> **Opciones**<br /><br /> lowercase (tipo: booleano): determina si los términos se ponen en minúsculas. El valor predeterminado es true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (tipo: cadena): un patrón de expresión regular para que coincida con los separadores de token. El valor predeterminado es \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadena): marcas de expresión regular. El valor predeterminado es una cadena vacía. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (tipo: matriz de cadenas): una lista de palabras irrelevantes. El valor predeterminado es una lista vacía.|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(el tipo solo se aplica cuando las opciones están disponibles) |Divide el texto por donde no hay letras y lo convierte en minúsculas. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(También se denomina standard.lucene)|StandardAnalyzer|Analizador de Lucene estándar, formado por el tokenizador estándar, filtro de minúsculas y filtro de palabras irrelevantes.<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. El valor predeterminado es 255. Los tokens que sobrepasen la longitud máxima se dividen. La longitud máxima del token que se puede usar es 300 caracteres.<br /><br /> stopwords (tipo: matriz de cadenas): una lista de palabras irrelevantes. El valor predeterminado es una lista vacía.|  
 |standardasciifolding.lucene|(el tipo solo se aplica cuando las opciones están disponibles) |Analizador estándar con el filtro de plegado ASCII. |  
@@ -323,7 +323,7 @@ En la tabla siguiente, los tokenizadores que se implementan mediante Apache Luce
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Tokeniza la entrada en n-gramas de tamaños dados.<br /><br /> **Opciones**<br /><br /> minGram (tipo: entero) - Valor predeterminado: 1, valor máximo: 300.<br /><br /> maxGram (tipo: entero) - Valor predeterminado: 2, valor máximo: 300. El valor debe ser mayor que minGram. <br /><br /> tokenChars (tipo: matriz de cadenas): clases de caracteres para mantener en los tokens. Valores permitidos: "letter", "digit", "whitespace", "punctuation" y "symbol". Los valores predeterminados son una matriz vacía: mantiene todos los caracteres. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Tokenizador para las jerarquías parecidas a rutas de acceso.<br /><br /> **Opciones**<br /><br /> delimiter (tipo: cadena) - Default: '/.<br /><br /> replacement (tipo: cadena): si está establecido, reemplaza el carácter delimitador. El valor predeterminado es el mismo que el valor del delimitador.<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 300, valor máximo: 300. Las rutas de acceso más largas de maxTokenLength se omiten.<br /><br /> reverse (tipo: booleano): si es true, genera el token en orden inverso. Valor predeterminado: false.<br /><br /> skip (tipo: booleano): tokens iniciales que se omitirán. El valor predeterminado es 0.|  
 |[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Este tokenizador usa la coincidencia de patrones de expresión regular para construir tokens distintos.<br /><br /> **Opciones**<br /><br /> [pattern](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (tipo: cadena): patrón de expresión regular. El valor predeterminado es \W+. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadena): marcas de expresión regular. El valor predeterminado es una cadena vacía. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (tipo: entero): el grupo para extraer en tokens. El valor predeterminado es 1 (dividir).|
-|[standard_v2](http://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Divide el texto siguiendo las [reglas de segmentación de texto Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 255, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Divide el texto siguiendo las [reglas de segmentación de texto Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 255, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
 |[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Tokeniza las direcciones URL y los correos electrónicos como un token.<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 255, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
 |[whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(el tipo solo se aplica cuando las opciones están disponibles) |Divide el texto por los espacios en blanco. Los tokens cuya longitud no es superior a 255 caracteres se dividen.|  
 

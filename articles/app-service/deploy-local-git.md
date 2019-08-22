@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 4b2934c8b93ffb247661886cb2791c0719996aeb
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 47db310f6affa6317a74020d182c521d65cd32f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297183"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875229"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
@@ -156,7 +156,7 @@ Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar 
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Intentó agregar una rama que no es maestra en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|este error puede producirse si se trata de insertar un repositorio Git de gran tamaño a través de HTTPS.|Cambie la configuración de Git en la máquina local para aumentar el tamaño de `postBuffer`. Por ejemplo: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta**: `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta**: `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431258"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891588"
 ---
 # <a name="notification-hubs-security"></a>Seguridad de Notification Hubs
 
@@ -29,9 +29,7 @@ En este tema se describe el modelo de seguridad de Azure Notification Hubs.
 
 ## <a name="shared-access-signature-security-sas"></a>Seguridad de Firma de acceso compartido (SAS)
 
-Notification Hubs implementa un esquema de seguridad de nivel de entidad llamado SAS (Firma de acceso compartido). Este esquema permite a las entidades de mensajería declarar hasta 12 reglas de autorización en su descripción que conceden derechos sobre esa entidad.
-
-Cada regla contiene un nombre, un valor de clave (secreto compartido) y un conjunto de derechos, tal como se explica en [Notificaciones de seguridad](#security-claims). Al crear un Centro de notificaciones, automáticamente se crean dos reglas: una con derechos de **escucha** (que usa la aplicación cliente) y otra con todos **los** derechos (que usa el back-end de la aplicación).
+Notification Hubs implementa un esquema de seguridad de nivel de entidad llamado SAS (Firma de acceso compartido). Cada regla contiene un nombre, un valor de clave (secreto compartido) y un conjunto de derechos, tal como se explica en [Notificaciones de seguridad](#security-claims). Al crear un Centro de notificaciones, automáticamente se crean dos reglas: una con derechos de **escucha** (que usa la aplicación cliente) y otra con todos **los** derechos (que usa el back-end de la aplicación).
 
 Al realizar la administración de registros desde aplicaciones cliente, si la información enviada a través de notificaciones no es confidencial (por ejemplo, actualizaciones del información meteorológica), una forma común de acceder a un Centro de notificaciones es dar al valor de clave de la regla acceso de solo escucha a la aplicación cliente y proporcionar al valor de clave de la regla acceso completo al back-end de la aplicación.
 

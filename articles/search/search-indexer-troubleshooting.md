@@ -2,20 +2,18 @@
 title: 'Solución de problemas comunes del indexador de búsqueda: Azure Search'
 description: Corrija errores y problemas comunes con los indexadores en Azure Search, como la conexión del origen de datos, el firewall y documentos que falten.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653399"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640596"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Solución de problemas comunes con el indizador en Azure Search
 

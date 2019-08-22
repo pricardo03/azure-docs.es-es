@@ -1,24 +1,21 @@
 ---
 title: Escalado y hospedaje de Azure Functions | Microsoft Docs
 description: Aprenda a elegir entre el plan de consumo de Azure Functions y el plan Prémium.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, plan de consumo, plan prémium, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443953"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874950"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -51,7 +48,7 @@ En la tabla siguiente se indica el nivel actual de la compatibilidad con los tre
 | | Plan de consumo | Plan Premium | Plan dedicado |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | Vista previa | GA |
-| Linux | Vista previa | Vista previa | GA |
+| Linux | GA | Vista previa | GA |
 
 ## <a name="consumption-plan"></a>Plan de consumo
 
@@ -101,7 +98,7 @@ Considere el plan de App Service en las situaciones siguientes:
 
 Paga lo mismo por las aplicaciones de funciones en un plan de App Service que por otros recursos de App Service, como las aplicaciones web. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/overview-hosting-plans.md).
 
-Con un plan de App Service, para escalar horizontalmente de forma manual, puede agregar más instancias de máquina virtual. También puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
+Con un plan de App Service, para escalar horizontalmente de forma manual, puede agregar más instancias de máquina virtual. También puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/manage-scale-up.md) para obtener más información. 
 
 Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -143,9 +140,6 @@ Para obtener más información sobre los tipos de cuenta de almacenamiento, vea 
 En los planes de consumo y Prémium, la infraestructura de Azure Functions escala automáticamente los recursos de CPU y memoria. Para ello, agrega instancias adicionales del host de Functions, según el número de eventos en los que se desencadenan sus funciones. Cada instancia del host de Functions del plan de consumo tiene una limitación de 1,5 GB de memoria y una CPU.  Una instancia del host es la aplicación de funciones completa, lo que significa que todas las funciones de una aplicación de funciones comparten recursos al mismo tiempo en una instancia y escala determinadas. Las aplicaciones de funciones que comparten el mismo plan de consumo se escalan de manera independiente.  En el plan Prémium, el tamaño de plan determinará la memoria disponible y la CPU para todas las aplicaciones de ese plan en esa instancia.  
 
 Los archivos de código de función se almacenan en recursos compartidos de Azure Files en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
-
-> [!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs. Este retraso se produce cuando una aplicación de función ha quedado inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para evitar este retraso de inicio en frío, use el plan Prémium o el [desencadenador de Event Grid](functions-bindings-event-grid.md). Para más información, consulte [el artículo de referencia sobre los enlaces del desencadenador de blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 

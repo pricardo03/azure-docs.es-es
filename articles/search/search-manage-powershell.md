@@ -2,19 +2,19 @@
 title: 'Scripts de PowerShell con el módulo Az.Search: Azure Search'
 description: Cree y configure un servicio Azure Search con PowerShell. Puede escalar o reducir un servicio verticalmente, gestionar la administración y las claves de API de consulta y consultar información del sistema.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194281"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648090"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]

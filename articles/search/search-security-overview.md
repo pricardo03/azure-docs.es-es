@@ -2,19 +2,19 @@
 title: 'Seguridad y privacidad de los datos: Azure Search'
 description: Azure Search es compatible con SOC 2, HIPAA y otras certificaciones. Conexión y cifrado de datos, autenticación y acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbad9624d6b76593ac4e77283f63904e9c006bcd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024494"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647795"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
 

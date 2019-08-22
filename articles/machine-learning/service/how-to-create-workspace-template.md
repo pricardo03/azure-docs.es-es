@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868832"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873166"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning Service
 
@@ -72,8 +72,6 @@ Para más información sobre las plantillas, consulte los siguientes artículos:
    * Nombre del área de trabajo: El nombre que se usará para el área de trabajo de Azure Machine Learning que se va a crear. El nombre del área de trabajo debe tener entre 3 y 33 caracteres. Solo puede contener caracteres alfanuméricos y "-".
    * Ubicación: Seleccione la ubicación en la que se crearán los recursos.
 
-     ![Los parámetros de la plantilla en Azure Portal](media/how-to-create-workspace-template/template-parameters.png)
-
 Para más información, vea [Implementación de recursos desde plantilla personalizada](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
@@ -108,7 +106,7 @@ Para más información, vea [Implementación de recursos con plantillas de Resou
 
 Una plantilla de Azure Resource Manager se usa para crear el área de trabajo y los recursos asociados (incluido Azure Key Vault) varias veces. Por ejemplo, se puede usar la plantilla varias veces con los mismos parámetros como parte de una canalización de implementación e integración continuas.
 
-La mayoría las operaciones de creación de recursos mediante plantillas son idempotentes, pero Key Vault borra las directivas de acceso cada vez que se usa la plantilla. Al borrar las directivas de acceso, se interrumpe el acceso al almacén de claves para las áreas de trabajo existentes que lo estén usando. Por ejemplo, las funcionalidades de detección y creación de Azure Notebooks pueden producir un error.  
+La mayoría de las operaciones de creación de recursos mediante plantillas son idempotentes, pero Key Vault borra las directivas de acceso cada vez que se usa la plantilla. Al borrar las directivas de acceso, se interrumpe el acceso al almacén de claves para las áreas de trabajo existentes que lo estén usando. Por ejemplo, las funcionalidades de detección y creación de Azure Notebooks pueden producir un error.  
 
 Para evitar este problema, se recomienda uno de los siguientes enfoques:
 

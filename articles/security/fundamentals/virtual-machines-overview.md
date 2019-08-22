@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 186a0b0d4025f7d8a8888a9a0d2d0bd8832cf2d9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726489"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899780"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -79,7 +79,7 @@ Para una protección aún más eficaz, considere el uso de la [Protección contr
 
 Más información:
 
-* [Introducción a protección contra amenazas avanzada de Windows Defender](/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [Introducción a protección contra amenazas avanzada de Windows Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 * [Información general sobre las capacidades de ATP de Windows Defender](/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware

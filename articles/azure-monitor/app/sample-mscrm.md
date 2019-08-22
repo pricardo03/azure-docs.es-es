@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470f723782ca29409549e0df8e900edf86cd446e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60523278"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534280"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Tutorial: Habilitar la telemetría para Microsoft Dynamics CRM Online con Application Insights
 En este artículo se muestra cómo obtener datos de telemetría de [Microsoft Dynamics CRM Online](https://www.dynamics.com/) con [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Analizaremos el proceso completo para agregar scripts de Application Insights a la aplicación, capturar datos y visualizar datos.
@@ -38,7 +38,7 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
     ![Haga clic en +, Servicios para desarrolladores, Application Insights.](./media/sample-mscrm/01.png)
 
     Elija ASP.NET como el tipo de aplicación.
-3. Siga las instrucciones para [obtener el script del SDK de JavaScript para la aplicación](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), copie el fragmento de código de JavaScript y no olvide reemplazar la clave de instrumentación con el valor correcto para el recurso de AppInsights.
+3. Siga las instrucciones para [obtener el script del SDK de JavaScript para la aplicación](../../azure-monitor/app/javascript.md), copie el fragmento de código de JavaScript y no olvide reemplazar la clave de instrumentación con el valor correcto para el recurso de AppInsights.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Creación de un recurso web de JavaScript en Microsoft Dynamics CRM
 1. Abra la instancia de CRM Online e inicie sesión con privilegios de administrador.

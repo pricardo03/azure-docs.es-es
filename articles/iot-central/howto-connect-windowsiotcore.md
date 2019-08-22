@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dca0146cc16ea63e0621eff8f508f15e0046b63b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510319"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877390"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 En este artículo se describe cómo conectar, en tanto que desarrollador de dispositivos, un dispositivo Windows IoT Core a una aplicación de Microsoft Azure IoT Central.
 
@@ -102,12 +104,12 @@ Valores numéricos
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
-| Type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Ubicación     | location   | N/D       |
+| Texto            | Location     | location   | N/D       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

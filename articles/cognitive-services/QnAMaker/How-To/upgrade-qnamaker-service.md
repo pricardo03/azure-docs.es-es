@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 2fdbb245f838d92e84d1247faa610a2f1a66c532
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: df4aa2d6a3c4690fb1fc38b0f4f7d49afccdd657
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439764"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640481"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Uso compartido o actualización del servicio de QnA Maker
 Comparta o actualice los servicios de QnA Maker para administrar mejor los recursos. 
@@ -52,7 +52,7 @@ Para actualizar la SKU de administración de QnA Maker:
 
  Cuando Knowledge Base deba atender más solicitudes de la aplicación cliente, actualice el plan de tarifa de App Service.
 
-Puede [escalar](https://docs.microsoft.com/azure/app-service/web-sites-scale) o reducir verticalmente App Service.
+Puede [escalar](https://docs.microsoft.com/azure/app-service/manage-scale-up) o reducir verticalmente App Service.
 
 1. Vaya al recurso App Service en Azure Portal y seleccione **Escalar verticalmente** o **Reducir verticalmente** según proceda.
 

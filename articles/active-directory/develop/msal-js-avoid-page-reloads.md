@@ -3,7 +3,7 @@ title: Evitar las recargas de página (Microsoft Authentication Library para Ja
 description: Aprenda a evitar las recargas de página al adquirir y renovar tokens en modo silencioso utilizando Microsoft Authentication Library para JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 162811221e6dde89ad11f358b2ec8f32f3c82522
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66420474"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532835"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite las recargas de página al adquirir y renovar tokens en modo silencioso utilizando MSAL.js
 La Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) usa elementos `iframe` ocultos para adquirir y renovar los tokens silenciosamente en segundo plano. Azure AD devuelve el token de vuelta a los redirect_uri registrados especificados en la solicitud de token (de forma predeterminada, es la página raíz de la aplicación). Puesto que la respuesta es 302, da como resultado el HTML correspondiente al `redirect_uri` que se carga en el `iframe`. Normalmente, el `redirect_uri` de la aplicación es la página raíz y esto provoca que se vuelva a cargar.

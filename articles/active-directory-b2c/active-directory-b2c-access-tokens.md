@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a545f1e0fd1360d9147280454fb8b75bf216152
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df47b4fc5b8048f76f94486e213285896dab9cb9
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507390"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874089"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
-Un *token de acceso* contiene notificaciones que puede usar en Azure Active Directory (Azure AD) B2C para identificar los permisos concedidos a las API. Al llamar a un servidor de recursos, debe incluirse un token de acceso en la solicitud HTTP. Un token de acceso se indica como **access_token** en las respuestas de Azure AD B2C. 
+Un *token de acceso* contiene notificaciones que puede usar en Azure Active Directory (Azure AD) B2C para identificar los permisos concedidos a las API. Al llamar a un servidor de recursos, debe incluirse un token de acceso en la solicitud HTTP. Un token de acceso se indica como **access_token** en las respuestas de Azure AD B2C.
 
 Este artículo muestra cómo solicitar un token de acceso para una aplicación web y una API web. Para más información sobre los tokens en Azure AD B2C, consulte [Información general de tokens de Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
@@ -67,13 +67,13 @@ En el ejemplo siguiente, reemplace estos valores:
 - `<application-ID>`: el identificador de la aplicación web que ha registrado para admitir el flujo de usuario.
 - `<redirect-uri>`: el **identificador URI de redirección** que especificó al registrar la aplicación cliente.
 
-```
+```HTTP
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
 &scope=https://tenant-name>.onmicrosoft.com/api/read
-&response_type=code 
+&response_type=code
 ```
 
 La respuesta con el código de autorización debe ser similar a este ejemplo:
@@ -84,9 +84,9 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Después de recibir correctamente el código de autorización, puede usarlo para solicitar un token de acceso:
 
-```
+```HTTP
 POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
-Host: https://<tenant-name>.b2clogin.com
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Debe ver algo parecido a la siguiente respuesta:
 
-```
+```JSON
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Debe ver algo parecido a la siguiente respuesta:
 
 Cuando se usa https://jwt.ms para examinar el token de acceso devuelto, debe ver algo similar al ejemplo siguiente:
 
-```
+```JSON
 {
   "typ": "JWT",
   "alg": "RS256",

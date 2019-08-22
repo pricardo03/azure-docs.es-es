@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce0c5abe6e89094623c07afa2d1c85903e0e7ee7
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472188"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877448"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 En este artículo se describe cómo conectar, en tanto que desarrollador de dispositivos, un dispositivo SensorTile.box a una aplicación de Microsoft Azure IoT Central.
 
@@ -35,15 +37,15 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real desde la pla
 1. Agregue un dispositivo desde el Explorador de dispositivos. Seleccione **+ Nuevo > Real** para agregar un dispositivo real.
 
     * Escriba un **Id. de dispositivo** en minúsculas o use el **Id. de dispositivo** sugerido.
-    * Escriba un **Nombre de dispositivo** o use el nombre sugerido.
+    * Especifique un **nombre de dispositivo** o use el nombre sugerido.
 
     ![Agregar dispositivo](media/howto-connect-sensortile/real-device.png)
 
-1. Para obtener los detalles de conexión del dispositivo, como, por ejemplo, el **id. de ámbito**, el **id. de dispositivo** y la **clave principal**, seleccione **Conectar** en la página del dispositivo.
+1. Para obtener los detalles de conexión del dispositivo, el **id. de ámbito**, **id. de dispositivo** y la **clave principal**, seleccione **Conectar** en la página del dispositivo.
 
     ![Detalles de conexión](media/howto-connect-sensortile/connect-device.png)
 
-1. Anote los detalles de conexión. Temporalmente se le desconectará de Internet al preparar el dispositivo DevKit en el siguiente paso.
+1. Tome nota de los detalles de conexión. Temporalmente se le desconectará de Internet al preparar el dispositivo DevKit en el siguiente paso.
 
 ## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>Configurar el dispositivo SensorTile.box con la aplicación móvil
 

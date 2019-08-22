@@ -4,14 +4,14 @@ description: Obtenga respuestas a las preguntas más comunes sobre cómo trabaja
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072012"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573713"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -19,9 +19,9 @@ Obtenga información sobre los principales problemas y sus soluciones al trabaja
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>¿Cómo se crea una nueva cola de YARN en un clúster?
 
-### <a name="resolution-steps"></a>Pasos de la solución 
+### <a name="resolution-steps"></a>Pasos de la solución
 
-Para crear una nueva cola de YARN y equilibrar la asignación de capacidad en todas las colas, siga estos pasos en Ambari. 
+Para crear una nueva cola de YARN y equilibrar la asignación de capacidad en todas las colas, siga estos pasos en Ambari.
 
 En este ejemplo, se cambia la capacidad de las dos colas existentes (**default** (predeterminado) y **thriftsvr**) del 50% al 25%, lo que proporciona una capacidad del 50% a la nueva cola (spark).
 
@@ -61,19 +61,18 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 
 - [YARN CapacityScheduler de Apache Hadoop](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
-
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>¿Cómo se descargan registros de YARN desde un clúster?
-
 
 ### <a name="resolution-steps"></a>Pasos de la solución 
 
 1. Conéctese al clúster de HDInsight con un cliente Secure Shell (SSH). Para más información, consulte [Lecturas adicionales](#additional-reading-2).
 
-2. Enumere todos los identificadores de aplicación de las aplicaciones Yarn que se están ejecutando con el siguiente comando:
+1. Enumere todos los identificadores de aplicación de las aplicaciones Yarn que se están ejecutando con el siguiente comando:
 
     ```apache
     yarn top
     ```
+
     Los identificadores aparecen en la columna **APPLICATIONID**. Puede descargar los registros desde la columna **APPLICATIONID**.
 
     ```apache
@@ -89,42 +88,42 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Descargue los registros de contenedor de YARN para todos los maestros de aplicación con el siguiente comando:
-   
+1. Descargue los registros de contenedor de YARN para todos los maestros de aplicación con el siguiente comando:
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Este comando crea un archivo de registro denominado amlogs.txt. 
+    Este comando crea un archivo de registro denominado amlogs.txt.
 
-4. Descargue los registros de contenedor de YARN solo para el maestro de aplicación más reciente con el siguiente comando:
+1. Descargue los registros de contenedor de YARN solo para el maestro de aplicación más reciente con el siguiente comando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Este comando crea un archivo de registro denominado latestamlogs.txt. 
+    Este comando crea un archivo de registro denominado latestamlogs.txt.
 
-4. Descargue los registros de contenedor de YARN para los dos primeros maestros de aplicación con el siguiente comando:
+1. Descargue los registros de contenedor de YARN para los dos primeros maestros de aplicación con el siguiente comando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    Este comando crea un archivo de registro denominado first2amlogs.txt. 
+    Este comando crea un archivo de registro denominado first2amlogs.txt.
 
-5. Descargue todos los registros de contenedor de YARN con el siguiente comando:
+1. Descargue todos los registros de contenedor de YARN con el siguiente comando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Este comando crea un archivo de registro denominado logs.txt. 
+    Este comando crea un archivo de registro denominado logs.txt.
 
-6. Descargue el registro de YARN de un contenedor determinado con el siguiente comando:
+1. Descargue el registro de YARN de un contenedor determinado con el siguiente comando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
     Este comando crea un archivo de registro denominado containerlogs.txt.
@@ -134,6 +133,12 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 - [Conexión a HDInsight (Apache Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop Yarn concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow) (Conceptos y aplicaciones de YARN en Apache Hadoop)
 
+## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="see-also"></a>Otras referencias
-[Solución de problemas mediante Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+
+- Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
+
+- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

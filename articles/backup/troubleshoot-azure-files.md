@@ -4,22 +4,21 @@ description: Este artículo contiene información para solución de problemas qu
 ms.service: backup
 author: dcurwin
 ms.author: dacurwin
-ms.date: 07/22/2019
+ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 486c0ae674f1549206b7aa3110faf31132c22f2a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639393"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637579"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solución de problemas en las copias de seguridad de recursos compartidos de archivos de Azure
 Puede solucionar los problemas y errores que aparezcan al usar la copia de seguridad de recursos compartidos de archivos de Azure con la información que encontrará en las tablas siguientes.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
 La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
-- No puede proteger los recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen las redes virtuales o el firewall habilitados.
 - No hay ninguna CLI disponible para proteger Azure Files mediante Azure Backup.
 - El número máximo de copias de seguridad programadas al día es una.
 - El número máximo de copias de seguridad a petición al día es cuatro.
@@ -51,7 +50,6 @@ La tabla siguiente es para configurar la copia de seguridad:
 | Ha alcanzado el límite máximo de instantáneas para este recurso compartido de archivos. Podrá tomar más cuando expiren las más antiguas. | <ul><li> Este error puede producirse al crear varias copias de seguridad a petición para un archivo. <li> Hay un límite de 200 instantáneas por recurso compartido de archivos, incluidas las realizadas por Azure Backup. Las copias de seguridad programadas antiguas (o instantáneas) se borran automáticamente. Las copias de seguridad a petición (o instantáneas) deben eliminarse si se alcanza el límite máximo.<li> Elimine las copias de seguridad a petición (instantáneas de recurso compartido de archivos de Azure) desde el portal de Azure Files. **Nota**: Si elimina las instantáneas creadas por Azure Backup, perderá los puntos de recuperación. |
 | Error de restauración o copia de seguridad de recursos compartidos de archivos debido a la limitación del servicio de almacenamiento. Esto puede ser debido a que el servicio de almacenamiento está ocupado procesando otras solicitudes para la cuenta de almacenamiento dada.| Vuelva a intentar la operación más tarde. |
 | Error de restauración con recurso compartido de archivos no encontrado. | <ul><li>Asegúrese de que existe la cuenta de almacenamiento seleccionada y que no se ha eliminado el recurso compartido de archivos de destino. <li> Asegúrese de que la cuenta de almacenamiento es una cuenta de almacenamiento admitida para la copia de seguridad de recursos compartidos de archivos. |
-| Actualmente Azure Backup no es compatible con los recursos compartidos de archivos de Azure en las cuentas de almacenamiento con redes virtuales habilitadas. | Deshabilite las redes virtuales en la cuenta de almacenamiento para garantizar operaciones correctas de copia de seguridad y restauración. |
 | Error de los trabajos de copia de seguridad o restauración debido al estado Bloqueado de la cuenta de almacenamiento. | Quite el bloqueo de la cuenta de almacenamiento o use eliminar bloqueo en lugar de leer bloqueo y reintente la operación. |
 | No se pudo llevar a cabo la recuperación porque el número de archivos con errores es superior al umbral permitido. | <ul><li> Los motivos de los errores de recuperación se muestran en un archivo (ruta de acceso proporcionada en los detalles del trabajo). Solucione los errores y vuelva a intentar la operación de restauración solo de los archivos con error. <li> Causas comunes de errores de restauración de archivos: <br/> -Asegúrese de que los archivos con error no están actualmente en uso. <br/> -Existe un directorio con el mismo nombre que el archivo de error en el directorio primario. |
 | Error de recuperación. No se pudo recuperar ningún archivo. | <ul><li> Los motivos de los errores de recuperación se muestran en un archivo (ruta de acceso proporcionada en los detalles del trabajo). Solucione los errores y vuelva a intentar la operación de restauración solo de los archivos con error. <li> Causas comunes de los errores de restauración de archivos: <br/> -Asegúrese de que los archivos con error no están actualmente en uso. <br/> -Existe un directorio con el mismo nombre que el archivo de error en el directorio primario. |

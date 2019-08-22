@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242263"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622573"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -83,7 +83,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [**Inicio rápido**](how-to-connect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
-- [**Plan de implementación**](https://aka.ms/AuthenticationDeploymentPlan): paso a paso.
+- [**Plan de implementación**](https://aka.ms/deploymentplans/sso): paso a paso.
 - [**Profundización técnica**](how-to-connect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](how-to-connect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](tshoot-connect-sso.md): información para resolver problemas habituales de esta característica.

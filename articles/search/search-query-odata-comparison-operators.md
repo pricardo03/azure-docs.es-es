@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b51bf3d77283ae828f47fdb0355d2deb43f071a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8bd8b05fd874e05e5e59042d461f4a4286c81e4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081921"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648060"
 ---
 # <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparación de OData en Azure Search: `eq`, `ne`, `gt`, `lt`, `ge` y `le`
 
@@ -100,7 +100,7 @@ Para las comparaciones que no están permitidas, como la de un campo de tipo `Ed
 
 Al usar los operadores de comparación, es importante recordar que, en Azure Search, todos los campos que no son de colección pueden ser `null`. En la tabla siguiente se muestran todos los resultados posibles de una expresión de comparación en la que cualquiera de los lados puede ser `null`:
 
-| Operador | Resultado cuando solo el campo o la variable es `null` | Resultado cuando solo la constante es `null` | Resultado cuando el campo o la variable y la constante son `null` |
+| Operator | Resultado cuando solo el campo o la variable es `null` | Resultado cuando solo la constante es `null` | Resultado cuando el campo o la variable y la constante son `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
 | `lt` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
@@ -113,7 +113,7 @@ En resumen, `null` solo es igual a sí mismo, y no es menor o mayor que ningún 
 
 Si el índice tiene campos de tipo `Edm.Double` y carga valores `NaN` a esos campos, tendrá que tenerlo en cuenta al escribir filtros. Azure Search implementa el estándar IEEE 754 para el control de valores `NaN`, y las comparaciones con esos valores generan resultados que no son obvios, como se muestra en la tabla siguiente.
 
-| Operador | Resultado cuando al menos un operando es `NaN` |
+| Operator | Resultado cuando al menos un operando es `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |

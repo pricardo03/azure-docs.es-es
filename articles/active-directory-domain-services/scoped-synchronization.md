@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472520"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617123"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 En este artículo se muestra cómo configurar solo cuentas de usuario específicas para sincronizarlas entre el directorio de Azure AD y el dominio administrado de Azure AD Domain Services.
@@ -47,7 +47,7 @@ La tabla siguiente le ayuda a determinar cómo usar la sincronización con ámbi
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Creación de un dominio administrado y habilitación de la sincronización con ámbito basada en grupos mediante Azure Portal
 
-1. Siga la [guía de introducción](create-instance.md) para volver a crear un dominio administrado.
+1. Siga la [guía de introducción](tutorial-create-instance.md) para volver a crear un dominio administrado.
 2. Elija **con ámbito** durante la selección del estilo de sincronización en el Asistente para la creación de Azure AD Domain Services.
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Creación de un dominio administrado y habilitación de la sincronización con ámbito basada en grupos mediante PowerShell
@@ -81,7 +81,7 @@ Lleva a cabo los pasos siguientes para configurar la sincronización de ámbito 
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

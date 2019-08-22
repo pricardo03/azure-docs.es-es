@@ -2,18 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a6ceee0f7db4b7b368dce1a28c8edc0b2b11180
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb55d993ad8960f821c2b72f0a53602166b7cc7e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186957"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900606"
 ---
 Para los datos en reposo:
 
-- El cifrado de BitLocker XTS-AES de 256 bits se usa para proteger los datos locales.
 - El acceso a los datos almacenados en recursos compartidos está restringido.
 
     - Los clientes SMB que tienen acceso a datos del recurso compartido necesitan credenciales de usuario asociadas al recurso compartido. Estas credenciales se definen cuando se crea el recurso compartido.

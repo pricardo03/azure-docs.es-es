@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe2ed0d50ce26ddebeeeccb87c49fc20db43b2a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244935"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515379"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](activity-log-export.md). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](diagnostic-logs-schema.md).
@@ -566,7 +566,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | resourceId |Identificador de recurso de la alerta de seguridad. |
 | operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
 | operationName |Nombre de la operación. |
-| properties |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describen los detalles del evento. Estas propiedades variarán según el tipo de alerta de seguridad. Vea [esta página](../../security-center/security-center-alerts-type.md) para obtener una descripción de los tipos de alertas que proceden de Security Center. |
+| properties |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describen los detalles del evento. Estas propiedades variarán según el tipo de alerta de seguridad. Vea [esta página](../../security-center/security-center-alerts-overview.md) para obtener una descripción de los tipos de alertas que proceden de Security Center. |
 | properties.Severity |Nivel de gravedad. Los valores posibles son "High," "Medium" o "Low". |
 | status |Cadena que describe el estado de la operación. Entre los valores habituales, se incluyen: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | Normalmente es null para los eventos de seguridad. |
@@ -787,10 +787,10 @@ Al realizar la transmisión del registro de actividad de Azure a una cuenta de a
 | durationMs | N/D | Siempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
-| identidad | notificaciones y propiedades de autorización |  |
+| identity | notificaciones y propiedades de autorización |  |
 | Nivel | Nivel |  |
 | location | N/D | Ubicación de donde se procesó el evento. *Esto no es la ubicación del recurso, sino el lugar donde se procesó el evento. Esta propiedad se quitará en una futura actualización.* |
-| Properties (Propiedades) | properties.eventProperties |  |
+| properties (Propiedades) | properties.eventProperties |  |
 | properties.eventCategory | category | Si properties.eventCategory no está presente, la categoría será "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |

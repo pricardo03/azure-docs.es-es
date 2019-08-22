@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686853"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623890"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -93,11 +93,11 @@ Las [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) de HDInsig
 
 El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  A continuación, se muestra un archivo de registro de ejemplo.
 
-![Ejemplo de archivo de registro de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![Ejemplo de archivo de registro de HDInsight](./media/hdinsight-log-management/logs.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Acceso a los archivos de registro de Hadoop
 
-HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Para examinar los archivos de registro del clúster, puede abrir una conexión [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para el clúster y examinar el sistema de archivos, o bien usar el portal de estado de Hadoop YARN en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
+HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Para examinar los archivos de registro del clúster, puede abrir una conexión [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para el clúster y examinar el sistema de archivos, o bien usar el portal de estado de Hadoop YARN en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
 
 Hadoop ejecuta la labor de los trabajos como *intentos de tareas* en varios nodos del clúster. HDInsight puede iniciar intentos de tareas especulativas, lo que finaliza cualquier otro intento de tarea que no se complete primero. Esto genera una actividad significativa que se registra en el controlador, en stderr y en los archivos de registro de Syslog sobre la marcha. Además, varios intentos de tareas se ejecutan simultáneamente, pero un archivo de registro solo puede mostrar los resultados de forma lineal.
 

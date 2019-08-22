@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 10452590c9415291cb2a5913aeef5c8a00cdfe12
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617352"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563002"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -60,7 +60,7 @@ Esta acción es igual a un reinicio de Docker.
 Sí, puede hacerlo a través del sitio de administración de control de código fuente (SCM).
 
 > [!NOTE]
-> También puede conectarse al contenedor de la aplicación directamente desde la máquina de desarrollo local mediante SSH, SFTP o Visual Studio Code (para aplicaciones de Node.js de depuración en directo). Para más información, consulte [Depuración remota y SSH en App Service en Linux](https://aka.ms/linux-debug).
+> También puede conectarse al contenedor de la aplicación directamente desde la máquina de desarrollo local mediante SSH, SFTP o Visual Studio Code (para aplicaciones de Node.js de depuración en directo). Para más información, consulte [Depuración remota y SSH en App Service en Linux](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html).
 >
 
 **¿Cómo se puede crear un plan de App Service en Linux a través de un SDK o una plantilla de Azure Resource Manager?**

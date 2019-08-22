@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 25cd36b6b3e8a6974618189985152e55c2676999
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536954"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874299"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -128,11 +128,11 @@ En primer lugar, asegúrese de que tiene el [módulo de PowerShell MSOnline V1](
 
 Identifique los usuarios que se han registrado en MFA mediante el PowerShell siguiente.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
 Identifique los usuarios que no se han registrado en MFA mediante el PowerShell siguiente.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 ## <a name="possible-results-in-activity-reports"></a>Posibles resultados de los informes de actividad
 

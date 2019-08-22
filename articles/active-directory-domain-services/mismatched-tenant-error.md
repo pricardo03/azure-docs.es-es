@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 676efa155c85ab371ec41c49ad0c15eb2bd5a24a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234003"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617294"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 Ya dispone de un dominio administrado con Azure AD Domain Services. Cuando navega a Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
@@ -63,5 +63,5 @@ Tiene dos opciones para resolver el error de directorio que no coincide. Puede h
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure AD Domain Services](create-instance.md)
+* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)
 * [Guía de solución de problemas de Azure AD Domain Services](troubleshoot.md)

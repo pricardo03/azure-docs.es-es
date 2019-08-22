@@ -2,21 +2,19 @@
 title: Supervisión del uso de recursos y las métricas de consulta para un servicio de búsqueda en Azure Search
 description: Habilite el registro y obtenga métricas de actividades de consulta, uso de recursos y otros datos del sistema de un servicio de Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755066"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640532"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
 
@@ -111,9 +109,9 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Esquema de registro
 Los blobs que contienen los registros de tráfico del servicio de búsqueda se estructuran como se describe en esta sección. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | type | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2019-05-06" |La versión de la API usada |
@@ -125,7 +123,7 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 **Esquema de propiedades**
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | type | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Los parámetros de consulta |
@@ -136,11 +134,11 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 Se capturan las métricas de solicitudes de consulta.
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | type | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
-| Twitter en tiempo |Datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
+| Twitter en tiempo |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |

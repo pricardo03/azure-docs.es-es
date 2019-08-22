@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031027"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613027"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementación del proxy de aplicación de Azure AD en dominios administrados de Azure Active Directory Domain Services.
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Con Azure AD Domain Services, ahora podrá trasladar aplicaciones heredadas que se ejecutan de forma local en los servicios de infraestructura de Azure. Después, podrá publicar estas aplicaciones mediante el proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a los usuarios de su organización.
@@ -35,7 +35,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 1. Una **suscripción de Azure**válida.
 2. Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
 3. Se necesita una **licencia de Azure AD Premium** para usar Azure AD Application Proxy.
-4. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](create-instance.md).
+4. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](tutorial-create-instance.md).
 
 <br>
 
@@ -114,18 +114,18 @@ En su lugar, use la que está basada en recursos, como se describe en este [art�
 
 Use el cmdlet de PowerShell Get-ADComputer para recuperar la configuración del equipo donde está instalado el conector del proxy de aplicación de Azure AD.
 ```powershell
-$ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
+$ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 Después, ejecute el cmdlet Set-ADComputer para configurar la KCD basada en recursos en el servidor de recursos.
 ```powershell
-Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
+Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 Si ha implementado varios conectores del proxy de aplicación en el dominio administrado, debe configurar la KCD basada en recursos en cada instancia de este tipo del conector.
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure AD Domain Services](create-instance.md)
+* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)
 * [Configuración de la delegación restringida de kerberos en un dominio administrado](deploy-kcd.md)
 * [Introducción a la delegación limitada de kerberos](https://technet.microsoft.com/library/jj553400.aspx)

@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 158312a7afe88e7b9885376c5d28b01958acbbfb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3b28c8799b09ddfe008df8539709c5a704ac6b4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081885"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648010"
 ---
 # <a name="odata-full-text-search-functions-in-azure-search---searchismatch-and-searchismatchscoring"></a>Funciones de búsqueda de texto completo de OData en Azure Search: `search.ismatch` y `search.ismatchscoring`
 
@@ -69,7 +69,7 @@ La función `search.ismatch` evalúa la consulta de búsqueda de texto completo 
 
 Los parámetros se definen en la tabla siguiente:
 
-| Nombre de parámetro | Type | DESCRIPCIÓN |
+| Nombre de parámetro | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | `search` | `Edm.String` | La consulta de búsqueda (en la sintaxis de consulta Lucene [simple](query-simple-syntax.md) o [completa](query-lucene-syntax.md)). |
 | `searchFields` | `Edm.String` | Lista separada por comas de los campos de búsqueda en los que se va buscar; el valor predeterminado son todos los campos de búsqueda del índice. Cuando se usa la [búsqueda clasificada por campos](query-lucene-syntax.md#bkmk_fields) en el parámetro `search`, los especificadores de campo de la consulta de Lucene invalidan los campos especificados en este parámetro. |

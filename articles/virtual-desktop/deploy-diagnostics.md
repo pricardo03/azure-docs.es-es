@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017255"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899703"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -101,12 +101,12 @@ Aquí se muestra cómo configurar manualmente los contadores de rendimiento reco
 4. Después, vaya a **Datos** > **Contadores de rendimiento de Windows** y agregue los siguientes contadores:
 
     -   Disco lógico(\*)\|% espacio disponible
-    -   Disco lógico (C:)\\Longitud promedio de la cola de disco
+    -   Disco lógico (C:)\\Longitud Longitud de la cola de disco
     -   Memoria(\*)\\Mbytes disponibles
     -   Información del procesador(\*)\\Tiempo de procesador
     -   Retraso de entrada de usuario por sesión(\*)\\Retraso máximo de entrada
 
-Obtenga más información sobre los contadores de rendimiento en [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](/articles/azure-monitor/platform/data-sources-performance-counters.md).
+Obtenga más información sobre los contadores de rendimiento en [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
 >Los contadores adicionales que configure no aparecerán en la herramienta de diagnóstico. Para que aparezca en la herramienta de diagnóstico, debe preparar el archivo de configuración de la herramienta. Las instrucciones sobre cómo hacerlo con administración avanzada estarán disponibles en GitHub en un futuro.
@@ -189,7 +189,7 @@ Para establecer el URI de redirección:
 
 Antes de que la herramienta de diagnóstico esté disponible para los usuarios, asegúrese de que tienen los siguientes permisos:
 
-- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Los usuarios también necesitan acceso de lectura para el inquilino de Windows Virtual Desktop (rol de lector de RDS). Para más información, consulte [Acceso delegado en la versión preliminar de Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 También debe proporcionar a los usuarios la siguiente información:

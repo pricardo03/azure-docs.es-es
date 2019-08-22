@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 63f2e12b9b769e806f8bd052af5bc78aed6a1fe0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a8f3401de0dc452193efbcf79aef87a19aed081
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472302"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617083"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.
@@ -81,7 +81,7 @@ Para restaurar el servicio, siga estos pasos:
 
 1. [Elimine el dominio administrado](delete-aadds.md) del directorio de Azure AD existente.
 2. Cree un directorio que no sea un directorio de Azure AD B2C.
-3. Siga la guía de [introducción](create-instance.md) para volver a crear un dominio administrado.
+3. Siga la guía de [introducción](tutorial-create-instance.md) para volver a crear un dominio administrado.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: La dirección está en un intervalo IP público
 
@@ -110,7 +110,7 @@ Dentro de la red virtual, las máquinas pueden realizar solicitudes a los recurs
    5. En el menú de navegación de la izquierda, haga clic en **Subredes**.
    6. Haga clic en la subred que desea editar en la tabla.
    7. Actualice el intervalo de direcciones y guarde los cambios.
-3. Siga la [guía de introducción al uso de Azure AD Domain Services](create-instance.md) para volver a crear el dominio administrado. Asegúrese de elegir una red virtual con un intervalo de direcciones IP privado.
+3. Siga la [guía de introducción al uso de Azure AD Domain Services](tutorial-create-instance.md) para volver a crear el dominio administrado. Asegúrese de elegir una red virtual con un intervalo de direcciones IP privado.
 4. Para unir las máquinas virtuales al dominio nuevo, siga [esta guía](join-windows-vm.md).
 8. Para asegurarse de que la alerta se resuelve, compruebe el estado de su dominio transcurridas dos horas.
 
@@ -126,7 +126,7 @@ Azure AD Domain Services requiere una suscripción para funcionar y no puede mov
 
 1. Cree una suscripción a Azure
 2. [Elimine el dominio administrado](delete-aadds.md) del directorio de Azure AD existente.
-3. Siga la guía de [introducción](create-instance.md) para volver a crear un dominio administrado.
+3. Siga la guía de [introducción](tutorial-create-instance.md) para volver a crear un dominio administrado.
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Su suscripción de Azure está deshabilitada
 
@@ -177,7 +177,7 @@ Azure AD Domain Services crea recursos específicos durante la implementación p
 
 **Resolución:**
 
-Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](create-instance.md).
+Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](tutorial-create-instance.md).
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entidad de servicio no autorizada
 
@@ -222,7 +222,7 @@ Nuestras entidades de servicio necesitan acceso para poder administrar y crear r
 
 **Resolución:**
 
-Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](create-instance.md).
+Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](tutorial-create-instance.md).
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114: Subred no válida
 
@@ -232,7 +232,7 @@ Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio admin
 
 **Resolución:**
 
-Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](create-instance.md).
+Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](delete-aadds.md) y [volver a crear el dominio administrado](tutorial-create-instance.md).
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115: Los recursos están bloqueados
 
@@ -270,7 +270,7 @@ Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio admin
 
 Estas son algunas causas habituales de por qué se detiene la sincronización en los dominios administrados:
 - La conexión de red se bloquea en el dominio administrado. Para más información sobre la comprobación de la red para detectar si hay problemas, consulte cómo [solucionar problemas de grupos de seguridad de red](alert-nsg.md) y los [requisitos de red para Azure AD Domain Services](network-considerations.md).
--  La sincronización de contraseñas nunca se configuró ni se realizó. Para configurar la sincronización de contraseñas, lea [este artículo](active-directory-ds-getting-started-password-sync.md).
+-  La sincronización de contraseñas nunca se configuró ni se realizó. Para configurar la sincronización de contraseñas, lea [este artículo](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Hace un tiempo que no se realiza una copia de seguridad
 

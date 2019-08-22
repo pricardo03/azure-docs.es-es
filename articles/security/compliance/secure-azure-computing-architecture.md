@@ -6,18 +6,18 @@ ms.author: jahender
 ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a27eac3d4609f1054b0ef6a9417fe2f1ca53ae4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963243"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656640"
 ---
 # <a name="secure-azure-computing-architecture"></a>Protección de la arquitectura informática de Azure
 
 Datos de agencias y Los clientes del Department of Defense (DoD) que implementan cargas de trabajo en Azure han pedido instrucciones para configurar redes virtuales seguras y configurar las herramientas y los servicios de seguridad estipulados por los estándares y las prácticas del DoD. 
 
-Defense Information System Agency (DISA) publicó [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) (Documento de requisitos funcionales (FRD) de la protección de la arquitectura de informática en la nube [SCCA]) en 2017. SCCA describe los objetivos funcionales para proteger la red Defense Information System Network (DISN) y los puntos de conexión del proveedor de nube comercial. SCCA también describe cómo los propietarios de la misión protegen las aplicaciones en la nube en el límite de la conexión. Todas las entidades del DoD que se conectan a la nube comercial deben seguir las instrucciones establecidas en SCCA FRD.
+Defense Information System Agency (DISA) publicó [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/SCCA_FRD_v2-9.pdf) (Documento de requisitos funcionales (FRD) de la protección de la arquitectura de informática en la nube [SCCA]) en 2017. SCCA describe los objetivos funcionales para proteger la red Defense Information System Network (DISN) y los puntos de conexión del proveedor de nube comercial. SCCA también describe cómo los propietarios de la misión protegen las aplicaciones en la nube en el límite de la conexión. Todas las entidades del DoD que se conectan a la nube comercial deben seguir las instrucciones establecidas en SCCA FRD.
  
 SCCA tiene cuatro componentes:
  

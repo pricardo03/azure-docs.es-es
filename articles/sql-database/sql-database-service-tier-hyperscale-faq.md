@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847406"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515355"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescala de Azure SQL
 
@@ -131,7 +131,7 @@ No por el momento, pero puede reducir verticalmente el proceso y el número de r
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>¿Puedo aprovisionar un proceso con memoria RAM adicional para mi carga de trabajo con uso intensivo de memoria?
 
-No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>¿Puedo aprovisionar varios nodos de proceso de diferentes tamaños?
 

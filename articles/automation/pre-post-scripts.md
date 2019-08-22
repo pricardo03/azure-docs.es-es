@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94ec7c54e8e49685ad0289102f092516bcb0acfc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f13851dd43c80a63ec628e04b98271894c15afc0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478249"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542865"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -66,22 +66,6 @@ Si necesita otro tipo de objeto, puede convertirlo a otro tipo mediante su propi
 
 Además de los parámetros estándar de runbook, se proporciona un parámetro adicional. Este parámetro es **SoftwareUpdateConfigurationRunContext**. Este parámetro es una cadena JSON, y si define el parámetro en su script previo o posterior, la implementación de la actualización lo pasará automáticamente. El parámetro contiene información sobre la implementación de la actualización, que es un subconjunto de la información que devuelve [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). En la tabla siguiente se muestran las propiedades que se proporcionan en la variable:
 
-## <a name="stopping-a-deployment"></a>Detención de una implementación
-
-Si quiere detener una implementación basada en un script previo, debe [generar](automation-runbook-execution.md#throw) una excepción. Si no genera una excepción, la implementación y el script posterior se seguirán ejecutando. El [runbook de ejemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) de la galería muestra cómo puede hacerlo. Este es un fragmento de código de ese runbook.
-
-```powershell
-#In this case, we want to terminate the patch job if any run fails.
-#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
-foreach($summary in $finalStatus)
-{
-    if ($summary.Type -eq "Error")
-    {
-        #We must throw in order to fail the patch deployment.  
-        throw $summary.Summary
-    }
-}
-```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propiedades de SoftwareUpdateConfigurationRunContext
 
@@ -133,6 +117,25 @@ Se puede encontrar un ejemplo completo con todas las propiedades en: [Software U
 
 > [!NOTE]
 > El objeto `SoftwareUpdateConfigurationRunContext` puede contener entradas duplicadas para las máquinas. Esto puede hacer que los scripts previos y posteriores se ejecuten varias veces en la misma máquina. Para solucionar este comportamiento, use `Sort-Object -Unique` para seleccionar solo nombres de máquina virtual únicos en el script.
+
+
+## <a name="stopping-a-deployment"></a>Detención de una implementación
+
+Si quiere detener una implementación basada en un script previo, debe [generar](automation-runbook-execution.md#throw) una excepción. Si no genera una excepción, la implementación y el script posterior se seguirán ejecutando. El [runbook de ejemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) de la galería muestra cómo puede hacerlo. Este es un fragmento de código de ese runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
+
 
 ## <a name="samples"></a>Ejemplos
 

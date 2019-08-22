@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a214c10c5b111070127e4a823682989f24b20b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128456"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637720"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -155,7 +155,7 @@ Para más información sobre las características disponibles en Kudu, vea [Herr
 #### <a name="scale-the-app"></a>Escalar la aplicación
 En Azure App Service, puede ajustar la escala en la que se ejecuta la aplicación para aumentar el rendimiento y la capacidad de proceso. El escalado vertical de una aplicación implica dos acciones relacionadas: cambiar el plan de App Service por un plan de tarifa más alto y configurar determinados valores después de haber cambiado a ese plan de tarifa más alto.
 
-Para obtener más información sobre el escalado, consulte [Escalado de una aplicación en Azure App Service](web-sites-scale.md).
+Para obtener más información sobre el escalado, consulte [Escalado de una aplicación en Azure App Service](manage-scale-up.md).
 
 Además, puede elegir ejecutar la aplicación en más de una instancia. El escalado no solo le proporciona una mayor capacidad de procesamiento, sino también algo de tolerancia a errores. Si el proceso se interrumpe en una instancia, las otras instancias seguirán atendiendo las solicitudes.
 

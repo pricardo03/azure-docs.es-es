@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e8b4ed3e101a13d369fff7b47ecbb00f8c04a52
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899800"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -387,7 +387,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 - La característica [Proxy de la aplicación de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) proporciona inicio de sesión único (SSO) y acceso remoto seguro para aplicaciones web hospedadas de forma local.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Introducción a la seguridad de Microsoft Azure](./https://docs.microsoft.com/azure/security)
+- [Introducción a la seguridad de Microsoft Azure](https://docs.microsoft.com/azure/security)
 
 Los servicios y características de Azure que puede usar para ayudar a proteger sus servicios y datos en Azure
 

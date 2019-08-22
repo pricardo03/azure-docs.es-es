@@ -9,18 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
-ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186932"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891699"
 ---
 Un experimento se ejecuta en un destino de proceso que es un recurso de proceso que está asociado al área de trabajo.  Una vez creado un destino de proceso, puede volver a utilizarlo para futuras ejecuciones.
 
 1. Seleccione **Ejecutar** en la parte inferior para ejecutar el experimento.
-
-     ![Ejecutar experimento](./media/aml-ui-create-training-compute/run-experiment.png)
 
 1. Cuando aparece el cuadro de diálogo **Setup Compute Targets** (Configurar destinos de proceso), si el área de trabajo ya tiene un recurso de proceso, ahora puede seleccionarlo.  En caso contrario, seleccione **Create new** (Crear nuevo).
 

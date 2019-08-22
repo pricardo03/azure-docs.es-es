@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698265"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626402"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "68698265"
 | Implementaciones por grupo de recursos en el historial de implementaciones |800<sup>1</sup> |800 |
 | Recursos por implementación |800 |800 |
 | Bloqueos de administración por ámbito único |20 |20 |
-| Número de etiquetas por recurso o grupo de recursos |15 |15 |
+| Número de etiquetas por recurso o grupo de recursos |50 |50 |
 | Longitud de la clave de etiqueta |512 |512 |
 | Longitud del valor de la etiqueta |256 |256 |
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879436"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562212"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
@@ -69,6 +69,7 @@ Un entorno federado debe tener un proveedor de identidades que admita los protoc
 
 - **WS-Fed:** este protocolo es necesario para unir un dispositivo a Azure AD.
 - **WS-Trust:** este protocolo es necesario para iniciar sesión en un dispositivo unido a Azure AD.
+
 Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`

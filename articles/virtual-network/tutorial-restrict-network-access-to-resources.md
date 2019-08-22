@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708843"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638754"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restrinja el acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual utilizando Azure Portal.
 
@@ -54,11 +54,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
    |NOMBRE| myVirtualNetwork |
    |Espacio de direcciones| 10.0.0.0/16|
    |Subscription| Seleccione su suscripción.|
-   |Grupos de recursos | Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
-   |Ubicación| Seleccione **Este de EE. UU**. |
+   |Resource group | Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
+   |Location| Seleccione **Este de EE. UU**. |
    |Nombre de subred| Público|
    |Intervalo de direcciones de subred| 10.0.0.0/24|
+   |Protección contra DDOS| Básica|
    |Puntos de conexión de servicio| Disabled|
+   |Firewall| Disabled|
 
    ![Especificar información básica acerca de la red virtual](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -94,8 +96,8 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |----|----|
     |NOMBRE| myNsgPrivate |
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
-    |Ubicación| Seleccione **Este de EE. UU**. |
+    |Resource group | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
+    |Location| Seleccione **Este de EE. UU**. |
 
 4. Cuando haya creado el grupo de seguridad de red, escriba *myNsgPrivate* en el cuadro **Search resources, services, and docs** (Buscar recursos, servicios y documentos) situado en la parte superior del portal. Cuando aparezca **myNsgPrivate** en los resultados de búsqueda, selecciónelo.
 5. En **Configuración**, seleccione **Reglas de seguridad de salida**.
@@ -104,28 +106,28 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
 
     |Configuración|Valor|
     |----|----|
-    |Origen| Seleccione **VirtualNetwork** |
-    |Intervalos de puertos de origen| * |
+    |Source| Seleccione **VirtualNetwork** |
+    |Source port ranges| * |
     |Destino | Seleccione **Service Tag** (Etiqueta de servicio)|
     |Etiqueta de servicio de destino | Seleccione **Storage** (Almacenamiento)|
     |Intervalos de puertos de destino| * |
-    |Protocolo|Cualquiera|
-    |.|PERMITIR|
-    |Prioridad|100|
+    |Protocolo|Any|
+    |Action|Allow|
+    |Priority|100|
     |NOMBRE|Allow-Storage-All (Permitir-almacenar-todo)|
 
 8. Cree otra regla de seguridad de salida que deniegue la comunicación a Internet. Esta regla invalida una regla predeterminada en todos los grupos de seguridad de red que permite la comunicación saliente de Internet. Repita los pasos 5 a 7 de nuevo, utilizando los siguientes valores:
 
     |Configuración|Valor|
     |----|----|
-    |Origen| Seleccione **VirtualNetwork** |
-    |Intervalos de puertos de origen| * |
+    |Source| Seleccione **VirtualNetwork** |
+    |Source port ranges| * |
     |Destino | Seleccione **Service Tag** (Etiqueta de servicio)|
     |Etiqueta de servicio de destino| Seleccione **Internet**|
     |Intervalos de puertos de destino| * |
-    |Protocolo|Cualquiera|
+    |Protocolo|Any|
     |.|Denegar|
-    |Prioridad|110|
+    |Priority|110|
     |NOMBRE|Deny-Internet-All|
 
 9. En **Configuración**, seleccione **Reglas de seguridad de entrada**.
@@ -134,13 +136,13 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
 
     |Configuración|Valor|
     |----|----|
-    |Origen| Cualquiera |
-    |Intervalos de puertos de origen| * |
+    |Source| Any |
+    |Source port ranges| * |
     |Destino | Seleccione **VirtualNetwork**|
     |Intervalos de puertos de destino| 3389 |
-    |Protocolo|Cualquiera|
-    |.|PERMITIR|
-    |Prioridad|120|
+    |Protocolo|Any|
+    |Action|Allow|
+    |Priority|120|
     |NOMBRE|Allow-RDP-All (Permitir-RDP-Todo)|
 
 12. En **CONFIGURACIÓN**, seleccione **Subredes**.
@@ -162,10 +164,10 @@ Los pasos que deben seguirse para restringir el acceso de la red a los recursos 
     |----|----|
     |NOMBRE| Especifique un nombre que sea único en todas las ubicaciones de Azure, que tenga entre 3 y 24 caracteres de longitud y que esté compuesto exclusivamente de números y letras en minúscula.|
     |Tipo de cuenta|StorageV2 (uso general v2)|
-    |Ubicación| Seleccione **Este de EE. UU**. |
+    |Location| Seleccione **Este de EE. UU**. |
     |Replicación| Almacenamiento con redundancia local (LRS)|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
+    |Resource group | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creación de un recurso compartido de archivos en la cuenta de almacenamiento
 
@@ -219,8 +221,8 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
    |Nombre de usuario|Escriba un nombre de usuario de su elección.|
    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscription| Seleccione su suscripción.|
-   |Grupos de recursos| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-   |Ubicación| Seleccione **Este de EE. UU**.|
+   |Resource group| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
+   |Location| Seleccione **Este de EE. UU**.|
 
    ![Escribir información esencial acerca de una máquina virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.

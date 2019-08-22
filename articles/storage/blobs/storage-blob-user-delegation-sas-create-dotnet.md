@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990592"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900424"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET (versión preliminar)
 
@@ -44,7 +44,7 @@ Para autenticarse con credenciales de Azure AD a través de la biblioteca client
 
 Para crear una entidad de servicio con la CLI de Azure y asignar el rol RBAC, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Proporcione un rol de acceso a datos Azure Storage para asignar a la nueva entidad de servicio. El rol tiene que incluir la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para más información acerca de los roles integrados que se proporcionan para Azure Storage, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
 
-Además, proporcione el ámbito de la asignación de roles. La entidad de servicio creará la clave de delegación de usuario, que es una operación que se realiza en el nivel de la cuenta de almacenamiento, por lo que el ámbito de la asignación de roles debe encontrarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignar permisos con RBAC** de [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas) (Creación de una SAS de delegación de usuario [API de REST]).
+Además, proporcione el ámbito de la asignación de roles. La entidad de servicio creará la clave de delegación de usuario, que es una operación que se realiza en el nivel de la cuenta de almacenamiento, por lo que el ámbito de la asignación de roles debe encontrarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignar permisos con RBAC** de [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuario [API de REST]).
 
 Si no tiene permisos suficientes para asignar un rol a la entidad de servicio, puede que tenga que pedir al propietario o administrador de la cuenta que realice la asignación de roles.
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>Otras referencias
 
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key) (Obtener la operación de clave de delegación de usuario)
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas) (Creación de una SAS de delegación de usuario [API de REST])
+- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuario [API de REST])

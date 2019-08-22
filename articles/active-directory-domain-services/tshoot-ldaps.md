@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472204"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617045"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 
@@ -42,9 +42,9 @@ Si sigue teniendo problemas para conectarse al dominio administrado mediante LDA
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure AD Domain Services](create-instance.md)
-* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
+* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)
+* [Administrar un dominio de Azure AD Domain Services](tutorial-create-management-vm.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Conceptos básicos de las consultas LDAP)
-* [Administración de la directiva de grupo para Azure AD Domain Services](manage-group-policy.md)
+* [Administración de la directiva de grupo para Azure AD Domain Services](manage-group-policy.md)
 * [Grupos de seguridad de red](../virtual-network/security-overview.md)
 * [Creación de un grupo de seguridad de red](../virtual-network/tutorial-filter-network-traffic.md)

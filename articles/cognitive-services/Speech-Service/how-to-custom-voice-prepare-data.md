@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559592"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640428"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
 
@@ -124,7 +124,7 @@ Las transcripciones deben estar preparadas de acuerdo con las especificaciones e
 | Nombre de archivo | Use el mismo nombre que el archivo de audio relacionado. |
 | Formato de codificación | Solo UTF-8-BOM |
 | Número de expresiones por línea | Sin límite |
-| Tamaño de archivo máximo | 50 millones |
+| Tamaño de archivo máximo | 50 MB |
 
 Todos los archivos de transcripciones de este tipo de datos deben estar agrupados en un archivo ZIP. No se permite ninguna subcarpeta en el archivo ZIP. Por ejemplo, ha cargado un archivo ZIP que contiene un archivo de audio llamado "kingstory.wav", que dura 45 segundos, y otro llamado "queenstory.mp3", que dura 200 segundos. Deberá cargar otro archivo ZIP que contenga dos transcripciones, una llamada "kingstory.txt" y la otra "queenstory.txt". Dentro de cada archivo de texto sin formato, proporcionará la transcripción completa correcta para el audio relacionado.
 
