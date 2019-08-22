@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277400"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019646"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -445,7 +445,14 @@ Actualice la instalación de la [CLI de Azure](/cli/azure/install-azure-cli?view
 
 ### <a name="reason"></a>Motivo
 
-Al ejecutar un servicio en un espacio de desarrollo, el pod del servicio se [inserta con contenedores adicionales para la instrumentación](how-dev-spaces-works.md#prepare-your-aks-cluster). Esos contenedores no tienen límites ni solicitudes de recursos definidos, lo que causa que el escalador automático horizontal del pod se deshabilite.
+Al ejecutar un servicio en un espacio de desarrollo, se insertan en el pod del servicio [contenedores adicionales para la instrumentación](how-dev-spaces-works.md#prepare-your-aks-cluster). Además, todos los contenedores de un pod deben tener solicitudes y límites de recursos establecidos para el escalado automático horizontal del pod. 
+
+
+Las solicitudes y límites de recursos se pueden aplicar al contenedor en el que se ha producido la inserción (devspaces-proxy) mediante la incorporación de la anotación `azds.io/proxy-resources` a la especificación del pod. El valor debe establecerse en un objeto JSON que representa la sección de recursos de la especificación del contenedor del proxy.
 
 ### <a name="try"></a>Probar
-Ejecute el escalador automático horizontal del podo en un espacio de nombres que no tenga Dev Spaces habilitado.
+
+A continuación se muestra un ejemplo de una anotación de recursos de proxy que se va a aplicar a la especificación del pod.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

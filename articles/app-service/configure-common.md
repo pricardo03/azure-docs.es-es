@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990284"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636664"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -167,7 +167,7 @@ En [Azure Portal], navegue hasta la página de administración de la aplicación
 
 ![Configuración general](./media/configure-common/open-general.png)
 
-En este caso, puede configurar algunas opciones comunes para la aplicación. Algunas configuraciones requieren [escalar verticalmente hasta los planes de tarifa superiores](web-sites-scale.md).
+En este caso, puede configurar algunas opciones comunes para la aplicación. Algunas configuraciones requieren [escalar verticalmente hasta los planes de tarifa superiores](manage-scale-up.md).
 
 - **Configuración de pila**: La pila de software para ejecutar la aplicación, incluidos el lenguaje y las versiones del SDK. Para aplicaciones de Linux y aplicaciones de contenedor personalizadas, también puede establecer un archivo o un comando de inicio opcional.
 - **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
@@ -268,4 +268,4 @@ Consulte [Configuración de un contenedor de Linux personalizado para Azure App 
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Aspectos básicos de supervisión en Azure App Service]: ./web-sites-monitor.md
 [modo de canalización]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Escalado de una aplicación en Azure App Service]: ./web-sites-scale.md
+[Escalado de una aplicación en Azure App Service]: ./manage-scale-up.md

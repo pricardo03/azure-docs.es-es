@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: fd488d475e24bc1aeebfa49b9d81b04ebae449ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a6d659d558c15a9a224196c471f7798b1a7f2660
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445593"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623695"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -102,38 +102,8 @@ Al intercambiar dos ranuras (normalmente de una ranura de ensayo a la ranura de 
 Durante intercambio, todo el trabajo de inicialización de las aplicaciones intercambiadas se realiza en la ranura de origen. La ranura de destino permanece en línea mientras la de origen se está preparando, independientemente de en qué punto el intercambio se realice o no correctamente. Para intercambiar una ranura de ensayo con la de producción, asegúrese de que esta última es siempre la de destino. De este modo, el intercambio no afecta a la aplicación de producción.
 
 ### <a name="which-settings-are-swapped"></a>¿Qué configuración se intercambia?
-Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Algunos elementos de configuración siguen al contenido en los intercambios (no son específicos de la ranura), mientras que otros permanecen en la misma ranura después de este (específicos). Las listas siguientes muestran la configuración que cambia cuando se intercambian las ranuras.
 
-**Configuraciones que se intercambian**:
-
-* Configuración general: por ejemplo, versión de Framework, 32 o 64 bits, Web Sockets
-* Configuración de la aplicación (puede configurarse para ajustarse a un espacio)
-* Cadenas de conexión (puede configurarse para ajustarse a un espacio)
-* Asignaciones de controlador
-* Configuración de supervisión y diagnóstico
-* Certificados públicos
-* Contenido de WebJobs
-* Conexiones híbridas *
-* Integración de la red virtual *
-* Puntos de conexión de servicio *
-* Azure Content Delivery Network *
-
-Se prevé que las características marcadas con un asterisco (*) se ajusten a la ranura. 
-
-**Valores que no se intercambian**:
-
-* Extremos de publicación
-* Nombres de dominio personalizados
-* Certificados privados y enlaces SSL
-* Configuración de escala
-* Programadores de WebJobs
-* Restricciones de IP
-* Always On
-* Configuración del protocolo (HTTPS, versión de TLS, certificados de cliente)
-* Configuración del registro de diagnóstico
-* Uso compartido de recursos entre orígenes (CORS)
-
-<!-- VNET and hybrid connections not yet sticky to slot -->
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
 Para configurar la aplicación o una cadena de conexión de esta para que se ajuste a una ranura específica (sin intercambio), vaya a la página **Configuración** de esa ranura. Agregue configuración o modifíquela y seleccione **configuración de ranura de implementación**. Al seleccionar esta casilla se indica a App Service que la configuración no se puede intercambiar. 
 

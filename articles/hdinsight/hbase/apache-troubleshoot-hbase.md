@@ -5,206 +5,18 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 13a4831d946eb7e25e586cafae4cae51b49fd8a7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.topic: troubleshooting
+ms.date: 08/16/2019
+ms.openlocfilehash: cf44c27f51bf6312ef546b424646833f69ba0283
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780773"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638429"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solución de problemas de Apache HBase mediante Azure HDInsight
 
 Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles de HBase en Apache Ambari.
-
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>¿Cómo se ejecutan informes de comando hbck con varias regiones sin asignar?
-
-Un mensaje de error común que puede ver al ejecutar el comando `hbase hbck` es "multiple regions being unassigned or holes in the chain of regions" (hay varias regiones no asignadas o hay orificios en la cadena de regiones).
-
-En la interfaz de usuario de HBase Master, puede ver el número de regiones desequilibradas en todos los servidores de las regiones. Luego, puede ejecutar el comando `hbase hbck` para ver los orificios en la cadena de regiones.
-
-Los orificios los pueden causar las regiones sin conexión, así que primero es preciso corregir las asignaciones. 
-
-Para que las regiones sin asignar vuelvan a su estado normal, siga estos pasos:
-
-1. Inicie sesión en el clúster de HDInsight HBase mediante SSH.
-2. Para conectar con el shell de Apache ZooKeeper, ejecute el comando `hbase zkcli`.
-3. Ejecute los comandos `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition`.
-4. Para salir del shell de `hbase zkcli`, use el comando `exit`.
-5. Abra la interfaz de usuario de Apache Ambari y, después, reinicie el servicio Active HBase Master.
-6. Vuelva a ejecutar el comando `hbase hbck` (sin opciones). Compruebe el resultado de este comando para asegurarse de que se asignan todas las regiones.
-
-
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>¿Cómo se solucionan los problemas de tiempo de espera cuando se usan comandos hbck para las asignaciones de regiones?
-
-### <a name="issue"></a>Problema
-
-Una posible causa de problemas de tiempo de espera cuando se usa el comando `hbck` puede ser que varias regiones estén en el estado "en transición" durante mucho tiempo. En la interfaz de usuario maestra de HBase, dichas regiones se pueden ver como sin conexión. Dado que un elevado número de regiones intentan realizar la transición, HBase Master puede superar el tiempo de espera, lo que impediría que dichas regiones vuelvan a estar en línea.
-
-### <a name="resolution-steps"></a>Pasos de la solución
-
-1. Inicie sesión en el clúster de HDInsight HBase mediante SSH.
-2. Para conectar con el shell de Apache ZooKeeper, ejecute el comando `hbase zkcli`.
-3. Ejecute los comandos `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition`.
-4. Para salir del shell de `hbase zkcli`, use el comando `exit`.
-5. En la interfaz de usuario de Ambari, reinicie el servicio Active HBase Master.
-6. Vuelva a ejecutar el comando `hbase hbck -fixAssignments`.
-
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>¿Cómo se fuerza la deshabilitación del modo seguro de HDFS en un clúster?
-
-### <a name="issue"></a>Problema
-
-El Sistema de archivos distribuido Apache Hadoop (HDFS) local está bloqueado en el modo seguro en el clúster de HDInsight.
-
-### <a name="detailed-description"></a>Descripción detallada
-
-Este error puede deberse a un error al ejecutar el siguiente comando de HDFS:
-
-```apache
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-```
-
-El error que puede ver al intentar ejecutar el comando tiene el siguiente aspecto:
-
-```apache
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
-org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
-        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
-        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at javax.security.auth.Subject.doAs(Subject.java:422)
-        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
-        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
-        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
-        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
-        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
-        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
-        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
-        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
-        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
-        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
-        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
-        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
-        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
-        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
-mkdir: Cannot create directory /temp. Name node is in safe mode.
-```
-
-### <a name="probable-cause"></a>Causa probable
-
-El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nodos. El número de nodos es inferior o próximo al factor de replicación de HDFS.
-
-### <a name="resolution-steps"></a>Pasos de la solución 
-
-1. Obtenga el estado del HDFS en el clúster de HDInsight mediante la ejecución de los siguientes comandos:
-
-   ```apache
-   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-   ```
-
-   ```apache
-   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-   Safe mode is ON
-   Configured Capacity: 3372381241344 (3.07 TB)
-   Present Capacity: 3138625077248 (2.85 TB)
-   DFS Remaining: 3102710317056 (2.82 TB)
-   DFS Used: 35914760192 (33.45 GB)
-   DFS Used%: 1.14%
-   Under replicated blocks: 0
-   Blocks with corrupt replicas: 0
-   Missing blocks: 0
-   Missing blocks (with replication factor 1): 0
-
-   -------------------------------------------------
-   Live datanodes (8):
-
-   Name: 10.0.0.17:30010 (10.0.0.17)
-   Hostname: 10.0.0.17
-   Decommission Status : Normal
-   Configured Capacity: 421547655168 (392.60 GB)
-   DFS Used: 5288128512 (4.92 GB)
-   Non DFS Used: 29087272960 (27.09 GB)
-   DFS Remaining: 387172253696 (360.58 GB)
-   DFS Used%: 1.25%
-   DFS Remaining%: 91.85%
-   Configured Cache Capacity: 0 (0 B)
-   Cache Used: 0 (0 B)
-   Cache Remaining: 0 (0 B)
-   Cache Used%: 100.00%
-   Cache Remaining%: 0.00%
-   Xceivers: 2
-   Last contact: Wed Apr 05 16:22:00 UTC 2017
-   ...
-
-   ```
-2. También puede comprobar la integridad del HDFS en el clúster de HDInsight mediante los siguientes comandos:
-
-   ```apache
-   hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-   ```
-
-   ```apache
-   Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-   FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-   ....................................................................................................
-
-   ....................................................................................................
-   ..................Status: HEALTHY
-   Total size:    9330539472 B
-   Total dirs:    37
-   Total files:   2618
-   Total symlinks:                0 (Files currently being written: 2)
-   Total blocks (validated):      2535 (avg. block size 3680686 B)
-   Minimally replicated blocks:   2535 (100.0 %)
-   Over-replicated blocks:        0 (0.0 %)
-   Under-replicated blocks:       0 (0.0 %)
-   Mis-replicated blocks:         0 (0.0 %)
-   Default replication factor:    3
-   Average block replication:     3.0
-   Corrupt blocks:                0
-   Missing replicas:              0 (0.0 %)
-   Number of data-nodes:          8
-   Number of racks:               1
-   FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
-
-   The filesystem under path '/' is HEALTHY
-   ```
-
-3. Si determina que no falta ningún bloque, no hay bloques dañados o subreplicados, o que dichos bloques se pueden ignorar, ejecute el comando siguiente para que el nodo de nombre deje de estar en modo seguro:
-
-   ```apache
-   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-   ```
-
 
 ## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>¿Cómo se solucionan los problemas de conectividad de JDBC o sqlline con Apache Phoenix?
 
@@ -219,7 +31,7 @@ Para conectar con Apache Phoenix, debe proporcionar la dirección IP del nodo ac
    ```
 
    > [!Note] 
-   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)**  > **ZK\* (Active)**  > **Zookeeper Info (Información de Zookeeper)** . 
+   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)**  > **ZK\* (Active)**  > **Zookeeper Info (Información de Zookeeper)** .
 
 3. Si sqlline.py se conecta a Phoenix y no supera el tiempo de espera, ejecute el siguiente comando para validar la disponibilidad y el estado de Phoenix:
 
@@ -255,89 +67,6 @@ Para conectar con Apache Phoenix, debe proporcionar la dirección IP del nodo ac
 El servicio HBase Master puede tener un máximo de cinco minutos en estabilizar y finalizar el proceso de recuperación. Pocos minutos después, repita los comandos de sqlline.py para confirmar que la tabla SYSTEM.CATALOG está activa y que se puede consultar. 
 
 Cuando la tabla SYSTEM.CATALOG vuelva al estado normal, el problema de la conectividad con Phoenix debería resolverse automáticamente.
-
-
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>¿Qué hace que un servidor maestro no se pueda iniciar?
-
-### <a name="error"></a>Error 
-
-Se produce un error de cambio de nombre atómico.
-
-### <a name="detailed-description"></a>Descripción detallada
-
-Durante el proceso de inicio, HMaster completa muchos pasos de inicialización. Entre ellos se incluye mover datos desde la carpeta temporal (.tmp) a la carpeta de datos. HMaster también examina la carpeta de registros de escritura previa (WAL) para ver si hay servidores de la región que no responden, y así sucesivamente. 
-
-Durante el inicio, HMaster realiza un comando `list` básico en estas carpetas. Si en algún momento HMaster ve un archivo inesperado en cualquiera de estas carpetas, genera una excepción y no se inicia.  
-
-### <a name="probable-cause"></a>Causa probable
-
-En los registros de servidores de la región, intente identificar la escala de tiempo de la creación del archivo y, después, vea si se produjo un bloqueo del proceso aproximadamente a la hora en que se creó el archivo (si necesita ayuda, póngase en contacto con el soporte técnico de HBase). Esto nos ayuda a proporcionar mecanismos más robustos para que pueda evitar toparse con este error y asegurarse apagados de procesos correctos.
-
-### <a name="resolution-steps"></a>Pasos de la solución
-
-Compruebe la pila de llamadas e intente determinar qué carpeta puede ser la causante del problema (por ejemplo, puede ser la carpeta de WAL o la carpeta .tmp). Después, en Cloud Explorer o mediante los comandos de HDFS, pruebe a buscar el archivo problemático. Normalmente, es un archivo \*-renamePending.json. (\*-renamePending.json es un archivo de diario que se utiliza para implementar la operación de cambio de nombre atómico en el controlador WASB. Debido a los errores de esta implementación, estos archivos se pueden dejar después de que el proceso se bloquea, y así sucesivamente). Fuerce la eliminación de este archivo en Cloud Explorer o mediante los comandos de HDFS. 
-
-En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$* . Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
-
-Una vez que haya ejecutado estos comandos, HMaster debería iniciarse de inmediato. 
-
-### <a name="error"></a>Error
-
-No se enumera ninguna dirección de servidor en *hbase: meta* para la región xxx.
-
-### <a name="detailed-description"></a>Descripción detallada
-
-Puede ver un mensaje en el clúster de Linux que indica que la tabla *hbase: meta* no está en línea. La ejecución de `hbck` puede notificar que "No se encuentra la tabla hbase: meta replicaId 0 en ninguna región". El problema podría ser que HMaster no se pudo inicializar una vez reiniciado HBase. En los registros de HMaster, es posible que vea el mensaje: "No se enumera ninguna dirección de servidor en hbase: meta para la región \<nombre de región\>".  
-
-### <a name="resolution-steps"></a>Pasos de la solución
-
-1. En el shell de HBase, especifique los siguientes comandos (cambie los valores reales según corresponda):  
-
-   ```apache
-   > scan 'hbase:meta'  
-   ```
-
-   ```apache
-   > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
-   ```
-
-2. Elimine la entrada *hbase: namespace*. Esta entrada puede ser el mismo error que se notifica cuando se examina la tabla *hbase: namespace*.
-
-3. Para poner HBase en estado activo, en la interfaz de usuario de Ambari, reinicie el servicio Active HMaster.  
-
-4. En el shell de HBase, para activar todas las tablas sin conexión, ejecute el siguiente comando:
-
-   ```apache 
-   hbase hbck -ignorePreCheckPermission -fixAssignments 
-   ```
-
-### <a name="additional-reading"></a>Lecturas adicionales
-
-[No se puede procesar la tabla de HBase](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
-
-
-### <a name="error"></a>Error
-
-HMaster agota el tiempo de espera con una excepción grave similar a "java.io.IOException: se ha agotado el tiempo de espera de 300 000 ms esperando a que la tabla de espacio de nombres se asignara".
-
-### <a name="detailed-description"></a>Descripción detallada
-
-Este problema puede aparecer si hay muchas tablas y regiones que no se han vaciado al reiniciar los servicios de HMaster. Podría producirse un error durante el reinicio y verá el mensaje de error anterior.  
-
-### <a name="probable-cause"></a>Causa probable
-
-Se trata de un problema conocido del servicio HMaster. Las tareas de inicio de los clústeres generales pueden tardar mucho tiempo. HMaster se cierra porque la tabla de espacios de nombres todavía no está asignada. Esto sucede solo en aquellos escenarios en los que existe una gran cantidad de datos no vaciados y no es suficiente un tiempo de expiración de cinco minutos.
-  
-### <a name="resolution-steps"></a>Pasos de la solución
-
-1. En la interfaz de usuario de Apache Ambari, vaya a **HBase** > **Configs** (Configuraciones). En el archivo hbase-site.xml personalizado, agregue la siguiente configuración: 
-
-   ```apache
-   Key: hbase.master.namespace.init.timeout Value: 2400000  
-   ```
-
-2. Reinicie los servicios requeridos (HMaster y posiblemente otros servicios de HBase).  
-
 
 ## <a name="what-causes-a-restart-failure-on-a-region-server"></a>¿Qué provoca un error de reinicio en un servidor de regiones?
 
@@ -416,5 +145,12 @@ Esto es lo que sucede en segundo plano:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>Otras referencias
-[Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+
+* Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
+
+* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

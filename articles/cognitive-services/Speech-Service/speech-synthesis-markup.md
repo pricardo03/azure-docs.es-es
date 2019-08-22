@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552681"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855096"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -413,8 +413,8 @@ Solo se permite un archivo de audio de fondo por cada documento SSML. Sin embarg
 |-----------|-------------|---------------------|
 | src | Especifica la ubicación o la URL del archivo de audio de fondo. | Es obligatorio si se usa el audio de fondo en el documento SSML. |
 | volumen | Especifica el volumen del archivo de audio de fondo. **Valores aceptados**: de `0` a `100`, ambos incluidos. El valor predeterminado es `1`. | Opcional |
-| fadein | Especifica la duración del fundido de entrada del audio de fondo. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
-| fadeout | Especifica la duración del fundido de salida del audio de fondo. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
+| fadein | Especifica la duración del fundido de entrada del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de entrada. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
+| fadeout | Especifica la duración del fundido de salida del audio de fondo en milisegundos. El valor predeterminado es `0`, que equivale a ningún fundido de salida. **Valores aceptados**: de `0` a `10000`, ambos incluidos.  | Opcional |
 
 **Ejemplo**
 

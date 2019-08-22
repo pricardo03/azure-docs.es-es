@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4668d5e7872c677f20c2395b5927d83c69775926
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709883"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68855210"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilización del reinicio de VM de la infraestructura de Azure para lograr una "mayor disponibilidad" de un sistema de SAP
 
@@ -239,7 +239,7 @@ Hasta la fecha, en los componentes esenciales de SAP se ha conseguido lo siguien
 
 * Alta disponibilidad de los servidores de aplicaciones de SAP
 
-    Las instancias de los servidores de aplicaciones de SAP son componentes redundantes. Cada instancia del servidor de aplicaciones de SAP se implementa en su propia máquina virtual, que se ejecuta en un dominio de actualización y de error de Azure diferente. Para más información, consulte las secciones [Dominios de error][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2]. 
+    Las instancias de los servidores de aplicaciones de SAP son componentes redundantes. Cada instancia del servidor de aplicaciones de SAP se implementa en su propia máquina virtual, que se ejecuta en un dominio de actualización y de error de Azure diferente. Para obtener más información, consulte las secciones [Dominios de error][planning-guide-3.2.1] y [Dominios de actualización][planning-guide-3.2.2]. 
 
     Puede garantizar esta configuración mediante el uso de conjuntos de disponibilidad de Azure. Para más información, consulte la sección [Conjuntos de disponibilidad de Azure][planning-guide-3.2.3]. 
 
@@ -280,7 +280,6 @@ Si se presupone un escenario de Azure típico de una instancia del servidor de a
 
   * [Start/Stop SAP along with your Unix Server Start/Stop (Inicio o detención de SAP al iniciar/detener el servidor de Unix)](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Starting and Stopping SAP NetWeaver Management Agents (Inicio y detención de los agentes de administración de SAP NetWeaver)](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [How to enable auto Start of HANA Database (Habilitación del inicio automático de la base de datos HANA)](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
