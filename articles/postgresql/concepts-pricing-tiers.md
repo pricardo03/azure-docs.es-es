@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967853"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624843"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL: servidor único
 
@@ -67,7 +67,7 @@ Estamos aumentando los límites de almacenamiento en nuestros niveles De uso gen
 |              | **Uso general** | **Memoria optimizada** |
 |:-------------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 32 GB a 16 TB| De 32 a 16 TB |
+| Tamaño de almacenamiento | De 32 GB a 16 TB| De 32 GB a 16 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB |
 | E/S | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
 

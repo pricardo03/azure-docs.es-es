@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934832"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899949"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mundo sin contraseñas con Azure Active Directory
 
@@ -226,7 +226,7 @@ También se recomienda que cada organización cree un protocolo que deben seguir
 
 #### <a name="user-sets-up-fido2-security-key"></a>El usuario configura la llave de seguridad FIDO2
 
-Si bien los administradores pueden [proporcionar llaves manualmente](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) y distribuirlas a los usuarios finales, para aprovisionar y habilitar el proveedor de credenciales FIDO2 en la pantalla de bloqueo de Windows 10 se usa [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Los administradores también deberán usar [Azure Portal](https://portal.azure.com/) para habilitar dispositivos de token de hardware como método de autenticación sin contraseña.
+Si bien los administradores pueden [proporcionar llaves manualmente](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) y distribuirlas a los usuarios finales, para aprovisionar y habilitar el proveedor de credenciales FIDO2 en la pantalla de bloqueo de Windows 10 se usa [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Los administradores también deberán usar [Azure Portal](https://portal.azure.com/) para habilitar dispositivos de token de hardware como método de autenticación sin contraseña.
 
 La implementación de las llaves de seguridad FIDO2 también requiere que los usuarios registren sus llaves mediante [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Con el registro combinado, los usuarios se registran una vez y obtienen las ventajas de Azure Multi-Factor Authentication y del autoservicio de restablecimiento de contraseña (SSPR).
 
@@ -343,4 +343,4 @@ La adopción de tecnologías modernas de autenticación multifactor, como lectur
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Información general sobre lo que [significa el inicio de sesión sin contraseña](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [Cómo se habilita el inicio de sesión sin contraseña en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [Cómo se habilita el inicio de sesión sin contraseña en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

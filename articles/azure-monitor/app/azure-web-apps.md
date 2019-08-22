@@ -356,7 +356,7 @@ La tabla siguiente proporciona una explicación más detallada de lo que signifi
 |`AppContainsDiagnosticSourceAssembly**:true`|Este valor indica que la extensión detectó referencias a `System.Diagnostics.DiagnosticSource` en la aplicación y se interrumpirá.| Quite la referencia.
 |`IKeyExists:false`|Este valor indica que la clave de instrumentación no está presente en la AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Causas posibles: Es posible que los valores se hayan eliminado por accidente, que haya olvidado establecer los valores en el script de automatización, etc. | Asegúrese de que la configuración está presente en la configuración de la aplicación de App Service.
 
-### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>No se admite APPINSIGHTS_JAVASCRIPT_ENABLED ni urlCompression
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>No se admite APPINSIGHTS_JAVASCRIPT_ENABLED ni urlCompression
 
 Si usa APPINSIGHTS_JAVASCRIPT_ENABLED=true en casos donde el contenido está codificado, podría obtener errores como los siguientes: 
 

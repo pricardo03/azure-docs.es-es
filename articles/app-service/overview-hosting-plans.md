@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932354"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636550"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -100,7 +100,7 @@ Por ejemplo, puede comenzar a probar una aplicación web en un plan de App Servi
 
 Funciona igual a la inversa. Cuando crea que ya no necesita las funcionalidades o características de un plan superior, puede reducir verticalmente a un plan inferior, lo que permite ahorrar dinero.
 
-Para obtener más información sobre el escalado vertical del plan de App Service, consulte [Escalado vertical de aplicaciones en Azure](web-sites-scale.md).
+Para obtener más información sobre el escalado vertical del plan de App Service, consulte [Escalado vertical de aplicaciones en Azure](manage-scale-up.md).
 
 Si la aplicación está en el mismo plan de App Service con otras aplicaciones, puede que desee mejorar el rendimiento de la aplicación aislando los recursos de proceso. Para hacerlo, puede mover la aplicación a otro plan de App Service. Para obtener más información, consulte [Move an app to another App Service plan](app-service-plan-manage.md#move) (Mover una aplicación a otro plan de App Service).
 

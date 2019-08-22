@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881422"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624334"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administración de los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -44,12 +44,12 @@ Puede ver el modo de control de acceso configurado en un área de trabajo desde 
 
 ### <a name="configure-from-the-azure-portal"></a>Configuración desde Azure Portal
 
-Puede ver el modo de control de acceso del área de trabajo actual en la página **Introducción** del área de trabajo en el menú **Área de trabajo de Log Analytics**. 
+Puede ver el modo de control de acceso del área de trabajo actual en la página **Introducción** del área de trabajo en el menú **Área de trabajo de Log Analytics**.
 
 ![Visualización del modo de control de acceso del área de trabajo](media/manage-access/view-access-control-mode.png)
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-1. En Azure Portal, seleccione Áreas de trabajo de Log Analytics > su área de trabajo.  
+1. En Azure Portal, seleccione Áreas de trabajo de Log Analytics > su área de trabajo.
 
 Este valor se puede cambiar en la página **Propiedades** del área de trabajo. No podrá cambiar la configuración si no tiene permisos para configurar el área de trabajo.
 
@@ -60,7 +60,7 @@ Este valor se puede cambiar en la página **Propiedades** del área de trabajo. 
 Use el comando siguiente para examinar el modo de control de acceso para todas las áreas de trabajo en la suscripción:
 
 ```powershell
-Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
 La salida debe ser similar a la siguiente:
@@ -70,10 +70,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-Un valor de `False` significa que el área de trabajo se configura con el modo de acceso contexto del área de trabajo.  Un valor de `True` significa que el área de trabajo está configurada con el modo de acceso contexto del área de trabajo. 
+Un valor de `False` significa que el área de trabajo se configura con el modo de acceso contexto del área de trabajo.  Un valor de `True` significa que el área de trabajo está configurada con el modo de acceso contexto del área de trabajo.
 
->[!NOTE]
->Si un área de trabajo se devuelve sin un valor booleano y está en blanco, también coincide con los resultados de un valor `False`.
+> [!NOTE]
+> Si un área de trabajo se devuelve sin un valor booleano y está en blanco, también coincide con los resultados de un valor `False`.
 >
 
 Use el siguiente script para establecer el modo de control de acceso de un área de trabajo específica al permiso de contexto del recurso:
@@ -81,9 +81,9 @@ Use el siguiente script para establecer el modo de control de acceso de un área
 ```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
-if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
@@ -92,9 +92,9 @@ Use el siguiente script para establecer el modo de control de acceso en todas la
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
-if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
@@ -159,10 +159,10 @@ Los miembros del rol *Colaborador de Log Analytics* pueden:
 * Agregar y quitar soluciones de administración
 
     > [!NOTE]
-    > Para llevar a cabo correctamente estas dos últimas acciones, este permiso debe concederse en el nivel de suscripción o grupo de recursos.  
+    > Para llevar a cabo correctamente estas dos últimas acciones, este permiso debe concederse en el nivel de suscripción o grupo de recursos.
 
 * Leer las claves de las cuentas de almacenamiento
-* Configurar la recopilación de registros de Azure Storage  
+* Configurar la recopilación de registros de Azure Storage
 * Editar la configuración de supervisión de los recursos de Azure:
   * Agregar la extensión de máquina virtual a las máquinas virtuales
   * Configurar Azure Diagnostics en todos los recursos de Azure
@@ -202,7 +202,7 @@ Cuando los usuarios consulten los registros desde un área de trabajo mediante e
 | Permiso | DESCRIPCIÓN |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Ejemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidad para ver todos los datos de registro para el recurso.  |
-| `Microsoft.Insights/diagnosticSettings/write ` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |
+| `Microsoft.Insights/diagnosticSettings/write` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |
 
 El permiso `/read`se suele conceder desde un rol que incluye los permisos _/read o\*_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Tenga en cuenta que los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 

@@ -11,18 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d2fadf6d0bf9b7422b6dbf7597a024d22b5d733f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839327"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883213"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
-Azure Monitor almacena los datos de [registro](data-platform-logs.md) en un área de trabajo de Log Analytics, que es un recurso de Azure y un contenedor en el que los datos se recopilan y se agregan, y que sirve como límite administrativo. Aunque puede implementar una o varias áreas de trabajo en su suscripción de Azure, hay varias consideraciones que debe comprender para asegurarse de que la implementación inicial sigue nuestras instrucciones para proporcionarle una implementación rentable, fácil de administrar y escalable que satisfaga las necesidades de la organización.
+Azure Monitor almacena los datos de [registro](data-platform-logs.md) en un área de trabajo de Log Analytics, que es un recurso de Azure y un contenedor en el que los datos se recopilan y se agregan, y que sirve como límite administrativo. Aunque puede implementar una o varias áreas de trabajo en su suscripción de Azure, hay varios aspectos que debe comprender para asegurarse de que la implementación inicial sigue nuestras instrucciones con el fin de que resulte una implementación rentable, fácil de administrar y escalable que satisfaga las necesidades de su organización.
 
 En las áreas de trabajo, los datos se organizan en tablas, cada una de las cuales almacena distintos tipos de datos y tiene su conjunto exclusivo de propiedades según el recurso que genere los datos. En un área de trabajo Log Analytics, la mayoría de los orígenes de datos escribirán en sus propias tablas.
 
@@ -32,7 +32,7 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 
 * Una ubicación geográfica para el almacenamiento de datos.
 * Aislamiento de datos, ya que se conceden diferentes derechos de acceso a los usuarios en base a una de nuestras estrategias de diseño recomendadas.
-* Ámbito para la configuración de opciones, como el [nivel de precios](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Ámbito para la configuración de opciones, como el [plan de tarifa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 En este artículo se proporciona información general detallada acerca de las consideraciones de diseño y migración, información general sobre el control de acceso y una descripción de las implementaciones de diseño que recomendamos para su organización de TI.
 
@@ -63,9 +63,9 @@ Si usa System Center Operations Manager 2012 R2, o cualquier versión:
 
 ## <a name="access-control-overview"></a>Introducción al control de acceso
 
-Con el control de acceso basado en rol (RBAC) puede conceder a los usuarios y grupos solo la cantidad de acceso que necesitan para trabajar con los datos de supervisión en un área de trabajo. Esto le permite alinearse con el modelo de funcionamiento de la organización de TI mediante el uso de una sola área de trabajo para almacenar los datos recopilados habilitada en todos los recursos. Por ejemplo, puede conceder acceso al equipo responsable de los servicios de infraestructura hospedados en máquinas virtuales (VM) de Azure y, como consecuencia, este equipo solo tendrá acceso a los registros que hayan generados las máquinas virtuales. Esto sigue nuestro nuevo modelo de registro del contexto de recursos. La base de este modelo es que cada entrada de registro que emite un recurso de Azure se asocia automáticamente a este recurso. Los registros se reenvían a un área de trabajo central que respeta el ámbito y el RBAC en función de los recursos.
+Con el control de acceso basado en rol (RBAC) puede conceder a los usuarios y grupos solo la cantidad de acceso que necesitan para trabajar con los datos de supervisión en un área de trabajo. Esto le permite alinearse con el modelo de funcionamiento de la organización de TI mediante el uso de una sola área de trabajo para almacenar los datos recopilados habilitada en todos los recursos. Por ejemplo, puede conceder acceso al equipo responsable de los servicios de infraestructura hospedados en máquinas virtuales (VM) de Azure y, como consecuencia, este equipo solo tendrá acceso a los registros que hayan generados las máquinas virtuales. Esto sigue nuestro nuevo modelo de registro del contexto de recursos. La base de este modelo es que cada entrada de registro que emite un recurso de Azure se asocia automáticamente con este recurso. Los registros se reenvían a un área de trabajo central que respeta el ámbito y el RBAC en función de los recursos.
 
-Los datos a los que un usuario tiene acceso vienen determinados por una combinación de los factores que se enumeran en la tabla siguiente. Cada uno se describe en las secciones siguientes.
+Los datos a los que un usuario tiene acceso vienen determinados por una combinación de factores que se enumeran en la tabla siguiente. Cada uno se describe en las secciones siguientes.
 
 | Factor | DESCRIPCIÓN |
 |:---|:---|
@@ -80,11 +80,11 @@ El *modo de acceso* hace referencia a cómo un usuario accede a un área de trab
 
 Los usuarios tienen dos opciones para acceder a los datos:
 
-* **Contexto del área de trabajo**: puede ver todos los registros del área de trabajo en el que tiene permiso. Las consultas en este modo se limitan a todos los datos de todas las tablas en el área de trabajo. Este es el modo de acceso utilizado cuando se accede a los registros con el área de trabajo como ámbito, como cuando se selecciona **Registros** desde el menú **Azure Monitor** en Azure Portal.
+* **Contexto del área de trabajo**: puede ver todos los registros del área de trabajo para la que tiene permiso. Las consultas en este modo se limitan a todos los datos de todas las tablas en el área de trabajo. Este es el modo de acceso utilizado cuando se accede a los registros con el área de trabajo como ámbito, como cuando se selecciona **Registros** desde el menú **Azure Monitor** en Azure Portal.
 
     ![Contexto de Log Analytics desde el área de trabajo](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contexto del recurso**: al acceder al área de trabajo para un recurso, un grupo de recursos o una suscripción determinados, por ejemplo, cuando se selecciona **Registros** en un menú de recursos de Azure Portal, puede ver los registros solo de ese recurso en todas las tablas a las que tiene acceso. Las consultas de este modo se limitan solo a los datos asociados a ese recurso. Este modo también permite el RBAC pormenorizado.
+* **Contexto del recurso**: al acceder al área de trabajo para un recurso, un grupo de recursos o una suscripción determinados (por ejemplo, cuando se selecciona **Registros** en un menú de recursos de Azure Portal), puede ver los registros solo de los recursos de todas las tablas a las que tiene acceso. Las consultas de este modo se limitan solo a los datos asociados a ese recurso. Este modo también permite el RBAC pormenorizado.
 
     ![Contexto de Log Analytics desde un recurso](./media/design-logs-deployment/query-from-resource.png)
 
@@ -111,11 +111,11 @@ En la tabla siguiente se resumen los modos de acceso:
 
 ## <a name="access-control-mode"></a>Modo de control de acceso
 
-*Modo de control de acceso* es un valor que se encuentra en todas las áreas de trabajo y que define cómo se determinan los permisos para esa área de trabajo.
+*Modo de control de acceso* es un valor que se encuentra en todas las áreas de trabajo y que define cómo se determinan los permisos para el área de trabajo.
 
 * **Requerir permisos de área de trabajo**: este modo de control no admite RBAC granular. Para que un usuario pueda acceder al área de trabajo, debe tener permisos en el área de trabajo o en tablas específicas.
 
-    Si un usuario accede al área de trabajo en modo contexto del área de trabajo, tendrá acceso a todos los datos de todas las tablas a las que se le haya concedido acceso. Si un usuario accede al área de trabajo en modo contexto del recurso, tendrá acceso solo a los datos de ese recurso en todas las tablas a las que se le haya concedido acceso.
+    Si un usuario accede al área de trabajo en el modo de contexto del área de trabajo, tendrá acceso a todos los datos de todas las tablas a las que se le haya concedido acceso. Si un usuario accede al área de trabajo en el modo de contexto del recurso, tendrá acceso solo a los datos de ese recurso en todas las tablas a las que se le haya concedido acceso.
 
     Se trata de la configuración predeterminada para todas las áreas de trabajo creadas antes de marzo de 2019.
 
@@ -127,6 +127,8 @@ En la tabla siguiente se resumen los modos de acceso:
 
     > [!NOTE]
     > Si un usuario solo tiene permisos de recurso en el área de trabajo, solo podrá acceder al área de trabajo mediante el modo contexto del recurso, siempre que el modo de acceso al área de trabajo esté establecido en **Usar permisos de recurso o de área de trabajo**.
+
+Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Definición del modo de control de acceso en Azure Portal](manage-access.md#define-access-control-mode).
 
 ## <a name="recommendations"></a>Recomendaciones
 

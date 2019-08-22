@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9fa0a1eb590d99b48e737794352625848f3d3dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a52d85e39da280b182eccb009d8df413f43f9c80
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533996"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967521"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copiar datos de Drill con Azure Data Factory (versión preliminar)
 
@@ -31,6 +31,10 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 Puede copiar datos de Drill en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 
@@ -46,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Drill:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Drill** | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Drill. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 
@@ -107,7 +111,7 @@ Para copiar datos de Drill, establezca la propiedad type del conjunto de datos e
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **DrillTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **DrillTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -136,7 +140,7 @@ Para copiar datos de Drill, establezca el tipo de origen de la actividad de copi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **DrillSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **DrillSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
