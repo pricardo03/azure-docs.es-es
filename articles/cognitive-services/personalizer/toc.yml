@@ -53,14 +53,6 @@
           href: concept-feature-evaluation.md
     - name: Escalabilidad y rendimiento
       href: concepts-scalability-performance.md
-- name: Demostraciones
-  items:
-    - name: Sitio web de contenido de noticias
-      href: 'https://personalizerdemo-staging.azurewebsites.net/'
-    - name: Sitio web de contenido de compras
-      href: 'http://personalizer-traveldemo.azurewebsites.net/'
-    - name: Código de ejemplo para demostraciones
-      href: 'https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/demos'
 - name: Guías de procedimientos
   items:
     - name: Creación y configuración de Personalizer
