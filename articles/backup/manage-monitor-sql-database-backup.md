@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827563"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019033"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -92,9 +92,9 @@ Para detener la protección de una base de datos:
 
 > [!NOTE]
 >
-Consulte las siguientes preguntas frecuentes para obtener más información sobre la opción de eliminación de datos:
-* [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
-* [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>Para más información sobre la opción de eliminación de datos, consulte las preguntas más frecuentes a continuación:
+>* [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>* [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
@@ -145,7 +145,7 @@ Anule el registro de una instancia de SQL Server después de deshabilitar la pro
 
 A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación **Volver a registrar** vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar.  <br>
 
-Se recomienda usar esta opción con precaución; cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
+Use esta opción con precaución; cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,7 +3,7 @@ title: Códigos de error de informes de actividad de inicio de sesión en el por
 description: Referencia sobre los códigos de error de los informes de actividad de inicio de sesión.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
-ms.author: markvi
+ms.date: 08/08/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377278"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989594"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -127,6 +127,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50177|No se admite el desafío externo para los usuarios con acceso directo.|
 |50178|No se admite el control de sesión para los usuarios con acceso directo.|
 |50180|Se necesita la autenticación integrada de Windows. Habilite el inquilino para un inicio de sesión único de conexión directa.|
+|50201|La interrupción de este mensaje se mostrará al usuario durante el inicio de sesión cuando se debe proporcionar información adicional al usuario.|
 |51001|La sugerencia de dominio no está presente con el identificador de seguridad local: UPN local.|
 |51004|La cuenta de usuario no existe en el directorio.|
 |51006|Se necesita la autenticación integrada de Windows. El usuario ha iniciado sesión mediante un token de sesión que falta en la notificación. Solicite al usuario que vuelva a iniciar sesión.|
@@ -181,6 +182,9 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |500121| Error de autenticación durante la solicitud de autenticación sólida.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
 |530021|La aplicación no cumple los requisitos de aplicación aprobada para el acceso condicional.|
+|530032|Bloqueado por una directiva de seguridad.| 
+|700016|La aplicación con identificador "{appIdentifier}" no se encontró en el directorio "{tenantName}". Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
+|900432|El cliente confidencial no se admite en una solicitud entre nubes.|
 |7000218|El cuerpo de la solicitud debe contener el siguiente parámetro: "client_assertion" o "client_secret".|
 
 

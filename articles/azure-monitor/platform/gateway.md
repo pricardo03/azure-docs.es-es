@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d735a3740b473806835f2e80f40cea02b48387e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396434"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955108"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -28,7 +28,7 @@ ms.locfileid: "60396434"
 
 Este artículo describe cómo configurar la comunicación con Azure Automation y Azure Monitor mediante la puerta de enlace de Log Analytics cuando los equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet. 
 
-La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace puede recopilar datos y enviarlos a Azure Automation y a un área de trabajo de Log Analytics en Azure Monitor en nombre de los equipos que no están conectados a Internet.  
+La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace envía datos a Azure Automation y a un área de trabajo de Log Analytics en Azure Monitor en nombre de los equipos que no pueden conectarse a Internet. No almacena en caché los datos de los agentes, el agente controla los datos de almacenamiento en caché en esta situación hasta que se restaure la comunicación.
 
 La puerta de enlace de Log Analytics admite lo siguiente:
 
@@ -43,7 +43,7 @@ La puerta de enlace de Log Analytics transfiere datos desde los agentes al servi
 
 Cuando un grupo de administración de Operations Manager se integra en Log Analytics, se pueden configurar los servidores de administración para que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado.  Los agentes de Operations Manager envían algunos datos al servidor de administración. Por ejemplo, los agentes pueden enviar alertas de Operations Manager, datos de evaluación de configuración, datos del espacio de instancia y datos de capacidad. Otros datos de gran volumen, como registros, datos de rendimiento y eventos de seguridad de Internet Information Services (IIS), se envían directamente a la puerta de enlace de Log Analytics. 
 
-Si ha implementado uno o más servidores de puerta de enlace de Operations Manager para supervisar sistemas no confiables en una red perimetral o una red aislada, dichos servidores no se podrán comunicar con la puerta de enlace de Log Analytics.  Los servidores de puerta de enlace de Operations Manager solo pueden informar a un servidor de administración.  Cuando se configura un grupo de administración de Operations Manager para comunicarse con la puerta de enlace de Log Analytics, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados por agente y configurados para recopilar datos de registro para Azure Monitor, incluso si la configuración está vacía.    
+Si ha implementado uno o más servidores de puerta de enlace de Operations Manager para supervisar sistemas no confiables en una red perimetral o una red aislada, dichos servidores no se podrán comunicar con la puerta de enlace de Log Analytics.  Los servidores de puerta de enlace de Operations Manager solo pueden informar a un servidor de administración.  Cuando se configura un grupo de administración de Operations Manager para comunicarse con la puerta de enlace de Log Analytics, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados por agente y configurados para recopilar datos de registro para Azure Monitor, incluso si la configuración está vacía.
 
 Para proporcionar alta disponibilidad a grupos directamente conectados o grupos de Operations Management que se comunican con un área de trabajo de Log Analytics mediante la puerta de enlace, use el equilibrio de carga de red (NLB) para redirigir y distribuir el tráfico entre varios servidores de puerta de enlace. De esa forma, si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otro nodo disponible.  
 
@@ -93,11 +93,13 @@ La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 - Español (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de cifrado admitidos
+
 La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de datos en tránsito en Log Analytics, configure la puerta de enlace para que use como mínimo TLS 1.2. Las versiones anteriores de TLS o SSL son vulnerables. Aunque permiten actualmente compatibilidad con versiones anteriores, evite su uso.  
 
 Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
+
 En la tabla siguiente se muestra aproximadamente cuántos agentes pueden comunicarse con un servidor de puerta de enlace. La compatibilidad se basa en los agentes que cargan aproximadamente 200 KB de datos cada 6 segundos. El volumen de datos por agente de prueba es de unos 2,7 GB por día.
 
 |Puerta de enlace |Agentes compatibles (aproximado)|  
@@ -153,8 +155,8 @@ Para instalar una puerta de enlace mediante el asistente para la instalación, s
    ![Captura de pantalla de los servicios locales, que muestra que la puerta de enlace de OMS se está ejecutando](./media/gateway/gateway-service.png)
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalación de la puerta de enlace de Log Analytics mediante la línea de comandos
-El archivo descargado para la puerta de enlace es un paquete de Windows Installer que admite la instalación silenciosa desde la línea de comandos u otro método automatizado. Si no está familiarizado con las opciones de línea de comandos estándar de Windows Installer, consulte [Opciones de línea de comandos](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
-
+El archivo descargado para la puerta de enlace es un paquete de Windows Installer que admite la instalación silenciosa desde la línea de comandos u otro método automatizado. Si no está familiarizado con las opciones de línea de comandos estándar de Windows Installer, consulte [Opciones de línea de comandos](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+ 
 En la tabla siguiente se resaltan los parámetros admitidos por el programa de instalación.
 
 |Parámetros| Notas|
@@ -233,6 +235,7 @@ Después de completar la configuración, reinicie el servicio de puerta de enlac
 Para obtener información relacionada con Hybrid Runbook Worker de Automation, consulte [Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager-where-all-agents-use-the-same-proxy-server"></a>Configuración de Operations Manager: todos los agentes usan el mismo servidor proxy
+
 La configuración de proxy de Operations Manager se aplica automáticamente a todos los agentes que informan a Operations Manager, incluso si la configuración está vacía.  
 
 Si desea utilizar la puerta de enlace de OMS para que sea compatible con Operations Manager, debe tener:
@@ -271,6 +274,7 @@ Después de completar la integración con Log Analytics, quite el cambio ejecuta
 1. Seleccione **Finalizar**. El grupo de administración de Operations Manager está ahora configurado para comunicarse mediante el servidor de puerta de enlace con el servicio Log Analytics.
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Configuración de Operations Manager: determinados agentes usan un servidor proxy
+
 En entornos grandes o complejos, puede que solo quiera tener determinados servidores (o grupos) que usen el servidor de puerta de enlace de Log Analytics.  En estos servidores, no se puede actualizar el agente Operations Manager directamente, ya que el valor global para el grupo de administración sobrescribe este valor.  En su lugar, invalide la regla utilizada para insertar estos valores.  
 
 > [!NOTE] 
@@ -295,6 +299,7 @@ Para configurar servidores o grupos específicos que utilicen el servidor de pue
 1. Cuando termine, seleccione **Aceptar**. 
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>Configuración de Hybrid Runbook Workers de Automation
+
 Si tiene Hybrid Runbook Workers de Automation en su entorno, siga los pasos siguientes de soluciones temporales manuales para configurar la puerta de enlace de OMS para que sea compatible con los trabajos.
 
 Para seguir los pasos de esta sección, es preciso saber en qué región de Azure reside la cuenta de Automation. Para buscar la ubicación:
@@ -351,6 +356,7 @@ Si el equipo está incorporado en Azure Automation mediante el cmdlet de registr
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Cmdlets de PowerShell útiles
+
 Puede usar cmdlets para completar las tareas necesarias para actualizar las opciones de configuración de la puerta de enlace de Log Analytics. Para poder usar cmdlets, asegúrese de lo siguiente:
 
 1. Instale la puerta de enlace de Log Analytics (Microsoft Windows Installer).
@@ -375,6 +381,7 @@ Un error en el paso 3 implica que el módulo no se ha importado. Este error podr
 | `Get-OMSGatewayAllowedClientCertificate` | |Obtiene los asuntos de certificado de cliente permitidos actualmente (solo los asuntos permitidos configurados localmente, no los asuntos permitidos que se descargan automáticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>solución de problemas
+
 Para recopilar eventos registrados por la puerta de enlace, debe tener instalado el agente de Log Analytics.
 
 ![Captura de pantalla de la lista de Visor de eventos en el registro de puerta de enlace de Log Analytics](./media/gateway/event-viewer.png)
@@ -413,10 +420,12 @@ En la tabla siguiente, se muestran los contadores de rendimiento disponibles par
 ![Captura de pantalla de la interfaz de puerta de enlace de Log Analytics, que muestra los contadores de rendimiento](./media/gateway/counters.png)
 
 ## <a name="assistance"></a>Asistencia
+
 Después de iniciar sesión en Azure Portal, puede obtener ayuda con la puerta de enlace de Log Analytics o con cualquier otro servicio o característica de Azure.
 Para solicitar asistencia, seleccione el icono de signo de interrogación en la esquina superior derecha del portal y seleccione **Nueva solicitud de soporte técnico**. A continuación, complete el formulario de solicitud de soporte técnico nuevo.
 
 ![Captura de pantalla de una nueva solicitud de soporte técnico](./media/gateway/support.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Agregue orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) para recopilar datos de los orígenes conectados y almacenar los datos en el área de trabajo de Log Analytics.

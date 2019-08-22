@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75341fa2df6972dbf05542577d56ab35315919e6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304646"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989248"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
 
@@ -42,7 +42,14 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 
 ## <a name="import-a-watcher-runbook"></a>Importar un runbook de monitor
 
-Este tutorial usa un runbook de monitor denominado **Watch-NewFile** para buscar nuevos archivos en un directorio. El runbook de monitor recupera la última hora de escritura conocida en los archivos de una carpeta y examina los archivos más recientes que esa marca de agua. En este paso, importe este runbook en la cuenta de Automation.
+Este tutorial usa un runbook de monitor denominado **Watch-NewFile** para buscar nuevos archivos en un directorio. El runbook de monitor recupera la última hora de escritura conocida en los archivos de una carpeta y examina los archivos más recientes que esa marca de agua.
+
+Este proceso de importación se puede realizar a través de la [Galería de PowerShell](https://www.powershellgallery.com).
+
+1. Vaya a la página de la galería para [Watch-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
+2. En la pestaña **Azure Automation**, haga clic en **Implementar en Azure Automation**.
+
+También puede importar este runbook a su cuenta de Automation desde el portal mediante los pasos siguientes.
 
 1. Abra la cuenta de Automation y haga clic en la página **Runbooks**.
 2. Haga clic en el botón **Examinar galería**.
@@ -62,7 +69,14 @@ Se usa una [variable de Automation](automation-variables.md) para almacenar las 
 
 ## <a name="create-an-action-runbook"></a>Crear un runbook de acción
 
-Un runbook de acción se usa en una tarea de monitor para actuar sobre los datos transferidos a él desde un runbook de monitor. Los runbooks de flujo de trabajo de PowerShell no son compatibles con las tareas de monitor, debe usar runbooks de PowerShell. En este paso, va a actualizar la importación de un runbook de acción predefinido denominado "Process-NewFile".
+Un runbook de acción se usa en una tarea de monitor para actuar sobre los datos transferidos a él desde un runbook de monitor. Los runbooks de flujo de trabajo de PowerShell no son compatibles con las tareas de monitor, debe usar runbooks de PowerShell. Debe importar un runbook de acción predefinido denominado **Process-NewFile**.
+
+Este proceso de importación se puede realizar a través de la [Galería de PowerShell](https://www.powershellgallery.com).
+
+1. Vaya a la página de la galería para [Process-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
+2. En la pestaña **Azure Automation**, haga clic en **Implementar en Azure Automation**.
+
+También puede importar este runbook a su cuenta de Automation desde el portal mediante los pasos siguientes.
 
 1. Vaya a la cuenta de Automation y seleccione **Runbooks** en la categoría **AUTOMATIZACIÓN DE PROCESOS**.
 1. Haga clic en el botón **Examinar galería**.
@@ -92,7 +106,7 @@ La tarea de monitor consta de dos partes. El monitor y la acción. El monitor se
 1. Seleccione **Configurar acción** y el runbook "Process-NewFile".
 1. Escriba los siguientes valores para los parámetros:
 
-   * **EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.  
+   * **EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.
    * **Run Settings**: déjelo como Azure porque este runbook se ejecuta en el servicio Automation.
 
 1. Haga clic en **Aceptar** y, después, seleccione esta opción para volver a la página de monitor.
@@ -105,7 +119,7 @@ La tarea de monitor consta de dos partes. El monitor y la acción. El monitor se
 Para probar si el monitor función según lo previsto, debe crear un archivo de prueba.
 
 Remoto en Hybrid Worker. Abra **PowerShell** y cree un archivo de prueba en la carpeta.
-  
+
 ```azurepowerShell-interactive
 New-Item -Name ExampleFile1.txt
 ```

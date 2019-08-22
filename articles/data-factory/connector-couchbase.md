@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c3cd734380e2a3e3fbf35439ff807738c549a086
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a59b36fbbde2bf0941ee61f523555824d28a7a98
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726145"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967016"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar datos de Couchbase con Azure Data Factory (versión preliminar)
 
@@ -31,6 +31,10 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 Puede copiar datos de Couchbase en cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 
@@ -46,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Couchbas
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Couchbase** | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Couchbase. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la cadena de credenciales en Azure Key Vault y extraer la configuración `credString` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 

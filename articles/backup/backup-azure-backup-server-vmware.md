@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ae21e2bf71789d0b0dd19e3dd7a65ad10fae241
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639941"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018965"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -102,10 +102,10 @@ Configure un canal seguro como sigue:
 
 ### <a name="disable-https-certificate-validation"></a>Deshabilitación de la validación de certificados HTTPS
 
-Si su organización tiene límites de seguridad y no desea usar el protocolo HTTPS entre los servidores de VMware y la máquina de Azure Backup Server, deshabilite HTTPS como sigue:
+Si su organización tiene límites de seguridad y no desea usar el protocolo HTTPS entre los servidores de VMware y la máquina de Azure Backup Server, deshabilite HTTPS como sigue: 
 1. Copie y pegue el texto siguiente en el archivo .txt.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -221,7 +221,7 @@ En la pestaña **Administrar** del panel **Permisos globales**, la nueva cuenta 
 
     ![Cuadro de diálogo Administrar credenciales de Azure Backup Server](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. En **Add Credential** (Agregar credenciales), escriba un nombre y una descripción y especifique el nombre de usuario y la contraseña que se definieron en el servidor de VMware. El nombre, *Contoso Vcenter credential*, sirve para identificar las credenciales en este procedimiento. Si el servidor de VMware y Azure Backup Server no están en el mismo dominio, especifique el dominio en el nombre de usuario.
+4. En **Agregar credencial**, escriba un nombre y una descripción y especifique el nombre de usuario y la contraseña que se definieron en el servidor de VMware. El nombre, *Contoso Vcenter credential*, sirve para identificar las credenciales en este procedimiento. Si el servidor de VMware y Azure Backup Server no están en el mismo dominio, especifique el dominio en el nombre de usuario.
 
     ![Cuadro de diálogo Agregar credenciales de Azure Backup Server](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -286,10 +286,10 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 
 1. En la página **Seleccionar tipo de grupo de protección**, seleccione **Servidores** y, después, haga clic en **Siguiente**. Se muestra la página **Seleccionar miembros del grupo**.
 
-1. En **Select group members** (Seleccionar miembros del grupo) > seleccione las máquinas virtuales (o carpetas de la máquina virtual) de las que desea realizar copias de seguridad. A continuación, haga clic en **Siguiente**.
+1. En **Seleccionar miembros del grupo** > seleccione las máquinas virtuales (o carpetas de la máquina virtual) de las que desea realizar copias de seguridad. A continuación, haga clic en **Siguiente**.
 
     - Al seleccionar una carpeta, las máquinas virtuales o carpetas dentro de esa carpeta también se seleccionan para la copia de seguridad. Puede desactivar las carpetas o máquinas virtuales de las que no desee copia de seguridad.
-1. Si ya se está realizando la copia de seguridad de una máquina virtual o carpeta, estas no se pueden seleccionar. De este moro se garantiza que no se crean puntos de recuperación duplicados para una máquina virtual. .
+1. Si ya se está realizando la copia de seguridad de una máquina virtual o carpeta, estas no se pueden seleccionar. De este moro se garantiza que no se crean puntos de recuperación duplicados para una máquina virtual.
 
      ![Seleccionar a miembros del grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -301,7 +301,7 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 1. En **Specify Short-Term Goals** (Especificar objetivos a corto plazo), especifique cuánto tiempo desea mantener la copia de seguridad de los datos en el disco.
    - En **Retention Range** (Duración de retención), especifique cuántos días deben mantenerse los puntos de recuperación de disco.
    - En **Synchronization frequency** (Frecuencia de sincronización), especifique con qué frecuencia se crearán los puntos de recuperación de disco.
-       - Si no desea establecer un intervalo de copia de seguridad puede marcar **Just before a recovery point** (Solo antes de un punto de recuperación) para que se ejecute una copia de seguridad solo antes de la creación de cada punto de recuperación.
+       - Si no desea establecer un intervalo de copia de seguridad, puede marcar **Solo antes de un punto de recuperación** para que se ejecute una copia de seguridad solo antes de la creación de cada punto de recuperación.
        - Las copias de seguridad a corto plazo son copias de seguridad completas y no incrementales.
        - Haga clic en **Modify** (Modificar) para cambiar las fechas/horas con las copias de seguridad a corto plazo.
 

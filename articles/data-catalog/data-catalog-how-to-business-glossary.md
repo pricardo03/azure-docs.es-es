@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736407"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976787"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configuración del glosario empresarial para el etiquetado regulado
 
@@ -36,11 +36,11 @@ El glosario empresarial solo está disponible en la Edición Estándar de Azure 
 
 Para acceder al glosario empresarial, es preciso usar la opción **Glosario** del menú de navegación del portal de Data Catalog.  
 
-![Acceso al glosario empresarial](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Data Catalog: Acceso al glosario empresarial](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Los administradores de Data Catalog y los miembros del rol de administradores de glosario pueden crear, editar y eliminar términos en el glosario empresarial. Todos los usuarios de Data Catalog pueden ver las definiciones de términos y etiquetar los recursos con los términos del glosario.
 
-![Adición de nuevo término de glosario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Data Catalog: Adición de un nuevo término al glosario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Creación de términos de glosario
 

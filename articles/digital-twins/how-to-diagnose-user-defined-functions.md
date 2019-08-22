@@ -6,15 +6,15 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/12/2019
 ms.author: stegaw
 ms.custom: seodec18
-ms.openlocfilehash: 577467a6322b7f6d3cd7f199d80963f2f1a98ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849322"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014173"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -45,7 +45,7 @@ Para hacer un seguimiento de la telemetría del sensor, verifique que la configu
 
 Para hacer coincidir un mensaje de telemetría de sensor con sus registros correspondientes, puede especificar un identificador de correlación en los datos del evento que se envían. Para ello, establezca la propiedad `x-ms-client-request-id` en un GUID.
 
-Después de enviar los datos de telemetría, abra los análisis de registros para consultar los registros mediante el identificador de correlación establecido:
+Después de enviar la telemetría, abra el análisis de registros de Azure Monitor para consultar los registros con el identificador de correlación configurado:
 
 ```Kusto
 AzureDiagnostics

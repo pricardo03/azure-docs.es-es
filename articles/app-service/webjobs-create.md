@@ -2,26 +2,22 @@
 title: 'Ejecución de tareas en segundo plano con WebJobs: Azure App Service'
 description: Obtenga información sobre cómo usar WebJobs para ejecutar tareas en segundo plano en aplicaciones web, aplicaciones de API o aplicaciones móviles de Azure App Service.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736592"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945805"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -165,7 +161,7 @@ when making changes in one don't forget the other two.
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
    | **Escriba** | Desencadenado | Los [tipos de WebJob](#webjob-types) aparecen descritos anteriormente en este artículo. |
    | **Desencadenadores** | Programado | Para que la programación funcione de manera confiable, habilite la característica AlwaysOn. AlwaysOn solo está disponible en los planes de tarifa Básico, Estándar y Premium.|
-   | **Expresión CRON** | 0 0/20 * * * * | Las [expresiones CRON](#cron-expressions) se describen en la sección siguiente. |
+   | **Expresión CRON** | 0 0/20 * * * * | Las [expresiones CRON](#ncrontab-expressions) se describen en la sección siguiente. |
 
 4. Haga clic en **OK**.
 
@@ -173,9 +169,9 @@ when making changes in one don't forget the other two.
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>Expresiones CRON
+## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB
 
-Puede especificar una [expresión CRON](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) en el portal o incluir un archivo `settings.job` en la raíz del archivo *.zip* de WebJob, como en el ejemplo siguiente:
+Puede especificar una [expresión NCRONRAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) en el portal o incluir un archivo `settings.job` en la raíz del archivo *.zip* de WebJob, como en el ejemplo siguiente:
 
 ```json
 {

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85783339c7d1348f598f924f14d9b40cd0c8cd22
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60869841"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967179"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios con Azure Active Directory
 
@@ -44,8 +44,7 @@ Para configurar la integración de Azure AD con ServiceNow, necesita los siguien
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
-
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="assigning-users-to-servicenow"></a>Asignación de usuarios a ServiceNow
 
@@ -57,6 +56,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 > [!IMPORTANT]
 >*   Se recomienda asignar un único usuario de Azure AD a ServiceNow para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 >*   Al asignar a un usuario a ServiceNow, debe seleccionar un rol de usuario válido. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
+>*   Para obtener más información sobre cómo crear y configurar roles en Azure AD, consulte este [vínculo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)
 
 ## <a name="enable-automated-user-provisioning"></a>Habilitación del aprovisionamiento automático de usuarios
 

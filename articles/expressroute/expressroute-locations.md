@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 721f4038090021c526a8878f15c07874074effd5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 09d15702d61d9ef6204ce8e48f6a1d9d108995a3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725943"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036263"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -93,7 +93,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **CDC** | Compatible | Compatible | Canberra, Canberra 2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Compatible |Compatible |Ámsterdam2, Chicago, Hong Kong, Las Vegas, Nueva York, París, San Antonio, Silicon Valley, Tokio, Toronto, Washington DC |
 | **Chief Telecom** |Compatible |Compatible |Hong Kong, Taipéi |
-| **China Telecom Global** |Compatible |No compatible |RAE de Hong Kong |
+| **China Telecom Global** |Compatible |Compatible |RAE de Hong Kong |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Compatible |Compatible |Chicago, Dallas, Montreal, Toronto, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Compatible |Compatible |Ámsterdam, Dublín, Londres, Newport, Osaka, París, Singapur2, Tokio |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
@@ -110,7 +110,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **GÉANT** |Compatible |Compatible |Ámsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Compatible| Compatible | Chennai, Mumbai |
 | **[InterCloud](https://www.intercloud.com/)** |Compatible |Compatible |Ámsterdam, Chicago, Londres, Nueva York, París, Silicon Valley, Singapur, Washington DC, Zúrich |
-| **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Compatible |Compatible |Chicago, Dallas, Washington DC |
+| **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Compatible |Compatible |Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Compatible |Compatible |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Compatible |Compatible |Ciudad del Cabo, Johannesburgo, Londres |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Londres, Marsella, París, Zúrich |
@@ -123,7 +123,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Londres, Newport (Gales), Sao Paulo, Seattle, Silicon Valley, Singapur y Washington DC |
 | **LG CNS** |Compatible |Compatible |Busan, Seúl |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Compatible |Compatible |Ciudad del cabo, Johannesburgo |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dublín, RAE de Hong Kong, Las Vegas, Londres, Los Ángeles, Melbourne, Miami, Nueva York, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapur, Singapur2, Sídney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dublín, RAE de Hong Kong, Las Vegas, Londres, Los Ángeles, Melbourne, Miami, Montreal, Nueva York, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapur, Singapur2, Sídney, Toronto, Washington DC |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Compatible |Compatible |Londres |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Compatible |Compatible |Dallas, Los Ángeles, Miami, Sao Paulo, Washington DC |
 | **[Datos de última generación](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Compatible |Compatible |Newport (Gales) |
@@ -132,7 +132,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Compatible |Compatible |Tokio |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Compatible |Compatible |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Compatible |Compatible |Melbourne, Sidney |
-| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Compatible |Compatible |Ámsterdam, RAE de Hong Kong, Londres, París, Sao Paulo, Silicon Valley, Singapur, Sídney, Tokio, Washington DC |
+| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Compatible |Compatible |Ámsterdam, Fráncfort, RAE de Hong Kong, Johannesburgo, Londres, París, Sao Paulo, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Compatible | Compatible | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, RAE de Hong Kong, Londres |

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792019"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899986"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) en Azure Portal
 
@@ -116,14 +116,14 @@ Hasta ahora, las consultas que hemos realizado solo han utilizado github\_events
 Si incorporamos `user_id`, Hiperescala puede insertar la ejecución conjunta en particiones para su ejecución en paralelo en nodos de trabajo. Por ejemplo, vamos a buscar los usuarios que hayan creado el mayor número de repositorios:
 
 ```sql
-SELECT login, count(*)
-FROM github_events ge
-JOIN github_users gu
-ON ge.user_id = gu.user_id
-WHERE event_type = 'CreateEvent' AND
-      payload @> '{"ref_type": "repository"}'
-GROUP BY login
-ORDER BY count(*) DESC;
+SELECT gu.login, count(*)
+  FROM github_events ge
+  JOIN github_users gu
+    ON ge.user_id = gu.user_id
+ WHERE ge.event_type = 'CreateEvent'
+   AND ge.payload @> '{"ref_type": "repository"}'
+ GROUP BY gu.login
+ ORDER BY count(*) DESC;
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

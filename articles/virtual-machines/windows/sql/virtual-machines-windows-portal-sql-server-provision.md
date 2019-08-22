@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774291"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900386"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -122,7 +122,7 @@ En la pestaña **Discos**, configure las opciones de disco.
 * En **Avanzado**, seleccione **Sí** en uso de **Managed Disks**.
 
    > [!NOTE]
-   > Microsoft recomienda el uso de Managed Disks para SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks][../managed-disks-overview.md). Para obtener información específica acerca de discos administrados en un conjunto de disponibilidad, consulte [Uso de discos administrados en las máquinas virtuales de un conjunto de disponibilidad](../manage-availability.md.
+   > Microsoft recomienda el uso de Managed Disks para SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks][../managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../manage-availability.md).
 
 ![Configuración de disco de máquina virtual SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

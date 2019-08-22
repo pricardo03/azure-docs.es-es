@@ -8,22 +8,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c090d9a864bfb5218836627a5579cd3089387af8
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002722"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013904"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
+## <a name="overview"></a>Información general
+
 La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La entrega continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o producción.
 
-En Azure Data Factory, la integración y la entrega continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la integración y la entrega continuas, puede usar la integración de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager al seleccionar las opciones de la **plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
+En Azure Data Factory, la integración y la entrega continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la integración y la entrega continuas, puede usar la integración de la experiencia de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La experiencia de la interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager en la lista desplegable **Plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
 
 Si desea ver una introducción y una demostración de esta característica, vea el siguiente vídeo de nueve minutos de duración:
 
@@ -31,102 +33,112 @@ Si desea ver una introducción y una demostración de esta característica, vea 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de la integración continua
+
+A continuación se muestra una descripción general de ejemplo del ciclo de vida de la integración y entrega continuas en una factoría de datos de Azure configurada con Git de Azure Repos. Para más información sobre cómo configurar un repositorio Git, vea [Control de código fuente en Azure Data Factory](source-control.md).
+
+1.  Se crea una factoría de datos de desarrollo y se configura con Azure Repos Git, donde todos los desarrolladores tienen permiso para crear recursos de Data Factory, como canalizaciones y conjuntos de datos.
+
+1.  A medida que los desarrolladores realizan cambios en su rama de características, depuran las ejecuciones de la canalización con sus cambios más recientes. Para más información sobre cómo depurar una ejecución de canalización, consulte [Desarrollo y depuración iterativos con Azure Data Factory](iterative-development-debugging.md).
+
+1.  Una vez que los desarrolladores hayan realizado todos los cambios necesarios, crean una solicitud de incorporación de cambios de su rama de características a la rama maestra o rama de colaboración para que otros equipos del mismo nivel revisen sus cambios.
+
+1.  Una vez que la solicitud de incorporación de cambios se ha aprobado y los cambios se han combinado en la rama maestra, pueden publicar en la factoría de desarrollo.
+
+1.  Cuando el equipo está listo para implementar los cambios en la factoría de pruebas y después en la factoría de producción, exportan la plantilla de Resource Manager desde la rama maestra.
+
+1.  La plantilla de Resource Manager exportada se implementa con archivos de parámetros distintos en la factoría de pruebas y la de producción.
+
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Creación de una plantilla de Resource Manager para cada entorno
-Seleccione **Export ARM template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
+
+En la lista desplegable **Plantilla de ARM**, seleccione **Export ARM template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-A continuación, vaya a la factoría de datos de prueba y la factoría de datos de producción y seleccione **Import ARM template** (Importar plantilla de ARM).
+En las factorías de datos de prueba y de producción, seleccione **Import ARM template** (Importar plantilla de ARM). Esta acción abrirá Azure Portal, donde puede importar la plantilla exportada. Seleccione **Cree su propia plantilla en el editor** para abrir el editor de plantillas de Resource Manager.
 
-![](media/continuous-integration-deployment/continuous-integration-image2.png)
+![](media/continuous-integration-deployment/continuous-integration-image3.png) 
 
-Esta acción abrirá Azure Portal, donde puede importar la plantilla exportada. Seleccione **Cree su propia plantilla en el editor** y, a continuación, **cargue el archivo** y seleccione la plantilla de Resource Manager. Defina la configuración, tras lo que se importará la factoría de datos y la canalización completa en el entorno de producción.
-
-![](media/continuous-integration-deployment/continuous-integration-image3.png)
+Haga clic en **Cargar archivo** y seleccione la plantilla de Resource Manager generada.
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Seleccione **Cargar archivo** para seleccionar la plantilla de Resource Manager exportada y proporcione todos los valores de configuración (por ejemplo, los servicios vinculados).
+En el panel de configuración, escriba los valores de configuración, como las credenciales del servicio vinculado. Cuando haya terminado, haga clic en **Comprar** para implementar la plantilla de Resource Manager.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Cadenas de conexión**. Puede encontrar la información necesaria para crear cadenas de conexión en los artículos sobre los conectores individuales. Por ejemplo, para Azure SQL Database, consulte [Copia de datos con una base de datos de Azure SQL como origen o destino mediante Azure Data Factory](connector-azure-sql-database.md). Para comprobar la cadena de conexión correcta, por ejemplo, para un servicio vinculado, también puede abrir la vista de código para el recurso en la interfaz de usuario de Data Factory. En la vista de código, sin embargo, la parte de contraseña o clave de cuenta de la cadena de conexión se ha quitado. Para abrir la vista de código, seleccione el icono resaltado en la captura de pantalla siguiente.
+### <a name="connection-strings"></a>Cadenas de conexión
+
+Puede encontrar información sobre cómo configurar las cadenas de conexión en cada artículo del conector. Por ejemplo, para Azure SQL Database, consulte [Copia de datos con una base de datos de Azure SQL como origen o destino mediante Azure Data Factory](connector-azure-sql-database.md). Para comprobar una cadena de conexión, puede abrir la vista de código para el recurso en la experiencia de la interfaz de usuario de Data Factory. En la vista de código, la parte de contraseña o clave de cuenta de la cadena de conexión se ha quitado. Para abrir la vista de código, seleccione el icono resaltado en la captura de pantalla siguiente.
 
 ![Apertura de la vista de código para ver la cadena de conexión](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
-## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de la integración continua
-Este es el ciclo de vida completo de la integración y la entrega continuas que puede usar después de habilitar la integración de GIT de Azure Repos en la interfaz de usuario de Data Factory:
-
-1.  Configure una factoría de datos de desarrollo con Azure Repos en la que todos los desarrolladores puedan crear recursos de Data Factory, como canalizaciones, conjuntos de datos, etc.
-
-1.  A continuación, los desarrolladores podrán modificar recursos, como las canalizaciones. A medida que realicen modificaciones, podrán seleccionar **Depurar** para ver cómo se ejecuta la canalización con los cambios más recientes.
-
-1.  Cuando los desarrolladores hayan realizado todos los cambios necesarios, pueden crear una solicitud de incorporación de cambios de su rama a la rama master (o la rama de colaboración) para que otros equipos del mismo nivel revisen sus cambios.
-
-1.  Una vez que los cambios se encuentren en la rama master, puede publicar en la factoría de desarrollo seleccionando **Publicar**.
-
-1.  Cuando el equipo esté listo para promocionar los cambios a la factoría de pruebas y la de producción, podrán exportar la plantilla de Resource Manager desde la rama master o desde cualquier otra rama en caso de que la rama master respalde la instancia de desarrollo de Data Factory activa.
-
-1.  La plantilla de Resource Manager exportada se puede implementar con archivos de parámetros distintos en la factoría de pruebas y la de producción.
-
 ## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatización de la integración continua con versiones de Azure Pipelines
 
-Estos son los pasos para configurar una versión de Azure Pipelines para que pueda automatizar la implementación de una factoría de datos en varios entornos.
+A continuación se presenta una guía para configurar una versión de Azure Pipelines, que automatiza la implementación de una factoría de datos en varios entornos.
 
 ![Diagrama de integración continua con Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Una suscripción a Azure vinculada a Team Foundation Server o Azure Repos que use el  [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Una suscripción a Azure vinculada a Team Foundation Server o Azure Repos que use el  [punto de conexión de servicio de Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Una factoría de datos que tenga configurada la integración de GIT de Azure Repos.
+-   Una instancia de Data Factory que tenga configurada la integración de Git de Azure Repos.
 
--   Una instancia de  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)  que contenga los secretos.
+-   Una instancia de  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contenga los secretos para cada entorno.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configuración de una versión de Azure Pipelines
 
-1.  Vaya a la página de Azure Repos en el mismo proyecto que el configurado con Data Factory.
+1.  En la [experiencia del usuario de Azure DevOps](https://dev.azure.com/), abra el proyecto configurado con Data Factory.
 
-1.  Haga clic en el menú superior **Azure Pipelines** &gt; **Releases** (Versiones) &gt; **Create release definition** (Crear definición de versión).
+1.  En el lado izquierdo de la página, haga clic en **Canalizaciones** y seleccione **Versiones**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Seleccione la plantilla **Proceso vacío**.
+1.  Seleccione **Nueva canalización** o, si tiene canalizaciones existentes, **Nueva** y, luego **Nueva canalización de versión**.
 
-1.  Escriba el nombre del entorno.
+1.  Seleccione la plantilla **Fase vacía**.
 
-1.  Añada un artefacto Git y seleccione el mismo repositorio configurado con la instancia de Data Factory. Seleccione `adf_publish` como rama predeterminada con la versión predeterminada más reciente.
+    ![](media/continuous-integration-deployment/continuous-integration-image13.png)
+
+1.  En el campo **Nombre de la fase**, escriba el nombre del entorno.
+
+1.  Seleccione **Agregar un artefacto** y seleccione el mismo repositorio configurado con la instancia de Data Factory. Seleccione `adf_publish` como rama predeterminada con la versión predeterminada más reciente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Añada una tarea de implementación de Azure Resource Manager:
 
-    a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
+    a.  En la vista de fase, haga clic en el vínculo **Ver tareas de la fase**.
 
-    b.  En la tarea de implementación, elija la suscripción, el grupo de recursos y la ubicación de la instancia de Data Factory de destino y proporcione las credenciales si es necesario.
+    ![](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    c.  Seleccione la acción **Creación o actualización del grupo de recursos**.
+    b.  Cree una nueva tarea. Busque **Implementación de un grupo de recursos de Azure** y haga clic en **Agregar**.
 
-    d.  Seleccione **…** en el campo **Plantilla**. Busque la plantilla de Resource Manager (*ARMTemplateForFactory.json*) creada por la acción de publicación en el portal. Busque este archivo en la carpeta `<FactoryName>` de la rama `adf_publish`.
+    c.  En la tarea de implementación, elija la suscripción, el grupo de recursos y la ubicación de la instancia de Data Factory de destino y proporcione las credenciales si es necesario.
 
-    e.  Haga lo mismo para el archivo de parámetros. Seleccione el archivo correcto en función de si ha creado una copia o si está usando el archivo predeterminado *ARMTemplateParametersForFactory.json*.
+    d.  En la lista desplegable de acciones, seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
 
-    f.  Seleccione **…** junto al campo **Reemplazar parámetros de plantilla** y rellene la información de la instancia de Data Factory de destino. Para las credenciales que proceden del almacén de claves, use el mismo nombre para el secreto con el siguiente formato: suponiendo que el nombre del secreto sea `cred1`, escriba `"$(cred1)"` (entre comillas).
+    e.  Seleccione **…** en el campo **Plantilla**. Busque la plantilla de Azure Resource Manager creada mediante el paso **Import ARM template** (Importar plantilla de ARM) de la sección [Creación de una plantilla de Resource Manager para cada entorno](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Busque este archivo en la carpeta `<FactoryName>` de la rama `adf_publish`.
+
+    f.  Seleccione **…** en el campo **Parámetros de la plantilla**. para elegir el archivo de parámetros. Seleccione el archivo correcto en función de si ha creado una copia o si está usando el archivo predeterminado *ARMTemplateParametersForFactory.json*.
+
+    g.  Seleccione **…** junto al campo **Reemplazar parámetros de plantilla** y rellene la información de la instancia de Data Factory de destino. En el caso de las credenciales que proceden del almacén de claves, escriba el nombre del secreto entre comillas dobles. Por ejemplo, si el nombre del secreto es `cred1`, escriba `"$(cred1)"` para su valor.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-    g. Seleccione el modo de implementación **Incremental**.
+    h. Seleccione el modo de implementación **Incremental**.
 
     > [!WARNING]
-    > Si selecciona el modo de implementación **Complete** (Completo), se pueden eliminar los recursos existentes, lo que incluye todos los recursos del grupo de recursos de destino que no están definidos en la plantilla de Resource Manager.
+    > Si selecciona el modo de implementación **Completo**, se pueden eliminar los recursos existentes, lo que incluye todos los recursos del grupo de recursos de destino que no están definidos en la plantilla de Resource Manager.
 
 1.  Guarde la canalización de versión.
 
-1.  Cree una versión a partir de esta canalización de versión.
+1. Para desencadenar una versión, haga clic en **Crear versión**.
 
-    ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional: Obtenga los secretos de Azure Key Vault
+### <a name="get-secrets-from-azure-key-vault"></a>Obtención de secretos de Azure Key Vault
 
 Si tiene secretos para pasar en una plantilla de Azure Resource Manager, se recomienda usar Azure Key Vault con la versión de Azure Pipelines.
 
@@ -163,13 +175,15 @@ Hay dos formas de administrar los secretos:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
-Puede que se produzca un error de Integration Runtime de acceso denegado al ejecutar la tarea de Azure Key Vault. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
+
+La tarea Azure Key Vault puede producir un error de acceso denegado si no están presentes los permisos adecuados. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal **Get** y **List** son los permisos mínimos necesarios.
 
 ### <a name="update-active-triggers"></a>Actualización de desencadenadores activos
-Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede añadir una tarea de Azure Powershell para este propósito, como se muestra en el ejemplo siguiente:
 
-1.  En la pestaña de tareas de la versión, busque **Azure PowerShell** y agréguelo.
+Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede hacerlo a través de una tarea de Azure PowerShell.
+
+1.  En la pestaña Tareas de la versión, agregue la tarea **Azure PowerShell**.
 
 1.  Elija **Azure Resource Manager** como tipo de conexión y seleccione su suscripción.
 
@@ -183,554 +197,14 @@ Puede producirse un error en la implementación si intenta actualizar desencaden
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Puede seguir los mismos pasos y utilizar un código similar (con la función `Start-AzDataFactoryV2Trigger`) para reiniciar los desencadenadores después de la implementación.
+Puede seguir los mismos pasos (con la función `Start-AzDataFactoryV2Trigger`) para reiniciar los desencadenadores después de la implementación.
 
 > [!IMPORTANT]
 > En escenarios de integración e implementación continuas, el tipo de entorno de ejecución de integración entre distintos entornos debe ser el mismo. Por ejemplo, si tiene un entorno de ejecución de integración (IR) *autohospedado* en el entorno de desarrollo, el mismo IR debe ser también de tipo *autohospedado* en otros entornos, como prueba y producción. De igual forma, si va a compartir los entornos de ejecución de integración entre varias fases, tiene que configurar las instancias de Integration Runtime como *autohospedadas vinculadas* en todos los entornos: desarrollo, prueba y producción.
 
-## <a name="sample-deployment-template"></a>Plantilla de implementación de ejemplo
+#### <a name="sample-prepostdeployment-script"></a>Script de ejemplo anterior y posterior a la implementación
 
-Esta es una plantilla de implementación de ejemplo que se puede importar en Azure Pipelines.
-
-```json
-{
-    "source": 2,
-    "id": 1,
-    "revision": 51,
-    "name": "Data Factory Prod Deployment",
-    "description": null,
-    "createdBy": {
-        "displayName": "Sample User",
-        "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "uniqueName": "sampleuser@microsoft.com",
-        "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-    },
-    "createdOn": "2018-03-01T22:57:25.660Z",
-    "modifiedBy": {
-        "displayName": "Sample User",
-        "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "uniqueName": "sampleuser@microsoft.com",
-        "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-    },
-    "modifiedOn": "2018-03-14T17:58:11.643Z",
-    "isDeleted": false,
-    "path": "\\",
-    "variables": {},
-    "variableGroups": [],
-    "environments": [{
-        "id": 1,
-        "name": "Prod",
-        "rank": 1,
-        "owner": {
-            "displayName": "Sample User",
-            "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "uniqueName": "sampleuser@microsoft.com",
-            "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-        },
-        "variables": {
-            "factoryName": {
-                "value": "sampleuserprod"
-            }
-        },
-        "variableGroups": [],
-        "preDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 1
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 1
-            }
-        },
-        "deployStep": {
-            "id": 2
-        },
-        "postDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 3
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 2
-            }
-        },
-        "deployPhases": [{
-            "deploymentInput": {
-                "parallelExecution": {
-                    "parallelExecutionType": "none"
-                },
-                "skipArtifactsDownload": false,
-                "artifactsDownloadInput": {
-                    "downloadInputs": []
-                },
-                "queueId": 19,
-                "demands": [],
-                "enableAccessToken": false,
-                "timeoutInMinutes": 0,
-                "jobCancelTimeoutInMinutes": 1,
-                "condition": "succeeded()",
-                "overrideInputs": {}
-            },
-            "rank": 1,
-            "phaseType": 1,
-            "name": "Run on agent",
-            "workflowTasks": [{
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "param\n(\n    [parameter(Mandatory = $false)] [String] $rootFolder=\"C:\\Users\\sampleuser\\Downloads\\arm_template\",\n    [parameter(Mandatory = $false)] [String] $armTemplate=\"$rootFolder\\arm_template.json\",\n    [parameter(Mandatory = $false)] [String] $armTemplateParameters=\"$rootFolder\\arm_template_parameters.json\",\n    [parameter(Mandatory = $false)] [String] $domain=\"microsoft.onmicrosoft.com\",\n    [parameter(Mandatory = $false)] [String] $TenantId=\"72f988bf-86f1-41af-91ab-2d7cd011db47\",\n    [parame",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $true",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": "5.*"
-                }
-            }, {
-                "taskId": "1e244d32-2dd4-4165-96fb-b7441ca9331e",
-                "version": "1.*",
-                "name": "Azure Key Vault: sampleuservault",
-                "refName": "secret1",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "KeyVaultName": "sampleuservault",
-                    "SecretsFilter": "*"
-                }
-            }, {
-                "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
-                "version": "2.*",
-                "name": "Azure Deployment:Create Or Update Resource Group action on sampleuser-datafactory",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "action": "Create Or Update Resource Group",
-                    "resourceGroupName": "sampleuser-datafactory",
-                    "location": "East US",
-                    "templateLocation": "Linked artifact",
-                    "csmFileLink": "",
-                    "csmParametersFileLink": "",
-                    "csmFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json",
-                    "csmParametersFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateParametersForFactory.json",
-                    "overrideParameters": "-factoryName \"$(factoryName)\" -linkedService1_connectionString \"$(linkedService1-connectionString)\" -linkedService2_connectionString \"$(linkedService2-connectionString)\"",
-                    "deploymentMode": "Incremental",
-                    "enableDeploymentPrerequisites": "None",
-                    "deploymentGroupEndpoint": "",
-                    "project": "",
-                    "deploymentGroupName": "",
-                    "copyAzureVMTags": "true",
-                    "outputVariable": "",
-                    "deploymentOutputs": ""
-                }
-            }, {
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $false",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }]
-        }],
-        "environmentOptions": {
-            "emailNotificationType": "OnlyOnFailure",
-            "emailRecipients": "release.environment.owner;release.creator",
-            "skipArtifactsDownload": false,
-            "timeoutInMinutes": 0,
-            "enableAccessToken": false,
-            "publishDeploymentStatus": true,
-            "badgeEnabled": false,
-            "autoLinkWorkItems": false
-        },
-        "demands": [],
-        "conditions": [{
-            "name": "ReleaseStarted",
-            "conditionType": 1,
-            "value": ""
-        }],
-        "executionPolicy": {
-            "concurrencyCount": 1,
-            "queueDepthCount": 0
-        },
-        "schedules": [],
-        "retentionPolicy": {
-            "daysToKeep": 30,
-            "releasesToKeep": 3,
-            "retainBuild": true
-        },
-        "processParameters": {
-            "dataSourceBindings": [{
-                "dataSourceName": "AzureRMWebAppNamesByType",
-                "parameters": {
-                    "WebAppKind": "$(WebAppKind)"
-                },
-                "endpointId": "$(ConnectedServiceName)",
-                "target": "WebAppName"
-            }]
-        },
-        "properties": {},
-        "preDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "postDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "badgeUrl": "https://sampleuser.vsrm.visualstudio.com/_apis/public/Release/badge/19749ef3-2f42-49b5-9696-f28b49faebcb/1/1"
-    }, {
-        "id": 2,
-        "name": "Staging",
-        "rank": 2,
-        "owner": {
-            "displayName": "Sample User",
-            "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "uniqueName": "sampleuser@microsoft.com",
-            "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-        },
-        "variables": {
-            "factoryName": {
-                "value": "sampleuserstaging"
-            }
-        },
-        "variableGroups": [],
-        "preDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 4
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 1
-            }
-        },
-        "deployStep": {
-            "id": 5
-        },
-        "postDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 6
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 2
-            }
-        },
-        "deployPhases": [{
-            "deploymentInput": {
-                "parallelExecution": {
-                    "parallelExecutionType": "none"
-                },
-                "skipArtifactsDownload": false,
-                "artifactsDownloadInput": {
-                    "downloadInputs": []
-                },
-                "queueId": 19,
-                "demands": [],
-                "enableAccessToken": false,
-                "timeoutInMinutes": 0,
-                "jobCancelTimeoutInMinutes": 1,
-                "condition": "succeeded()",
-                "overrideInputs": {}
-            },
-            "rank": 1,
-            "phaseType": 1,
-            "name": "Run on agent",
-            "workflowTasks": [{
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $true",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }, {
-                "taskId": "1e244d32-2dd4-4165-96fb-b7441ca9331e",
-                "version": "1.*",
-                "name": "Azure Key Vault: sampleuservault",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "KeyVaultName": "sampleuservault",
-                    "SecretsFilter": "*"
-                }
-            }, {
-                "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
-                "version": "2.*",
-                "name": "Azure Deployment:Create Or Update Resource Group action on sampleuser-datafactory",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "action": "Create Or Update Resource Group",
-                    "resourceGroupName": "sampleuser-datafactory",
-                    "location": "East US",
-                    "templateLocation": "Linked artifact",
-                    "csmFileLink": "",
-                    "csmParametersFileLink": "",
-                    "csmFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json",
-                    "csmParametersFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateParametersForFactory.json",
-                    "overrideParameters": "-factoryName \"$(factoryName)\" -linkedService1_connectionString \"$(linkedService1-connectionString)\" -linkedService2_connectionString \"$(linkedService2-connectionString)\"",
-                    "deploymentMode": "Incremental",
-                    "enableDeploymentPrerequisites": "None",
-                    "deploymentGroupEndpoint": "",
-                    "project": "",
-                    "deploymentGroupName": "",
-                    "copyAzureVMTags": "true",
-                    "outputVariable": "",
-                    "deploymentOutputs": ""
-                }
-            }, {
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "16a37943-8b58-4c2f-a3d6-052d6f032a07",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "param(\n$x,\n$y,\n$z)\nwrite-host \"----------\"\nwrite-host $x\nwrite-host $y\nwrite-host $z | ConvertTo-SecureString\nwrite-host \"----------\"",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $false",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }]
-        }],
-        "environmentOptions": {
-            "emailNotificationType": "OnlyOnFailure",
-            "emailRecipients": "release.environment.owner;release.creator",
-            "skipArtifactsDownload": false,
-            "timeoutInMinutes": 0,
-            "enableAccessToken": false,
-            "publishDeploymentStatus": true,
-            "badgeEnabled": false,
-            "autoLinkWorkItems": false
-        },
-        "demands": [],
-        "conditions": [{
-            "name": "ReleaseStarted",
-            "conditionType": 1,
-            "value": ""
-        }],
-        "executionPolicy": {
-            "concurrencyCount": 1,
-            "queueDepthCount": 0
-        },
-        "schedules": [],
-        "retentionPolicy": {
-            "daysToKeep": 30,
-            "releasesToKeep": 3,
-            "retainBuild": true
-        },
-        "processParameters": {
-            "dataSourceBindings": [{
-                "dataSourceName": "AzureRMWebAppNamesByType",
-                "parameters": {
-                    "WebAppKind": "$(WebAppKind)"
-                },
-                "endpointId": "$(ConnectedServiceName)",
-                "target": "WebAppName"
-            }]
-        },
-        "properties": {},
-        "preDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "postDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "badgeUrl": "https://sampleuser.vsrm.visualstudio.com/_apis/public/Release/badge/19749ef3-2f42-49b5-9696-f28b49faebcb/1/2"
-    }],
-    "artifacts": [{
-        "sourceId": "19749ef3-2f42-49b5-9696-f28b49faebcb:a6c88f30-5e1f-4de8-b24d-279bb209d85f",
-        "type": "Git",
-        "alias": "Dev",
-        "definitionReference": {
-            "branches": {
-                "id": "adf_publish",
-                "name": "adf_publish"
-            },
-            "checkoutSubmodules": {
-                "id": "",
-                "name": ""
-            },
-            "defaultVersionSpecific": {
-                "id": "",
-                "name": ""
-            },
-            "defaultVersionType": {
-                "id": "latestFromBranchType",
-                "name": "Latest from default branch"
-            },
-            "definition": {
-                "id": "a6c88f30-5e1f-4de8-b24d-279bb209d85f",
-                "name": "Dev"
-            },
-            "fetchDepth": {
-                "id": "",
-                "name": ""
-            },
-            "gitLfsSupport": {
-                "id": "",
-                "name": ""
-            },
-            "project": {
-                "id": "19749ef3-2f42-49b5-9696-f28b49faebcb",
-                "name": "Prod"
-            }
-        },
-        "isPrimary": true
-    }],
-    "triggers": [{
-        "schedule": {
-            "jobId": "b5ef09b6-8dfd-4b91-8b48-0709e3e67b2d",
-            "timeZoneId": "UTC",
-            "startHours": 3,
-            "startMinutes": 0,
-            "daysToRelease": 31
-        },
-        "triggerType": 2
-    }],
-    "releaseNameFormat": "Release-$(rev:r)",
-    "url": "https://sampleuser.vsrm.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_apis/Release/definitions/1",
-    "_links": {
-        "self": {
-            "href": "https://sampleuser.vsrm.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_apis/Release/definitions/1"
-        },
-        "web": {
-            "href": "https://sampleuser.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_release?definitionId=1"
-        }
-    },
-    "tags": [],
-    "properties": {
-        "DefinitionCreationSource": {
-            "$type": "System.String",
-            "$value": "ReleaseNew"
-        }
-    }
-}
-```
-
-## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de ejemplo para detener y reiniciar los desencadenadores y limpiar
-
-Este es un script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos después. El script también incluye código para eliminar recursos que se han quitado. Para instalar la versión más reciente de Azure PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+A continuación se muestra un script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos después. El script también incluye código para eliminar recursos que se han quitado. Para instalar la versión más reciente de Azure PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ```powershell
 param
@@ -860,7 +334,7 @@ En estas condiciones, para reemplazar la plantilla predeterminada de parametriza
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados
 
-Estas son algunas directrices para usar durante la creación del archivo de parámetros personalizados. El archivo consta de una sección para cada tipo de entidad: trigger, pipeline, linkedservice, dataset, integrationruntime, etcétera.
+Estas son algunas directrices para usar durante la creación del archivo de parámetros personalizados. El archivo consta de una sección para cada tipo de entidad: desencadenador, canalización, servicio vinculado, conjunto de datos, entorno de ejecución de integración, etc.
 * Escriba la ruta de acceso de la propiedad en el tipo de entidad correspondiente.
 * Cuando se establece un nombre de propiedad en '\*'', indica que quiere parametrizar todas las propiedades que incluye (solo en el primer nivel, no de forma recursiva). También puede proporcionar excepciones.
 * Al establecer el valor de una propiedad como una cadena, indica que desea parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
@@ -874,7 +348,9 @@ Estas son algunas directrices para usar durante la creación del archivo de par�
 * No es posible una definición que sea específica para una instancia de recursos. Cualquier definición se aplica a todos los recursos de ese tipo.
 * De forma predeterminada, todas las cadenas seguras, como los secretos de Key Vault, y las cadenas seguras, como las cadenas de conexión, las claves y los tokens, están parametrizadas.
  
-## <a name="sample-parameterization-template"></a>Plantilla de parametrización de ejemplo
+### <a name="sample-parameterization-template"></a>Plantilla de parametrización de ejemplo
+
+A continuación se muestra un ejemplo de cómo puede ser una plantilla de parametrización:
 
 ```json
 {
@@ -935,35 +411,35 @@ Estas son algunas directrices para usar durante la creación del archivo de par�
     }
 }
 ```
-
-### <a name="explanation"></a>Explicación:
+A continuación se muestra una explicación de cómo se construye la plantilla anterior, desglosada por tipo de recurso.
 
 #### <a name="pipelines"></a>Procesos
     
-* Cualquier propiedad de la ruta de acceso activities/typeProperties/waitTimeInSeconds está parametrizada. Esto significa que cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Será una entrada obligatoria durante la implementación de Resource Manager.
+* Cualquier propiedad de la ruta de acceso activities/typeProperties/waitTimeInSeconds está parametrizada. Cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Será una entrada obligatoria durante la implementación de Resource Manager.
 * De forma similar, una propiedad denominada `headers` (por ejemplo, en una actividad `Web`) está parametrizada con el tipo `object` (JObject). Tiene un valor predeterminado, que es el mismo valor que en la fábrica de origen.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Solo las propiedades, y todas las propiedades, en la ruta de acceso `typeProperties` están parametrizadas, con sus valores predeterminados correspondientes. Por ejemplo, en el esquema actual, hay dos propiedades en las propiedades de tipo **IntegrationRuntimes**: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
+* Todas las propiedades bajo la ruta de acceso `typeProperties` están parametrizadas con sus valores predeterminados correspondientes. Por ejemplo, hay dos propiedades en las propiedades de tipo **IntegrationRuntimes**: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
 
 #### <a name="triggers"></a>Desencadenadores
 
-* En `typeProperties`, hay dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que tiene especificado un valor predeterminado y el tipo sería `string`. Tiene el nombre de parámetro predeterminado de `<entityName>_properties_typeProperties_maxConcurrency`.
+* En `typeProperties`, hay dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que tiene especificado un valor predeterminado y es de tipo `string`. Tiene el nombre de parámetro predeterminado de `<entityName>_properties_typeProperties_maxConcurrency`.
 * La propiedad `recurrence` también está parametrizada. En ella, se especifica que todas las propiedades de ese nivel están parametrizadas como cadenas, con valores predeterminados y los nombres de parámetro. Una excepción es la propiedad `interval`, que está parametrizada como tipo de número y con el nombre de parámetro con el sufijo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la propiedad `freq` es una cadena y está parametrizada como una cadena. Sin embargo, la propiedad `freq` está parametrizada sin un valor predeterminado. El nombre está abreviado y con un sufijo. Por ejemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos pueden ser de varios tipos, puede proporcionar una personalización específica de tipo. Por ejemplo, podría indicar que para todos los servicios vinculados de tipo `AzureDataLakeStore`, se aplicará una plantilla específica y para todos los demás (a través de \*) se aplicará otra plantilla.
-* En el ejemplo anterior, la propiedad `connectionString` se parametrizará como un valor `securestring`, no tendrá un valor predeterminado y tendrá un nombre de parámetro abreviado con el sufijo `connectionString`.
-* Sin embargo, la propiedad `secretAccessKey` resulta ser `AzureKeyVaultSecret` (por ejemplo, un servicio vinculado `AmazonS3`). Por lo tanto, se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves que se configura con en la fábrica de origen. También puede parametrizar el propio almacén de claves.
+* Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos tienen una gran variedad de tipos, puede proporcionar una personalización específica de tipo. En este ejemplo, para todos los servicios vinculados de tipo `AzureDataLakeStore` se aplicará una plantilla específica y para todos los demás (a través de \*) se aplicará otra plantilla.
+* La propiedad `connectionString` se parametrizará como un valor `securestring`, no tendrá un valor predeterminado y tendrá un nombre de parámetro abreviado con el sufijo `connectionString`.
+* La propiedad `secretAccessKey` resulta ser `AzureKeyVaultSecret` (por ejemplo, en un servicio vinculado `AmazonS3`). Se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves configurado. También puede parametrizar el propio almacén de claves.
 
 #### <a name="datasets"></a>Conjuntos de datos
 
 * Aunque la personalización específica de tipo está disponible para conjuntos de datos, se puede proporcionar configuración sin necesidad de una configuración de nivel \* explícita. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
 
-Puede cambiar la plantilla predeterminada de parametrización, pero se trata de la plantilla actual. Será útil si solo desea agregar una propiedad adicional como parámetro, pero también si no desea perder las parametrizaciones existentes y tener que volver a crearlas.
+### <a name="default-parameterization-template"></a>Plantilla de parametrización predeterminada
 
+A continuación se muestra la plantilla de parametrización predeterminada actual. Si solo necesita agregar uno o varios parámetros, puede resultar útil editarla directamente, ya que no perderá la estructura de parametrización existente.
 
 ```json
 {
@@ -1070,9 +546,9 @@ Puede cambiar la plantilla predeterminada de parametrización, pero se trata de 
 }
 ```
 
-**Ejemplo**: agregar un id. de clúster Databricks interactivo (desde un servicio vinculado de Databricks) al archivo de parámetros:
+A continuación se muestra un ejemplo de cómo agregar un único valor a la plantilla de parametrización predeterminada. Solamente queremos agregar un identificador de clúster Databricks interactivo para un servicio vinculado de Databricks al archivo de parámetros. Tenga en cuenta que el archivo siguiente es el mismo que el archivo anterior, excepto para `existingClusterId` incluido en el campo propiedades de `Microsoft.DataFactory/factories/linkedServices`.
 
-```
+```json
 {
     "Microsoft.DataFactory/factories/pipelines": {
     },
@@ -1178,36 +654,59 @@ Puede cambiar la plantilla predeterminada de parametrización, pero se trata de 
 }
 ```
 
-
 ## <a name="linked-resource-manager-templates"></a>Plantillas vinculadas de Resource Manager
 
-Si ha configurado la implementación e integración continua (CI/CD) para las factorías de datos, puede que observe que, a medida que la factoría crece, incurre en los límites de las plantillas de Resource Manager, como el número máximo de recursos o la carga máxima de una plantilla de Resource Manager. Para escenarios como estos, junto con la generación de la plantilla completa de Resource Manager para una factoría, ahora Data Factory también genera plantillas vinculadas de Resource Manager. Como resultado, la carga de la factoría completa se divide en varios archivos, por lo que no se incurre en los límites mencionados.
+Si ha configurado la integración e implementación continuas (CI/CD) para las factorías de datos, puede que se encuentre con los límites de la plantilla de Azure Resource Manager a medida que la fábrica crece más. Un ejemplo de límite es el número máximo de recursos en una plantilla de Resource Manager. Para acomodar factorías más grandes, junto con la generación de la plantilla completa de Resource Manager para una factoría, ahora Data Factory genera plantillas vinculadas de Resource Manager. Con esta característica, la carga de la factoría completa se divide en varios archivos, por lo que no se incurre en los límites.
 
-Si tiene GIT configurado, se generan las plantillas vinculadas y se guardan junto con las plantillas completas de Resource Manager en una carpeta nueva denominada `linkedTemplates` de la rama `adf_publish`.
+Si tiene Git configurado, se generan las plantillas vinculadas y se guardan junto con las plantillas completas de Resource Manager en la rama `adf_publish` bajo una nueva carpeta denominada `linkedTemplates`.
 
 ![Carpeta de plantillas vinculadas de Resource Manager](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Normalmente las plantillas vinculadas de Resource Manager tienen una plantilla principal y un conjunto de plantillas secundarias vinculadas a la principal. La plantilla principal se denomina `ArmTemplate_master.json` y las plantillas secundarias se denominan con el patrón `ArmTemplate_0.json`, `ArmTemplate_1.json`, y así sucesivamente. Para pasar de usar la plantilla completa de Resource Manager a usar las plantillas vinculadas, actualice la tarea de CI/CD para que apunte a `ArmTemplate_master.json` en lugar de apuntar a `ArmTemplateForFactory.json` (es decir, la plantilla completa de Resource Manager). Resource Manager también requiere la carga de las plantillas vinculadas en una cuenta de almacenamiento para que Azure pueda obtener acceso a ellas durante la implementación. Para obtener más información, consulte [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Implementación de plantillas vinculadas de ARM con VSTS).
+Normalmente las plantillas vinculadas de Resource Manager tienen una plantilla principal y un conjunto de plantillas secundarias vinculadas a la principal. La plantilla principal se denomina `ArmTemplate_master.json` y las plantillas secundarias se denominan con el patrón `ArmTemplate_0.json`, `ArmTemplate_1.json`, y así sucesivamente. Para usar plantillas vinculadas en lugar de la plantilla de Resource Manager completa, actualice la tarea de CI/CD para que apunte a `ArmTemplate_master.json` en lugar de apuntar a `ArmTemplateForFactory.json` (la plantilla de Resource Manager completa). Resource Manager también requiere la carga de las plantillas vinculadas en una cuenta de almacenamiento para que Azure pueda obtener acceso a ellas durante la implementación. Para obtener más información, consulte [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Implementación de plantillas vinculadas de ARM con VSTS).
 
 No se olvide de agregar los scripts de Data Factory en la canalización de CI/CD antes y después de la tarea de implementación.
 
 Si no tiene GIT configurado, las plantillas vinculadas son accesibles a través del gesto **Exportar plantilla de ARM**.
 
+## <a name="hot-fix-production-branch"></a>Rama de producción de revisión
+
+Si implementa una factoría para la producción y se da cuenta de que hay un error que debe corregirse de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión.
+
+1.  En Azure DevOps, vaya a la versión que se implementó en producción y busque la última confirmación que se implementó.
+
+2.  En el mensaje de confirmación, obtenga el identificador de confirmación de la rama de colaboración.
+
+3.  Cree una nueva rama de revisión a partir de esa confirmación.
+
+4.  Vaya a experiencia de la interfaz de usuario de Azure Data Factory y cambie a esta rama.
+
+5.  Mediante la experiencia de la interfaz de usuario de Azure Data Factory, corrija el error. Guarde los cambios.
+
+6.  Una vez comprobada la corrección, haga clic en **Export ARM template** (Exportar plantilla de ARM) para obtener la plantilla de Resource Manager de revisión.
+
+7.  Proteja manualmente esta compilación en la rama adf_publish.
+
+8.  Si ha configurado la canalización de versión para que se desencadene automáticamente en función de las protecciones de adf_publish, se iniciará automáticamente una nueva versión. De lo contrario, ponga en cola manualmente una versión.
+
+9.  Implemente la versión de revisión en las factorías de prueba y producción. Esta versión contiene la carga de producción anterior más la corrección realizada en el paso 5.
+
+10. Agregue los cambios de la revisión a la rama de desarrollo para que las versiones posteriores no se encuentren con el mismo error.
+
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 
 Si usa la integración de Git con la factoría de datos y tiene una canalización de CI/CD que mueve los cambios desde el entorno de desarrollo al entorno de prueba y, luego, a producción, los procedimientos recomendados son los siguientes:
 
--   **Integración de Git**. Solo se necesita configurar la factoría de datos de desarrollo con la integración de Git. Los cambios en los entorno de prueba y producción se implementan a través de CI/CD y no es necesario que tengan la integración de Git.
+-   **Integración de Git**. Solo se necesita configurar la factoría de datos de desarrollo con la integración de Git. Los cambios en los entorno de prueba y producción se implementan a través de CI/CD y no se necesita la integración Git.
 
--   **Script de CI/CD de Data Factory**. Antes del paso de implementación de Resource Manager en CI/CD, debe preocuparse de aspectos como detener los desencadenadores y de un tipo distinto de limpieza de factoría. Se recomienda usar [este script](#sample-script-to-stop-and-restart-triggers-and-clean-up) que se preocupa de todos estos aspectos. Ejecute el script una vez antes de la implementación y una vez después, mediante el uso de las marcas adecuadas.
+-   **Script de CI/CD de Data Factory**. Antes del paso de implementación de Resource Manager en CI/CD, es necesario realizar ciertas tareas, como la detención o el inicio de desencadenadores y la limpieza. Se recomienda usar scripts de PowerShell antes y después de la implementación. Para más información, vea [Actualización de desencadenadores activos](#update-active-triggers). 
 
--   **Entornos de ejecución de integración y uso compartido**. Los entornos de ejecución de integración son uno de los componentes de la infraestructura de la factoría de datos, que experimentan cambios frecuentes y son similares en todas las etapas de CI/CD. Como resultado, Data Factory espera que el usuario tenga el mismo nombre y tipo que los entornos de ejecución de integración en todas las etapas de CI/CD. Si quiere compartir los entornos de ejecución de integración en todas las etapas, por ejemplo, los entornos de ejecución de integración autohospedados, una manera de compartir es hospedando el IR autohospedado en una factoría ternaria, solo para incluir los entornos de ejecución de integración compartidos. Luego, puede usarlos en desarrollo/pruebas/producción como tipo de IR vinculado.
+-   **Entornos de ejecución de integración y uso compartido**. Las instancias de Integration Runtime no cambian a menudo y son similares en todas las fases de CI/CD. Como resultado, Data Factory espera que el usuario tenga el mismo nombre y tipo que los entornos de ejecución de integración en todas las etapas de CI/CD. Si desea compartir las instancias de Integration Runtime en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener las instancias de Integration Runtime compartidas. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado.
 
--   **Key Vault**. Cuando usa los servicios vinculados basados en Azure Key Vault recomendados, puede aprovecharlos todavía más si mantiene almacenes de claves independientes para desarrollo/pruebas/producción. También puede configurar niveles de permisos independientes para cada uno de ellos. Es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos del entorno de producción. También se recomienda mantener los mismos nombres de los secretos en todas las etapas. Si conserva los mismos nombres, no es necesario cambiar las plantillas de Resource Manager a través de CI/CD, porque lo único que sí se debe cambiar es el nombre del almacén de claves, que es uno de los parámetros de la plantilla de Resource Manager.
+-   **Key Vault**. Cuando usa los servicios vinculados basados en Azure Key Vault, puede aprovecharlos todavía más si mantiene almacenes de claves independientes para diferentes entornos. También puede configurar niveles de permisos independientes para cada uno de ellos. Por ejemplo, es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos de producción. Si sigue este enfoque, le recomendamos que mantenga los mismos nombres de secreto en todas las fases. Si conserva los mismos nombres, no es necesario cambiar las plantillas de Resource Manager a través de los entornos de CI/CD, porque lo único cambia es el nombre del almacén de claves, que es uno de los parámetros de la plantilla de Resource Manager.
 
 ## <a name="unsupported-features"></a>Características no admitidas
 
--   No puede publicar recursos individuales, porque las entidades de factoría de datos dependen unas de otras. Por ejemplo, los desencadenadores dependen de las canalizaciones, las canalizaciones dependen de los conjuntos de datos y otras canalizaciones, etc. Es difícil hacer un seguimiento de los cambios de las dependencias. Si era posible seleccionar los recursos para publicarlos manualmente, sería posible elegir solo un subconjunto de todo el conjunto de cambios, lo que daría lugar a un comportamiento inesperado después de la publicación.
+-   No se pueden publicar recursos individuales. Las entidades de factoría de datos dependen unas de otras y el seguimiento de las dependencias puede ser difícil y provocar un comportamiento inesperado. Por ejemplo, los desencadenadores dependen de las canalizaciones, las canalizaciones dependen de los conjuntos de datos y otras canalizaciones, y así sucesivamente. Si fuera posible publicar solo un subconjunto del conjunto de cambios completo, podrían producirse determinados errores imprevistos.
 
 -   No es posible publicar desde ramas privadas.
 

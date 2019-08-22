@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/12/2019
+ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638379"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977071"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -34,7 +34,33 @@ Dado que las réplicas son de solo lectura, no reducen directamente las cargas d
 
 Esta característica de réplica de lectura utiliza la replicación asincrónica nativa. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor maestro y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
-Las réplicas de lectura pueden mejorar el plan de recuperación ante desastres. Si hay un desastre regional y el servidor maestro no está disponible, puede dirigir la carga de trabajo a una réplica de otra región. Para ello, primero permita a la réplica aceptar operaciones de escritura mediante la función de replicación de detención. A continuación, puede redirigir la aplicación mediante la actualización de la cadena de conexión. Obtenga más información en la sección sobre cómo [detener la replicación](#stop-replication).
+
+## <a name="cross-region-replication"></a>Replicación entre regiones
+Puede crear una réplica de lectura en una región distinta del servidor maestro. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
+
+> [!IMPORTANT]
+> La replicación entre regiones se encuentra actualmente en versión preliminar pública.
+
+Puede tener un servidor maestro en cualquier [región de Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un servidor maestro puede tener una réplica emparejada en su región o en las regiones de la réplica universal.
+
+### <a name="universal-replica-regions"></a>Regiones de réplica universal
+Siempre puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Estas son las regiones de réplica universal:
+
+Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2.
+
+
+### <a name="paired-regions"></a>Regiones emparejadas
+Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Si usa réplicas entre regiones para planear la recuperación ante desastres, se recomienda que cree la réplica en la región emparejada en lugar de en una de las otras regiones. Las regiones emparejadas evitan actualizaciones simultáneas y priorizan el aislamiento físico y la residencia de datos.  
+
+Sin embargo, existen limitaciones que deben considerarse: 
+
+* Disponibilidad regional: Azure Database for MariaDB está disponible en Oeste de EE. UU. 2, Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
+    
+* Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
+   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India del Sur. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en Oeste de la India. Esto es debido a que la región secundaria del Oeste de la India es Sur de la India, pero la región secundaria de esta última no es India occidental.
+
 
 ## <a name="create-a-replica"></a>Creación de una réplica
 

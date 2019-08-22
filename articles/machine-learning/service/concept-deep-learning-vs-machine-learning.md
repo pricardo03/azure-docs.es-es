@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840530"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934292"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introducción a la relación entre aprendizaje profundo y aprendizaje automático
 
@@ -78,7 +78,7 @@ Una tarea importante que puede realizar el aprendizaje profundo es la detección
 
 ## <a name="what-are-artificial-neural-networks"></a>¿Qué son las redes neuronales artificiales?
 
-Una red neuronal artificial es un modelo de aprendizaje profundo inspirado en la manera en que las redes neuronales biológicas del cerebro humano procesan la información. Actualmente se usan varios tipos de redes neuronales artificiales. A continuación, se describen las tipologías de redes neuronales artificiales más populares.
+Las redes neuronal artificiales se forman con capas de nodos conectados. Los modelos de aprendizaje profundo usan redes neuronales con un gran número de capas. A continuación, se describen las tipologías de redes neuronales artificiales más populares.
 
 ### <a name="feedforward-neural-network"></a>Red neuronal del tipo feedforward
 

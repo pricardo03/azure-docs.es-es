@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433498"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873326"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importación de los datos de líneas aéreas y meteorológicos en Spark DataFrames
 
-Ahora usamos la función [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) de SparkR para importar los datos de líneas aéreas y meteorológicos en Spark DataFrames. Esta función, al igual que muchos otros métodos de Spark, se ejecuta de forma diferida, lo que significa que se pone en la cola para la ejecución pero no se ejecuta hasta que es necesario.
+Ahora usamos la función [read.df()](http://spark.apache.org/docs/latest/api/R/read.df.html) de SparkR para importar los datos de líneas aéreas y meteorológicos en Spark DataFrames. Esta función, al igual que muchos otros métodos de Spark, se ejecuta de forma diferida, lo que significa que se pone en la cola para la ejecución pero no se ejecuta hasta que es necesario.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Combinación de los datos de líneas aéreas y meteorológicos
 
-Ahora usamos la función [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) de SparkR para realizar una combinación externa izquierda de los datos de líneas áreas y meteorológicos por AirportID y datetime de salida. La combinación externa nos permite conservar todos los registros de datos de líneas aéreas incluso si no hay ningún dato meteorológico coincidente. Tras la combinación, se quitan algunas columnas redundantes y se cambia el nombre de las columnas que quedan para quitar el prefijo DataFrame entrante introducido por la combinación.
+Ahora usamos la función [join()](http://spark.apache.org/docs/latest/api/R/join.html) de SparkR para realizar una combinación externa izquierda de los datos de líneas áreas y meteorológicos por AirportID y datetime de salida. La combinación externa nos permite conservar todos los registros de datos de líneas aéreas incluso si no hay ningún dato meteorológico coincidente. Tras la combinación, se quitan algunas columnas redundantes y se cambia el nombre de las columnas que quedan para quitar el prefijo DataFrame entrante introducido por la combinación.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

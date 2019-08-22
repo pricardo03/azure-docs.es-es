@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 05/29/2019
+ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303842"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989226"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -26,7 +26,7 @@ ms.locfileid: "67303842"
 > En este artículo se describe cómo analizar el uso de datos de Application Insights.  Consulte los artículos siguientes para obtener información relacionada.
 > - En [Supervisión del uso y costos estimados](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También describe cómo cambiar el modelo de precios.
 
-Si tiene preguntas sobre cómo funcionan los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
+Si tiene preguntas sobre cómo funcionan los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
 ## <a name="pricing-model"></a>Modelo de precios
 
@@ -132,6 +132,14 @@ Para conocer la frecuencia de muestreo real independientemente de dónde se ha a
     | render areachart
 
 En cada registro retenido, `itemCount` indica el número de registros originales que representa. Es igual a 1 + el número de registros descartados anteriores. 
+
+## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
+
+Application Insights ahora incorpora un número limitado de clientes de Application Insights en nuestra versión preliminar de retención de variables. Puede encontrar información sobre cómo participar en este programa de versión preliminar [aquí](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+
+La retención predeterminada de los recursos de Application Insights es de 90 días. Es posible seleccionar distintos períodos de retención para cada recurso de Application Insights. El conjunto completo de períodos de retención disponibles es de 30, 60, 120, 180, 270, 365, 550 o 730 días. 
+
+Cuando la facturación está habilitada para una retención más prolongada, los datos que se mantengan más de 90 días se facturarán con la misma tarifa que actualmente se factura por la retención de datos de Azure Log Analytics. Obtenga más información sobre la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Para mantener se al día con el progreso de la retención de variables, [vote por esta sugerencia](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Resumen de límites
 

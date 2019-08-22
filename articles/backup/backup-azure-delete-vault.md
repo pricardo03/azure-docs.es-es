@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639912"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018889"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -51,11 +51,11 @@ Antes de continuar, lea **[esta](#before-you-start)** sección para comprender e
 
 Para detener la protección y eliminar los datos de copia de seguridad, realice lo siguiente:
 
-1. En el portal > **Almacén de Recovery Services** > **Elementos de copia de seguridad** elija los elementos protegidos en la nube (por ejemplo AzureVirtual Machine, Azure Storage (Azure Files), SQL, Azure VM, etc).
+1. En el portal > **Almacén de Recovery Services** > **Elementos de copia de seguridad** elija los elementos protegidos en la nube (por ejemplo AzureVirtual Machine, Azure Storage [Azure Files], SQL en máquina virtual de Azure, etc.).
 
     ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Haga clic con el botón derecho en el elemento de copia de seguridad y, en función de si el elemento de copia de seguridad está protegido o no, aparecerá el menú **Detener copia de seguridad** o **Eliminar datos de copia de seguridad**.
+2. Haga clic con el botón derecho en el elemento de copia de seguridad. En función de si el elemento de copia de seguridad está protegido o no, aparecerá el menú **Detener copia de seguridad** o **Eliminar datos de copia de seguridad**.
 
     - En **Detener copia de seguridad**, seleccione **Eliminar datos de copia de seguridad** en el menú desplegable. Escriba el **nombre** del elemento de copia de seguridad (distingue mayúsculas de minúsculas), seleccione un **motivo**, escriba **Comentarios** y haga clic en **Detener copia de seguridad**.
 
@@ -126,12 +126,12 @@ Eliminación de elementos de copia de seguridad desde la consola de administraci
 - Se le solicita que escriba un PIN de seguridad. Para generar el PIN, realice los pasos siguientes:
   - Inicie sesión en el Portal de Azure.
   - Vaya al **almacén de Recovery Services** > **Configuración** > **Propiedades**.
-  - En **PIN de seguridad**, haga clic en **Generar**. Copie este código PIN (solo es válido durante cinco minutos).
+  - En **PIN de seguridad**, haga clic en **Generar**. Copie este código PIN. (Solo es válido durante cinco minutos).
 - En la consola de administración (aplicación cliente), pegue el código PIN y haga clic en **Aceptar**.
 
   ![PIN de seguridad](./media/backup-azure-delete-vault/security-pin.png)
 
-- En el asistente **Modificar progreso de la copia de seguridad** verá que los *datos de copia de seguridad eliminados se conservarán durante 14 días. Tras ese período, se eliminarán permanentemente los datos de copia de seguridad.*  
+- En el asistente **Modificar progreso de la copia de seguridad**, verá que los *datos de copia de seguridad eliminados se conservarán durante catorce días. Tras ese período, se eliminarán permanentemente los datos de copia de seguridad.*  
 
     ![Eliminación de la infraestructura de copia de seguridad](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -202,12 +202,12 @@ Para obtener más información sobre el comando de ARMClient, consulte este [doc
 
 1. Ejecute el comando siguiente con el id. de suscripción, el nombre del grupo de recursos y el nombre de almacén. Al ejecutar el comando, se elimina el almacén, si no tiene ninguna dependencia.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. Si el almacén no está vacío, aparece el error "No se puede eliminar el almacén, ya que contiene recursos existentes". Para quitar un contenedor o elementos protegidos de un almacén, haga lo siguiente:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

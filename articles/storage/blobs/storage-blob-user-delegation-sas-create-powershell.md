@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034736"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897037"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell (versión preliminar)
 
@@ -80,7 +80,7 @@ Para obtener más información sobre cómo iniciar sesión con PowerShell, consu
 
 ## <a name="assign-permissions-with-rbac"></a>Asignación de permisos con RBAC
 
-Para crear una SAS de delegación de usuarios desde Azure PowerShell, se debe asignar a la cuenta de Azure AD utilizada para iniciar sesión en PowerShell un rol que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Este permiso permite que la cuenta de Azure AD solicite la *clave de delegación de usuarios*. La clave de delegación de usuarios se usa para firmar la SAS de delegación de usuarios. El rol que proporciona la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** debe asignarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignación de permisos con RBAC** de [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas) (Creación de una SAS de delegación de usuarios).
+Para crear una SAS de delegación de usuarios desde Azure PowerShell, se debe asignar a la cuenta de Azure AD utilizada para iniciar sesión en PowerShell un rol que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Este permiso permite que la cuenta de Azure AD solicite la *clave de delegación de usuarios*. La clave de delegación de usuarios se usa para firmar la SAS de delegación de los usuarios. El rol que proporciona la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** debe asignarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignación de permisos con RBAC** de [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios).
 
 Si no tiene permisos suficientes para asignar roles de RBAC a la entidad de seguridad de Azure AD, puede que tenga que pedir al propietario o administrador de la cuenta que asigne los permisos necesarios.
 
@@ -94,7 +94,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obtener más información sobre los roles integrados que incluyen la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**, consulte [Roles integrados en los recursos de Azure](/role-based-access-control/built-in-roles).
+Para obtener más información sobre los roles integrados que incluyen la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Uso de credenciales de Azure AD para proteger una SAS
 
@@ -167,5 +167,5 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST])
-- [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key) (Obtención de la operación de clave de delegación de usuarios)
+- [Creación de una SAS de delegación de usuario (API de REST)](/rest/api/storageservices/create-user-delegation-sas)
+- [Obtener la operación de clave de delegación de usuario](/rest/api/storageservices/get-user-delegation-key)

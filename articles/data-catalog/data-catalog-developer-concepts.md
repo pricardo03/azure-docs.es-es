@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 81e17e1e450e45e4c163ca8231a47deeb8b9ed2c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734696"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976826"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores de Azure Data Catalog
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Azure Data Catalog**.
@@ -19,7 +19,7 @@ ms.locfileid: "68734696"
 ## <a name="key-concepts"></a>Conceptos clave
 El modelo conceptual **Azure Data Catalog** se basa en cuatro conceptos clave: el **catálogo**, los **usuarios**, los **recursos** y las **anotaciones**.
 
-![concepto][1]
+![Ilustración del modelo conceptual de Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figura 1: Modelo conceptual simplificado de Azure Data Catalog*
 
@@ -286,7 +286,7 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
 > 
 
 **Cuerpo**
-
+```json
     {
         "roles": [
             {
@@ -299,9 +299,11 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
             }
         ]
     }
+```
 
   **Asignar propietarios y restringir la visibilidad de un elemento raíz existente**: **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
+```json
     {
         "roles": [
             {
@@ -343,11 +345,8 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
             }
         ]
     }
+```
 
 > [!NOTE]
 > En PUT no es necesario especificar una carga de elementos en el cuerpo: PUT puede usarse para actualizar solo roles y/o permisos.
 > 
-> 
-
-<!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png

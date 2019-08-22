@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a0a7a413d6c3344ccf5c3f7e4d14dd3d82715034
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1882e994c5d062d3ca841025edb61965f7eb0aa0
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840311"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967053"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
-Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos integrado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Puede usarlo para establecer una conexión con los datos usando el paradigma de sistema de archivos o el de almacenamiento de objetos.
+Azure Data Lake Storage Gen2 (ADLS Gen2) es un conjunto de funcionalidades dedicadas al análisis de macrodatos integrado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Puede usarlo para interactuar con los datos usando el paradigma de sistema de archivos o el de almacenamiento de objetos.
 
 En este artículo se explica cómo copiar datos con Azure Data Lake Storage Gen2 como origen o destino. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
@@ -73,6 +73,9 @@ Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las
 | url | Punto de conexión de Data Lake Storage Gen2 con el patrón de `https://<accountname>.dfs.core.windows.net`. | Sí |
 | accountKey | Clave de cuenta para Data Lake Storage Gen2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+
+>[!NOTE]
+>No se admite el punto de conexión del sistema de archivos ADLS secundario al usar la autenticación de clave de cuenta. Puede usar otros tipos de autenticación.
 
 **Ejemplo:**
 

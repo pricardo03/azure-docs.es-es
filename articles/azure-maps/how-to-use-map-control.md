@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: fa6a3af7893830eba2f4a5c43184991bff68d8a8
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839384"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898202"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
@@ -96,13 +96,13 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
                 aadAppId: '<Your AAD App Id>',
-                aadTenant: 'msft.ccsctp.net'
+                aadTenant: '<Your AAD Tenant Id>'
             }
         });
     </script>
     ```
 
-    Para obtener más información, consulte [Autenticación con Azure Maps](azure-maps-authentication.md) para obtener más detalles.
+    Para obtener más información, consulte el documento [Autenticación con Azure Maps](azure-maps-authentication.md).
 
 6. Opcionalmente, puede que agregar los siguientes elementos de la etiqueta meta al encabezado de la página le resulte útil:
 
@@ -189,7 +189,7 @@ map = new atlas.Map('myMap', {
         authType: 'aad',
         clientId: '<Your AAD Client Id>',
         aadAppId: '<Your AAD App Id>',
-        aadTenant: 'msft.ccsctp.net'
+        aadTenant: '<Your AAD Tenant Id>'
     }
 });
 ```
@@ -214,3 +214,11 @@ Obtenga información sobre cómo aplicar estilos en un mapa:
 
 > [!div class="nextstepaction"]
 > [Elección de un estilo de mapa](choose-map-style.md)
+
+Para agregar más datos al mapa:
+
+> [!div class="nextstepaction"]
+> [Creación de un mapa](map-create.md)
+
+> [!div class="nextstepaction"]
+> [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

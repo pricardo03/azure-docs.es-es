@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377198"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976992"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
 
@@ -29,9 +29,9 @@ El enriquecimiento de mensajes tiene tres elementos clave:
 
 * Uno o varios [puntos de conexión](iot-hub-devguide-endpoints.md) a los que debe aplicarse el enriquecimiento.
 
-La clave puede ser cualquier cadena.
+La **clave** es una cadena. Una clave solo puede incluir caracteres alfanuméricos o estos caracteres especiales: guion (`-`), guion bajo (`_`) y punto (`.`).
 
-El valor puede ser cualquiera de los ejemplos siguientes:
+El **valor** puede ser cualquiera de los ejemplos siguientes:
 
 * Cualquier cadena estática. No se permiten valores dinámicos como condiciones, lógica, operaciones y funciones. Por ejemplo, si desarrolla una aplicación SaaS que la utilizan varios clientes, puede asignar un identificador a cada cliente y hacer que ese identificador esté disponible en la aplicación. Cuando se ejecuta la aplicación, IoT Hub marcará los mensajes de telemetría de los dispositivos con el identificador del cliente, haciendo posible procesar los mensajes de forma diferente para cada cliente.
 

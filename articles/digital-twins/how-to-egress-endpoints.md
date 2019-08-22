@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071455"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013935"
 ---
 # <a name="egress-and-endpoints"></a>Salidas y puntos de conexión
 
@@ -47,7 +47,7 @@ Los eventos se envían a través de objetos de IoT (como dispositivos y sensores
 }
 ```
 
-| Atributo | Type | DESCRIPCIÓN |
+| Atributo | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | id | string | Identificador único para el evento |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
@@ -246,7 +246,7 @@ Los ejemplos siguientes muestran cómo configurar los puntos de conexión compat
 >[!IMPORTANT]
 > Preste mucha atención al atributo **eventTypes**. Define qué tipos de eventos se controlan mediante el punto de conexión y, por tanto, determinan su enrutamiento.
 
-Una solicitud HTTP GET autenticada en
+Una solicitud HTTP POST autenticada en:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

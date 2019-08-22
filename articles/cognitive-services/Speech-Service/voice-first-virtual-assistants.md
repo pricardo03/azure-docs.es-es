@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552541"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967602"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre los asistentes virtuales por voz personalizados (versión preliminar)
 
@@ -36,14 +36,25 @@ Direct Line Speech y su funcionalidad asociada para los asistentes virtuales por
 |[Texto a voz](text-to-speech.md) | Las respuestas textuales desde el bot se sintetizan mediante [Texto a voz](text-to-speech.md) de los servicios de Voz de Azure. Esta síntesis se pone luego a disposición de la aplicación cliente como una secuencia de audio. Microsoft ofrece la posibilidad de crear su propia voz TTS neuronal personalizada de alta calidad que le pone voz a su marca. Para más información, [póngase en contacto con nosotros](mailto:mstts@microsoft.com).
 |[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | En cuanto canal dentro de Bot Framework, Direct Line Speech permite una conexión completa y fluida entre la aplicación cliente, un bot compatible y las funcionalidades de los servicios de Voz de Azure. Para más información sobre cómo configurar el bot para usar el canal Direct Line Speech, consulte [su página en la documentación de Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
+## <a name="get-started-with-virtual-assistants"></a>Introducción a los asistentes virtuales
+
+Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de 10 minutos. Esta tabla incluye una lista de inicios rápidos de asistente virtual por voz ordenados por idioma.
+
+| Guía de inicio rápido | Plataforma | Referencia de API |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>Código de ejemplo
 
 El código de ejemplo para crear un asistente virtual por voz está disponible en GitHub. Estos ejemplos abarcan la aplicación cliente para conectarse al bot en varios lenguajes de programación conocidos.
 
 * [Ejemplos del asistente virtual por voz (SDK)](https://aka.ms/csspeech/samples)
-* [Inicio rápido: Asistentes virtuales por voz (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [Inicio rápido: Asistentes virtuales por voz (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Cliente Direct Line Speech (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Tutorial: Habilitación del bot con voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>Tutorial
+Tutorial sobre cómo [habilitar el bot con voz mediante el SDK de voz y el canal Direct Line Speech](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## <a name="customization"></a>Personalización
 

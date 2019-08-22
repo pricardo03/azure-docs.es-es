@@ -9,30 +9,30 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.author: atsenthi
-ms.openlocfilehash: 36a3bb385064009f25a585ea299558d54714fc27
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb45dda9886450d217355d876ae35af954d99845
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599691"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955591"
 ---
-# <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
-El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https:///azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
+# <a name="service-fabric-azure-files-volume-driver"></a>Controlador de volumen de Azure Files en Service Fabric
+El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
 
 > [!NOTE]
 > La versión 6.5.516.9494 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
-* La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente.
+* La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente.
 
 * La versión de Linux del complemento de volúmenes de Azure Files funciona en todas las versiones de sistemas operativos admitidas por Service Fabric.
 
 * El complemento de volúmenes de Azure Files solo funciona en Service Fabric versión 6.2 y versiones más recientes.
 
-* Siga las instrucciones en la [documentación de Azure Files](https:///azure/storage/files/storage-how-to-create-file-share) para crear un recurso compartido de archivos para la aplicación de contenedor de Service Fabric que se usará como volumen.
+* Siga las instrucciones en la [documentación de Azure Files](/azure/storage/files/storage-how-to-create-file-share) para crear un recurso compartido de archivos para la aplicación de contenedor de Service Fabric que se usará como volumen.
 
-* Necesitará que [Powershell con el módulo de Service Fabric](https:///azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) esté instalado.
+* Necesitará que [Powershell con el módulo de Service Fabric](/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) esté instalado.
 
 * Si usa contenedores de Hyper-V, hay que agregar los fragmentos de código siguientes en la sección ClusterManifest (clúster local) o fabricSettings de la plantilla de Azure Resource Manager (clúster de Azure) o ClusterConfig.json (clúster independiente).
 
@@ -78,12 +78,12 @@ Comando de implementación de Azure Resource Manager para Linux:
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-Una vez que haya ejecutado correctamente el script, puede ir directamente a la [sección de configuración de la aplicación.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+Una vez que haya ejecutado correctamente el script, puede ir directamente a la [sección de configuración de la aplicación.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
 
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>Implementación manual de clústeres independientes
 
-La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). La aplicación puede implementarse en el clúster mediante [API de PowerShell](https:///azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o [FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). La aplicación puede implementarse en el clúster mediante [API de PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) o [FabricClient](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. Mediante la línea de comandos, cambie el directorio al directorio raíz del paquete de aplicación descargado.
 
@@ -128,10 +128,10 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
 
 > [!NOTE]
 > 
-> Windows Server 2016 Datacenter no admite montajes de SMB de asignación en contenedores ([solo se admiten en Windows Server versión 1709](https:///virtualization/windowscontainers/manage-containers/container-storage)). Esta restricción evita que haya asignaciones de volumen de red y controladores de volúmenes de Azure Files en versiones anteriores a 1709.
+> Windows Server 2016 Datacenter no admite montajes de SMB de asignación en contenedores ([solo se admiten en Windows Server versión 1709](/virtualization/windowscontainers/manage-containers/container-storage)). Esta restricción evita que haya asignaciones de volumen de red y controladores de volúmenes de Azure Files en versiones anteriores a 1709.
 
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>Implementación de la aplicación en un clúster de desarrollo local
-Siga los pasos de 1 a 3 [anteriores.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+Siga los pasos de 1 a 3 [anteriores.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
 
  El número de instancias de servicio predeterminado para la aplicación del complemento de volúmenes de Azure Files es -1; es decir, hay una instancia del servicio implementada en cada nodo del clúster. Sin embargo, al implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local, el recuento de instancias de servicio debe especificarse como 1. Esto puede hacerse a través del parámetro de aplicación **InstanceCount**. Por lo tanto, el comando para crear la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local es:
 
@@ -204,7 +204,7 @@ Como se muestra en los elementos **DriverOption** en el fragmento de código ant
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso de su propio controlador de volumen o registro
-Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](https:///azure/service-fabric/service-fabric-application-model).
+Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](/azure/service-fabric/service-fabric-application-model).
 
 A continuación se muestra un ejemplo del script para instalar el [controlador de volumen de Docker para Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
 

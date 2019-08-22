@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840590"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884101"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure de una región a otra
 
@@ -197,7 +197,7 @@ Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
 Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.   
-Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible |
+Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. No se admiten las máquinas virtuales que usan discos no administrados |
 Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
 Adición en caliente | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados.
 Eliminación de disco en caliente | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.

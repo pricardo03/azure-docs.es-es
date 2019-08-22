@@ -1,7 +1,7 @@
 ---
 title: Arquitectura y conceptos clave
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre la arquitectura, los términos, los conceptos y el flujo de trabajo que conforman Azure Machine Learning Service.
+description: Obtenga información sobre la arquitectura, los términos, los conceptos y el flujo de trabajo que conforman Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828236"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990100"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -49,12 +49,16 @@ Utilice estas herramientas para Azure Machine Learning:
 + Escribir código en Visual Studio Code con la [extensión VS Code para Azure Machine Learning](how-to-vscode-tools.md)
 + Use la [interfaz visual (versión preliminar) de Azure Machine Learning Service](ui-concept-visual-interface.md) para realizar los pasos del flujo de trabajo sin escribir código.
 
-## <a name="glossary-of-concepts"></a>Glosario de conceptos
+> [!NOTE]
+> Aunque en este artículo se definen los términos y conceptos que usa Azure Machine Learning Service, no se definen los términos y conceptos de la plataforma Azure. Para obtener más información sobre la terminología de la plataforma Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## <a name="glossary"></a>Glosario
 
 + <a href="#workspaces">Área de trabajo</a>
 + <a href="#experiments">Experimentos</a>
 + <a href="#models">Modelos</a>
 + <a href="#run-configurations">Configuración de ejecución</a>
++ [Estimadores](#estimators)
 + <a href="#datasets-and-datastores">Conjunto de datos y almacenes de datos</a>
 + <a href="#compute-targets">Destinos de proceso</a>
 + <a href="#training-scripts">Script de entrenamiento</a>
@@ -69,19 +73,9 @@ Utilice estas herramientas para Azure Machine Learning:
 + <a href="#ml-pipelines">Canalizaciones de Machine Learning</a>
 + <a href="#logging">Logging</a>
 
-> [!NOTE]
-> Aunque en este artículo se definen los términos y conceptos que usa Azure Machine Learning Service, no se definen los términos y conceptos de la plataforma Azure. Para obtener más información sobre la terminología de la plataforma Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
-
 ### <a name="workspaces"></a>Áreas de trabajo
 
-[El área de trabajo](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning Service. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree al usar Azure Machine Learning Service.
-
-El diagrama siguiente es una taxonomía del área de trabajo:
-
-[![Taxonomía del área de trabajo](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-Para obtener más información sobre las áreas de trabajo, consulte [¿Qué es un área de trabajo de Azure Machine Learning?](concept-workspace.md)
+[El área de trabajo](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning Service. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree al usar Azure Machine Learning Service. Puede compartir un área de trabajo con otros usuarios. Para una descripción detallada de las áreas de trabajo, consulte [¿Qué es un área de trabajo de Azure Machine Learning?](concept-workspace.md)
 
 ### <a name="experiments"></a>Experimentos
 
@@ -97,7 +91,7 @@ Un modelo se genera mediante una ejecución en Azure Machine Learning. También 
 
 Recuerde que Azure Machine Learning Service es independiente del marco de trabajo. Al crear un modelo, puede usar cualquier marco de aprendizaje automático popular, como Scikit-learn, XGBoost, PyTorch, TensorFlow y Chainer.
 
-Para obtener un ejemplo de entrenamiento de un modelo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
+Para ver un ejemplo de cómo entrenar un modelo con Scikit-learn y un estimador, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 El **registro de modelo** realiza un seguimiento de todos los modelos del área de trabajo de Azure Machine Learning Service.
 
@@ -119,6 +113,19 @@ Una configuración de ejecución es un conjunto de instrucciones que define cóm
 Una configuración de ejecución puede conservarse en un archivo del directorio que contiene el script de entrenamiento o puede crearse como un objeto en la memoria y usarse para enviar una ejecución.
 
 Para ver configuraciones de ejecución de ejemplo, consulte [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
+
+### <a name="estimators"></a>Estimadores
+
+Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija (como scikit-learn).
+
+En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
+
+Para más información, consulte los siguientes artículos.
+
+* [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
+* [Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning](how-to-train-pytorch.md).
+* [Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning Service](how-to-train-tensorflow.md).
+* [Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning Service](how-to-train-chainer.md).
 
 ### <a name="datasets-and-datastores"></a>Conjuntos de datos y almacenes de datos
 
@@ -152,7 +159,6 @@ Una ejecución es un registro que contiene la información siguiente:
 * Instantánea del directorio que contiene los scripts antes de la ejecución.
 
 Una ejecución se produce cuando se envía un script para entrenar un modelo. Una ejecución puede tener cualquier número de ejecuciones secundarias. Por ejemplo, la ejecución de nivel superior puede tener dos ejecuciones secundarias, cada una de las cuales puede tener sus propias ejecuciones secundarias.
-
 
 ### <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
@@ -236,5 +242,5 @@ Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en e
 Para comenzar a usar Azure Machine Learning Service, consulte:
 
 * [¿Qué es Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md)
+* [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md)
 * [Tutorial (parte 1): Entrenamiento de un modelo](tutorial-train-models-with-aml.md)

@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840637"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884127"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 
 En este artículo se describe cómo replicar máquinas virtuales habilitadas para Azure Disk Encryption de una región de Azure a otra.
 
 >[!NOTE]
->Actualmente, Azure Site Recovery solo admite aquellas máquinas virtuales de Azure que ejecuten un sistema operativo Windows.
+>Actualmente, Azure Site Recovery solo admite aquellas máquinas virtuales habilitadas para Azure Disk Encryption que ejecuten un sistema operativo Windows. Solo se admiten las máquinas virtuales habilitadas para Azure Disk Encryption sin la aplicación Azure AD si usan discos administrados. No se admiten las máquinas virtuales con discos no administrados.
+
+>[!NOTE]
+>Si cambia de ADE V1 (con la aplicación Azure AD) a ADE V2 (sin la aplicación Azure AD), deberá deshabilitar la replicación y habilitarla después de habilitar ADE V2.
 
 ## <a id="required-user-permissions"></a> Permisos de usuario necesarios
 Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves desde el almacén de claves de la región de origen al de la región de destino.

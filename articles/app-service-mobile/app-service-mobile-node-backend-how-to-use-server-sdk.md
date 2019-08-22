@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128107"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851183"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
 
@@ -891,7 +891,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Depuración, y tablas y API fáciles
+## <a name="Debugging"></a>Depuración
 
 ### <a name="howto-diagnostic-logs"></a>Depuración, diagnóstico y solución de problemas de Mobile Apps
 
@@ -903,47 +903,6 @@ Consulte los siguientes artículos para empezar a solucionar problemas de su bac
 * [Solución de problemas de Azure App Service en Visual Studio]
 
 Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico. Internamente, el SDK de Node.js de Mobile Apps usa [Winston] para el registro de diagnóstico. El registro se habilita automáticamente al habilitar el modo de depuración o al establecer la configuración de la aplicación `MS_DebugMode` en True en [Azure Portal]. Los registros generados aparecerán en los registros de diagnóstico en [Azure Portal].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Uso de tablas fáciles en Azure Portal
-
-Las tablas fáciles le permiten crear y trabajar con tablas directamente en el portal. Puede cargar el conjunto de datos a Easy Tables en formato CSV. Tenga en cuenta que no puede usar nombres de propiedades (en el conjunto de datos CSV) que estén en conflicto con los nombres de las propiedades del sistema de back-end de Mobile Apps. Los nombres de las propiedades del sistema son:
-* createdAt
-* updatedAt
-* deleted
-* version
-
-Incluso puede editar las operaciones de tabla mediante el editor de App Service. Al seleccionar **Tablas fáciles** en la configuración del sitio del back-end, puede agregar, modificar o eliminar una tabla. También puede ver los datos de la tabla.
-
-![Trabajo con tablas fáciles](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-Los siguientes comandos están disponibles en la barra de comandos para una tabla:
-
-* **Cambiar permisos**: modifica el permiso para leer, insertar, actualizar y eliminar operaciones en la tabla.
- Las opciones son permitir el acceso anónimo, requerir autenticación o deshabilitar todos los accesos a la operación.
-* **Editar script**: el archivo de script de la tabla se abre en el editor de App Service.
-* **Administrar esquema**: agrega o elimina columnas o cambia el índice de tabla.
-* **Borrar tabla**: trunca una tabla existente eliminando todas las filas de datos pero dejando el esquema sin cambiar.
-* **Eliminar filas**: elimina filas individuales de datos.
-* **Ver registros de streaming**: le conecta con el servicio de registro de streaming de su sitio.
-
-### <a name="work-easy-apis"></a>Trabajo con API fáciles en Azure Portal
-
-Puede usar las API fáciles para crear y trabajar con API personalizadas directamente en el portal. Incluso puede editar scripts de API mediante el editor de App Service.
-
-Al seleccionar **API fáciles** en la configuración del sitio del back-end, puede agregar un nuevo punto de conexión de API personalizado, así como modificar o eliminar un punto de conexión de API existente.
-
-![Trabajo con API fáciles](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-En el portal, puede cambiar los permisos de acceso para una acción de HTTP, editar el archivo de script de API en el editor de App Service o ver los registros de streaming.
-
-### <a name="online-editor"></a>Edición de código en el editor de App Service
-
-Azure Portal le permite editar los archivos de script de back-end de Node.js en el editor de App Service sin tener que descargar el proyecto en el equipo local. Para editar archivos de script en el editor en línea:
-
-1. En el panel para el back-end de Mobile Apps, seleccione **Todas las configuraciones** y la opción **Tablas fáciles** o **API fáciles**. Seleccione una tabla o API y, después, seleccione **Editar script**. El archivo de script se abre en el Editor de App Service.
-
-   ![Editor de App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Realice los cambios en el archivo de código en el editor en línea. Los cambios se guardan automáticamente a medida que se escriben.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

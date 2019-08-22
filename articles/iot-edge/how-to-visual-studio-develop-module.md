@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0ed7d65601465a197cb4d7f92f500e1bf29ad8c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7296760a177b949d2f921e11b28105ca6eb67fee
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839662"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036293"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo usar las herramientas de Azure IoT Edge para 
   
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows como máquina de desarrollo. El dispositivo IoT Edge puede ser otro dispositivo físico.
+En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows como máquina de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 En este artículo se usa Visual Studio 2019 como herramienta de desarrollo principal, por lo que debe instalar Visual Studio. Asegúrese de incluir las cargas de trabajo de **desarrollo de Azure** y **desarrollo de escritorio con C++** en la instalación de Visual Studio 2019. También puede [modificar Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) para agregar las cargas de trabajo necesarias.
 

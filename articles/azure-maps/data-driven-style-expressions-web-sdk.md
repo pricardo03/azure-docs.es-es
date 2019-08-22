@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839463"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976317"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -41,7 +41,7 @@ Las expresiones se representan como matrices JSON. El primer elemento de una exp
 
 El SDK web de Azure Maps admite muchos tipos de expresiones que pueden usarse solas o en combinación con otras expresiones.
 
-| Tipo de expresiones | Descripción |
+| Tipo de expresiones | DESCRIPCIÓN |
 |---------------------|-------------|
 | [Expresión de agregado](#aggregate-expression) | Expresión que define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. |
 | [Expresiones booleanas](#boolean-expressions) | Las expresiones booleanas proporcionan un conjunto de expresiones de operadores booleanos para evaluar las comparaciones booleanas. |
@@ -65,7 +65,8 @@ En todos los ejemplos de este documento se usará la siguiente función para mos
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -310,6 +311,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+En el ejemplo siguiente se usa una expresión de coincidencia para realizar un filtro de tipo "en la matriz" o "la matriz contiene"; en este caso, se filtran los datos cuyo valor de identificador se encuentra en una lista de identificadores permitidos. Cuando se usan expresiones con filtros, el resultado debe ser un valor booleano.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Vea un ejemplo en vivo](map-add-shape.md#line-stroke-gradient).
+[Vea un ejemplo en vivo](map-add-line-layer.md#line-stroke-gradient).
 
 ### <a name="text-field-format-expression"></a>Expresión de formato de campo de texto
 
@@ -816,8 +839,11 @@ Consulte los siguientes artículos para ver más ejemplos de código que impleme
 > [!div class="nextstepaction"] 
 > [Adición de una capa de burbuja](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Agregar formas](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Adición de una capa de línea](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Adición de una capa de mapa térmico](map-add-heat-map-layer.md)

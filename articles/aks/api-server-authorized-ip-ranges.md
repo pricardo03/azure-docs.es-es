@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 5049a35b943c68d1a05d1435113226d83dc5ecf4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740933"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031767"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Versión preliminar: protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ En Kubernetes, el servidor de API recibe solicitudes para realizar acciones en e
 En este artículo se muestra como usar los intervalos de direcciones IP autorizadas por el servidor de API para limitar las solicitudes de control del panel. Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
+> Las características en vista previa (gb) de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para información adicional, consulte los siguientes artículos de soporte:
 >
 > * [Directivas de soporte técnico para AKS][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]

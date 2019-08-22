@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737052"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976812"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Guardar búsquedas y anclar recursos de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
@@ -37,7 +37,7 @@ Para crear una búsqueda guardada, haga lo siguiente:
 ### <a name="manage-saved-searches"></a>Administración de búsquedas guardadas
 Después de haber guardado una o varias búsquedas, aparece una opción **Búsquedas guardadas** debajo del cuadro **Búsqueda actual**. Cuando se expande la lista, aparecen todas las búsquedas guardadas.
 
- ![Lista de búsquedas guardadas](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog: Lista de búsquedas guardadas](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Realice alguna de las acciones siguientes:
 
@@ -56,18 +56,18 @@ Realice alguna de las acciones siguientes:
 ### <a name="organizational-saved-searches"></a>Búsquedas guardadas de la organización
 Todos los usuarios de la organización pueden guardar búsquedas para su propio uso. Los administradores de Azure Data Catalog también pueden guardar búsquedas para todos los usuarios de la organización. Cuando los administradores guarden una búsqueda, les aparecerá la opción **Compartir dentro de la compañía**. Si selecciona esta opción, compartirá la búsqueda guardada con todos los usuarios de la organización.
 
- ![Búsquedas guardadas de la organización](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog: Búsquedas guardadas de la organización](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Recursos de datos anclados
 Las búsquedas guardadas le permiten guardar y volver a usar las definiciones de búsqueda. Los recursos de datos que devuelven las búsquedas pueden cambiar con el tiempo a medida que cambia el contenido del catálogo. Cuando ancla recursos de datos, puede identificar explícitamente recursos de datos específicos para facilitar su acceso sin necesidad de usar una búsqueda.
 
 Anclar un recurso de datos es sencillo. Para agregar el recurso de datos a la lista anclada, solo tiene que hacer clic en el icono de **anclaje**. Este icono aparece en la esquina del icono del recurso en la vista de iconos, y en la columna situada más a la izquierda en la vista de lista del portal de Azure Data Catalog.
 
-![El icono de anclaje de recurso de datos](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog: El icono de anclaje de recurso de datos](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Desanclar un recurso de datos es igual de sencillo. Solo tiene que hacer clic en el icono de **desanclaje** para cambiar la configuración del recurso seleccionado.
 
-![El icono de desanclaje de recurso de datos](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog: El icono de desanclaje de recurso de datos](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>La sección Mis recursos
 La página principal del portal de Data Catalog incluye una sección **Mis recursos** que muestra los recursos de interés para el usuario actual. Esta sección incluye tanto recursos anclados como búsquedas guardadas.

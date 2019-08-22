@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476041"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932189"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescritura de encabezados HTTP con Azure Application Gateway
 
@@ -103,6 +103,8 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
    - **Conjunto de reescritura**: Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
 
 2. Conecte el conjunto de reescritura (*rewriteRuleSet*) con una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
+   > [!NOTE]
+   > La reescritura de dirección URL modifica los encabezados; no cambia la dirección URL de la ruta de acceso.
 
 Puede crear varios conjuntos de reescritura de encabezados HTTP y aplicar cada conjunto de reescritura a varios agentes de escucha. Pero solo puede aplicar un conjunto de reescritura a un agente de escucha específico.
 
@@ -118,11 +120,11 @@ Application Gateway inserta un encabezado X-Forwarded-For en todas las solicitud
 
 ### <a name="modify-a-redirection-url"></a>Modificación de una dirección URL de redirección
 
-Cuando una aplicación back-end envía una respuesta de redirección, es posible que desee redirigir al cliente a una dirección URL diferente de la especificada por la aplicación de back-end. Por ejemplo, es posible que desee hacer esto cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice una redirección a su ruta de acceso relativa. (Por ejemplo, un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2).
+Cuando una aplicación back-end envía una respuesta de redirección, es posible que desee redirigir al cliente a una dirección URL diferente de la especificada por la aplicación de back-end. Por ejemplo, es posible que quiera hacerlo cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice un redireccionamiento a su ruta de acceso relativa. (Por ejemplo, un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2).
 
 Dado que App Service es un servicio multiempresa, utiliza el encabezado de host en la solicitud para enrutar la solicitud al punto de conexión correcto. Los servicios de aplicaciones tienen un nombre de dominio predeterminado, *. azurewebsites.net, (por ejemplo, contoso.azurewebsites.net) que es diferente del nombre de dominio de la puerta de enlace de aplicaciones (por ejemplo, contoso.com). Dado que la solicitud original desde el cliente tiene el nombre de dominio (contoso.com) de la puerta de enlace de aplicaciones como el nombre de host, la puerta de enlace de aplicaciones cambia el nombre de host a contoso.azurewebsites.net. Realiza este cambio para que el servicio de aplicaciones pueda enrutar la solicitud al punto de conexión correcto.
 
-Cuando el servicio de la aplicación envía una respuesta de redirección, usa el mismo nombre de host en el encabezado de ubicación de su respuesta que la que aparece en la solicitud que recibe de la puerta de enlace de aplicaciones. De modo que el cliente hará la solicitud directamente a contoso.azurewebsites.net/path2 en lugar de pasar por la puerta de enlace de aplicaciones (contoso.com/path2). No es conveniente omitir la puerta de enlace de aplicaciones.
+Cuando el servicio de la aplicación envía una respuesta de redirección, usa el mismo nombre de host en el encabezado de ubicación de su respuesta que la que aparece en la solicitud que recibe de la puerta de enlace de aplicaciones. Así pues, el cliente hará la solicitud directamente a contoso.azurewebsites.net/path2, en lugar de pasar por la puerta de enlace de aplicaciones (contoso.com/path2). No es conveniente omitir la puerta de enlace de aplicaciones.
 
 Para resolver este problema, puede establecer el nombre de host en el encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones.
 
@@ -153,7 +155,7 @@ Puede evaluar un encabezado de respuesta o de solicitud HTTP para comprobar la p
 
 ## <a name="limitations"></a>Limitaciones
 
-- Si una respuesta tiene varios encabezados con el mismo nombre, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás en la respuesta. Normalmente, esto puede suceder con el encabezado Set-Cookie, ya que puede tener más de uno en una respuesta. Uno de estos escenarios es cuando se usa un servicio de aplicaciones con una puerta de enlace de aplicaciones y ha configurado la afinidad de sesión basada en cookies en la puerta de enlace de aplicaciones. En este caso, la respuesta contendrá dos encabezados Set-Cookie: uno utilizado por el servicio de aplicaciones, es decir, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` y otro para la afinidad de la puerta de enlace de aplicaciones, es decir, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Si se vuelve a escribir uno de los encabezados Set-Cookie en este escenario, podría quitar el otro encabezado Set-Cookie de la respuesta.
+- Si una respuesta tiene más de un encabezado con el mismo nombre, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás en la respuesta. Normalmente, esto puede suceder con el encabezado Set-Cookie, ya que puede tener más de uno en una respuesta. Uno de estos escenarios es cuando se usa un servicio de aplicaciones con una puerta de enlace de aplicaciones y ha configurado la afinidad de sesión basada en cookies en la puerta de enlace de aplicaciones. En este caso, la respuesta contendrá dos encabezados Set-Cookie: uno utilizado por el servicio de aplicaciones, por ejemplo, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, y otro para la afinidad de la puerta de enlace de aplicaciones, es decir, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Si se vuelve a escribir uno de los encabezados Set-Cookie en este escenario, podría quitar el otro encabezado Set-Cookie de la respuesta.
 
 - Aún no se admite la reescritura de los encabezados de conexión, actualización y hospedaje.
 

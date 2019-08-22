@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bfa5aca56352f616b3527e65eec26fa635d1771
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808910"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967010"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar datos de Hive con Azure Data Factory 
 
@@ -28,6 +28,10 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 Puede copiar datos de Hive en cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 
@@ -50,15 +54,15 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 | serviceDiscoveryMode | True para indicar que se usa el servicio de ZooKeeper; false para indicar que no.  | Sin |
 | zooKeeperNameSpace | Espacio de nombres en ZooKeeper en el que se agregan nodos de Hive Server 2.  | Sin |
 | useNativeQuery | Especifica si el controlador usa las consultas nativas de HiveQL o las convierte en un formato equivalente en HiveQL.  | Sin |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Hive.  | Sin |
-| contraseña | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| username | Nombre de usuario que utiliza para acceder al servidor de Hive.  | Sin |
+| password | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
 | httpPath | Dirección URL parcial correspondiente al servidor de Hive.  | Sin |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin |
 | allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es false.  | Sin |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 
@@ -89,7 +93,7 @@ Para copiar datos de Hive, establezca la propiedad type del conjunto de datos en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **HiveObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **HiveObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -118,7 +122,7 @@ Para copiar datos de Hive, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HiveSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **HiveSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

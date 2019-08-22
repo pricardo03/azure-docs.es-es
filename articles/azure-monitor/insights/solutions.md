@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110164"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989198"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
@@ -65,11 +65,11 @@ Haga clic en el nombre de una solución para abrir su página de resumen. Esta p
 ## <a name="install-a-monitoring-solution"></a>Instalación de una solución de supervisión
 Las soluciones de supervisión de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
 
-1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar**. 
-1. A la derecha de **Soluciones de administración de**, haga clic en **Más**. 
+1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar**.
+1. Examine o busque una solución. También puede examinar las soluciones desde [este vínculo de búsqueda](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Localice la solución de supervisión que quiere y lea su descripción.
 1. Haga clic en **Crear** para iniciar el proceso de instalación.
-1. Cuando se inicia el proceso de instalación, se le pedirá que proporcione la configuración necesaria, que varía para cada solución.
+1. Cuando se inicia el proceso de instalación, se le pedirá especificar el área de trabajo de Log Analytics y proporcionar cualquier configuración necesaria para la solución.
 
 ![Instalar una solución](media/solutions/install-solution.png)
 

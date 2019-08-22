@@ -1,21 +1,21 @@
 ---
 title: Autenticación de Azure Active Directory (Azure AD)
 titleSuffix: Azure Cognitive Services
-description: Referencia del SDK del Lector inmersivo
+description: En este artículo se mostrará cómo crear un nuevo recurso de Lector inmersivo con un subdominio personalizado y, luego, configurar Azure AD en el inquilino de Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688790"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990140"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Uso de la autenticación de Azure Active Directory (Azure AD) con el servicio Lector inmersivo
 
@@ -134,5 +134,7 @@ Como alternativa, la entidad de servicio se puede autenticar con un certificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Ver el [tutorial](./tutorial.md) para consultar qué más puede hacer con el SDK del Lector inmersivo
+* Vea el [tutorial para Node.js](./tutorial-nodejs.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Node.js.
+* Vea el [tutorial para Python](./tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
+* Vea el [tutorial para Swift](./tutorial-ios-picture-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)

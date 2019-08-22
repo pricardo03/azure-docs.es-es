@@ -15,12 +15,12 @@ ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137801"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014193"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -136,7 +136,7 @@ No, Azure AD Connect no admite bosques o dominios locales en los que el nombre d
 No, Azure AD Connect no admite entornos puros de IPv6.
 
 **P: Tengo un entorno de varios bosques y la red entre los dos bosques es mediante NAT (traducción de direcciones de red). ¿Usa Azure AD Connect entre estos dos bosques admitidos?**</br>
- No, no se admite el uso de Azure AD Connect sobre NAT. 
+No, no se admite el uso de Azure AD Connect sobre NAT. 
 
 ## <a name="federation"></a>Federación
 **P: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Office 365?**  
@@ -151,6 +151,12 @@ No. Cambiar el nombre de servidor provoca que el motor de sincronización no se 
 
 **P: ¿Se admiten las reglas de sincronización Next Generation Cryptographic (NGC) en una máquina habilitada para FIPS?**  
 No.  No se admiten.
+
+**P. Si he deshabilitado un dispositivo sincronizado (por ejemplo, HAADJ) en Azure Portal, ¿por qué se vuelve a habilitar?**<br>
+Los dispositivos sincronizados se pueden crear o controlar en el entorno local. Si un dispositivo sincronizado está habilitado en el entorno local, es posible que se vuelva a habilitar en Azure Portal incluso si un administrador lo deshabilitó anteriormente. Para deshabilitar un dispositivo sincronizado, use Active Directory local para deshabilitar la cuenta de equipo.
+
+**P. Si bloqueo el inicio de sesión de usuario en el portal de Office 365 o Azure AD para los usuarios sincronizados, ¿por qué se desbloquea al iniciar sesión de nuevo?**<br>
+Los usuarios sincronizados se pueden crear o controlar en el entorno local. Si la cuenta está habilitada en el entorno local, puede desbloquear el bloque de inicio de sesión colocado por el administrador.
 
 ## <a name="identity-data"></a>Datos de identidad
 **P: ¿Por qué el atributo userPrincipalName (UPN) de Azure AD no coincide con el UPN local?**  

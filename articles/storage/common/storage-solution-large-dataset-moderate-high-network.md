@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7177a95bdd585ff2822c9ac8c94a85d12f9259b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729244"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900359"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con ancho de banda de red moderado a elevado
  
@@ -83,7 +83,7 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 
 ### <a name="high-network-bandwidth"></a>Ancho de banda de red elevado
 
-|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST y SDK de Azure Storage                   |    Data Box Edge o Data Box Gateway          |    Azure Data Factory                                            |
+|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>CLI de Azure             |    API REST y SDK de Azure Storage                   |    Data Box Edge o Data Box Gateway          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de datos                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Admite más de 70 conectores de datos para almacenes y formatos de datos    |
 |    Factor de forma                |    Herramientas de línea de comandos                        |    Interfaz programática                    |    Microsoft proporciona un dispositivo <br>virtual o físico     |    Servicio en Azure Portal                                            |
@@ -108,4 +108,4 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 - Usar las API REST para transferir datos
 
     - [En .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [En Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [En Java](https://docs.microsoft.com/java/api/overview/azure/storage)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688398"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018895"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 >
 >
 
-Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites).
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
@@ -78,12 +78,14 @@ La opción de replicación de almacenamiento permite elegir entre almacenamiento
 
 Para editar la configuración de replicación de almacenamiento:
 
-1. Seleccione el almacén para abrir su panel y el menú de configuración. Si el menú **Configuración** no se abre, haga clic en **Toda la configuración** en el panel del almacén.
-2. En el menú **Configuración**, haga clic en **Infraestructura de copia de seguridad** > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En el menú **Configuración de copia de seguridad**, elija la opción de replicación del almacenamiento para su almacén.
+1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En la sección **Configuración**, haga clic en **Propiedades**.
+2. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
 
-    ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
 
-    Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
+     ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>Paquete de software
 ### <a name="downloading-the-software-package"></a>Descarga del paquete de software
@@ -116,7 +118,7 @@ Para editar la configuración de replicación de almacenamiento:
 
     ![entorno local y cargas de trabajo como objetivos](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    En el menú desplegable **What do you want to backup?** (¿De qué desea realizar copias de seguridad), seleccione las cargas de trabajo que quiere proteger con Azure Backup Server y, después, haga clic en **Aceptar**.
+    En el menú desplegable **¿De qué quiere realizar una copia de seguridad?** , seleccione las cargas de trabajo que quiere proteger con Azure Backup Server y, después, haga clic en **Aceptar**.
 
     El asistente **Introducción a Backup** cambia la opción **Preparar infraestructura** para realizar copias de seguridad de las cargas de trabajo en Azure.
 
@@ -135,7 +137,7 @@ Para editar la configuración de replicación de almacenamiento:
 
     ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
+    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta sesenta minutos en completarla.
 
 ### <a name="extracting-the-software-package"></a>Extracción del paquete de software
 Después de descargar todos los archivos, haga clic en **MicrosoftAzureBackupInstaller.exe**. Se inicia el **Asistente para instalación de Microsoft Azure Backup** , que extraerá los archivos de instalación en una ubicación especificada por el usuario. Siga con el asistente y haga clic en el botón **Extraer** para comenzar el proceso de extracción.
@@ -153,14 +155,14 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 1. Haga clic en **Microsoft Azure Backup** para iniciar el asistente para la instalación.
 
     ![Asistente para instalación de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. En la pantalla de bienvenida, haga clic en **Siguiente** . Irá a la sección *Prerequisite Checks* (Comprobaciones de requisitos previos). En esta pantalla, haga clic en **Comprobar** para determinar si se cumplieron los requisitos previos de hardware y software para Azure Backup Server. Si se cumplieron correctamente todos los requisitos previos, verá un mensaje que indica que la máquina los cumple. Haga clic en el botón **Siguiente** .
+2. En la pantalla de bienvenida, haga clic en **Siguiente**. Irá a la sección *Prerequisite Checks* (Comprobaciones de requisitos previos). En esta pantalla, haga clic en **Comprobar** para determinar si se cumplieron los requisitos previos de hardware y software para Azure Backup Server. Si se cumplieron correctamente todos los requisitos previos, verá un mensaje que indica que la máquina los cumple. Haga clic en el botón **Siguiente** .
 
     ![Azure Backup Server - Bienvenida y requisitos previos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure Backup Server requiere SQL Server Enterprise. Además, si no quiere usar su propio SQL, el paquete de instalación de Azure Backup Server se incluye con los archivos binarios de SQL Server apropiados necesarios. Cuando comience una nueva instalación de Azure Backup Server, debe elegir la opción **Install new Instance of SQL Server with this Setup** (Instalar nueva instancia de SQL Server con esta configuración) y hacer clic en el botón **Comprobar e instalar**. Una vez que los requisitos previos se instalen correctamente, haga clic en **Next**(Siguiente).
 
     ![Azure Backup Server - Comprobación de SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Si se produce un error con una recomendación para reiniciar el equipo, proceda a reiniciar y haga clic en **Check Again**(Comprobar de nuevo). Si tiene algún problema de configuración de SQL, vuelva a configurar SQL según las instrucciones de SQL y vuelva a intentar la instalación o actualización de MABS con la instancia existente de SQL.
+    Si se produce un error con una recomendación para reiniciar el equipo, proceda a reiniciar y haga clic en **Check Again**(Comprobar de nuevo). Si hay algún problema de configuración de SQL, vuelva a configurar SQL según las instrucciones de SQL y vuelva a intentar la instalación o actualización de MABS con la instancia existente de SQL.
 
    > [!NOTE]
    > Azure Backup Server no funcionará con una instancia remota de SQL Server. La instancia que se utiliza en Azure Backup Server debe ser local. En caso de que esté usando un servidor SQL existente para MABS, el programa de instalación de MABS solo admite el uso de *instancias con nombre* de SQL server.
@@ -173,7 +175,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     Cuando use su propia instancia de SQL 2017, deberá configurar SSRS manualmente. Después de configurar SSRS, asegúrese de que la propiedad de SSRS *IsInitialized* está establecida en *True*. Cuando se establece en True, MABS supone que SSRS ya está configurado y omite la configuración de SSRS.
 
-    Se usarán los siguientes valores para la configuración de SSRS:
+    Se usarán los siguientes valores para la configuración de SSRS: 
 
         - Service Account: ‘Use built-in account’ should be Network Service
         - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
