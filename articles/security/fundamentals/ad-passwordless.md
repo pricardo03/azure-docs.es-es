@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727766"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934832"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mundo sin contraseñas con Azure Active Directory
 
 Ya es hora de romper su relación con las contraseñas. Las contraseñas han sido útiles en el pasado, pero en el lugar de trabajo digital de hoy en día se han convertido en un vector de ataque relativamente sencillo para los hackers. A los hackers les encantan las contraseñas y no es difícil adivinar por qué si se considera que la mayoría de las contraseñas rechazadas en Azure Active Directory (Azure AD) incluyen términos como el año, el mes, la estación o un equipo deportivo local. Además, la [investigación ha demostrado](https://aka.ms/passwordguidance) que las recomendaciones tradicionales para la administración de contraseñas, como los requisitos de longitud y complejidad y las frecuencias de cambio son contraproducentes por diversos motivos relacionados con la naturaleza humana.
 
-Tres tipos de ataques que se usan normalmente para poner en peligro las cuentas de usuario son la difusión de contraseña, la suplantación de identidad (phishing) y la reproducción de infracciones. Características de Azure AD como [bloqueo inteligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout), [contraseñas prohibidas](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) y [protección con contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) pueden contribuir a la protección frente a estos tipos de ataques. Igualmente, la implementación de la [autenticación multifactor](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) (MFA) o de la verificación en dos pasos proporcionan seguridad adicional al exigir una segunda forma de autenticación. No obstante, a largo plazo, una solución sin contraseña es lo mejor para garantizar el método de autenticación más seguro.
+Tres tipos de ataques que se usan normalmente para poner en peligro las cuentas de usuario son la difusión de contraseña, la suplantación de identidad (phishing) y la reproducción de infracciones. Características de Azure AD como [bloqueo inteligente](../../active-directory/authentication/howto-password-smart-lockout.md), [contraseñas prohibidas](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) y [protección con contraseñas](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) pueden contribuir a la protección frente a estos tipos de ataques. Igualmente, la implementación de la [autenticación multifactor](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) o de la verificación en dos pasos proporcionan seguridad adicional al exigir una segunda forma de autenticación. No obstante, a largo plazo, una solución sin contraseña es lo mejor para garantizar el método de autenticación más seguro.
 
 Este artículo es el comienzo del camino para ayudarle a entender y a implementar soluciones sin contraseña de Microsoft y facilitarle la elección entre una o varias de las siguientes opciones:
 
@@ -109,7 +109,7 @@ Para examinar más detenidamente el proceso de autenticación en otros escenario
 
 El [servicio de restablecimiento del PIN de Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) es una característica de Azure AD que permite a los usuarios restablecer su PIN si es necesario. Mediante la directiva de grupo, Microsoft Intune o una MDM compatible, un administrador puede configurar los dispositivos Windows 10 para usar de forma segura el servicio de restablecimiento de PIN de Microsoft que permite a los usuarios restablecer su PIN olvidado mediante configuración o encima de la pantalla de bloqueo sin necesidad de volver a inscribirse.
 
-En ocasiones tienen que recurrir al uso de contraseñas. El [autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) (SSPR) es otra característica de Azure AD que permite a los usuarios restablecer sus contraseñas sin necesidad de ponerse en contacto con el personal de TI. Los usuarios deben registrarse o ser registrados en este servicio para poder usarlo. Durante el registro, el usuario elige uno o varios métodos de autenticación habilitados por su organización. SSPR permite el desbloqueo rápido de los usuarios para que continúen trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los usuarios se desbloqueen a sí mismos, su organización puede reducir el tiempo no productivo y los altos costos de soporte técnico para los problemas más comunes relacionados con las contraseñas.
+En ocasiones tienen que recurrir al uso de contraseñas. El [autoservicio de restablecimiento de contraseña](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) es otra característica de Azure AD que permite a los usuarios restablecer sus contraseñas sin necesidad de ponerse en contacto con el personal de TI. Los usuarios deben registrarse o ser registrados en este servicio para poder usarlo. Durante el registro, el usuario elige uno o varios métodos de autenticación habilitados por su organización. SSPR permite el desbloqueo rápido de los usuarios para que continúen trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los usuarios se desbloqueen a sí mismos, su organización puede reducir el tiempo no productivo y los altos costos de soporte técnico para los problemas más comunes relacionados con las contraseñas.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Inicio de sesión sin contraseña de Microsoft Authenticator
 
@@ -125,9 +125,9 @@ Los requisitos previos para usar la aplicación Microsoft Authenticator para rea
 
 * Los usuarios finales deben estar habilitados para Azure Multi-Factor Authentication.
 
-* Los usuarios deben poderse inscribir en sus dispositivos mediante Microsoft Intune o una solución de administración de dispositivos móviles (MDM) de terceros.
+* Se recomienda que los usuarios inscriban sus dispositivos mediante Microsoft Intune o una solución de administración de dispositivos móviles (MDM) de terceros para facilitar la implementación de la aplicación.
 
-Suponiendo que se cumplen estos requisitos, los administradores habilitan el inicio de sesión en el teléfono sin contraseña con [Windows PowerShell.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) Una vez que el inicio de sesión en el teléfono está habilitado en el inquilino, los usuarios finales pueden elegir iniciar sesión con su teléfono; para ello, seleccionan su cuenta profesional o educativa en la pantalla **Cuentas** de la aplicación y, luego, seleccionan **Habilitar inicio de sesión en el teléfono**.
+Suponiendo que se cumplen estos requisitos, los administradores habilitan el inicio de sesión en el teléfono sin contraseña con [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Una vez que el inicio de sesión en el teléfono está habilitado en el inquilino, los usuarios finales pueden elegir iniciar sesión con su teléfono; para ello, seleccionan su cuenta profesional o educativa en la pantalla **Cuentas** de la aplicación y, luego, seleccionan **Habilitar inicio de sesión en el teléfono**.
 
 Suponiendo que un administrador haya habilitado el inicio de sesión sin contraseña, los usuarios finales deberán cumplir los siguientes requisitos:
 
@@ -137,9 +137,9 @@ Suponiendo que un administrador haya habilitado el inicio de sesión sin contras
 
 * Haber agregado una cuenta profesional o educativa con notificaciones push a la aplicación.
 
-Para evitar la posibilidad de que se le bloquee su cuentas o tener que volver a crear las cuentas en un nuevo dispositivo, se recomienda usar Microsoft Authenticator para [hacer una copia de seguridad de las credenciales de la cuenta](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery) en la nube. Después de la copia de seguridad, también puede utilizar la aplicación para recuperar la información en un dispositivo nuevo y evitar así un posible bloqueo o tener que volver a crear las cuentas.
+Para evitar la posibilidad de que se le bloquee su cuentas o tener que volver a crear las cuentas en un nuevo dispositivo, se recomienda usar Microsoft Authenticator para [hacer una copia de seguridad de las credenciales de la cuenta](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) en la nube. Después de la copia de seguridad, también puede utilizar la aplicación para recuperar la información en un dispositivo nuevo y evitar así un posible bloqueo o tener que volver a crear las cuentas.
 
-Dado que la mayoría de los usuarios están acostumbrados a usar solo las contraseñas para autenticarse, es importante que la organización instruya a los usuarios sobre este proceso. Conocerlo puede reducir la probabilidad de que los usuarios llamen al departamento de soporte técnico por cualquier [problema](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) relacionado con el inicio de sesión con la aplicación Microsoft Authenticator.
+Dado que la mayoría de los usuarios están acostumbrados a usar solo las contraseñas para autenticarse, es importante que la organización instruya a los usuarios sobre este proceso. Conocerlo puede reducir la probabilidad de que los usuarios llamen al departamento de soporte técnico por cualquier [problema](../../active-directory/authentication/howto-authentication-passwordless-phone.md) relacionado con el inicio de sesión con la aplicación Microsoft Authenticator.
 
 > [!NOTE]
 > Un posible punto de error de esta solución es cuando un usuario itinerante se encuentra en una ubicación donde no hay conexión a Internet. Las llaves de seguridad FIDO2 y Windows Hello para empresas no están sujetos a la misma limitación.
@@ -150,9 +150,9 @@ Dado que la mayoría de los usuarios están acostumbrados a usar solo las contra
 
 Para que la aplicación Microsoft Authenticator se pueda usar como una solución sin contraseña para iniciar sesión en una cuenta de Azure AD, tanto el administrador como los usuarios deben realizar una serie de pasos.
 
-En primer lugar, un administrador deberá [habilitar el uso de la aplicación como una credencial](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) en el inquilino mediante Windows PowerShell. El administrador también deberá habilitar a los usuarios finales en Azure Multi-Factor Authentication (Azure MFA) y configurar la aplicación Microsoft Authenticator como uno de los [métodos de verificación](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods).
+En primer lugar, un administrador deberá [habilitar el uso de la aplicación como una credencial](../../active-directory/authentication/howto-authentication-passwordless-phone.md) en el inquilino mediante Windows PowerShell. El administrador también deberá habilitar a los usuarios finales en Azure Multi-Factor Authentication (Azure MFA) y configurar la aplicación Microsoft Authenticator como uno de los [métodos de verificación](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
-Los usuarios finales deberán [descargar e instalar](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) la aplicación Microsoft Authenticator y [configurar su cuenta](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) para usar esta aplicación como uno de los métodos de verificación siguientes.
+Los usuarios finales deberán [descargar e instalar](../../active-directory/user-help/user-help-auth-app-download-install.md) la aplicación Microsoft Authenticator y [configurar su cuenta](../../active-directory/user-help/security-info-setup-auth-app.md) para usar esta aplicación como uno de los métodos de verificación siguientes.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,7 +184,7 @@ La autenticación sin contraseña con Microsoft Authenticator sigue el mismo pat
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>El usuario administra su inicio de sesión sin contraseña con las credenciales de Microsoft Authenticator
 
-Con el [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), los usuarios pueden registrarse una vez y obtener las ventajas de Multi-Factor Authentication y del autoservicio de restablecimiento de contraseña. Los usuarios se registran y administran esta configuración en la [página Mi perfil](https://aka.ms/mysecurityinfo). Además de habilitar SSPR, el registro combinado admite varios métodos de autenticación y acciones.
+Con el [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), los usuarios pueden registrarse una vez y obtener las ventajas de Multi-Factor Authentication y del autoservicio de restablecimiento de contraseña. Los usuarios se registran y administran esta configuración en la [página Mi perfil](https://aka.ms/mysecurityinfo). Además de habilitar SSPR, el registro combinado admite varios métodos de autenticación y acciones.
 
 ## <a name="fido2-security-keys"></a>Claves de seguridad FIDO2
 
@@ -228,7 +228,7 @@ También se recomienda que cada organización cree un protocolo que deben seguir
 
 Si bien los administradores pueden [proporcionar llaves manualmente](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) y distribuirlas a los usuarios finales, para aprovisionar y habilitar el proveedor de credenciales FIDO2 en la pantalla de bloqueo de Windows 10 se usa [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Los administradores también deberán usar [Azure Portal](https://portal.azure.com/) para habilitar dispositivos de token de hardware como método de autenticación sin contraseña.
 
-La implementación de las llaves de seguridad FIDO2 también requiere que los usuarios registren sus llaves mediante [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined). Con el registro combinado, los usuarios se registran una vez y obtienen las ventajas de Azure Multi-Factor Authentication y del autoservicio de restablecimiento de contraseña (SSPR).
+La implementación de las llaves de seguridad FIDO2 también requiere que los usuarios registren sus llaves mediante [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Con el registro combinado, los usuarios se registran una vez y obtienen las ventajas de Azure Multi-Factor Authentication y del autoservicio de restablecimiento de contraseña (SSPR).
 
 Además de seleccionar el token de hardware como método de autenticación multifactor predeterminado, se recomienda que también seleccione una opción de verificación adicional.
 
@@ -342,5 +342,5 @@ La adopción de tecnologías modernas de autenticación multifactor, como lectur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Información general sobre lo que [significa el inicio de sesión sin contraseña](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* Información general sobre lo que [significa el inicio de sesión sin contraseña](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [Cómo se habilita el inicio de sesión sin contraseña en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)

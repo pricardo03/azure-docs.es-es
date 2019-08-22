@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 6557649eb1b97ad4d88876906737f8249e18b958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877fae66584ec24fb6e62b20d66ded36157b824
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399806"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990352"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Error de activación de Windows en el escenario de tunelización forzada
 
@@ -52,6 +52,9 @@ Para agregar la ruta personalizada, siga estos pasos:
 ### <a name="for-resource-manager-vms"></a>Para máquinas virtuales de Resource Manager
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+> [!NOTE] 
+> La activación utiliza direcciones IP públicas y se verá afectada por una configuración de Load Balancer SKU estándar. Revise cuidadosamente las [conexiones salientes en Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para obtener información sobre los requisitos.
 
 1. Abra Azure PowerShell y después [inicie sesión en la suscripción de Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Ejecute los comandos siguientes:

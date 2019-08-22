@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839317"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881422"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administración de los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -32,7 +32,17 @@ En este artículo se explica cómo administrar el acceso a los registros y las �
 
 * Cómo conceder acceso a los usuarios que necesitan acceder a los datos de registro de una tabla específica en el área de trabajo mediante Azure RBAC.
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Definición del modo de control de acceso en Azure Portal
+## <a name="define-access-control-mode"></a>Definición del modo de control de acceso
+
+Puede ver el modo de control de acceso configurado en un área de trabajo desde Azure Portal o con Azure PowerShell.  Puede cambiar esta configuración con uno de estos métodos compatibles:
+
+* Portal de Azure
+
+* Azure PowerShell
+
+* Plantilla del Administrador de recursos de Azure
+
+### <a name="configure-from-the-azure-portal"></a>Configuración desde Azure Portal
 
 Puede ver el modo de control de acceso del área de trabajo actual en la página **Introducción** del área de trabajo en el menú **Área de trabajo de Log Analytics**. 
 
@@ -45,7 +55,7 @@ Este valor se puede cambiar en la página **Propiedades** del área de trabajo. 
 
 ![Cambio del modo de acceso del área de trabajo](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>Definición del modo de control de acceso mediante PowerShell
+### <a name="configure-using-powershell"></a>Configuración mediante PowerShell
 
 Use el comando siguiente para examinar el modo de control de acceso para todas las áreas de trabajo en la suscripción:
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>Definición del modo de acceso mediante una plantilla de Resource Manager
+### <a name="configure-using-a-resource-manager-template"></a>Configuración con una plantilla de Resource Manager
 
 Para configurar el modo de acceso en una plantilla de Azure Resource Manager, establezca la marca de característica **enableLogAccessUsingOnlyResourcePermissions** en el área de trabajo en uno de los siguientes valores.
 
@@ -189,7 +199,7 @@ Debe realizar las asignaciones en el nivel de recurso (área de trabajo) para as
 
 Cuando los usuarios consulten los registros desde un área de trabajo mediante el acceso de contexto del recurso, tendrán los siguientes permisos en el recurso:
 
-| Permiso | Descripción |
+| Permiso | DESCRIPCIÓN |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Ejemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidad para ver todos los datos de registro para el recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write ` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |

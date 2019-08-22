@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 96571b55158733f8189ddf87402fb634330ca80d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570462"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884075"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
@@ -59,7 +59,7 @@ Admite:
 La siguientes características no pueden utilizarse en las instancias administradas de Azure SQL Database:
 
 - [Suscripciones actualizables](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- No se deben usar [grupos de replicación geográfica activa](sql-database-active-geo-replication.md) ni [grupos de conmutación por error automática](sql-database-auto-failover-group.md) si se configura la replicación transaccional.
+- [Replicación geográfica activa](sql-database-active-geo-replication.md) con replicación transaccional. En lugar de la replicación geográfica activa, use [grupos de conmutación por error automática](sql-database-auto-failover-group.md), pero tenga en cuenta que la publicación se debe [eliminar manualmente](sql-database-managed-instance-transact-sql-information.md#replication) de la instancia administrada principal y volver a crearse en la instancia administrada secundaria después de la conmutación por error.  
  
 ## <a name="1---create-a-resource-group"></a>1 - Creación de un grupo de recursos
 

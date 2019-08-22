@@ -5,19 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/08/2018
+ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fee35d8035238737f6be72d112fba382e00f0875
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: a47589728bdbe3842790a7c13fe35d04dbbe6883
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501275"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881652"
 ---
-Los tamaños de VM de uso general proporcionan una relación equilibrada entre CPU y memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento para cada tamaño de esta agrupación. 
+Los tamaños de VM de uso general proporcionan una relación equilibrada entre CPU y memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento para cada tamaño de esta agrupación.
 
-- La [serie DC](#dc-series) es una nueva familia de máquinas virtuales de Azure que puede ayudar a proteger la confidencialidad y la integridad de los datos y del código mientras se están procesando en la nube pública. Estas máquinas están respaldadas por la última generación del procesador Intel XEON E-2176G a 3,7 GHz con la tecnología SGX. Con la tecnología Intel Turbo Boost, estas máquinas pueden llegar hasta 4,7 GHz. Las instancias de la serie DC permiten a los clientes crear aplicaciones seguras basadas en enclave para proteger sus datos y código mientras se usan.
+- La [serie DC](#dc-series) es una familia de máquinas virtuales de Azure que puede ayudar a proteger la confidencialidad y la integridad de los datos y del código mientras se están procesando en la nube pública. Estas máquinas están respaldadas por la última generación del procesador Intel XEON E-2176G a 3,7 GHz con la tecnología SGX. Con la tecnología Intel Turbo Boost, estas máquinas pueden llegar hasta 4,7 GHz. Las instancias de la serie DC permiten a los clientes crear aplicaciones seguras basadas en enclave para proteger sus datos y código mientras se usan.
 
 - Las máquinas virtuales de la serie Av2 se pueden implementar en diversos procesadores y tipos de hardware. Las máquinas virtuales de la serie A tienen las configuraciones de memoria y rendimiento de CPU adecuadas para cargas de trabajo de nivel de entrada como desarrollo y pruebas. Según el hardware, el tamaño es una limitación para ofrecer un rendimiento coherente del procesador para la instancia en ejecución, independientemente del hardware en que se implementó. Con el fin de determinar el hardware físico en que se implementó este tamaño, cree una consulta para el hardware virtual desde dentro de la máquina virtual.
 
@@ -27,7 +27,9 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
 - La serie Dv3 ofrece el procesador 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) o el último procesador 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) en una configuración con tecnología Hyper-Threading, que proporcionan una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general.  Se ha ampliado la memoria (de ~3,5 GiB/vCPU a 4 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Dv3 ya no dispone de los tamaños de máquina virtual de memoria alta de las familias D/Dv2; se han trasladado a la nueva familia Ev3.
 
-  Algunos casos de uso de la serie D son las aplicaciones empresariales, las bases de datos relacionales, el almacenamiento en caché en memoria y el análisis. 
+  Algunos casos de uso de la serie D son las aplicaciones empresariales, las bases de datos relacionales, el almacenamiento en caché en memoria y el análisis.
+
+- Las series Da y Dasv3 son tamaños nuevos que utilizan el procesador 7452V EPYC<sup>TM</sup> de 2,35 Ghz de AMB en una configuración de varios subprocesos con una caché L3 de hasta 256 GB que dedica 8 GB de esa caché L3 a cada 8 núcleos, lo que aumenta las opciones que tiene el cliente de ejecutar sus cargas de trabajo de uso general. Las series Da y Dasv3 tiene las mismas configuraciones de memoria y disco que las series D y Dsv3.
   
 ## <a name="b-series"></a>Serie B
 
@@ -78,6 +80,24 @@ Los tamaños de la serie Dsv3 se basan en el procesador Intel Xeon® E5-2673 v3 
 
 <sup>1</sup> Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
+## <a name="dasv3-series"></a>Serie Dasv3
+
+Premium Storage: Compatible
+
+Almacenamiento en caché de Premium Storage: Compatible
+
+Los tamaños de la serie Dasv3 se basan en el procesador EPYC<sup>TM</sup> 7452V de 2,35 Ghz de AME que pueden alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Dasv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
+
+| Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
+|---|---|---|---|
+| Standard_D2as_v3  | 2  | 8   | 16  |
+| Standard_D4as_v3  | 4  | 16  | 32  |
+| Standard_D8as_v3  | 8  | 32  | 64  |
+| Standard_D16as_v3 | 16 | 64  | 128 |
+| Standard_D32as_v3 | 32 | 128 | 256 |
+| Standard_D48as_v3 | 48 | 192 | 384 |
+| Standard_D64as_v3 | 64 | 256 | 512 |
+
 ## <a name="dv3-series-sup1sup"></a>Serie Dv3 <sup>1</sup>
 
 ACU: 160-190
@@ -102,6 +122,24 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 | Standard_D64_v3 | 64        | 256         | 1600           | 32             | 96000/1000/500                                           | 8 / 30 000                   |
 
 <sup>1</sup> Las máquinas virtuales de la serie Dv3 cuentan con la tecnología Hyper-Threading de Intel®.
+
+## <a name="dav3-series"></a>Serie Dav3
+
+Premium Storage: No compatible
+
+Almacenamiento en caché de Premium Storage: No compatible
+
+Los tamaños de la serie Dav3 se basan en el procesador EPYC<sup>TM</sup> 7452V de 2,35 Ghz de AME que puede alcanzar Fmax incrementado de 3,35 Ghz. Los tamaños de la serie Dav3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños Dasv3. El precio y los medidores de facturación para los tamaños Dasv3 son los mismos que para la serie Dav3.
+
+| Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
+|---|---|---|---|
+| Standard_D2a_v3  | 2  | 8   | 50   |
+| Standard_D4a_v3  | 4  | 16  | 100  |
+| Standard_D8a_v3  | 8  | 32  | 200  |
+| Standard_D16a_v3 | 16 | 64  | 400  |
+| Standard_D32a_v3 | 32 | 128 | 800  |
+| Standard_D48a_v3 | 48 | 192 | 1200 |
+| Standard_D64a_v3 | 64 | 256 | 1600 |
 
 ## <a name="dsv2-series"></a>DSv2-series
 

@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494865"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950136"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer (versión preliminar)
 
@@ -45,8 +45,11 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    Esta consulta crea particiones diarias *container1/yyyy/MM/dd/all_exported_blobs.csv*. Con una creación de particiones más pormenorizada, se espera un aumento del rendimiento. Por ejemplo, las consultas en tablas externas con particiones diarias (como la anterior) tendrán un mejor rendimiento que las consultas con tablas con particiones mensuales.
+    
+    > [!NOTE]
+    > * Con una creación de particiones más pormenorizada, se espera un aumento del rendimiento. Por ejemplo, las consultas en tablas externas con particiones diarias tendrán un mejor rendimiento que las consultas con tablas con particiones mensuales.
+    > * Cuando se define una tabla externa con particiones, se espera que la estructura de almacenamiento sea idéntica.
+Por ejemplo, si la tabla se define con una partición DateTime en formato aaaa/MM/dd (valor predeterminado), la ruta de acceso del archivo de almacenamiento de URI debe ser *container1/aaaa/MM/dd/all_exported_blobs*. 
 
 1. La tabla externa está visible en el panel izquierdo de la interfaz de usuario web.
 

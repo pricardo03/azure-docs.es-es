@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566130"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967899"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -37,7 +37,7 @@ En Azure, la configuración predeterminada para el cifrado de datos transparente
 Microsoft también mueve y administra con total fluidez las claves según sea necesario para la replicación geográfica y las restauraciones.
 
 > [!IMPORTANT]
-> Todas las bases de datos SQL recién creadas se cifran de forma predeterminada mediante el uso de cifrado de datos transparente administrado por el servicio. De forma predeterminada, no se cifran las bases de datos de instancia administrada de Azure SQL Database, las bases de datos SQL existentes creadas antes de mayo de 2017 y las bases de datos SQL creadas mediante restauración, replicación geográfica y copia de base de datos.
+> Todas las bases de datos SQL y bases de datos de Instancia administrada recién creadas se cifran de forma predeterminada usando el cifrado de datos transparente administrado por el servicio. Las bases de datos SQL existentes creadas antes de mayo de 2017 y las bases de datos SQL creadas mediante restauración, replicación geográfica y copia de base de datos no se cifran de forma predeterminada. Las bases de datos de Instancia administrada existentes creadas antes de febrero de 2019 no se cifran de forma predeterminada. Las bases de datos de Instancia administrada creadas mediante restauración heredan el estado de cifrado del origen.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Cifrado de datos transparente administrado por el cliente (Bring Your Own Key)
 

@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 079e8677febfe6683d4f0e60a0e7ba6b06ea549d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835833"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986166"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Solucionar problemas con el rendimiento de las consultas de Azure Cosmos DB
 En este artículo se explica cómo identificar, diagnosticar y solucionar problemas de consultas SQL de Azure Cosmos DB. Para lograr un rendimiento óptimo para las consultas de Azure Cosmos DB, siga los pasos para la solución de problemas que tiene a continuación. 
@@ -23,6 +23,10 @@ Para conseguir la menor latencia posible, asegúrese de que la aplicación que l
 
 ## <a name="check-consistency-level"></a>Comprobar el nivel de coherencia
 El [nivel de coherencia](consistency-levels.md) puede afectar al rendimiento y a los cargos. Asegúrese de que su nivel de coherencia sea apropiado para el escenario proporcionado. Para obtener más detalles, consulte [Selección del nivel de coherencia adecuado](consistency-levels-choosing.md).
+
+## <a name="log-sql-query-in-storage-account"></a>Registro de una consulta SQL en la cuenta de almacenamiento
+Los [registros de consultas de la API de SQL a través de registros de diagnóstico](logging.md#turn-on-logging-in-the-azure-portal) le permiten registrar la consulta ofuscada en una cuenta de almacenamiento de su elección. De este modo, puede consultar los registros de diagnóstico y buscar consultas con más RU, así como usar el identificador de actividad para que coincida con QueryRuntimeStatistics. 
+
 
 ## <a name="log-query-metrics"></a>Registrar las métricas de consulta
 Use `QueryMetrics` para solucionar problemas con consultas lentas o costosas. 

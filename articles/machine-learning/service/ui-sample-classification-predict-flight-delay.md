@@ -1,21 +1,21 @@
 ---
-title: 'Clasificación: Predicción de retrasos en los vuelos'
+title: 'Ejemplo de interfaz visual n.º 6: clasificación para predecir retrasos de vuelos'
 titleSuffix: Azure Machine Learning service
 description: Este artículo le muestra cómo compilar un modelo de aprendizaje automático para predecir los retrasos en los vuelos mediante la interfaz visual de arrastrar y colocar y el código R personalizado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 773e55fe4b5ca5acf27ba1765e5a16075f625187
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607384"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990020"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos mediante R
 

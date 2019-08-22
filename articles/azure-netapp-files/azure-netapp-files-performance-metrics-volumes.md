@@ -1,5 +1,5 @@
 ---
-title: Pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files | Microsoft Docs
+title: Recomendaciones de pruebas comparativas de rendimiento para Azure NetApp Files | Microsoft Docs
 description: Se entregan recomendaciones de pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 12ae9e313655924f11799152b5e58b77776c135c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479077"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881730"
 ---
-# <a name="benchmark-testing-for-volume-performance-and-metrics-using-azure-netapp-files"></a>Pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 
 En este artículo se entregan recomendaciones de pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files.
 
 ## <a name="overview"></a>Información general
 
-Para entender las características de rendimiento de un volumen de Azure NetApp Files, puede usar la herramienta de código abierto [FIO](https://github.com/axboe/fio) para ejecutar una serie de pruebas comparativas y simular una variedad de cargas de trabajo. FIO se puede instalar en los sistemas operativos Linux y Windows.  Es una herramienta excelente para obtener una instantánea rápida tanto del IOPS como del rendimiento de un volumen.
+Para entender las características de rendimiento de un volumen de Azure NetApp Files, puede usar la herramienta de código abierto [FIO](https://github.com/axboe/fio) para ejecutar una serie de pruebas comparativas y simular diversas cargas de trabajo. FIO se puede instalar en los sistemas operativos Linux y Windows.  Es una herramienta excelente para obtener una instantánea rápida tanto del IOPS como del rendimiento de un volumen.
 
 ### <a name="vm-instance-sizing"></a>Tamaño de instancia de la máquina virtual
 

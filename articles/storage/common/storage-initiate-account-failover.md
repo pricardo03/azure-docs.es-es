@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305734"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985338"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -68,12 +68,13 @@ Para usar PowerShell para iniciar una conmutación por error de la cuenta, prime
 
     - Quite cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
     - Quite todos los módulos de **Azure** desde `%Program Files%\WindowsPowerShell\Modules`.
-    
+
 1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Abra una ventana de Windows PowerShell y ejecute el siguiente comando para instalar la versión más reciente:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Cierre y vuelva a abrir la ventana de PowerShell después de instalar PowerShellGet. 
 
 1. Instale la versión más reciente de Azure PowerShell:
@@ -82,14 +83,14 @@ Para usar PowerShell para iniciar una conmutación por error de la cuenta, prime
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instale uno de los módulos de versión preliminar de Azure Storage que admita Azure AD:
-   
+1. Instale uno de los módulos de versión preliminar de Azure Storage que admita la conmutación por error de cuentas:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Cierre y vuelva a abrir la ventana de PowerShell.
  
-
 Para iniciar una conmutación por error de la cuenta desde PowerShell, ejecute el siguiente comando:
 
 ```powershell

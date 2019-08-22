@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/15/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 046558007f1a2f2c86f80af610be56b77fa63da1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631522"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990387"
 ---
 # <a name="storsimple-solution-support"></a>Soporte técnico de la solución StorSimple
 
@@ -81,7 +81,7 @@ Microsoft ofrece opciones de soporte técnico flexibles a los clientes de la sol
 Si ha expirado su contrato de soporte técnico, tenga en cuenta que, dependiendo del tiempo que lleve expirado, una vez completado el procesamiento de renovación, la entrega de una pieza puede tardar hasta tres semanas, dado que la ubicación local del stock de su contrato no se surtirá con piezas de repuesto para su dispositivo hasta que se procese el contrato.
 
 ## <a name="local-language-support"></a>Soporte técnico en el idioma local
-Además del inglés, se proporcionan servicios de soporte técnico en los siguientes idiomas durante el horario laboral: japonés, coreano, taiwanés y chino tradicional.
+Además del inglés, se proporcionan servicios de soporte técnico en los siguientes idiomas durante el horario laboral: español, portugués, japonés, coreano, taiwanés y chino tradicional.
 
 ## <a name="support-scope"></a>Ámbito de soporte técnico 
 En todos los niveles de soporte se proporciona asistencia para problemas relacionados con la administración de facturas y suscripciones. Para recibir soporte técnico de StorSimple, el cliente debe estar inscrito en los planes de soporte técnico Estándar o Premium de StorSimple. El equipo de soporte técnico de StorSimple se encargará de resolver todos los problemas que afecten a la solución StorSimple. Para recibir soporte técnico para problemas relacionados con Azure que no tengan que ver directamente con StorSimple, el cliente debe inscribirse en un plan de soporte técnico de Azure adecuado. Para más información, consulte [aquí](https://azure.microsoft.com/support/plans/). El equipo de soporte técnico remite al equipo de Azure los casos que no tengan que ver con StorSimple en función de los derechos que tenga el usuario para recibir soporte técnico de Azure. 

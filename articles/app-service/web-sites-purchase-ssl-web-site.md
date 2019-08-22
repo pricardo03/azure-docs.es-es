@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955718"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019131"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -50,9 +51,9 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 | Configuración | DESCRIPCIÓN |
 |-|-|
 | NOMBRE | Nombre descriptivo para el certificado de App Service. |
-| Nombre de host de dominio desnudo | Si especifica el dominio raíz aquí, obtenga un certificado que proteja *tanto*  al dominio raíz como al subdominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`). |
+| Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
 | Subscription | El centro de datos donde se hospeda la aplicación web. |
-| Grupos de recursos | El grupo de recursos que contiene el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
+| Resource group | El grupo de recursos que contiene el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
 
@@ -71,8 +72,8 @@ En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault**
 | Configuración | DESCRIPCIÓN |
 |-|-|
 | NOMBRE | Un nombre único que consta de caracteres alfanuméricos y guiones. |
-| Grupos de recursos | Como recomendación, seleccione el mismo grupo de recursos que tiene el certificado de App Service. |
-| Ubicación | Seleccione la misma ubicación que tiene la aplicación de App Service. |
+| Resource group | Como recomendación, seleccione el mismo grupo de recursos que tiene el certificado de App Service. |
+| Location | Seleccione la misma ubicación que tiene la aplicación de App Service. |
 | Plan de tarifa | Para obtener información, consulte [Detalles de precios de Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Directivas de acceso| Define las aplicaciones y el acceso permitido a los recursos del almacén. Puede configurarlo más adelante si sigue los pasos descritos en [Concesión de permisos para que muchas aplicaciones tengan acceso al almacén de claves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acceso de redes virtuales | Restringe el acceso de almacén a determinadas redes virtuales de Azure. Puede configurarlo más adelante si sigue los pasos descritos en [Configurar firewalls y redes virtuales de Azure Key Vault](../key-vault/key-vault-network-security.md) |
@@ -153,7 +154,7 @@ Una vez que se completa la operación de renovación, haga clic en **Sincronizar
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 

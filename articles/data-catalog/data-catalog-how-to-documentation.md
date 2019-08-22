@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734628"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950185"
 ---
-# <a name="document-data-sources"></a>Orígenes de datos de documentos
+# <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Documentación de orígenes de datos en Azure Data Catalog
+
 ## <a name="introduction"></a>Introducción
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Azure Data Catalog** ayuda a las personas a detectar, *comprender*y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
 
@@ -23,7 +24,7 @@ En [Anotación de orígenes de datos](data-catalog-how-to-annotate.md), sabrá q
 
 Las etiquetas y descripciones son excelentes para anotaciones simples. Sin embargo, para ayudar a los consumidores de datos a comprender mejor el uso de un origen de datos y los escenarios empresariales para un origen de datos, un experto puede proporcionar documentación completa y detallada. Es fácil documentar un origen de datos. Simplemente, seleccione un recurso de datos o un contenedor y elija **Documentación**.
 
-![](media/data-catalog-documentation/data-catalog-documentation.png)
+![Pestaña de documentación en una instancia de Data Catalog](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Documentación de los recursos de datos
 La ventaja del **Azure Data Catalog** es que la documentación le permite usar Data Catalog como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
@@ -31,9 +32,8 @@ La ventaja del **Azure Data Catalog** es que la documentación le permite usar D
 > [!NOTE]
 > La documentación no se incluye en el índice de búsqueda.
 >
->
 
-![](media/data-catalog-documentation/data-catalog-documentation2.png)
+![Pestaña de documentación e hipervínculo a un vínculo web](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 El nivel de documentación puede oscilar desde describir las características y el valor de un contenedor de recursos de datos para una descripción detallada del esquema de tabla dentro de un contenedor. El nivel de documentación proporcionado debe basarse en las necesidades del negocio. En general, hay algunas ventajas y desventajas de documentar los recursos de datos:
 

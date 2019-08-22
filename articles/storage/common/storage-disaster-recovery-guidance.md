@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147615"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015656"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -37,8 +37,11 @@ El **almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**
 
 Otras opciones de redundancia de Azure Storage incluyen el almacenamiento con redundancia de zona (ZRS), que replica los datos de las zonas de disponibilidad en una sola región, y el almacenamiento con redundancia local (LRS), que replica los datos en un solo centro de datos de una sola región. Si la cuenta de almacenamiento está configurada para ZRS o LRS, puede convertir esa cuenta para usar GRS o RA-GRS. Configurar la cuenta para almacenamiento con redundancia geográfica genera costos adicionales. Para más información, consulte [Replicación de Azure Storage](storage-redundancy.md).
 
+> [!NOTE]
+> El almacenamiento con redundancia de zona geográfica (GZRS) y el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) se encuentran actualmente en versión preliminar, pero aún no están disponibles en las mismas regiones que la conmutación por error de la cuenta administrada por el cliente. Por este motivo, los clientes no pueden administrar actualmente eventos de conmutación por error de cuenta con cuentas GZRS y RA-GZRS. Durante la versión preliminar, Microsoft administrará los eventos de conmutación por error que afecten a las cuentas GZRS o RA-GZRS.
+
 > [!WARNING]
-> El almacenamiento con redundancia geográfica supone un riesgo de pérdida de datos. Los datos se replican en la región secundaria de manera asincrónica, lo que significa que hay un retraso entre el momento en que los datos escritos en la región principal se escriben en la región secundaria. Si se produce una interrupción, se perderán las operaciones de escritura del punto de conexión principal que todavía no se hayan replicado en el punto de conexión secundario. 
+> El almacenamiento con redundancia geográfica supone un riesgo de pérdida de datos. Los datos se replican en la región secundaria de manera asincrónica, lo que significa que hay un retraso entre el momento en que los datos escritos en la región principal se escriben en la región secundaria. Si se produce una interrupción, se perderán las operaciones de escritura del punto de conexión principal que todavía no se hayan replicado en el punto de conexión secundario.
 
 ## <a name="design-for-high-availability"></a>Diseño para lograr alta disponibilidad
 

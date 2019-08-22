@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477567"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990237"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -172,6 +172,13 @@ Seleccione el control de código fuente que quiera quitar. En la página **Resum
 ## <a name="encoding"></a>Encoding
 
 Si varias personas editan runbooks en el repositorio de control de código fuente con diferentes editores, existe la probabilidad de encontrarse con problemas de codificación. Esta situación puede dar lugar a caracteres incorrectos en el runbook. Para más información al respecto, consulte [Causas comunes de problemas de codificación](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
+
+## <a name="updating-the-access-token"></a>Actualización del token de acceso
+
+Actualmente no hay ninguna manera de actualizar el token de acceso en el control de código fuente desde el portal. Una vez que el token de acceso personal ha expirado o se ha revocado, puede actualizar el control de código fuente con un nuevo token de acceso de las siguientes maneras:
+
+* A través de la [API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Mediante el cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,7 @@
 ---
 title: Crear, ejecutar y realizar un seguimiento de las canalizaciones de ML
 titleSuffix: Azure Machine Learning service
-description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen la preparación de los datos, el entrenamiento del modelo, la implementación de modelo y la inferencia o puntuación.
+description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Use canalizaciones de ML para crear y administrar flujos de trabajo que unen las fases de Machine Learning (ML). Estas fases incluyen la preparación de los datos, el entrenamiento del modelo, la implementación de modelo y la inferencia o puntuación.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,48 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 05/02/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 1e68f60880e09dfeb46641f40eca12e1fc0560bc
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668498"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950421"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
-En este artículo aprenderá a crear, publicar, ejecutar y realizar un seguimiento de una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](https://aka.ms/aml-sdk).  Estas canalizaciones se usan para crear y administrar flujos de trabajo que unen varias fases de aprendizaje automático. Cada fase de una canalización, como la preparación de datos y el entrenamiento de modelos, puede incluir uno o más pasos.
+En este artículo aprenderá a crear, publicar, ejecutar y realizar un seguimiento de una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](https://aka.ms/aml-sdk).  Use **canalizaciones de Machine Learning** para crear un flujo de trabajo que reúna varias fases de Machine Learning y, luego, publique esa canalización en el área de trabajo de Azure Machine Learning para acceder a ella más adelante o compartirla con los demás.  Las canalizaciones de Machine Learning son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de Machine Learning con otros usuarios. 
 
-Las canalizaciones que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning Service. 
+Si bien se puede usar un tipo distinto de canalización, denominado [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml), para la automatización de CI/CD de tareas de Machine Learning, este tipo de canalización nunca se almacena en el área de trabajo. [Compare ambas canalizaciones](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-Recuerde que las canalizaciones usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, las canalizaciones pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
+Cada fase de una canalización de Machine Learning, como la preparación de datos y el entrenamiento de modelos, puede incluir uno o más pasos.
+
+Las canalizaciones de Machine Learning que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning Service. 
+
+Las canalizaciones de Machine Learning usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning.
+* Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
-* Cree un [área de trabajo de Azure Machine Learning](how-to-configure-environment.md#workspace) que contendrá todos los recursos de la canalización. 
+* [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [VM de Notebook](tutorial-1st-experiment-sdk-setup.md#azure) con el SDK ya instalado.
 
-  ```python
-  from azureml.core import Workspace
-  
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
-  ```
+Empiece asociando el área de trabajo:
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar los recursos de aprendizaje automático
 
-Cree los recursos necesarios para ejecutar una canalización:
+Cree los recursos necesarios para ejecutar una canalización de Machine Learning:
 
 * Configure un almacén de datos que puede usar para obtener acceso a los datos necesarios en los pasos de la canalización.
 
@@ -56,22 +59,24 @@ Cree los recursos necesarios para ejecutar una canalización:
 * Configure los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-targets) en los que se ejecutarán los pasos de su canalización.
 
 ### <a name="set-up-a-datastore"></a>Configurar un almacén de datos
+
 Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
 
 Cuando crea su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo. Se registra un almacén de datos predeterminado para conectarse al almacenamiento de blobs de Azure. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
-# Default datastore (Azure blob storage)
+# Default datastore 
 def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this
-def_data_store = Datastore(ws, "workspaceblobstore")
+# Get the blob storage associated with the workspace
+def_blob_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
 def_file_store = Datastore(ws, "workspacefilestore")
+
 ```
 
-Cargue archivos de datos o directorios en el almacén de datos para que pueda obtener acceso a ellos desde sus canalizaciones. En este ejemplo se usa la versión de Blob Storage del almacén de datos:
+Cargue archivos de datos o directorios en el almacén de datos para que pueda obtener acceso a ellos desde sus canalizaciones. En este ejemplo se usa Blob Storage como almacén de datos:
 
 ```python
 def_blob_store.upload_files(
@@ -333,19 +338,21 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
 Para obtener más información, consulte la documentación de referencia de la [clase Experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
+
+
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
 Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 
-Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, debe parametrizar la canalización antes de publicarla. 
+Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, debe parametrizar la canalización antes de publicarla.
 
 1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) con un valor predeterminado.
 
    ```python
    pipeline_param = PipelineParameter(
-     name="pipeline_arg", 
+     name="pipeline_arg",
      default_value=10)
    ```
 
@@ -356,20 +363,21 @@ Puede publicar una canalización para ejecutarla con diferentes entradas más ad
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
-     outputs=[out_data3],    
-     target=compute_target, 
+     outputs=[out_data3],
+     target=compute_target,
      source_directory=project_folder)
    ```
 
 3. Publique esta canalización para que acepte un parámetro cuando se invoque.
 
    ```python
-   published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline", 
-       description="My Published Pipeline Description")
+   published_pipeline1 = pipeline_run1.publish_pipeline(
+        name="My_Published_Pipeline",
+        description="My Published Pipeline Description",
+        version="1.0")
    ```
 
-## <a name="run-a-published-pipeline"></a>Ejecutar una canalización publicada
+### <a name="run-a-published-pipeline"></a>Ejecutar una canalización publicada
 
 Todas las canalizaciones publicadas tienen un punto de conexión REST. Este punto de conexión invoca la ejecución de la canalización desde sistemas externos, como los clientes que no son de Python. Este punto de conexión habilita la "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
 
@@ -382,15 +390,28 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Visualización de los resultados
+### <a name="view-results-of-a-published-pipeline"></a>Ver los resultados de una canalización publicada
 
-Ver la lista de todas las canalizaciones y sus detalles de ejecución:
+Vea la lista de todas las canalizaciones publicadas y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
 
 1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
  ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Seleccione una canalización específica para ver los resultados de la ejecución.
+
+### <a name="disable-a-published-pipeline"></a>Deshabilitar una canalización publicada
+
+Para ocultar una canalización de la lista de canalizaciones publicadas, hay que deshabilitarla:
+
+```
+# Get the pipeline by using its ID in the Azure portal
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p.disable()
+```
+
+Puede habilitarla de nuevo con `p.enable()`.
+
 
 ## <a name="caching--reuse"></a>Almacenamiento en caché y reutilización  
 
@@ -412,6 +433,7 @@ step = PythonScriptStep(name="Hello World",
  
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Use [estos cuadernos de Jupyter en GitHub](https://aka.ms/aml-pipeline-readme) para explorar aún más canalizaciones de Machine Learning.
 - Lea la ayuda de referencia del SDK para el paquete [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) y el paquete [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 

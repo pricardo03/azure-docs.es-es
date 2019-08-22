@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249574"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989988"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -34,7 +34,7 @@ Table service indexa automáticamente entidades mediante los valores **Partition
 Si desea ser capaz de encontrar una entidad de empleado basada en el valor de otra propiedad, como la dirección de correo electrónico, debe usar un examen de la partición menos eficiente para encontrar a coincidencia. Esto se debe a que Table service no proporciona índices secundarios. Además, no hay ninguna opción para solicitar una lista de empleados ordenados en un orden diferente a **RowKey** .  
 
 ### <a name="solution"></a>Solución
-Para solucionar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia mediante un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid" y "email" permiten consultar un solo empleado o un intervalo de empleados mediante un intervalo de direcciones de correo electrónico o identificadores de empleado.  
+Para solucionar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia mediante un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid" y "email", permiten consultar un solo empleado o un intervalo de empleados mediante un intervalo de direcciones de correo electrónico o identificadores de empleado.  
 
 ![Entidades de empleado](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -48,7 +48,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 * Para buscar todos los empleados del departamento de ventas con un identificador de empleado en el intervalo de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'empid_000100') y (RowKey le 'empid_000199').  
 * Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email_a') y (RowKey lt 'email_b')  
   
-  Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  La sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
@@ -86,7 +86,7 @@ Table service indexa automáticamente entidades mediante los valores **Partition
 
 Si desea ser capaz de encontrar una entidad de empleado basada en el valor de otra propiedad, como la dirección de correo electrónico, debe usar un examen de la partición menos eficiente para encontrar a coincidencia. Esto se debe a que Table service no proporciona índices secundarios. Además, no hay ninguna opción para solicitar una lista de empleados ordenados en un orden diferente a **RowKey** .  
 
-Prevé un gran volumen de transacciones en estas entidades y desea minimizar el riesgo de que Table service limite a su cliente.  
+Prevé un gran volumen de transacciones en estas entidades y quier minimizar el riesgo de que Table service limite a su cliente.  
 
 ### <a name="solution"></a>Solución
 Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia con valores **PartitionKey** y **RowKey** diferentes. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **PartitionKey**, "empid" y "email" le permiten identificar qué índice desea utilizar para una consulta.  
@@ -104,7 +104,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 * Para buscar todos los empleados del departamento de ventas con un identificador de empleado en el intervalo de **000100** a **000199** clasificados en orden de identificador de empleado, use: $filter=(PartitionKey eq 'empid_Sales') y (RowKey ge '000100') y (RowKey le '000199').  
 * Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
 
-Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
@@ -144,7 +144,7 @@ Los EGT permiten transacciones atómicas a través de varias entidades que compa
 
 ### <a name="solution"></a>Solución
 Mediante el uso de las colas de Azure, puede implementar una solución que ofrece coherencia final entre dos o más particiones o sistemas de almacenamiento.
-Para ilustrar este enfoque, suponga que tiene un requisito para poder almacenar entidades de empleado antiguas. Las entidades de empleado antiguas rara vez se consultan y deben excluirse de las actividades relacionadas con los empleados actuales. Para implementar este requisito, almacene empleados activos en la tabla **Current** y empleados antiguos en la tabla **Archive**. Para archivar un empleado, es preciso eliminar la entidad de la tabla **Current** y agregarla a la tabla **Archive**, pero no se puede usar una EGT para realizar estas dos operaciones. Para evitar el riesgo de que un error provoque la aparición de una entidad en las dos tablas o en ninguna, la operación de almacenamiento debe ser coherente con el tiempo. En el diagrama de secuencia siguiente se describen los pasos de esta operación. En el texto siguiente se proporcionan más detalles para las rutas de excepción.  
+Para ilustrar este enfoque, suponga que tiene un requisito para poder almacenar entidades de empleado antiguas. Las entidades de empleado antiguas rara vez se consultan y deben excluirse de las actividades relacionadas con los empleados actuales. Para implementar este requisito, almacene los empleados activos en la tabla **Current** y los empleados antiguos en la tabla **Archive**. Para archivar un empleado, es preciso eliminar la entidad de la tabla **Current** y agregarla a la tabla **Archive**, pero no se puede usar una EGT para realizar estas dos operaciones. Para evitar el riesgo de que un error provoque la aparición de una entidad en las dos tablas o en ninguna, la operación de almacenamiento debe ser coherente con el tiempo. En el diagrama de secuencia siguiente se describen los pasos de esta operación. En el texto siguiente se proporcionan más detalles para las rutas de excepción.  
 
 ![Solución de colas de Azure](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
@@ -162,7 +162,7 @@ Algunos errores de Table service y Queue service son errores transitorios y la a
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
 
-* Esta solución no permite el aislamiento de las transacciones. Por ejemplo, un cliente pudo leer las tablas **Current** y **Archive** cuando el rol de trabajo estaba entre los pasos **4** y **5**, y tener una vista incoherente de los datos. Tenga en cuenta que los datos serán coherentes con el tiempo.  
+* Esta solución no permite el aislamiento de las transacciones. Por ejemplo, un cliente pudo leer las tablas **Current** y **Archive** cuando el rol de trabajo estaba entre los pasos **4** y **5**, y tener una vista incoherente de los datos. Los datos serán coherentes con el tiempo.  
 * Debe asegurarse de que los pasos 4 y 5 sean idempotentes para garantizar la coherencia.  
 * Puede escalar la solución mediante el uso de varias colas e instancias de rol de trabajador.  
 
@@ -191,7 +191,7 @@ Table service indexa automáticamente entidades mediante los valores **Partition
 Si también desea poder recuperar una lista de las entidades employee en función del valor de otra propiedad no exclusiva, por ejemplo, su apellido, debe utilizar un examen de partición menos eficaz para buscar coincidencias en lugar de utilizar un índice para buscarlas directamente. Esto se debe a que Table service no proporciona índices secundarios.  
 
 ### <a name="solution"></a>Solución
-Para habilitar la búsqueda por apellido con la estructura de entidad mostrada anteriormente, debe mantener listas de identificadores de empleado. Si desea recuperar las entidades employee con un apellido determinado, como Jones, debe encontrar primero la lista de identificadores de empleado para los empleados con Jones como su apellido y, a continuación, recuperar las entidades employee. Hay tres opciones principales para almacenar las listas de identificadores de empleado:  
+Para habilitar la búsqueda por apellido con la estructura de entidad mostrada anteriormente, debe mantener listas de identificadores de empleado. Si quiere recuperar las entidades "employee" con un apellido determinado, como Jones, debe encontrar primero la lista de identificadores de empleado para los empleados con Jones como apellido y, después, recuperar las entidades "employee". Hay tres opciones principales para almacenar las listas de identificadores de empleado:  
 
 * Utilice Blob Storage.  
 * Cree entidades de índice en la misma partición que las entidades employee.  
@@ -209,7 +209,7 @@ Para la segunda opción, utilice las entidades de índice que almacenan los dato
 
 La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado para los empleados cuyo apellido está almacenado en **RowKey**.  
 
-Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con Id. 000152 y el apellido Jones en el departamento de ventas:  
+Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos un empleado con el identificador 000152 y el apellido Jones en el departamento de ventas:  
 
 1. Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.  
 2. Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad de empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección Transacciones de grupo de entidad (EGT).  
@@ -232,19 +232,19 @@ Para la tercera opción, utilice las entidades de índice que almacenan los dato
 
 La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado para los empleados cuyo apellido está almacenado en **RowKey**.  
 
-Con la tercera opción, no puede utilizar EGT para mantener la coherencia porque las entidades del índice están en una partición distinta que las entidades employee. Debe asegurarse de que las entidades de índice son coherentes eventualmente con las entidades employee.  
+Con la tercera opción, no puede utilizar EGT para mantener la coherencia porque las entidades del índice están en una partición distinta que las entidades employee. Asegúrese de que las entidades de índice son coherentes finalmente con las entidades "employee".  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
 
 * Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice con el fin de obtener la lista de valores **RowKey** y, luego, las consultas para recuperar cada entidad de la lista.  
-* Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción nº2 y la opción nº3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº 1 y almacene los datos del índice en Blob Storage.  
+* Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción n.º 2 y la opción n.º 3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si es probable que la lista de identificadores de empleado tenga un tamaño superior a 1 MB, use la opción n.º 1 y almacene los datos del índice en Blob Storage.  
 * Si utiliza la opción 2 (el uso de EGT para controlar la adición y eliminación de empleados, y el cambio de los apellidos de un empleado), debe evaluar si el volumen de transacciones se aproximará a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción nº1 o nº3) que utilice colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee.  
 * La opción nº2 en esta solución da por hecho que desea buscar por apellido dentro de un departamento: por ejemplo, desea recuperar una lista de empleados que tienen un apellido Jones del departamento de ventas. Si desea buscar todos los empleados con apellido Jones en toda la organización, utilice opción nº1 o la opción nº3.
 * Puede implementar una solución basada en cola que ofrezca coherencia eventual (consulte [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) para más información).  
 
 ### <a name="when-to-use-this-pattern"></a>Cuándo usar este patrón
-Utilice este patrón cuando desee buscar un conjunto de entidades que compartan un valor de propiedad común, como todos los empleados con el apellido Jones.  
+Use este patrón cuando quiera buscar un conjunto de entidades que compartan un valor de propiedad común, como todos los empleados con el apellido Jones.  
 
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
@@ -286,10 +286,10 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Patrón de clave compuesta
-Utilice valores **RowKey** compuestos para permitir a los clientes buscar datos relacionados con una consulta de punto único.  
+Use valores **RowKey** compuestos para permitir a los clientes buscar datos relacionados con una consulta de punto único.  
 
 ### <a name="context-and-problem"></a>Contexto y problema
-En una base de datos relacional, resulta bastante natural usar combinaciones en las consultas para devolver datos relacionados al cliente en una sola consulta. Por ejemplo, podría usar el identificador de empleado para buscar una lista de entidades relacionadas que contengan datos de rendimiento y revisión de ese empleado.  
+En una base de datos relacional, resulta natural usar combinaciones en las consultas para devolver datos relacionados al cliente en una sola consulta. Por ejemplo, podría usar el identificador de empleado para buscar una lista de entidades relacionadas que contengan datos de rendimiento y revisión de ese empleado.  
 
 Supongamos que está almacenando entidades employee en Table service utilizando la siguiente estructura:  
 
@@ -333,12 +333,12 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 Recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
 
 ### <a name="context-and-problem"></a>Contexto y problema
-Un requisito común es ser capaz de recuperar las entidades creadas más recientemente, por ejemplo las últimas diez reclamaciones de gastos enviadas por un empleado. Las consultas de tabla admiten una operación de consulta **$top** para devolver las primeras entidades *n* de un conjunto: no hay ninguna operación de consulta equivalente para devolver las últimas entidades n en un conjunto.  
+Un requisito común es ser capaz de recuperar las entidades creadas más recientemente, por ejemplo, las diez reclamaciones de gastos más recientes enviadas por un empleado. Las consultas de tabla admiten una operación de consulta **$top** para devolver las primeras entidades *n* de un conjunto: no hay ninguna operación de consulta equivalente para devolver las últimas entidades n en un conjunto.  
 
 ### <a name="solution"></a>Solución
 Almacene las entidades mediante un valor **RowKey** que ordene naturalmente en orden inverso de fecha y hora de modo que la entrada más reciente sea siempre la primera de la tabla.  
 
-Por ejemplo, para poder recuperar las diez reclamaciones de gastos más recientes enviadas por un empleado, puede utilizar un valor de marca inversa derivado de la fecha y hora actuales. El siguiente ejemplo de código de C# muestra una forma de crear un valor de "marcas invertidas" adecuado para un valor **RowKey** que ordene de más reciente a más antiguo:  
+Por ejemplo, para poder recuperar las diez reclamaciones de gastos más recientes enviadas por un empleado, puede usar un valor de marca inversa derivado de la fecha y hora actuales. El siguiente ejemplo de código de C# muestra una forma de crear un valor de "marcas invertidas" adecuado para un valor **RowKey** que ordene de más reciente a más antiguo:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -375,7 +375,7 @@ Un diseño posible es utilizar la fecha y hora de la solicitud de inicio de sesi
 
 ![Fecha y hora del intento de inicio de sesión](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
-Este enfoque evita los problemas de las particiones porque la aplicación puede insertar y eliminar entidades de inicio de sesión para cada usuario en una partición independiente. Sin embargo, este enfoque puede ser costoso y lento si tiene un gran número de entidades porque primero debe realizar un recorrido de tabla para identificar todas las entidades que desea eliminar y, a continuación, debe eliminar cada entidad antigua. Tenga en cuenta que puede reducir el número de viajes de ida y vuelta al servidor necesarios para eliminar las entidades antiguas almacenando por lotes varias solicitudes de eliminación en EGT.  
+Este enfoque evita los problemas de las particiones porque la aplicación puede insertar y eliminar entidades de inicio de sesión para cada usuario en una partición independiente. Sin embargo, este enfoque puede ser costoso y lento si tiene un gran número de entidades porque primero debe realizar un recorrido de tabla para identificar todas las entidades que desea eliminar y, a continuación, debe eliminar cada entidad antigua. Puede reducir el número de viajes de ida y vuelta al servidor necesarios para eliminar las entidades antiguas almacenando por lotes varias solicitudes de eliminación en EGT.  
 
 ### <a name="solution"></a>Solución
 Utilice una tabla independiente para cada día de intentos de inicio de sesión. Puede usar el diseño de la entidad anterior para evitar problemas cuando se insertan entidades y eliminar entidades anteriores ahora es simplemente una cuestión de eliminar una tabla todos los días (una operación de almacenamiento único) en lugar de buscar y eliminar cientos de miles de entidades de inicio de sesión individuales cada día.  
@@ -705,7 +705,7 @@ Observe que el valor **RowKey** está disponible incluso no se incluyó en la li
 ## <a name="modifying-entities"></a>Modificación de entidades
 La biblioteca de clientes de Storage permite modificar las entidades almacenadas en Table service, insertando, eliminando y actualizando entidades. Puede usar EGT para procesar por lotes varias operaciones de inserción, actualización y eliminación conjuntamente para reducir el número de viajes de ida y vuelta requeridos y mejorar el rendimiento de la solución.  
 
-Tenga en cuenta que entre las excepciones que se producen cuando la biblioteca de clientes de Storage ejecuta un EGT normalmente se incluyen el índice de la entidad que ha provocado el error del lote. Esto resulta útil cuando se depura código que usa EGT.  
+Entre las excepciones que se producen cuando la biblioteca de clientes de Storage ejecuta un EGT normalmente se incluyen el índice de la entidad que ha provocado el error del lote. Esto resulta útil cuando se depura código que usa EGT.  
 
 También debe considerar cómo afecta su diseño a la forma en que la aplicación cliente trata las operaciones de simultaneidad y actualización.  
 
@@ -812,7 +812,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 </tr>
 </table>
 
-Tenga en cuenta que cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp**, pero puede tener cualquier conjunto de propiedades. Además, no hay nada que indique el tipo de una entidad a menos que elija almacenar esa información en algún lugar. Hay dos opciones para identificar el tipo de entidad:  
+Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp**, pero puede tener cualquier conjunto de propiedades. Además, no hay nada que indique el tipo de una entidad a menos que elija almacenar esa información en algún lugar. Hay dos opciones para identificar el tipo de entidad:  
 
 * Anteponer el tipo de entidad al valor **RowKey** (o posiblemente a **PartitionKey**). Por ejemplo, **EMPLOYEE_000123** o **DEPARTMENT_SALES** como valores **RowKey**.  
 * Utilice una propiedad independiente para registrar el tipo de entidad como se muestra en la tabla siguiente.  
@@ -959,7 +959,7 @@ foreach (var e in entities)
 }  
 ```
 
-Tenga en cuenta que para recuperar otras propiedades debe utilizar el método **TryGetValue** en la propiedad **Properties** de la clase **DynamicTableEntity**.  
+Para recuperar otras propiedades, debe usar el método **TryGetValue** en la propiedad **Properties** de la clase **DynamicTableEntity**.  
 
 Una tercera opción consiste en combinar el tipo **DynamicTableEntity** con una instancia de **EntityResolver**. Esto le permite resolver en varios tipos POCO en la misma consulta. En este ejemplo, el delegado **EntityResolver** usa la propiedad **EntityType** para distinguir entre los dos tipos de entidad que devuelve la consulta. El método **Resolve** usa el delegado **resolver** para resolver instancias de **DynamicTableEntity** en instancias de **TableEntity**.  
 
@@ -1030,7 +1030,7 @@ Puede utilizar tokens de firma de acceso compartido (SAS) para permitir a las ap
 * Puede descargar parte del trabajo que realizan los roles de web y trabajador en la administración de las entidades en dispositivos cliente como los equipos de usuario final y los dispositivos móviles.  
 * Puede asignar un conjunto de permisos restringido y con limitación de tiempo a un cliente (por ejemplo, para permitir el acceso de solo lectura a recursos específicos).  
 
-Para más información sobre el uso de tokens de SAS con Table service, consulte [Uso de Firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Para más información sobre el uso de tokens de SAS con Table service, consulte [Uso de Firmas de acceso compartido (SAS)](../../storage/common/storage-sas-overview.md).  
 
 Sin embargo, todavía debe generar los tokens SAS que concedan una aplicación cliente a las entidades en Table service: debe hacerlo en un entorno que tenga acceso seguro a las claves de cuenta de almacenamiento. Normalmente, se utiliza un rol web o de trabajador para generar los tokens SAS y entregarlos a las aplicaciones cliente que necesitan tener acceso a las entidades. Dado que todavía hay una sobrecarga implicada en la generación y entrega tokens SAS a los clientes, debería considerar cómo reducir mejor esta sobrecarga, especialmente en escenarios de gran volumen.  
 
@@ -1091,7 +1091,7 @@ En este ejemplo asincrónico, puede ver los cambios siguientes desde la versión
 
 La aplicación cliente puede llamar a este método varias veces (con valores diferentes en el parámetro **department** ) y cada consulta se ejecutará en un subproceso independiente.  
 
-Tenga en cuenta que no hay ninguna versión asincrónica del método **Execute** en la clase **TableQuery** porque la interfaz **IEnumerable** no admite la enumeración asincrónica.  
+No hay ninguna versión asincrónica del método **Execute** en la clase **TableQuery** porque la interfaz **IEnumerable** no admite la enumeración asincrónica.  
 
 También puede insertar, actualizar y eliminar entidades de forma asincrónica. En el ejemplo de C# siguiente se muestra un método sencillo y sincrónico para insertar o reemplazar una entidad de empleado:  
 

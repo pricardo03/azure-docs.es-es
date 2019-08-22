@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953018"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985947"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalación y operación con Azure Data Box de forma segura
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)
@@ -40,8 +40,8 @@ Estos son los iconos que encontrará cuando revise las precauciones de seguridad
 
 ![Icono de advertencia](./media/data-box-safety/warning_icon.png) ![Icono de descarga eléctrica](./media/data-box-safety/electrical_shock_hazard_icon.png)![Icono de no contiene piezas reparables por el usuario](./media/data-box-safety/no_user_serviceable_parts_icon.png) **PRECAUCIÓN** 
 
-* Inspeccione el dispositivo *recibido* en busca de daños. Si se daña el contenedor del dispositivo, póngase en contacto con el servicio de Soporte técnico de Microsoft para obtener un reemplazo. No intente hacer funcionar el dispositivo. 
-* El dispositivo está equipado con tornillos a prueba de manipulaciones. Si sospecha que el dispositivo está funcionando mal, póngase en contacto con el servicio de Soporte técnico de Microsoft para obtener un reemplazo. No intente reparar el dispositivo. 
+* Inspeccione el dispositivo *recibido* en busca de daños. Si el contenedor del dispositivo está dañado, [póngase en contacto con el Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) para obtener un reemplazo. No intente hacer funcionar el dispositivo. 
+* El dispositivo está equipado con tornillos a prueba de manipulaciones. Si sospecha que el dispositivo funciona mal, [póngase en contacto con el Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) para obtener un reemplazo. No intente reparar el dispositivo. 
 * El dispositivo contiene piezas que el usuario no puede reparar. Dentro, hay elementos con niveles de energía, corriente y voltaje peligrosos. No lo abra. Devuelva el dispositivo a Microsoft para que lo repare.
 
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)![Icono Peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png)**ADVERTENCIA** 
@@ -77,7 +77,7 @@ Estos son los iconos que encontrará cuando revise las precauciones de seguridad
 * Desenchufe de forma definitiva la unidad antes de moverla o si piensa que se ha dañado de algún modo.
 * Proporcione una fuente de alimentación adecuada con protección frente a sobrecargas eléctricas para cumplir con las especificaciones de energía siguientes:
 
-    - Voltaje: 100 V CA a 240 V CA
+    - Voltaje: de 100 V CA a 240 V CA
     - Corriente: 6 A como máximo
     - Frecuencia: 50 Hz a 60 Hz
 
@@ -132,7 +132,7 @@ Canadá: (800) 933-4750
 
 **UNIÓN EUROPEA:**
 
-Aquí hay disponible una copia de la declaración de conformidad de la UE.
+[Solicite una copia de la declaración de conformidad de la UE](mailto:CSI_Compliance@microsoft.com).
 
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)**ADVERTENCIA:** 
 

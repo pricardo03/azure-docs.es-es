@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561870"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851757"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -66,7 +66,7 @@ Para poder asociar o agregar su suscripción, debe realizar las siguientes tarea
     Se cambia el directorio de la suscripción y se muestra un mensaje de confirmación.
 
     ![Mensaje de operación correcta sobre el cambio de directorio](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Use el **conmutador de directorios** para ir al nuevo directorio. Puede tardar varias horas hasta que todo se muestre correctamente. Si parece que el proceso tarda demasiado, asegúrese de comprobar que el **filtro de suscripción global** de la suscripción que ha movido no se haya ocultado.
+4. Use el **conmutador de directorios** para ir al nuevo directorio. Puede tardar varias horas hasta que todo se muestre correctamente. Si parece que el proceso tarda demasiado, revise el **filtro de suscripción global** de la suscripción que se movió para asegurarse de que no esté oculta. Es posible que tenga que cerrar la sesión de Azure Portal y volver a iniciarla para poder ver el directorio nuevo. 
 
     ![Página del conmutador de directorios con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

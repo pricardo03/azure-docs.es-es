@@ -1,5 +1,5 @@
 ---
-title: Diferencias de T-SQL en Instancia administrada de Azure SQL Database | Microsoft Docs
+title: Diferencias de T-SQL en la instancia administrada de Azure SQL Database | Microsoft Docs
 description: En este artículo se describen las diferencias de T-SQL entre una instancia administrada en Azure SQL Database y SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567252"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019671"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL entre SQL Server e Instancia administrada de Azure SQL Database
 
-Este artículo resume y explica las diferencias de sintaxis y comportamiento entre Instancia administrada de Azure SQL Database y el Motor de base de datos de SQL Server local. Se van a analizar los siguientes temas: <a name="Differences"></a>
+Este artículo resume y explica las diferencias de sintaxis y comportamiento entre la instancia administrada de Azure SQL Database y el Motor de base de datos de SQL Server local. Se van a analizar los siguientes temas: <a name="Differences"></a>
 
 - [Disponibilidad](#availability), incluye las diferencias en [Always-On](#always-on-availability) y [Copias de seguridad](#backup).
 - [Seguridad](#security), incluye las diferencias en [Auditoría](#auditing), [Certificados](#certificates), [Credenciales](#credential), [Proveedores de servicios criptográficos](#cryptographic-providers), [Inicios de sesión y usuarios](#logins-and-users), [Clave maestra de servicio y clave de servicio](#service-key-and-service-master-key).
@@ -30,7 +30,7 @@ Este artículo resume y explica las diferencias de sintaxis y comportamiento ent
 - [Características que tienen un comportamiento diferente en instancias administradas](#Changes).
 - [Limitaciones temporales y problemas conocidos](#Issues).
 
-La opción de implementación de la instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
+La opción de implementación de la Instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
 
 ![Migración](./media/sql-database-managed-instance/migration.png)
 
@@ -38,7 +38,7 @@ La opción de implementación de la instancia administrada proporciona gran comp
 
 ### <a name="always-on-availability"></a>Always On
 
-La [alta disponibilidad](sql-database-high-availability.md) está integrada en Instancia administrada y no la pueden controlar los usuarios. No se admiten las siguientes instrucciones:
+La [alta disponibilidad](sql-database-high-availability.md) está integrada en la instancia administrada y no la pueden controlar los usuarios. No se admiten las siguientes instrucciones:
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -154,26 +154,26 @@ Una instancia administrada no puede acceder a archivos, por lo que no se pueden 
 
 - Limitaciones de la versión preliminar pública para las entidades de seguridad (inicios de sesión) del servidor de Azure AD:
 
-  - Limitaciones de administrador de Active Directory para Instancia administrada:
+  - Limitaciones de administrador de Active Directory para la instancia administrada:
 
     - El administrador de Azure AD usado para configurar la instancia administrada no se puede usar para crear una entidad de seguridad (inicio de sesión) de un servidor de Azure AD dentro de la instancia administrada. Debe crear la primera entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante una cuenta de SQL Server que tenga el rol `sysadmin`. Esta es una limitación temporal que se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - Actualmente, el primer inicio de sesión de Azure AD creado en la base de datos maestra debe crearlo la cuenta estándar de SQL Server (no de Azure AD) que tenga el rol `sysadmin` mediante la cláusula [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Después de la fase de disponibilidad general, se eliminará esta limitación. Posteriormente, podrá crear un inicio de sesión de Azure AD inicial mediante el administrador de Active Directory para Instancia administrada.
+      - Actualmente, el primer inicio de sesión de Azure AD creado en la base de datos maestra debe crearlo la cuenta estándar de SQL Server (no de Azure AD) que tenga el rol `sysadmin` mediante la cláusula [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Después de la fase de disponibilidad general, se eliminará esta limitación. Posteriormente, podrá crear un inicio de sesión de Azure AD inicial mediante el administrador de Active Directory para la instancia administrada.
     - No se admite el uso de DacFx (exportación/importación) con SQL Server Management Studio o SqlPackage para los inicios de sesión de Azure AD. Esta es una limitación que se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general.
     - Uso de entidades de seguridad (inicios de sesión) del servidor de Azure AD con SQL Server Management Studio:
 
       - No se admiten los inicios de sesión de scripting de Azure AD que usen cualquier inicio de sesión autenticado.
       - Intellisense no reconoce la instrucción CREATE LOGIN FROM EXTERNAL PROVIDER y muestra un subrayado rojo.
 
-- Solo el inicio de sesión de la entidad de seguridad a nivel de servidor (el que crea el proceso de aprovisionamiento de Instancia administrada), los miembros de los roles de servidor como `securityadmin` o `sysadmin`, u otros inicios de sesión con permiso ALTER ANY LOGIN en el nivel de servidor pueden crear entidades de seguridad (inicios de sesión) en el nivel de servidor de Azure AD en la base de datos maestra para Instancia administrada.
+- Solo el inicio de sesión de la entidad de seguridad a nivel de servidor (el que crea el proceso de aprovisionamiento de la instancia administrada), los miembros de los roles de servidor como `securityadmin` o `sysadmin`, u otros inicios de sesión con permiso ALTER ANY LOGIN en el nivel de servidor pueden crear entidades de seguridad (inicios de sesión) de servidor de Azure AD en la base de datos maestra para la instancia administrada.
 - Si el inicio de sesión es una entidad de seguridad de SQL, solo los inicios de sesión que forman parte del rol `sysadmin` pueden utilizar el comando create para crear inicios de sesión para una cuenta de Azure AD.
-- El inicio de sesión de Azure AD debe ser un miembro de una instancia de Azure AD dentro del mismo directorio que se usa para Instancia administrada de Azure SQL Database.
+- El inicio de sesión de Azure AD debe ser miembro de una instancia de Azure AD dentro del mismo directorio que se usa para la instancia administrada de Azure SQL Database.
 - Las entidades de seguridad (inicio de sesión) del servidor de Azure AD son visibles en el explorador de objetos a partir de la versión preliminar 5 de SQL Server Management Studio 18.0.
 - Se permite la superposición de las entidades de seguridad (inicios de sesión) del servidor de Azure AD con una cuenta de administrador de Azure AD. Las entidades de seguridad (inicios de sesión) del servidor de Azure AD tienen prioridad sobre el administrador de Azure AD cuando se resuelve la entidad de seguridad y se aplican permisos a la instancia administrada.
 - Durante la autenticación, se aplica la siguiente secuencia para resolver la entidad de seguridad de autenticación:
 
     1. Si la cuenta de Azure AD existe como directamente asignada a la entidad de seguridad (inicio de sesión) del servidor de Azure AD que está presente en sys.server_principals como tipo "E", conceda acceso y aplique los permisos de la entidad de seguridad (inicio de sesión) del servidor de Azure AD.
     2. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a la entidad de seguridad (inicio de sesión) del servidor de Azure AD (presente en sys.server_principals como tipo "X"), conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
-    3. Si la cuenta de Azure AD es un administrador de Azure AD configurado en un portal especial de Instancia administrada, que no existe en las vistas de sistema de Instancia administrada, aplique permisos fijos especiales del administrador de Azure AD para Instancia administrada (modo heredado).
+    3. Si la cuenta de Azure AD es un administrador de Azure AD configurado en un portal especial para la instancia administrada, que no existe en las vistas de sistema de la instancia administrada, aplique permisos fijos especiales del administrador de Azure AD para la instancia administrada (modo heredado).
     4. Si la cuenta de Azure AD existe como directamente asignada a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "E", conceda acceso y aplique los permisos del usuario de la base de datos de Azure AD.
     5. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "X", conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
     6. Si hay un inicio de sesión de Azure AD asignado a una cuenta de usuario de Azure AD o a una cuenta de grupo de Azure AD, la cual resuelve la autenticación del usuario, se aplicarán todos los permisos de este inicio de sesión de Azure AD.
@@ -276,7 +276,7 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
 - La habilitación o deshabilitación del Agente SQL Server no se admite actualmente en la instancia administrada. El Agente SQL siempre está en ejecución.
-- La configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada. 
+- La configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en la instancia administrada. 
 - Trabajos
   - Se admiten los pasos de trabajo de T-SQL.
   - Se admiten los siguientes trabajos de replicación:
@@ -309,18 +309,18 @@ Para más información acerca del Agente SQL Server, consulte [Agente SQL Server
 
 ### <a name="tables"></a>Tablas
 
-No se admiten las siguientes tablas:
+No se admiten los siguientes tipos de tablas:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (únicamente no se admite en el nivel Uso general)
 
 Para más información sobre cómo crear y modificar tablas, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) y [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="functionalities"></a>Funcionalidades
 
-### <a name="bulk-insert--openrowset"></a>Bulk insert/openrowset
+### <a name="bulk-insert--openrowset"></a>BULK INSERT/OPENROWSET
 
 Una instancia administrada no puede acceder a los recursos compartidos de archivos ni carpetas de Windows, por lo que los archivos se deben importar desde Azure Blob Storage:
 
@@ -391,7 +391,7 @@ Operaciones
 - Se admite `sp_dropserver` para quitar un servidor vinculado. Consulte [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La función `OPENROWSET` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Consulte [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
-- Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee archivos CSV desde Azure Blob Storage. Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|.
+- Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee archivos CSV desde Azure Blob Storage. Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la instancia administrada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|.
 
 ### <a name="polybase"></a>PolyBase
 
@@ -399,13 +399,44 @@ No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Bl
 
 ### <a name="replication"></a>Replicación
 
-La [replicación transaccional](sql-database-managed-instance-transactional-replication.md) está disponible para la versión preliminar pública en la Instancia administrada con algunas restricciones:
-- Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en la Instancia administrada, pero el editor y el distribuidor no se pueden colocar en instancias diferentes.
-- Se admiten los tipos de replicación transaccional, de instantánea y bidireccional. Sin embargo, no se admite la replicación de mezcla, la replicación punto a punto y las suscripciones actualizables.
-- La Instancia administrada puede comunicarse con las versiones recientes de SQL Server. Consulte las versiones admitidas [aquí](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
-- La replicación transaccional tiene algunos [requisitos de red adicionales](sql-database-managed-instance-transactional-replication.md#requirements).
+- Se admiten los tipos de replicación de instantánea y bidireccional. No se admite la replicación de mezcla, la replicación punto a punto y las suscripciones actualizables.
+- La [replicación transaccional](sql-database-managed-instance-transactional-replication.md) está disponible para la versión preliminar pública en la instancia administrada con algunas restricciones:
+    - Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en instancias administradas, pero el editor y el distribuidor no se pueden colocar en instancias diferentes.
+    - Las instancias administradas pueden comunicarse con las versiones recientes de SQL Server. Consulte las versiones admitidas [aquí](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - La replicación transaccional tiene algunos [requisitos de red adicionales](sql-database-managed-instance-transactional-replication.md#requirements).
 
 Para obtener información sobre la configuración de la replicación, vea el [tutorial de replicación](replication-with-sql-database-managed-instance.md).
+
+
+Si la replicación se habilita en una base de datos en un [grupo de conmutación por error](sql-database-auto-failover-group.md), el administrador de la instancia administrada debe limpiar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva principal después de producirse una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
+
+1. Detenga todos los trabajos de replicación que se ejecutan en la base de datos, si hay alguno.
+2. Quite los metadatos de suscripción del publicador. Para ello, ejecute el siguiente script en la base de datos del publicador:
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Quite los metadatos de suscripción del suscriptor. Ejecute el siguiente script en la base de datos de suscripciones en la instancia del suscriptor:
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Quite forzosamente todos los objetos de replicación del publicador. Para ello, ejecute el siguiente script en la base de datos publicada:
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Quite forzosamente el distribuidor anterior de la instancia principal original (si realiza la conmutación por recuperación a una base de datos principal anterior que solía tener un distribuidor). Ejecute el siguiente script en la base de datos maestra en la instancia administrada anterior del distribuidor:
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>Instrucción RESTORE 
 
@@ -437,10 +468,13 @@ Las siguientes opciones de base de datos se establecen o invalidan, y no se pued
 
 Limitaciones: 
 
+- Las copias de seguridad de las bases de datos dañadas pueden restaurarse en función del tipo de daños, pero no se realizarán copias de seguridad automatizadas mientras no se corrija el daño. Asegúrese de ejecutar `DBCC CHECKDB` en la instancia de origen y de usar la copia de seguridad `WITH CHECKSUM` para evitar este problema.
+- La restauración de un archivo `.BAK` de una base de datos que contenga alguna de las limitaciones descritas en este documento (por ejemplo, objetos `FILESTREAM` o `FILETABLE`) no se puede llevar a cabo en la instancia administrada.
 - Los archivos `.BAK` que contienen varios conjuntos de copia de seguridad no se pueden restaurar. 
 - Los archivos `.BAK` que contienen varios archivos de registro no se pueden restaurar.
-- Se producirá un error en la restauración si el archivo .bak contiene datos `FILESTREAM`.
-- Las copias de seguridad que contienen bases de datos que tienen objetos activos en memoria no se pueden restaurar en una instancia de uso general. Para más información acerca de las instrucciones Restore, consulte [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+- Las copias de seguridad que contienen bases de datos con un tamaño superior a 8 TB, objetos OLTP en memoria activos o más de 280 archivos no se pueden restaurar en una instancia de uso general. 
+- Las copias de seguridad que contienen bases de datos con un tamaño superior a 4 TB u objetos OLTP en memoria con un tamaño total superior al descrito en los [límites de recursos](sql-database-managed-instance-resource-limits.md) no se pueden restaurar en una instancia de tipo Crítico para la empresa.
+Para más información acerca de las instrucciones Restore, consulte [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -467,7 +501,7 @@ No se admite el agente de servicio entre instancias:
 ## <a name="Environment"></a>Restricciones del entorno
 
 ### <a name="subnet"></a>Subnet
-- En la subred reservada para Instancia administrada no se puede colocar ningún otro recurso (por ejemplo máquinas virtuales). Coloque estos recursos en otras subredes.
+-  No se puede colocar ningún otro recurso (por ejemplo, máquinas virtuales) en la subred en la que ha implementado la instancia administrada. Implemente estos recursos con una subred diferente.
 - La subred debe tener un número de [direcciones IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements) disponibles suficiente. El mínimo es 16, aunque se recomienda tener al menos 32 direcciones IP en la subred.
 - [No se pueden asociar los puntos de conexión de servicio con la subred de la instancia administrada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
 - El número de núcleos virtuales y tipos de instancias que se pueden implementar en una región tiene algunas [restricciones y límites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
@@ -476,7 +510,7 @@ No se admite el agente de servicio entre instancias:
 ### <a name="vnet"></a>VNET
 - La red virtual se puede implementar mediante el modelo con Resource Manager. No se admite el modelo clásico.
 - Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
-- Algunos servicios, como App Service Environment, Logic Apps e Instancia administrada (que se usan para la replicación geográfica, la replicación transaccional, o a través de servidores vinculados) no pueden acceder a las instancias administradas de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
+- Algunos servicios, como App Service Environment, Logic Apps y las instancias administradas (que se usan para la replicación geográfica, la replicación transaccional o a través de servidores vinculados), no pueden acceder a las instancias administradas de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
 
 ## <a name="Changes"></a> Cambios de comportamiento
 
@@ -494,11 +528,11 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamaño de TEMPDB
 
-El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `tempdb` está limitado a 120 GB en los niveles De uso general y Crítico para la empresa. La base de datos `tempdb` siempre se divide en 12 archivos de datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen un registro superior a 120 GB. Siempre se vuelve a crear `tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará. 
+El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en los niveles De uso general y Crítico para la empresa. La base de datos `tempdb` siempre se divide en 12 archivos de datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB. Siempre se vuelve a crear `Tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará. 
 
 ### <a name="cant-restore-contained-database"></a>No se puede restaurar la base de datos independiente
 
-Instancia administrada no puede restaurar [bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauración a un momento dado de las bases de datos independientes existentes no funciona en Instancia administrada. Pronto se resolverá este problema. Mientras tanto, le recomendamos que quite la opción de independencia de las bases de datos colocadas en Instancia administrada. No use esta opción con bases de datos de producción. 
+La instancia administrada no puede restaurar [bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauración a un momento dado de las bases de datos independientes existentes no funciona en la instancia administrada. Mientras tanto, le recomendamos que quite la opción de independencia de las bases de datos colocadas en la instancia administrada. No use esta opción con bases de datos de producción. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
 
@@ -506,7 +540,7 @@ Se puede producir un error en las instrucciones `CREATE DATABASE`, `ALTER DATABA
 
 Cada instancia administrada de uso general tiene hasta 35 TB de almacenamiento reservado para el espacio en disco Premium de Azure. Cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
 
-Por ejemplo, una instancia administrada de uso general puede tener un archivo de 1,2 TB de tamaño situado en un disco de 4 TB. También podría tener 248 archivos cada uno de 1 GB de tamaño situados en discos independientes de 128 GB. En este ejemplo:
+Por ejemplo, una instancia administrada de uso general puede tener un archivo de 1,2 TB de tamaño situado en un disco de 4 TB. También podría tener 248 archivos de 1 GB de tamaño situados cada uno de ellos en discos independientes de 128 GB. En este ejemplo:
 
 - El tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
 - El espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -516,11 +550,6 @@ Este ejemplo ilustra que, en determinadas circunstancias, debido a una distribuc
 En este ejemplo, las bases de datos existentes seguirán funcionando y pueden crecer sin ningún problema, siempre y cuando no se agreguen nuevos archivos. No se podrían crear ni restaurar nuevas bases de datos porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
 
 También puede [identificar el número de archivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) mediante el uso de vistas del sistema. Si se alcanza este límite, intente [vaciar y eliminar algunos de los archivos más pequeños mediante la instrucción DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o cambie al [nivel Crítico para la empresa, que no tiene este límite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Configuración incorrecta de la clave SAS durante la restauración de una base de datos
-
-`RESTORE DATABASE`, que lee el archivo .bak, podría estar intentando leer constantemente el archivo .bak y devuelve un error después de un período largo de tiempo si la firma de acceso compartido de `CREDENTIAL` es incorrecta. Ejecute RESTORE HEADERONLY antes de restaurar una base de datos para asegurarse de que la clave SAS es correcta.
-Asegúrese de quitar el signo `?` inicial de la clave SAS generada mediante Azure Portal.
 
 ### <a name="tooling"></a>Herramientas
 
@@ -543,13 +572,13 @@ El perfil de Correo electrónico de base de datos que utiliza el Agente SQL Serv
 
 ### <a name="error-logs-arent-persisted"></a>Los registros de errores no se conservan
 
-Los registros de errores que están disponibles en Instancia administrada no se conservan y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error.
+Los registros de errores que están disponibles en la instancia administrada no se conservan y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error.
 
 ### <a name="error-logs-are-verbose"></a>Los registros de errores son detallados
 
-Una instancia administrada coloca información detallada en los registros de errores y gran parte de esta no es pertinente. En el futuro se reducirá la cantidad de información de los registros de errores.
+Una instancia administrada coloca información detallada en los registros de errores y gran parte de esta no es pertinente. 
 
-**Solución alternativa**: use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para más información, consulte [Instancia administrada: sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solución alternativa**: use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, consulte [Instancia administrada: sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
 
@@ -593,11 +622,6 @@ Los módulos de CLR colocados en una instancia administrada y las consultas dist
 No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad.
 
 **Solución alternativa**: Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>La restauración a un momento dado sigue la hora de la zona horaria establecida en la instancia de origen.
-
-Actualmente, la restauración a un momento dado interpreta la hora a la que se debe realizar la restauración según la zona horaria de la instancia de origen, en lugar de seguir la hora UTC.
-Consulte los [problemas conocidos de la zona horaria de la Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) para obtener más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

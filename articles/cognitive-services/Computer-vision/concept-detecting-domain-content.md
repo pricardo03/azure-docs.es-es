@@ -1,5 +1,5 @@
 ---
-title: 'Detectar contenido específico del dominio: Computer Vision'
+title: 'Contenido específico del dominio: Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información acerca de cómo especificar un dominio de categorización de imágenes para devolver información más detallada sobre una imagen.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368090"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946335"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar contenido específico del dominio
 

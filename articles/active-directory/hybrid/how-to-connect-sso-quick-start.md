@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242685"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965211"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -144,7 +144,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Vaya a **Configuración de usuario** > **Plantillas administrativas** **Directiva** > **> **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona de intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
+6. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona Intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
 
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso11.png)
 

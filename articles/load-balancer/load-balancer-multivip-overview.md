@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 08/07/2019
 ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594195"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884206"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -30,7 +30,7 @@ Al definir un Azure Load Balancer, las configuraciones de un grupo de servidores
 
 La tabla siguiente contiene algunas configuraciones de front-end de ejemplo:
 
-| Front-end | Dirección IP | protocolo | puerto |
+| Front-end | Dirección IP | protocolo | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Se analizan aún más estos escenarios empezando con el comportamiento predeterm
 
 En este escenario, los servidores front-end están configurados del modo siguiente:
 
-| Front-end | Dirección IP | protocolo | puerto |
+| Front-end | Dirección IP | protocolo | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -70,7 +70,7 @@ Se definen dos reglas:
 
 La asignación completa en Azure Load Balancer ahora se realiza como sigue:
 
-| Regla | Dirección IP del front-end | protocolo | puerto | Destino | puerto |
+| Regla | Dirección IP del front-end | protocolo | port | Destino | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regla verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Dirección IP de DIP |80 |
 | ![regla violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Dirección IP de DIP |81 |
@@ -104,7 +104,7 @@ En este escenario, cada máquina virtual del grupo back-end tiene tres interface
 
 Se asume que la configuración front-end es la misma que en el escenario anterior:
 
-| Front-end | Dirección IP | protocolo | puerto |
+| Front-end | Dirección IP | protocolo | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Se definen dos reglas:
 
 | Regla | Front-end | Asignar a grupo de servidores back-end |
 | --- | --- | --- |
-| 1 |![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (en VM1 y VM2) |
-| 2 |![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (en VM1 y VM2) |
+| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (en VM1 y VM2) |
+| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (en VM1 y VM2) |
 
 En la tabla siguiente se muestra la asignación completa en el equilibrador de carga:
 
-| Regla | Dirección IP del front-end | protocolo | puerto | Destino | puerto |
+| Regla | Dirección IP del front-end | protocolo | port | Destino | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regla verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |igual que el front-end (65.52.0.1) |igual que el front-end (80) |
 | ![regla violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |igual que el front-end (65.52.0.2) |igual que el front-end (80) |
@@ -132,7 +132,7 @@ El tipo de regla de dirección IP flotante es el fundamento de varios modelos de
 ## <a name="limitations"></a>Limitaciones
 
 * Solo se admiten configuraciones de varios servidores front-end con máquinas virtuales de IaaS.
-* Con la regla de dirección IP flotante, la aplicación debe utilizar la configuración IP principal para los flujos salientes. Si la aplicación se enlaza a la dirección IP del front-end configurada en la interfaz de bucle invertido en el sistema operativo invitado, entonces SNAT de Azure no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
+* Con la regla de dirección IP flotante, la aplicación debe utilizar la configuración IP principal para los flujos SNAT salientes. Si la aplicación se enlaza a la dirección IP del front-end configurada en la interfaz de bucle invertido en el sistema operativo invitado, entonces el SNAT saliente de Azure no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.  Revise los [escenarios salientes](load-balancer-outbound-connections.md).
 * Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits) .
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358743"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990456"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
@@ -47,7 +47,7 @@ Azure Machine Learning Service tiene distintas modalidades de soporte técnico e
 
 Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script. 
 
-Todo lo que necesita hacer es definir el entorno para cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso. 
+Todo lo que necesita hacer es definir el entorno para cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso.
 
 Obtenga más información sobre cómo [enviar experimentos](#submit) al final de este artículo.
 
@@ -74,7 +74,26 @@ Para un entorno administrado por usuarios, es responsable de configurar el entor
 El código siguiente muestra un ejemplo de configuración de ejecuciones de entrenamiento para un entorno administrado por el usuario:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>¿Qué es un objeto "Estimator"?
+
+Para facilitar el entrenamiento del modelo mediante plataformas populares, el SDK de Azure Machine Learning para Python proporciona una abstracción de nivel más alto alternativa, la clase "Estimator". Esta clase le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija, como scikit-learn.
+
+En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los objetos Estimator de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estas plataformas.
+
+Para obtener más información, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
+
+## <a name="whats-an-ml-pipeline"></a>¿Qué es una canalización de ML?
+
+Con las canalizaciones de ML, puede optimizar su flujo de trabajo con sencillez y velocidad, dotarlo de portabilidad y reutilizarlo. Al crear canalizaciones mediante Azure Machine Learning, puede centrarse en lo que domina, el aprendizaje automático, en lugar de en la infraestructura y la automatización.
+
+Las canalizaciones de ML se construyen a partir de varios **pasos**, que son unidades de cálculo diferentes en la canalización. Cada paso se puede ejecutar de forma independiente y usar recursos de proceso aislados. Esto permite que varios científicos de datos trabajen en la misma canalización al mismo tiempo sin sobrecargar los recursos de proceso y facilita el uso de diferentes tamaños o tipos de proceso para cada paso.
+
+> [!TIP]
+> Las canalizaciones de ML pueden utilizar la configuración de ejecución o los objetos "Estimator" al entrenar modelos.
+
+Aunque las canalizaciones de ML pueden entrenar modelos, también pueden preparar los datos antes del entrenamiento e implementar los modelos después. Uno de los casos de uso principales para las canalizaciones es la puntuación por lotes. Para obtener más información, vea el artículo [Creación de canalizaciones de ML reutilizables en Azure Machine Learning Service](concept-ml-pipelines.md).
+
 ## <a name="set-up-in-python"></a>Configuración en Python
 
 Use las secciones siguientes para configurar estos destinos de proceso:

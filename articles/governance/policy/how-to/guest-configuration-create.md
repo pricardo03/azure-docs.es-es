@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725924"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881818"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
@@ -321,6 +321,14 @@ Después de haber publicado una instancia de Azure Policy personalizada mediante
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado.
 Esto garantizará que todas las propiedades se hayan actualizado correctamente.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversión del contenido de la directiva de grupo de Windows a la configuración de invitado de Azure Policy
+
+La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration.
+La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC.
+Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite.
+Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy serán los mismos que para cualquier contenido de DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>OPCIONAL: Firma de paquetes de configuración de invitados
 

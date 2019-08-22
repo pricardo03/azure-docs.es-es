@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370662"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990152"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
 Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos de registro estén disponibles una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
@@ -90,7 +90,7 @@ El tiempo de ingesta puede variar para diferentes recursos en diferentes circuns
 ### <a name="ingestion-latency-delays"></a>Retrasos de latencia de la ingesta
 Puede medir la latencia de un registro específico si compara el resultado de la función [ingestion_time()](/azure/kusto/query/ingestiontimefunction) con la propiedad _TimeGenerated_. Estos datos se pueden usar con diversas agregaciones para conocer el funcionamiento de la latencia de ingesta. Examine algunos percentiles del tiempo de ingesta para obtener información de grandes cantidades de datos. 
 
-Por ejemplo, la consulta siguiente muestra los equipos que tenían el mayor tiempo de ingesta a lo largo del día actual: 
+Por ejemplo, la consulta siguiente muestra los equipos que tenían el mayor tiempo de ingesta durante las ocho horas anteriores: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Si quiere profundizar en el tiempo de ingesta de un equipo específico durante un período de tiempo, use la siguiente consulta que también visualiza los datos en un gráfico: 
+Si quiere profundizar en el tiempo de ingesta de un equipo específico durante un período de tiempo, use la siguiente consulta, que también visualiza los datos del día anterior en un gráfico: 
 
 ``` Kusto
 Heartbeat 

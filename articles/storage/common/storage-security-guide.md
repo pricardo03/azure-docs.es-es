@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789952"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986563"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -25,8 +25,8 @@ Azure Storage proporciona un completo conjunto de funcionalidades de seguridad q
     - Puede asignar roles de RBAC en el ámbito de la cuenta de almacenamiento para las entidades de seguridad y utilizar Azure AD para autorizar las operaciones de administración de recursos, como la administración de claves.
     - La integración con Azure AD se admite para las operaciones de datos de cola y blob. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola a una entidad de seguridad o identidad administrada para los recursos de Azure. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).   
 - Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
-- Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por Azure Virtual Machines mediante [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
-- Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las [Firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).
+- Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por Azure Virtual Machines mediante [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+- Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las firmas de acceso compartido. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 Este artículo ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Azure Storage. Se incluyen vínculos a artículos en los que se detalla cada una de ellas, así que puede examinar un tema determinado con mayor detalle si así lo desea.
 
@@ -238,11 +238,6 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
     Este artículo proporciona ejemplos de cómo utilizar una SAS de nivel de servicio con blobs, mensajes de cola, intervalos de tabla y archivos.
   * [Creación de una SAS de servicio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx)
-
-* Se trata de un tutorial para usar la biblioteca cliente .NET para crear Firmas de acceso compartido y Directivas de acceso almacenadas.
-  * [Uso de Firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-
-    Este artículo incluye una explicación del modelo de SAS, ejemplos de SAS y recomendaciones para el mejor uso práctico de SAS. También trata la revocación de los permisos concedidos.
 
 * Authentication
 

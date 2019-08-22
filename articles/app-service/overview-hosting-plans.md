@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716637"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932354"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -32,14 +32,13 @@ Cuando se crea un plan de App Service en una región determinada (por ejemplo, E
 - Región (oeste de EE. UU., este de EE. UU., etc.)
 - Número de instancias de VM
 - Tamaño de las instancias de VM (pequeño, mediano, grande)
-- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2, Aislado, Consumo)
+- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2 y Aislado)
 
 El _plan de tarifa_ de un plan de App Service determina qué características de App Service obtendrá y cuánto paga por el plan. Existen algunas categorías de planes de tarifa:
 
 - **Proceso de compartido**: **Gratis** y **Compartido**, los dos planes básicos, ejecutan una aplicación en la misma VM de Azure que otras aplicaciones de App Service, incluidas las aplicaciones de otros clientes. Estos planes asignan cuotas de CPU a cada aplicación que se ejecuta en los recursos compartidos, y los recursos no pueden escalarse horizontalmente.
 - **Dedicated compute** (Proceso dedicado): Los planes **Básico**, **Estándar**, **Premium** y **PremiumV2** ejecutan aplicaciones en VM de Azure dedicadas. Solo las aplicaciones del mismo plan de App Service comparten los mismos recursos de proceso. Cuanto mayor sea el plan, más instancias de VM estarán disponibles para la escalabilidad horizontal.
-- **Aislado**: Este plan ejecuta VM de Azure dedicadas en instancias dedicadas de Azure Virtual Network, lo que proporciona aislamiento de red, además de aislamiento de proceso, a las aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
-- **Consumo**: Este plan solo está disponible para [aplicaciones de función](../azure-functions/functions-overview.md). Escala las funciones de manera dinámica según la carga de trabajo. Para obtener más información, consulte [Comparación de los planes de hospedaje de Azure Functions](../azure-functions/functions-scale.md).
+- **Aislado**: Este nivel ejecuta máquinas virtuales de Azure dedicadas en instancias de Microsoft Azure Virtual Network. Proporciona aislamiento de red, además de aislamiento de proceso a sus aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -79,9 +78,8 @@ En esta sección se describe cómo se facturan las aplicaciones de App Service. 
 Excepto para el plan **Gratis**, un plan de App Service conlleva un cargo por hora por los recursos de proceso que utiliza.
 
 - En el plan **Compartido**, cada aplicación recibe una cuota de minutos de la CPU, por lo que _cada aplicación_ paga por hora por la cuota de CPU.
-- En los planes de proceso dedicados (**Básico**, **Estándar**, **Premium**, **PremiumV2**), el plan de App Service define el número de instancias de VM al que se escalan las aplicaciones, por lo que _cada instancia de VM_ del plan de App Service tiene un cargo por hora. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
-- En el plan **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y _cada trabajo_ se cobra por hora. Además, hay una cuota de base por hora para ejecutar el propio entorno de App Service. 
-- (Solo Azure Functions) El plan **Consumo** asigna de manera dinámica instancias de VM para prestar servicio a la carga de trabajo de una aplicación de función, y Azure lo cobra dinámicamente por segundo. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium** y **PremiumV2**), el plan de App Service define el número de instancias de VM al que se escalan las aplicaciones, por lo que _cada instancia de VM_ del plan de App Service tiene un cargo por hora. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
+- En el plan **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y _cada trabajo_ se cobra por hora. Además, hay una cuota de base por hora para ejecutar el propio entorno de App Service.
 
 No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:
 

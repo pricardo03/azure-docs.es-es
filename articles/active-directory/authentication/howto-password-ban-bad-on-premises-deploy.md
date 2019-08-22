@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779657"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953013"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -60,6 +60,7 @@ Después de que la característica se haya ejecutado en modo de auditoría duran
     |`https://login.microsoftonline.com`|Solicitudes de autenticación|
     |`https://enterpriseregistration.windows.net`|Funcionalidad de protección de contraseña de Azure AD|
 
+* Todas las máquinas que hospedan el servicio de proxy para la protección con contraseña deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Este comportamiento se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todos los equipos que hospedan el servicio de proxy para la protección con contraseña deben configurarse para permitir el tráfico saliente de HTTP de TLS 1.2.
 * Una cuenta de administrador global para registrar el servicio de proxy para la protección con contraseña y el bosque con Azure AD.
 * Una cuenta con privilegios de administrador de dominio de Active Directory en el dominio raíz del bosque para registrar el bosque de Windows Server Active Directory en Azure AD.
@@ -290,7 +291,9 @@ La instalación se habrá completado después de que se haya instalado el softwa
 
 ## <a name="upgrading-the-proxy-agent"></a>Actualización del agente proxy
 
-Cuando haya disponible una versión más reciente del software proxy de protección con contraseña de Azure AD, la actualización se realiza mediante la ejecución de la versión más reciente del instalador de software `AzureADPasswordProtectionProxySetup.exe`. No es necesario desinstalar la versión actual del software proxy (el instalador realizará una actualización en contexto). Cuando se actualiza el software proxy no es preciso reiniciar. La actualización del software puede automatizarse mediante procedimientos MSI estándar, por ejemplo: `AzureADPasswordProtectionProxySetup.exe /quiet`.
+Cuando haya disponible una versión más reciente del software proxy de protección con contraseña de Azure AD, la actualización se realiza mediante la ejecución de la versión más reciente del instalador de software `AzureADPasswordProtectionProxySetup.exe`. La versión más reciente del software está disponible en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+No es necesario desinstalar la versión actual del software proxy (el instalador realizará una actualización en contexto). Cuando se actualiza el software proxy no es preciso reiniciar. La actualización del software puede automatizarse mediante procedimientos MSI estándar, por ejemplo: `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
 El agente proxy ahora admite la actualización automática. La actualización automática utiliza el servicio Agent Updater de Microsoft Azure AD Connect, que se instala junto con el servicio de proxy. La actualización automática está activa de forma predeterminada y se puede se puede habilitar o deshabilitar mediante el cmdlet Set-AzureADPasswordProtectionProxyConfiguration. La configuración actual se puede consultar mediante el cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft recomienda que la actualización automática se deje habilitada.
 
@@ -298,7 +301,9 @@ El cmdlet `Get-AzureADPasswordProtectionProxy` se puede usar para consultar la v
 
 ## <a name="upgrading-the-dc-agent"></a>Actualización del agente de controlador de dominio
 
-Cuando haya disponible una versión más reciente del software agente de controlador de dominio de protección con contraseña de Azure AD, la actualización se realiza mediante la ejecución de la versión más reciente del paquete de software `AzureADPasswordProtectionDCAgentSetup.msi`. No es necesario desinstalar la versión actual del software agente de controlador de dominio (el instalador realizará una actualización en contexto). Al actualizar el software del agente de controlador de dominio siempre es preciso reiniciar el equipo (lo provoca el comportamiento del núcleo de Windows). 
+Cuando haya disponible una versión más reciente del software agente de controlador de dominio de protección con contraseña de Azure AD, la actualización se realiza mediante la ejecución de la versión más reciente del paquete de software `AzureADPasswordProtectionDCAgentSetup.msi`. La versión más reciente del software está disponible en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+No es necesario desinstalar la versión actual del software agente de controlador de dominio (el instalador realizará una actualización en contexto). Al actualizar el software del agente de controlador de dominio siempre es preciso reiniciar el equipo (lo provoca el comportamiento del núcleo de Windows). 
 
 La actualización del software puede automatizarse mediante procedimientos MSI estándar, por ejemplo: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 

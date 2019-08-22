@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720640"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967403"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
 
@@ -201,7 +201,7 @@ Para copiar datos desde y hacia el servicio vinculado del centro de SAP BW abier
 
 Para obtener una lista completa de las secciones y propiedades para definir actividades, consulte [Canalizaciones](concepts-pipelines-activities.md). En la sección siguiente se proporciona una lista de las propiedades que admite el origen de tabla de SAP.
 
-### <a name="sap-table-as-a-source"></a>Tabla de SAP como origen
+### <a name="sap-table-as-source"></a>Tabla de SAP como origen
 
 Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 
@@ -223,7 +223,7 @@ Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 <br/>
 >Tomando `partitionOption` como `partitionOnInt` a modo de ejemplo, el número de filas de cada partición se calcula con esta fórmula: (filas totales entre `partitionUpperBound` y `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Para ejecutar particiones en paralelo y así poder acelerar la copia de datos, recomendamos encarecidamente que use `maxPartitionsNumber` como un múltiplo del valor de la propiedad `parallelCopies`. Para obtener más información, consulte [Copia paralela](copy-activity-performance.md#parallel-copy).
+>Para cargar particiones de datos en paralelo para acelerar la copia, el grado paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la tabla de SAP. Se recomienda encarecidamente hacer que `maxPartitionsNumber` sea un múltiplo del valor de la propiedad `parallelCopies`.
 
 En `rfcTableOptions`, puede usar los siguientes operadores de consulta SAP comunes para filtrar las filas:
 
@@ -269,7 +269,8 @@ En `rfcTableOptions`, puede usar los siguientes operadores de consulta SAP comun
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

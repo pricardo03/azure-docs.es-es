@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 50779f8a37713bda8b27c1cfd2ca37eed4edbd11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b7feb1b980054ba224173d5054907879a88cdd5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054704"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952873"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenvío de datos de informes de Azure Automation State Configuration a registros de Azure Monitor
 
@@ -39,6 +39,7 @@ Para empezar a enviar los informes de Automation State Configuration a los regis
 - Una cuenta de Azure Automation Para más información, consulte [Introducción a Azure Automation](automation-offering-get-started.md)
 - Un área de trabajo de Log Analytics con una oferta de servicio de **Automation & Control**. Para más información, consulte [Introducción a Azure Monitor](../log-analytics/log-analytics-get-started.md).
 - Al menos un nodo de Azure Automation State Configuration. Para más información, consulte [Incorporación de máquinas para administrarlas con Azure Automation State Configuration](automation-dsc-onboarding.md)
+- Módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versión 2.7.0.0 o posterior. Para consultar los pasos de instalación, consulte [Solución de problemas de Desired State Configuration (DSC)](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Configuración de la integración con registros de Azure Monitor
 
@@ -98,8 +99,8 @@ Para crear una regla de alerta, primero debe crear una búsqueda de registros pa
 1. En la página de información general del área de trabajo de Log Analytics, haga clic en **Registros**.
 1. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation.  
-   El nombre de la cuenta de Automation puede derivarse del campo Resource (Recurso) en la búsqueda de DscNodeStatusData.  
+   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation.
+   El nombre de la cuenta de Automation puede derivarse del campo Resource (Recurso) en la búsqueda de DscNodeStatusData.
 1. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para obtener más información acerca de las opciones para configurar la alerta, consulte [Crear una regla de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Búsqueda de recursos de DSC con errores en todos los nodos
@@ -112,10 +113,10 @@ Para buscar todas las instancias de recursos de DSC con errores:
 
 ### <a name="view-historical-dsc-node-status"></a>Visualización del historial de estado del nodo de DSC
 
-Por último, puede desear visualizar el historial de estado del nodo de DSC con el paso del tiempo.  
+Por último, puede desear visualizar el historial de estado del nodo de DSC con el paso del tiempo.
 Esta consulta se puede usar para buscar el estado del nodos de DSC con el paso del tiempo.
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
 
 Se mostrará un gráfico del estado del nodo con el paso del tiempo.
 
@@ -128,7 +129,7 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
-| nombreOperación |DscNodeStatusData |
+| OperationName |DscNodeStatusData |
 | ResultType |Si el nodo es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
 | NodeComplianceStatus_s |Si el nodo es compatible. |
@@ -159,7 +160,7 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
-| nombreOperación |DscResourceStatusData|
+| OperationName |DscResourceStatusData|
 | ResultType |Si el recurso es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
 | Categoría | DscNodeStatus |
@@ -190,7 +191,7 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 Al enviar los datos de Automation State Configuration a los registros de Azure Monitor, puede obtener más información del estado de los nodos de Azure Automation State Configuration mediante las siguientes acciones:
 
 - Establecimiento de alertas que le notificarán cuando haya un problema
-- Uso de vistas personalizadas y de consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.  
+- Uso de vistas personalizadas y de consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.
 
 Los registros de Azure Monitor proporcionan mayor visibilidad operativa para los datos de Automation State Configuration y pueden ayudar a resolver incidentes con mayor rapidez.
 

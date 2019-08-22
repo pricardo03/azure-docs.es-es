@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384707"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019524"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -49,10 +49,7 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
 5. Seleccione la cuenta de almacenamiento en la lista desplegable de suscripción de Azure o manualmente con el identificador de recurso de la cuenta de almacenamiento. Elija en qué contenedor quiere que se produzcan los eventos. La selección de contenedores es opcional, pero tenga en cuenta que si se seleccionan todos los contenedores el número de eventos puede resultar grande.
 
    > [!NOTE]
-   > Actualmente, el desencadenador de eventos solo es compatible con las cuentas de Storage de la versión 2 (de uso general).
-
-   > [!NOTE]
-   > Debido a una limitación de Azure Event Grid, Azure Data Factory solo admite un máximo de 500 desencadenadores de eventos por cuenta de almacenamiento.
+   > Actualmente, el desencadenador de eventos solo es compatible con las cuentas de almacenamiento de Azure Data Lake Storage Gen2 y de la versión 2 de uso general. Debido a una limitación de Azure Event Grid, Azure Data Factory solo admite un máximo de 500 desencadenadores de eventos por cuenta de almacenamiento.
 
 6. Las propiedades **Blob path begins with** y **Blob path ends with** permiten especificar los contenedores, las carpetas y los nombres de blob en los que quiere recibir eventos. El desencadenador de eventos requiere que se defina al menos una de estas propiedades. Como se muestra en ejemplos que podrá encontrar en este mismo artículo, se pueden usar varios patrones para las propiedades **Blob path begins with** y **Blob path ends with**.
 

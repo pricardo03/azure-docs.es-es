@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568227"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985725"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de características: Azure SQL Database frente a SQL Server
 
@@ -84,7 +84,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Búsqueda de texto completo (FTS)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Sí, pero no se admiten separadores de palabras de terceros. | Sí, pero [no se admiten separadores de palabras de terceros](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search). |
 | [Funciones](https://docs.microsoft.com/sql/t-sql/functions/functions) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Procesamiento de Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sí | Sí |
-| [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí: [solo niveles Premium y Crítico para la empresa](sql-database-in-memory.md) | Sí: [solo Nivel crítico para la empresa](sql-database-managed-instance.md) |
+| [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí, [solo los niveles Premium y Crítico para la empresa](sql-database-in-memory.md); compatibilidad limitada para objetos en memoria no persistentes, como los tipos de tabla | Sí: [solo Nivel crítico para la empresa](sql-database-managed-instance.md) |
 | [Compatibilidad con datos JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sí](sql-database-json-features.md) | [Sí](sql-database-json-features.md) |
 | [Elementos de lenguaje](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La mayoría; consulte el artículo sobre elementos. |  Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md). | Sí. Solo a [SQL Server y SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) sin transacciones distribuidas. |

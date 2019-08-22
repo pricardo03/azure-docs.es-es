@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314462"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946899"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -29,7 +29,7 @@ Un conjunto de registros de alias se admite para los siguientes tipos de registr
 
 ## <a name="capabilities"></a>Capacidades
 
-- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública. El conjunto de registros de DNS cambia automáticamente si la dirección IP pública cambia o se elimina. Se evitan los registros de DNS pendientes que apuntan a direcciones IP incorrectas.
+- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros A/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública (estándar o básico). El conjunto de registros de DNS cambia automáticamente si la dirección IP pública cambia o se elimina. Se evitan los registros de DNS pendientes que apuntan a direcciones IP incorrectas.
 
    Hay un límite actual de 20 conjuntos de registros de alias por recurso.
 

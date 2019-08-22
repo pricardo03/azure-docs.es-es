@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052673"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977126"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -98,6 +98,10 @@ Para más información acerca de cómo configurar SetupEntryPoint, consulte [Con
 
 Un **punto de conexión** de servicio de Service Fabric es un ejemplo de recurso de Service Fabric. Los recursos de Service Fabric se pueden declarar o cambiar sin cambiar el código compilado. El acceso a los recursos de Service Fabric especificados en el manifiesto de servicio puede controlarse a través de **SecurityGroup** en el manifiesto de aplicación. Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Obtenga más información sobre la [especificación o reemplazo de los recursos de punto de conexión](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> Por naturaleza, los puertos estáticos no deben superponerse con el intervalo de puertos de la aplicación especificado en ClusterManifest. Si especifica un puerto estático, asígnelo fuera de este intervalo o se producirán conflictos entre los puertos. Con la versión 6.5CU2, emitiremos una **advertencia de estado** cuando detectemos este tipo de conflicto, pero dejaremos que la implementación siga sincronizándose con el comportamiento de 6.5 incluido. Sin embargo, podemos evitar la implementación de la aplicación con las siguientes versiones principales.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -147,6 +151,7 @@ Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de apl
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -162,6 +167,8 @@ Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas
 **DefaultServices** declara instancias de servicio que se crean automáticamente cada vez que se crea una instancia de una aplicación en este tipo de aplicación. Los servicios predeterminados son simplemente una comodidad y se comportan como servicios normales en todos los aspectos después de su creación. Se actualizan junto con cualquier otro servicio de la instancia de aplicación y también se pueden quitar. Un manifiesto de aplicación puede contener varios servicios predeterminados.
 
 **Certificates** (sin establecer en el ejemplo anterior) declara los certificados que se usan para [configurar puntos de conexión HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [cifrar secretos en el manifiesto de aplicación](service-fabric-application-secret-management.md).
+
+Las **restricciones de posición** son las instrucciones que definen dónde deben ejecutarse los servicios. Estas instrucciones se adjuntan a los servicios individuales que se seleccionan en relación con una o más propiedades de nodo. Para más información, vea [Restricciones de ubicación y sintaxis de propiedades de nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax).
 
 **Policies** (sin establecer en el ejemplo anterior) describe las directivas que se establecerán en el nivel de la aplicación sobre recopilación de registros, [ejecución predeterminada](service-fabric-application-runas-security.md), [mantenimiento](service-fabric-health-introduction.md#health-policies) y [acceso de seguridad](service-fabric-application-runas-security.md), incluido el acceso de los servicios al tiempo de ejecución de Service Fabric.
 

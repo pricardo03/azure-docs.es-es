@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599885"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014424"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -411,6 +411,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |WriteBufferMemoryPoolMaximumInKB | Int, el valor predeterminado es 0. |Dinámica|El número de KB que se permite que crezca el bloque de memoria del búfer de escritura. Use 0 para indicar que no hay límite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, el valor predeterminado es 8 388 608. |Dinámica|El número de KB para asignar inicialmente al bloque de memoria del búfer de escritura. Use 0 para indicar que no hay límite. El valor predeterminado debe ser coherente con el valor de SharedLogSizeInMB siguiente. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, el valor predeterminado es FALSE|estática|Marca que controla la presencia y el estado del servicio de token de identidad administrada en el clúster; se trata de un requisito previo para usar la funcionalidad de identidad administrada de las aplicaciones de Service Fabric.|
+
 ## <a name="management"></a>Administración
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -610,7 +615,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |RunAsAccountType|string, el valor predeterminado es "". |Dinámica|Indica el tipo de cuenta de ejecución. Es necesario para cualquier sección RunAs. Valores válidos son "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|string, el valor predeterminado es "". |Dinámica|Indica la contraseña de la cuenta de ejecución. Solo es necesario para el tipo de cuenta "DomainUser". |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |RunAsAccountType|string, el valor predeterminado es "". |Dinámica|Indica el tipo de cuenta de ejecución. Es necesario para cualquier sección RunAs. Valores válidos son "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|string, el valor predeterminado es "". |Dinámica|Indica la contraseña de la cuenta de ejecución. Solo es necesario para el tipo de cuenta "DomainUser". |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |RunAsAccountType|string, el valor predeterminado es "". |Dinámica|Indica el tipo de cuenta de ejecución. Es necesario para cualquier sección RunAs. Valores válidos son "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|string, el valor predeterminado es "". |Dinámica|Indica la contraseña de la cuenta de ejecución. Solo es necesario para el tipo de cuenta "DomainUser". |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |

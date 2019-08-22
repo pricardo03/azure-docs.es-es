@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828283"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952110"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -90,8 +90,8 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 **URL** | **Detalles**  
 --- | --- |
 *.portal.azure.com  | Ir a Azure Migrate en Azure Portal.
-\* .windows.net | Inicie sesión en su suscripción de Azure.
-*.microsoftonline.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inicie sesión en su suscripción de Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
 management.azure.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
 dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan para la supervisión interna.
 *.vault.azure.net | Administrar secretos en Azure Key Vault.
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Dispositivo** | **Connection**
 --- | ---
-Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en el puerto 443 para enviar los metadatos de detección y rendimiento a Azure Migrate.
+Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en el puerto 443, 5671 y 5672 para enviar metadatos de detección y rendimiento a Azure Migrate.
 Servidor vCenter | Conexiones entrantes en el puerto TCP 443 para permitir que el dispositivo recopile los metadatos de configuración y rendimiento de las evaluaciones. <br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si el servidor vCenter escucha en un puerto diferente, puede modificar el puerto al configurar la detección.
 
 
@@ -175,8 +175,8 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 **URL** | **Detalles**  
 --- | ---
 *.portal.azure.com | Ir a Azure Migrate en Azure Portal.
-\* .windows.net | Inicie sesión en su suscripción de Azure.
-*.microsoftonline.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Inicie sesión en su suscripción de Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
 management.azure.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
 dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan para la supervisión interna.
 *.vault.azure.net | Administrar secretos en Azure Key Vault.

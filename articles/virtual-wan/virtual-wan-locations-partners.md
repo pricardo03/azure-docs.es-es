@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: f38cd0565b2e90fe0803d8e815c622e22e954a18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d9f0bb7d3817b943b71715eb080dd0b060efa025
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60459863"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990327"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -39,6 +39,8 @@ Algunos asociados de conectividad pueden extender la automatización para inclui
 ## <a name="partners"></a>Conectividad mediante asociados
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: Arista, F5 Networks, Fortinet, Silver-Peak, Velocloud, Versa y Nuage Nokia.
 
 ## <a name="locations"></a>Ubicaciones
 

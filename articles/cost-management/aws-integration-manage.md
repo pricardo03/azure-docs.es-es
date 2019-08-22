@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479126"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019547"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -138,7 +138,7 @@ Hay dos maneras de obtener permisos para acceder a los costos de las cuentas vin
 
 De forma predeterminada, el creador del conector de AWS es el propietario de todos los objetos creados por el conector, incluidas la cuenta consolidada de AWS y la cuenta vinculada de AWS.
 
-Para poder comprobar la configuración del conector, necesita al menos un rol de colaborador; un lector no puede comprobar la configuración del conector
+Para poder comprobar la configuración del conector, necesita al menos un rol de colaborador; un lector no puede comprobar la configuración del conector.
 
 ### <a name="collection-failed-with-assumerole"></a>Error de recopilación con AssumeRole
 

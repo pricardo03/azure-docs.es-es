@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494498"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881442"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -136,7 +136,18 @@ En todos los casos, debe crear una cuenta en su aplicación para realizar prueba
 
 **Nombre de usuario y la contraseña simples**: grabar una prueba web de la manera habitual. Elimine las cookies en primer lugar.
 
-**Autenticación SAML**: usar el complemento SAML que está disponible para las pruebas web. Para acceder al complemento...
+**Autenticación SAML**
+
+|Nombre de propiedad| DESCRIPCIÓN|
+|----|-----|
+| URI de audiencia | El URI de audiencia para el token SAML.  Se trata del URI para Access Control Service (ACS), incluido el nombre de host y el espacio de nombres de ACS. |
+| Contraseña de certificado | La contraseña del certificado de cliente que concederá acceso a la clave privada insertada. |
+| Certificado de cliente  | El valor del certificado de cliente con una clave privada en formato codificado en Base64. |
+| Identificador de nombre | El identificador de nombre del token. |
+| No después de | El intervalo de tiempo durante el cual será válido el token.  El valor predeterminado es 5 minutos. |
+| No antes de | El intervalo de tiempo durante el cual será válido un token creado en el pasado (para abordar el desfase horario).  El valor predeterminado es (negativo) 5 minutos. |
+| Nombre de parámetro de contexto de destino | El parámetro de contexto que recibirá la aserción generada. |
+
 
 **Secreto del cliente**: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, úsela. Azure Active Directory (AAD) es un ejemplo de un servicio que proporciona inicio de sesión del secreto de cliente. En AAD, el secreto de cliente es la clave de la aplicación.
 

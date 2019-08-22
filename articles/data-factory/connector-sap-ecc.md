@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c92c1b87de1b728fd79c1ef02b32135463c7124f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720683"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967411"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 
@@ -50,6 +50,10 @@ Por lo general, SAP ECC expone las entidades mediante servicios de OData a trav�
 
 - **Activar y configurar el servicio SAP OData**. Puede activar el servicios de OData a través de TCODE SICF en cuestión de segundos. También puede configurar qué objetos se deben exponer. Para obtener más información, consulte la [guía paso a paso](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Primeros pasos
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -66,7 +70,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 | `url` | Dirección URL del servicio SAP ECC OData. | Sí |
 | `username` | Nombre de usuario usado para conectarse a SAP ECC. | Sin |
 | `password` | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin |
-| `connectVia` | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede elegir un entorno de ejecución de integración autohospedado o Azure Integration Runtime (si el almacén de datos es de acceso público). Si no especifica un entorno de ejecución, `connectVia` usará la opción predeterminada de Azure Integration Runtime. | Sin |
+| `connectVia` | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no especifica un entorno de ejecución, se usará la opción predeterminada de Azure Integration Runtime. | Sin |
 
 ### <a name="example"></a>Ejemplo
 

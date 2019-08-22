@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364077"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950406"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
@@ -26,7 +26,7 @@ De forma predeterminada, los mensajes se enrutan al punto de conexión orientado
 
 IoT Hub permite la retención de datos en el servicio Event Hubs integrado durante un máximo de 7 días. Puede establecer el tiempo de retención durante la creación del servicio IoT Hub. El tiempo de retención de datos en IoT Hub depende del nivel y el tipo de unidad de su centro de IoT. En términos de tamaño, el servicio Event Hubs integrado puede conservar los mensajes del tamaño máximo hasta al menos 24 horas de cuota. Por ejemplo, para una unidad S1, IoT Hub proporciona almacenamiento suficiente para conservar al menos 400 000 mensajes con un tamaño de 4k cada uno. Si los dispositivos envían mensajes más pequeños, pueden conservarse durante más tiempo (hasta 7 días) según la cantidad de almacenamiento que se consuma. Garantizamos la conservación de los datos durante el tiempo de retención especificado como mínimo.
 
-IoT Hub también le permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube integrado.
+IoT Hub también le permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube integrado. Puede tener hasta 20 grupos de consumidores para cada IoT Hub.
 
 Si usa el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) y está habilitada la [ruta de reserva](iot-hub-devguide-messages-d2c.md#fallback-route), todos los mensajes que no coincidan con una consulta en cualquier ruta se dirigirán al punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no coincidan con ninguna consulta se quitarán.
 

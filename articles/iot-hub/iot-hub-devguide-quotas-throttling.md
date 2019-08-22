@@ -2,18 +2,17 @@
 title: Información de la limitación y las cuotas de IoT de Azure | Microsoft Docs
 description: 'Guía del desarrollador: descripción de las cuotas que se aplican a IoT Hub y comportamiento esperado de limitación'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326738"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950524"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -96,7 +95,8 @@ IoT Hub exige otros límites operativos:
 | Cargas de archivos | 10 cargas de archivos simultáneas por dispositivo. |
 | Trabajos<sup>1</sup> | El número máximo de trabajos simultáneos es 1 para gratuitos y S1, 5 para S2 y 10 para S3. No obstante, el número máximo de [trabajos de importación/exportación de dispositivo](iot-hub-bulk-identity-mgmt.md) simultáneos es 1 para todos los niveles. <br/>El historial de trabajos se conserva durante 30 días como máximo. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
-| Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |
+| Consultas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 consultas de enrutamiento. Los centros de SKU gratis pueden tener cinco consultas de enrutamiento. |
+| Enriquecimientos de mensajes | Los centros de SKU de pago pueden tener hasta 10 enriquecimientos de mensajes. Los centros de SKU gratis pueden tener hasta dos enriquecimientos de mensajes.|
 | Mensajería de un dispositivo a la nube | Tamaño máximo del mensaje 256 KB |
 | Mensajería de la nube a un dispositivo<sup>1</sup> | Tamaño máximo del mensaje 64 KB. El número máximo de mensajes pendientes para la entrega es 50 por dispositivo. |
 | Método directo<sup>1</sup> | El tamaño de carga máximo del método directo es de 128 KB. |

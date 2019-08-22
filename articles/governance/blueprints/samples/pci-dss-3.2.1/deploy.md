@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b4e9435e5f569a076fc5beb6441b9da935b87f3a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561364"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019421"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 
@@ -98,7 +98,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
 |-|-|-|-|
-|[Versión preliminar]: Audite los controles PCI v3.2.1:2018 e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
+|\[Versión preliminar\] Audite los controles PCI v3.2.1:2018 e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
 |Ubicaciones permitidas|Asignación de directiva|Lista de ubicaciones permitidas|Lista de ubicaciones de centro de datos permitidas en las que cualquier recurso se puede implementar. Esta se puede personalizar hasta las ubicaciones de Azure deseadas de todo el mundo. Seleccione las ubicaciones que quiere permitir.| 
 |Ubicaciones permitidas para grupos de recursos|Asignación de directiva |Ubicación permitida |Esta directiva permite restringir las ubicaciones en las que la organización puede crear grupos de recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.| 
 |Implementación de auditorías en servidores SQL Server|Asignación de directiva|Días de retención|Retención de datos en número de días. El valor predeterminado es 180, pero PCI requiere 365.| 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335736"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964125"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envío de mensajes de la nube al dispositivo desde un centro de IoT
 
@@ -121,6 +121,12 @@ El cuerpo de un mensaje de comentarios se muestra en el siguiente código:
   ...
 ]
 ```
+
+**Comentarios pendientes relativos a dispositivos eliminados**
+
+Cuando se elimina un dispositivo, también se eliminan los comentarios pendientes. Los comentarios de los dispositivos se envían por lotes. Si un dispositivo se elimina en un período de tiempo reducido (a menudo, menos de un segundo) entre el momento en el que el dispositivo confirma la recepción del mensaje y se prepara el siguiente lote de comentarios, no habrá comentarios.
+
+Para solucionar este comportamiento, espere un período de tiempo para que lleguen los comentarios pendientes antes de eliminar el dispositivo. Una vez que se ha eliminado un dispositivo, los comentarios de los mensajes relacionados deben darse por perdidos.
 
 ## <a name="cloud-to-device-configuration-options"></a>Opciones de configuración de la nube al dispositivo
 

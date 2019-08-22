@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688975"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952043"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -29,12 +29,10 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 **Código de error**: UserErrorGuestAgentStatusUnavailable <br>
 **Mensaje de error**: El agente de máquina virtual no se puede comunicar con Azure Backup<br>
 
-Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio inicia el trabajo comunicándose con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:<br>
-**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un estado incoherente o no instalado e impedir que el servicio Azure Backup desencadene instantáneas.  
+    
+- Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, **reinícielo** y vuelva a intentar la operación de copia de seguridad (pruebe a realizar una copia de seguridad ad hoc). Para conocer los pasos necesarios para reiniciar el agente, consulte [Máquinas virtuales Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- Si el agente de máquina virtual no está instalado o está obsoleto, instale o actualice el agente de máquina virtual y vuelva a intentar la operación de copia de seguridad. Para conocer los pasos necesarios para instalar o actualizar el agente, consulte [Máquinas virtuales Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
 
@@ -44,7 +42,8 @@ Después de registrar y programar una máquina virtual para el servicio Backup, 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración
 
@@ -107,7 +106,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorUnsupportedDiskSize <br>
 **Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB <br>
 
-La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a la versión preliminar privada de Azure Backup con compatibilidad con discos de gran tamaño para discos de más de 4 TB hasta un tamaño de 30 TB, escríbanos a AskAzureBackupTeam@microsoft.com.
+La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de una máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a una versión preliminar pública de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte [Información general sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 

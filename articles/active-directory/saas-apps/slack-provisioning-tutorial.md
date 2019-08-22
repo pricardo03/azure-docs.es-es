@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964399"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932488"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -120,7 +120,9 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
   
   * Solo se actualiza si estos dos parámetros están configurados en el área de trabajo y organización de Slack - **La sincronización de perfiles está habilitada** y **Los usuarios no pueden cambiar su nombre para mostrar**.
   
-  * El atributo **userName** de Slack debe tener menos de 21 caracteres y tener un valor único.
+* El atributo **userName** de Slack debe tener menos de 21 caracteres y tener un valor único.
+
+* Slack solo permite la coincidencia con los atributos **userName** y **email**.  
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

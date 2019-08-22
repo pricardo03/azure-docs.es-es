@@ -7,12 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809750"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967801"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
 
@@ -65,7 +65,7 @@ Veamos un ejemplo: es el propietario de la suscripción "Visual Studio MSDN Subs
 Joe es alguien de su mismo nivel que es el propietario de los recursos de algunos de los grupos de recursos de esta suscripción y tiene permiso de lectura en la suscripción.
 Desea conceder a Joe acceso a la capacidad de crear y administrar las incidencias de soporte técnico de los recursos de esta suscripción.
 
-1. El primer paso es ir a la suscripción y en "Configuración" verá una lista de usuarios. Haga clic en el usuario Joe, que tiene acceso de lectura en la suscripción y asígnele un nuevo rol personalizado.
+1. El primer paso es ir a la suscripción. En **Configuración**, verá una lista de usuarios. Seleccione el usuario Joe, que tiene acceso de lectura en la suscripción. Vamos a asignar un nuevo rol personalizado a Joe.
 
     ![Agregar rol](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -85,7 +85,7 @@ Desea conceder a Joe acceso a la capacidad de crear y administrar las incidencia
 
     ![Usuario agregado](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    Cuando Joe inicia sesión en el portal, ve la suscripción a la que se le agregó.
+    Cuando Joe inicia sesión en el portal, ve la suscripción a la que se le ha agregado.
 
 7. Joe hace clic en "Nueva solicitud de soporte técnico" en la hoja "Ayuda y soporte técnico" y puede crear solicitudes de soporte técnico para "Visual Studio Ultimate con MSDN"
 
@@ -96,15 +96,15 @@ Desea conceder a Joe acceso a la capacidad de crear y administrar las incidencia
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Eliminación del acceso a solicitud de soporte técnico en el Azure Portal
 
 Al igual que se puede conceder acceso a un usuario para crear y administrar solicitudes de soporte técnico, también se puede quitar el acceso al usuario.
-Para quitar la capacidad de crear y administrar solicitudes de soporte técnico, vaya a la suscripción, haga clic en "Configuración" y haga clic en el usuario (en este caso, Joe).
-Haga clic con el botón derecho en el nombre del rol, "Support Request Contributor", y después en "Quitar"
+
+Para quitar la capacidad de crear y administrar solicitudes de soporte técnico, vaya a la suscripción, haga clic en "Configuración" y haga clic en el usuario (en este caso, Joe). Haga clic con el botón derecho en el nombre del rol, "Support Request Contributor", y después en "Quitar"
 
 ![Quitar el acceso a la solicitud de soporte técnico](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-Cuando Joe inicia sesión en el portal e intenta crear una solicitud de soporte técnico, aparece el siguiente error
+Cuando Joe inicia sesión en el portal e intenta crear una solicitud de soporte técnico, aparece el siguiente error:
 
 ![Error de suscripción-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Joe no ve ninguna de las solicitudes de soporte técnico al hacer clic en "All support requests" (Todas las solicitudes de soporte técnico)
+Joe no ve ninguna de las solicitudes de soporte técnico al seleccionar "Todas las solicitudes de soporte técnico".
 
 ![vista de detalles del caso-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

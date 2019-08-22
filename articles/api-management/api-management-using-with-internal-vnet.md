@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a23572642df99f00e278b6ba74367a30b0604640
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051675"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851465"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -91,7 +91,9 @@ Cuando se crea un servicio API Management, llamado por ejemplo "contosointernalv
 
    * Puerta de enlace o proxy: contosointernalvnet.azure-api.net
 
-   * Azure Portal y el portal para desarrolladores: contosointernalvnet.portal.azure-api.net
+   * El portal para desarrolladores: contosointernalvnet.portal.azure-api.net
+
+   * El nuevo portal para desarrolladores: contosointernalvnet.developer.azure-api.net
 
    * Punto de conexión de administración directa: contosointernalvnet.management.azure-api.net
 
@@ -102,6 +104,8 @@ Para obtener acceso a estos puntos de conexión de servicio de API Management, p
    * 10.1.0.5 contosointernalvnet.azure-api.net
 
    * 10.1.0.5 contosointernalvnet.portal.azure-api.net
+
+   * 10.1.0.5     contosointernalvnet.developer.azure-api.net
 
    * 10.1.0.5 contosointernalvnet.management.azure-api.net
 
@@ -128,7 +132,7 @@ Si utiliza un servidor DNS personalizado en una red virtual, también puede crea
 
 ## <a name="related-content"></a>Contenido relacionado
 Para obtener más información, consulte los artículos siguientes:
-* [Problemas comunes de configuración de red al establecer Azure API Management en una red virtual][Common network configuration problems]
+* [Problemas comunes de configuración de red al establecer Azure API Management en una red virtual][Common network configuration problems]
 * [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../virtual-network/virtual-networks-faq.md)
 * [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10)) (Creación de un registro en DNS)
 

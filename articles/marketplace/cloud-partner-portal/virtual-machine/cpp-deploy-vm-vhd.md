@@ -2,17 +2,17 @@
 title: Implementación de una máquina virtual a partir de discos duros virtuales para Azure Marketplace
 description: Se explica cómo registrar una máquina virtual desde un disco duro virtual implementado en Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.author: evansma
+ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938291"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934962"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementación de una máquina virtual a partir de VHD
 
@@ -59,12 +59,12 @@ Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-
    |  -------------              |   ---------------                                                            |
    | User Storage Account Name (Nombre de usuario de la cuenta de almacenamiento)   | Nombre de la cuenta de almacenamiento donde se encuentra el disco duro virtual generalizado                    |
    | User Storage Container Name (Nombre de usuario del contenedor de almacenamiento) | Nombre del contenedor donde se encuentra el disco duro virtual generalizado                          |
-   | DNS Name for Public IP (Nombre DNS para IP pública)      | Nombre DNS de IP pública                                                           |
+   | DNS Name for Public IP (Nombre DNS para IP pública)      | Nombre DNS de IP pública. El nombre DNS es el de la máquina virtual, lo definirá en Azure Portal una vez implementada la oferta.  |
    | Nombre de usuario administrador             | Nombre de usuario de la cuenta de administrador de la nueva máquina virtual                                  |
    | Contraseña de administrador              | Contraseña de la cuenta de administrador de la nueva máquina virtual                                  |
    | OS Type (Tipo de SO)                     | Sistema operativo de la máquina virtual: `Windows` \| `Linux`                                    |
    | Id. de suscripción             | Identificador de la suscripción seleccionada                                      |
-   | Ubicación                    | Ubicación geográfica de la implementación                                        |
+   | Location                    | Ubicación geográfica de la implementación                                        |
    | Tamaño de VM                     | [Tamaño de la máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por ejemplo `Standard_A2` |
    | Nombre de dirección IP pública      | Nombre de la dirección IP pública                                               |
    | Nombre de la máquina virtual                     | Nombre de la nueva máquina virtual                                                           |

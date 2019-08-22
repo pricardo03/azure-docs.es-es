@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839557"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949924"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -93,7 +93,7 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
 Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Registre la clave de producto de Microsoft como de confianza:
+1. Instale la clave GPG del repositorio de paquetes de Microsoft para validar la integridad del paquete:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 Al especificar un nombre de proyecto, se crea una carpeta con dicho nombre y posteriormente se inicializa. En caso contrario, se inicializa la carpeta actual.  
-En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecución para el proyecto. Si va a desarrollar funciones de JavaScript, elija **node**:
+En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecución para el proyecto. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. La salida tendrá un aspecto similar al siguiente ejemplo de un proyecto de JavaScript:
+Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. Si tiene previsto desarrollar funciones de JavaScript o de TypeScript, elija **nodo** y seleccione el lenguaje. TypeScript tiene [algunos requisitos adicionales](functions-reference-node.md#typescript). 
+
+La salida tendrá un aspecto similar al siguiente ejemplo de un proyecto de JavaScript:
 
 ```output
 Select a worker runtime: node
@@ -269,15 +273,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Ejecución local de funciones
 
-Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host habilita desencadenadores para todas las funciones del proyecto:
+Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host habilita desencadenadores para todas las funciones del proyecto. 
 
-```bash
+### <a name="version-2x"></a>Versión 2.x
+
+En la versión 2.x del runtime, el comando de inicio varía según el lenguaje del proyecto.
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>Versión 1.x
+
+La versión 1.x del runtime de Functions requiere el comando `host`, como en el ejemplo siguiente:
+
+```command
 func host start
 ```
 
-El comando `host` solo es necesario en la versión 1.x.
-
-`func host start` admite las siguientes opciones:
+`func start` admite las siguientes opciones:
 
 | Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
@@ -293,8 +322,6 @@ El comando `host` solo es necesario en la versión 1.x.
 | **`--script-root --prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
 | **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
-
-En el caso de un proyecto de la biblioteca de clases de C# (.csproj), debe incluir la opción `--build` para generar el archivo .dll de biblioteca.
 
 Cuando se inicia el host de Functions, devuelve la dirección URL de las funciones desencadenadas por HTTP:
 
@@ -446,11 +473,25 @@ Están disponibles las siguientes opciones de implementación de contenedor pers
 
 ## <a name="monitoring-functions"></a>Supervisión de funciones
 
-La forma recomendada de supervisar la ejecución de sus funciones, es usar la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
+La forma recomendada de supervisar la ejecución de sus funciones, es usar la integración con Azure Application Insights. También puede transmitir los registros de ejecución al equipo local. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
+
+### <a name="enable-application-insights-integration"></a>Habilitación de la integración de Application Insights
+
+De manera predeterminada, cuando crea una aplicación de funciones en Azure Portal, la integración de Application Insights se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
+### <a name="enable-streaming-logs"></a>Habilitación de los registros de streaming
+
+Puede ver una secuencia de archivos de registro que generan las funciones en una sesión de línea de comandos en el equipo local. 
+
+#### <a name="native-streaming-logs"></a>Registros de streaming nativos
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+Este tipo de registros de streaming requiere que [habilite la integración de Application Insights](#enable-application-insights-integration) para la aplicación de funciones.   
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Azure Functions Core Tools es [código abierto que se hospeda en GitHub](https://github.com/azure/azure-functions-cli).  

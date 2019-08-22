@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f2485786f323bc6d19d39f4da6ffa7cab14bbb4c
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698407"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951835"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -24,7 +24,7 @@ El nuevo modelo de restauración instantánea proporciona las siguientes mejoras
 
 * Posibilidad de ver instantáneas tomadas como parte de un trabajo de copia de seguridad que está disponible para la recuperación sin tener que esperar a que finalice la transferencia de datos al almacén. Reduce el tiempo de espera para la copia de instantáneas en el almacén antes de desencadenar la restauración.
 * Reduce los tiempos de copia de seguridad y restauración al conservarse las instantáneas localmente durante dos días (de forma predeterminada). Este valor predeterminado de retención de instantánea se puede configurar en cualquier valor entre 1 y 5 días.
-* Compatibilidad con tamaños de disco de hasta 4 TB. No se recomienda cambiar el tamaño del disco de Azure Backup.
+* Compatibilidad con tamaños de disco de hasta 4 TB. No se recomienda cambiar el tamaño de los discos en Azure Backup. Para suscribirse a una versión preliminar pública de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte [Información general sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 * Admite discos SSD estándar junto con discos HDD estándar y SSD Premium.
 * Capacidad de usar cuentas de almacenamiento originales de una VM no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
 * Para la copia de seguridad de VM que usan almacenamiento Premium, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.

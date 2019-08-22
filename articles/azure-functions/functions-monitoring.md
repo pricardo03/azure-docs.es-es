@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619599"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881326"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -607,14 +607,21 @@ Para notificar un problema con la integración de Application Insights en Functi
 
 ## <a name="streaming-logs"></a>Registros de transmisión
 
-Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Puede ver una secuencia de archivos de registro que generan las funciones en Azure Portal o en una sesión de línea de comandos en el equipo local.
+A menudo, cuando desarrolla una aplicación, quiere ver lo que se escribe en los registros casi en tiempo real cuando se ejecuta en Azure.
 
-Esto equivale a la salida que se ve cuando se depuran las funciones durante el [desarrollo local](functions-develop-local.md). Para más información, vea [How to: Stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs) (Cómo: Transmitir registros).
+Hay dos maneras de ver una secuencia de los archivos de registro que generan las ejecuciones de la función.
 
-> [!NOTE]
-> Los registros de secuencias admiten una sola instancia del host de Functions. Cuando la función se escala a varias instancias, no se muestran los datos de otras instancias en la secuencia de registro. [Live Metrics Stream](../azure-monitor/app/live-stream.md) en Application Insights admite varias instancias. Si bien también funciona casi en tiempo real, el análisis de secuencias también se basa en [datos muestreados](#configure-sampling).
+* **Streaming integrado de registros**: la plataforma de App Service le permite ver una secuencia de los archivos de registro de aplicaciones. Esto equivale a la salida que se ve al depurar las funciones durante el [desarrollo local](functions-develop-local.md) y cuando se usa la pestaña **Prueba** del portal. Se muestra toda la información basada en el registro. Para más información, vea [How to: Stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs) (Cómo: Transmitir registros). Este método de streaming solo admite una instancia y no se puede usar con una aplicación que se ejecuta en Linux en un plan de consumo.
+
+* **Live Metrics Stream**: cuando la aplicación de funciones está [conectada a Application Insights](#enable-application-insights-integration), puede ver los datos de registro y otras métricas casi en tiempo real en Azure Portal mediante [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use este método cuando supervise las funciones que se ejecutan en varias instancias o en Linux en un plan de consumo. En este método se usan [datos muestreados](#configure-sampling).
+
+Las secuencias de registro se pueden ver tanto en el portal como en la mayoría de los entornos de desarrollo locales. 
 
 ### <a name="portal"></a>Portal
+
+Puede ver ambos tipos de secuencias de registro en el portal.
+
+#### <a name="built-in-log-streaming"></a>Streaming integrado de registros
 
 Para ver los registros de secuencias en el portal, seleccione la pestaña **Características de la plataforma** en la aplicación de función. Luego, en **Supervisión**, elija **Secuencias de registro**.
 
@@ -624,9 +631,21 @@ Esto conecta la aplicación con el servicio de secuencias de registro, y los reg
 
 ![Ver los registros de secuencias en el portal](./media/functions-monitoring/streaming-logs-window.png)
 
+#### <a name="live-metrics-stream"></a>Secuencia de métricas en directo
+
+Para ver Live Metrics Stream de su aplicación, seleccione la pestaña **Información general** de la aplicación de funciones. Cuando haya habilitado Application Insights, verá un vínculo a **Application Insights** en **Características configuradas**. Este vínculo lo llevará a la página Application Insights correspondiente a la aplicación.
+
+En Application Insights, seleccione **Live Metrics Stream**. Las [entradas de los registros muestreados](#configure-sampling) se muestran en **Telemetría de ejemplo**.
+
+![Vista de Live Metrics Stream en el portal](./media/functions-monitoring/live-metrics-stream.png) 
+
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### <a name="core-tools"></a>Core Tools
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### <a name="azure-cli"></a>CLI de Azure
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828354"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952138"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de Hyper-V
 
@@ -27,9 +27,9 @@ En la tabla se resumen los escenarios admitidos para las VM de Hyper-V.
 **Implementación** | **Detalles***
 --- | ---
 **Evaluación de VM de Hyper-V locales** | [Configure](tutorial-prepare-hyper-v.md) la primera evaluación.<br/><br/> [Ejecute](scale-hyper-v-assessment.md) una evaluación a gran escala.
-**Migración de máquinas virtuales de Hyper-V a Azure** | [Pruebe](tutorial-migrate-hyper-v.md) a migrar a Azure.
+**Migración de máquinas virtuales de Hyper-V a Azure** | [Pruebe](tutorial-migrate-hyper-v.md) a migrar a Azure. 
 
-
+La migración de servidores de Hyper-V administrados con System Center Virtual Machine Manager (VMM) no es compatible con la migración de servidores de Azure Migrate. 
 
 ## <a name="azure-migrate-projects"></a>Proyectos de Azure Migrate
 
@@ -61,8 +61,8 @@ Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas.
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
 | **Implementación del host**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. |
-| **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
-| **Sistema operativo host** | Windows Server 2016 o Windows Server 2012 R2.<br/> No puede evaluar VM que se encuentran en hosts de Hyper-V que ejecutan Windows Server 2019. |
+| **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. <br/> Como alternativa, si no quiere asignar permisos de administrador, cree una cuenta de usuario local o de dominio y agregue el usuario a estos grupos: Usuarios de administración remota, Administradores de Hyper-V y Usuarios del monitor de sistema. |
+| **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/> No puede evaluar VM que se encuentran en hosts de Hyper-V que ejecutan Windows Server 2012. |
 | **Comunicación remota de PowerShell**   | Debe estar habilitada en cada host. |
 | **Réplica de Hyper-V**       | Si usa la réplica de Hyper-V (o tiene varias VM con los mismos identificadores de VM) y detecta las VM originales y las replicadas mediante Azure Migrate, es posible que la evaluación generada por Azure Migrate no sea precisa. |
 
@@ -72,13 +72,8 @@ Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas.
 | **Soporte técnico**                  | **Detalles**               
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
-| **Permisos**           | Necesita permisos de administrador en cada VM de Hyper-V que quiera evaluar. |
 | **Servicio de integración**       | Los [servicio de integración de Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) deben ejecutarse en las VM que evalúe, con el fin de capturar la información del sistema operativo. |
-| **Arranque UEFI**                  | Las máquinas virtuales con arranque UEFI no se admiten para la migración. |
-| **Discos/volúmenes cifrados**    | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración. |
-| **Discos RDM/de acceso directo**      | Si las máquinas virtuales tienen discos RDM o de acceso directo, estos discos no se replicarán en Azure. |
-| **NFS**                        | Los volúmenes NFS montados como volúmenes en las máquinas virtuales no se replicarán. |
-| **Disco de destino**                | Las evaluaciones de Azure Migrate recomiendan la migración a VM de Azure con discos administrados únicamente. |
+
 
 
 ## <a name="assessment-appliance-requirements"></a>Evaluación: requisitos del dispositivo
@@ -103,8 +98,8 @@ Para evaluar las VM, el dispositivo de Azure Migrate necesita conectividad a Int
 **URL** | **Detalles**  
 --- | ---
 *.portal.azure.com | Navegación a Azure Portal
-\* .windows.net | Inicie sesión en la suscripción de Azure
-*.microsoftonline.com | Creación de aplicaciones de Azure Active Directory para las comunicaciones entre el dispositivo y el servicio.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Inicie sesión en la suscripción de Azure
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Creación de aplicaciones de Azure Active Directory para las comunicaciones entre el dispositivo y el servicio.
 management.azure.com | Creación de aplicaciones de Azure Active Directory para las comunicaciones entre el dispositivo y el servicio.
 dc.services.visualstudio.com | Registro y supervisión
 *.vault.azure.net | Administración de secretos en Azure Key Vault al comunicarse entre el dispositivo y el servicio.
@@ -119,7 +114,7 @@ En la tabla siguiente se resumen los requisitos de los puertos para la evaluaci�
 
 **Dispositivo** | **Connection**
 --- | ---
-**Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```.<br/> Conexiones salientes en el puerto 443 para enviar los metadatos de detección y rendimiento a Azure Migrate.
+**Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexiones salientes en los puertos 443, 5671 y 5672 para enviar los metadatos de detección y rendimiento a Azure Migrate.
 **Host o clúster de Hyper-V** | Conexiones entrantes en los puertos de WinRM 5985 (HTTP) y 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de las VM de Hyper-V mediante una sesión de Modelo de información común (CIM).
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migración: requisitos del host de Hyper-V

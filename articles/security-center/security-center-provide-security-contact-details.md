@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2018
+ms.date: 08/09/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae7c130df40ea0553bd9e3ae117534fe98466f26
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60909300"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68934904"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Proporcionar detalles de contacto de seguridad en Azure Security Center
 Azure Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure si no lo ha hecho ya. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. MSRC lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros.
@@ -33,18 +33,18 @@ Se envían las notificaciones de alerta por correo electrónico:
 - Cada mensaje de correo electrónico contiene una única alerta, no una agregación de alertas
  
 Por ejemplo, si ya se ha enviado un mensaje de correo electrónico para avisarle de un ataque de RDP, no recibirá otro mensaje de correo electrónico acerca de un ataque de RDP en el mismo día, incluso si se desencadena otra alerta. 
- 
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
->
->
 
-## <a name="implement-the-recommendation"></a>Implementación de la recomendación
-1. En **Recomendaciones**, seleccione **Proporcionar detalles de contacto de seguridad**.
-   ![Proporcionar contacto de seguridad][1]
-2. Seleccione la suscripción de Azure sobre la que desea proporcionar información de contacto.
-3. Así se abren las **Notificaciones por correo electrónico**.
+## Configuración de notificaciones de correo electrónico para alertas <a name="email"></a>
+
+1. En el portal, seleccione **Pricing & settings** (Precios y configuración).
+1. Haga clic en la suscripción.
+1. Haga clic en **Notificaciones por correo electrónico**.
+
+> [!NOTE]
+> Si va a implementar una recomendación, en **Recomendaciones**, seleccione **Proporcionar detalles de contacto de seguridad** y elija la suscripción de Azure de la que quiere proporcionar información de contacto. Así se abren las **Notificaciones por correo electrónico**.
 
    ![Proporcionar datos de los contactos de seguridad][2]
 

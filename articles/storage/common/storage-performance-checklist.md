@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233014"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985160"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 
@@ -172,7 +172,7 @@ Estas dos tecnologías pueden ayudarle a evitar una carga innecesaria (y cuellos
 
 #### <a name="useful-resources"></a>Recursos útiles
 
-Para más información sobre SAS, consulte [Uso de firmas de acceso compartido, parte 1: Descripción del modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
+Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md).  
 
 Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 

@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370475"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946381"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registro durante las ejecuciones de entrenamiento en Azure Machine Learning
+# <a name="log-metrics-during-training-runs"></a>Métricas de registro durante las ejecuciones de entrenamiento
 
 Realice el seguimiento de sus experimentos y supervise las métricas para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar el registro a su script de entrenamiento, enviar una ejecución de experimento, supervisar la ejecución y ver los resultados de una ejecución en Azure Machine Learning Service.
+
+> [!NOTE]
+> Azure Machine Learning Service también puede registrar información de otros orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
 
 ## <a name="list-of-training-metrics"></a>Lista de métricas de entrenamiento 
 
@@ -49,7 +52,7 @@ Si quiere realizar un seguimiento del experimento o supervisarlo, debe agregar c
 ## <a name="set-up-the-workspace"></a>Configuración del área de trabajo
 Antes de agregar el registro y enviar un experimento, debe configurar el área de trabajo.
 
-1. Cargue el área de trabajo. Para más información sobre el establecimiento de la configuración del área de trabajo, siga los pasos de [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md#sdk).
+1. Cargue el área de trabajo. Para obtener más información sobre la definición de la configuración del área de trabajo, consulte el [archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -221,7 +224,7 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
 
 ## <a name="manage-a-run"></a>Administración de ejecuciones
 
-El artículo [Inicio, supervisión y cancelación de ejecuciones de entrenamiento](how-to-manage-runs.md) resalta los flujos de trabajo de Azure Machine Learning específicos sobre cómo administrar sus experimentos.
+En el artículo [Inicio, supervisión y cancelación de las ejecuciones de entrenamiento](how-to-manage-runs.md) se resaltan los flujos de trabajo de Azure Machine Learning específicos sobre cómo administrar sus experimentos.
 
 ## <a name="view-run-details"></a>Visualización de los detalles de ejecución
 

@@ -5,7 +5,7 @@ keywords: servicio de aplicación de Azure, aplicación web, configuración de l
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957916"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990284"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -29,11 +29,13 @@ En este tema se explica cómo configurar las opciones comunes para aplicaciones 
 
 ## <a name="configure-app-settings"></a>Configuración de aplicaciones
 
-En App Service, se usa la configuración de aplicación como variables de entorno. En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
+En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor.
+
+En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
-Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opciones de aplicación en App Service es como configurarlas en `<appSettings>` en *Web.config*, pero los valores de App Service reemplazan a los de *Web.config*. Puede mantener segura la configuración de desarrollo (por ejemplo, la contraseña de MySQL local) en *Web.config*, excepto los secretos de producción (por ejemplo, la contraseña de base de datos de Azure MySQL) en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
+Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opciones de aplicación en App Service es como configurarlas en `<appSettings>` en *Web.config* o *appsettings.json*, pero los valores de App Service reemplazan a los de *Web.config* o *appsettings.json*. Puede mantener segura la configuración de desarrollo (por ejemplo, la contraseña de MySQL local) en *Web.config* o *appsettings.json*, excepto los secretos de producción (por ejemplo, la contraseña de base de datos de Azure MySQL) en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
 
 Del mismo modo, otras pilas de lenguaje obtienen la configuración de la aplicación como variables de entorno en tiempo de ejecución. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
@@ -171,7 +173,7 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
 - **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
     - **Valor de bits**: 32 bits o 64 bits.
     - **Protocolo Websocket**: para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
-    - **Always On**: mantenga cargada la aplicación, incluso cuando no hay tráfico. Deberá habilitarla para los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
+    - **Always On**: mantenga cargada la aplicación, incluso cuando no hay tráfico. Esto es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
     - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
     - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]

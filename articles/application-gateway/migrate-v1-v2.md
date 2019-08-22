@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/18/2019
+ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: c4bc0ec2bf15a29962909f14f55854c06f0a6561
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550447"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932495"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -84,7 +84,7 @@ Para ejecutar el script:
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
-    -publicIpResourceName <public IP name string>
+    -publicIpResourceId <public IP name string>
     -validateMigration -enableAutoScale
    ```
 
@@ -183,6 +183,10 @@ El script de Azure PowerShell crea una puerta de enlace v2 con un tamaño adecu
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>He configurado mi puerta de enlace v1 para que envíe registros a Azure Storage. ¿Replica también el script esta configuración para v2?
 
 No. El script no replica esta configuración para v2. Debe agregar la configuración de registros por separado a la puerta de enlace v2 migrada.
+
+### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>¿Admite este script los certificados cargados en Azure Key Vault?
+
+No. Actualmente, el script no admite los certificados de Key Vault, pero se está valorando la posibilidad de que lo haga en una versión futura.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
   

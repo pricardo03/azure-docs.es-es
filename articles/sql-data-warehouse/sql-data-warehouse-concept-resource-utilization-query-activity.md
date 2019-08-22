@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 06/20/2019
+ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5038ae99a804b456c2cc388f07899278cc0f9a24
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7f7575daa91cef5cb5be6274a699323fafe67a68
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312876"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935135"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervisión del uso de recursos y la actividad consultas en Azure SQL Data Warehouse
 Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Operations Management Suite (OMS) y Azure Monitor (registros) para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
@@ -23,8 +23,6 @@ Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en A
 ## <a name="resource-utilization"></a>Utilización de recursos 
 Las métricas siguientes están disponibles en Azure Portal para SQL Data Warehouse. Estas métricas se exponen a través de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Actualmente métricas de E/S y CPU de nivel de nodo no reflejan correctamente el uso del almacenamiento de datos. Estas métricas se quitarán en un futuro próximo a medida que el equipo mejore la experiencia de supervisión y solución de problemas para SQL Data Warehouse. 
 
 | Nombre de métrica             | DESCRIPCIÓN                                                  | Tipo de agregación |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -41,6 +39,10 @@ Las métricas siguientes están disponibles en Azure Portal para SQL Data Wareho
 | Porcentaje de caché usada   | (caché usada/capacidad de la memoria caché) * 100 donde la memoria caché usada corresponde al total de todos los bytes en la caché SSD local en todos los nodos y capacidad de la memoria caché corresponde al total de la capacidad de almacenamiento de la caché SSD local en todos los nodos | Máxima          |
 | Porcentaje de tempdb local | El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos | Máxima          |
 
+> Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
+>
+> - Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
+
 ## <a name="query-activity"></a>Actividad de consultas
 Para brindar una experiencia de programación al supervisar SQL Data Warehouse mediante T-SQL, el servicio proporciona un conjunto de vistas de administración dinámica (DMV). Estas vistas resultan útiles para la solución de problemas y la identificación activas de cuellos de botella de rendimiento con la carga de trabajo.
 
@@ -54,4 +56,3 @@ Las métricas y los registros se pueden exportar a Azure Monitor, específicamen
 Las siguientes guías de procedimientos describen escenarios comunes y casos de uso mientras se supervisa y administra el almacenamiento de datos:
 
 - [Supervisión de la carga de trabajo mediante DMV](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
-

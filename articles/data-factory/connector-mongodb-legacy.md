@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400481"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967478"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
@@ -40,7 +40,9 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar los datos de la copia de una base de datos MongoDB que no es accesible públicamente, debe configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md) para obtener más información. El entorno Integration Runtime proporciona un controlador de MongoDB integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde MongoDB.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+El entorno Integration Runtime proporciona un controlador de MongoDB integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde MongoDB.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -64,7 +66,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 
@@ -97,7 +99,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection** | Sí |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
 **Ejemplo:**
@@ -128,7 +130,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource** | Sí |
 | query |Utilice la consulta SQL-92 personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "collectionName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -178,14 +180,14 @@ Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos 
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Date |Datetime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadena |
 | string |Cadena |
 | UUID |Guid |
-| Objeto |Renormalizado en columnas acopladas con "_" como separador anidado |
+| Object |Renormalizado en columnas acopladas con "_" como separador anidado |
 
 > [!NOTE]
 > Para obtener más información sobre la compatibilidad con matrices con tablas virtuales, consulte la sección [Compatibilidad para tipos complejos que usan tablas virtuales](#support-for-complex-types-using-virtual-tables) que aparece más adelante.

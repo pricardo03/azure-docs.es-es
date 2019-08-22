@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249dfeeb231c61b05af2e89f0dc02822cc18e627
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702183"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851692"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 
@@ -54,9 +54,11 @@ Para asignar un usuario o un grupo a una aplicación empresarial, debe contar co
 
 La opción **¿Asignación de usuarios?** :
 
+- Si esta opción se establece en Sí, los usuarios se deben asignar primero a esta aplicación antes de poder acceder a ella.
+- Si esta opción se establece en No, se concederá acceso a cualquier usuario que vaya directamente a la dirección URL de la aplicación o a la dirección URL del vínculo profundo de la aplicación.
 - No afecta a si una aplicación aparece o no en el panel de acceso de la aplicación. Para mostrar la aplicación en el panel de acceso, debe asignar un grupo o usuario adecuado a la aplicación.
-- Solo las funciones con las aplicaciones en la nube configuradas para el inicio de sesión único de SAML, y aplicaciones locales configuradas con el proxy de aplicación. Vea [Inicio de sesión único para aplicaciones](what-is-single-sign-on.md).
-- Requiere que los usuarios den su consentimiento a una aplicación. Un administrador puede conceder consentimiento para todos los usuarios.  Vea [Configure el modo en que los usuarios finales dan su consentimiento a una aplicación](configure-user-consent.md).
+- Solo las funciones con las aplicaciones en la nube configuradas para el inicio de sesión único de SAML, las aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory o las aplicaciones creadas directamente en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 o de OpenID Connect después de que un usuario o administración ha dado su consentimiento a esa aplicación. Vea [Inicio de sesión único para aplicaciones](what-is-single-sign-on.md). Vea [Configure el modo en que los usuarios finales dan su consentimiento a una aplicación](configure-user-consent.md).
+- Esta opción no tiene ningún efecto cuando una configuración está configurada para cualquiera de los otros modos de inicio de sesión único.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>Asignación de un usuario a una aplicación: PowerShell
 

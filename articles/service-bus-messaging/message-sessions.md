@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569794"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951866"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
@@ -76,6 +76,16 @@ Tenga en cuenta que el estado de sesión permanecerá siempre y cuando no se bor
 Todas las sesiones existentes de una cola o suscripción se pueden enumerar con el método **SessionBrowser** de la API de Java y con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) y [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) en el cliente .NET.
 
 El estado de sesión mantenido en una cola o en que una suscripción se tiene en cuenta en la cuota de almacenamiento de esa entidad. Cuando la aplicación se termina con una sesión, se recomienda por lo tanto que dicha aplicación limpie su estado retenido para evitar costos de administración externos.
+
+## <a name="impact-of-delivery-count"></a>Efecto del recuento de entregas
+
+La definición del recuento de entregas por mensaje en el contexto de las sesiones varía ligeramente con respecto a la definición en ausencia de sesiones. En esta tabla se resume cuándo se incrementa el recuento de entregas.
+
+| Escenario | Se incrementa el recuento de entregas del mensaje |
+|----------|---------------------------------------------|
+| Se acepta la sesión, pero el bloqueo de la sesión expira (debido al tiempo de espera) | Sí |
+| Se acepta la sesión, los mensajes de la sesión no se completan (aunque estén bloqueados) y la sesión se cierra. | Sin |
+| Se acepta la sesión, se completan los mensajes y, luego, la sesión se cierra explícitamente. | N/D (este es el flujo estándar. Aquí se quitan los mensajes de la sesión) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

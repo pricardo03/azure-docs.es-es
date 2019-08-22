@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248880"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963448"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -50,6 +50,7 @@ Al acceder a una aplicación en la nube se puede aplicar más de una directiva d
 Todas las directivas se aplican en dos fases:
 
 - En el **primera** fase, se evalúan todas las directivas y se recopilan todos los controles de acceso que no se cumplen. 
+
 - En la **segunda** fase, se le pide que satisfaga los requisitos que no se han cumplido. Si una de las directivas bloquea el acceso, se le bloquea y no se le solicitará que satisfaga otros controles de directiva. Si ninguna de las directivas le bloquea, se le pedirá que cumpla con otros controles de directiva en el orden siguiente:
 
    ![Orden](./media/best-practices/06.png)

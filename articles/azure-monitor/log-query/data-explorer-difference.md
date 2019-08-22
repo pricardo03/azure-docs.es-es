@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9892b8884d901033a80fae4168f25da97edb5a68
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589270"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990175"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferencias en el lenguaje de consulta de los registros de Azure Monitor
 
@@ -52,6 +52,7 @@ En las siguientes secciones se describen los elementos del lenguaje de consulta 
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Complementos que no se admiten en Azure Monitor
 
+* [Complemento de Python](/azure/kusto/query/pythonplugin)
 * [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
 
 

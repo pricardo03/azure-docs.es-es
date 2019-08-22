@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306656"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989937"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso de la API de REST de Azure Storage
 
@@ -79,7 +79,7 @@ Para usar parámetros adicionales, anéxelos a la cadena de recurso con el valor
 
 [Encabezados de solicitud](/rest/api/storageservices/List-Containers2#request-headers) **:** en esta sección se muestran los encabezados de solicitud obligatorios y opcionales. Se requieren tres de los encabezados: un encabezado de *autorización*, *x-ms-date* (contiene la hora UTC de la solicitud) y *x-ms-version* (especifica la versión de la API de REST que se usará). Incluir *x-ms-client-request-id* en los encabezados es opcional; el valor de este campo se puede establecer en nada, y se escribe en los registros de análisis de almacenamiento cuando se habilita el registro.
 
-[Cuerpo de la solicitud](/rest/api/storageservices/List-Containers2#request-body) **:** no hay ningún cuerpo de solicitud para ListContainers. El cuerpo de solicitud se usa en todas las operaciones PUT al cargar los blobs, así como en SetContainerAccessPolicy, que permite enviar una lista de XML de directivas de acceso almacenadas que se aplicarán. Las directivas de acceso almacenadas se describen en el artículo [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[Cuerpo de la solicitud](/rest/api/storageservices/List-Containers2#request-body) **:** no hay ningún cuerpo de solicitud para ListContainers. El cuerpo de solicitud se usa en todas las operaciones PUT al cargar los blobs, así como en SetContainerAccessPolicy, que permite enviar una lista de XML de directivas de acceso almacenadas que se aplicarán. Las directivas de acceso almacenadas se describen en el artículo [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 [Código de estado de respuesta](/rest/api/storageservices/List-Containers2#status-code) **:** indica los códigos de estado que necesita saber. En este ejemplo, un código de estado HTTP de 200 es correcto. Para ver una lista completa de códigos de estado HTTP, consulte [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definiciones de código de estado). Para ver los códigos de error específicos de las API de REST de almacenamiento, consulte [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Códigos de error comunes de API de REST).
 

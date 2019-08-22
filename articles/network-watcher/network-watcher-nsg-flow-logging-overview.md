@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1401e378daa0c0a9258858840653899e76c9421c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640819"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881789"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -57,7 +57,7 @@ Los registros de flujo incluyen las siguientes propiedades:
             * **flows**: una recopilación de flujos
                 * **mac**: la dirección MAC de la NIC de la máquina virtual en la que se recopiló el flujo
                 * **flowTuples**: una cadena que contiene varias propiedades de la tupla de flujo en un formato separado por comas
-                    * **Time Stamp**: este valor es la marca de tiempo de cuando se produjo el flujo en formato UNIX EPOCH
+                    * **Time Stamp**: este valor es la marca de tiempo de cuando se produjo el flujo en formato de época de UNIX
                     * **Source IP**: la IP de origen
                     * **Destination IP**: la IP de destino
                     * **Source Port**: el puerto de origen

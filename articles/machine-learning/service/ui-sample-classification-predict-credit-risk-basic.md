@@ -1,21 +1,21 @@
 ---
-title: 'Clasificación: Predicción del riesgo de crédito'
+title: 'Ejemplo de interfaz visual n.º 3: clasificación para predecir el riesgo de crédito'
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin necesidad de escribir una sola línea de código mediante la interfaz visual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7565f94910d0e926682a72af42b02059fe7295ea
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605766"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990063"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Ejemplo 3 - Clasificación: Predicción del riesgo de crédito
 

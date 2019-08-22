@@ -1,5 +1,5 @@
 ---
-title: Ejecutar predicciones por lotes en grandes cantidades de datos
+title: Ejecución de predicciones por lotes en grandes cantidades de datos con canalizaciones
 titleSuffix: Azure Machine Learning service
 description: Aprenda cómo hacer predicciones por lotes de forma asincrónica en grandes cantidades de datos gracias a Azure Machine Learning Service.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358715"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963013"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Ejecutar predicciones por lotes en grandes conjuntos de datos con Azure Machine Learning Service
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Ejecución de predicciones por lotes en grandes conjuntos de datos con canalizaciones de Azure Machine Learning
 
-En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos mediante Azure Machine Learning Service.
+En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos mediante las canalizaciones de ML con Azure Machine Learning Service.
 
 La predicción por lotes (o puntuación por lotes) proporciona una inferencia rentable con un rendimiento sin precedentes para aplicaciones asincrónicas. Las canalizaciones de predicción por lotes pueden escalarse para realizar inferencias en terabytes de datos de producción. La predicción por lotes está optimizada para las predicciones de alto rendimiento y de tipo "fire-and-forget" (envíelo y olvídese) cuando se trabaja con una gran cantidad de datos.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver cómo funciona esto de un extremo a otro, pruebe el cuaderno de puntuación por lotes en [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Para ver cómo funciona de principio a fin, pruebe el cuaderno de puntuación por lotes en [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines); también puede ir al [Centro de arquitectura de Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python) para ver una arquitectura de solución de ejemplo.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d8ce0a4f6bacdd1c8c858d474e6f3957a23c6357
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509567"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967355"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
@@ -163,7 +163,7 @@ Para controlar la carga en las máquinas que hospedan los almacenes de datos o p
 **Puntos a tener en cuenta:**
 
 * Cuando se copian datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un archivo individual se produce por debajo de forma automática y transparente. Está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a **parallelCopies**. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
-* Cuando se copian datos de almacenes que no están basados en archivos (excepto cuando una base de datos de Oracle es el origen con el particionamiento de dato habilitado) en almacenes basados en archivos, el servicio de movimiento de datos ignora la propiedad **parallelCopies**. Aunque se especifica el paralelismo, no se aplica en este caso.
+* Al copiar datos de almacenes no basados en archivos (salvo si el conector de [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) y [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) es el origen y tiene habilitada la creación de particiones de datos) en almacenes que sí se basan en archivos, el servicio de movimiento de datos omite la propiedad **parallelCopies**. Aunque se especifica el paralelismo, no se aplica en este caso.
 * La propiedad **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
 * Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor. Tenga también en cuenta el aumento de carga para IR autohospedado si la actividad de copia tiene autorización, por ejemplo, para la copia híbrida. Dicho aumento sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de **parallelCopies** para aliviar la carga.
 

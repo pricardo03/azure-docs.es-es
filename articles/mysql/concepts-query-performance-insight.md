@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589064"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950356"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Información de rendimiento de consultas en Azure Database for MySQL
 
-**Se aplica a:**  Azure Database for MySQL 5.7
+**Se aplica a:** Azure Database for MySQL 5.7
 
-> [!NOTE]
+> [!IMPORTANT]
 > Información de rendimiento de consultas está en versión preliminar.
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
@@ -36,21 +36,21 @@ Query Performance Insight le ayuda a identificar rápidamente cuáles son las co
 
 ## <a name="permissions"></a>Permisos
 
-Los permisos **Propietario** o **Colaborador** necesarios para ver el texto de las consultas en Información de rendimiento de consultas. El  **Lector** puede ver los gráficos y las tablas, pero no el texto de las consultas.
+Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para que Información de rendimiento de consultas funcione, debe haber datos en el  [Almacén de consultas](concepts-query-store.md).
+Para que Query Performance Insight funcione, deben existir datos en el [Almacén de consultas](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Ver información de rendimiento
 
 La vista [Query Performance Insight](concepts-query-performance-insight.md) en Azure Portal detectará visualizaciones en la información de clave del Almacén de consultas.
 
-En la página del portal del servidor de Azure Database for MySQL, seleccione **Información de rendimiento de consultas** en la sección **Rendimiento inteligente** de la barra de menús.
+En la página del portal de su servidor de Azure Database for MySQL, seleccione **Información de rendimiento de consultas** en la sección **Rendimiento inteligente** de la barra de menús.
 
 ### <a name="long-running-queries"></a>Consultas de larga duración
 
-La pestaña **Consultas de larga duración** muestra las 5 principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. Para ver más consultas, seleccione en la lista desplegable **Número de consultas** . Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
+La pestaña **Consultas de larga duración** muestra las cinco principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. Para ver más consultas, selecciónelas en la lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
 
 Puede hacer clic y arrastrar en el gráfico para restringir a un período de tiempo específico. Como alternativa, puede usar los iconos de acercar y alejar para ver un período de tiempo mayor o menor, respectivamente.
 
@@ -63,7 +63,7 @@ Puede hacer clic y arrastrar en el gráfico para restringir a un período de tie
 
 Las estadísticas de espera brindan una vista de los eventos de espera que se producen durante la ejecución de una consulta específica. Puede encontrar más información sobre los tipos de eventos de espera en la [documentación del motor de MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Seleccione la pestaña  **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
+Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
 
 Las consultas que se muestran en la vista de estadísticas de espera se agrupan según las consultas que presentan las mayores esperas durante el intervalo de tiempo especificado.
 

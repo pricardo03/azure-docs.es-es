@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147947"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967870"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -72,11 +72,15 @@ Para el servicio Azure Import/Export, se necesitan discos admitidos para copiar 
 En la siguiente lista se muestran los discos que se pueden usar con el servicio Import/Export.
 
 
-|Tipo de disco  |Size  |Compatible |No compatible  |
-|---------|---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |  USB       |
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Unidad de disco duro externa con adaptador USB integrado <br> Disco dentro de la carcasa de una unidad de disco duro externa         |
+|Tipo de disco  |Size  |Compatible |
+|---------|---------|---------|
+|SSD    |   2,5"      |SATA III          | 
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
+No se admiten los tipos de disco siguientes:
+- USB.
+- Unidad de disco duro externa con adaptador USB integrado.
+- Discos dentro de la carcasa de una unidad de disco duro externa.
 
 Un único trabajo de importación o exportación puede tener:
 - 10 HDD o SSD como máximo.

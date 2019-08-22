@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614891"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019310"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ En este artículo se indica cómo proteger el clúster de AKS. Aprenderá a:
 > * Actualización de un clúster AKS a la última versión de Kubernetes
 > * Mantener actualizados los nodos y aplicar automáticamente los parches de seguridad.
 
-También puede leer los procedimientos recomendados para la [administración de imágenes de contenedor][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
+También puede leer las prácticas recomendadas para la [administración de imágenes de contenedor][best-practices-container-image-management] y para [seguridad de pod][best-practices-pod-security].
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger el acceso a los nodos del clúster y al servidor de API
 
@@ -188,10 +188,10 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 A continuación, puede actualizar el clúster de AKS con el comando [az aks upgrade][az-aks-upgrade]. El proceso de actualización acordona y drena de forma segura un nodo de cada vez, programa pods en los nodos restantes y, después, implementa un nuevo nodo que ejecute las versiones más recientes del sistema operativo y de Kubernetes.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
 ```
 
-Para más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
+Para obtener más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] y [Actualización de un clúster de AKS][aks-upgrade].
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proceso de las actualizaciones y reinicios de nodos Linux con kured
 
