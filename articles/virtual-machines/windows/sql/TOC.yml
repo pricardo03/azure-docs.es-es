@@ -2,6 +2,8 @@
   items:
     - name: ¿Qué es una VM con SQL Server?
       href: virtual-machines-windows-sql-server-iaas-overview.md
+    - name: ¿Qué opción de SQL debo elegir?
+      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
     - name: Notas de la versión
       href: virtual-machines-windows-sql-server-iaas-release-notes.md
 - name: Guías de inicio rápido
@@ -116,8 +118,6 @@
       href: virtual-machines-windows-sql-server-iaas-faq.md
     - name: Precios
       href: virtual-machines-windows-sql-server-pricing-guidance.md
-    - name: ¿PaaS o IaaS?
-      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
     - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server Management Studio (SSMS)
