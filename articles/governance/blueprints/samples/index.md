@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/20/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8a91ae0c576299e139cf036f1f20b90470f51349
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650517"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972296"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -30,8 +30,8 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Proporciona un conjunto de directivas que ayuda a lograr la conformidad con PCI DSS v3.2.1. |
 | [Gobernanza de UK OFFICIAL y UK NHS](./ukofficial/index.md) | Proporciona un conjunto de patrones de infraestructura compatibles y una directiva de protección que ayuda a la obtención de la certificación UK OFFICIAL y UK NHS. |
-| [Fundamentos de CAF](./caf-foundation/index.md) | Proporciona un conjunto de controles para ayudarle a administrar su propia nube en consonancia con [Microsoft Cloud Adoption Framework para Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
-| [Zona de aterrizaje de migración de CAF](./caf-migrate-landing-zone/index.md) | Proporciona un conjunto de controles para ayudarle a configurar la migración de la primera carga de trabajo y para administrar su propia nube en consonancia con [Microsoft Cloud Adoption Framework para Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index.md). |
+| [Fundamentos de CAF](./caf-foundation/index.md) | Proporciona un conjunto de controles para ayudarle a administrar su propia nube en consonancia con [Microsoft Cloud Adoption Framework para Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
+| [Zona de aterrizaje de migración de CAF](./caf-migrate-landing-zone/index.md) | Proporciona un conjunto de controles para ayudarle a configurar la migración de la primera carga de trabajo y para administrar su propia nube en consonancia con [Microsoft Cloud Adoption Framework para Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |
 
 ## <a name="samples-strategy"></a>Estrategia de ejemplos
 
