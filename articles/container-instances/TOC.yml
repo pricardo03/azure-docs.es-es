@@ -121,6 +121,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: Conector
+      href: /connectors/aci
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: Procedimientos recomendados
       href: best-practices.md
-    - name: Plantillas de directivas habituales
+    - name: Directivas de acceso condicional habituales
       items:
         - name: Exigir autenticación multifactor para administradores
           href: howto-conditional-access-policy-admin-mfa.md

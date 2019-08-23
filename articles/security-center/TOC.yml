@@ -133,24 +133,8 @@
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
         - name: Evaluación de vulnerabilidades no instalada
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Agregar un firewall de aplicaciones web
-          href: security-center-add-web-application-firewall.md
-        - name: Finalización de la protección de la aplicación
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-        - name: Agregar un firewall de próxima generación
-          href: security-center-add-next-generation-firewall.md
         - name: Habilitar los grupos de seguridad de red
           href: security-center-enable-network-security-groups.md
-        - name: Restringir el acceso a través de puntos de conexión accesibles desde Internet
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Enrutar el tráfico solo a través de NGFW
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-        - name: Habilitar la auditoría y la detección de amenazas en las bases de datos SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Habilitar la auditoría y la detección de amenazas en los servidores SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Habilitación del cifrado de datos transparente
-          href: security-center-enable-transparent-data-encryption.md
         - name: Informes de amenazas
           href: security-center-threat-report.md
         - name: Alertas personalizadas
