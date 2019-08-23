@@ -65,14 +65,14 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| Tipo |Establezca el valor en FtpServer. |Sí |&nbsp; |
+| type |Establezca el valor en FtpServer. |Sí |&nbsp; |
 | host |Especifique el nombre o dirección IP del servidor FTP. |Sí |&nbsp; |
 | authenticationType |Especifique el tipo de autenticación. |Sí |Basic, Anonymous |
 | username |Especifique el usuario que tiene acceso al servidor FTP. |Sin |&nbsp; |
 | password |Especifique la contraseña del usuario (nombre de usuario). |Sin |&nbsp; |
 | encryptedCredential |Especifique las credenciales cifradas para obtener acceso al servidor FTP. |Sin |&nbsp; |
 | gatewayName |Especifique el nombre de la puerta de enlace en Data Management Gateway para conectarse a un servidor FTP local. |Sin |&nbsp; |
-| puerto |Especifique el puerto en el que se está realizando la escucha del servidor FTP. |Sin |21 |
+| port |Especifique el puerto en el que se está realizando la escucha del servidor FTP. |Sin |21 |
 | enableSsl |Especificar si desea usar FTP a través del canal SSL/TLS. |Sin |true |
 | enableServerCertificateValidation |Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS. |Sin |true |
 
