@@ -69,12 +69,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
+| type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
 | serviceUri | Dirección URL de la instancia de Dynamics, por ejemplo, `https://adfdynamics.crm.dynamics.com`. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!NOTE]
@@ -112,14 +112,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
+| type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
 | hostName | El nombre de host del servidor local de Dynamics. | Sí |
 | puerto | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí |
 | authenticationType | Tipo de autenticación para conectarse al servidor de Dynamics. Especifique **"Ifd"** para Dynamics local con IFD. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
 **Ejemplo: Dynamics local con IFD mediante la autenticación de IFD**
@@ -158,7 +158,7 @@ Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conju
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **DynamicsEntity**. |Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **DynamicsEntity**. |Sí |
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
 
 > [!IMPORTANT]
@@ -212,7 +212,7 @@ Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de c
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**. | Sí |
 | query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
 
 >[!NOTE]
@@ -276,7 +276,7 @@ Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **DynamicsSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **DynamicsSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"** . | Sí |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No (el valor predeterminado es 10) |
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
