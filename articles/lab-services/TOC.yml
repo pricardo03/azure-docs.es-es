@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Asociación o desasociación de una galería de imágenes compartidas
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: Creación y configuración de laboratorios educativos (profesor)
+        - name: Creación y configuración de laboratorios educativos (instructor)
           items:
             - name: Creación y administración de laboratorios educativos
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -104,6 +104,10 @@
           items:
             - name: Acceso a laboratorios educativos
               href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Uso de la conexión de escritorio remoto para máquinas virtuales Linux
+              href: classroom-labs/how-to-use-remote-desktop-linux-student.md
+            - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
+              href: classroom-labs/how-to-set-virtual-machine-passwords-student.md
     - name: DevTest Labs
       items:
         - name: Configuración de un laboratorio

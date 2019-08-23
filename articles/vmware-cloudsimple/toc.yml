@@ -105,7 +105,7 @@
             - name: Ver la lista de usuarios
               href: users.md
             - name: Configuración de una conexión de red virtual a la nube privada
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+              href: virtual-network-connection.md
             - name: Edición del perfil de usuario
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Configuración de máquinas virtuales de VMware para la nube privada
@@ -124,8 +124,8 @@
               href: escalate-privileges.md
             - name: Configuración de DNS y DHCP de carga de trabajo
               href: dns-dhcp-setup.md
-            - name: VPN de NSX Layer 2 para migración
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+            - name: Migración de cargas de trabajo mediante redes extendidas de nivel 2
+              href: migration-layer-2-vpn.md
         - name: Redes de la nube privada
           items:
             - name: Conexión VPN entre una nube local y una privada
@@ -145,24 +145,28 @@
             - name: Configuración del servidor vCenter de la nube privada como punto de conexión de automatización de vRealize
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migración de máquinas virtuales de cargas de trabajo a una nube privada
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+              href: migrate-workloads.md
             - name: Garantía de alta disponibilidad de la aplicación en VMware en Azure
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+            - name: Elección de la solución de equilibrio de carga
+              href: load-balancers.md
         - name: Ecosistema de VMware
           items:
             - name: Copia de seguridad de máquinas virtuales de carga de trabajo
               href: backup-workloads-veeam.md
+            - name: Configuración de la nube privada como sitio de recuperación ante desastres mediante Zerto
+              href: disaster-recovery-zerto.md
             - name: Guía de soluciones de VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Configuración del cifrado de vSAN para la nube privada
               href: vsan-encryption.md
-            - name: Implementación de un RAC de Oracle en la nube privada de CloudSimple
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+            - name: Optimización de la nube privada para Oracle RAC
+              href: oracle-real-application-clusters.md
         - name: Azure Core Integration
           items:
             - name: Origen de identidades de Azure AD en servidor vCenter de la nube privada
               href: azure-ad.md
             - name: Conexión de red local con ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Conexión de red virtual de Azure con ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

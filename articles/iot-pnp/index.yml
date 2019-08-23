@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de la versión preliminar de IoT Plug and Play
+metadata:
+  title: 'Documentación de la versión preliminar de IoT Plug and Play: Tutoriales y referencia de API | Microsoft Docs'
+  description: 'Aprenda a usar IoT Plug and Play con la ayuda de tutoriales, referencias de API, vídeos y otra documentación.'
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: 'Aprenda a usar la versión preliminar de IoT Plug and Play para definir un modelo de dispositivo que permita a las soluciones en la nube comprender automáticamente el dispositivo y comenzar a interactuar con él; todo ello sin necesidad de escribir ningún código de dispositivo. Los tutoriales, las referencias de API, los vídeos y otra documentación le ayudarán a conectar los dispositivos a las soluciones en la nube, como Azure IoT Central o aplicaciones de asociados.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250
+    title: 'Introducción a IoT Plug and Play. (11:54)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
+    width: 250
+sections:
+  - title: Inicio rápido en 5 minutos
+    items:
+      - type: paragraph
+        text: Aprenda a <a href="quickstart-create-pnp-device">usar un modelo de funcionalidad del dispositivo para crear un dispositivo</a>.
+      - type: paragraph
+        text: Aprenda a <a href="quickstart-connect-pnp-device-solution">conectar un dispositivo a la solución</a>.
+  - title: Tutoriales detallados
+    items:
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-pnp-visual-studio-code">Creación de un dispositivo mediante Visual Studio Code</a>
+          - html: <a href="tutorial-build-device-certification">Compilación de un dispositivo listo para la certificación</a>
+          - html: <a href="tutorial-certification-test">Certificación del dispositivo</a>

@@ -251,6 +251,8 @@
           href: mitigate-se.md
         - name: Eventos programados
           href: scheduled-events.md
+        - name: Supervisión de eventos programados
+          href: scheduled-event-service.md
         - name: Supervisión de metadatos
           href: instance-metadata-service.md
         - name: Habilitar virtualización anidada

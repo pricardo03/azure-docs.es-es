@@ -97,9 +97,6 @@
         - name: Modularización de plantillas
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
-        - name: Administración de secretos
-          displayname: key vault
-          href: resource-manager-keyvault-parameter.md
         - name: Creación de varias instancias
           href: resource-group-create-multiple.md
         - name: Uso de extensiones de plantilla
@@ -124,6 +121,13 @@
           href: secure-template-with-sas-token.md
         - name: Implementación en varios grupos de recursos o suscripciones
           href: resource-manager-cross-resource-group-deployment.md
+    - name: Suministro de parámetros
+      items:
+        - name: Creación de archivo de parámetros
+          href: resource-manager-parameter-files.md
+        - name: Paso de valores confidenciales
+          displayname: key vault
+          href: resource-manager-keyvault-parameter.md
     - name: CI/CD
       items:
         - name: Proyecto de VS con canalizaciones
