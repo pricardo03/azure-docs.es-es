@@ -51,9 +51,9 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo | La propiedad type debe establecerse en `Sftp`. |Sí |
+| type | La propiedad type debe establecerse en `Sftp`. |Sí |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
-| puerto |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin |
+| port |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin |
 | authenticationType |Especifique el tipo de autenticación. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte las secciones [Uso de autenticación básica](#using-basic-authentication) y [Uso de autenticación de clave pública SSH](#using-ssh-public-key-authentication) sobre más propiedades y ejemplos JSON respectivamente. |Sí |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host. | No. El valor predeterminado es false. |
 | hostKeyFingerprint | Especifique la huella dactilar de la clave de host. | Sí, si `skipHostKeyValidation` está establecido en false.  |
