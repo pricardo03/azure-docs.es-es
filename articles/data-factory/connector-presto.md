@@ -47,11 +47,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Presto:
 | type | La propiedad type debe establecerse en: **Presto** | Sí |
 | host | Dirección IP o nombre de host del servidor de Presto. (es decir, 192.168.222.160)  | Sí |
 | serverVersion | Versión del servidor de Presto. (es decir, 0.148-t)  | Sí |
-| catálogo | Contexto de catálogo para todas las solicitudes en el servidor.  | Sí |
-| puerto | Puerto TCP que el servidor de Presto utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8080.  | Sin |
+| catalog | Contexto de catálogo para todas las solicitudes en el servidor.  | Sí |
+| port | Puerto TCP que el servidor de Presto utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8080.  | Sin |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Presto. <br/>Los valores permitidos son: **Anonymous** y **LDAP** | Sí |
-| nombre de usuario | Nombre de usuario que se usa para conectarse al servidor de Presto.  | Sin |
-| contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| username | Nombre de usuario que se usa para conectarse al servidor de Presto.  | Sin |
+| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin |
