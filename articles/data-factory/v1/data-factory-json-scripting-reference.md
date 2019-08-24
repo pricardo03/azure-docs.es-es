@@ -49,7 +49,7 @@ En la tabla siguiente se describen las propiedades dentro de las definiciones JS
 
 | Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
-| name | Nombre de la canalización. Especifique un nombre que represente la acción que la actividad o la canalización está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
+| Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que la actividad o la canalización está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description |Texto que describe para qué se usa la actividad o la canalización | Sin |
 | actividades | Contiene una lista de actividades. | Sí |
 | start |Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00**-05:00`, que es 6 a. m. EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin<br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica las horas de inicio y de finalización al crear una canalización, puede establecerlas más adelante mediante el cmdlet Set-AzDataFactoryPipelineActivePeriod. |
@@ -87,7 +87,7 @@ En la tabla siguiente se describen las propiedades dentro de la definición JSON
 
 | Etiqueta | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la actividad. Especifique un nombre que represente la acción que la actividad está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
+| Nombre |Nombre de la actividad. Especifique un nombre que represente la acción que la actividad está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin |
 | type |Especifica el tipo de actividad. Vea las secciones sobre [ALMACENES DE DATOS](#data-stores) y [ACTIVIDADES DE TRANSFORMACIÓN DE DATOS](#data-transformation-activities) para ver los distintos tipos de actividades. |Sí |
 | inputs |Tablas de entrada utilizadas por la actividad<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No es para las actividades de HDInsightStreaming ni SqlServerStoredProcedure <br/> <br/> Sí para el resto |
@@ -1313,7 +1313,7 @@ Para definir un conjunto de datos de Azure Search, establezca el **tipo** de con
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
+| type | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
 | indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
 
 #### <a name="example"></a>Ejemplo
@@ -1707,7 +1707,7 @@ Para definir un servicio vinculado de IBM DB2, establezca el **tipo** de servici
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | server |Nombre del servidor DB2. |Sí |
-| Base de datos |Nombre de la base de datos DB2. |Sí |
+| database |Nombre de la base de datos DB2. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
@@ -1822,8 +1822,8 @@ Para definir un servicio vinculado de MySQL, establezca el **tipo** de servicio 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Servidor |Nombre del servidor MySQL. |Sí |
-| Base de datos |Nombre de la base de datos MySQL. |Sí |
+| server |Nombre del servidor MySQL. |Sí |
+| database |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
 | userName |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
@@ -2113,8 +2113,8 @@ Para definir un servicio vinculado de PostgreSQL, establezca el **tipo** de serv
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Servidor |Nombre del servidor de PostgreSQL. |Sí |
-| Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
+| server |Nombre del servidor de PostgreSQL. |Sí |
+| database |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
@@ -2232,7 +2232,7 @@ Para definir un servicio vinculado de SAP Business Warehouse (BW), establezca el
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
+server | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
 systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
 clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
 username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
@@ -2342,7 +2342,7 @@ Para definir un servicio vinculado de SAP HANA, establezca el **tipo** de servic
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
+server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí
 username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
 password | Contraseña del usuario. | string | Sí
@@ -2671,8 +2671,8 @@ Para definir un servicio vinculado de Sybase, establezca el **tipo** de servicio
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Servidor |Nombre del servidor de Sybase. |Sí |
-| Base de datos |Nombre de la base de datos Sybase. |Sí |
+| server |Nombre del servidor de Sybase. |Sí |
+| database |Nombre de la base de datos Sybase. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
@@ -2791,7 +2791,7 @@ Para definir un servicio vinculado de Teradata, establezca el **tipo** de servic
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Servidor |Nombre del servidor de Teradata. |Sí |
+| server |Nombre del servidor de Teradata. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
@@ -2906,7 +2906,7 @@ Para definir un servicio vinculado de Cassandra, establezca el **tipo** de servi
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/><br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
-| puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es: 9042 |
+| port |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es: 9042 |
 | authenticationType |Básica o anónima |Sí |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | password |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
@@ -3032,8 +3032,8 @@ Para definir un servicio vinculado de MongoDB, establezca el **tipo** de servici
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
-| puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
+| server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
+| port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
 | authenticationType |Básica o anónima. |Sí |
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | contraseña |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
@@ -3317,7 +3317,7 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |Asegúrese de que la propiedad type esté establecida en **OnPremisesFileServer**. |Sí |
+| type |Asegúrese de que la propiedad type esté establecida en **OnPremisesFileServer**. |Sí |
 | host |Especifica la ruta de acceso raíz de la carpeta que quiere copiar. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en Ejemplos de definiciones de servicio vinculado y conjunto de datos. |Sí |
 | userid |Especifique el identificador del usuario que tiene acceso al servidor. |No (si elige encryptedCredential) |
 | password |Especifique la contraseña del usuario (identificador de usuario). |No (si elige encryptedCredential) |
@@ -3558,7 +3558,7 @@ Para definir un servicio vinculado de FTP, establezca el **tipo** de servicio vi
 | password |Contraseña para el usuario (nombre de usuario) |Sin |&nbsp; |
 | encryptedCredential |Credenciales cifradas para acceder al servidor FTP |Sin |&nbsp; |
 | gatewayName |Nombre de la puerta de enlace de administración de datos para conectarse a un servidor FTP local |Sin |&nbsp; |
-| puerto |Puerto en el que escucha el servidor FTP |Sin |21 |
+| port |Puerto en el que escucha el servidor FTP |Sin |21 |
 | enableSsl |Especificar si desea usar FTP a través del canal SSL/TLS |Sin |true |
 | enableServerCertificateValidation |Especificar si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS |Sin |true |
 
@@ -3867,7 +3867,7 @@ Para definir un servicio vinculado de SFTP, establezca el **tipo** de servicio v
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
-| puerto |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin |
+| port |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin |
 | authenticationType |Especifique el tipo de autenticación. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte las secciones Uso de autenticación básica y [Uso de autenticación de clave pública SSH](#using-ssh-public-key-authentication) sobre más propiedades y ejemplos JSON respectivamente. |Sí |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host. | No. El valor predeterminado es false. |
 | hostKeyFingerprint | Especifique la huella dactilar de la clave de host. | Sí, si `skipHostKeyValidation` está establecido en false.  |
@@ -4745,7 +4745,7 @@ Para definir un conjunto de datos de Web, establezca el **tipo** de conjunto de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
+| type |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
 | path |Dirección URL relativa al recurso que contiene la tabla. |No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
 | index |Índice de la tabla en el recurso. Consulte la sección Obtención de índice de una tabla en una página HTML para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
 
@@ -4838,7 +4838,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type se debe establecer en **HDInsightOnDemand**. |Sí |
+| type |La propiedad type se debe establecer en **HDInsightOnDemand**. |Sí |
 | clusterSize |Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. |Sí |
 | timeToLive |El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. |Sí |
 | version |Versión del clúster de HDInsight. Para obtener más información, consulte [Versiones admitidas de HDInsight en Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Sin |
@@ -4876,7 +4876,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type se debe establecer en **HDInsight**. |Sí |
+| type |La propiedad type se debe establecer en **HDInsight**. |Sí |
 | clusterUri |El URI del clúster de HDInsight. |Sí |
 | username |Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario. |Sí |
@@ -4909,7 +4909,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type se debe establecer en **AzureBatch**. |Sí |
+| type |La propiedad type se debe establecer en **AzureBatch**. |Sí |
 | accountName |Nombre de la cuenta de Azure Batch. |Sí |
 | accessKey |Clave de acceso de la cuenta de Azure Batch. |Sí |
 | poolName |Nombre del grupo de máquinas virtuales. |Sí |

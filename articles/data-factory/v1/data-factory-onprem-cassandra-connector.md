@@ -316,7 +316,7 @@ La primera tabla virtual es la tabla base y se denomina “ExampleTable”, tal 
 
 Las tablas siguientes representan las tablas virtuales que normalizan de nuevo los datos de las columnas List, Map y StringSet. Las columnas cuyos nombres terminan en “_index” o “_key” indican la posición de los datos en la columna List o Map original. Las columnas cuyos nombres terminan en “_value” contienen los datos ampliados de la colección.
 
-#### <a name="table-exampletablevtlist"></a>Tabla “ExampleTable_vt_List”:
+#### <a name="table-exampletable_vt_list"></a>Tabla “ExampleTable_vt_List”:
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -327,14 +327,14 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletablevtmap"></a>Tabla “ExampleTable_vt_Map”:
+#### <a name="table-exampletable_vt_map"></a>Tabla “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Tabla “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>Tabla “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |Una |
