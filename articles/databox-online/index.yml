@@ -1,39 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 'Documentación de Azure Data Box: Transferencia en línea'
+summary: Use los dispositivos de Azure Data Box Gateway y Azure Data Box Edge para las transferencias de datos de alto rendimiento a través de la red. Elija Data Box Gateway para enviar datos para archivado en la nube, recuperación ante desastres o para procesar datos a escala de nube. Use Data Box Edge para filtrar, analizar y transformar los datos antes de moverlos a Azure.
 metadata:
-  title: 'Data Box Gateway, Data Box Edge: Documentación sobre la transferencia de datos a través de la red a Azure'
-  description: 'Uso de dispositivos de Data Box Edge y Data Box Gateway para realizar transferencias de datos de alto rendimiento a través de la red a Azure de una forma rápida, barata y confiable.'
+  title: 'Documentación de Azure Data Box: Transferencia en línea'
+  description: 'Data Box Gateway, Data Box Edge: Documentación sobre la transferencia de datos de alto rendimiento a través de la red a Azure.'
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/25/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box Edge y Data Box Gateway para las transferencias de datos de alto rendimiento a través de la red.<p>Elija Data Box Gateway para enviar datos para archivado en la nube, recuperación ante desastres o para procesar datos a escala de nube.  Use Data Box Edge para filtrar, analizar y transformar los datos cuando se mueven a Azure.</p><p>Obtenga información sobre cómo aprovechar Data Box Gateway y Data Box Edge para la transferencia basada en red con nuestros tutoriales.</p>'
-sections:
-  - title: Tutoriales
-    items:
-      - type: paragraph
-        text: <b>Para Data Box Gateway</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-gateway-deploy-prep">Preparación para implementar Azure Data Box Gateway</a>
-          - html: <a href="data-box-gateway-deploy-provision-hyperv">Aprovisionamiento de Azure Data Box Gateway en Hyper-V</a>
-          - html: <a href="data-box-gateway-deploy-provision-vmware">Aprovisionamiento de Azure Data Box Gateway en VMware</a>
-          - html: '<a href="data-box-gateway-deploy-connect-setup-activate">Conexión, configuración y activación de Azure Data Box Gateway</a>'
-          - html: <a href="data-box-gateway-deploy-add-shares">Transferencia de datos con Azure Data Box Gateway</a>
-      - type: paragraph
-        text: <b>Para Data Box Edge</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-edge-deploy-prep">Preparación de la implementación de Azure Data Box Edge</a>
-          - html: <a href="data-box-edge-deploy-install">Instalación de Azure Data Box Edge</a>
-          - html: '<a href="data-box-edge-deploy-connect-setup-activate">Conexión, configuración y activación de Azure Data Box Edge</a>'
-          - html: <a href="data-box-edge-deploy-add-shares">Transferencia de datos con Azure Data Box Edge</a>
-          - html: <a href="data-box-edge-deploy-configure-compute">Transformación de datos con Azure Data Box Edge</a>
+  ms.date: 08/15/2019
+  ms.openlocfilehash: f1b3c4f8473807b7bbffa2b40f1d3a89b6acff5a
+  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/23/2019
+  ms.locfileid: "70012861"
+landingContent:
+- title: Acerca de la familia de productos de Azure Data Box
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Data Box Gateway?
+      url: data-box-gateway-overview.md
+    - text: ¿Qué es Data Box Edge?
+      url: data-box-edge-overview.md
+  - linkListType: architecture
+    links:
+    - text: Elección de opciones de transferencia de datos de Azure
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: Uso de la transferencia de red o la transferencia sin conexión
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: Notas de la versión 1905
+      url: data-box-gateway-1905-release-notes.md
+- title: Requisitos y límites
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Requisitos de Data Box Gateway
+      url: data-box-gateway-system-requirements.md
+    - text: Requisitos de Data Box Edge
+      url: data-box-edge-system-requirements.md
+    - text: Límites de Data Box Gateway
+      url: data-box-gateway-limits.md
+    - text: Límites de Data Box Edge
+      url: data-box-edge-limits.md
+- title: Implementación
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-deploy-prep.md
+    - text: Data Box Edge
+      url: data-box-edge-deploy-prep.md
+- title: Desarrollo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Módulo de proceso perimetral de C#
+      url: data-box-edge-create-iot-edge-module.md
+  - linkListType: download
+    links:
+    - text: 'Ejemplos: C# para Data Box Edge'
+      url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+- title: administración
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Recursos compartidos de Data Box Gateway
+      url: data-box-gateway-manage-shares.md
+    - text: Recursos compartidos de Data Box Edge
+      url: data-box-edge-manage-shares.md
+    - text: Proceso perimetral
+      url: data-box-edge-manage-compute.md
+    - text: Red de procesos perimetrales
+      url: data-box-edge-extend-compute-access-modules.md
+- title: Solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-troubleshoot.md
+    - text: Data Box Edge
+      url: data-box-edge-troubleshoot.md
+    - text: Módulos del proceso perimetral
+      url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
+    - text: Devolución o sustitución de Data Box Edge
+      url: data-box-edge-return-device.md
+    - text: Abrir una incidencia de soporte técnico
+      url: data-box-edge-contact-microsoft-support.md

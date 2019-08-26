@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: Conceptos
   items:
-    - name: Identidades administradas de recursos de Azure
-      href: service-bus-managed-service-identity.md
-    - name: Control de acceso basado en rol (versión preliminar)
-      href: service-bus-role-based-access-control.md
     - name: Mensajería premium
       href: service-bus-premium-messaging.md
     - name: Comparación de colas de Azure con colas de Service Bus
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: Control de interrupciones y desastres
       href: service-bus-outages-disasters.md
-    - name: Atributos comunes de seguridad de Azure
-      href: service-bus-messaging-security-attributes.md
+    - name: Seguridad
+      items:
+        - name: Autenticación y autorización
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Uso de firmas de acceso compartido
+              items:
+                - name: Migración de ACS a SAS
+                  href: service-bus-migrate-acs-sas.md
+                - name: Autenticación con Firmas de acceso compartido
+                  href: service-bus-sas.md
+            - name: Uso de Azure Active Directory
+              items:
+                - name: Autenticación con identidades administradas de recursos de Azure
+                  href: service-bus-managed-service-identity.md
+                - name: Autenticación desde una aplicación
+                  href: authenticate-application.md
+        - name: Atributos comunes de seguridad de Azure
+          href: service-bus-messaging-security-attributes.md
 - name: Guías de procedimientos
   items:
     - name: Creación de un espacio de nombres
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Ejemplos de Azure Event Grid
               href: service-bus-to-event-grid-integration-example.md
-        - name: Autenticación y autorización
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Migración de ACS a SAS
-              href: service-bus-migrate-acs-sas.md
-            - name: Autenticación con Firmas de acceso compartido
-              href: service-bus-sas.md
         - name: Filtros y acciones de temas
           href: topic-filters.md
         - name: Migración de espacios de nombres de Estándar a Premium

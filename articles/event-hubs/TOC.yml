@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: Seguridad
       items:
-        - name: Identidad administrada para recursos de Azure
-          href: event-hubs-managed-service-identity.md
-        - name: Control de acceso basado en rol (versión preliminar)
-          href: event-hubs-role-based-access-control.md
-        - name: Introducción al modelo de autenticación y seguridad
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Authorization
+          items:
+            - name: Autorización del acceso a Azure Event Hubs
+              href: authorize-access-event-hubs.md
+            - name: Autorización del acceso con Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+            - name: Autorización del acceso con una firma de acceso compartido
+              href: authorize-access-shared-access-signature.md
+        - name: Authentication
+          items:
+            - name: Autenticación mediante Azure Active Directory
+              items:
+                - name: Autenticación con una identidad administrada
+                  href: authenticate-managed-identity.md
+                - name: Autenticación desde una aplicación
+                  href: authenticate-application.md
+            - name: Autenticación con una firma de acceso compartido
+              href: authenticate-shared-access-signature.md
         - name: Atributos de seguridad
           href: event-hubs-security-attributes.md
     - name: Guía del protocolo AMQP 1.0
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Habilitar la integración y los firewalls de Virtual Network en el espacio de nombres de Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: Configuración de claves administradas por el cliente para el cifrado de datos en reposo
+          href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:
         - name: Excepciones

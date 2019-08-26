@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Documentación de Bing Custom Search
 metadata:
-  title: 'Documentación de Bing Custom Search API: tutoriales, inicios rápidos y referencia de API en Microsoft Cognitive Services | Microsoft Docs'
+  title: 'Documentación sobre Bing Custom Search API: tutoriales, inicios rápidos y referencias de API'
+  titleSuffix: Azure Cognitive Services
   description: Aprenda a usar el portal de Bing Custom Search y la API para crear una experiencia de búsqueda personalizada
   services: cognitive-services
   author: v-deken
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: v-deken

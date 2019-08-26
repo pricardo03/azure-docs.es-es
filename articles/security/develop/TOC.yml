@@ -3,8 +3,14 @@
 - name: Aplicaciones de ejemplo
   expanded: true
   items:
-    - name: Aplicación web en un contenedor Linux
-      href: secure-web-app.md
+    - name: Novedades de desarrollo seguro
+      items:
+        - name: Aplicación web en un contenedor Linux
+          href: secure-web-app.md
+    - name: Soluciones que cumplen con las normas del sector
+      items:
+        - name: Sector de las tarjetas de pago
+          href: secure-pci-web-app.md
 - name: Conceptos
   expanded: true
   items:

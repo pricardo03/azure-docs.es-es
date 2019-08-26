@@ -751,6 +751,10 @@
           href: cosmosdb-sql-api-migrate-data-striim.md
         - name: Migración a Cassandra API mediante Striim
           href: cosmosdb-cassandra-api-migrate-data-striim.md
+        - name: Migración de Oracle DB a Cassandra API mediante Blitzz
+          href: oracle-migrate-cosmos-db-blitzz.md
+        - name: Migración de Apache Cassandra a Cassandra API mediante Blitzz
+          href: cassandra-migrate-cosmos-db-blitzz.md
         - name: "Migre cientos de terabytes de datos a Azure\_Cosmos\_DB"
           href: migrate-cosmosdb-data.md
     - name: Biblioteca de BulkExecutor

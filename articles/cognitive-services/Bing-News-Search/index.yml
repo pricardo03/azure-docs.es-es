@@ -1,17 +1,15 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
 title: Documentación de Bing News Search API
-titleSuffix: Azure Cognitive Services
 metadata:
-  title: 'Documentación sobre Bing News Search API: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
+  title: 'Documentación sobre Bing News Search API: tutoriales, inicios rápidos y referencias de API'
+  titleSuffix: Azure Cognitive Services
   description: Aprenda a usar Bing News Search API para buscar noticias en la Web.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

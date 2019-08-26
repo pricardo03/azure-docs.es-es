@@ -149,6 +149,8 @@
       items:
         - name: OPC Twin Architecture
           href: overview-opc-twin-architecture.md
+        - name: Arquitectura de OPC Vault
+          href: overview-opc-vault-architecture.md
     - name: Guías de procedimientos
       items:
         - name: Fábrica conectada
@@ -169,14 +171,14 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC Vault
           items:
-            - name: Implementación de OPC Vault en un proyecto ya existente
-              items:
-                - name: Protección de la comunicación entre OPC Client y OPC PLC
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: Protección de OPC UA Client y de OPC UA Server Application
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: Implementación de OPC Vault desde cero
-              href: howto-opc-vault-deploy-scratch.md
+            - name: Implementación del servicio OPC Vault
+              href: howto-opc-vault-deploy.md
+            - name: Administración del servicio OPC Vault
+              href: howto-opc-vault-manage.md
+            - name: Protección de la comunicación con el dispositivo de agente de usuario de OPC con OPC Vault
+              href: howto-opc-vault-secure.md
+            - name: Funcionamiento seguro del servicio OPC Vault
+              href: howto-opc-vault-secure-ca.md
         - name: OPC Publisher
           items:
             - name: Configuración de OPC Publisher

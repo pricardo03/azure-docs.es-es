@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentación de Form Recognizer
 metadata:
-  title: 'Documentación de API (Form Recognizer): Azure Cognitive Services | Microsoft Docs'
+  title: 'Documentación de API: Form Recognizer'
+  titleSuffix: Azure Cognitive Services
   description: Aprenda a usar Form Recognizer para extraer de forma inteligente datos del par clave-valor de los documentos del formulario.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/16/2019
   ms.author: pafarley

@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: Configuración de LDAP seguro
       href: tutorial-configure-ldaps.md
+    - name: Configuración de la sincronización de hash de contraseñas
+      href: tutorial-configure-password-hash-sync.md
 - name: Ejemplos
   items:
     - name: Creación de una instancia de Azure AD DS mediante Azure PowerShell
       href: powershell-create-instance.md
 - name: Conceptos
   items:
+    - name: Escenarios habituales de implementación
+      href: scenarios.md
     - name: Cómo funciona la sincronización de Azure AD DS
       href: synchronization.md
     - name: Funcionamiento de la sincronización de hash de contraseñas
@@ -37,8 +41,6 @@
   items:
     - name: Configuración de valores habituales
       items:
-        - name: Habilitación de la sincronización de hash de contraseñas
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Configuración de la sincronización con ámbito desde Azure AD
           href: scoped-synchronization.md
         - name: Creación de una unidad organizativa
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Plan para Azure AD DS
       items:
-        - name: Escenarios comunes
-          href: scenarios.md
         - name: Consideraciones sobre la red virtual
           href: network-considerations.md
     - name: Administración de Azure AD DS
