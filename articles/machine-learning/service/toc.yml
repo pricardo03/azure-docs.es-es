@@ -179,6 +179,9 @@
         - name: Ajuste de hiperparámetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: Uso de Key Vault durante el entrenamiento
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: Seguimiento y supervisión de experimentos
       items:
         - name: 'Inicio, supervisión o cancelación de ejecuciones'
