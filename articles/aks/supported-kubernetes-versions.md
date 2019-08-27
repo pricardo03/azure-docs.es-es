@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: bf86af16ce330be7119ecbeb24cedbcd31282735
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034043"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898875"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -139,15 +139,17 @@ Para averiguar qué versiones están disponibles actualmente para su suscripció
 az aks get-versions --location eastus --output table
 ```
 
-La salida es similar al ejemplo siguiente, que muestra que la versión de Kubernetes *1.13.5* es la más reciente disponible:
+La salida es similar al ejemplo siguiente, que muestra que la versión de Kubernetes *1.14.6* es la más reciente disponible:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.14.5               None available
-1.13.9               1.14.5
-1.12.8               1.13.9
-1.12.7               1.12.8, 1.13.9
+1.14.6               None available
+1.14.5               1.14.6
+1.13.10              1.14.5, 1.14.6
+1.13.9               1.13.10, 1.14.5, 1.14.6
+1.12.8               1.13.9, 1.13.10
+1.12.7               1.12.8, 1.13.9, 1.13.10
 1.11.10              1.12.7, 1.12.8
 1.11.9               1.11.10, 1.12.7, 1.12.8
 1.10.13              1.11.9, 1.11.10

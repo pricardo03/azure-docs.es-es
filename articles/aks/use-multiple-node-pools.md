@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: e6ba6aeaeadb2359c4b30efa35471ca62dcc6b41
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033979"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898747"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -90,7 +90,7 @@ Aunque esta característica está en versión preliminar, se aplican las siguien
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.9* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
+Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.10* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -103,7 +103,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.9
+    --kubernetes-version 1.13.10
 ```
 
 La operación de creación del clúster tarda unos minutos.
@@ -154,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -163,27 +163,30 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> Si no se especifica *OrchestratorVersion* o *VmSize* al agregar un grupo de nodos, los nodos se crean según los valores predeterminados del clúster de AKS. En este ejemplo, esos valores eran la versión de Kubernetes *1.13.9* y el tamaño de nodo de *Standard_DS2_v2*.
+> Si no se especifica *OrchestratorVersion* o *VmSize* al agregar un grupo de nodos, los nodos se crean según los valores predeterminados del clúster de AKS. En este ejemplo, esos valores eran la versión de Kubernetes *1.13.10* y el tamaño de nodo de *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.9*. De este modo, se establece la versión de Kubernetes para el plano de control y el grupo de nodos inicial. Hay distintos comandos para actualizar la versión de Kubernetes del plano de control y el grupo de nodos. El comando `az aks upgrade` se usa para actualizar el plano de control, mientras que `az aks nodepool upgrade` se usa para actualizar un grupo de nodos individual.
+> [!NOTE]
+> Las operaciones de actualización y escalado en un grupo de clústeres o nodos se excluyen mutuamente. No puede actualizar y escalar simultáneamente un grupo de clústeres o nodos. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Obtenga más información al respecto en nuestra [guía de solución de problemas](https://aka.ms/aks-pending-upgrade).
 
-Vamos a actualizar *mynodepool* a Kubernetes *1.13.9*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
+Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.10*. De este modo, se establece la versión de Kubernetes para el plano de control y el grupo de nodos inicial. Hay distintos comandos para actualizar la versión de Kubernetes del plano de control y el grupo de nodos. El comando `az aks upgrade` se usa para actualizar el plano de control, mientras que `az aks nodepool upgrade` se usa para actualizar un grupo de nodos individual.
+
+Vamos a actualizar *mynodepool* a Kubernetes *1.13.10*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.9 \
+    --kubernetes-version 1.13.10 \
     --no-wait
 ```
 
 > [!Tip]
-> Para actualizar el plano de control a *1.14.5*, ejecute `az aks upgrade -k 1.14.5`.
+> Para actualizar el plano de control a *1.14.6*, ejecute `az aks upgrade -k 1.14.6`.
 
-Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.9*:
+Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.10*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -194,7 +197,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -206,7 +209,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -257,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Scaling",
     ...
@@ -269,7 +272,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -283,7 +286,7 @@ La operación de escalado tarda unos minutos en completarse.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Escalar un grupo de nodos específico automáticamente habilitando para ello la escalabilidad automática del clúster
 
-AKS ofrece una característica independiente en la versión preliminar para escalar automáticamente grupos de nodos con un componente denominado[cluster autocaler](cluster-autoscaler.md). Este componente es un complemento de AKS que se puede habilitar en función del grupo de nodos con recuentos de escala mínimos y máximos únicos por grupo de nodos. Aprenda a [ usar la escalabilidad automática del clúster en función del grupo de nodos](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools).
+AKS ofrece una característica independiente en la versión preliminar para escalar automáticamente grupos de nodos con una característica denominada [cluster autocaler](cluster-autoscaler.md). Esta característica es un complemento de AKS que se puede habilitar en función del grupo de nodos con recuentos de escala mínimos y máximos únicos por grupo de nodos. Aprenda a [ usar la escalabilidad automática del clúster en función del grupo de nodos](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Eliminación de un grupo de nodos
 
@@ -307,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Deleting",
     ...
@@ -319,7 +322,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -360,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Creating",
     ...
@@ -372,7 +375,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -392,8 +395,8 @@ Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.9
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.9
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
 ```
 
 El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
@@ -470,7 +473,7 @@ Cuando usa una plantilla de Azure Resource Manager para crear y administrar recu
 Cree una plantilla como `aks-agentpools.json` y pegue el siguiente ejemplo de manifiesto. Esta plantilla de ejemplo configura los valores siguientes:
 
 * Actualiza el grupo de agentes de *Linux* denominado *myagentpool* para que ejecute tres nodos.
-* Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.13.9*.
+* Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.13.10*.
 * Define el tamaño del nodo como *Standard_DS2_v2*.
 
 Edite estos valores para actualizar, agregar o eliminar grupos de nodos según sea necesario:
@@ -535,7 +538,7 @@ Edite estos valores para actualizar, agregar o eliminar grupos de nodos según s
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.9"
+            "orchestratorVersion": "1.13.10"
       }
     }
   ]
@@ -553,6 +556,9 @@ az group deployment create \
 Puede que tarde unos minutos en actualizarse el clúster de AKS según la configuración del grupo de nodos y las operaciones que defina en la plantilla de Resource Manager.
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Asignar una IP pública por nodo en un grupo de nodos
+
+> [!NOTE]
+> Durante la versión preliminar, existe una limitación de uso de esta característica con la *SKU de Standard Load Balancer de AKS (versión preliminar)* debido a que las reglas del equilibrador de carga pueden estar en conflicto con el aprovisionamiento de VM. Durante la versión preliminar,use la *SKU de Load Balancer básico* si necesita asignar una dirección IP pública por nodo.
 
 Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, algunos escenarios pueden requerir que los nodos de un grupo de nodos tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Esto se puede lograr si se registra para una característica en vista previa (GB) independiente: IP pública de nodo (versión preliminar).
 

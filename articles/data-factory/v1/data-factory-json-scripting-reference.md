@@ -49,7 +49,7 @@ En la tabla siguiente se describen las propiedades dentro de las definiciones JS
 
 | Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
-| Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que la actividad o la canalización está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
+| name | Nombre de la canalización. Especifique un nombre que represente la acción que la actividad o la canalización está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description |Texto que describe para qué se usa la actividad o la canalización | Sin |
 | actividades | Contiene una lista de actividades. | Sí |
 | start |Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00**-05:00`, que es 6 a. m. EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin<br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica las horas de inicio y de finalización al crear una canalización, puede establecerlas más adelante mediante el cmdlet Set-AzDataFactoryPipelineActivePeriod. |
@@ -87,7 +87,7 @@ En la tabla siguiente se describen las propiedades dentro de la definición JSON
 
 | Etiqueta | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la actividad. Especifique un nombre que represente la acción que la actividad está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
+| name |Nombre de la actividad. Especifique un nombre que represente la acción que la actividad está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin |
 | type |Especifica el tipo de actividad. Vea las secciones sobre [ALMACENES DE DATOS](#data-stores) y [ACTIVIDADES DE TRANSFORMACIÓN DE DATOS](#data-transformation-activities) para ver los distintos tipos de actividades. |Sí |
 | inputs |Tablas de entrada utilizadas por la actividad<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No es para las actividades de HDInsightStreaming ni SqlServerStoredProcedure <br/> <br/> Sí para el resto |
@@ -247,7 +247,7 @@ En la tabla siguiente se describen las propiedades dentro de la definición JSON
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Nombre | Nombre del servicio vinculado. | Sí |
+| name | Nombre del servicio vinculado. | Sí |
 | propiedades - tipo | Tipo de servicio vinculado. Por ejemplo:  Azure Storage y Azure SQL Database. |
 | typeProperties | La sección typeProperties tiene elementos que son diferentes para cada almacén de datos o entorno de proceso. Consulte la sección Almacenes de datos para todos los servicios vinculados de almacén de datos y [Entornos de proceso](#compute-environments) para todos los servicios vinculados de proceso. |
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035766"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899833"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -126,20 +126,20 @@ Si aún no ha generado certificados, siga estos pasos:
 
 ### <a name="install"></a>Instalación y configuración
 
-Las siguientes instrucciones se crearon mediante strongSwan 5.5.1 en Ubuntu 17.0.4. Ubuntu 16.0.10 no admite la GUI de strongSwan. Si desea usar Ubuntu 16.0.10, deberá usar la [línea de comandos](#linuxinstallcli). Los ejemplos siguientes pueden no coincidir con las pantallas que ve, en función de la versión de Linux y strongSwan que tenga.
+Las siguientes instrucciones se crearon en Ubuntu 18.0.4. Ubuntu 16.0.10 no admite la GUI de strongSwan. Si desea usar Ubuntu 16.0.10, deberá usar la [línea de comandos](#linuxinstallcli). Los ejemplos siguientes pueden no coincidir con las pantallas que ve, en función de la versión de Linux y strongSwan que tenga.
 
-1. Abra la herramienta **Terminal** para instalar **strongSwan** y su Network Manager (Administrador de red) ejecutando el comando del ejemplo. Si recibe un error relacionado con *libcharon-extra-plugins*, reemplácelo por "strongswan-plugin-eap-mschapv2".
+1. Abra la herramienta **Terminal** para instalar **strongSwan** y su Network Manager (Administrador de red) ejecutando el comando del ejemplo.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
-2. Seleccione el icono **Network Manager** (Administrador de red) (flecha arriba/flecha abajo) y seleccione **Edit Connections** (Editar conexiones).
+2. Seleccione **Configuración** y, a continuación, seleccione **Red**.
 
    ![editar conexiones](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Haga clic en el botón **Add** (Agregar) para crear una conexión.
+3. Haga clic en el botón **+** para crear una conexión.
 
    ![agregar una conexión](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Seleccione **IPsec/IKEv2 (strongswan)** en el menú desplegable y haga clic en **Create** (Crear). Puede cambiar el nombre de la conexión en este paso.
+4. Seleccione **IPsec/IKEv2 (strongSwan)** en el menú y haga doble clic. Puede asignar un nombre a su conexión en este paso.
 
    ![elegir un tipo de conexión](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Abra el archivo **VpnSettings.xml** de la carpeta **Generic** (Genérico) que está incluida en los archivos de configuración de cliente descargados. Busque la etiqueta denominada **VpnServer** y copie el nombre, que comienza con "azuregateway" y termina con ".cloudapp.net".
@@ -148,8 +148,8 @@ Las siguientes instrucciones se crearon mediante strongSwan 5.5.1 en Ubuntu 17.0
 6. Pegue este nombre en el campo **Address** (Dirección) de la nueva conexión VPN de la sección **Gateway** (Puerta de enlace). Luego, seleccione el icono de carpeta al final del campo **Certificate** (Certificado), vaya a la carpeta **Generic** (Genérico) y seleccione el archivo **VpnServerRoot**.
 7. En la sección **Client** (Cliente) de la conexión, para **Authentication** (Autenticación), seleccione **Certificate/private key** (Certificado/clave privada). En **Certificate** (Certificado) y **Private key** (Clave privada), elija el certificado y la clave privada que se crearon anteriormente. En **Options** (Opciones), seleccione **Request an inner IP address** (Solicitar una dirección IP interna). A continuación, haga clic en **Agregar**.
 
-   ![solicitar una dirección IP interna](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Haga clic en el icono **Network Manager** (Administrador de red) (flecha arriba/flecha abajo) y mantenga el puntero sobre **VPN Connections** (Conexiones VPN). Verá la conexión VPN que ha creado. Haga clic para iniciar la conexión.
+   ![solicitar una dirección IP interna](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Ajuste la conexión en **Activado**.
 
 ## <a name="linuxinstallcli"></a>Linux (CLI de StrongSwan)
 

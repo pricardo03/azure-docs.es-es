@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381593"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900054"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Almacenamiento provisional y recuperación ante desastres
 Con un servidor en modo provisional puede realizar cambios en la configuración y obtener una vista previa de los cambios antes de activar el servidor. También permite ejecutar una importación y sincronización completas para comprobar que se esperan todos los cambios antes de realizarlos en el entorno de producción.
@@ -42,7 +42,7 @@ Durante la instalación puede seleccionar que el servidor esté en **modo provis
 
 Todavía puede forzar una exportación mediante el administrador del servicio de sincronización.
 
-Un servidor en modo provisional seguirá recibiendo cambios de Active Directory y Azure AD. Siempre tendrá una copia de los cambios más recientes y podrá asumir muy rápidamente las responsabilidades de otro servidor. Si realiza cambios de configuración en el servidor principal, es su responsabilidad realizar los mismos cambios en el servidor o servidores en modo provisional.
+Un servidor en modo de almacenamiento provisional sigue recibiendo cambios de Active Directory y Azure AD, y puede asumir rápidamente las responsabilidades de otro servidor en caso de que se produzca un error. Si realiza cambios de configuración en el servidor principal, es su responsabilidad realizar los mismos cambios en el servidor o servidores en modo provisional.
 
 Para aquellos con conocimientos de tecnologías de sincronización anteriores, el modo provisional es diferente, ya que el servidor tiene su propia base de datos SQL. Esta arquitectura permite que el servidor en modo provisional se encuentre en otro centro de datos.
 

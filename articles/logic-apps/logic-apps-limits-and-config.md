@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699809"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900205"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -205,7 +205,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 | Mapas | 25 | 500 | 1000 |
 | Esquemas | 25 | 500 | 1000 |
 | Ensamblados | 10 | 25 | 1000 |
-| Certificados | 25 | 2 | 500 |
+| Certificados | 25 | 2 | 1000 |
 | Configuraciones por lotes | 5 | 1 | 50 |
 ||||
 
@@ -253,9 +253,11 @@ Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejec
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configuración del firewall: Direcciones IP
 
-Todas las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Para admitir las llamadas que sus aplicaciones lógicas realizan directamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y otras solicitudes HTTP, configure el firewall con *todas* las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región.
+Todas las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Para admitir las llamadas que sus aplicaciones lógicas realizan directamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y otras solicitudes HTTP, configure el firewall con *todas* las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región. 
 
 Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región.
+
+Para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 Para [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas para los conectores no están disponibles actualmente.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 0d91458c555c819c4bcf97215a712719ebc5eb71
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 92844f0fe3a851802836015a1340983eb4633ed2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588955"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900544"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -21,7 +21,7 @@ La conexión a la base de datos de Azure Database for PostgreSQL se establece a 
 
 ![Información general de la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Al conectarse a la base de datos, los clientes obtienen una cadena de conexión para conectarse a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 5432. Dentro, el tráfico del clúster se reenvía a la instancia de Azure Database for PostgreSQL adecuada. Por lo tanto, para conectarse a su servidor, como en las redes corporativas, es necesario abrir el firewall del lado cliente para permitir que el tráfico saliente llegue a nuestras puertas de enlace. A continuación encontrará una lista completa de las direcciones IP que usan nuestras puertas de enlace por región.
+Al conectarse a la base de datos, los clientes obtienen una cadena de conexión para conectarse a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 5432. Dentro del clúster de base de datos, el tráfico se reenvía a la instancia de Azure Database for PostgreSQL adecuada. Por tanto, para conectarse al servidor, como en las redes corporativas, es necesario abrir el firewall del lado cliente para permitir que el tráfico saliente llegue a nuestras puertas de enlace. A continuación encontrará una lista completa de las direcciones IP que usan nuestras puertas de enlace por región.
 
 ## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure Database for PostgreSQL
 En la siguiente tabla se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure Database for PostgreSQL para todas las regiones de datos. La dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error en caso de que falle la principal. Como ya se ha mencionado, los clientes deben permitir el tráfico saliente a ambas direcciones IP. La dirección IP secundaria no escucha en ningún servicio hasta que Azure Database for PostgreSQL la activa para aceptar conexiones.

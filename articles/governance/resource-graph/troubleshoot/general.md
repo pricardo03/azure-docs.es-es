@@ -3,16 +3,16 @@ title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la consulta de recursos de Azure con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480468"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900005"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solución problemas relativos a errores con Azure Resource Graph
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Escenario: Encabezado Content-Type de REST no admitido
+
+#### <a name="issue"></a>Problema
+
+Los clientes que consultan la API de REST de Azure Resource Graph reciben una respuesta _500_ (error interno del servidor).
+
+#### <a name="cause"></a>Causa
+
+La API de REST de Azure Resource Graph solo admite un `Content-Type` de **application/json**. Algunas herramientas o agentes de REST se establecen de forma predeterminada en **texto/sin formato**, un valor que la API de REST no admite.
+
+#### <a name="resolution"></a>Resolución
+
+Compruebe que la herramienta o el agente que está usando para realizar la consulta a Azure Resource Graph tiene el encabezado de la API de REST `Content-Type` configurado para **application/json**.
+### <a name="rest-403"></a>Escenario: no tiene permiso de lectura para todas las suscripciones de la lista
+
+#### <a name="issue"></a>Problema
+
+Los clientes que pasan explícitamente una lista de suscripciones con una consulta de Azure Resource Graph reciben una respuesta _403_ (Prohibido).
+
+#### <a name="cause"></a>Causa
+
+Si el cliente no tiene permiso de lectura para todas las suscripciones proporcionadas, se denegará la solicitud debido a la falta de derechos de seguridad adecuados.
+
+#### <a name="resolution"></a>Resolución
+
+Incluya al menos una suscripción de la lista de suscripciones a la que el cliente que ejecuta la consulta tiene acceso de lectura como mínimo. Para más información, consulte [Permisos en Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

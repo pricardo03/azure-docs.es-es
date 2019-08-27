@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 84738d9de880e09177ebb5c060fbd7bbd4613006
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037260"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900103"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Creación de una nueva oferta de Dynamics 365 for Operations
 
@@ -82,27 +82,11 @@ Seleccione entre las siguientes opciones:
 
 ## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
-Póngase en contacto directamente con los clientes mediante el enlace del sistema de administración de las relaciones con el cliente (CRM). Al hacerlo, recibirá información de contacto del cliente cuando un cliente exprese interés o implemente el producto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Para conectar su sistema CRM, seleccione **Conectar**.
+Consulte [Introducción a la administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md) para obtener más información.
 
-### <a name="choose-a-lead-destination"></a>Elección de un destino de clientes potenciales
-
-Después de seleccionar **Conectar**, verá un menú desplegable en el que puede seleccionar el sistema CRM y, a continuación, proporcionar los detalles de la conexión.
-
-El Centro de partners admite los siguientes sistemas CRM para la administración de clientes potenciales. Seleccione el vínculo de las instrucciones de configuración.
-
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table): especifique la cadena de conexión de la cuenta de almacenamiento. 
-- [Dynamics 365 for Customer Engagement (anteriormente Dynamics CRM Online)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics): especifique la dirección URL de la instancia de Dynamics 365 y el modo de autenticación (Office 365 o Azure Active Directory).
-- [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https): especifique la dirección URL del punto de conexión HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo): especifique el identificador del servidor, el identificador de la cuenta de Munchkin y el identificador del formulario.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce): especifique el identificador de la organización.
-
-#### <a name="additional-lead-management-resources"></a>Recursos adicionales de la administración de clientes potenciales
-
-- [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Póster Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+No olvide **guardar** antes de pasar a la siguiente sección.
 
 ## <a name="properties"></a>properties (Propiedades)
 

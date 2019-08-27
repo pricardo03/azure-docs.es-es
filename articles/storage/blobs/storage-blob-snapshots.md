@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da3373ba2c13bd6a00a92a6b38bead86fc9a5ea
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794233"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897007"
 ---
 # <a name="create-a-blob-snapshot"></a>Creación de una instantánea de un blob
 
@@ -78,7 +78,7 @@ Las operaciones de copia con blobs e instantáneas siguen estas reglas:
 * Cuando se crea una instantánea de un blob en bloques, la lista de bloques confirmados del blob también se copia en la instantánea. No se copiarán los bloques sin confirmar.
 
 ## <a name="specify-an-access-condition"></a>Especificar una condición de acceso
-Al llamar a [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], puede especificar una condición de acceso, con el fin de que la instantánea se cree solo si se cumple una condición. Para especificar una condición de acceso, use el parámetro [AccessCondition][dotnet_AccessCondition]. Si la condición especificada no se cumple, la instantánea no se creará y Blob service devolverá el código de estado [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
+Al llamar a [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], puede especificar una condición de acceso, con el fin de que la instantánea se cree solo si se cumple una condición. Para especificar una condición de acceso, use el parámetro [AccessCondition][dotnet_AccessCondition]. Si la condición especificada no se cumple, la instantánea no se crea y Blob service devuelve el código de estado [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Eliminar instantáneas
 No se puede eliminar un blob con instantáneas, salvo que estas también se eliminen. Puede eliminar una instantánea individualmente o especificar que se eliminen todas las instantáneas cuando se elimina el blob de origen. Si intenta eliminar un blob que todavía tiene instantáneas, se producirá un error.
@@ -127,7 +127,7 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 
 * La cuenta de almacenamiento genera cargos para páginas o bloques únicos, bien se encuentren en el blob o en la instantánea. La cuenta no generará gastos adicionales para instantáneas asociadas a un blob hasta que actualice el blob en el que se basan. Después de actualizar el blob base, discrepa de sus instantáneas. Cuando esto sucede, se le cobra por las páginas o bloques únicos en cada blob o instantánea.
 * Al reemplazar un bloque en un blob en bloques, ese bloque será considerado como un bloque único a la hora de aplicar cargos. Esto es así incluso aunque el bloque tenga el mismo identificador de bloque y los mismos datos que tiene en la instantánea. Cuando se vuelva a confirmar el bloque, divergirá de su equivalente en cualquier instantánea y se aplicarán cargos por sus datos. Lo mismo sucede con una página de un blob en páginas que se haya actualizado con datos idénticos.
-* Si se reemplaza un blob en bloques llamando a los métodos [UploadFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadStream][dotnet_UploadFromStream] o [UploadByteArray][dotnet_UploadFromByteArray], se reemplazan todos los bloques del blob. Si una instantánea está asociada a ese blob, todos los bloques del blob y la instantánea de base divergen ahora y se aplicarán cargos por todos los bloques en ambos blobs. Esto es así incluso si los datos del blob e instantánea de base siguen siendo idénticos.
+* Si se reemplaza un blob en bloques llamando a los métodos [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], se reemplazan todos los bloques del blob. Si una instantánea está asociada a ese blob, todos los bloques del blob y la instantánea de base divergen ahora y se aplicarán cargos por todos los bloques en ambos blobs. Esto es así incluso si los datos del blob e instantánea de base siguen siendo idénticos.
 * Azure Blob service no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que los cargos se acumulan en bloques únicos, es importante tener en cuenta que la actualización de un blob que tiene una instantánea genera bloques únicos y cargos adicionales.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Minimización del costo con la administración de instantáneas
@@ -135,7 +135,7 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 Se recomienda administrar las instantáneas con cuidado para evitar cargos adicionales. El seguimiento de estas prácticas recomendadas le ayudará a minimizar los costos que acarreará el almacenamiento de las instantáneas:
 
 * Elimine y vuelva a crear las instantáneas asociadas a un blob siempre que lo actualice, incluso si lo hace con datos idénticos, a menos que el diseño de la aplicación requiera que se conserven las instantáneas. Si elimina y vuelve a crear las instantáneas del blob, puede estar seguro de que el blob y las instantáneas no van a divergir.
-* Si va a mantener las instantáneas de un blob, evite llamar a [UploadFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadStream][dotnet_UploadFromStream] o [UploadByteArray][dotnet_UploadFromByteArray] para actualizar el blob. Dichos métodos reemplazan todos los bloques del blob, lo que provoca que el blob base y sus instantáneas diverjan considerablemente. En su lugar, actualice el menor número posible de bloques mediante los métodos [PutBlock][dotnet_PutBlock] y [PutBlockList][dotnet_PutBlockList].
+* Si va a mantener las instantáneas de un blob, evite llamar a [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray] para actualizar el blob. Dichos métodos reemplazan todos los bloques del blob, lo que provoca que el blob base y sus instantáneas diverjan considerablemente. En su lugar, actualice el menor número posible de bloques mediante los métodos [PutBlock][dotnet_PutBlock] y [PutBlockList][dotnet_PutBlockList].
 
 ### <a name="snapshot-billing-scenarios"></a>Escenarios de facturación de instantáneas
 En las siguientes situaciones, se muestra cómo se ven incrementados los cargos para un blob en bloques y sus instantáneas.
@@ -160,7 +160,7 @@ En el escenario 3, el blob de base está actualizado, pero no así la instantán
 
 **Escenario 4**
 
-En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos. Esta situación se puede dar si usa un método de actualización como [UploadFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadByteArray][dotnet_UploadFromByteArray], ya que estos métodos reemplazan todos los contenidos de un blob.
+En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos. Esta situación se puede dar si usa un método de actualización como [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], ya que estos métodos reemplazan todos los contenidos de un blob.
 
 ![Recursos de Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -172,7 +172,7 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 [dotnet_AccessCondition]: https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.accesscondition
 [dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
-[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.createsnapshotasync
 [dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
 [dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
 [dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock

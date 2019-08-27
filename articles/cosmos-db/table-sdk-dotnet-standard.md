@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: e92c2e58122556f90b25f070fff9e6e6616b0257
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 22a27ba19670344f351205b6a4865bf85daf0bab
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976840"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900270"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -34,6 +34,9 @@ ms.locfileid: "68976840"
 |**Informar sobre un problema**|[Informar sobre un problema](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-preview
+* Corrección de errores
 
 ### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
 * Corrección de errores
@@ -76,6 +79,7 @@ Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table]
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.0.5-preview](#1.0.5-preview) |20 de agosto de 2019 |--- |
 | [1.0.4](#1.0.4) |12 de agosto de 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |26 de julio de 2019 |--- |
 | 1.0.2-preview |2 de mayo de 2019 |--- |

@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01a7c4e41dd628ec8671555daf828b67bebba23e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069392"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898666"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
 ## <a name="overview"></a>Información general ##
 
- [Azure App Service Environment][Intro] es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos tipos de implementación de una instancia de App Service Environment (ASE):
+ Azure [App Service Environment][Intro] es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos tipos de implementación de una instancia de App Service Environment (ASE):
 
 - **ASE externo**: Expone las aplicaciones hospedadas en ASE en una dirección IP accesible a través de Internet. Para más información, consulte [Creación de una instancia externa de App Service Environment][MakeExternalASE].
 - **ASE de ILB**: Expone las aplicaciones hospedadas en ASE en una dirección IP dentro de su red virtual. El punto de conexión interno es un equilibrador de carga interno (ILB), y esta es la razón por la que se denomina ASE de ILB. Para más información, consulte [Creación y uso de un ASE de ILB][MakeILBASE].
@@ -125,7 +125,7 @@ Además de las dependencias funcionales de un ASE, hay algunos elementos adicion
 
 Cuando se usa un ASE de ILB, el sitio SCM no está accesible desde fuera de la red virtual. Algunas capacidades no funcionarán desde Portal de la aplicación porque requieren acceso al sitio SCM de una aplicación. Puede conectarse al sitio SCM directamente en lugar de usar Portal. 
 
-Si su ASE ILB es el nombre de dominio *contoso.appserviceenvironnment.net* y el nombre de la aplicación es *aplicacionprueba*, la aplicación está accesible en *aplicacionprueba.contoso.appserviceenvironment.net*. El sitio SCM que lo acompaña está accesible en *aplicacionprueba.contoso.appserviceenvironment.net*.
+Si su ASE ILB es el nombre de dominio *contoso.appserviceenvironment.net* y el nombre de la aplicación es *aplicacionprueba*, la aplicación está accesible en *aplicacionprueba.contoso.appserviceenvironment.net*. El sitio SCM que lo acompaña está accesible en *aplicacionprueba.contoso.appserviceenvironment.net*.
 
 ## <a name="ase-ip-addresses"></a>Direcciones IP de ASE ##
 
@@ -219,7 +219,7 @@ Para crear manualmente las mismas rutas, siga estos pasos:
 
 ## <a name="service-endpoints"></a>Puntos de conexión de servicio ##
 
-Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de red virtual de Azure][serviceendpoints]. 
+Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de red virtual][serviceendpoints]. 
 
 Cuando se habilitan puntos de conexión de servicio en un recurso, hay rutas que se crean con prioridad más alta que las demás. Si usa puntos de conexión de servicio en cualquier servicio de Azure, con un ASE de túnel, no se forzará la tunelización del tráfico que va a esos servicios. 
 

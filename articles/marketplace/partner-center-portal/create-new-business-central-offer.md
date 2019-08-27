@@ -7,16 +7,16 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8dbb25f0b854f1ebbc9d8871689a87d4d5b1cfbe
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037268"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900160"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creación de una nueva oferta de Dynamics 365 Business Central
 
-En este tema se explica cómo crear una nueva oferta de Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) es una sistema de planeación de recursos empresariales (ERP) que controla una amplia gama de procesos empresariales, incluidas las finanzas, las operaciones, la cadena de suministro, la administración de relaciones con el cliente, la administración de proyectos y el comercio electrónico. Los paquetes premium también admiten la administración de servicios y la fabricación. Todas las ofertas de Dynamics 365 Business Central deben pasar por nuestro proceso de certificación.
+En este tema se explica cómo crear una nueva oferta de Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) es una sistema de planeación de recursos empresariales (ERP) que controla una amplia gama de procesos empresariales, incluidas las finanzas, las operaciones, la cadena de suministro, la administración de relaciones con el cliente, la administración de proyectos y el comercio electrónico. Los paquetes Premium también admiten el modelo de implementación clásico y la fabricación. Todas las ofertas de Dynamics 365 Business Central deben pasar por nuestro proceso de certificación.
 
 Para empezar a crear ofertas de Dynamics 365 Business Central, asegúrese de que primero [crea una cuenta del Centro de partners](./create-account.md) y después abre el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la página **Información general** seleccionada.
 
@@ -28,7 +28,7 @@ Seleccione el botón **+ Nueva oferta** y, a continuación, seleccione el elemen
 
 ### <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
 
-- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco). Tiene un límite de 50 caracteres y no se podrá cambiar después de seleccionar **Crear**.  Por ejemplo, si escribe *test-offer-1* aquí, la dirección URL de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco), se limita a 50 caracteres y no se puede cambiar después de seleccionar **Crear**.  Por ejemplo, si escribe *test-offer-1* aquí, la dirección URL de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Alias de la oferta**: nombre que se usa para hacer referencia a la oferta desde el Centro de partners. Este nombre no se usará en Marketplace y es diferente del nombre de la oferta y otros valores que se mostrarán a los clientes. Este valor no se puede cambiar después de seleccionar **Crear**.
 
@@ -82,27 +82,11 @@ Seleccione entre las siguientes opciones:
 
 ## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
-Póngase en contacto directamente con los clientes mediante el enlace del sistema de administración de las relaciones con el cliente (CRM). Al hacerlo, recibirá información de contacto del cliente cuando un cliente exprese interés o implemente el producto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Para conectar su sistema CRM, seleccione **Conectar**.
+Para obtener más información, consulte [Introducción a la administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md).
 
-### <a name="choose-a-lead-destination"></a>Elección de un destino de clientes potenciales
-
-Después de seleccionar **Conectar**, verá un menú desplegable en el que puede seleccionar el sistema CRM y, a continuación, proporcionar los detalles de la conexión.
-
-El Centro de partners admite los siguientes sistemas CRM para la administración de clientes potenciales. Seleccione el vínculo de las instrucciones de configuración.
-
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table): especifique la cadena de conexión de la cuenta de almacenamiento. 
-- [Dynamics 365 for Customer Engagement (anteriormente Dynamics CRM Online)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics): especifique la dirección URL de la instancia de Dynamics 365 y el modo de autenticación (Office 365 o Azure Active Directory).
-- [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https): especifique la dirección URL del punto de conexión HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo): especifique el identificador del servidor, el identificador de la cuenta de Munchkin y el identificador del formulario.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce): especifique el identificador de la organización.
-
-#### <a name="additional-lead-management-resources"></a>Recursos adicionales de la administración de clientes potenciales
-
-- [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Póster Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+No olvide **guardar** antes de pasar a la siguiente sección.
 
 ## <a name="properties"></a>properties (Propiedades)
 
@@ -110,7 +94,7 @@ La página de **Propiedades** le permite definir las categorías y los sectores 
 
 ### <a name="category"></a>Categoría
 
-Seleccione un mínimo de una y un máximo de tres categorías. Se usarán para colocar la oferta en las áreas de búsqueda adecuadas de Marketplace. Asegúrese de indicar la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
+Seleccione un mínimo de una y un máximo de tres categorías, que se utilizarán para colocar la oferta en las áreas de búsqueda de Marketplace adecuadas. Asegúrese de indicar la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 
 ### <a name="industry"></a>Sector
 
@@ -136,7 +120,7 @@ Si no activa la casilla **¿Usar el contrato estándar?** , deberá proporcionar
 
 ## <a name="offer-listing"></a>Descripción de la oferta
 
-La página de descripción de la oferta muestra los idiomas en los que se mostrará la oferta. Tenga en cuenta que la única opción disponible actualmente es **Inglés (Estados Unidos)** .
+La página de descripción de la oferta muestra los idiomas en los que se mostrará la oferta. La única opción disponible actualmente es **Inglés (Estados Unidos)** .
 
 Tendrá que definir los detalles de Marketplace (nombre de la oferta, descripción, imágenes, etc.) para cada idioma y mercado. Seleccione el nombre de idioma o mercado para proporcionar esta información.
 
@@ -149,7 +133,7 @@ El nombre que escriba aquí se mostrará a los clientes como el título de la de
 
 ### <a name="short-description"></a>Descripción breve
 
-Proporcione una breve descripción de la oferta (hasta 100 caracteres). Se puede usar en los resultados de la búsqueda de Marketplace.
+Especifique una descripción breve de la oferta (100 caracteres como máximo), que se va a usar en los resultados de la búsqueda de Marketplace.
 
 ### <a name="description"></a>DESCRIPCIÓN
 
@@ -157,7 +141,7 @@ Proporcione una descripción más larga de la oferta (hasta 3.000 caracteres). E
 
 Algunos consejos para escribir la descripción:  
 
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Incluya la siguiente información en la propuesta de valor:
+- Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Incluya los siguientes elementos en la propuesta de valor:
   - Descripción del producto
   - Tipo de usuario que se beneficia del producto.
   - Necesidad o preocupación del cliente que aborda el producto.
@@ -194,7 +178,7 @@ En la sección **Contacto de soporte técnico**, también debe proporcionar la *
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
-Debe proporcionar al menos un documento de marketing relacionado (y un máximo de tres) aquí, como notas del producto, folletos, listas de comprobación o presentaciones. Estos documentos deben estar en formato .PDF.
+Proporcione al menos un documento de marketing relacionado (y un máximo de tres) aquí, como notas del producto, folletos, listas de comprobación o presentaciones. Estos documentos deben estar en formato .PDF.
 
 ### <a name="marketplace-images"></a>Imágenes de Marketplace
 
@@ -202,7 +186,7 @@ En esta sección, puede proporcionar logotipos e imágenes que se usarán al mos
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Debe proporcionar el logotipo de la oferta en dos tamaños: **Pequeño (48 x 48)** y **grande (216 x 216)** .
+Proporcione el logotipo de la oferta en dos tamaños: **Pequeño (48 x 48)** y **grande (216 x 216)** .
 
 #### <a name="hero"></a>Imagen prominente
 
@@ -226,11 +210,11 @@ La página **Disponibilidad** proporciona opciones sobre dónde y cómo hacer qu
 
 ### <a name="markets"></a>Mercados
 
-Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados**. Se mostrará la ventana emergente **Selección de mercado**.
+Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados**, que mostrará la ventana emergente **Selección de mercado**.
 
 De manera predeterminada, no hay ningún mercado seleccionado, pero debe seleccionar al menos uno para publicar la oferta. Haga clic en **Seleccionar todo** para que su oferta esté disponible en cada mercado posible o seleccione los mercados específicos que quiera agregar. Al acabar, seleccione **Guardar**.
 
-Tenga en cuenta que las selecciones aquí solo se aplican a las nuevas adquisiciones. Si algún usuario ya tiene su aplicación en un determinado mercado y posteriormente lo quita, las personas que ya tienen la oferta en dicho mercado podrán seguir utilizándola, pero ningún cliente nuevo en ese mercado podrá obtener su oferta.
+Las selecciones aquí solo se aplican a las nuevas adquisiciones. Si algún usuario ya tiene su aplicación en un determinado mercado y posteriormente lo quita, las personas que ya tienen la oferta en dicho mercado podrán seguir utilizándola, pero ningún cliente nuevo en ese mercado podrá obtener su oferta.
 
 > [!IMPORTANT]
 > Es su responsabilidad cumplir los requisitos legales locales, incluso si esos requisitos no aparecen aquí ni en el Centro de partners.
@@ -256,7 +240,7 @@ Seleccione la opción que se aplica a su oferta:
 
 ### <a name="file-upload"></a>Carga de archivos
 
-Si seleccionó **Complemento** anteriormente, aquí es donde se cargará el archivo de paquete de la oferta, junto con los archivos de paquete de cualquier extensión en la que tenga dependencias.
+Si seleccionó **Complemento** anteriormente, aquí se cargará el archivo de paquete de la oferta, junto con los archivos de paquete de cualquier extensión en la que tenga dependencias.
 
 #### <a name="extensions-package-file"></a>Archivo de paquete de extensiones
 
@@ -268,7 +252,7 @@ Se requiere si la oferta debe instalarse junto con otra extensión que no se pub
 
 #### <a name="dependency-package-file"></a>Archivo de paquete de dependencia
 
-Se requiere si la oferta debe instalarse junto con otra extensión que ya se ha publicado en Marketplace. Si es así, cargue aquí su archivo .app o ZIP.
+Se requiere si la oferta debe instalarse junto con otra extensión que ya se ha publicado en Marketplace. Si es así, cargue aquí su archivo `.app` o `.zip`.
 
 ### <a name="url-to-app-installation"></a>Dirección URL a la instalación de la aplicación
 
@@ -301,7 +285,7 @@ Una plantilla de implementación que contiene todos los recursos de Azure que co
 
 - **Plantilla de versión de prueba de Azure Resource Manager**: Cargue el archivo .zip que contiene la plantilla de Azure Resource Manager.  Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa, en número de horas. La versión de prueba finaliza automáticamente cuando finaliza este período de tiempo. Esta duración solo se puede indicar por un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).
+- **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa, en número de horas. La versión de prueba finaliza automáticamente cuando finaliza este período de tiempo. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas, "1,5" no es un valor válido).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configuración técnica de la versión de prueba de Dynamics 365
 
@@ -309,19 +293,19 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Número máximo de versiones de prueba simultáneas** (se requiere): establezca el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Cada usuario simultáneo consumirá una licencia de Dynamics 365 mientras la versión de prueba esté activa, por lo que deberá asegurarse de que tiene suficientes licencias disponibles para admitir el límite máximo establecido. Se recomienda un valor entre 3 y 5.
 
-- **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar por un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
+- **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas, "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
 
-- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (p. ej., https://testdrive.crm.dynamics.com).
+- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, https://testdrive.crm.dynamics.com).
 
-- **Dirección URL de API web de la instancia** (se requiere): recupere la dirección URL de la API web de la instancia de Dynamics 365, para lo que debe iniciar sesión en su cuenta de Microsoft 365 e ir a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio )** , copie la dirección URL que se encuentra aquí (p. ej. https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **Dirección URL de API web de la instancia** (se requiere): recupere la dirección URL de la API web de la instancia de Dynamics 365. Para ello, inicie sesión en su cuenta de Microsoft 365 y vaya a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio)** . Copie la dirección URL que se encuentra aquí (por ejemplo, https://testdrive.crm.dynamics.com/api/data/v9.0).
 
-- **Nombre de rol** (se requiere): Proporcione el nombre del rol de seguridad que ha definido en su versión de prueba de Dynamics 365 personalizada. Se le asignará al usuario durante su versión de prueba (por ejemplo, test-drive-role).
+- **Nombre de rol** (se requiere): proporcione el nombre del rol de seguridad que ha definido en la versión de prueba de Dynamics 365 personalizada, que se asignará al usuario durante la versión de prueba (por ejemplo, test-drive-role).
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>Configuración técnica de la versión de prueba de Logic App
 
 Los productos personalizados deben usar este tipo de plantilla de implementación de versión de prueba, que engloba varias arquitecturas de soluciones complejas. Para más información acerca de cómo configurar versiones de prueba de Logic App, visite [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) y [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) en GitHub.
 
-- **Región** (se requiere, una lista desplegable con un solo elemento seleccionado): actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Los recursos de la aplicación lógica se implementarán en la región que seleccione. Si la aplicación lógica tiene recursos personalizados almacenado en una región concreta, asegúrese de que se selecciona aquí dicha región. La mejor forma de hacerlo es implementar totalmente Logic App de forma local en la suscripción de Azure en el portal y comprobar que funciona antes de realizar esta selección.
+- **Región** (se requiere, una lista desplegable con un solo elemento seleccionado): actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Los recursos de la aplicación lógica se implementarán en la región que seleccione. Si la aplicación lógica tiene recursos personalizados almacenado en una región concreta, asegúrese de que se selecciona aquí dicha región. La mejor forma es implementar totalmente Logic App de forma local en la suscripción de Azure en el portal y comprobar que funciona correctamente antes de realizar esta selección.
 
 - **Número máximo de versiones de prueba simultáneas** (se requiere): establezca el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Estas versiones de prueba ya están implementadas, lo que permitiendo a los clientes acceder al instante a ellas sin tener que esperar que se implementen.
 
@@ -343,7 +327,7 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 
 - **Id. de suscripción de Azure** (necesario para Azure Resource Manager y Logic Apps): Escriba el identificador de la suscripción para conceder acceso a los servicios de la cuenta de Azure para la generación de informes y facturación del uso de los recursos. Se recomienda considerar la posibilidad de [crear una suscripción de Azure independiente](https://docs.microsoft.com/azure/billing/billing-create-subscription) que se use para las versiones de prueba, en caso de que no se tenga ninguna. Para buscar su identificador de la suscripción de Azure inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la pestaña **Suscripciones** del menú izquierdo. Al seleccionar la pestaña se mostrará el identificador de la suscripción (por ejemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Azure Active Directory del menú de la izquierda, seleccione **Propiedades** y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory del menú de la izquierda, seleccione **Propiedades y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
 
 - **Nombre de inquilino de Azure AD** (se requiere para Dynamic 365): Escriba el nombre de Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 
@@ -355,7 +339,7 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 
 ### <a name="test-drive-marketplace-listings"></a>Listas de Marketplace de la versión de prueba
 
-La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión de prueba** muestra los idiomas en los que está disponible la versión de prueba. Tenga en cuenta que la única ubicación disponible actualmente es **Inglés (Estados Unidos)** . Seleccione el nombre de idioma para especificar la información que describe la experiencia de la versión de prueba.
+La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión de prueba** muestra los idiomas en los que está disponible la versión de prueba. La única ubicación disponible actualmente es **Inglés (Estados Unidos)** . Seleccione el nombre de idioma para especificar la información que describe la experiencia de la versión de prueba.
 
 - **Descripción** (se requiere): se describe la versión de prueba, lo que se demostrará, los objetivos con los que experimentará el usuario, las características que se van a explorar y cualquier información relevante que ayude al usuario a determinar si debe adquirir la oferta. En este campo se puede escribir hasta 3000 caracteres de texto. 
 
@@ -363,7 +347,7 @@ La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión d
 
 - **Manual del usuario** (se requiere): un tutorial detallado de la experiencia con la versión de prueba. Debe abarcar exactamente lo que desee que el cliente aprenda al usar la versión de prueba y puede servir como referencia para las preguntas que puedan surgirle. El archivo debe estar en formato PDF y hay que asignarle un nombre (255 caracteres como máximo) después de cargarlo.
 
-- **Vídeos: agregar vídeos** (opcional): Se pueden cargar vídeos en YouTube o Vimeo y hace referencia a ellos aquí con un vínculo o una imagen en miniatura (533 × 324 píxeles) para que los clientes puedan ver toda la información que pueda ayudarles a conocer mejor la versión de prueba, incluida la forma de usar correctamente las características de la oferta y los escenarios que destacan sus ventajas.
+- **Vídeos: agregar vídeos** (opcional): se pueden cargar vídeos en YouTube o Vimeo y hacer referencia a ellos aquí con un vínculo o una imagen en miniatura (533 × 324 píxeles) para que los clientes puedan ver toda la información que pueda ayudarles a conocer mejor la versión de prueba, incluida la forma de usar correctamente las características de la oferta y comprender los escenarios que destacan sus ventajas.
   - **Nombre** (se requiere)
   - **URL (solo YouTube o Vimeo)** (se requiere)
   - **Miniatura (533 x 324 px)** : El archivo de imagen debe estar en formato PNG.
@@ -382,11 +366,11 @@ Indique si la solución es compatible con la edición Essentials o Premium de Mi
 
 ### <a name="key-usage-scenario"></a>Escenario de uso clave
 
-Debe cargar un archivo .pdf que enumere los escenarios de uso claves de la oferta enumerados en un documento (formato .pdf). Nuestro equipo de validación puede comprobar todos los escenarios que se enumeran aquí antes de aprobar su oferta para Marketplace.
+Cargue un archivo `.pdf` que enumere los escenarios de uso clave de la oferta enumerados en un documento (formato .pdf). Nuestro equipo de validación puede comprobar todos los escenarios que se enumeran aquí antes de aprobar su oferta para Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatización de pruebas de la aplicación
 
-También debe cargar un archivo de **automatización de pruebas de la aplicación** aquí (.app).
+Cargue también un archivo de **automatización de pruebas de la aplicación** aquí (.app).
 
 ### <a name="test-accounts"></a>Cuentas de prueba
 
@@ -402,10 +386,10 @@ Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
     - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
-    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Por favor, vuelva a las secciones y actualícelas.
+    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
     - *Completa*: significa que la sección está completa, que se ha proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
-- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Debe volver al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una privada, al público privado).
+- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una oferta privada, al público privado).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

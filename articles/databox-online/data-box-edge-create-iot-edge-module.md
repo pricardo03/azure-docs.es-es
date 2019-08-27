@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775174"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900629"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge
 
@@ -127,8 +127,10 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
 2. En la parte superior del espacio de nombres **FileCopyModule**, agregue las siguientes instrucciones using para los tipos que se usarán más adelante. **Microsoft.Azure.Devices.Client.Transport.Mqtt** es un protocolo para enviar mensajes al centro de IoT Edge.
 
     ```
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-    using Newtonsoft.Json;
+    namespace FileCopyModule
+    {
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using Newtonsoft.Json;
     ```
 3. Agregue las variables **InputFolderPath** y **OutputFolderPath** a la clase Program.
 
@@ -140,7 +142,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Agregue la clase **FileEvent** para definir el cuerpo del mensaje.
+4. Inmediatamente después del paso anterior, agregue la clase **FileEvent** para definir el cuerpo del mensaje.
 
     ```
     /// <summary>
@@ -156,7 +158,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
     }
     ```
 
-5. En el método **Init**, el código crea y configura un objeto **ModuleClient**. Este objeto permite al módulo conectarse al entorno de ejecución de Azure IoT Edge local mediante el protocolo MQTT para enviar y recibir mensajes. El entorno de ejecución de Azure IoT Edge suministra la cadena de conexión que se usa en el método Init. El código registra una devolución de llamada de FileCopy para recibir mensajes de un centro de IoT Edge a través del punto de conexión **input1**.
+5. En el **método Init**, el código crea y configura un objeto **ModuleClient**. Este objeto permite al módulo conectarse al entorno de ejecución de Azure IoT Edge local mediante el protocolo MQTT para enviar y recibir mensajes. El entorno de ejecución de Azure IoT Edge suministra la cadena de conexión que se usa en el método Init. El código registra una devolución de llamada de FileCopy para recibir mensajes de un centro de IoT Edge a través del punto de conexión **input1**. Reemplace el **método Init** por el código siguiente.
 
     ```
     /// <summary>
@@ -178,11 +180,11 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
     }
     ```
 
-6. Inserte el código de **FileCopy**.
+6. Quite el código del **método de mensaje de canalización** y, en su lugar, inserte el código de **FileCopy**.
 
     ```
         /// <summary>
-        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub.
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
         /// </summary>
@@ -236,6 +238,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
     ```
 
 7. Guarde este archivo.
+8. También puede [descargar un ejemplo de código existente](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) para este proyecto. A continuación, puede validar el archivo guardado en el archivo **program.cs** en este ejemplo.
 
 ## <a name="build-your-iot-edge-solution"></a>Compilación de la solución de IoT Edge
 
@@ -246,7 +249,7 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a Fil
 
     `docker login <ACR login server> -u <ACR username>`
 
-    Use el servidor de inicio de sesión y el nombre de usuario que copió del registro de contenedor. 
+    Use el servidor de inicio de sesión y el nombre de usuario que copió del registro de contenedor.
 
     ![Compilación e inserción de la solución de IoT Edge](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 

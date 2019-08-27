@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032241"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898960"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Vista previa: Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
@@ -92,11 +92,11 @@ Las siguientes limitaciones se aplican al crear y administrar clústeres de AKS 
 
 * Cuando se use la SKU *estándar* para un equilibrador de carga, debe permitir direcciones públicas y evitar la creación de cualquier directiva de Azure que prohíba la creación de direcciones IP. El clúster de AKS crea automáticamente una IP pública de SKU *estándar* en el mismo grupo de recursos creado para el clúster de AKS, que normalmente se nombra con *MC_* al principio. AKS asigna la dirección IP pública al equilibrador de carga de SKU *estándar*. La dirección IP pública es necesaria para permitir el tráfico de salida desde el clúster de AKS. Esta dirección IP pública también es necesaria para mantener la conectividad entre el plano de control y los nodos agente, así como para mantener la compatibilidad con versiones anteriores de AKS.
 * Cuando se usa la SKU *estándar* para un equilibrador de carga, debe utilizar la versión de Kubernetes 1.13.5 o superior.
-* Si usa la [característica de IP pública de nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) con instancias de Standard Load Balancer, puede establecer una regla de salida de SLB o una dirección IP pública para el nodo. Debe seleccionar una de las dos opciones, ya que una máquina virtual no se puede adjuntar a una regla de salida de SLB y a una dirección IP pública simultáneamente.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
 * Cuando se usa la SKU *estándar* para un equilibrador de carga en AKS, no se puede establecer su propia dirección IP pública de salida del equilibrador de carga. Debe usar la dirección IP que asigna AKS al equilibrador de carga.
+* No se puede usar con la [característica de IP pública de nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -166,7 +166,7 @@ La salida del ejemplo siguiente muestra el nodo único creado en los pasos anter
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Comprobación de que el clúster usa la SKU *estándar*

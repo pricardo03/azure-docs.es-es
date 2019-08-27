@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946408"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897953"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Seguridad de empresa para Azure Machine Learning Service
 
@@ -31,7 +31,7 @@ Si Azure Active Directory (Azure AD) se ha configurado para la autenticación mu
 * El cliente presenta el token a Azure Resource Manager y a todos los servicios de Azure Machine Learning Service.
 * La instancia de Azure Machine Learning Service proporciona un token de Azure Machine Learning al proceso del usuario. Por ejemplo, Proceso de Machine Learning. Este token se utiliza en el proceso del usuario para volver a llamar a la instancia de Azure Machine Learning Service (limita el ámbito al área de trabajo) una vez que ha finalizado la ejecución.
 
-![La captura de pantalla muestra cómo funciona la autenticación en Azure Machine Learning Service](./media/enterprise-readiness/authentication.png)
+[![Captura de pantalla que muestra cómo funciona la autenticación en Azure Machine Learning Service](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticación para la implementación del servicio web
 
@@ -185,7 +185,7 @@ Cada área de trabajo tiene asociada una identidad administrada asignada por el 
 
 Las métricas de Azure Monitor se pueden usar para ver y supervisar las métricas del área de trabajo de Azure Machine Learning Service. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo y, a continuación, siga el vínculo __Métricas__.
 
-![Captura de pantalla que muestra las métricas de ejemplo de un área de trabajo](./media/enterprise-readiness/workspace-metrics.png)
+[![Captura de pantalla que muestra las métricas de ejemplo de un área de trabajo](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Métricas incluye información sobre ejecuciones, implementaciones y registros.
 
@@ -197,7 +197,7 @@ Puede consultar el registro de actividad en el área de trabajo para ver diferen
 
 En la siguiente captura de pantalla se muestra el registro de actividad de un área de trabajo:
 
-![Captura de pantalla que muestra el registro de actividad en un área de trabajo](./media/enterprise-readiness/workspace-activity-log.png)
+[![Captura de pantalla que muestra el registro de actividad en un área de trabajo](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se crea en la suscripción del usuario al crear el área de trabajo. La información registrada incluye campos como HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration, etc.
 
@@ -220,14 +220,14 @@ El usuario inicia sesión en Azure AD desde cualquiera de los clientes de Azure
 
 Según sea necesario, también se pueden aprovisionar otros procesos asociados a un área de trabajo (Azure Kubernetes Service, VM, etc.).
 
-![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/create-workspace.png)
+[![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Almacenamiento del código fuente (scripts de entrenamiento)
 
 En el siguiente diagrama se muestra el flujo de trabajo de la instantánea de código.
 Un área de trabajo de Azure Machine Learning Service tiene asociados directorios (experimentos), que contienen el código fuente (scripts de entrenamiento).  Estos scripts se almacenan en la máquina local del cliente y en la nube (en Azure Blob Storage, bajo la suscripción del cliente). Las instantáneas de código se utilizan para la ejecución o inspección de auditorías históricas.
 
-![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/code-snapshot.png)
+[![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Cursos
 
@@ -253,7 +253,7 @@ En el siguiente diagrama se muestra el flujo de trabajo de entrenamiento.
 
 Este paso se muestra en la parte del flujo donde el proceso de entrenamiento escribe las *métricas de ejecución* en Azure Machine Learning Service, desde donde se almacena en Cosmos DB. Los clientes pueden llamar a Azure Machine Learning Service que, a su vez, extraerá las métricas de Cosmos DB y las devolverá al cliente.
 
-![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/training-and-metrics.png)
+[![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Creación de servicios web
 
@@ -267,7 +267,7 @@ Vea los detalles a continuación:
 * Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se incluye en la suscripción del usuario.
 * También se insertan datos de telemetría en la suscripción a Microsoft o Azure.
 
-![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/inferencing.png)
+[![Captura de pantalla que muestra el flujo de trabajo de creación del área de trabajo](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

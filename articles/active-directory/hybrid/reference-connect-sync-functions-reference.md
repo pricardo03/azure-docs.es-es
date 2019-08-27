@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204491"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900037"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronización de Azure AD Connect: Referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
@@ -82,7 +82,7 @@ Las funciones con los tipos **mvbin**, **mvstr** y **mvref** solo pueden funcion
 | **Flujo de programa** | | | | |
 | [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
 | [Where](#where) |[With](#with) | | | |
-| **Texto** | | | | |
+| **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
 | [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Sustituya](#replace) | |
@@ -102,7 +102,7 @@ Las funciones con los tipos **mvbin**, **mvstr** y **mvref** solo pueden funcion
 **Comentarios:**  
 : esta función convierte ambos parámetros en la representación binaria y establece un bit en los siguientes valores:
 
-* 0: si uno o ambos de los bits correspondientes en *mask* y *flag* son 0
+* 0: si uno o ambos de los bits correspondientes en *value1* y *value2* son 0.
 * 1: si ambos de los bits correspondientes son 1.
 
 En otras palabras, devuelve 0 en todos los casos excepto cuando los bits correspondientes de los dos parámetros son 1.
@@ -451,7 +451,7 @@ devuelve "SABlAGwAbABvACAAdwBvAHIAbABkACEA".
 devuelve 48656C6C6F20776F726C6421.
 
 ---
-### <a name="count"></a>Recuento
+### <a name="count"></a>Count
 **Descripción:**  
 : la función Count devuelve el número de elementos en un atributo multivalor.
 

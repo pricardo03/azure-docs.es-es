@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee8af77ce8f3897fdf1cb3da9a125acca28f9419
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358702"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897317"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Use SSL para proteger un servicio web con Azure Machine Learning
 
@@ -149,9 +149,102 @@ Después, debe actualizar el DNS para que apunte al servicio web.
   > [!WARNING]
   > Si ha usado *leaf_domain_label* para crear el servicio mediante un certificado de Microsoft, no actualice manualmente el valor DNS para el clúster. El valor debe establecerse automáticamente.
 
-  Actualice el DNS en la pestaña **Configuración** de la dirección IP pública del clúster de AKS. (Vea la siguiente imagen). La dirección IP pública es uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
+  Actualice el DNS de la Dirección IP pública del clúster de AKS en la pestaña **Configuración** debajo de **Configuración** en el panel izquierdo. (Vea la siguiente imagen). La dirección IP pública es uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
-  ![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+
+## <a name="update-the-ssl-certificate"></a>Actualizar el certificado SSL
+
+Los certificados SSL expiran y se deben renovar. Normalmente esto sucede cada año. Utilice la información de las secciones siguientes para actualizar y renovar el certificado para los modelos implementados en Azure Kubernetes Service:
+
+### <a name="update-a-microsoft-generated-certificate"></a>Actualización de un certificado generado por Microsoft
+
+Si Microsoft generó el certificado originalmente (al utilizar *leaf_domain_label* para crear el servicio), use uno de los ejemplos siguientes para actualizar el certificado:
+
+**Uso del SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Update the existing certificate by referencing the leaf domain label
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Uso de la CLI**
+
+```azurecli
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+```
+
+Para más información, consulte los siguientes documentos de referencia:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+### <a name="update-custom-certificate"></a>Actualización del certificado personalizado
+
+Si una entidad de certificación generó originalmente el certificado, siga estos pasos:
+
+1. Use la documentación proporcionada por la entidad de certificación para renovar el certificado. Este proceso crea nuevos archivos de certificado.
+
+1. Use el SDK o la CLI para actualizar el servicio con el nuevo certificado:
+
+    **Uso del SDK**
+
+    ```python
+    from azureml.core.compute import AksCompute
+    from azureml.core.compute.aks import AksUpdateConfiguration
+    from azureml.core.compute.aks import SslConfiguration
+    
+    # Read the certificate file
+    def get_content(file_name):
+        with open(file_name, 'r') as f:
+            return f.read()
+
+    # Get the existing cluster
+    aks_target = AksCompute(ws, clustername)
+    
+    # Update cluster with custom certificate
+    ssl_configuration = SslConfiguration(cname="myaks", cert=get_content('cert.pem'), key=get_content('key.pem'))
+    update_config = AksUpdateConfiguration(ssl_configuration)
+    aks_target.update(update_config)
+    ```
+
+    **Uso de la CLI**
+
+    ```azurecli
+    az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-cname "myaks"--ssl-cert-file "cert.pem" --ssl-key-file "key.pem"
+    ```
+
+Para más información, consulte los siguientes documentos de referencia:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+## <a name="disable-ssl"></a>Deshabilitar SSL
+
+Para deshabilitar SSL para un modelo implementado en Azure Kubernetes Service, cree un `SslConfiguration` con `status="Disabled"` y, a continuación, realice una actualización:
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Disable SSL
+ssl_configuration = SslConfiguration(status="Disabled")
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo:

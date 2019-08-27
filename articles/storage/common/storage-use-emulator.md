@@ -3,16 +3,16 @@ title: Uso del emulador de Azure Storage para desarrollo y pruebas | Microsoft D
 description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage. Aprenda cómo se autorizan las solicitudes, cómo conectarse al emulador desde su aplicación y cómo usar la herramienta de la línea de comandos.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986405"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900340"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -221,9 +221,21 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de la versión del emulador de almacenamiento
 
+### <a name="version-510"></a>Versión 5.10
+
+* El emulador de almacenamiento no rechazará la versión 2019-07-07 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+
+### <a name="version-59"></a>Versión 5.9
+
+* El emulador de almacenamiento no rechazará la versión 2019-02-02 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+
+### <a name="version-58"></a>Versión 5.8
+
+* El emulador de almacenamiento no rechazará la versión 2018-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+
 ### <a name="version-57"></a>Versión 5.7
 
-Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba habilitado.
+* Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba habilitado.
 
 ### <a name="version-56"></a>Versión 5.6
 
@@ -236,11 +248,11 @@ Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba 
 
 ### <a name="version-54"></a>Versión 5.4
 
-Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si desea realizar la reserva de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
+* Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si desea realizar la reserva de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
 
 ### <a name="version-53"></a>Versión 5.3
 
-El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.
+* El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.
 
 ### <a name="version-52"></a>Versión 5.2
 
@@ -249,7 +261,7 @@ El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servici
 
 ### <a name="version-51"></a>Versión 5.1
 
-Se ha corregido un error en el que el emulador de almacenamiento devolvía el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
+* Se ha corregido un error en el que el emulador de almacenamiento devolvía el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
 
 ### <a name="version-50"></a>Versión 5.0
 

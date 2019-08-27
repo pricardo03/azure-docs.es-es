@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8d0de6c68800b1a37e57aa259fd6884ee91752b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9674df346ff0b5c046df26fe85bf7ba0bbb802e6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699559"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900307"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 
@@ -40,9 +40,11 @@ ms.locfileid: "68699559"
 | Ubuntu Server | 14.04+ | 16.04 (o posterior) |
 | RHEL | 7 (o posterior) | 7.5 (o posterior) |
 | CentOS | 7 (o posterior) |  7.5 (o posterior) |
-| Debian | 8 (o posterior) |   |
+| Debian | 8 (o posterior) | 9+<sup>*</sup> |
 | openSUSE | 13.2 (o posterior) | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
+
+<sup>*</sup>Es posible que se deba usar un kernel modificado con versiones anteriores. Puede instalarla con `sudo apt-get install linux-image-cloud-amd64`.
 
 Si la distribución de Linux no aparece aquí, puede comprobar la versión del kernel de Linux con el siguiente comando:
 

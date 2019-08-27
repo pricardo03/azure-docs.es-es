@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947218"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899661"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
 
@@ -86,7 +86,7 @@ Windows Virtual Desktop ofrece un control total sobre el tamaño, el tipo y el n
 Para asegurarse de que su entorno de Windows Virtual Desktop sigue los procedimientos recomendados:
 
 - La cuenta de almacenamiento de Azure Files debe estar en la misma región que las máquinas virtuales del host de sesión.
-- Los permisos de Azure Files deben coincidir con los permisos descritos en [Requisitos - Contenedores de perfiles](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- Los permisos de Azure Files deben coincidir con los permisos descritos en [Requisitos - Contenedores de perfiles](https://docs.microsoft.com/fslogix/overview#requirements).
 - Cada grupo host debe estar creado con una máquina virtual del mismo tipo y tamaño basada en la misma imagen maestra.
 - Cada máquina virtual de grupo host debe encontrarse en el mismo grupo de recursos para facilitar la administración, el escalado y la actualización.
 - Para obtener un rendimiento óptimo, la solución de almacenamiento y el contenedor de perfiles de FSLogix deben estar en la misma ubicación del centro de datos.
@@ -98,7 +98,7 @@ Utilice las siguientes instrucciones para configurar un entorno de Windows Virtu
 
 - Para empezar a compilar su solución de virtualización de escritorio, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 - Para crear un grupo host dentro de su inquilino de Windows Virtual Desktop, consulte [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Para configurar recursos compartidos de archivos totalmente administrados en la nube, consulte [Configuración de recurso compartido de Azure Files](/articles/storage/files/storage-files-active-directory-enable.md).
-- Para configurar contenedores de perfiles de FSLogix, consulte [Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host](create-host-pools-user-profile.md).
+- Para configurar recursos compartidos de archivos totalmente administrados en la nube, consulte [Configuración de recurso compartido de Azure Files](/azure/storage/files/storage-files-active-directory-enable).
+- Para configurar contenedores de perfiles de FSLogix, consulte [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md).
 - Para asignar usuarios a un grupo host, consulte [Administración de grupos de aplicaciones de Windows Virtual Desktop](manage-app-groups.md).
 - Para acceder a los recursos de Windows Virtual Desktop desde un explorador web, consulte [Conexión a Windows Virtual Desktop](connect-web.md).

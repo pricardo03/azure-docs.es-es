@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990555"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897673"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -149,12 +149,25 @@ Se pueden utilizar los siguientes destinos o recursos de proceso para hospedar l
 
 ## <a name="prepare-to-deploy"></a>Preparación de la actualización
 
-Para implementar como un servicio web, debe crear una configuración de inferencia (`InferenceConfig`) y una configuración de implementación. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, frecuentemente en datos de producción. En la configuración de la inferencia, especifique los scripts y dependencias necesarios para servir el modelo. En la configuración de implementación especifique los detalles sobre cómo servir el modelo en el destino de proceso.
+La implementación del modelo requiere varias cosas:
 
-> [!IMPORTANT]
-> El SDK de Azure Machine Learning no proporciona una manera para que las implementaciones de servicios web o IoT Edge tengan acceso al almacén de datos o a los conjuntos de datos. Si necesita que el modelo implementado tenga acceso a los datos almacenados fuera de la implementación, como en una cuenta de Azure Storage, debe desarrollar una solución de código personalizada mediante el SDK pertinente. Por ejemplo, el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
->
-> Otra alternativa que puede funcionar para su escenario son las [predicciones por lotes](how-to-run-batch-predictions.md), que proporcionan acceso a los almacenes de datos cuando se realiza la puntuación.
+* Un __script de entrada__. Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
+
+    > [!IMPORTANT]
+    > El script de entrada es específico del modelo; debe comprender el formato de los datos de la solicitud entrante, el formato de los datos que espera el modelo y el formato de los datos que se devuelven a los clientes.
+    >
+    > Si los datos de la solicitud están en un formato que el modelo no puede usar, el script puede transformarlos a un formato aceptable. También puede transformar la respuesta antes de devolverla al cliente.
+
+    > [!IMPORTANT]
+    > El SDK de Azure Machine Learning no proporciona una manera para que las implementaciones de servicios web o IoT Edge tengan acceso al almacén de datos o a los conjuntos de datos. Si necesita que el modelo implementado tenga acceso a los datos almacenados fuera de la implementación, como en una cuenta de Azure Storage, debe desarrollar una solución de código personalizada mediante el SDK pertinente. Por ejemplo, el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
+    >
+    > Otra alternativa que puede funcionar para su escenario son las [predicciones por lotes](how-to-run-batch-predictions.md), que proporcionan acceso a los almacenes de datos cuando se realiza la puntuación.
+
+* **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
+
+* La __configuración de la implementación__ del destino de proceso que hospeda el modelo implementado. Esta configuración describe los aspectos, como los requisitos de memoria y CPU, necesarios para ejecutar el modelo.
+
+Estas entidades se encapsulan en una __configuración de inferencia__ y una __configuración de implementación__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias. Estas configuraciones se definen mediante programación cuando se usa el SDK, y como archivos JSON cuando se usa la CLI para realizar la implementación.
 
 ### <a id="script"></a> 1. Definición de los scripts y dependencias de entrada
 
@@ -177,6 +190,8 @@ El ejemplo siguiente devuelve una ruta de acceso a un único archivo denominado 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
 ```
+
+<a id="schema"></a>
 
 #### <a name="optional-automatic-schema-generation"></a>Generación automática de esquemas (Opcional)
 
@@ -399,9 +414,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definición de InferenceConfig
 
-La configuración de inferencia describe cómo configurar el modelo para realizar predicciones. En el siguiente ejemplo le indicaremos cómo crear una configuración de inferencia. Esta configuración especifica el runtime, el script de entrada y (opcionalmente) el archivo de entorno de conda:
+La configuración de inferencia describe cómo configurar el modelo para realizar predicciones. Esta configuración no forma parte del script de entrada; hace referencia a su script de entrada y se usa para localizar todos los recursos que requiere la implementación. Se utilizará más adelante cuando implemente realmente el modelo.
+
+En el siguiente ejemplo le indicaremos cómo crear una configuración de inferencia. Esta configuración especifica el runtime, el script de entrada y (opcionalmente) el archivo de entorno de conda:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +450,7 @@ Para obtener información sobre el uso de una imagen personalizada de Docker con
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definición de la configuración de la implementación
 
-Antes de efectuar la implementación, debe definir la configuración de esta. __La configuración de implementación es específica del destino de proceso que hospedará el servicio web__. Por ejemplo, cuando se implementa de forma local debe especificar el puerto en el que el servicio aceptará las solicitudes.
+Antes de efectuar la implementación, debe definir la configuración de esta. __La configuración de implementación es específica del destino de proceso que hospedará el servicio web__. Por ejemplo, cuando se implementa de forma local debe especificar el puerto en el que el servicio aceptará las solicitudes. La configuración de la implementación no forma parte del script de entrada. Se usa para definir las características del destino de proceso que hospedará el modelo y el script de entrada.
 
 Puede que también deba crear el recurso de proceso. Por ejemplo, si aún no dispone de una instancia de Azure Kubernetes Service asociada al área de trabajo.
 
@@ -442,6 +461,12 @@ La tabla siguiente proporciona un ejemplo de creación de una configuración de 
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+Cada una de estas clases de servicios web de ACI, AKS y locales se puede importar desde `azureml.core.webservice`:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > Antes de implementar el modelo como un servicio, puede que desee generar un perfil para determinar los requisitos de CPU y memoria óptimos. Puede generar perfiles del modelo mediante el SDK o la CLI. Para obtener más información, vea la referencia [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) y [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
@@ -459,6 +484,8 @@ Para implementar de forma local, debe tener Docker instalado en la máquina loca
 #### <a name="using-the-sdk"></a>Uso del SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)
@@ -696,7 +723,7 @@ Puede implementar continuamente modelos mediante la extensión de Machine Learni
 
 1. Use __Conexiones de servicio__ para configurar una conexión de entidad de servicio para el área de trabajo de Azure Machine Learning Service para tener acceso a todos los artefactos. Vaya a Configuración del proyecto, haga clic en Conexiones de servicio y seleccione Azure Resource Manager.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. Defina AzureMLWorkspace como el __nivel de ámbito__ y rellene los parámetros subsiguientes.
 
@@ -704,11 +731,11 @@ Puede implementar continuamente modelos mediante la extensión de Machine Learni
 
 1. A continuación, para implementar continuamente el modelo de aprendizaje automático mediante Azure Pipelines, seleccione __Versión__ en Canalizaciones. Agregue un artefacto nuevo y seleccione el artefacto del modelo de AzureML y la conexión de servicio que se ha creado en el paso anterior. Seleccione el modelo y la versión para desencadenar una implementación. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Habilite el desencadenador del modelo en el artefacto del modelo. Al activar el desencadenador, cada vez que se registra la versión especificada (es decir, la versión más reciente) de ese modelo en el área de trabajo, se desencadena una canalización de versiones de Azure DevOps. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 Para más ejemplos y proyectos de muestra, consulte los siguientes repositorios de ejemplo:
 
