@@ -49,6 +49,8 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Supervisión de la disponibilidad del clúster con los registros de Ambari y Azure Monitor
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: Comparación entre las opciones de almacenamiento
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster

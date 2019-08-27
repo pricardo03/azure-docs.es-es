@@ -147,6 +147,8 @@
           href: computer-vision-how-to-install-containers.md
         - name: Configuración de contenedores
           href: computer-vision-resource-container-config.md
+        - name: Uso con Kubernetes y Helm
+          href: deploy-computer-vision-on-premises.md
         - name: Uso de instancias de contenedores
           href: deploy-computer-vision-on-container-instances.md
     - name: Usar el servicio conectado de Computer Vision
