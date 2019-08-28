@@ -149,7 +149,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
    ```
     El código de este paso construye una solicitud HTTP con una llamada a la API REST Face, usando la clave establecida cuando agregó el servicio conectado.
 
-1. Agregue las aplicaciones auxiliares GetImageAsByteArray y JsonPrettyPrint.
+1. Agregue las funciones auxiliares GetImageAsByteArray y JsonPrettyPrint.
 
    ```csharp
         /// <summary>

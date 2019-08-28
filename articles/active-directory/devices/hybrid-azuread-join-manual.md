@@ -353,7 +353,7 @@ La notificación `http://schemas.microsoft.com/LiveID/Federation/2008/05/Immutab
    );
    ```
 
-### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Script de aplicación auxiliar para crear reglas de transformación de emisión de AD FS
+### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Script auxiliar para crear reglas de transformación de emisión de AD FS
 
 El siguiente script le ayuda con la creación de las reglas de transformación de emisión que se han descrito anteriormente.
 

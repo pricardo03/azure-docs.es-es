@@ -38,7 +38,7 @@ Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catá
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobierno de identidades**.
+1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos**.
 
@@ -64,7 +64,7 @@ Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los 
 
 **Rol necesario:** vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo al que quiere agregar recursos.
 
@@ -88,7 +88,7 @@ Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un cat
 
 **Rol necesario:** vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo del que quiere quitar recursos.
 
@@ -104,7 +104,7 @@ Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta 
 
 **Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo que quiere editar.
 
@@ -120,7 +120,7 @@ Puede eliminar un catálogo, pero solo si no tiene ningún paquete de acceso.
 
 **Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo que quiere eliminar.
 

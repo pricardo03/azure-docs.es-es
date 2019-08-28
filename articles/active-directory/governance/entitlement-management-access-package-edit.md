@@ -40,7 +40,7 @@ Un rol de recursos es una colección de permisos asociados a un recurso. Para ha
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -138,7 +138,7 @@ Azure AD puede asignar automáticamente a los usuarios acceso a un sitio de Shar
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -160,7 +160,7 @@ En el siguiente diagrama se muestra el proceso general para crear una directiva 
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -180,7 +180,7 @@ Puede editar una directiva en cualquier momento. Si cambia la fecha de expiraci�
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -202,7 +202,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -230,7 +230,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -250,7 +250,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -262,7 +262,7 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -282,7 +282,7 @@ Solo se puede cancelar una solicitud pendiente que aún no se haya entregado.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -298,7 +298,7 @@ La mayoría de los usuarios del directorio pueden iniciar sesión en el portal M
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -314,7 +314,7 @@ De forma predeterminada, los paquetes de acceso son detectables. Esto significa 
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
@@ -332,7 +332,7 @@ Solo se puede eliminar un paquete de acceso si no tiene ninguna asignación de u
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 

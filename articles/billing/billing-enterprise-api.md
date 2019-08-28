@@ -49,7 +49,7 @@ Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azur
 ## <a name="data-freshness"></a>Actualización de datos
 Como respuesta a todas las API anteriores, se devuelven etiquetas ETag. Un cambio en una etiqueta ETag indica que se han actualizado los datos.  En las sucesivas llamadas a la misma API con los mismos parámetros, pase la etiqueta ETag capturada con la clave "If-None-Match" en el encabezado de solicitud HTTP. El código de estado de respuesta sería "NotModified" si los datos no se han actualizado más y no se devuelve ningún dato. La API devolverá el conjunto de datos completo para el periodo necesario cada vez que haya un cambio de etiqueta ETag.
 
-## <a name="helper-apis"></a>API de ayuda
+## <a name="helper-apis"></a>API auxiliares
  **Enumerar períodos de facturación**: la [API de períodos de facturación](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y Price Sheet.
 
 

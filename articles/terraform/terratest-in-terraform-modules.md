@@ -27,7 +27,7 @@ Es importante implementar un control de calidad al crear módulos de Terraform. 
 
 Hemos examinado las infraestructuras de pruebas más populares y se eligió [Terratest](https://github.com/gruntwork-io/terratest) para probar los módulos de Terraform. Terratest se implementa como una biblioteca de Go. Terratest proporciona una colección de funciones auxiliares y patrones para tareas de prueba de infraestructura comunes, como hacer solicitudes HTTP y utilizar SSH para acceder a una determinada máquina virtual. En la lista siguiente se describen algunas de las principales ventajas de usar Terratest:
 
-- **Proporciona aplicaciones auxiliares prácticas para comprobar la infraestructura**. Esta característica resulta útil cuando desea comprobar la infraestructura real en el entorno real.
+- **Proporciona asistentes prácticos para comprobar la infraestructura**. Esta característica resulta útil cuando desea comprobar la infraestructura real en el entorno real.
 - **La estructura de carpetas está organizada claramente**. Los casos de prueba están organizados claramente y siguen la [estructura de carpetas del módulo de Terraform estándar](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
 - **Todos los casos de prueba están escritos en Go**. La mayoría de los desarrolladores que usan Terraform son desarrolladores de Go. Si es un desarrollador de Go, no tiene que aprender otro lenguaje de programación para utilizar Terratest. Además, las únicas dependencias necesarias para ejecutar casos de prueba en Terratest son Go y Terraform.
 - **La infraestructura es muy extensible**. Puede ampliar funciones adicionales a partir de Terratest, incluidas las características específicas de Azure.

@@ -113,7 +113,7 @@ Herramientas para usar de forma rápida y sencilla LUIS con un bot:
 Otros servicios de Cognitive Services que utilizan LUIS:
 * [QnA Maker][qnamaker] permite la combinación de varios tipos de texto en una base de conocimiento de preguntas y respuestas.
 * [Bing Spell Check API](../bing-spell-check/proof-text.md) proporciona corrección de texto antes de la predicción. 
-* [Speech Service](../Speech-Service/overview.md) convierte solicitudes de lenguaje hablado en texto. 
+* [Servicio Voz](../Speech-Service/overview.md) convierte solicitudes de lenguaje hablado en texto. 
 * [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) le permite crear conversaciones de bot más rápido con LUIS.
 * [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) para controlar conversaciones de bot.
 

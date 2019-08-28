@@ -38,7 +38,7 @@ Vea el siguiente vídeo para obtener información sobre cómo usar la administra
 
 ## <a name="view-resources-a-user-has-access-to"></a>Visualización de los recursos a los que tiene acceso un usuario
 
-1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobierno de identidades**.
+1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
 1. En el menú de la izquierda, haga clic en **Informe de asignaciones de usuarios**.
 

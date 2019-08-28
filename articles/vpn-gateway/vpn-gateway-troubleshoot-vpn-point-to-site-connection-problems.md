@@ -256,7 +256,7 @@ Se alcanza el número máximo de conexiones permitidas. Puede ver el número tot
 
 ### <a name="symptom"></a>Síntoma
 
-Al marcar la conexión VPN en el cliente de punto a sitio, el cliente de VPN no debe agregar una ruta hacia la red virtual de Azure. La aplicación auxiliar de IP debe agregar una ruta para la subred de los clientes de VPN. 
+Al marcar la conexión VPN en el cliente de punto a sitio, el cliente de VPN no debe agregar una ruta hacia la red virtual de Azure. El servicio auxiliar de IP debe agregar una ruta para la subred de los clientes de VPN. 
 
 El intervalo de cliente de VPN pertenece a una subred más pequeña de 10.0.0.0/8, como 10.0.12.0/24. En lugar de una ruta para 10.0.12.0/24, se agrega una ruta para 10.0.0.0/8 con una prioridad más alta. 
 

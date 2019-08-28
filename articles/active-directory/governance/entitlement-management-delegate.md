@@ -120,7 +120,7 @@ Si desea delegar la creación del catálogo, agregue usuarios al rol de creador 
 
 **Rol necesario:** administrador global o administrador de usuarios.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, en la sección **Administración de derechos**, haga clic en **Configuración**.
 
@@ -138,7 +138,7 @@ Si desea delegar la administración de un catálogo o de paquetes de acceso del 
 
 **Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo al que quiere agregar administradores.
 

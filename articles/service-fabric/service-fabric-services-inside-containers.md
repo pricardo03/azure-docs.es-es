@@ -34,7 +34,7 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
 
 1. Abra la aplicación de Service Fabric en Visual Studio.
 
-2. Agregue la clase [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) al proyecto. El código de esta clase es una aplicación auxiliar para cargar correctamente los archivos binarios del entorno en tiempo de ejecución de Service Fabric dentro de la aplicación cuando se ejecuta dentro de un contenedor.
+2. Agregue la clase [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) al proyecto. El código de esta clase es un asistente para cargar correctamente los archivos binarios del entorno en tiempo de ejecución de Service Fabric dentro de la aplicación cuando se ejecuta dentro de un contenedor.
 
 3. Para cada paquete de código que le gustaría incluir en contenedores, inicialice el cargador en el punto de entrada del programa. Agregue el constructor estático que se muestra en el siguiente fragmento de código al archivo de punto de entrada del programa.
 

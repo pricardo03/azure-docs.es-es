@@ -77,9 +77,9 @@ Al ejecutar localmente el script U-SQL, se crea un directorio de trabajo durante
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Uso del SDK desde la línea de comandos
 
-### <a name="command-line-interface-of-the-helper-application"></a>Interfaz de la línea de comandos de la aplicación auxiliar
+### <a name="command-line-interface-of-the-helper-application"></a>Interfaz de la línea de comandos del asistente
 
-El archivo LocalRunHelper.exe se encuentra en el directorio del SDK, en build/runtime, y es la aplicación auxiliar de línea de comandos que proporciona interfaces a la mayoría de las funciones de ejecución local de uso frecuente. Tenga en cuenta que tanto el comando como los modificadores de argumentos distinguen entre mayúsculas y minúsculas. Para invocarla:
+El archivo LocalRunHelper.exe se encuentra en el directorio del SDK, en build/runtime, y es el asistente de línea de comandos que proporciona interfaces a la mayoría de las funciones de ejecución local de uso frecuente. Tenga en cuenta que tanto el comando como los modificadores de argumentos distinguen entre mayúsculas y minúsculas. Para invocarla:
 
     LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
 
@@ -104,7 +104,7 @@ En la información de ayuda:
 
 ### <a name="return-value-and-logging"></a>Valor devuelto y registro
 
-La aplicación auxiliar devuelve **0** si se ha realizado correctamente y **-1** en caso contrario. De forma predeterminada, la aplicación auxiliar envía todos los mensajes a la consola actual. Sin embargo, la mayoría de los comandos admiten el argumento opcional **-MessageOut ruta_de_acceso_al_archivo_de_registro** que redirige las salidas a un archivo de registro.
+El asistente devuelve **0** si se ha realizado correctamente y **-1** en caso contrario. De forma predeterminada, el asistente envía todos los mensajes a la consola actual. Sin embargo, la mayoría de los comandos admiten el argumento opcional **-MessageOut ruta_de_acceso_al_archivo_de_registro** que redirige las salidas a un archivo de registro.
 
 ### <a name="environment-variable-configuring"></a>Configuración de la variable de entorno
 

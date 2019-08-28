@@ -53,7 +53,7 @@ sections:
           <li><b><a href="text-to-speech.md">texto a voz</a></b> (TTS)</li>
           <li><b><a href="conversation-transcription-service.md">transcripción de conversaciones</a></b> (CTS)</li>
           <li><b><a href="how-to-phrase-lists.md">personalización de lista de frases</a>/<a href="how-to-custom-speech.md">adaptación de voz personalizada</a></b></li>
-          <li><b><a href="voice-first-virtual-assistants.md">asistentes virtual por voz</a></b></li>
+          <li><b><a href="voice-first-virtual-assistants.md">asistente virtual por voz</a></b></li>
           <li><b><a href="call-center-transcription.md">transcripción para centros de llamadas</a></b></li></ul></div></div>
   - title: Inicio rápido en 5 minutos
     items:

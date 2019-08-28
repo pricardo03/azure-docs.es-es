@@ -61,7 +61,7 @@ DevTest Labs también permite al departamento de TI central controlar los residu
 
 DevTest Labs proporciona las siguientes ventajas en la creación, configuración y administración de entornos en la nube.
 
-## <a name="cost-control-and-governance"></a>Goberanza y control de costos
+## <a name="cost-control-and-governance"></a>Gobernanza y control de costos
 DevTest Labs facilita el control de costos, lo que le permite realizar las siguientes tareas:
 
 - [Establecer directivas en sus laboratorios](devtest-lab-get-started-with-lab-policies.md), como el número de máquinas virtuales por usuario o por laboratorio. 

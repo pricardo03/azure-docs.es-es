@@ -48,7 +48,7 @@ En el siguiente diagrama se muestra el proceso general para crear un paquete de 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobierno de identidades**.
+1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Paquetes de acceso**.
 

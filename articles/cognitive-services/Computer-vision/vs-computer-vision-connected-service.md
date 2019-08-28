@@ -164,7 +164,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
 
     Este código construye una solicitud HTTP con el URI y la imagen como contenido binario de una llamada a Computer Vision API de REST.
 
-1. Agregue las aplicaciones auxiliares GetImageAsByteArray y JsonPrettyPrint.
+1. Agregue las funciones auxiliares GetImageAsByteArray y JsonPrettyPrint.
 
    ```csharp
     /// <summary>

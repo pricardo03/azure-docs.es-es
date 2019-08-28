@@ -233,9 +233,9 @@ Los métodos auxiliares de la acción de script son utilidades que puede usar al
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-Las siguientes aplicaciones auxiliares estén disponibles para su uso en el script:
+Los siguientes asistentes están disponibles para su uso en el script:
 
-| Uso de la aplicación auxiliar | DESCRIPCIÓN |
+| Uso del asistente | DESCRIPCIÓN |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Descarga un archivo del URI de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrae un archivo tar (mediante `-xf`) en el directorio de destino. |

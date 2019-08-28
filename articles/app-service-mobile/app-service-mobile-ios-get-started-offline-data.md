@@ -127,7 +127,7 @@ Ahora, se va a realizar la operación de sincronización en sí y se van a obten
    }
    ```
 
-En la versión Objective-C, en `syncData`, se llama primero a **pushWithCompletion** en el contexto de sincronización. Este método es miembro de `MSSyncContext` (no de la propia tabla de sincronización), porque inserta cambios en todas las tablas. Solo se envían al servidor los registros que se han modificado localmente de alguna forma (mediante operaciones CUD). A continuación, se llama a la aplicación auxiliar **pullData**, que llama a **MSSyncTable.pullWithQuery** para recuperar datos remotos y almacenarlos en la base de datos local.
+En la versión Objective-C, en `syncData`, se llama primero a **pushWithCompletion** en el contexto de sincronización. Este método es miembro de `MSSyncContext` (no de la propia tabla de sincronización), porque inserta cambios en todas las tablas. Solo se envían al servidor los registros que se han modificado localmente de alguna forma (mediante operaciones CUD). A continuación, se llama al asistente **pullData**, que llama a **MSSyncTable.pullWithQuery** para recuperar datos remotos y almacenarlos en la base de datos local.
 
 En la versión Swift, como la operación de inserción no era estrictamente necesaria, no hay ninguna llamada a **pushWithCompletion**. Si hay cambios pendientes en el contexto de sincronización para la tabla que está realizando una operación de inserción, la extracción siempre realiza primero una inserción. Sin embargo, si tiene más de una tabla de sincronización, es mejor llamar explícitamente a la inserción para asegurarse de que todo sea coherente en las tablas relacionadas.
 

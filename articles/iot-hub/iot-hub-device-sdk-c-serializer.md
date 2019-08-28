@@ -253,7 +253,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 
 Usaremos valores codificados de forma rígida para temperatura y humedad en el código de ejemplo; pero imagine que en realidad vamos a recuperar estos valores mediante el muestreo de los sensores correspondientes en el termostato.
 
-El código anterior usa la aplicación auxiliar **GetDateTimeOffset** que se especificó anteriormente. Por motivos que más tarde aclararemos, este código separa explícitamente la tarea de serializar y enviar el evento. El código anterior serializa el evento de temperatura en un búfer. Entonces, **sendMessage** es una función auxiliar (incluida en **simplesample\_amqp**) que envía el evento a IoT Hub:
+El código anterior usa el asistente **GetDateTimeOffset** que se especificó anteriormente. Por motivos que más tarde aclararemos, este código separa explícitamente la tarea de serializar y enviar el evento. El código anterior serializa el evento de temperatura en un búfer. Entonces, **sendMessage** es una función auxiliar (incluida en **simplesample\_amqp**) que envía el evento a IoT Hub:
 
 ```C
 static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -270,7 +270,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-Este código es un subconjunto de la aplicación auxiliar **SendAsync** descrita en la sección anterior, por lo que no volveremos aquí sobre ella de nuevo.
+Este código es un subconjunto del asistente **SendAsync** descrita en la sección anterior, por lo que no volveremos aquí sobre ella de nuevo.
 
 Al ejecutar el código anterior para enviar el evento de temperatura, esta forma serializada del evento se envía a IoT Hub:
 

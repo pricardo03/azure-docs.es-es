@@ -98,7 +98,7 @@ Para crear un trabajo de análisis que use la API de Stream Analytics para. NET,
    using Microsoft.Rest;
    ```
 
-6. Agregue un método de autenticación auxiliar:
+6. Agregue un método auxiliar de autenticación:
 
    ```csharp
    private static async Task<ServiceClientCredentials> GetCredentials()

@@ -242,9 +242,9 @@ El objetivo de supervisar los cambios en las claves del Registro identificar los
 |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa el registro del controlador de superposición de iconos para programas de 32 bits que se ejecutan en equipos de 64 bits.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Supervisa si hay nuevos complementos de objeto auxiliar de explorador para Internet Explorer. Se utiliza para acceder a Document Object Model (DOM) de la página actual y controlar la navegación.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Supervisa si hay nuevos complementos de objetos auxiliares de explorador para Internet Explorer. Se utiliza para acceder a Document Object Model (DOM) de la página actual y controlar la navegación.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Supervisa si hay nuevos complementos de objeto auxiliar de explorador para Internet Explorer. Sirve para acceder a Document Object Model de la página actual y controlar la navegación de programas de 32 bits que se ejecutan en equipos de 64 bits.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Supervisa si hay nuevos complementos de objetos auxiliares de explorador para Internet Explorer. Sirve para acceder a Document Object Model de la página actual y controlar la navegación de programas de 32 bits que se ejecutan en equipos de 64 bits.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|

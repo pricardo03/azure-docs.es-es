@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado de la aplicación auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script de aplicación auxiliar).
+> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar).
 
 Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos ven solamente las filas que les pertenecen. Además, la aplicación no puede insertar filas que pertenezcan a inquilinos que no sea el que está conectado en ese momento a la base de datos de la partición ni puede actualizar el valor de TenantId en las filas visibles. Si la aplicación intenta realizar cualquiera de las dos acciones, se genera una excepción DbUpdateException.
 

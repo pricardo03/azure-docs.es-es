@@ -194,7 +194,7 @@ Los blobs en bloques pueden ser cualquier tipo de archivo de texto o binario. Lo
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Puede obtener una lista de objetos en un contenedor mediante [containerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-stable). Este método devuelve hasta 5000 objetos a la vez junto con un marcador de continuación o de siguiente si hay más para enumerar en el contenedor. Cree una función de aplicación auxiliar que se llame a sí misma repetidamente cuando haya un marcador de siguiente en la respuesta anterior **listBlobsFlatSegment**.
+Puede obtener una lista de objetos en un contenedor mediante [containerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-stable). Este método devuelve hasta 5000 objetos a la vez junto con un marcador de continuación o de siguiente si hay más para enumerar en el contenedor. Cree una función auxiliar que se llame a sí misma repetidamente cuando haya un marcador de siguiente en la respuesta anterior **listBlobsFlatSegment**.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {

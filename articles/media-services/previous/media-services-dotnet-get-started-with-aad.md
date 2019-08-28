@@ -81,7 +81,7 @@ Para conectarse a la API de Azure Media Services mediante la opción de autentic
 - Id. de cliente de aplicación de Media Services (nativo) 
 - URI de redireccionamiento de aplicación de Media Services (nativo) 
 
-Los valores para estos parámetros se pueden encontrar en **AzureEnvironments.AzureCloudEnvironment**. La constante **AzureEnvironments.AzureCloudEnvironment** es una aplicación auxiliar del SDK para .NET para obtener la configuración adecuada de la variable de entorno para un centro de datos de Azure público. 
+Los valores para estos parámetros se pueden encontrar en **AzureEnvironments.AzureCloudEnvironment**. La constante **AzureEnvironments.AzureCloudEnvironment** es un asistente del SDK para .NET para obtener la configuración adecuada de la variable de entorno para un centro de datos de Azure público. 
 
 Contiene la configuración predefinida del entorno para acceder a Media Services solo en los centros de datos públicos. Para regiones con entornos de nube de administración pública o soberana, puede usar **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** o **AzureGermanCloudEnvironment**, respectivamente.
 

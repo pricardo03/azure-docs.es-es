@@ -19,7 +19,7 @@ ms.locfileid: "65544701"
 ---
 # <a name="what-is-azure-blockchain-service"></a>¿Qué es Azure Blockchain Service?
 
-Azure Blockchain Service es un servicio de libro de contabilidad totalmente administrado que permite a los usuarios crear y operar redes de cadena de bloques a escala en Azure. Al proporcionar un control unificado tanto para la administración de la infraestructura como para el gobierno de la red de cadena de bloques, Azure Blockchain Service proporciona:
+Azure Blockchain Service es un servicio de libro de contabilidad totalmente administrado que permite a los usuarios crear y operar redes de cadena de bloques a escala en Azure. Al proporcionar un control unificado tanto para la administración de la infraestructura como para el gobernanza de la red de cadena de bloques, Azure Blockchain Service proporciona:
 
 * Implementación y operaciones de red sencillas
 * Administración de consorcios integrada

@@ -181,9 +181,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector y ReplicaSelector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector es una aplicación auxiliar que se expone en Testability y que se utiliza para seleccionar una partición concreta en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una partición concreta si se conoce de antemano el Id. de la partición. O bien, se puede proporcionar la clave de partición y la operación resolverá internamente el Id. de la partición. También existe la opción de seleccionar una partición aleatoria.
+PartitionSelector es un asistente que se expone en Testability y que se utiliza para seleccionar una partición concreta en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una partición concreta si se conoce de antemano el Id. de la partición. O bien, se puede proporcionar la clave de partición y la operación resolverá internamente el Id. de la partición. También existe la opción de seleccionar una partición aleatoria.
 
-Para usar esta aplicación auxiliar, cree el objeto PartitionSelector y seleccione la partición mediante uno de los métodos Select*. A continuación, pase el objeto PartitionSelector a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una partición aleatoria.
+Para usar este asistente, cree el objeto PartitionSelector y seleccione la partición mediante uno de los métodos Select*. A continuación, pase el objeto PartitionSelector a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una partición aleatoria.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -205,7 +205,7 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector es una aplicación auxiliar que se expone en Testability y que se utiliza para ayudar a seleccionar una réplica en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una réplica concreta si se conoce de antemano el identificador de la réplica. Además, existe la opción de seleccionar una réplica principal o secundaria aleatoria. ReplicaSelector se deriva de PartitionSelector, por lo que es preciso seleccionar tanto la réplica como la partición en la que se desea realizar la operación de la Testability.
+ReplicaSelector es un asistente que se expone en Testability y que se utiliza para ayudar a seleccionar una réplica en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una réplica concreta si se conoce de antemano el identificador de la réplica. Además, existe la opción de seleccionar una réplica principal o secundaria aleatoria. ReplicaSelector se deriva de PartitionSelector, por lo que es preciso seleccionar tanto la réplica como la partición en la que se desea realizar la operación de la Testability.
 
 Para esta aplicación auxiliar, cree un objeto ReplicaSelector y establezca la forma en que desea seleccionar la réplica y la partición. A continuación, puede pasarlo a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una réplica aleatoria y una partición aleatoria.
 

@@ -100,7 +100,7 @@ Actualmente, la orientación del marco de trabajo completo de .NET Core, la impl
 
 La supervisión de cliente está habilitada en ASP.NET. Para habilitar la supervisión de cliente:
 
-* Seleccione **Configuración** >** **Configuración de la aplicación****
+* Seleccione **Configuración** >** **Configuración de la aplicación** **
    * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de la aplicación** y **valor**:
 
      Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`

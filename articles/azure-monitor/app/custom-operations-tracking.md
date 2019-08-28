@@ -364,7 +364,7 @@ Al instrumentar la eliminación de mensajes, asegúrese de establecer los identi
 - Cree una nueva `Activity` después de que tenga un elemento de la cola.
 - Use `Activity.SetParentId(message.ParentId)` para poner en correlación los registros de consumidor y productor.
 - Inicie la `Activity`.
-- Realice el seguimiento de las operaciones de quitar de la cola, proceso y eliminación mediante las aplicaciones auxiliares `Start/StopOperation`. Hágalo desde el mismo flujo de control asincrónico (contexto de ejecución). De esta forma, se correlacionan correctamente.
+- Realice el seguimiento de las operaciones de quitar de la cola, proceso y eliminación mediante los asistentes `Start/StopOperation`. Hágalo desde el mismo flujo de control asincrónico (contexto de ejecución). De esta forma, se correlacionan correctamente.
 - Pare la `Activity`.
 - Use `Start/StopOperation` o llame a la telemetría de `Track` manualmente.
 

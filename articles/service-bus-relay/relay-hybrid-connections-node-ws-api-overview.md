@@ -160,7 +160,7 @@ function(error)
 
 Si el servidor subyacente emite un error, se reenvía aquí.  
 
-#### <a name="helpers"></a>Aplicaciones auxiliares
+#### <a name="helpers"></a>Asistentes
 
 Para simplificar el inicio de un servidor de retransmisión y la suscripción inmediata a las conexiones entrantes, el paquete expone una función auxiliar sencilla, que también se utiliza en los ejemplos, como se indica a continuación:
 
@@ -195,7 +195,7 @@ Este método llama al constructor para crear una instancia de RelayedServer y de
  
 ##### <a name="relayedconnect"></a>relayedConnect
 
-Con solo reflejar la función `createRelayedServer`, `relayedConnect` crea una conexión de cliente y se suscribe al evento "open" en el socket resultante.
+Con solo reflejar el asistente `createRelayedServer` en la función, `relayedConnect` crea una conexión de cliente y se suscribe al evento &quot;open&quot; en el socket resultante.
 
 ```JavaScript
 var uri = WebSocket.createRelaySendUri(ns, path);

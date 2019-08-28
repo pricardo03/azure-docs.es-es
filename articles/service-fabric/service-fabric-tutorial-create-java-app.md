@@ -80,7 +80,7 @@ La tabla ofrece una breve descripción de los elementos del Explorador de paquet
 | **Elemento del Explorador de paquetes** | **Descripción** |
 | --- | --- |
 | PublishProfiles | Contiene archivos JSON que describen los detalles del perfil de los clústeres tanto de Azure Service Fabric como locales. El contenido de estos archivos lo usa el complemento al implementar la aplicación. |
-| Scripts | Contiene scripts de aplicaciones auxiliares que pueden utilizarse desde la línea de comandos para administrar rápidamente la aplicación con un clúster. |
+| Scripts | Contiene scripts auxiliares que pueden utilizarse desde la línea de comandos para administrar rápidamente la aplicación con un clúster. |
 | VotingApplication | Contiene la aplicación de Service Fabric que se inserta en el clúster de Service Fabric. |
 | VotingWeb | Contiene los archivos de origen del servicio sin estado del front-end junto con el archivo de compilación de Gradle relacionado. |
 | build.gradle | Archivo de Gradle que se usa para administrar el proyecto. |

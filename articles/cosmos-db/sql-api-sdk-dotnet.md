@@ -331,7 +331,7 @@ ms.locfileid: "68638575"
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Se agregó el enrutamiento basado en identificador
-  * Nueva aplicación auxiliar UriFactory para ayudar a construir vínculos de recursos basados en identificador
+  * Nuevo asistente UriFactory para ayudar a construir vínculos de recursos basados en identificador
   * Nuevas sobrecargas en DocumentClient para tener en cuenta URI
 * Se agregaron IsValid() y IsValidDetailed() en LINQ para geoespaciales
 * Compatibilidad mejorada con el proveedor LINQ:

@@ -174,7 +174,7 @@ En Cloud Shell, habilite CORS en la dirección URL del cliente mediante el coman
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-Puede establecer más de una dirección URL del cliente en `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). También puede habilitar todas las direcciones URL de cliente con `"['*']"`.
+Puede establecer más de una dirección URL de cliente en `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). También puede habilitar todas las direcciones URL de cliente con `"['*']"`.
 
 > [!NOTE]
 > Si la aplicación requiere que se envíen credenciales, como cookies o tokens de autenticación, el explorador puede requerir el encabezado `ACCESS-CONTROL-ALLOW-CREDENTIALS` en la respuesta. Para habilitarlo en App Service, establezca `properties.cors.supportCredentials` en `true` en la configuración de CORS. No se puede habilitar cuando `allowedOrigins` incluye `'*'`.

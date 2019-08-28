@@ -435,7 +435,7 @@ Puede recuperar la cadena de conexión de la cuenta de Azure Cosmos DB desde la 
 > [!NOTE]
 > Use el comando Verify para asegurarse de que se puede tener acceso a la instancia de Azure Cosmos DB especificada en el campo de la cadena de conexión.
 
-Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y, después, haga clic en el botón Agregar. Para importar a más de una colección, escriba el nombre de cada colección individualmente. También puede usar la siguiente sintaxis para especificar más de una colección: *collection_prefix*[start index - end index]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta las instrucciones siguientes:
+Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y, después, haga clic en el botón Agregar. Para importar a más de una colección, escriba el nombre de cada colección individualmente. También puede usar la siguiente sintaxis para especificar más de una colección: *collection_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta las instrucciones siguientes:
 
 1. Solo se admiten patrones de nombre de intervalo entero. Por ejemplo, si se especifica colección [0-3], se crean las siguientes colecciones: colección0, colección1, colección2, colección3.
 2. Puede usar una sintaxis abreviada: colección[3] crea el mismo conjunto de colecciones que el paso 1.
