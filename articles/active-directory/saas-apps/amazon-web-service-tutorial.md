@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346c995cbc8be6e609020db799959d873ce89b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944953"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617346"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>Tutorial: Integración de Amazon Web Services (AWS) con Azure Active Directory
 
@@ -369,6 +369,12 @@ Al seleccionar el icono de AWS en el Panel de acceso, debería iniciar sesión a
    Se pueden agregar varios inquilinos de AWS (representados por `servicePrincipals`) a Azure AD desde la galería para el aprovisionamiento. Sin embargo, existe un problema conocido que impide escribir automáticamente todos los roles importados desde los diversos objetos `servicePrincipals` de AWS usados para el aprovisionamiento en el único objeto `servicePrincipal` usado para SSO. 
    
    Una posible solución alternativa consiste en usar [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extraer todos los objetos `appRoles` importados en cada objeto `servicePrincipal` de AWS en los que esté configurado el aprovisionamiento. Posteriormente, puede agregar estas cadenas de roles a objeto `servicePrincipal` de AWS donde se configura el inicio de sesión único.
+ 
+* Los roles deben cumplir los siguientes requisitos para que se puedan importar desde AWS en Azure AD:
+
+  * Los roles deben tener exactamente un proveedor SAML definido en AWS
+
+  * La longitud combinada del rol ARN y el ARN del proveedor de SAML para un rol que se va a importar debe ser de 119 caracteres, como máximo
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

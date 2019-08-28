@@ -15,27 +15,30 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2814ad51d2f0f868833cf9c6964b7ea4a8424435
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565178"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574911"
 ---
 # <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>¿Qué es Data Science Virtual Machine de Azure para Linux y Windows?
 
-La máquina virtual de ciencia de datos (DSVM) es una imagen de VM personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado. Está disponible en Windows Server y en Linux. La edición de Windows de la DSVM se ofrece en Server 2016 y Server 2012. Se ofrecen las ediciones de Linux de la DSVM en Ubuntu 16.04 LTS y CentOS 7.4.
+La máquina virtual de ciencia de datos (DSVM) es una imagen de VM personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado. 
 
-En este artículo se describe lo que puede hacer con la instancia de Data Science VM. Se examinan algunos de los escenarios clave para el uso de la máquina virtual y se detallan las características principales disponibles en las versiones de Windows y Linux. También se proporcionan instrucciones sobre cómo comenzar a usarlas.
+Científicos de datos y desarrolladores de Microsoft, junto con la comunidad de ciencia de datos más amplia, han probado rigurosamente las configuraciones de herramientas para garantizar la estabilidad y viabilidad en general.
+
+El DSVM está disponible en:
++ Windows Server 2016, Windows Server 2012
++ Ubuntu 16.04 LTS y CentOS 7.4
+
+**Todas las herramientas de Deep Learning VM** se han plegado en Data Science VM. 
 
 
-## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>¿Qué puedo hacer con la máquina virtual de ciencia de datos?
+## <a name="what-can-i-do-with-dsvm"></a>¿Qué puedo hacer con DSVM?
 El objetivo de Data Science Virtual Machine (DSVM) es proporcionar a los profesionales de datos de todos los niveles de conocimiento de varios sectores, un entorno de ciencia de datos preconfigurado, totalmente integrado y libre de problemas. En lugar de implementar un área de trabajo comparable por su cuenta, puede aprovisionar una DSVM y ahorrarse días o incluso _semanas_ en los procesos de instalación, configuración y administración del paquetes. Después de que se ha asignado la DSVM, puede comenzar a trabajar inmediatamente en su proyecto de ciencia de datos.
 
 La máquina virtual de ciencia de datos está diseñada y configurada para trabajar con una amplia variedad de escenarios de uso. Puede escalar o reducir verticalmente el entorno a medida que cambien los requisitos del proyecto. También puede usar su lenguaje preferido para programar tareas de ciencia de datos e instalar otras herramientas para personalizar el sistema a la medida de sus necesidades.
-
-## <a name="key-scenarios"></a>Escenarios principales
-En esta sección se sugieren algunos escenarios clave para los que se pueden implementar la VM de ciencia de datos.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Escritorio de análisis preconfigurados en la nube
 La VM de ciencia de datos proporciona una configuración de línea de base para los equipos de ciencia de datos que buscan sustituir sus escritorios locales por un escritorio en la nube administrado. Esta línea de base garantiza que todos los científicos de datos en un equipo tienen una configuración coherente con la que comprobar experimentos y promover la colaboración. Al reducirse la carga del administrador del sistema, también se reducen los costos. Esta reducción de la carga ahorra el tiempo necesario para evaluar, instalar y mantener los diversos paquetes de software que se precisan para realizar análisis avanzados.
@@ -47,18 +50,37 @@ Los instructores y educadores de empresa que imparten clases de ciencia de datos
 La exploración y el modelado de datos a gran escala o las competencias/hackathons de ciencia de datos requieren un escalado horizontal de la capacidad de hardware, normalmente durante poco tiempo. Data Science VM puede ayudar a replicar el entorno de ciencia de datos rápidamente a petición, en servidores escalados horizontalmente que permiten experimentos que requieren que se ejecuten recursos informáticos de alta potencia.
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Capacidad de proceso personalizada para Azure Notebooks
-
-[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. También puede [adjuntar una Data Science VM a Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) para ampliar la capacidad de proceso disponible.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Evaluación y experimentación a corto plazo
 La máquina virtual de ciencia de datos puede usarse para evaluar o aprender herramientas como Microsoft ML Server, SQL Server, herramientas de Visual Studio, Jupyter, aprendizaje profundo/kits de herramientas de ML y nuevas herramientas conocidas de la comunidad con el mínimo esfuerzo de instalación. Puesto que Data Science VM se puede configurar rápidamente, se puede aplicar en otros escenarios de uso a corto plazo. Estos escenarios incluyen la replicación de experimentos publicados, la ejecución de demostraciones, el seguimiento de tutoriales en sesiones en línea y los tutoriales de conferencia.
 
 ### <a name="deep-learning"></a>Aprendizaje profundo
-Data Science Virtual Machine puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar las funcionalidades de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y las versiones de GPU de las plataformas de aprendizaje profundo. En la edición Linux, el aprendizaje profundo en GPU está habilitado en las DSVM de CentOS y Ubuntu. Puede implementar la edición de Ubuntu, CentOS o Windows 2016 de Data Science VM en una máquina virtual de Azure no basada en GPU. En este caso, todos los marcos de aprendizaje profundo se revertirán al modo CPU.
+Data Science Virtual Machine puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar las funcionalidades de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y las versiones de GPU de las plataformas de aprendizaje profundo. En la edición Linux, el aprendizaje profundo en GPU está habilitado en las DSVM de CentOS y Ubuntu. Puede implementar la edición de Ubuntu, CentOS o Windows 2016 de Data Science VM en una máquina virtual de Azure no basada en GPU. En este caso, todos los marcos de aprendizaje profundo se revertirán al modo CPU. Más información sobre los [marcos de aprendizaje profundo y de AI](dsvm-deep-learning-ai-frameworks.md).
+ 
+Más información sobre los [marcos de aprendizaje profundo y de AI](dsvm-deep-learning-ai-frameworks.md).
 
-## <a name="whats-included-in-the-data-science-vm"></a>¿Qué se incluye en la VM de ciencia de datos?
-La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de datos y aprendizaje profundo conocidas ya instaladas y configuradas. También incluye herramientas que facilitan el trabajo con varios productos de datos y análisis de Azure como Microsoft ML Server (R, Python) para la compilación de modelos predictivos o SQL Server 2017 para la exploración a gran escala de conjuntos de datos. Data Science VM incluye multitud de otras herramientas de la comunidad de código abierto y de Microsoft, así como código de ejemplo y cuadernos. En la tabla siguiente se detalla y compara los componentes principales incluidos en las ediciones de Windows y Linux de la máquina virtual de ciencia de datos.
+<a name="included"></a>
 
+## <a name="whats-included-on-dsvm"></a>¿Qué se incluye en DSVM?
+La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de datos y aprendizaje profundo conocidas ya instaladas y configuradas. También incluye herramientas que facilitan el trabajo con varios productos de datos y análisis de Azure como Microsoft ML Server (R, Python) para la compilación de modelos predictivos o SQL Server 2017 para la exploración a gran escala de conjuntos de datos. Data Science VM incluye multitud de otras herramientas de la comunidad de código abierto y de Microsoft, así como [código de ejemplo y cuadernos](dsvm-samples-and-walkthroughs.md). 
+
+Herramientas y plataformas:
++ [Lenguajes de programación admitidos](dsvm-languages.md)
+
++ [Plataformas de datos compatibles](dsvm-data-platforms.md)
+
++ [Herramientas de desarrollo e IDE](dsvm-tools-development.md)
+
++ [Marcos de Deep Learning y AI](dsvm-deep-learning-ai-frameworks.md)
+
++ [Herramientas de Machine Learning y ciencia de datos](dsvm-ml-data-science-tools.md)
+
++ [Herramientas de ingesta de datos](dsvm-tools-ingestion.md)
+
++ [Herramientas de visualización y exploración de datos](dsvm-tools-explore-and-visualize.md)
+
+En la tabla siguiente se detalla y compara los componentes principales incluidos en las ediciones de Windows y Linux de la máquina virtual de ciencia de datos.
 
 | **Herramienta**                                                           | **Edición de Windows** | **Edición de Linux** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
@@ -129,18 +151,16 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
-| **Plataforma de macrodatos (solo Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) Standalone local | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) local | N | Y |
-
-## <a name="get-started"></a>Primeros pasos
-
-### <a name="windows-data-science-vm"></a>Máquina virtual de ciencia de datos de Windows
-* Para más información sobre cómo crear una instancia de DSVM de Windows y utilizarla, consulte [Aprovisionamiento de Data Science Virtual Machine de Windows en Azure](provision-vm.md). Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en DSVM de Windows, consulte [Diez cosas que puede hacer en Data Science Virtual Machine](vm-do-ten-things.md).
-
-### <a name="linux-data-science-vm"></a>Data Science Virtual Machine de Linux
-* Para más información sobre cómo crear una instancia de DSVM de Ubuntu y utilizarla, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](dsvm-ubuntu-intro.md). Para más información sobre cómo crear una instancia de DSVM de CentOS y utilizarla, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure](linux-dsvm-intro.md).
-* Para ver un tutorial que muestra cómo llevar a cabo varias tareas de ciencia de datos comunes con la máquina virtual Linux, tanto con CentOS y con Ubuntu, consulte [Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía del desarrollador de R para Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+
+Obtenga más información en estos artículos:
+
++ Windows:
+  + [Configuración de una instancia de DSVM de Windows](provision-vm.md)
+  + [Diez cosas que puede hacer en Windows Data Science Virtual Machine](vm-do-ten-things.md)
+
++ Linux:
+  + [Configuración de una instancia de DSVM de Linux (Ubuntu)](dsvm-ubuntu-intro.md)
+  + [Configuración de una instancia de DSVM de Linux (CentOS)](linux-dsvm-intro.md)
+  + [Ciencia de datos en una DSVM de Linux](linux-dsvm-walkthrough.md)

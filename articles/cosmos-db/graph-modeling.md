@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: c6ae23efa90874bbefc2aff35f8798aa6c0da791
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503741"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624208"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -94,7 +94,7 @@ Los objetos de borde tienen una dirección predeterminada seguida de un recorrid
 
 De todas formas, realizar un recorrido en la dirección opuesta de una borde, utilizando la función `in()`, siempre tendrá como resultado una consulta entre particiones. Más información sobre la [creación de particiones de grafos](graph-partitioning.md). Si hay una necesidad de recorrer constantemente utilizando la función `in()`, se recomienda agregar bordes en ambas direcciones.
 
-Puede determinar la dirección de un borde mediante los predicados `.to()` o `.from()` para el paso de Gremlin `.addE()`. O mediante la [biblioteca de BulkExecutor para la API para Gremlin](bulk-executor-graph-dotnet.md).
+Puede determinar la dirección de un borde mediante los predicados `.to()` o `.from()` para el paso de Gremlin `.addE()`. También puede utilizar la [biblioteca Bulk Executor para Gremlin API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Objetos de borde tienen una dirección de forma predeterminada.

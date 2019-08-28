@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentación sobre soporte técnico de Azure
+summary: Describe cómo los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en Azure Portal.
+metadata:
+  title: Documentación sobre soporte técnico de Azure
+  description: Describe cómo los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en Azure Portal.
+  services: azure supportability
+  ms.service: azure-supportability
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: 
+  author: arob98
+  ms.author: angrobe
+  ms.date: 08/24/2019
+  ms.openlocfilehash: 4ee8de0f591618be7eb3a08c04f5820faeebaf4a
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052144"
+landingContent:
+- title: Crear una solicitud de soporte
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una solicitud de soporte técnico de Azure
+      url: how-to-create-azure-support-request.md
+  - linkListType: get-started
+    links:
+    - text: Creación de una solicitud de soporte técnico en Azure Portal
+      url: https://portal.azure.com/#create/Microsoft.Support
+- title: Aumento de las solicitudes de cuota
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Aumento del límite de máquinas virtuales de la serie vCPU
+      url: per-vm-quota-requests.md
+    - text: Aumento del límite de vCPU regionales totales
+      url: regional-quota-requests.md
+    - text: Aumento del límite de redes
+      url: networking-quota-requests.md
+- title: Solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Región o SKU no disponible
+      url: sku-series-unavailable.md

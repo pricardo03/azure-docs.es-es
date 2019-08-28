@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451506"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876308"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con RStudio Server
 
@@ -182,3 +182,6 @@ En este inicio rápido, ha aprendido a ejecutar un script de R con RStudio Serve
 
 > [!div class="nextstepaction"]
 >[Opciones de contexto de proceso para de ML Services en HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> En esta página se describen las características del software RStudio. Microsoft Azure HDInsight no está afiliado a RStudio, Inc.

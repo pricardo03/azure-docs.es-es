@@ -4,17 +4,17 @@ description: Este tutorial le guía por la configuración de la máquina de desa
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 08/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051823"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541906"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -126,26 +126,25 @@ La extensión Azure IoT Edge Tools proporciona plantillas de proyecto para tod
 3. En la ventana de configuración del nuevo proyecto, cambie el nombre del proyecto y de la solución por otro descriptivo como **CSharpTutorialApp**. Haga clic en **Crear** para crear el proyecto.
 
    ![Configuración de un nuevo proyecto de Azure IoT Edge](./media/tutorial-develop-for-windows/configure-project.png)
- 
 
-4. En la ventana del módulo y la aplicación de IoT Edge, configure el proyecto con los valores siguientes: 
+4. En la ventana Agregar módulo, configure el proyecto con los valores siguientes: 
 
    | Campo | Valor |
    | ----- | ----- |
-   | Seleccione una plantilla: | Seleccione **Módulo C#** . | 
-   | Nombre del proyecto de módulo | Acepte el valor predeterminado **IoTEdgeModule1**. | 
-   | Repositorio de imágenes de Docker | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/iotedgemodule1. |
+   | Plantilla de Visual Studio | Seleccione **Módulo C#** . | 
+   | Nombre de módulo | Acepte el valor predeterminado **IotEdgeModule1**. | 
+   | URL del repositorio | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/iotedgemodule1. |
 
-   ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-develop-for-windows/add-module-to-solution.png)
+      ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-5. Seleccione **Sí** para aplicar los cambios. 
+5. Para crear el módulo, seleccione **Agregar**. 
 
 Cuando el nuevo proyecto se cargue en la ventana de Visual Studio, dedique unos minutos a familiarizarse con los archivos que ha creado: 
 
 * Un proyecto de IoT Edge llamado **CSharpTutorialApp**.
-    * La carpeta **Modules** contiene punteros a los módulos incluidos en el proyecto. En este caso, debería ser solo IoTEdgeModule1. 
+    * La carpeta **Modules** contiene punteros a los módulos incluidos en el proyecto. En este caso, debería ser solo IotEdgeModule1. 
     * El archivo **deployment.template.json** es una plantilla para ayudarle a crear un manifiesto de implementación. Un *manifiesto de implementación* es un archivo que define exactamente qué módulos se desean implementar en un dispositivo, cómo se deben configurar y cómo se pueden comunicar tanto entre sí como con la nube. 
-* Un proyecto del módulo IoT Edge denominado **IoTEdgeModule1**.
+* Un proyecto del módulo IoT Edge denominado **IotEdgeModule1**.
     * El archivo **program.cs** contiene el código del módulo de C# predeterminado que se incluye con la plantilla de proyecto. El módulo predeterminado toma la entrada de un origen y lo pasa a la instancia de IoT Hub. 
     * El archivo **module.json** contiene detalles sobre el módulo, incluido el repositorio de imágenes completo, la versión de la imagen y el Dockerfile que se va a utilizar para cada plataforma admitida.
 
@@ -201,7 +200,7 @@ El código de C# de ejemplo que acompaña a la plantilla del proyecto usa la [cl
 
 7. Busque la propiedad **routes** de las propiedades deseadas de $edgeHub. 
 
-   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IoTEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo tempSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1. 
+   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IotEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo tempSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1. 
 
    ![Revisar las rutas de deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 

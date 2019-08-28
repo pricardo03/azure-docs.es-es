@@ -90,6 +90,10 @@
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Creación de una conexión privada dedicada (ExpressRoute)
           href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectividad de la nube pública
+      items:
+        - name: Conexión de Azure a nubes públicas
+          href: ../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Administración
       items:
         - name: Introducción a la supervisión de red

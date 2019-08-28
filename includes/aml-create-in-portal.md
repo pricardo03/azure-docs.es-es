@@ -8,27 +8,25 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 07/31/2019
-ms.openlocfilehash: e571c65e64fad73c646aa05366cab685aa745caa
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 08/14/2019
+ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968937"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534404"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. 
 
-1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso**.
+1. En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso**.
 
 1. Use la barra de búsqueda para encontrar el **área de trabajo de Machine Learning Service**.
 
 1. Seleccione **Área de trabajo de Azure Machine Learning Service**.
 
-1. En el panel **Área de trabajo del servicio ML**, seleccione **Crear** para comenzar.
+1. En el panel **Área de trabajo del servicio Machine Learning**, seleccione **Crear** para comenzar.
 
 1. Configure el área de trabajo nueva proporcionando el nombre del área de trabajo, la suscripción, el grupo de recursos y la ubicación.
-
-    ![Creación del espacio de trabajo](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
    Campo|DESCRIPCIÓN 
    ---|---
@@ -41,17 +39,5 @@ ms.locfileid: "68968937"
 
    El área de trabajo puede tardar unos momentos en crearse.
 
-   Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. También está presente en la sección de notificaciones. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
-
-   ![Estado de creación del área de trabajo](./media/aml-create-in-portal/notifications.png)
-
-1. Si va a usar una opción sin código del portal, como la interfaz visual o los experimentos automatizados de Machine Learning, ya está preparado. Si va a crear una [máquina virtual de Notebook](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure), también está preparado. 
-
-1. Si tiene previsto usar código en el entorno local que haga referencia a esta área de trabajo, seleccione **Descargar config.json** en la sección **Información general** del área de trabajo.  
-
-   ![Descargar config.json](./media/aml-create-in-portal/configure.png)
-   
-   Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una máquina virtual de Notebook, este archivo se agrega al directorio correcto de la máquina virtual.
-
-    
+   Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968924"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615248"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
@@ -48,11 +48,11 @@ Una vez escrito, el procedimiento almacenado debe registrarse con una colección
 
 ### <a id="create-an-item"></a>Creación de un elemento con el procedimiento almacenado
 
-Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento se inserta en el contenedor de Azure Cosmos DB y se devuelve un identificador para el elemento recién creado. La creación de un elemento es una operación asincrónica y depende de las funciones de devolución de llamada de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que la operación no se complete y otro para un valor devuelto; en este caso, el objeto creado. Dentro de la devolución de llamada, puede controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el sistema en tiempo de ejecución de Azure Cosmos DB producirá un error. 
+Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento se inserta en el contenedor de Azure Cosmos y se devuelve un identificador para el elemento recién creado. La creación de un elemento es una operación asincrónica y depende de las funciones de devolución de llamada de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que la operación no se complete y otro para un valor devuelto; en este caso, el objeto creado. Dentro de la devolución de llamada, puede controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el sistema en tiempo de ejecución de Azure Cosmos DB producirá un error. 
 
 El procedimiento almacenado también incluye un parámetro para establecer la descripción, que es un valor booleano. Cuando el parámetro se establece en true y falta la descripción, el procedimiento almacenado iniciará una excepción. En caso contrario, el resto del procedimiento almacenado continúa ejecutándose.
 
-El siguiente procedimiento almacenado de ejemplo toma un nuevo elemento de Azure Cosmos DB como entrada, lo inserta en el contenedor de Azure Cosmos DB y devuelve el identificador del elemento recién creado. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md).
+El siguiente procedimiento almacenado de ejemplo toma un nuevo elemento de Azure Cosmos como entrada, lo inserta en el contenedor de Azure Cosmos y devuelve el identificador del elemento recién creado. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md).
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transacciones en procedimientos almacenados
 
-Puede implementar las transacciones en los elementos dentro de un contenedor mediante el uso de un procedimiento almacenado. En el ejemplo siguiente se utilizan las transacciones de la aplicación de un juego de fútbol de fantasía para intercambiar jugadores entre dos equipos en una sola operación. El procedimiento almacenado intenta leer los dos elementos de Azure Cosmos DB; donde cada uno de ellos corresponde al identificador del jugador que se ha pasado como un argumento. Si se encuentran ambos jugadores, el procedimiento almacenado actualiza los elementos intercambiando sus equipos. Si se produce cualquier error durante el proceso, el procedimiento almacenado lanza una excepción de JavaScript que de forma implícita cancela la transacción.
+Puede implementar las transacciones en los elementos dentro de un contenedor mediante el uso de un procedimiento almacenado. En el ejemplo siguiente se utilizan las transacciones de la aplicación de un juego de fútbol de fantasía para intercambiar jugadores entre dos equipos en una sola operación. El procedimiento almacenado intenta leer los dos elementos de Azure Cosmos, donde cada uno de ellos corresponde al identificador del jugador que se ha pasado como un argumento. Si se encuentran ambos jugadores, el procedimiento almacenado actualiza los elementos intercambiando sus equipos. Si se produce cualquier error durante el proceso, el procedimiento almacenado lanza una excepción de JavaScript que de forma implícita cancela la transacción.
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB admite desencadenadores previos y posteriores. Los desencadenado
 
 ### <a id="pre-triggers"></a>Desencadenadores previos
 
-En el ejemplo siguiente se muestra cómo se puede utilizar un desencadenador previo para validar las propiedades de un elemento de Azure Cosmos DB que se está creando. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md) para agregar una propiedad de marca de tiempo a un elemento recién agregado, en caso de que no tenga ninguna.
+En el ejemplo siguiente se muestra cómo se puede utilizar un desencadenador previo para validar las propiedades de un elemento de Azure Cosmos que se está creando. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md) para agregar una propiedad de marca de tiempo a un elemento recién agregado, en caso de que no tenga ninguna.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Los desencadenadores previos no pueden tener parámetros de entrada. El objeto solicitado en el desencadenador se utiliza para manipular el mensaje de solicitud asociado con la operación. En el ejemplo anterior, el desencadenador previo se ejecuta al crear un elemento de Azure Cosmos DB, y el cuerpo del mensaje de la solicitud contiene el elemento que se creará en formato JSON.
+Los desencadenadores previos no pueden tener parámetros de entrada. El objeto solicitado en el desencadenador se utiliza para manipular el mensaje de solicitud asociado con la operación. En el ejemplo anterior, el desencadenador previo se ejecuta al crear un elemento de Azure Cosmos, y el cuerpo del mensaje de la solicitud contiene el elemento que se creará en formato JSON.
 
 Cuando se registran los desencadenadores, puede especificar las operaciones que se pueden ejecutar con ellos. Este desencadenador se debería crear con un valor `TriggerOperation` de `TriggerOperation.Create`, lo que significa que no se permite usar el desencadenador en una operación de reemplazo, como se muestra en el código siguiente.
 

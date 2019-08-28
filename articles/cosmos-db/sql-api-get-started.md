@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598521"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876439"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
@@ -253,7 +253,7 @@ Se puede crear una base de datos mediante la función [**CreateDatabaseIfNotExis
 
 Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha creado correctamente una base de datos de Azure Cosmos DB.  
+Felicidades. Ha creado correctamente una base de datos de Azure Cosmos.  
 
 ## <a id="CreateColl"></a>Paso 5: Crear un contenedor
 > [!WARNING]
@@ -283,10 +283,10 @@ Se puede crear un contenedor mediante las funciones [**CreateContainerIfNotExist
 
    Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha creado correctamente un contenedor de Azure Cosmos DB.  
+Felicidades. Ha creado correctamente un contenedor de Azure Cosmos.  
 
 ## <a id="CreateDoc"></a>Paso 6: Agregar elementos al contenedor
-Para crear un elemento se puede usar la función [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la clase **CosmosContainer**. Cuando se usa SQL API, los elementos se proyectan como documentos, que son contenido JSON (arbitrario) definido por el usuario. Ya puede insertar un elemento en el contenedor de Azure Cosmos DB.
+Para crear un elemento se puede usar la función [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la clase **CosmosContainer**. Cuando se usa SQL API, los elementos se proyectan como documentos, que son contenido JSON (arbitrario) definido por el usuario. Ya puede insertar un elemento en el contenedor de Azure Cosmos.
 
 En primer lugar, vamos a crear una clase denominada **Family** que representará los objetos almacenados en Azure Cosmos DB en este ejemplo. También se crearán las subclases **Parent**, **Child**, **Pet**, **Address** que se usan dentro de **Family**. Tenga en cuenta que el elemento deben tener una propiedad **Id** serializada como **id** en JSON.
 
@@ -320,10 +320,10 @@ Antes de crear un elemento, el código se asegura de que no haya uno con el mism
 
 Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha creado correctamente dos elementos de Azure Cosmos DB.  
+Felicidades. Ha creado correctamente dos elementos de Azure Cosmos.  
 
 ## <a id="Query"></a>Paso 7: Consulta de los recursos de Azure Cosmos DB
-Azure Cosmos DB admite [consultas](sql-api-sql-query.md) enriquecidas en los documentos JSON que se almacenan en las colecciones. El ejemplo de código siguiente muestra cómo ejecutar una consulta en los elementos que se insertaron en el paso anterior.
+Azure Cosmos DB admite [consultas](sql-api-sql-query.md) enriquecidas en los documentos JSON que se almacenan en los contenedores. El ejemplo de código siguiente muestra cómo ejecutar una consulta en los elementos que se insertaron en el paso anterior.
 
 1. Copie y pegue el método **QueryItemsAsync** debajo del método **AddItemsToContainerAsync**.
 
@@ -347,7 +347,7 @@ Azure Cosmos DB admite [consultas](sql-api-sql-query.md) enriquecidas en los doc
 
 Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha realizado correctamente una consulta en un contenedor de Azure Cosmos DB.
+Felicidades. Ha realizado correctamente una consulta en un contenedor de Azure Cosmos.
 
 ## <a id="ReplaceItem"></a>Paso 8: Sustitución de un elemento JSON
 Ahora, se va a actualizar un elemento en Azure Cosmos DB.
@@ -375,7 +375,7 @@ Ahora, se va a actualizar un elemento en Azure Cosmos DB.
 
    Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha sustituido correctamente un elemento de Azure Cosmos DB.
+Felicidades. Ha sustituido correctamente un elemento de Azure Cosmos.
 
 ## <a id="DeleteDocument"></a>Paso 9: Eliminar elemento
 Ahora, se va a eliminar un elemento de Azure Cosmos DB.
@@ -404,7 +404,7 @@ Ahora, se va a eliminar un elemento de Azure Cosmos DB.
 
 Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha eliminado correctamente un elemento de Azure Cosmos DB.
+Felicidades. Ha eliminado correctamente un elemento de Azure Cosmos.
 
 ## <a id="DeleteDatabase"></a>Paso 10: Eliminación de la base de datos
 Ahora se eliminará la base de datos. La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (contenedores, elementos y cualquier procedimiento almacenado, funciones definidas por el usuario y desencadenadores). También se eliminará la instancia de **CosmosClient**.
@@ -419,7 +419,7 @@ Ahora se eliminará la base de datos. La eliminación de la base de datos creada
 
 Presione **F5** para ejecutar la aplicación.
 
-Felicidades. Ha eliminado correctamente una base de datos de Azure Cosmos DB.
+Felicidades. Ha eliminado correctamente una base de datos de Azure Cosmos.
 
 ## <a id="Run"></a>Paso 11: Ejecutar la aplicación de consola de C#
 Presione F5 en Visual Studio para compilar y ejecutar la aplicación en modo de depuración.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 7db14f6406223486ea0efb80d3d1cfcd0351f414
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037232"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574273"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Procedimiento para configurar la hora de inicio del procesador de fuente de cambios
 
@@ -51,8 +51,7 @@ El procesador de fuente de cambios se inicializará y comenzará a leer los camb
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
+Puede obtener más información sobre el procesador de la fuente de cambios en los siguientes artículos:
 
-* [Introducción a la fuente de cambios](change-feed.md)
-* [Maneras de leer la fuente de cambios](read-change-feed.md)
-* [Usar el procesador de fuente de cambios](change-feed-processor.md)
+* [Introducción a la fuente de cambios](change-feed-processor.md)
+* [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)

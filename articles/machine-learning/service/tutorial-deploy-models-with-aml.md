@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359849"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534822"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances
 
@@ -38,10 +38,10 @@ Container Instances es una excelente solución para probar y conocer el flujo de
 > El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.41.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Vaya a [Establecimiento del entorno de desarrollo](#start) para leer los pasos del cuaderno.  
 
-Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).   A continuación, ejecute el cuaderno **tutorials/img-clasificación-part2-deploy.ipynb** con el mismo servidor del cuaderno.
+Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).   A continuación, abra el cuaderno **tutorials/img-clasificación-part2-deploy.ipynb** con el mismo servidor de cuadernos.
 
+Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere usarlo en su propio [entorno local](how-to-configure-environment.md#local).  Asegúrese de que ha instalado `matplotlib` y `scikit-learn` en su entorno. 
 
 ## <a name="start"></a>Configuración del entorno
 

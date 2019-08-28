@@ -5,23 +5,23 @@ description: Aprenda a entrenar e implementar un modelo de clasificación con ap
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
-ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/14/2019
+ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990073"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534391"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Tutorial: Uso del aprendizaje automático automatizado para entrenar e implementar su primer modelo de clasificación (versión preliminar)
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado
 
-En este tutorial, aprenderá a crear su primer experimento de aprendizaje automático automatizado en Azure Portal. En este ejemplo se crea un modelo de clasificación para predecir si un cliente suscribirá un depósito a plazo con el banco.
+En este tutorial, aprenderá a crear su primer experimento de aprendizaje automático automatizado en Azure Portal (versión preliminar) sin escribir ni una línea de código. En este ejemplo se crea un modelo de clasificación para predecir si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
-A través de las funcionalidades de aprendizaje automático automatizado del servicio y Azure Portal, puede empezar el proceso de aprendizaje automático automatizado. La selección de algoritmos y el ajuste de hiperparámetros se hacen automáticamente. La técnica del aprendizaje automático automatizado recorre en iteración muchas combinaciones de algoritmos e hiperparámetros hasta que encuentra el mejor modelo según su criterio, y todo ello sin que tenga que escribir ninguna línea de código.
+Mediante las funcionalidades de aprendizaje automático automatizado de Azure Machine Learning Service y Azure Portal, puede empezar el proceso de aprendizaje automático automatizado. La selección de algoritmos y el ajuste de hiperparámetros se hacen automáticamente. La técnica de ML automatizado recorre en iteración muchas combinaciones de algoritmos e hiperparámetros hasta que encuentra el mejor modelo según su criterio.
 
 En este tutorial, ha aprendido las tareas siguientes:
 
@@ -36,7 +36,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 
-* El archivo de datos **bankmarketing_train.csv**. [Descárguelo](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Descargue el archivo de datos [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv). La columna **y** indica si un cliente se ha suscrito a un depósito a plazo fijo, que se identifica más adelante como la columna de destino para las predicciones de este tutorial. 
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -44,11 +44,14 @@ En este tutorial, ha aprendido las tareas siguientes:
 
 ## <a name="create-an-experiment"></a>Creación de un experimento
 
+Estos pasos le guiarán en la configuración de los experimentos desde la selección de los datos para elegir la métrica principal y el tipo de modelo. 
+
 1. Vaya al panel izquierdo del área de trabajo. Seleccione **Aprendizaje automático automatizado**  en la sección **Creación (versión preliminar)** .
+Verá la pantalla **Welcome to Automated Machine Learning** (Bienvenido a Machine Learning automatizado), ya que este es el primer experimento con Machine Learning automatizado.
 
     ![Panel de navegación de Azure Portal](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-    Como este es el primer experimento con Machine Learning automatizado, verá la pantalla **Welcome to Automated Machine Learning** (Bienvenido a Machine Learning automatizado). 
+
 
 1. Seleccione **Create Experiment** (Crear experimento). Luego escriba **my-1st-automl-experiment** como nombre del experimento.
 
@@ -64,7 +67,8 @@ En este tutorial, ha aprendido las tareas siguientes:
 
     Una vez finalizada la creación, seleccione el proceso nuevo en la lista desplegable y, después, seleccione **Siguiente**.
 
-1. En este tutorial, se usa la cuenta de almacenamiento y el contenedor predeterminados que se han creado con el nuevo proceso. Se rellenan de manera automática en el formulario.
+    >[!NOTE]
+    >En este tutorial, se usa la cuenta de almacenamiento y el contenedor predeterminados que se han creado con el nuevo proceso. Se rellenan de manera automática en el formulario.
 
 1. Seleccione **Cargar** y elija el archivo **bankmarketing_train.csv** en el equipo local para cargarlo en el contenedor predeterminado. La versión preliminar pública solo admite cargas de archivos locales y cuentas de Azure Blob Storage. Cuando se haya completado la carga, seleccione el archivo en la lista. 
 
@@ -116,7 +120,9 @@ A medida que el experimento progresa, la pantalla **Run Detail** (Detalle de eje
 
 ## <a name="deploy-the-model"></a>Implementación del modelo
 
-Para este experimento, **VotingEnsemble** se considera el mejor modelo según la métrica **AUC_weighted**. Con el aprendizaje automático automatizado en Azure Portal, se puede implementar este modelo como servicio web para realizar predicciones con datos nuevos. 
+Con el aprendizaje automático automatizado en Azure Portal, se puede implementar este modelo como un servicio web para realizar predicciones con datos nuevos e identificar posibles áreas de oportunidad. En este experimento, la implementación significa que la institución financiera tiene ahora una solución iterativa y escalable para identificar posibles clientes de depósitos a plazo fijo.
+
+En el contexto de este experimento, **VotingEnsemble** se considera el mejor modelo, según la métrica **AUC_weighted**.  Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse.
 
 1. En la página **Run Detail** (Detalle de ejecución), seleccione el botón **Deploy Best Model** (Implementar el mejor modelo).
 
@@ -129,13 +135,13 @@ Para este experimento, **VotingEnsemble** se considera el mejor modelo según la
     Scoring script (Script de puntuación)| Autogenerate (Generar automáticamente)
     Environment script (Script del entorno)| Autogenerate (Generar automáticamente)
     
-1. Seleccione **Implementar**. La implementación tarda unos 20 minutos en completarse.
+1. Seleccione **Implementar**.
 
     El siguiente mensaje aparece cuando la implementación finaliza correctamente:
 
     ![Implementación completada](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    Eso es todo. Tiene un servicio web operativo para generar predicciones.
+    Ya tiene un servicio web operativo para generar predicciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -159,7 +165,10 @@ Elimine solo la instancia de implementación de Azure Portal, si desea mantener 
 
 En este tutorial de aprendizaje automático automatizado, ha usado Azure Portal para crear e implementar un modelo de clasificación. Para más información y ver los pasos siguientes, consulte estos artículos:
 
-+ Obtenga información sobre cómo [consumir un servicio web](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Consumo de un servicio web](how-to-consume-web-service.md)
+
+
 + Más información acerca del [preprocesamiento](how-to-create-portal-experiments.md#preprocess).
 + Más información acerca de la [generación de perfiles de datos](how-to-create-portal-experiments.md#profile).
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).

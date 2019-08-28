@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 59e47c448f58235114c8fb3147637b77dd5fcf23
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226062"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515925"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001
 
@@ -116,15 +116,15 @@ Conocer dónde los recursos de Azure pueden tener configuraciones criptográfica
 - \[Versión preliminar\]: Auditoría del acceso solo mediante HTTPS para una aplicación web
 - \[Versión preliminar\]: Auditoría del acceso solo mediante HTTPS para una aplicación de API
 - \[Versión preliminar\]: Auditoría de la falta del cifrado de blob de las cuentas de almacenamiento
-- \[Versión preliminar\]: La implementación de la extensión de la máquina virtual para auditar la máquina virtual Windows no debería almacenar las contraseñas mediante el cifrado reversible.
-- \[Versión preliminar\]: La auditoría de la máquina virtual Windows no debería almacenar las contraseñas mediante el cifrado reversible.
-- \[Versión preliminar\]: Supervisión de la base de datos SQL sin cifrar en Azure Security Center
+- \[Versión preliminar\]: La implementación de la extensión de la máquina virtual para auditar la máquina virtual Windows no debería almacenar las contraseñas mediante el cifrado reversible
+- \[Versión preliminar\]: La auditoría de la máquina virtual Windows no debería almacenar las contraseñas mediante el cifrado reversible
 - \[Versión preliminar\]: Supervisión de discos de máquinas virtuales sin cifrar en Azure Security Center
 - Auditar la habilitación del cifrado de variables de cuentas de Automation
 - Auditar la habilitación solo de conexiones seguras a Redis Cache
 - Auditar la transferencia segura a cuentas de almacenamiento
 - Auditar la configuración de la propiedad ClusterProtectionLevel como EncryptAndSign en Service Fabric
 - Auditar el estado del cifrado de datos transparente
+- Se debe permitir el cifrado de datos transparente en bases de datos SQL
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 Registro de eventos
 
@@ -135,9 +135,9 @@ Los registros de diagnóstico proporcionan conclusiones detalladas sobre las ope
 - \[Versión preliminar\]: Auditoría de implementación de Dependency Agent en VMSS: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Supervisión de la base de datos SQL no auditada en Azure Security Center
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Registros de administrador y operador
 
@@ -147,9 +147,9 @@ Este plano técnico le permite garantizar que los eventos del sistema se registr
 - \[Versión preliminar\]: Auditoría de implementación de Dependency Agent en VMSS: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Supervisión de la base de datos SQL no auditada en Azure Security Center
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 Sincronización del reloj
 
@@ -159,9 +159,9 @@ Este plano técnico le permite garantizar que los eventos del sistema se registr
 - \[Versión preliminar\]: Auditoría de implementación de Dependency Agent en VMSS: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Supervisión de la base de datos SQL no auditada en Azure Security Center
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Instalación de software en sistemas operativos
 

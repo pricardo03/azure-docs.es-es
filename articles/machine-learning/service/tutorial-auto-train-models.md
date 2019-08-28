@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990476"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534831"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -42,36 +42,11 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Vaya a [Configuración del entorno de desarrollo](#start) para leer los pasos del cuaderno, o utilice las siguientes instrucciones para obtener el cuaderno y ejecutarlo en Azure Notebooks o en su propio servidor de cuadernos. Para ejecutar el cuaderno, necesita:
+* Complete la parte uno, el [tutorial sobre la preparación de datos](tutorial-data-prep.md).
 
-* [Tutorial sobre la ejecución de la preparación de datos](tutorial-data-prep.md).
-* Un servidor de cuadernos de Python 3.6 con lo siguiente instalado:
-    * El SDK de Azure Machine Learning para Python con los extras `automl` y `notebooks`
-    * `matplotlib`
-* El cuaderno del tutorial
-* Un área de trabajo de Machine Learning
-* El archivo de configuración para el área de trabajo en el mismo directorio que el cuaderno
+* Después de completar la parte uno, abra el cuaderno **tutorials/regression-part2-automated-ml.ipynb** con el mismo servidor de cuadernos.
 
-Obtenga todos estos requisitos previos de cualquiera de las siguientes secciones.
-
-* Uso de un [servidor de cuadernos en la nube en el área de trabajo](#azure)
-* Uso del [propio servidor de Notebook](#server)
-
-### <a name="azure"></a>Uso de un servidor de cuadernos en la nube en el área de trabajo
-
-Es fácil empezar con su propio servidor de cuadernos basado en la nube. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado para el usuario una vez creado este recurso en la nube.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Después de iniciar la página web del cuaderno, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb**.
-
-### <a name="server"></a>Uso del propio servidor de Jupyter Notebook
-
-Siga estos pasos para crear un servidor de Jupyter Notebook local en su equipo.  Asegúrese de que instalar `matplotlib` y `automl` y `notebooks` adicionales en su entorno.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb**.
+Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere usarlo en su propio [entorno local](how-to-configure-environment.md#local).  Asegúrese de haber instalado `matplotlib` y los extras `automl` y `notebooks` del SDK de Azure Machine Learning.
 
 ## <a name="start"></a>Configuración de su entorno de desarrollo
 

@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479430"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575183"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas
 
-Cree rápidamente una instancia de Azure SQL Data Warehouse en Azure Portal, y realice consultas en ella.
+Cree rápidamente una instancia de Azure SQL Data Warehouse en Azure Portal, y realice consultas en él.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -37,9 +37,9 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-and-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
+Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-and-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
-Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los datos de ejemplo AdventureWorksDW. 
+Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga los datos de ejemplo AdventureWorksDW. 
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
@@ -207,4 +207,4 @@ Siga estos pasos para limpiar los recursos que ya no necesite.
 Ahora ha creado un almacenamiento de datos, ha creado una regla de firewall, la ha conectado a su almacén de datos y ha ejecutado algunas consultas. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 
 > [!div class="nextstepaction"]
-> [Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

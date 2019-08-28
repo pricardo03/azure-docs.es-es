@@ -1,110 +1,74 @@
 ---
-title: 'Configuración de la verificación en dos pasos: Azure Active Directory | Microsoft Docs'
-description: Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar.
+title: 'Información general de la configuración de los métodos de verificación en dos fases: Azure Active Directory | Microsoft Docs'
+description: Información general sobre cómo configurar los métodos de verificación en dos fases.
 services: active-directory
-keywords: cómo usar azure directory, active directory en la nube, tutorial de active directory
 author: eross-msft
 manager: daveba
-ms.reviewer: richagi
-ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 05/15/2017
+ms.workload: identity
+ms.topic: overview
+ms.date: 08/12/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 83bba343ac73fd0df575ae1e8a83c589a0bc15ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949904"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616160"
 ---
-# <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
-La comprobación en dos pasos es un paso adicional de seguridad que ayuda a proteger su cuenta para que el acceso para las demás personas sea más complicado. Si está leyendo este artículo, probablemente tiene un correo electrónico del administrador del trabajo o la escuela sobre Multi-Factor Authentication. O quizás ha intentado iniciar sesión y tiene un mensaje pidiéndole que configure la comprobación de seguridad adicional. Si es así, **no puede iniciar sesión hasta que haya completado el proceso de inscripción automática**.
+# <a name="set-up-your-two-factor-verification-methods-overview"></a>Información general sobre la configuración de los métodos de verificación en dos fases
 
-Este artículo le ayudará a configurar su **cuenta profesional o educativa**. Si desea habilitar la comprobación en dos pasos para su propia cuenta personal de Microsoft, consulte [Acerca de la comprobación en dos pasos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+La organización ha activado la verificación en dos fases, lo cual significa que el inicio de sesión de la cuenta profesional o educativa requiere ahora una combinación del nombre de usuario, la contraseña y un dispositivo móvil o un teléfono. La organización ha activado esta verificación adicional porque es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. La verificación en dos fases ayuda a impedir que hackers malintencionados finjan ser usted, ya que, incluso si conocen su contraseña, lo más probable es que no tengan también su dispositivo.
 
-## <a name="set-up-your-account"></a>Configuración de la cuenta
+>[!Important]
+>Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-Cuando el soporte técnico de la compañía requiera que empiece a usar la verificación de dos pasos, aparecerá una pantalla con el mensaje **El administrador requiere que configure esta cuenta para realizar una comprobación de seguridad adicional**:
+## <a name="who-decides-if-you-use-this-feature"></a>¿Quién decide si usa esta característica?
 
-![Configuración](./media/multi-factor-authentication-end-user-first-time/first.png)
+En función del tipo de cuenta, la organización puede decidir que se debe usar una comprobación en dos fases o el usuario puede decidir por sí mismo si se usa o no.
 
-Para empezar, seleccione **Configurar ahora**.
+- **Cuenta profesional o educativa.** Si se usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la organización es la que decide si se debe usar una comprobación en dos fases, junto con los métodos de comprobación concretos. Dado que su organización ha decidido que debe usar esta característica, no hay ninguna manera de desactivarla individualmente.
 
-Si no ve una pantalla similar a la siguiente al iniciar sesión, siga las instrucciones especificadas en [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) para buscar la página de configuración donde puede administrar las opciones de verificación.
+- **Cuenta personal de Microsoft.** Se puede elegir configurar una comprobación en dos fases para las cuentas personales de Microsoft (por ejemplo, alain@outlook.com). Si tiene problemas con la verificación en dos fases y su cuenta personal de Microsoft, consulte [Activar o desactivar la verificación en dos pasos para la cuenta de Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Dado que usted decide si usar esta característica, puede activarla y desactivarla siempre que lo desee.
 
-## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decisión de cómo desea verificar los inicios de sesión
+## <a name="access-the-additional-security-verification-page"></a>Acceso a la página Comprobación de seguridad adicional
 
-La primera pregunta en el proceso de inscripción es cómo desea ponerse en contacto con nosotros. Eche un vistazo a las opciones de la tabla y utilice los vínculos para ir a los pasos de configuración para cada método.
+Una vez que la organización se active y configure la verificación en dos fases, recibirá un mensaje que le indicará que proporcione más información para ayudar a mantener su cuenta segura.
 
-| Método de contacto | DESCRIPCIÓN |
-| --- | --- |
-| [Aplicación móvil](#use-a-mobile-app-as-the-contact-method) |- **Recibir notificaciones de comprobación.** Esta opción inserta una notificación en la aplicación del autenticador en su smartphone o tableta. Vea la notificación y, si es legítima, seleccione **Autenticar** en la aplicación. Puede que su trabajo o escuela requiera que escriba un PIN para autenticarse.<br>- **Usar el código de verificación.** En este modo, la aplicación del autenticador genera un código de verificación que se actualiza cada 30 segundos. Escriba el código de verificación más reciente en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
-| [Llamada de teléfono móvil o texto](#use-your-mobile-phone-as-the-contact-method) |- **Llamada de teléfono** realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.<br>- **Mensaje de texto** envía un mensaje de texto que contiene un código de verificación. Según la solicitud en el texto, responda al mensaje de texto o escriba el código de comprobación proporcionado en la interfaz de inicio de sesión. |
-| [Llamada de teléfono de la oficina](#use-your-office-phone-as-the-contact-method) |Realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse. |
+![Solicitud de más información necesaria](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
 
-## <a name="use-a-mobile-app-as-the-contact-method"></a>Usar una aplicación móvil como método de contacto
-Con este método se requiere que instale una aplicación de autenticador en el teléfono o tableta. Los pasos de este artículo se basan en la aplicación Microsoft Authenticator, que está disponible para [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+### <a name="to-access-the-additional-security-verification-page"></a>Para acceder a la página Comprobación de seguridad adicional
 
->[!NOTE]
->No es necesario que use la aplicación Microsoft Authenticator. Si ya está usando otra aplicación de autenticador, puede continuar usándola.
+1. Seleccione **Siguiente** en el mensaje de **Más información necesaria**.
 
-1. Seleccione **Aplicación móvil** en la lista desplegable.
-2. Seleccione **Recibir notificaciones de comprobación** o **Usar código de verificación** y, luego, seleccione **Configurar**.
+    Aparece la página **Comprobación de seguridad adicional**.
 
-   ![Pantalla Comprobación de seguridad adicional](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+2. En la página **Comprobación de seguridad adicional**, debe decidir qué método de verificación en dos fases se va a usar para verificar que es quien pretende ser, después de iniciar sesión en su cuenta profesional o educativa. Puede seleccionar:
 
-3. En el teléfono o tableta, abra la aplicación y seleccione **+** para agregar una cuenta. (En dispositivos Android, seleccione los tres puntos y, luego **Agregar cuenta**).
-4. Especifique que quiere agregar una cuenta profesional o educativa. Se abre el analizador de código QR en su teléfono. Si la cámara no funciona correctamente, puede seleccionar escribir la información de su compañía manualmente. Para más información, consulte [Incorporación manual de una cuenta](#add-an-account-manually).  
-5. Digitalice la imagen de código QR que apareció con la pantalla para configurar la aplicación móvil.  Seleccione **Listo** para cerrar la pantalla de código QR.  
-
-   ![Pantalla de código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
-
-6. Cuando termine la activación por teléfono, seleccione **Contact me**(Contacto).  Con este paso se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.  
-7. Si su empresa requiere un PIN para aprobar la comprobación de inicio de sesión, escríbalo.
-
-   ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
-
-8. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
-9. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación móvil. Especifique el país o región en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país o región. Seleccione **Next** (Siguiente).
-10. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
-11. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, [ayuda con contraseñas de aplicación].
-12. Haga clic en **Done**(Listo).
-
-### <a name="add-an-account-manually"></a>Incorporación manual de una cuenta
-Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usar el lector QR, siga estos pasos.
-
-1. Seleccione el botón **Especificar cuenta manualmente** .  
-2. Especifique el código y la URL que se ofrece en la misma página que le muestra el código de barras. Esta información aparece en los cuadros **Código** y **Dirección URL** en la aplicación móvil.
-
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
-3. Cuando termine la activación, seleccione **Contact me**(Contacto). Con este paso se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.
-
-## <a name="use-your-mobile-phone-as-the-contact-method"></a>Usar el teléfono móvil como método de contacto
-1. Seleccione **Teléfono de autenticación** en la lista desplegable.  
-
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Seleccione el país o región en la lista desplegable y escriba su número de teléfono móvil.
-3. Seleccione el modo que desea usar con su teléfono móvil: texto o llamada.
-4. Seleccione **Contactar** para comprobar el número de teléfono. Según el modo seleccionado, le escribiremos o le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
-5. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
-6. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, [ayuda con contraseñas de aplicación].
-7. Haga clic en **Done**(Listo).
-
-## <a name="use-your-office-phone-as-the-contact-method"></a>Usar el teléfono de la oficina como método de contacto
-1. Seleccione **Teléfono de la oficina** en la lista desplegable  
-
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. El cuadro de número de teléfono se rellena automáticamente con la información de contacto de su empresa. Si el falta el número o es incorrecto, consulte al administrador para realizar cambios.
-3. Seleccione **Contactar** para comprobar el número de teléfono y le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
-4. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
-5. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, consulte [¿Cuáles son las contraseñas de aplicación?](multi-factor-authentication-end-user-app-passwords.md)
-6. Haga clic en **Done**(Listo).
+    | Método de contacto | DESCRIPCIÓN |
+    | --- | --- |
+    | Aplicación móvil | <ul><li>**Recibir notificaciones de comprobación.** Esta opción inserta una notificación en la aplicación del autenticador en su smartphone o tableta. Vea la notificación y, si es legítima, seleccione **Autenticar** en la aplicación. Puede que su trabajo o escuela requiera que escriba un PIN para autenticarse.</li><li>**Usar el código de verificación.** En este modo, la aplicación del autenticador genera un código de verificación que se actualiza cada 30 segundos. Escriba el código de verificación más reciente en la pantalla de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
+    | Teléfono de autenticación | <ul><li>**Llamada de teléfono** realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa la tecla de almohadilla (#) en el teclado del teléfono para autenticarse.</li><li>**Mensaje de texto** envía un mensaje de texto que contiene un código de verificación. Según la solicitud en el texto, responda al mensaje de texto o escriba el código de comprobación proporcionado en la interfaz de inicio de sesión.</li></ul> |
+    | Teléfono del trabajo | Realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa la tecla de almohadilla (#) en el teclado del teléfono para autenticarse. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Cambiar las opciones preferidas y [administrar la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
-* Configure las [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones de dispositivos nativos que no admiten la comprobación en dos pasos.
-* Consulte la [aplicación Microsoft Authenticator](user-help-auth-app-download-install.md) para una autenticación segura rápida incluso cuando no tiene el servicio de celda.
+
+Después de acceder a la página de **Comprobación de seguridad adicional**, debe seleccionar y configurar el método de verificación en dos fases:
+
+- [Configuración de un dispositivo móvil como método de comprobación](multi-factor-authentication-setup-phone-number.md)
+
+- [Configuración de un teléfono como método de comprobación](multi-factor-authentication-setup-office-phone.md)
+
+- [Configuración de la aplicación Microsoft Authenticator como método de comprobación](multi-factor-authentication-setup-auth-app.md)
+
+## <a name="related-resources"></a>Recursos relacionados
+
+- [Administración de la configuración del método de verificación en dos fases](multi-factor-authentication-end-user-manage-settings.md)
+
+- [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
+
+- [Inicio de sesión con la verificación en dos fases](multi-factor-authentication-end-user-signin.md)
+
+- [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md) 

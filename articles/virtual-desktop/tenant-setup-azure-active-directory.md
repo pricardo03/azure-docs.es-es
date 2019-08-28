@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014088"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516186"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop (versión preliminar)
 
@@ -34,7 +34,7 @@ Esto es lo que necesita para configurar el inquilino de Windows Virtual Desktop:
    * La cuenta de administrador debe ser una cuenta profesional o educativa.
 * Una suscripción de Azure.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Conceder permisos de Azure Active Directory en el servicio Windows Virtual Desktop (versión preliminar)
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>Concesión de permisos para Windows Virtual Desktop
 
 Si ya ha concedido permisos a Windows Virtual Desktop para esta instancia de Azure Active Directory, omita esta sección.
 
@@ -62,7 +62,7 @@ Para conceder los permisos de servicio:
 6. Inicie sesión en la página de consentimiento de Windows Virtual Desktop como administrador global, como hizo en el paso 2 anterior.
 7. Seleccione **Aceptar**.
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory
+## <a name="assign-the-tenantcreator-application-role"></a>Asignación del rol de aplicación TenantCreator
 
 Asignar a un usuario de Azure Active Directory el rol de aplicación TenantCreator permite a ese usuario crear un inquilino de Windows Virtual Desktop asociado con la instancia de Azure Active Directory. Deberá usar su cuenta de administrador global para asignar el rol TenantCreator.
 

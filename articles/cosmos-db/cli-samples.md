@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: a6348024d4e84c27610f1294f916cca9a851b6b9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d7ce5e2c12feeee770de8acfd5df81d340e0a7d0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034206"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615564"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Ejemplos de la CLI de Azure para Azure Cosmos DB
 
@@ -28,7 +28,7 @@ En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Az
 | [Creación de una cuenta de Azure Cosmos DB mediante Table API](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una única cuenta, base de datos y tabla de Azure Cosmos DB. |
 |**Escalado de Azure Cosmos DB**||
 | [Escalado del rendimiento del contenedor](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cambia el rendimiento aprovisionada en un contenedor.|
-| [Replicación de la cuenta de base de datos de Azure Cosmos DB en varias regiones y configuración de prioridades de conmutación por error](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replicación global de datos de la cuenta en varias regiones con una prioridad específica de conmutación por error.|
+| [Replicación de la cuenta de base de datos de Azure Cosmos en varias regiones y configuración de prioridades de conmutación por error](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replicación global de datos de la cuenta en varias regiones con una prioridad específica de conmutación por error.|
 |**Protección de Azure Cosmos DB**||
 | [Obtención de las claves de la cuenta](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtención de las claves de escritura maestras primaria y secundaria y de las claves de solo lectura primaria y secundaria de la cuenta.|
 | [Obtención de la cadena de conexión para la cuenta de Cosmos configurada con la API de Azure Cosmos DB para MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtención de la cadena de conexión para conectar la aplicación de MongoDB a su cuenta de Azure Cosmos DB.|
@@ -37,5 +37,5 @@ En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Az
 |**Alta disponibilidad, recuperación ante desastres, copia de seguridad y restauración**||
 | [Configuración de la directiva de conmutación por error](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Establecimiento de la prioridad de conmutación por error de cada región en la que se replica la cuenta.|
 |**Conexión de Azure Cosmos DB a los recursos**||
-| [Conexión de una aplicación web a Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Creación y conexión a una base de datos de Azure Cosmos DB y creación de una aplicación web de Azure.|
+| [Conexión de una aplicación web a Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Creación y conexión de una base de datos de Azure Cosmos y creación de una aplicación web de Azure.|
 |||

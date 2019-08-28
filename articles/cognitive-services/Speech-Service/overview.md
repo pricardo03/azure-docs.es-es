@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967622"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624275"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
@@ -43,6 +43,7 @@ Obtenga información sobre las novedades con los servicios de voz de Azure.
 
 * Agosto de 2019
   * **Nuevo tutorial**: [Habilitar el bot con Voz mediante Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * Se ha agregado un nuevo estilo de habla, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para la voz `en-US-JessaNeural`. 
 * Junio de 2019
   * El SDK de Voz versión 1.6.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 * Mayo de 2019: ya hay documentación disponible para [Transcripción de conversaciones](conversation-transcription-service.md), [Transcripción de centros de llamadas](call-center-transcription.md) y [Asistentes virtuales por voz](voice-first-virtual-assistants.md).

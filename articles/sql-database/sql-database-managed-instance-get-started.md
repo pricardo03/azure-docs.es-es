@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567516"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873893"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -35,11 +35,11 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 En los pasos siguientes se muestra cómo crear una Instancia administrada.
 
-1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Busque **Instancia administrada** y, después, seleccione **Instancia administrada de Azure SQL**.
-3. Seleccione **Crear**.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si Azure SQL no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
+2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional sobre la instancia administrada de Azure SQL Database, seleccione **Mostrar detalles** en el icono **Instancias administradas**.
+3. Seleccione **Crear**:
 
-   ![Creación de una instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![Creación de una instancia administrada](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. Rellene el formulario **Instancia administrada de SQL** con la información solicitada, para lo que debe usar los datos de la siguiente tabla.
 

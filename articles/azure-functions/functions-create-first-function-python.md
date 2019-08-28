@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722795"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575445"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creación de una función desencadenada mediante HTTP en Azure
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 En este artículo se explica cómo usar las herramientas de línea de comandos para crear un proyecto de Python que se ejecuta en Azure Functions. La función creada la desencadenan las solicitudes HTTP. Por último, publique el proyecto para que se ejecute como una [función sin servidor](functions-scale.md#consumption-plan) en Azure.
 
@@ -32,7 +30,7 @@ Antes de empezar, debe hacer lo siguiente:
 
 + Instale [Python 3.6](https://www.python.org/downloads/).
 
-+ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.6.1071 u otra posterior.
++ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.7.1575 u otra posterior.
 
 + Instale la versión 2.x de la [CLI de Azure](/cli/azure/install-azure-cli) u otra posterior.
 
@@ -40,9 +38,9 @@ Antes de empezar, debe hacer lo siguiente:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>Creación y activación de un entorno virtual
+## <a name="create-and-activate-a-virtual-environment-optional"></a>Creación y activación de un entorno virtual (opcional)
 
-Para desarrollar y probar las funciones de Python a nivel local, debe trabajar en un entorno de Python 3.6. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
+Para desarrollar y probar las funciones de Python en el entorno local, se recomienda usar un entorno de Python 3.6. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
 
 ### <a name="bash"></a>Bash:
 
@@ -81,8 +79,6 @@ Vaya a la nueva carpeta MyFunctionProj:
 ```console
 cd MyFunctionProj
 ```
-
-A continuación, actualice el archivo host.json para habilitar conjuntos de extensiones.  
 
 ## <a name="create-a-function"></a>Creación de una función
 
@@ -165,15 +161,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions, el plan de consumo de Linux está actualmente en versión preliminar y solo está disponible en las siguientes regiones: Oeste de EE. UU., Oeste de Europa y Asia Oriental. Además, no se pueden hospedar aplicaciones de Windows y Linux en el mismo grupo de recursos. Si tiene un grupo de recursos existente llamado `myResourceGroup` con una aplicación web o aplicación de función de Windows, debe usar un grupo de recursos diferente.
+> No se pueden hospedar aplicaciones de Windows y Linux en el mismo grupo de recursos. Si tiene un grupo de recursos existente llamado `myResourceGroup` con una aplicación web o aplicación de función de Windows, debe usar un grupo de recursos diferente.
+
+Este comando también aprovisionará una instancia de la instancia de Azure Application Insights asociada en el mismo grupo de recursos que se puede usar para supervisar y ver registros.
 
 Ahora ya está listo para publicar el proyecto de funciones local en la aplicación de función en Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> Para ver los registros casi en tiempo real de una aplicación de Python publicada, se recomienda usar [Live Metrics Stream de Application Insights](functions-monitoring.md#streaming-logs)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

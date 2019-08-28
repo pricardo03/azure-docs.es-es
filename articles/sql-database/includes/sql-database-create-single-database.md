@@ -3,30 +3,31 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935041"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894140"
 ---
-En este paso, creará el grupo de recursos y una base de datos única de Azure SQL Database.
+En este paso, creará una base de datos única de Azure SQL Database. 
 
 > [!IMPORTANT]
-> Asegúrese de configurar reglas de firewall para usar la dirección IP pública del equipo en el que se van a realizar los pasos de este tutorial. 
+> Asegúrese de configurar reglas de firewall para usar la dirección IP pública del equipo que va a usar para completar este artículo.
 >
-> Para obtener más información, vea [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) (Creación de una regla de firewall a nivel de base de datos) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, vea [Create a server-level firewall](../sql-database-server-level-firewall-rule.md) (Crear un firewall de nivel de servidor).  
+> Para más información, consulte [Creación de una regla de firewall a nivel de base de datos](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, consulte [Creación de un firewall a nivel de servidor](../sql-database-server-level-firewall-rule.md).  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Bases de datos** y, a continuación, seleccione **SQL Database** para abrir la página **Crear SQL Database**.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
+2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de las distintas bases de datos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
+3. Seleccione **Crear**:
 
-   ![Creación de una base de datos única](../media/sql-database-get-started-portal/create-database-1.png)
+   ![Creación de una base de datos única](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. En la pestaña **Conceptos básicos**, en la sección **Detalles del proyecto**, escriba o seleccione los siguientes valores:
 

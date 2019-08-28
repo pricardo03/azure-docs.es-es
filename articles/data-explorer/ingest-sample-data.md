@@ -5,21 +5,21 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: quickstart
+ms.date: 08/12/2019
+ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759286"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515744"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingesta de datos de ejemplo en el Explorador de datos de Azure
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos de ejemplo en el Explorador de datos de Azure
 
 En este artículo, se muestra cómo ingerir (cargar) datos de ejemplo en una base de datos del Explorador de datos de Azure. Hay [varias maneras de ingerir datos](ingest-data-overview.md); este artículo se centra en un enfoque básico que es adecuado para realizar pruebas.
 
 > [!NOTE]
-> Ya tiene estos datos si completó [Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md).
+> Si ha completado [Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md), ya tiene estos datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,11 +56,6 @@ El conjunto de datos de ejemplo de **StormEvents** contiene datos relacionados c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Consulta de datos en Azure Data Explorer](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [Escritura de consultas](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Azure Data Explorer data ingestion](ingest-data-overview.md) (Ingesta de datos del Explorador de datos de Azure)
+* [Ingesta de datos de Azure Data Explorer](ingest-data-overview.md) para más información sobre los métodos de ingesta.
+* [Inicio rápido: Consulta de datos en la interfaz de usuario web de Azure Data Explorer](web-query-data.md).
+* [Escriba consultas](write-queries.md) con el lenguaje de consulta Kusto.

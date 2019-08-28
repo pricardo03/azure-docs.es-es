@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846027"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877851"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server 2017 en Azure Portal
 
@@ -42,16 +42,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta.
 
-1. En Azure Portal, haga clic en **Crear un recurso**. 
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional, seleccione **Mostrar detalles** en el icono **Máquinas virtuales SQL**.
+1. Seleccione la imagen de **Free SQL Server License: SQL Server 2017 Developer en Windows Server 2016** de la lista desplegable.
 
-1. En el cuadro de búsqueda, escriba `SQL Server 2017 Developer on Windows Server 2016` y presione ENTRAR. Expanda la opción SQL Server 2017 en Windows Server 2016. 
-
-1. Seleccione la imagen de **Free SQL Server License: SQL Server 2017 Developer en Windows Server 2016**. La edición Developer se usa en este tutorial porque es una edición completa de SQL Server que es gratuita para desarrollo y pruebas. Solo paga por el costo de ejecutar la máquina virtual. Para conocer al detalle las consideraciones sobre precios, consulte la [guía de precios para máquinas virtuales de Azure de SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-   ![Nueva ventana de búsqueda](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![Nueva ventana de búsqueda](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. Seleccione **Crear**.
+
+   ![Nueva ventana de búsqueda](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Proporcionar los detalles básicos
 

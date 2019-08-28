@@ -4,18 +4,19 @@ description: En este tutorial rápido se proporciona un ejemplo de código de Ja
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
-ms.openlocfilehash: 5dbac4cee4df43dfc2f0ebf9fdb5e2e7b7d3192c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b1771d7940a12d0cc818c223c28dcad87acd8a0c
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931595"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624718"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de Java para conectarse a los datos y consultarlos
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Java para conectarse y consultar datos en Azure Database for MySQL
+
 En esta guía de inicio rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de Java y el controlador JDBC [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha usado Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -33,8 +34,8 @@ En esta guía de inicio rápido se muestra cómo conectarse a una instancia de A
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
-3. Haga clic en el nombre del servidor.
+2. En el menú izquierdo de Azure Portal, seleccione **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Seleccione el nombre del servidor.
 4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-java/1_server-overview-name-login.png)
 

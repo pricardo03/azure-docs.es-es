@@ -12,47 +12,76 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548049"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644982"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Acceso a un laboratorio de clase en Azure Lab Services
-En este artículo se describe cómo acceder a un laboratorio de clase, conectarse a la máquina virtual en el laboratorio y detener la máquina virtual. 
+En este artículo se describe cómo registrarse en un laboratorio educativo, ver todos los laboratorios a los que puede acceder, iniciar o detener una máquina virtual en el laboratorio y conectarse a la máquina virtual. 
 
-## <a name="register-to-a-lab"></a>Registrarse en un laboratorio
-1. Vaya a la **dirección URL de registro** que recibió del profesor o educador. 
-2. Inicie sesión en el servicio con su cuenta organizativa para completar el registro. 
-3. Una vez registrado, confirme que ve las máquinas virtuales de los laboratorios a los que tiene acceso. 
-2. Espere hasta que la máquina virtual esté lista y, a continuación, **iníciela**. Este proceso tarda algún tiempo.  
+## <a name="register-to-the-lab"></a>Registro en el laboratorio
+
+1. Vaya a la **dirección URL de registro** que recibió del profesor o educador. No es necesario usar la dirección URL de registro después de completar el registro. En su lugar, use la dirección URL: [https://labs.azure.com](https://labs.azure.com). Todavía no se admite Internet Explorer 11. 
+1. Inicie sesión en el servicio con su cuenta organizativa para completar el registro. 
+2. Una vez registrado, confirme que ve las máquinas virtuales de los laboratorios a los que tiene acceso. 
+3. Espere hasta que la máquina virtual esté lista. En el icono de VM, observe los campos siguientes:
+    1. En la parte superior del icono, se puede ver el **nombre del laboratorio**.
+    1. A su derecha, aparece el icono que representa el **sistema operativo (SO)** de la máquina virtual. En este ejemplo, es el sistema operativo Windows. 
+    1. En la parte inferior del icono hay iconos o botones para iniciar o detener la máquina virtual y para conectarse a ella. 
+    1. A la derecha de los botones, se puede ver el estado de la máquina virtual. Confirme que el estado de la máquina virtual aparece como **Detenido**.
+
+        ![Máquina virtual con estado Detenido](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-or-stop-the-vm"></a>Inicio o detención de la máquina virtual
+1. **Inicie** la máquina virtual seleccionando el primer botón, tal como se muestra en la siguiente imagen. Este proceso tarda algún tiempo.  
 
     ![Inicio de la máquina virtual](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. Confirme que el estado de la máquina virtual aparece como **En ejecución**. 
+
+    ![Máquina virtual con estado En ejecución](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
+
+    Observe que el icono del primer botón ha cambiado para representar una operación de **detención**. Puede seleccionar este botón para detener la máquina virtual. 
+
+## <a name="connect-to-the-vm"></a>Conexión a la máquina virtual
+
+1. Seleccione el segundo botón, tal como se muestra en la siguiente imagen, para **conectarse** a la máquina virtual del laboratorio. 
+
+    ![Conexión con una máquina virtual](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+2. Realice uno de los siguientes pasos: 
+    1. Para máquinas virtuales **Windows**, guarde el archivo **RDP** en el disco duro. Abra el archivo RDP para conectarse a la máquina virtual. Utilice el **nombre de usuario** y la **contraseña** que obtenga de su profesor o educador para iniciar sesión en la máquina. 
+    3. Puede usar **SSH** o **RDP** (si está habilitado) para conectarse a máquinas virtuales **Linux**. Para más información, consulte el artículo sobre la [Habilitación de la conexión a Escritorio remoto para máquinas Linux](how-to-enable-remote-desktop-linux.md). 
+
+## <a name="progress-bar"></a>Barra de progreso 
+La barra de progreso del icono muestra el número de horas usadas en relación con el número de [horas de cuota](how-to-configure-student-usage.md#set-quotas-for-users) que tiene asignadas. Este tiempo es el tiempo adicional que se le asigna además del tiempo programado para el laboratorio. El color de la barra de progreso y el texto en la barra de progreso varía según los siguientes escenarios:
+
+- Si una clase está en curso (dentro del horario de la clase), la barra de progreso aparece atenuada para representar que no se están usando horas de cuota. 
+
+    ![Barra de progreso en gris](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+- Si no se asigna ninguna cuota (cero horas), se muestra el texto **Available during classes only** (Solo disponible durante las clases) en lugar de la barra de progreso. 
+    
+    ![Estado cuando no se establece ninguna cuota](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+- Si se ha **agotado su cuota**, la barra de progreso se muestra en **rojo**. 
+
+    ![Barra de progreso en rojo](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+- El color de la barra de progreso se muestra en **azul** cuando está fuera del tiempo programado para el laboratorio y se ha usado parte del tiempo de cuota. 
+
+    ![Barra de progreso en azul](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
 ## <a name="view-all-the-classroom-labs"></a>Visualización de todos los laboratorios de clase
 Después de registrarse en los laboratorios, puede ver todos los laboratorios educativos siguiendo estos pasos: 
 
-1. Vaya a [https://labs.azure.com](https://labs.azure.com). Tenga en cuenta que Internet Explorer 11 aún no se admite. 
+1. Vaya a [https://labs.azure.com](https://labs.azure.com). Todavía no se admite Internet Explorer 11. 
 2. Inicie sesión en el servicio mediante la cuenta de usuario que usó para registrarse en el laboratorio. 
 3. Confirme que puede ver todos los laboratorios a los que tiene acceso. 
 
     ![Visualización de todos los laboratorios](../media/how-to-use-classroom-lab/all-labs.png)
 
-## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Conexión a la máquina virtual en un laboratorio de clase
-
-1. Inicie la máquina virtual si aún no se ha iniciado y seleccione **Iniciar** en el elemento del control. 
-2. Seleccione **Conectar** en el icono que representa la máquina virtual del laboratorio al que quiere acceder. 
-3. Realice uno de los siguientes pasos: 
-   1. Para máquinas virtuales **Windows**, guarde el archivo **RDP** en el disco duro. Abra el archivo RDP para conectarse a la máquina virtual. Utilice el **nombre de usuario** y la **contraseña** que obtenga de su profesor o educador para iniciar sesión en la máquina. 
-   3. Para máquinas virtuales **Linux**, copie y guarde la cadena de conexión de SSH en el cuadro de diálogo **Conectarse a su máquina virtual**. Utilice esta cadena de conexión desde un terminal de SSH (como [Putty](https://www.putty.org/)) para conectarse a la máquina virtual.
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Detención de la máquina virtual en un laboratorio de clase
-
-Para detener la máquina virtual, seleccione **Detener** en el icono. Cuando se detiene la máquina virtual, el botón **Iniciar** en el icono se habilita. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:

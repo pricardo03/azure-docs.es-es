@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807421"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900027"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
 
@@ -62,6 +62,9 @@ Para usar Resource Graph, debe tener los derechos adecuados en el [Control de ac
 
 > [!NOTE]
 > Resource Graph usa las suscripciones disponibles de una entidad de seguridad durante el inicio de sesión. Para ver los recursos de una nueva suscripción que se agregan durante una sesión activa, la entidad de seguridad debe actualizar el contexto. Esta acción se produce automáticamente al cerrar sesión y volver a iniciarla posteriormente.
+
+La CLI de Azure y Azure PowerShell usan suscripciones a las que el usuario tiene acceso. Si se usa la API REST directamente, el usuario es quien proporciona la lista de suscripciones. Si el usuario tiene acceso a cualquiera de las suscripciones de la lista, los resultados de la consulta se devuelven a las suscripciones a las que el usuario tiene acceso. Este comportamiento es el mismo que cuando se llama a [Grupo de recursos: Lista](/rest/api/resources/resourcegroups/list) \-, se obtienen grupos de recursos a los que se tiene acceso sin indicar que el resultado puede ser parcial.
+Si no hay suscripciones en la lista de suscripciones para las que el usuario tiene los derechos adecuados, la respuesta es _403_ (prohibido).
 
 ## <a name="throttling"></a>Limitaciones
 

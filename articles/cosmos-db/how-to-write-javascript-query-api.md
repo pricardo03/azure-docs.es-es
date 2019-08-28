@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243944"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615266"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de Javascript
 
@@ -19,10 +19,10 @@ Azure Cosmos DB permite realizar consultas optimizadas mediante una interfaz flu
 
 ## <a id="stored-procedures"></a>Procedimiento almacenado mediante la API de consulta de JavaScript
 
-El ejemplo de código siguiente es un ejemplo de cómo se usa la API de consulta de JavaScript en el contexto de un procedimiento almacenado. El procedimiento almacenado inserta un elemento de Azure Cosmos DB proporcionado por un parámetro de entrada, y actualiza un documento de metadatos mediante el método `__.filter()`, con los valores minSize, maxSize y totalSize basados en la propiedad de tamaño del elemento de entrada.
+El ejemplo de código siguiente es un ejemplo de cómo se usa la API de consulta de JavaScript en el contexto de un procedimiento almacenado. El procedimiento almacenado inserta un elemento de Azure Cosmos especificado mediante un parámetro de entrada y actualiza un documento de metadatos mediante el método `__.filter()`, con los valores minSize, maxSize y totalSize basados en la propiedad de tamaño del elemento de entrada.
 
 > [!NOTE]
-> `__` (subrayado doble) es un alias para `getContext().getCollection()` cuando se usa la API de consulta de JavaScript.
+> `__` (subrayado doble) es un alias para `getContext().getCollection()` cuando se usa JavaScript Query API.
 
 ```javascript
 /**

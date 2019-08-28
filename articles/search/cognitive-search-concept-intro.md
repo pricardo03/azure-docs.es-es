@@ -6,17 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 524ab33fc1d6a88620077a28ec70f09d55b06106
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015791"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899977"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
@@ -35,8 +33,28 @@ El lenguaje natural y el procesamiento de imágenes se aplican durante la fase d
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. La extracción de imágenes se cobra tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
-## <a name="components-of-cognitive-search"></a>Componentes de Cognitive Search
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+
+## <a name="when-to-use-cognitive-search"></a>Cuándo se usa la búsqueda cognitiva
+
+La búsqueda cognitiva, utilizando las aptitudes pregeneradas, es adecuada para los siguientes escenarios de aplicación:
+
++ Documentos digitalizados (JPEG) en los que desea realizar búsquedas de texto completo. Puede adjuntar una aptitud de reconocimiento óptico de caracteres (OCR) para identificar, extraer e ingerir texto de archivos JPEG.
+
++ PDF con combinación de imagen y texto. El texto de los archivos PDF se puede extraer durante la indexación de Azure Search sin el uso de la búsqueda cognitiva, pero la adición del procesamiento de imágenes y del lenguaje natural a menudo puede producir un mejor resultado que el de una indexación estándar.
+
++ Contenido multilingüe en el que desea aplicar la detección de idioma y, posiblemente, la traducción del texto.
+
++ Documentos no estructurados o semiestructurados cuyo contenido tenga un significado o contexto inherentes que está oculto en el documento mayor. 
+
+  Los blobs a menudo contienen un cuerpo de contenido grande que se empaqueta en un "campo" único. Al adjuntar aptitudes de procesamiento de imágenes y de lenguaje natural a un indizador, puede crear información que exista en el contenido sin procesar, pero que no se expone como campos distintos. Algunas aptitudes cognitivas integradas listas para usar que pueden servidor de ayuda: extracción de frases clave, análisis de opiniones y reconocimiento de entidades (personas, organizaciones y ubicaciones).
+
+  Además, las aptitudes pregeneradas también se pueden usar para reestructurar el contenido mediante las operaciones de división de texto, combinación y modelado de forma.
+
+Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), la integración de [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+
+
+## <a name="component-pipeline-of-cognitive-search"></a>Canalización de componentes de la búsqueda cognitiva
 
 Una canalización de búsqueda cognitiva se basa en [*indizadores* de Azure Search](search-indexer-overview.md), que rastrean los orígenes de datos y ofrecen procesamiento de índices de un extremo a otro. Las aptitudes ahora se adjuntan a los indexadores, lo que permite interceptar y enriquecer los documentos en función del conjunto de aptitudes que defina. Una vez que se indexa, puede acceder al contenido mediante solicitudes de búsqueda a través de todos los [tipos de consulta compatibles con Azure Search](search-query-overview.md).  Si es la primera vez que usa los indexadores, esta sección lo guiará a través de los pasos.
 
@@ -104,7 +122,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 + [Tutorial (solicitudes HTTP)](cognitive-search-tutorial-blob.md)
 + [Ejemplo: Creación de una habilidad personalizada de búsqueda cognitiva (C#)](cognitive-search-create-custom-skill-example.md)
 
-Para fines de aprendizaje se recomienda el servicio Gratis, pero tenga en cuenta que el número de transacciones gratis se limita a 20 documentos al día. Para ejecutar el inicio rápido y el tutorial en un día, use un conjunto de archivos más pequeño (10 documentos) para que pueda adaptarlo a ambos ejercicios.
+Para fines de aprendizaje se recomienda usar el servicio Gratis; sin embargo, el número de transacciones gratuitas se limita a 20 documentos al día. Para ejecutar el inicio rápido y el tutorial en un solo día, use un conjunto de archivos más pequeño (10 documentos) para que pueda adaptarlo a ambos ejercicios, o bien elimine el indexador que usó en el inicio rápido o tutorial.
 
 **Paso 3: Revise la API**
 
@@ -115,9 +133,9 @@ Este paso usa las API REST para crear una solución de búsqueda cognitiva. Solo
 | API DE REST | DESCRIPCIÓN |
 |-----|-------------|
 | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de un origen de datos)  | Recurso que identifica un origen de datos externo que proporciona los datos de origen que se usan para crear documentos enriquecidos.  |
-| [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que coordina el uso de las [aptitudes predefinidas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
+| [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Esta API es específica de la búsqueda cognitiva. Es un recurso que coordina el uso de las [aptitudes predefinidas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante la indexación. |
 | [Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Esquema que expresa un índice de Azure Search. Los campos del índice se asignan a los campos de los datos de origen o a los campos fabricados durante la fase de enriquecimiento (por ejemplo, un campo para los nombres de organización creado por el reconocimiento de entidades). |
-| [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. El resultado es un índice de búsqueda basado en el esquema de índice, que se rellena con datos de origen enriquecidos a través de conjuntos de aptitudes.  |
+| [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. El resultado es un índice de búsqueda basado en el esquema de índice, que se rellena con datos de origen enriquecidos a través de conjuntos de aptitudes. Esta API existente se amplía para escenarios de búsqueda cognitiva con la inclusión de una propiedad de conjunto de aptitudes. |
 
 **Lista de comprobación: Un flujo de trabajo típico**
 

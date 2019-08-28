@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.openlocfilehash: 3f6eca30379eb8890695df946f1d7e697cb3f7d7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 0ff15c29fb7d71919b54cbcd73ead30a8673e0f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979064"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543080"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Inicio rápido: Migración de una aplicación web actual Node.js de MongoDB a Azure Cosmos DB 
 
@@ -100,7 +100,7 @@ Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md
 
 En el ejemplo siguiente se crea un grupo de recursos en la región de Europa Occidental. Elija un nombre único para el grupo de recursos.
 
-Si usa Azure Cloud Shell, haga clic en **Probarlo**, siga las indicaciones de la pantalla para iniciar sesión y, a continuación, copie el comando en el símbolo del sistema.
+Si usa Azure Cloud Shell, seleccione **Probarlo**, siga las indicaciones de la pantalla para iniciar sesión y, a continuación, copie el comando en el símbolo del sistema.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -204,7 +204,7 @@ npm start
 
 Un mensaje de consola debería indicarle que el entorno de desarrollo está en funcionamiento. 
 
-Vaya a `http://localhost:3000` en un explorador. Haga clic en **Registrarse** en el menú superior e intente crear dos usuarios ficticios. 
+Vaya a `http://localhost:3000` en un explorador. Seleccione **Registrarse** en el menú superior e intente crear dos usuarios ficticios. 
 
 La aplicación de ejemplo MEAN.js almacena datos de usuario en la base de datos. Si lo logra y MEAN.js inicia la sesión automáticamente del usuario creado, significa que la conexión de Azure Cosmos DB funciona. 
 
@@ -216,7 +216,7 @@ Los datos almacenados en una base de datos de Cosmos se pueden ver y consultar e
 
 Para ver y consultar los datos de usuario creados en el paso anterior y trabajar con ellos, inicie sesión en [Azure Portal](https://portal.azure.com) en el explorador web.
 
-En el cuadro de búsqueda superior, escriba Azure Cosmos DB. Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, haga clic en el Explorador de datos. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
+En el cuadro de búsqueda superior, escriba **Azure Cosmos DB**. Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, seleccione **Explorador de datos**. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
 
 ![Explorador de datos en Azure Portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 

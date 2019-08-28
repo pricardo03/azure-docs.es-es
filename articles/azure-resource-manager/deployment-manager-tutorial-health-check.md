@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3946690b24ec4123df1bb19deb05143189fd5aa5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: def218564511b65809e776f97d0962b72f72adc2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596046"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898133"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 
@@ -235,8 +235,8 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
 
 Para simplificar el tutorial, la plantilla de la topología y los artefactos se comparten en las siguientes ubicaciones para que no tenga que preparar su propia copia. Si desea utilizar los suyos, siga las instrucciones de [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
-* Plantilla de topología: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Tienda de artefactos: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Plantilla de topología: \\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json)
+* Tienda de artefactos: \\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
 
 Para implementar la topología, seleccione **Probarlo** para abrir Cloud Shell y, después, pegue el script de PowerShell.
 
@@ -265,8 +265,8 @@ Se debe seleccionar **Mostrar tipos ocultos** para ver los recursos.
 
 Para simplificar el tutorial, la plantilla de lanzamiento revisada se comparte en las siguientes ubicaciones, con el fin de que no tenga que preparar su propia copia. Si desea utilizar los suyos, siga las instrucciones de [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
-* Plantilla de topología: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Tienda de artefactos: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Plantilla de topología: \\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json)
+* Tienda de artefactos: \\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
 
 Use la dirección URL del estado incorrecto que creó en [Creación de un simulador del servicio de comprobación de estado](#create-a-health-check-service-simulator). En el caso de **managedIdentityID**, consulte [Creación de un simulador del servicio de comprobación de estado](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 

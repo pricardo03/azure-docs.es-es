@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852950"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891542"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -55,8 +55,10 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 > 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `ASPNET-Quickstart`.
->      - Agregue `https://localhost:44368/` en **URI de redirección**y haga clic en **Registrar**.
-Seleccione el menú **Autenticación**, establezca los **Tokens de identificador** en **Concesión implícita** y, a continuación, seleccione **Guardar**.
+>      - Agregue `http://localhost:44368/` en **URI de redirección**y haga clic en **Registrar**.
+>      - En el panel de navegación izquierdo, en la sección Administrar, seleccione **Autenticación**
+>          - En la subsección **Concesión implícita** , seleccione **Tokens de id**.
+>          - Y, después, seleccione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
@@ -91,12 +93,13 @@ Seleccione el menú **Autenticación**, establezca los **Tokens de identificador
 > Donde:
 > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
 > - `Enter_the_Tenant_Info_Here`: es una de las opciones siguientes:
->   - Si la aplicación admite **Solo mi organización**, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com)
+>   - Si la aplicación admite **Solo mi organización**, reemplace este valor por el de **Identificador de inquilino** o el de **Nombre de inquilino** (por ejemplo, contoso.onmicrosoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
 >   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`
 >
 > > [!TIP]
-> > Para buscar los valores de *Identificador de aplicación*, *Identificador de directorio (inquilino)* y *Tipos de cuenta admitidos*, vaya a la página **Información general**
+> > - Para buscar los valores de *Identificador de aplicación*, *Identificador de directorio (inquilino)* y *Tipos de cuenta admitidos*, vaya a la página **Información general**
+> > - Asegúrese de que el valor de `redirectUri` en **Web.config** se corresponde con el **URI de redirección** definido para el registro de la aplicación en Azure AD (si no es así, vaya al menú **Autenticación** para encontrar el registro de la aplicación y actualice el **URI DE REDIRECCIÓN** para que coincida)
 
 ## <a name="more-information"></a>Más información
 

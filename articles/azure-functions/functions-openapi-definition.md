@@ -1,24 +1,23 @@
 ---
-title: Creación de una definición de OpenAPI para una función con Azure API Management
+title: Creación de una definición de OpenAPI para una API sin servidor con Azure API Management
 description: Cree una definición de OpenAPI que permita que otras aplicaciones y servicios llamen a la función en Azure.
-services: functions
 keywords: OpenAPI, Swagger, aplicaciones de nube, servicios en la nube,
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510488"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533544"
 ---
-# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Creación de una definición de OpenAPI para una función con Azure API Management
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creación de una definición de OpenAPI para una API sin servidor con Azure API Management
 
 Las API de REST a menudo se describen con una definición de OpenAPI. Esta definición contiene información sobre las operaciones que están disponibles en una API y cómo se deben estructurar los datos de la solicitud y la respuesta para la API.
 
@@ -47,7 +46,7 @@ Este tutorial usa una función desencadenada por HTTP que adopta dos parámetros
 
 La función luego calcula cuánto costará la reparación y cuántos ingresos podría generar la turbina en un período de 24 horas. PARA crear la función desencadenada por HTTP en [Azure Portal](https://portal.azure.com).
 
-1. Expanda la instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Funciones**. Seleccione **En el portal** > **Continuar**.
+1. Expanda la instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Funciones**. Seleccione **En el portal** > **Continuar**.
 
 1. Seleccione **Más plantillas...** y luego **Finalizar y ver plantillas**.
 

@@ -6,14 +6,14 @@ author: stevelas
 manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845205"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574391"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -105,6 +105,14 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 La replicación geográfica es una característica de la [SKU Premium](container-registry-skus.md) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
 
 En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó réplicas en el Este de EE. UU., Canadá central y Europa Occidental. Por ello, pagaría cuatro veces al mes la tarifa Premium y sin tener ninguna configuración o administración adicional. Ahora, cada región extrae sus imágenes de forma local, lo que mejora el rendimiento y la confiabilidad sin tener que aplicar ninguna tarifa de salida de red desde las regiones del Oeste de EE. UU., Canadá y el Este de EE. UU.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Solución de problemas de operaciones de inserción con registros con replicación geográfica
+ 
+Es posible que un cliente de Docker que inserte una imagen en un registro con replicación geográfica no inserte todas las capas de imagen y su manifiesto en una sola región replicada. Esto puede deberse a que Azure Traffic Manager enruta las solicitudes del registro al registro replicado más cercano a la red. Si el registro tiene dos regiones de replicación *cercanas*, las capas de imagen y el manifiesto se pueden distribuir a los dos sitios, y se produce un error en la operación de extracción cuando se valida el manifiesto. Este problema se produce debido a la manera en que el nombre DNS del registro se resuelve en algunos hosts de Linux. Este problema no se produce en Windows, que proporciona una memoria caché de DNS del lado cliente.
+ 
+Si ocurre este problema, una solución consiste en aplicar una caché DNS del lado cliente como `dnsmasq` en el host de Linux. Ayuda a garantizar que el nombre del registro se resuelva de forma coherente. Si usa una máquina virtual Linux en Azure para enviarla a un registro, consulte las opciones en [Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns)en Azure.
+
+Para optimizar la resolución DNS para la réplica más cercana al insertar imágenes, configure un registro con replicación geográfica en las mismas regiones de Azure que el origen de las operaciones de inserción o la región más cercana cuando trabaje fuera de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

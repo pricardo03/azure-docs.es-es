@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722022"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640990"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage para .NET
 
@@ -129,7 +129,7 @@ namespace blob_quickstart
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copia de las credenciales desde Azure Portal
 
-La aplicación de ejemplo debe autenticar el acceso a su cuenta de almacenamiento. Para realizar la autenticación, agregará a la aplicación sus credenciales de cuenta de almacenamiento en forma de una cadena de conexión. Para ver las credenciales de la cuenta de almacenamiento, siga estos pasos:
+Cuando la aplicación de ejemplo realiza una solicitud a Azure Storage, debe estar autorizada. Para autorizar una solicitud, agregue a la aplicación las credenciales de la cuenta de almacenamiento en forma de cadena de conexión. Para ver las credenciales de la cuenta de almacenamiento, siga estos pasos:
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Busque su cuenta de almacenamiento.

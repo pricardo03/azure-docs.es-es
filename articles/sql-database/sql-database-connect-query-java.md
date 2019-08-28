@@ -10,15 +10,15 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-java-july2019
-ms.openlocfilehash: 273f8ad080b80a58b63e70ab2aa311c9c498d491
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.custom: seo-java-july2019. seo-java-august2019
+ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640073"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624076"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para consultar una base de datos de Azure SQL
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para conectarse a una base de datos de Azure SQL y realizar consultas en ella
 
 En este artículo se muestra cómo usar [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
 
@@ -55,7 +55,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **SQL Database** o **Instancias administradas de SQL**.
+2. Seleccione **Bases de datos SQL** o abra la página **Instancias administradas de SQL**.
 
 3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una única base de datos o el nombre completo del servidor junto a **Host** para una instancia administrada. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**. 
 

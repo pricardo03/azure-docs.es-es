@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 23c10fbed751e05fea2a95030c720f622e195f40
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954533"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534229"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -22,9 +22,9 @@ Las bases de datos SQL Server son cargas de trabajo críticas que requieren un b
 
 Esta solución aprovecha las API nativas de SQL para realizar copias de seguridad de las bases de datos SQL.
 
-* Una vez que especifique la máquina virtual con SQL Server que desea proteger y que consulte las bases de datos que hay en ella, el servicio Azure Backup instalará una extensión de copia de seguridad de cargas de trabajo en la máquina virtual con la extensión `AzureBackupWindowsWorkload`  del nombre.
+* Una vez que especifique la máquina virtual con SQL Server que desea proteger y que consulte las bases de datos que hay en ella, el servicio Azure Backup instalará una extensión de copia de seguridad de cargas de trabajo en la máquina virtual con la extensión `AzureBackupWindowsWorkload` del nombre.
 * Esta extensión consta de un coordinador y un complemento SQL. Mientras que el coordinador es el responsable de desencadenar los flujos de trabajo de varias operaciones como la configuración de las copias de seguridad o la copia de seguridad y restauración, el complemento es responsable de flujo de datos real.
-* Para poder detectar bases de datos en esta máquina virtual, Azure Backup crea la cuenta `NT SERVICE\AzureWLBackupPluginSvc`. Dicha cuenta se usa para realizar operaciones de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL. Azure Backup aprovecha la cuenta  `NT AUTHORITY\SYSTEM`  para la detección y consulta de bases de datos, por lo que debe tener un inicio de sesión público en SQL. Si la VM con SQL Server no se ha creado en Azure Marketplace, es posible que reciba el error  **UserErrorSQLNoSysadminMembership**. Si esto sucede,  [siga estas instrucciones](backup-azure-sql-database.md).
+* Para poder detectar bases de datos en esta máquina virtual, Azure Backup crea la cuenta `NT SERVICE\AzureWLBackupPluginSvc`. Dicha cuenta se usa para realizar operaciones de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL. Azure Backup aprovecha la cuenta `NT AUTHORITY\SYSTEM` para la detección y consulta de bases de datos, por lo que debe tener un inicio de sesión público en SQL. Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md).
 * Una vez que desencadene la protección de la configuración en las bases de datos seleccionadas, el servicio de copia de seguridad configura el coordinador con las programaciones de las copias de seguridad y otros detalles de la directiva, que la extensión almacena en caché localmente en la máquina virtual.
 * A la hora programada, el coordinador se comunica con el complemento y empieza a transmitir los datos de la copia de seguridad en secuencias desde el servidor con SQL Server mediante VDI.  
 * El complemento envía los datos directamente en el almacén de Recovery Services, lo que elimina la necesidad de una ubicación de almacenamiento provisional. El servicio Azure Backup cifra los datos y los almacena en cuentas de almacenamiento.
@@ -45,7 +45,7 @@ Antes de empezar, compruebe lo siguiente:
 **Soporte técnico** | **Detalles**
 --- | ---
 **Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
-**Zonas geográficas admitidas** | Sudeste de Australia (ASE) y Australia Oriental (AE) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS) <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este)
+**Zonas geográficas admitidas** | Sudeste de Australia (ASE) y Australia Oriental (AE) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS) <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este)
 **Sistemas operativos compatibles** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux no se admite actualmente.
 **Versiones admitidas de SQL Server** | SQL Server 2017 como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y SP como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2, y versiones posteriores, instaladas en la máquina virtual
@@ -66,7 +66,7 @@ No se cobrará a los usuarios por esta característica hasta que esté disponibl
 - La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
 - La solución es compatible con ambos tipos de [implementaciones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
 - La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
-- La **instancia del clúster de conmutación por error (FCI)** de SQL Server y la instancia del clúster de conmutación por error de SQL Server AlwaysOn no se admiten.
+- La **instancia del clúster de conmutación por error (FCI)** de SQL Server y la de SQL Server AlwaysOn no son compatibles.
 - No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
 - Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitarlo.
 - La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.

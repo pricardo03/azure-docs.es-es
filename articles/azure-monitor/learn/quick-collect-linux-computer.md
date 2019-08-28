@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 535b96a2bb86f1996e6ff0aba19339b55a18ee50
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67147278"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515860"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Linux en un entorno híbrido
 [Azure Log Analytics](../platform/agent-windows.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Linux con unos pasos sencillos.  Para máquinas virtuales Linux de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](quick-collect-azurevm.md).  
@@ -32,11 +32,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 
     ![Portal de Azure](media/quick-collect-linux-computer/azure-portal-01.png) 
 
-2. Haga clic en **Crear** y, a continuación, seleccione opciones para los elementos siguientes:
+2. Seleccione **Crear** y, después, seleccione opciones para los elementos siguientes:
 
    * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.   
    * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
@@ -46,7 +46,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
         ![Creación de una hoja de recursos de Log Analytics](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. Después de proporcionar la información necesaria en el panel **Área de trabajo de Log Analytics**, haga clic en **Aceptar**.  
+3. Después de proporcionar la información necesaria en el panel **Área de trabajo de Log Analytics**, seleccione **Aceptar**.  
 
 Mientras se comprueba la información y se crea el espacio de trabajo, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
 
@@ -55,7 +55,7 @@ Antes de instalar el agente Log Analytics para Linux, necesita la clave y el ide
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+1. En Azure Portal, seleccione **Todos los servicios** en la esquina superior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione *DefaultLAWorkspace* (creada antes).
 3. Seleccione **Configuración avanzada**.
 
@@ -107,23 +107,23 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics puede recopilar eventos de Syslog de Linux, así como de los contadores de rendimiento que especifique para los informes y análisis a largo plazo, y actuar cuando se detecte una condición determinada.  Siga estos pasos para configurar la recopilación de eventos desde Syslog de Linux, así como desde varios contadores de rendimiento comunes, para empezar.  
 
 1. Seleccione **Syslog**.  
-2. Para agregar un registro de eventos, escriba el nombre del registro. Escriba **Syslog** y, a continuación, haga clic en el signo más **+** .  
+2. Para agregar un registro de eventos, escriba el nombre del registro. Escriba **Syslog** y, luego, seleccione el signo más **+** .  
 3. En la tabla, desactive los niveles de gravedad **Información**, **Aviso** y **Depurar**. 
-4. Haga clic en **Guardar** en la parte superior de la página para guardar la configuración.
+4. Seleccione **Guardar** en la parte superior de la página para guardar la configuración.
 5. Seleccione **Linux Performance Data** (Datos de rendimiento de Linux) para habilitar la recopilación de contadores de rendimiento en un equipo Linux. 
 6. La primera vez que se configuran los contadores de rendimiento Linux para un área de trabajo de Log Analytics nueva, se ofrece la opción de crear rápidamente varios contadores comunes. Se muestran todos con una casilla junto a cada uno. 
 
     ![Contadores de rendimiento predeterminados de Windows seleccionados](media/quick-collect-linux-computer/linux-perfcounters-default.png)
     
-    Haga clic en **Agregar los contadores de rendimiento seleccionados**. Se agregan con el valor preestablecido de un intervalo de ejemplo de recopilación de diez segundos.
+    Seleccione **Agregar los contadores de rendimiento seleccionados**. Se agregan con el valor preestablecido de un intervalo de ejemplo de recopilación de diez segundos.
 
-7. Haga clic en **Guardar** en la parte superior de la página para guardar la configuración.
+7. Seleccione **Guardar** en la parte superior de la página para guardar la configuración.
 
 ## <a name="view-data-collected"></a>Ver datos recopilados
 Ahora que ya ha habilitado la recopilación de datos, vamos a ver un sencillo ejemplo de búsqueda de registros para consultar algunos datos del equipo de destino.  
 
 1. En Azure Portal, vaya a Log Analytics y seleccione el área de trabajo que creó antes.
-2. Haga clic en el icono **Búsqueda de registros**. A continuación, en el campo de consulta del panel Búsqueda de registros, escriba `Perf` y presione Entrar o haga clic en el botón de búsqueda situado a la derecha del campo de consulta.
+2. Seleccione el icono **Búsqueda de registros** y, en el campo de consulta del panel Búsqueda de registros, escriba `Perf` y presione Entrar o seleccione el botón de búsqueda situado a la derecha del campo de consulta.
 
     ![Ejemplo de consulta de búsqueda de registros de Log Analytics](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
 
@@ -138,7 +138,7 @@ Para quitar el agente, ejecute el siguiente comando en el equipo Linux. El argum
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-Para eliminar el área de trabajo, seleccione el área de trabajo de Log Analytics que ha creado anteriormente y, en la página de recursos, haga clic en **Eliminar**.
+Para eliminar el área de trabajo, seleccione el área de trabajo de Log Analytics que ha creado anteriormente y, en la página de recursos, seleccione **Eliminar**.
 
 ![Eliminación de recursos de Log Analytics](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 

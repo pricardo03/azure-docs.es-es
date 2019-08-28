@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 652fe182663d37c389658c8fe3b172826168e51f
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617995"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69623871"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -109,7 +109,7 @@ En el siguiente comando, proporcione su propio nombre de aplicación de función
     --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
-Ahora debe configurar la aplicación de función para conectarse a la cuenta de Blob Storage que creó en el [tutorial anterior][previous-tutorial].
+Ahora debe configurar la aplicación de funciones para conectarse a la cuenta de Blob Storage que creó en el [tutorial anterior][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Configuración de la Function App
 
@@ -245,7 +245,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Punto de conexión de suscriptor** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. | 
 4. Cambie a la pestaña **Filtro** y realice las siguientes acciones:     
     1. Seleccione la opción **Habilitar el filtrado del asunto**.
-    2. En **El asunto comienza por**, escriba el siguiente valor: **/blobServices/default/containers/images/blobs/**.
+    2. En **El asunto comienza por**, escriba el siguiente valor: **/blobServices/default/containers/images/blobs/** .
 
         ![Especificación del filtro para la suscripción a eventos](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
 2. Seleccione **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena la función `Thumbnail` cuando se agrega un blob al contenedor `images`. La función cambia el tamaño de las imágenes y las agrega al contenedor `thumbnails`.
@@ -275,6 +275,8 @@ Haga clic en **Elegir archivo** para seleccionar un archivo y, a continuación, 
 Haga clic en **Elegir archivo** para seleccionar un archivo y, a continuación, haga clic en **Cargar imagen**. Cuando la carga se realice correctamente, el explorador se desplazará a una página que lo indica. Haga clic en el vínculo para volver a la página principal. Se muestra una copia de la imagen cargada en el área **Miniaturas generadas**. (Si no aparece la imagen en primer lugar, intente volver a cargar la página). La función ha cambiado el tamaño de la imagen, la imagen se ha agregado al contenedor *thumbnails* y el cliente web la ha descargado.
 
 ![Aplicación web publicada en el explorador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

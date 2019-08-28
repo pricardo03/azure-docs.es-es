@@ -1,6 +1,6 @@
 ---
-title: 'Script de la CLI de Azure: escalado del rendimiento del contenedor de Azure Cosmos DB| Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: Escalado del rendimiento del contenedor de Azure Cosmos DB'
+title: 'Script de la CLI de Azure: escalado del rendimiento del contenedor de Azure Cosmos | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: Escalado del rendimiento del contenedor de Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a7ae4b015ba476ca1ffdb4b4510334490a6f6fee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038456"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616692"
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Escalado del rendimiento del contenedor de Azure Cosmos DB mediante la CLI de Azure
+# <a name="scale-azure-cosmos-container-throughput-using-the-azure-cli"></a>Escalado del rendimiento del contenedor de Azure Cosmos mediante la CLI de Azure
 
-Este ejemplo escala el rendimiento del contenedor para cualquier tipo de contenedor de Azure Cosmos DB.  
+Este ejemplo escala el rendimiento del contenedor para cualquier tipo de contenedor de Azure Cosmos.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea una cuenta de Azure Cosmos DB. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Crea una base de datos de Azure Cosmos DB. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Crea un contenedor de Azure Cosmos DB. |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Actualiza un contenedor de Azure Cosmos DB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Crea una base de datos de Azure Cosmos. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Crea un contenedor de Azure Cosmos. |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Actualiza un contenedor de Azure Cosmos. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes

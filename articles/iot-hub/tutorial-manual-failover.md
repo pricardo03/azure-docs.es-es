@@ -6,17 +6,17 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 308e452f33ded9be3b88ff370ed34326de54895c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002908"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877008"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Conmutación por error manual de un centro de IoT (versión preliminar pública)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 
 La conmutación por error manual es una característica del servicio IoT Hub que permite a los clientes [realizar la conmutación por error](https://en.wikipedia.org/wiki/Failover) de las operaciones de su centro desde una región primaria a la región de Azure emparejada geográficamente correspondiente. La conmutación por error manual se puede realizar si se produce un desastre regional o una interrupción prolongada del servicio. También se puede realizar una conmutación por error planeada para probar las funcionalidades de recuperación ante desastres, aunque se recomienda usar un centro de IoT de prueba, en lugar del centro que se ejecuta en producción. La característica de conmutación por error manual se ofrece a los clientes sin costo adicional.
 
@@ -47,7 +47,7 @@ En este tutorial se realizan las siguientes tareas:
 
     **Grupo de recursos**: haga clic en **Crear nuevo** y especifique **ManlFailRG** como nombre del grupo de recursos.
 
-    **Región**: seleccione una región cercana que forme parte de la versión preliminar. En este tutorial se usa `westus2`. Las conmutaciones por error solo se pueden realizar entre regiones de Azure emparejadas geográficamente. La región emparejada geográficamente con westus2 es WestCentralUS.
+    En **Región**, seleccione una región cercana. En este tutorial se usa `West US 2`. Las conmutaciones por error solo se pueden realizar entre regiones de Azure emparejadas geográficamente. La región emparejada geográficamente con Oeste de EE. UU. 2 es WestCentralUS.
     
    **IoT Hub Name** (Nombre del centro de IoT): especifique el nombre del centro de IoT. Dicho nombre debe ser único globalmente. 
 
@@ -65,33 +65,38 @@ Tenga en cuenta que hay un límite de dos conmutaciones por error y dos conmutac
 
 1. Haga clic en **Grupos de recursos** y seleccione el grupo **ManlFailRG**. En la lista de recursos, haga clic en su centro. 
 
-2. En **Resiliency** (Resistencia), en el panel IoT Hub, haga clic en **Manual failover (preview)** (Conmutación por error manual [versión preliminar]). Tenga en cuenta que si el centro no se ha configurado en una región válida, la opción de conmutación por error manual estará deshabilitada.
+1. En **Configuración** en el panel de IoT Hub, haga clic en **Conmutación por error**.
 
    ![Captura de pantalla que muestra el panel de propiedades del centro de IoT](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. En el panel Manual failover (Conmutación por error manual), se ven las opciones **IoT Hub Primary Location** (Ubicación principal del centro de IoT) y **IoT Hub Secondary Location** (Ubicación secundaria del centro de IoT). En principio, la ubicación principal que aparece seleccionada es la que especificó al crear el centro de IoT y siempre indica la ubicación en la que el centro está activo actualmente. La ubicación secundaria es la [región emparejada geográficamente de Azure](../best-practices-availability-paired-regions.md) estándar que está emparejada con la ubicación primaria. Los valores de las ubicaciones no se pueden cambiar. En este tutorial, la ubicación principal es `westus2`, mientras que la ubicación secundaria es `WestCentralUS`.
+1. En el panel de conmutación por error manual, verá la **ubicación actual** y la **ubicación de la conmutación por error**. La ubicación actual siempre indica la ubicación en la que el centro está activo actualmente. La ubicación de conmutación por error es la [región emparejada geográficamente de Azure](../best-practices-availability-paired-regions.md) estándar que está emparejada con la ubicación actual. Los valores de las ubicaciones no se pueden cambiar. En este tutorial, la ubicación actual es `West US 2` y la ubicación de conmutación por error es `West Central US`.
 
    ![Captura de pantalla que muestra el panel Conmutación por error manual](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. En la parte superior del panel Conmutación por error manual, haga clic en  **Iniciar conmutación por error**. Verá el panel de **confirmación de la conmutación por error manual**. Escriba el nombre del centro de IoT para confirmar que es el que desea usar para la conmutación por error. A continuación, para iniciar la conmutación por error, haga clic en **Aceptar**.
+1. En la parte superior del panel de conmutación por error manual, haga clic en **Iniciar conmutación por error**. 
+
+1. En el panel de confirmación, escriba el nombre de la instancia de IoT Hub para confirmar que es el que quiere usar para la conmutación por error. Luego, para iniciar la conmutación por error, haga clic en **Conmutación por error**.
 
    La cantidad de tiempo que tarda en realizarse la conmutación por error manual es proporcional al número de dispositivos registrados en el centro. Por ejemplo, si tiene 100 000, podría tardar 15 minutos, pero si tiene 5 000 000, podría tardar una hora, o incluso más.
 
-4. En el panel **Confirm manual failover** (Confirmar la conmutación por error manual), escriba el nombre del centro de IoT para confirmar que es el que desea usar para la conmutación por error. Luego, para iniciar la conmutación por error, haga clic en Aceptar. 
-
    ![Captura de pantalla que muestra el panel Conmutación por error manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Mientras se ejecuta el proceso de conmutación por error manual, hay un banner en el panel Conmutación por error manual que indica que hay una conmutación por error manual en curso. 
+   Mientras se ejecuta el proceso de conmutación por error manual, aparece un banner que indica que hay una conmutación por error manual en curso. 
 
    ![Captura de pantalla que muestra una conmutación por error manual en curso](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   Si cierra el panel de IoT Hub y lo abre de nuevo haciendo clic en él en el panel Resource Group (Grupo de recursos), verá un banner que le indica que el centro no está activo. 
+   Si cierra el panel de IoT Hub y hace clic en él para abrirlo de nuevo en el panel Grupo de recursos, verá un banner que le indica que el centro se encuentra en medio de una conmutación por error manual. 
 
-   ![Captura de pantalla que muestra el centro de IoT inactivo](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![Captura de pantalla que muestra la conmutación por error de IoT Hub en curso](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Una vez finalizada, se invierten las regiones principal y secundaria en la página Conmutación por error manual y el centro vuelve a estar activo. En este tutorial, la ubicación principal es ahora `WestCentralUS`, mientras que la ubicación secundaria es `westus2`. 
+   Una vez finalizada, las regiones actual y de conmutación por error de la página Conmutación por error manual se invierten y el centro vuelve a estar activo. En este ejemplo, la ubicación actual es ahora `WestCentralUS` y la ubicación de conmutación por error es ahora `West US 2`. 
 
    ![Captura de pantalla que muestra la conmutación por error finalizada](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+
+   En la página de información general también se muestra un banner que indica que la conmutación por error se ha completado y que IoT Hub se está ejecutando en `West Central US`.
+
+   ![Captura de pantalla que muestra la conmutación por error completada en la página de información general](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+
 
 ## <a name="perform-a-failback"></a>Realización de una conmutación por recuperación 
 
@@ -101,15 +106,15 @@ Las conmutaciones por recuperación se realizan de la misma forma que las conmut
 
 1. Para realizar una conmutación por recuperación, vuelva al panel IoT Hub de su centro de IoT.
 
-2. En **Resiliency** (Resistencia), en el panel IoT Hub, haga clic en **Manual failover (preview)** (Conmutación por error manual [versión preliminar]). 
+2. En **Configuración** en el panel de IoT Hub, haga clic en **Conmutación por error**. 
 
-3. En la parte superior del panel Conmutación por error manual, haga clic en  **Iniciar conmutación por error**. Verá el panel de **confirmación de la conmutación por error manual**. 
+3. En la parte superior del panel de conmutación por error manual, haga clic en **Iniciar conmutación por error**. 
 
-4. En el panel **Confirm manual failover** (Confirmar la conmutación por error manual), escriba el nombre del centro de IoT para confirmar que es el que desea usar para la conmutación por recuperación. Para iniciar la conmutación por recuperación, haga clic en Aceptar. 
+4. En el panel de confirmación, escriba el nombre de la instancia de IoT Hub para confirmar que es el que quiere conmutar por recuperación. Para iniciar la conmutación por recuperación, haga clic en Aceptar. 
 
-   ![Captura de pantalla de solicitud de conmutación por recuperación manual](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![Captura de pantalla de solicitud de conmutación por recuperación manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Los banners se muestran como se explica en la sección acerca de la realización de una conmutación por error. Cuando la conmutación por recuperación termina, vuelve a mostrar `westus2` como ubicación principal y `WestCentralUS` como ubicación secundaria, como se estableció originalmente.
+   Los banners se muestran como se explica en la sección acerca de la realización de una conmutación por error. Cuando la conmutación por recuperación termina, vuelve a mostrar `West US 2` como la ubicación actual y `West Central US` como la ubicación de conmutación por recuperación, como se estableció originalmente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 

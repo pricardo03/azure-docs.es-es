@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459198"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640300"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guía de inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
 
@@ -72,6 +72,7 @@ Este paso permite aprovisionar el grafo espacial de Digital Twins con:
 El grafo espacial se aprovisiona con el archivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
 1. Ejecute `dotnet run ProvisionSample`.
+
     >[!NOTE]
     >Se usa la herramienta de inicio de sesión de dispositivos de la CLI de Azure para autenticar al usuario en Azure AD. El usuario debe escribir un código determinado para autenticarse mediante la página de [inicio de sesión de Microsoft](https://microsoft.com/devicelogin). Una vez que se escriba el código, siga estos pasos para autenticarse. El usuario debe autenticarse cuando se esté ejecutando la aplicación.
 
@@ -80,14 +81,14 @@ El grafo espacial se aprovisiona con el archivo [provisionSample.yaml](https://g
 
 1. El paso de aprovisionamiento puede tardar varios minutos. También aprovisiona IoT Hub en la instancia de Digital Twins. Esto se realizará en bucle hasta que la instancia de IoT Hub muestre el estado = `Running`.
 
-    ![Ejemplo de aprovisionamiento][4]
+    [![Ejemplo de aprovisionamiento](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. Al final de la ejecución, copie el valor de `ConnectionString` del dispositivo para usarlo en el ejemplo del simulador de dispositivos. Copie solo la cadena indicada en esta imagen.
 
-    ![Ejemplo de aprovisionamiento][1]
+    [![Copia de la cadena de conexión](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
-    > Puede ver y modificar su grafo espacial mediante el [visor de grafos de Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
+    > Puede ver y modificar su grafo espacial con el [visor de grafos de Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Envío de datos de sensor
 
@@ -99,7 +100,7 @@ Compile y ejecute la aplicación de simulación del sensor mediante estos pasos.
 1. Edite [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para actualizar **DeviceConnectionString** con el valor de `ConnectionString` anterior.
 1. Ejecute `dotnet run` para empezar a enviar los datos del sensor. Verá que se envían a Digital Twins tal como se muestra en la siguiente imagen.
 
-     ![Conectividad de dispositivos][2]
+     [![Conectividad de dispositivos](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Vamos a dejar que se ejecute este simulador para que pueda ver los resultados en paralelo con la acción del paso siguiente. Esta ventana muestra los datos del sensor simulado que se envían a Digital Twins. En el siguiente paso se puede consultar en tiempo real las salas disponibles con aire fresco.
 
@@ -118,7 +119,7 @@ El ejemplo del sensor simula los valores de datos aleatorios de dos sensores. So
    - Habitaciones disponibles con aire fresco.
    - Ocupada o mala calidad del aire de la habitación.
 
-     ![Obtención de espacios disponibles con aire fresco][3]
+     [![Obtención de espacios disponibles con aire fresco](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 Para comprender qué ha sucedido en esta guía de inicio rápido y las API que se han llamado, abra [Visual Studio Code](https://code.visualstudio.com/Download) con el proyecto de área de trabajo de código que se encuentra en digital-twins-samples-csharp. Use el comando siguiente:
 
@@ -160,9 +161,3 @@ En esta guía de inicio rápido se usa un escenario simple para mostrar cómo en
 
 >[!div class="nextstepaction"]
 >[Tutorial: Implementación de Azure Digital Twins y configuración de un grafo espacial](tutorial-facilities-setup.md)
-
-<!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png

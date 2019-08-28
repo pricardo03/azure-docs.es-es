@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791035"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611877"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -42,46 +42,43 @@ En este tutorial, aprenderá lo siguiente:
 - Revise las [limitaciones y los requisitos de compatibilidad](azure-to-azure-support-matrix.md).
 - Compruebe los permisos de la cuenta. Si ha creado su cuenta de Azure gratis, ya es el administrador de la suscripción. Si no es el administrador de la suscripción, solicite al administrador que le asigne los permisos que necesita. Para habilitar la replicación para una máquina virtual y esencialmente copiar los datos mediante Azure Site Recovery, tiene que tener:
 
-    * Permisos para crear una máquina virtual en recursos de Azure. El rol integrado "Colaborador de la máquina virtual" tiene estos permisos, que incluyen:
-        - Permiso para crear una máquina virtual en el grupo de recursos seleccionado.
-        - Permiso para crear una máquina virtual en la red virtual seleccionada
-        - Permiso para escribir en la cuenta de almacenamiento seleccionada
-
-    * Permisos para administrar las operaciones de Azure Site Recovery. El rol "Colaborador de Site Recovery" tiene todos los permisos necesarios para administrar las operaciones de Site Recovery en un almacén de Recovery Services.
-
-## <a name="prepare-the-source-vms"></a>Preparación de las máquinas virtuales de origen
-
-1. Asegúrese de que todos los certificados raíz más recientes están en las máquinas virtuales de Azure que quiera trasladar. Si los certificados raíz más recientes no están presentes en la máquina virtual, las restricciones de seguridad no permitirán la copia de datos en la región de destino.
-
-    - Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
-    - En las máquinas virtuales Linux, para obtener los certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
-1. Asegúrese de que no utiliza un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
-1. Si la máquina virtual que está intentando trasladar no tiene acceso a Internet, o utiliza un proxy de firewall para controlar el acceso de salida, [compruebe los requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
-1. Identifique el diseño de red de origen y todos los recursos que está usando actualmente. Esto incluye, pero no se limita a los equilibradores de carga, grupos de seguridad de red (NSG), e IP públicas.
-
-## <a name="prepare-the-target-region"></a>Preparación de la región de destino
-
-1. Compruebe que su suscripción de Azure permite crear máquinas virtuales en la región de destino que se usa para la recuperación ante desastres. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
-
-1. Asegúrese de que su suscripción tiene suficientes recursos para admitir máquinas virtuales con tamaños que se correspondan con las máquinas virtuales de origen. Si está usando Site Recovery para copiar datos en el destino, Site Recovery elije el mismo tamaño para la máquina virtual de destino o el más cercano posible.
-
-1. Asegúrese de que crea un recurso de destino para cada componente identificado en el diseño de la red de origen. Este paso es importante para asegurarse de que las máquinas virtuales tengan en la región de destino toda la funcionalidad y características que tenían en la región de origen.
-
-    > [!NOTE]
-    > Azure Site Recovery automáticamente detecta y crea una red virtual al habilitar la replicación para la máquina virtual de origen. También puede crear previamente una red y asignarla a la máquina virtual en el flujo de usuario para habilitar la replicación. Como se menciona a continuación, es necesario crear manualmente cualquier otro recurso en la región de destino.
-
-     Para crear los recursos de red más utilizados que considere apropiados, en función de la configuración de la máquina virtual de origen, consulte la siguiente documentación:
-
-   - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
+    - Permisos para crear una máquina virtual en recursos de Azure. El rol integrado "Colaborador de la máquina virtual" tiene estos permisos, que incluyen:
+    - Permiso para crear una máquina virtual en el grupo de recursos seleccionado.
+    - Permiso para crear una máquina virtual en la red virtual seleccionada
+    - Permiso para escribir en la cuenta de almacenamiento seleccionada
     
-     Para cualquier otro componente de red, consulte la [documentación de red](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Permisos para administrar las operaciones de Azure Site Recovery. El rol "Colaborador de Site Recovery" tiene todos los permisos necesarios para administrar las operaciones de Site Recovery en un almacén de Recovery Services.
 
-1. Si desea probar la configuración antes de realizar la migración final a la región de destino, [cree manualmente una red sin producción](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en la región de destino. Se recomienda realizar este paso porque garantiza interferencias mínimas con la red de producción.
+- Asegúrese de que todos los certificados raíz más recientes están en las máquinas virtuales de Azure que quiera trasladar. Si los certificados raíz más recientes no están presentes en la máquina virtual, las restricciones de seguridad no permitirán la copia de datos en la región de destino.
 
-## <a name="copy-data-to-the-target-region"></a>Copia de datos en la región de destino
-En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar datos en la región de destino.
+- Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
+    
+- En las máquinas virtuales Linux, para obtener los certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
+- Asegúrese de que no utiliza un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
+
+- Si la máquina virtual que está intentando trasladar no tiene acceso a Internet, o utiliza un proxy de firewall para controlar el acceso de salida, [compruebe los requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+
+- Identifique el diseño de red de origen y todos los recursos que está usando actualmente. Esto incluye, pero no se limita a los equilibradores de carga, grupos de seguridad de red (NSG), e IP públicas.
+
+- Compruebe que su suscripción de Azure permite crear máquinas virtuales en la región de destino que se usa para la recuperación ante desastres. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
+
+- Asegúrese de que su suscripción tiene suficientes recursos para admitir máquinas virtuales con tamaños que se correspondan con las máquinas virtuales de origen. Si está usando Site Recovery para copiar datos en el destino, Site Recovery elije el mismo tamaño para la máquina virtual de destino o el más cercano posible.
+
+- Asegúrese de que crea un recurso de destino para cada componente identificado en el diseño de la red de origen. Este paso es importante para asegurarse de que las máquinas virtuales tengan en la región de destino toda la funcionalidad y características que tenían en la región de origen.
+
+     > [!NOTE] 
+     > Azure Site Recovery automáticamente detecta y crea una red virtual al habilitar la replicación para la máquina virtual de origen. También puede crear previamente una red y asignarla a la máquina virtual en el flujo de usuario para habilitar la replicación. Como se menciona a continuación, es necesario crear manualmente cualquier otro recurso en la región de destino.
+
+    Para crear los recursos de red más utilizados que considere apropiados, en función de la configuración de la máquina virtual de origen, consulte la siguiente documentación:
+    - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    -  [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
+    - Para cualquier otro componente de red, consulte la [documentación de red](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+
+
+
+## <a name="prepare"></a>Preparación
+En los pasos siguientes se muestra cómo preparar la máquina virtual para el movimiento mediante Azure Site Recovery como una solución. 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Cree el almacén en cualquier región, excepto en la de origen
 
@@ -90,7 +87,7 @@ En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar da
 1. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 1. Cree un grupo de recursos denominado **ContosoRG**.
 1. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. En los **almacenes de Recovery Services**, haga clic en **Información general** > **ContosoVMVault** > **+Replicar**.
+1. En los **almacenes de Recovery Services**, haga clic en **Información general** > **ContosoVMVault** >  **+Replicar**.
 1. En **Origen**, seleccione **Azure**.
 1. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 1. Seleccione el modelo de implementación de Resource Manager. A continuación, seleccione la **suscripción de origen** y el **grupo de recursos de origen**.
@@ -108,40 +105,39 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
     ![Habilitar replicación](media/tutorial-migrate-azure-to-azure/settings.png)
 
-## <a name="test-the-configuration"></a>Pruebe la configuración.
+## <a name="move"></a>Move
 
-1. Vaya al almacén. En **Configuración** > **Elementos replicados**, seleccione la máquina virtual que desea mover a la región de destino y luego seleccione **+ Conmutación por error de prueba**.
-1. En **Conmutación por error de prueba**, seleccione el punto de recuperación a usar para la conmutación por error:
-
-   - **Procesado más recientemente**: error de la VM en el último punto de recuperación procesado por el servicio Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se emplea tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
-   - **Más reciente coherente con la aplicación**: esta opción conmuta por error todas las VM en el punto de recuperación más reciente coherente con la aplicación. Se muestra la marca de tiempo.
-   - **Personalizado**: seleccione un punto de recuperación.
-
-1. Seleccione la red virtual de Azure de destino a la que desea trasladar las máquinas virtuales de Azure para probar la configuración.
-    > [!IMPORTANT]
-    > Se recomienda que utilice una red de máquina virtual de Azure independiente para la conmutación por error de prueba. No use la red de producción que se configuró cuando habilitó la replicación y a la que finalmente desea mover las máquinas virtuales.
-1. Para comenzar a probar el traslado, haga clic en **Aceptar**. Para realizar el seguimiento del progreso, haga clic en la máquina virtual para abrir sus propiedades. También puede hacer clic en el trabajo **Conmutación por error de prueba** en el nombre del almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
-1. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Asegúrese de que la máquina virtual está en funcionamiento, tiene el tamaño adecuado y está conectada a la red apropiada.
-1. Si desea eliminar la máquina virtual creada como parte de la prueba del traslado, haga clic en **Limpiar conmutación por error de prueba** en el elemento replicado. En **Notas**, registre y guarde las observaciones asociadas a la prueba.
-
-## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Realice el traslado a la región de destino y confirme
+En los pasos siguientes se muestra cómo realizar el traslado a la región de destino.
 
 1. Vaya al almacén. En **Configuración** > **Elementos replicados**, seleccione la máquina virtual y luego seleccione **Conmutación por error**.
-1. En **Conmutación por error**, seleccione **Más reciente**.
-1. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. A continuación, Site Recovery intentará apagar la máquina virtual de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
-1. Una vez finalizado el trabajo, compruebe que la máquina virtual aparece en la región de Azure de destino como se esperaba.
-1. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Confirmar**. Esto finaliza el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice.
+2. En **Conmutación por error**, seleccione **Más reciente**.
+3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. A continuación, Site Recovery intentará apagar la máquina virtual de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
+4. Una vez finalizado el trabajo, compruebe que la máquina virtual aparece en la región de Azure de destino como se esperaba.
 
-## <a name="delete-the-resource-in-the-source-region"></a>Eliminación del recurso en la región de origen
 
-Vaya a la máquina virtual. Seleccione **Deshabilitar replicación**. Este paso detiene el proceso de copiar los datos para la máquina virtual.
+## <a name="discard"></a>Discard (Descartar) 
 
-> [!IMPORTANT]
-> Es importante realizar este paso para evitar cargos por replicación de Azure Site Recovery.
+En caso de que haya comprobado la máquina virtual que se ha trasladado y tenga que cambiarla al punto de conmutación por error o desee volver a un punto anterior, en los **Elementos replicados**, haga clic con el botón de derecho para seleccionar la máquina virtual y **cambie el punto de recuperación**. Este paso le ofrece la opción de especificar un punto de recuperación diferente y conmutar por error a ese mismo. 
 
-Si no tiene planes para volver a usar ninguno de los recursos de origen, siga estos pasos:
 
-1. Elimine todos los recursos de red pertinentes en la región de origen que se enumeraron como parte del paso 4 en [Preparación de las máquinas virtuales de origen](#prepare-the-source-vms).
+## <a name="commit"></a>Confirmación 
+
+Una vez que haya comprobado la máquina virtual que se ha trasladado y esté preparado para confirmar el cambio **, en los**elementos replicados, seleccione con el botón derecho la máquina virtual y **confirme**. Esto finaliza el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice.
+
+## <a name="clean-up"></a>Limpieza
+
+Los pasos siguientes le guiarán por el proceso de limpieza de la región de origen, así como de los recursos relacionados que se usaron para el traslado.
+
+Para todos los recursos que se usaron para el traslado:
+
+- Vaya a la máquina virtual. Seleccione **Deshabilitar replicación**. Este paso detiene el proceso de copiar los datos para la máquina virtual.
+
+   > [!IMPORTANT]
+   > Es importante realizar este paso para evitar cargos por replicación de Azure Site Recovery.
+
+Si no piensa volver a usar ninguno de los recursos de origen, siga estos pasos adicionales:
+
+1. Elimine todos los recursos de red pertinentes en la región de origen que identificó en los [requisitos previos](#prerequisites).
 1. Elimine la cuenta de almacenamiento correspondiente en la región de origen.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 08/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f7c83e67c2162561aa579d38116f8ce01fceda9a
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: e820ed25cae23a2dad37c807eb3e188161eaecbf
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014373"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617693"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 |           | Requisito previo |
 |-----------|--------------|
 |Portal     | Ninguno         |
-|PowerShell | Para realizar los pasos de esta guía, se requiere la versión **0.7** o posterior de Az.Storage del módulo de PowerShell. Para saber cuál es su versión actual, ejecute el comando `Get-Module -ListAvailable Az.Storage`. Si después de ejecutar este comando no aparece ningún resultado o si aparece una versión distinta de **0.7**, deberá actualizar el módulo de PowerShell. Consulte la sección [Actualización del módulo de PowerShell](#upgrade-your-powershell-module) de esta guía.
+|PowerShell | Para realizar los pasos de esta guía, se requiere la versión **0.7** o posterior de Az.Storage del módulo de PowerShell. Para saber cuál es su versión actual, ejecute el comando `Get-Module -ListAvailable Az.Storage`. Si, después de ejecutar este comando, no aparece ningún resultado o si aparece una versión inferior a la **0.7**, deberá actualizar el módulo de PowerShell. Consulte la sección [Actualización del módulo de PowerShell](#upgrade-your-powershell-module) de esta guía.
 |CLI        | Puede iniciar sesión en Azure y ejecutar los comandos de la CLI de Azure de dos maneras: <ul><li>Puede ejecutar los comandos de la CLI desde Azure Portal, en Azure Cloud Shell. </li><li>Puede instalar la CLI y ejecutar los comandos localmente.</li></ul>|
 
 Si utiliza la línea de comandos, puede ejecutar Azure Cloud Shell o instalar la CLI localmente.
