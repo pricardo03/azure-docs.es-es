@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face API. Puede obtener una clave de suscripción de evaluación gratuita en la página[Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
@@ -83,7 +83,7 @@ Por último, agregue los métodos **BrowseButton_Click** y **FacePhoto_MouseMove
 
 ### <a name="try-the-app"></a>Prueba de la aplicación
 
-Presione **Iniciar** en el menú para probar la aplicación. Cuando se abre la ventana de la aplicación, haga clic en **Examinar** en la esquina inferior izquierda. Debería aparecer el cuadro de diálogo **Abrir archivo**. Seleccione una imagen del sistema de archivos y compruebe que se muestra en la ventana. Luego, cierre la aplicación y vaya al paso siguiente.
+Presione **Iniciar** en el menú para probar la aplicación. Cuando se abra la ventana de la aplicación, haga clic en **Examinar** en la esquina inferior izquierda. Debería aparecer el cuadro de diálogo **Abrir archivo**. Seleccione una imagen del sistema de archivos y compruebe que se muestra en la ventana. Luego, cierre la aplicación y vaya al paso siguiente.
 
 ![Captura de pantalla que se muestra la imagen sin modificar de caras](../Images/getting-started-cs-ui.png)
 
@@ -109,7 +109,7 @@ Agregue el método siguiente a la clase **MainWindow**, debajo del método **Upl
 
 ## <a name="display-the-face-description"></a>Visualización de la descripción de la cara
 
-Agregue el siguiente código al método **FacePhoto_MouseMove**. Este controlador de eventos muestra la cadena de descripción de `faceDescriptionStatusBar` cuando el cursor pasa por encima de un rectángulo de la cara detectada.
+Agregue el siguiente código al método **FacePhoto_MouseMove**. Este controlador de eventos muestra la cadena de descripción de la cara de`faceDescriptionStatusBar` cuando el cursor pasa por encima de un rectángulo de la cara detectada.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=151-186)]
 

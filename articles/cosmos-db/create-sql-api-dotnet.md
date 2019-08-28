@@ -481,7 +481,7 @@ az group delete -g "myResourceGroup" -l "southcentralus"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido ha aprendido a crear una cuenta de Azure Cosmos, una base de datos y un contenedor con la aplicación .NET Core. Ahora puede importar datos adicionales a su cuenta de Azure Cosmos con las instrucciones del siguiente artículo. 
+En este inicio rápido, ha creado una base de datos y un contenedor en Azure Portal, y agregado datos de ejemplo mediante el ejemplo de .NET. Ahora puede importar datos adicionales a su cuenta de Azure Cosmos con las instrucciones del siguiente artículo. 
 
 > [!div class="nextstepaction"]
 > [Importación de datos a Azure Cosmos DB](import-data.md)

@@ -43,7 +43,7 @@ Si recibe el mensaje de error que indica que **este recurso no está disponible*
 
 ![Captura de pantalla que muestra el mensaje "recurso no disponible".](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Pida acceso al administrador de suscripciones o al administrador del grupo de administración. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Pida acceso al administrador de suscripciones de Azure o al administrador del grupo de administración. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

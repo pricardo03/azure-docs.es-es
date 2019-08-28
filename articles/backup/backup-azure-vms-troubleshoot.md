@@ -43,7 +43,7 @@ Se produjo un error en la operación de copia de seguridad porque la VM se encue
 Código de error: UserErrorFsFreezeFailed <br/>
 Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente con el sistema de archivos.
 
-* Compruebe el estado del sistema de archivos de todos los dispositivos montados mediante el comando **tune2fs**, por ejemplo, el estado del sistema de archivos **tune2fs -l /dev/sdb1 \\** .\| grep **** .
+* Compruebe el estado del sistema de archivos de todos los dispositivos montados mediante el comando **tune2fs** , por ejemplo **tune2fs- l/dev/sdb1\\** .\| grep **filesystem State**.
 * Desmonte los dispositivos cuyo estado del sistema de archivos no estuviera limpio; para ello, use el comando **umount**.
 * Ejecute una comprobación de coherencia del sistema de archivos en estos dispositivos mediante el comando **fsck**.
 * Vuelva a montar los dispositivos e intente realizar de nuevo la operación de copia de seguridad.</ol>

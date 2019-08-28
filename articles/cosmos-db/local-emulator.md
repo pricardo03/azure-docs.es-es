@@ -469,7 +469,7 @@ Por último, desde dentro de la máquina virtual Windows, inicie el emulador de 
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Use las siguientes sugerencias para solucionar los problemas que podrían surgir con el emulador de Azure Cosmos:
 

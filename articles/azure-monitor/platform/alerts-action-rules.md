@@ -23,14 +23,14 @@ Las reglas de acción le ayudan a definir o suprimir acciones en cualquier ámbi
 
 ### <a name="suppression-of-alerts"></a>Supresión de alertas
 
-Hay muchos escenarios en los que resulta útil suprimir las notificaciones que generan las alertas. Estos escenarios van desde la supresión durante una ventana de mantenimiento planeado hasta la supresión durante las horas no laborables. Por ejemplo, el equipo responsable de **ContosoVM** quiere suprimir las notificaciones de alerta durante el fin de semana próximo, puesto que están llevando a cabo un mantenimiento planeado. **** 
+Hay muchos escenarios en los que resulta útil suprimir las notificaciones que generan las alertas. Estos escenarios van desde la supresión durante una ventana de mantenimiento planeado hasta la supresión durante las horas no laborables. Por ejemplo, el equipo responsable de **ContosoVM** desea suprimir las notificaciones de alerta durante el fin de semana próximo, puesto que **ContosoVM** está llevando a cabo un mantenimiento planeado. 
 
 Aunque el equipo puede deshabilitar manualmente todas las reglas de alerta configuradas en **ContosoVM** (y habilitarlas de nuevo después del mantenimiento), no es un proceso sencillo. Las reglas de acción le permiten definir la supresión de alertas a escala con la posibilidad de configurar el período de supresión de forma flexible. En el ejemplo anterior, el equipo puede definir una regla de acción en **ContosoVM** que suprime todas las notificaciones de alerta durante el fin de semana.
 
 
 ### <a name="actions-at-scale"></a>Acciones a escala
 
-Aunque las reglas de alertas le ayudan a definir el grupo de acciones que se desencadena cuando se genera la alerta, los clientes a menudo tienden a disponer de un grupo de acciones comunes en su ámbito de operaciones. Por ejemplo, un equipo responsable del grupo de recursos **ContosoRG** probablemente definirá el mismo grupo de acciones para todas las reglas de alertas definidas dentro de dicho grupo de recursos. **** 
+Aunque las reglas de alertas le ayudan a definir el grupo de acciones que se desencadena cuando se genera la alerta, los clientes a menudo tienden a disponer de un grupo de acciones comunes en su ámbito de operaciones. Por ejemplo, un equipo responsable del grupo de recursos **ContosoRG** probablemente definirá el mismo grupo de acciones para todas las reglas de alerta definidas dentro de **ContosoRG **. 
 
 Las reglas de acción le ayudan a simplificar este proceso. Al definir acciones a escala, se puede desencadenar un grupo de acciones para cualquier alerta que se genere en el ámbito configurado. En el ejemplo anterior, el equipo ahora puede definir una regla de acción sobre **ContosoRG** que desencadenará el mismo grupo de acciones para todas las alertas generadas dentro de él.
 
