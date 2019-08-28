@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014240"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534995"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub (versión preliminar)
 
@@ -84,7 +84,7 @@ A continuación se muestran los recursos creados por el script. **Enriched** sig
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -269,7 +269,7 @@ En este momento, se establecen todos los recursos y se configura el enrutamiento
 
 ## <a name="send-messages-to-the-iot-hub"></a>Envío de mensajes al centro de IoT Hub
 
-Ahora que el enriquecimiento de mensajes está configurado para el punto de conexión, ejecute la aplicación de dispositivo simulado para enviar mensajes al centro de IoT Hub. El centro se ha configurado con reglas que permiten que se cumplan las siguientes situaciones:
+Ahora que el enriquecimiento de mensajes está configurado para el punto de conexión, ejecute la aplicación de dispositivo simulado para enviar mensajes al centro de IoT Hub. El centro se ha configurado con opciones que permiten que se cumplan las siguientes situaciones:
 
 * Los mensajes enrutados al punto de conexión de almacenamiento ContosoStorageEndpointOriginal no se enriquecerán y almacenarán en el contenedor de almacenamiento `original`.
 

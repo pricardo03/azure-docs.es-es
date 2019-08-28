@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 54b83df4c0ad68c9bd6b39d39926657395c48f3e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952043"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615872"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -106,7 +106,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorUnsupportedDiskSize <br>
 **Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB <br>
 
-La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de una máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a una versión preliminar pública de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte [Información general sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de una máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 

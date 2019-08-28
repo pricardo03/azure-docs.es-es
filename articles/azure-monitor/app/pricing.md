@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989226"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624399"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -92,7 +92,7 @@ Puede usar una de las siguientes opciones para ver cuántos datos envía su apli
 Estas son algunas cosas que puede hacer para reducir el volumen de datos:
 
 * Use el [Muestreo](../../azure-monitor/app/sampling.md). Esta tecnología reduce la velocidad de datos sin sesgar las métricas. No perderá la capacidad de navegar entre elementos relacionados en Search. En las aplicaciones de servidor, el muestreo funciona automáticamente.
-* [Limite el número de llamadas AJAX que se pueden notificar](../../azure-monitor/app/javascript.md#detailed-configuration) en cada vista de página o desactive los informes de AJAX.
+* [Limite el número de llamadas AJAX que se pueden notificar](../../azure-monitor/app/javascript.md#configuration) en cada vista de página o desactive los informes de AJAX.
 * [Edite ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) para desactivar los módulos de recopilación que no necesite. Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Divida la telemetría entre claves de instrumentación independientes. 
 * Métricas agregadas previamente. Si coloca llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -103,7 +103,7 @@ Puede usar el límite de volumen diario para restringir los datos recopilados. S
 
 En lugar de usar el límite de volumen diario, use el [muestreo](../../azure-monitor/app/sampling.md) para ajustar el volumen de datos al nivel que desee. A continuación, use el límite diario solo como "último recurso" en caso de que su aplicación empiece a enviar de forma inesperada volúmenes de telemetría mucho más altos.
 
-Para cambiar el límite diario, en la sección de **configuración** del recurso de Application Insights, en el panel **Uso y costos estimados**, seleccione  **Límite diario**.
+Para cambiar el límite diario, en la sección de **Configuración** del recurso de Application Insights, en la página **Uso y costos estimados**, seleccione **Límite diario**.
 
 ![Ajuste del límite de volumen de telemetría diario](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ En cada registro retenido, `itemCount` indica el número de registros originales
 
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
 
-Application Insights ahora incorpora un número limitado de clientes de Application Insights en nuestra versión preliminar de retención de variables. Puede encontrar información sobre cómo participar en este programa de versión preliminar [aquí](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+La retención predeterminada de los recursos de Application Insights es de 90 días. Es posible seleccionar distintos períodos de retención para cada recurso de Application Insights. El conjunto completo de períodos de retención disponibles es de 30, 60, 90, 120, 180, 270, 365, 550 o 730 días. 
 
-La retención predeterminada de los recursos de Application Insights es de 90 días. Es posible seleccionar distintos períodos de retención para cada recurso de Application Insights. El conjunto completo de períodos de retención disponibles es de 30, 60, 120, 180, 270, 365, 550 o 730 días. 
+Para cambiar la retención, en el recurso de Application Insights, vaya a la página **Uso y costos estimados** y seleccione la opción **Retención de datos**:
 
-Cuando la facturación está habilitada para una retención más prolongada, los datos que se mantengan más de 90 días se facturarán con la misma tarifa que actualmente se factura por la retención de datos de Azure Log Analytics. Obtenga más información sobre la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Para mantener se al día con el progreso de la retención de variables, [vote por esta sugerencia](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+![Ajuste del límite de volumen de telemetría diario](./media/pricing/pricing-005.png)
+
+Cuando la facturación está habilitada para una retención más prolongada, los datos que se mantengan más de 90 días se facturarán con la misma tarifa que actualmente se factura por la retención de datos de Azure Log Analytics. Obtenga más información sobre la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Para mantener se al día con el progreso de la retención de variables, [vote por esta sugerencia](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Resumen de límites
 

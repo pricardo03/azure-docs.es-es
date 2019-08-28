@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950524"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877171"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -25,6 +25,10 @@ Cada suscripción de Azure puede tener como máximo cincuenta centros de IoT y a
 Cada instancia de IoT Hub se aprovisiona con un determinado número de unidades en un nivel determinado. El nivel y el número de unidades determinan la cuota diaria máxima de mensajes que puede enviar. El tamaño de mensaje que se usa para calcular la cuota diaria es 0,5 KB para un centro de nivel gratuito y de 4 KB para todos los otros niveles. Para más información, consulte [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 El nivel también determina los valores de limitación que aplica Azure IoT Hub a las operaciones.
+
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
+
+Durante la versión preliminar pública, los dispositivos de IoT Plug and Play enviarán mensajes independientes por interfaz, lo que puede aumentar el número de mensajes considerados en la cuota de mensajes.
 
 ## <a name="operation-throttles"></a>Limitaciones de operación
 

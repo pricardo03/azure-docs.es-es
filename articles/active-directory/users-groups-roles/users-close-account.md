@@ -13,16 +13,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39b359ef7feeaec541ba17e98a5d1e9b74c6403a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da4c6b1c1434dae564ab4876a3ab3f341a87097
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65958006"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891952"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Cierre de la cuenta profesional o educativa en un directorio no administrado
 
-Si es un usuario en una organización de Azure Active Directory (Azure AD) no administrada y ya no necesita usar las aplicaciones de la organización o mantener asociación alguna con ella, puede cerrar su cuenta en cualquier momento. Un directorio no administrado no tiene un administrador global. Los usuarios de un directorio no administrado pueden cerrar sus cuentas por sí mismos, sin necesidad de ponerse en contacto con el administrador.
+Si es un usuario en una organización de Azure Active Directory (Azure AD) no administrada y ya no necesita usar las aplicaciones de la organización ni mantener asociación alguna con ella, puede cerrar su cuenta en cualquier momento. Un directorio no administrado no tiene un administrador global. Los usuarios de un directorio no administrado pueden cerrar sus cuentas por sí mismos, sin necesidad de ponerse en contacto con el administrador.
 
 Los usuarios de un directorio no administrado se suelen crear durante el registro de autoservicio. Un ejemplo podría ser el de un trabajador de la información de una organización, que se suscribe a un servicio gratuito. Para más información acerca del registro de autoservicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?](directory-self-service-signup.md)
 

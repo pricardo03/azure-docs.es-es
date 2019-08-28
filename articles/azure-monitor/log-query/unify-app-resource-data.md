@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466835"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650134"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
-En este artículo se describe cómo consultar y ver todos los datos de registro de aplicación de Application Insights en un mismo lugar, incluso cuando están en diferentes suscripciones de Azure, como un reemplazo para Application Insights Connector en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.  
+En este artículo se describe el proceso para consultar y ver todos los datos de registro de Application Insights en un mismo lugar (incluso si pertenecen a suscripciones a Azure distintas) como reemplazo de Application Insights Connector, que se encuentra en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Enfoque recomendado para consultar varios recursos de Application Insights 
 Enumerar varios recursos de Application Insights en una consulta puede ser pesado y difícil de mantener. En su lugar, puede aprovechar la función para separar la lógica de consulta del ámbito de las aplicaciones.  
@@ -32,7 +32,14 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Cree una función mediante el operador de unión con la lista de aplicaciones y guarde la consulta como función con el alias *applicationsScoping* en el área de trabajo.  
+Cree una función mediante el operador de unión con la lista de aplicaciones y guarde la consulta como función con el alias *applicationsScoping* en el área de trabajo. 
+
+Puede modificar las aplicaciones enumeradas en cualquier momento en el portal; para ello, vaya al explorador de consultas en el área de trabajo y seleccione la función para editarla y guardarla, o use el cmdlet `SavedSearch` de PowerShell. 
+
+>[!NOTE]
+>Este método no se puede usar con alertas de registro porque la validación de acceso de los recursos para las regla de alertas (incluidas las áreas de trabajo y las aplicaciones) se realiza en el momento de la creación de la alerta. No se admite la adición de nuevos recursos a la función después de crear la alerta. Si prefiere usar la función para el ámbito de los recursos en las alertas de registro, debe editar la regla de alerta en el portal o usar una plantilla de Resource Manager para actualizar los recursos de ámbito. También puede incluir la lista de recursos en la consulta de alerta de registro.
+
+El comando `withsource= SourceApp` agrega una columna a los resultados, que designa la aplicación que envió el registro. El operador de análisis es opcional en este ejemplo y se usa para extraer el nombre de la aplicación de la propiedad SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -43,13 +50,6 @@ app('Contoso-app4').requests,
 app('Contoso-app5').requests 
 | parse SourceApp with * "('" applicationName "')" *  
 ```
-
->[!NOTE]
->Puede modificar las aplicaciones enumeradas en cualquier momento en el portal; para ello, vaya al explorador de consultas en el área de trabajo y seleccione la función para editarla y guardarla, o use el cmdlet `SavedSearch` de PowerShell. El comando `withsource= SourceApp` agrega una columna a los resultados, que designa la aplicación que envió el registro. 
->
->La consulta usa el esquema de Application Insights, aunque la consulta se ejecuta en el área de trabajo debido a que la función applicationsScoping devuelve la estructura de datos de Application Insights. 
->
->El operador de análisis es opcional en este ejemplo, extrae el nombre de la aplicación de la propiedad SourceApp. 
 
 Ahora está listo para usar la función applicationsScoping en la consulta entre recursos:  
 
@@ -62,7 +62,7 @@ applicationsScoping
 | render timechart
 ```
 
-El alias de la función devuelve la unión de las solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación.
+La consulta usa el esquema de Application Insights, aunque la consulta se ejecuta en el área de trabajo debido a que la función applicationsScoping devuelve la estructura de datos de Application Insights. El alias de la función devuelve la unión de las solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación.
 
 ![Ejemplo de resultados entre consultas](media/unify-app-resource-data/app-insights-query-results.png)
 

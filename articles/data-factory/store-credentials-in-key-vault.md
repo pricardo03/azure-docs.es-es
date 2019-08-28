@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 735013046f65a9dba345c52db883df0b114ba7f2
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048519"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892064"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -77,8 +77,8 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
-| secretName | El nombre del secreto en Azure Key Vault. | Sí |
-| secretVersion | La versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin |
+| secretName | Nombre del secreto en Azure Key Vault. | Sí |
+| secretVersion | Versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin |
 | store | Hace referencia a un servicio vinculado de Azure Key Vault que se usa para almacenar las credenciales. | Sí |
 
 **Uso de la IU de creación:**

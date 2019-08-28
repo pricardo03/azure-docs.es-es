@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f9d7f87e9d7b1761c165e08e37cd6a3237c8212a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965523"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640699"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema (versión preliminar)
 
 Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 
@@ -92,7 +92,7 @@ Esta propiedad declara (para Azure Resource Manager y los proveedores de recurso
     ```
     Esta es la asignación equivalente de una identidad a un servicio, tal como se ha descrito anteriormente, pero desde la perspectiva de la definición del servicio. Aquí se hace referencia a la identidad mediante su nombre descriptivo (`WebAdmin`), como se declaró en el manifiesto de aplicación.
 
-## <a name="related-articles"></a>Artículos relacionados
+## <a name="next-steps"></a>Pasos siguientes
 
 * Revisión de la [compatibilidad con la identidad administrada](./concepts-managed-identity.md) en Azure Service Fabric
 

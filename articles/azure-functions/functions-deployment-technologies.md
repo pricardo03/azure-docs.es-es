@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444037"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650456"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
-Puede usar algunas tecnologías diferentes para implementar el código del proyecto de Azure Functions en Azure. En este artículo se ofrece una lista exhaustiva de esas tecnologías, se informa de qué tecnologías están disponibles para los tipos de instancias de Functions, se explica lo que sucede cuando se usa cada método y se proporcionan recomendaciones del mejor método que usar en diversos escenarios. Las diversas herramientas que admiten la implementación en Azure Functions se ajustan a la tecnología correcta en función de su contexto.
+Puede usar algunas tecnologías diferentes para implementar el código del proyecto de Azure Functions en Azure. En este artículo se ofrece una lista exhaustiva de esas tecnologías, se informa de qué tecnologías están disponibles para los tipos de instancias de Functions, se explica lo que sucede cuando se usa cada método y se proporcionan recomendaciones del mejor método que usar en diversos escenarios. Las diversas herramientas que admiten la implementación en Azure Functions se ajustan a la tecnología correcta en función de su contexto. En general, la implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
 
 ## <a name="deployment-technology-availability"></a>Disponibilidad de la tecnología de implementación
 
@@ -31,17 +31,17 @@ Azure Functions admite el desarrollo local multiplataforma y hospedaje en Windo
 
 Cada plan tiene diferentes comportamientos. No todas las tecnologías de implementación están disponibles para todos los tipos de instancia de Azure Functions. En el gráfico siguiente se muestran las tecnologías de implementación que se admiten para cada combinación de sistema operativo y plan de hospedaje:
 
-| Tecnología de implementación | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows  | Consumo para Linux (versión preliminar) | Dedicado de Linux |
-|-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| Dirección URL del paquete externo<sup>1</sup> |✔|✔|✔|✔|✔|
-| Implementación de archivo ZIP |✔|✔|✔| |✔|
-| Contenedor de Docker | | | | |✔|
-| Web Deploy |✔|✔|✔| | |
-| Control de código fuente |✔|✔|✔| |✔|
-| Git local<sup>1</sup> |✔|✔|✔| |✔|
-| Sincronización en la nube<sup>1</sup> |✔|✔|✔| |✔|
-| FTP<sup>1</sup> |✔|✔|✔| |✔|
-| Edición del portal |✔|✔|✔| |✔<sup>2</sup>|
+| Tecnología de implementación | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows  | Consumo de Linux | Premium para Linux (versión preliminar) | Dedicado de Linux |
+|-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
+| Dirección URL del paquete externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Implementación de archivo ZIP |✔|✔|✔|✔|✔|✔|
+| Contenedor de Docker | | | | |✔|✔|
+| Web Deploy |✔|✔|✔| | | |
+| Control de código fuente |✔|✔|✔| |✔|✔|
+| Git local<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Sincronización en la nube<sup>1</sup> |✔|✔|✔| |✔|✔|
+| FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Edición del portal |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> Tecnología de implementación que requiere [sincronización manual de desencadenadores](#trigger-syncing).  
 <sup>2</sup> La edición del portal solo está habilitada para los desencadenadores HTTP y de temporizador de Functions en Linux con los planes Premium y Dedicado.
@@ -58,7 +58,40 @@ Cuando se modifica cualquiera de los desencadenantes, la infraestructura de Func
 * Envíe una solicitud HTTP POST a `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` mediante la [clave maestra](functions-bindings-http-webhook.md#authorization-keys).
 * Envíe la solicitud HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Reemplace los marcadores de posición con el identificador de suscripción, el nombre del grupo de recursos y el nombre de la aplicación de funciones.
 
-## <a name="deployment-technology-details"></a>Detalles de la tecnología de implementación 
+### <a name="remote-build"></a>Compilación remota
+
+Azure Functions puede realizar automáticamente compilaciones en el código que recibe después de las implementaciones de archivos ZIP. Estas compilaciones se comportan de manera ligeramente diferente en función de si la aplicación se ejecuta en Windows o Linux. Las compilaciones remotas no se realizan cuando una aplicación se ha configurado previamente en el modo [Ejecutar desde paquete](run-functions-from-deployment-package.md). Para obtener más información sobre cómo usar la compilación remota, vaya a [implementación de archivo ZIP](#zip-deploy).
+
+> [!NOTE]
+> Si tiene problemas con la compilación remota, podría deberse a que la aplicación se creó antes de que la característica estuviera disponible (1 de agosto de 2019). Intente crear una nueva aplicación de funciones.
+
+#### <a name="remote-build-on-windows"></a>Compilación remota en Windows
+
+Todas las aplicaciones de funciones que se ejecutan en Windows tienen una pequeña aplicación de administración, el sitio SCM (o [Kudu](https://github.com/projectkudu/kudu)). Este sitio controla gran parte de la lógica de implementación y compilación de Azure Functions.
+
+Cuando una aplicación se implementa en Windows, se ejecutan comandos específicos del lenguaje, como `dotnet restore` (C#) o `npm install` (JavaScript).
+
+#### <a name="remote-build-on-linux-preview"></a>Compilación remota en Linux (versión preliminar)
+
+Para habilitar la compilación remota en Linux, debe establecer las siguientes [opciones de configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings):
+
+* `ENABLE_ORYX_BUILD=true`
+* `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde el paquete de implementación](run-functions-from-deployment-package.md).
+
+> [!NOTE]
+> La compilación remota en el plan dedicado de Linux (App Service) solo se admite actualmente para Node.js y Python.
+
+##### <a name="consumption-preview-plan"></a>Plan de consumo (versión preliminar)
+
+Las aplicaciones de funciones de Linux que se ejecutan en el plan de consumo no tienen un sitio SCM/Kudu, lo que limita las opciones de implementación. Sin embargo, las aplicaciones de funciones en Linux que se ejecutan en el plan de consumo admiten compilaciones remotas.
+
+##### <a name="dedicated-and-premium-preview-plans"></a>Planes dedicados y Premium (versión preliminar)
+
+Las aplicaciones de funciones que se ejecutan en Linux con el [plan dedicado (App Service )](functions-scale.md#app-service-plan) y el [plan Premium](functions-scale.md#premium-plan) también tienen un sitio SCM/Kudu limitado.
+
+## <a name="deployment-technology-details"></a>Detalles de la tecnología de implementación
 
 En Azure Functions se encuentran disponibles los métodos de implementación siguientes.
 
@@ -70,17 +103,25 @@ Puede utilizar la dirección URL del paquete externo para hacer referencia a un 
 >
 >Si usa Azure Blob Storage, utilice un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para que Functions tenga acceso al paquete. Cada vez que se reinicia la aplicación, se captura una copia del contenido. La referencia debe ser válida durante la vigencia de la aplicación.
 
->__Cuándo se debe usar__: La dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el Plan de consumo (versión preliminar). Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
+>__Cuándo se debe usar__: La dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el Plan de consumo, si el usuario específicamente no quiere que se produzca una compilación remota. Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
 
 ### <a name="zip-deploy"></a>Implementación de archivo ZIP
 
-Utilice la implementación de archivo ZIP para insertar un archivo ZIP que contiene la aplicación de funciones de Azure. También puede establecer que la aplicación se inicie en modo de [ejecución desde el paquete](run-functions-from-deployment-package.md).
+Utilice la implementación de archivo ZIP para insertar un archivo ZIP que contiene la aplicación de funciones de Azure. Si quiere, puede establecer que la aplicación comience a [ejecutarse desde el paquete](run-functions-from-deployment-package.md) o especificar que se produzca una [compilación remota](#remote-build).
 
 >__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) la [CLI de Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
->
->Si realiza la implementación mediante la implementación zip, puede establecer la aplicación para que se ejecute en modo de [ejecución desde el paquete](run-functions-from-deployment-package.md). Para establecer el modo de ejecución desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure.
 
->__Cuándo se debe usar__: la implementación de un archivo ZIP es la tecnología de implementación recomendada para Functions que se ejecuta en Windows y Linux en el plan Premium o el plan Dedicado.
+Para realizar una implementación de archivo ZIP con una [compilación remota](#remote-build), use el siguiente comando de [Core Tools](functions-run-local.md):
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+También puede indicar a VS Code que realice una compilación remota durante la implementación al agregar la marca "azureFunctions.scmDoBuildDuringDeployment". Para obtener más información sobre cómo agregar una marca a VS Code, lea las instrucciones de la [wiki sobre la extensión Azure Functions](https://github.com/microsoft/vscode-azurefunctions/wiki).
+
+>Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure. 
+
+>__Cuándo se debe usar__: La implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
 
 ### <a name="docker-container"></a>Contenedor de Docker
 
@@ -93,7 +134,7 @@ Puede implementar una imagen de contenedor de Linux que contenga la aplicación 
 >
 >Para implementar una aplicación existente mediante un contenedor personalizado, use el comando [`func deploy`](functions-run-local.md#publish) de [Azure Functions Core Tools](functions-run-local.md).
 
->__Cuándo se debe usar__: Use la opción de contenedor de Docker cuando quiera tener más control sobre el entorno de Linux donde se ejecuta la aplicación de funciones. Este mecanismo de implementación solo está disponible para las instancias de Functions que se ejecutan en Linux en un plan de App Service.
+>__Cuándo se debe usar__: Use la opción de contenedor de Docker cuando quiera tener más control sobre el entorno de Linux donde se ejecuta la aplicación de funciones. Este mecanismo de implementación solo está disponible para las instancias de Functions que se ejecutan en Linux.
 
 ### <a name="web-deploy-msdeploy"></a>Web Deploy (MSDeploy)
 
@@ -151,7 +192,7 @@ En el editor basado en el portal, puede editar directamente los archivos que se 
 
 La siguiente tabla muestra los sistemas operativos y lenguajes que admiten la edición del portal:
 
-| | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows | Consumo para Linux (versión preliminar) | Premium para Linux (versión preliminar)| Dedicado de Linux |
+| | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows | Consumo de Linux | Premium para Linux (versión preliminar)| Dedicado de Linux |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | Script de C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -166,23 +207,7 @@ La siguiente tabla muestra los sistemas operativos y lenguajes que admiten la ed
 
 ## <a name="deployment-slots"></a>Ranuras de implementación
 
-Al implementar la aplicación de funciones en Azure, puede implementar en una ranura de implementación independiente en lugar de directamente en producción. Para más información sobre las ranuras de implementación, consulte la [documentación de ranuras de Azure App Service](../app-service/deploy-staging-slots.md).
-
-### <a name="deployment-slots-levels-of-support"></a>Niveles de compatibilidad de las ranuras de implementación
-
-Hay dos niveles de compatibilidad para las ranuras de implementación:
-
-* **Disponibilidad general (GA)** : significa que es totalmente compatible y está aprobada para su uso en producción.
-* **Versión preliminar**: aún no cuenta con soporte pero se espera que llegue al estado de disponibilidad general en el futuro.
-
-| Sistema operativo o plan de hospedaje | Nivel de compatibilidad |
-| --------------- | ------ |
-| Consumo de Windows | Vista previa |
-| Premium de Windows (versión preliminar) | Vista previa |
-| Dedicado de Windows | Disponibilidad general |
-| Consumo de Linux | No compatible |
-| Premium para Linux (versión preliminar) | Vista previa |
-| Dedicado de Linux | Disponibilidad general |
+Al implementar la aplicación de funciones en Azure, puede implementar en una ranura de implementación independiente en lugar de directamente en producción. Para obtener más información sobre las ranuras de implementación, consulte la documentación de [ranuras de implementación de Azure Functions](../app-service/deploy-staging-slots.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

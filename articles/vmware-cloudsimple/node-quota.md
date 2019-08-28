@@ -3,21 +3,21 @@ title: Azure VMware Solution by CloudSimple - Cuota de nodos de CloudSimple
 description: Se describen los límites de cuota de los nodos de CloudSimple y cómo solicitar un aumento de la cuota
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e765d7c87f2f941a5e2d558b71c4e5a71d2df9b1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816677"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877813"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Límites de cuota de los nodos de CloudSimple
 
-Cuando la suscripción está habilitada para el servicio CloudSimple, la cantidad predeterminada de nodos disponibles para su aprovisionamiento es cuatro.  Puede aprovisionar cualquier [tipo de nodo](cloudsimple-node.md) desde Azure Portal.  Para crear una nube privada, se requieren un mínimo de tres nodos de la misma SKU.  Si ha aprovisionado los nodos, es posible que vea un error cuando intente aprovisionar nodos adicionales.
+Cuando la suscripción está habilitada para el servicio CloudSimple, la cantidad predeterminada de nodos disponibles para su compra es cuatro.  Puede comprar cualquier [tipo de nodo](cloudsimple-node.md) desde Azure Portal.  Para crear una nube privada, se requieren por lo menos tres nodos de la misma SKU.  Si ha comprado los nodos, es posible que vea un error cuando intente adquirir nodos adicionales.
 
 ## <a name="quota-increase"></a>Aumento de la cuota
 
@@ -40,5 +40,5 @@ También puede ponerse en contacto con su representante de la cuenta Microsoft e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprovisionamiento de nodos](create-nodes.md)
+* [Comprar nodos](create-nodes.md)
 * [Introducción a los nodos de CloudSimple](cloudsimple-node.md)

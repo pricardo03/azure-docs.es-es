@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.author: v-adgera
-ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965808"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873642"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -53,7 +53,9 @@ Configure la aplicación Azure Active Directory para usar el flujo de concesión
 
 ## <a name="obtain-an-oauth-20-token"></a>Obtención de un token de OAuth 2.0
 
-A continuación, instale y configure Postman para obtener un token de Azure Active Directory. Después, realice una solicitud HTTP autenticada a Azure Digital Twins mediante el token adquirido:
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Instale y configure Postman para obtener un token de Azure Active Directory. Después, realice una solicitud HTTP autenticada a Azure Digital Twins mediante el token adquirido:
 
 1. Vaya a [www.getpostman.com](https://www.getpostman.com/) para descargar la aplicación.
 1. Asegúrese de que el valor de **Dirección URL de autorización** es correcto. Debe tener el formato siguiente:
@@ -75,7 +77,7 @@ A continuación, instale y configure Postman para obtener un token de Azure Acti
     | Dirección URL de autenticación | Use la **Dirección URL de autorización** del paso 2 |
     | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior |
     | Ámbito | Déjelo en blanco |
-    | Estado | Déjelo en blanco |
+    | State | Déjelo en blanco |
     | Autenticación de clientes | `Send as Basic Auth header` |
 
 1. Ahora, el cliente debe aparecer como:

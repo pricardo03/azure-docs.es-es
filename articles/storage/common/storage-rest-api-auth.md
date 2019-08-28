@@ -1,24 +1,24 @@
 ---
-title: Llamada a las operaciones de API de REST de Azure Storage Services que incluyen autenticación | Microsoft Docs
-description: Llamada a las operaciones de API de REST de Azure Storage Services que incluyen autenticación
+title: Llamada a las operaciones de API REST de servicios de Azure Storage con autorización de clave compartida | Microsoft Docs
+description: Use la API REST de Azure Storage para hacer una solicitud a Blob Storage mediante la autorización de claves compartidas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989937"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640676"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso de la API de REST de Azure Storage
 
-En este artículo se muestra cómo usar la API de REST del servicio Blob Storage y cómo autenticar la llamada al servicio. Se ha escrito desde el punto de vista de un desarrollador que no sabe nada sobre REST y no tiene idea de cómo realizar una llamada a REST. Se examinó la documentación de referencia de una llamada de REST y se vio cómo traducirla a una llamada de REST real: ¿qué campos van en cada sitio? Después de aprender a configurar una llamada de REST, puede aprovechar este conocimiento para usar cualquier otra API de REST del servicio de almacenamiento.
+En este artículo se muestra cómo usar la API REST del servicio Blob Storage y cómo autorizar la llamada al servicio. Se ha escrito desde el punto de vista de un desarrollador que no sabe nada sobre REST y no tiene idea de cómo realizar una llamada a REST. Se examinó la documentación de referencia de una llamada de REST y se vio cómo traducirla a una llamada de REST real: ¿qué campos van en cada sitio? Después de aprender a configurar una llamada de REST, puede aprovechar este conocimiento para usar cualquier otra API de REST del servicio de almacenamiento.
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -267,12 +267,13 @@ Ahora que comprende cómo crear la solicitud, llamar al servicio y analizar los 
 ## <a name="creating-the-authorization-header"></a>Creación del encabezado de autorización
 
 > [!TIP]
-> Azure Storage ahora admite la integración de Azure Active Directory (Azure AD) para los blobs y las colas. Azure AD ofrece una experiencia mucho más sencilla de autorización de una solicitud para Azure Storage. Para más información sobre el uso de Azure AD para autorizar operaciones REST, consulte [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) (Autenticación mediante Azure Active Directory). Para obtener información general sobre la integración de Azure AD con Azure Storage, consulte [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory).
+> Azure Storage ahora admite la integración de Azure Active Directory (Azure AD) para los blobs y las colas. Azure AD ofrece una experiencia mucho más sencilla de autorización de una solicitud para Azure Storage. Para obtener más información sobre el uso de Azure AD para autorizar operaciones REST, consulte [Authorize with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory) (Autorización mediante Azure Active Directory). Para obtener información general sobre la integración de Azure AD con Azure Storage, consulte [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory).
 
-Hay un artículo que explica los conceptos (no el código) de cómo realizar la [autenticación para Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Hay un artículo que explica los conceptos (no el código) de cómo realizar las [solicitudes de autorización para los servicios de Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Vamos a reducir ese artículo a lo que es estrictamente necesario y mostrar el código.
 
-En primer lugar, use una autenticación de clave compartida. El formato de encabezado de autorización tiene el siguiente aspecto:
+En primer lugar, use la autorización de clave compartida. El formato de encabezado de autorización tiene el siguiente aspecto:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -360,7 +361,7 @@ Esta parte de la cadena de firma representa la cuenta de almacenamiento que tien
 
 Si tiene parámetros de consulta, también se incluyen en este ejemplo. Este es el código, que también administra parámetros de consulta adicionales y parámetros de consulta con varios valores. Recuerde que va a compilar este código para que funcione para todas las API REST. Le recomendamos que incluya todas las posibilidades, incluso si el método ListContainers no las necesita todas.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ En este artículo, aprendió a realizar una solicitud a la API REST de Blob Stor
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API de REST de File Service)
 * [API de REST del servicio Cola](/rest/api/storageservices/queue-service-rest-api)
+* [API REST de Table service](/rest/api/storageservices/table-service-rest-api)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976992"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873192"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
 
@@ -76,6 +76,8 @@ Para ver cómo probar el enriquecimiento de mensajes, consulte el [tutorial de e
 
 * El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](iot-hub-metrics.md) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar d2c.telemetry.egress.invalid.
 
+* El enriquecimiento de mensajes no se aplica a los eventos de cambio Digital Twins (parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## <a name="pricing"></a>Precios
 
 El enriquecimiento de mensajes está disponible sin ningún cargo adicional. Actualmente, se le cobra cuando envía un mensaje a un centro de IoT. Solo se le cobrará una vez por ese mensaje, incluso si el mensaje va a varios puntos de conexión.
@@ -87,6 +89,8 @@ Esta funcionalidad está en versión preliminar pública y está disponible en t
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte estos artículos para obtener más información sobre el enrutamiento de mensajes en una instancia de IoT Hub:
+
+* [Tutorial de mejoras de mensajes](tutorial-message-enrichments.md)
 
 * [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
 

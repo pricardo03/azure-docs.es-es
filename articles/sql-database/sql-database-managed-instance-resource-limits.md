@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567329"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874393"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -42,7 +42,7 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 | Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en la región Este de Australia.
+> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
@@ -56,11 +56,13 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | Tamaño máximo de base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
+| Tamaño de archivo máximo | 8 TB | 4 TB |
 | Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
 | Límite de rendimiento de escritura en el registro | 3 MB/s por núcleo virtual<br/>22 MB/s por instancia como máximo | 4 MB/s por núcleo virtual<br/>48 MB/s por instancia como máximo|
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Aumentar el tamaño del archivo para mejorar el rendimiento de E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
 | Latencia de E/S de almacenamiento (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más espacio para TempDB. | El límite viene dado por el tamaño máximo de almacenamiento de la instancia. El tamaño del archivo de registro de TempDB está limitado actualmente a 24 GB/núcleo virtual. |
+| OLTP en memoria (optimización en memoria | No compatible | Disponible |
 | Número máximo de sesiones | 30000 | 30000 |
 
 > [!NOTE]

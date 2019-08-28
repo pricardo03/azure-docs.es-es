@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740879"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891718"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -361,6 +360,13 @@ También puede usar una plantilla de Resource Manager que instala y ejecuta el p
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>¿Qué puede provocar que el estado del back-end devuelva un valor desconocido?
 
 Por lo general, se ve un estado desconocido cuando el acceso al back-end está bloqueado por un grupo de seguridad de red (NSG), un DNS personalizado o un enrutamiento definido por el usuario (UDR) en la subred de Application Gateway. Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>¿Hay algún caso en el que los registros de flujo de NSG no muestren el tráfico permitido?
+
+Sí. Si la configuración coincide con el siguiente escenario, no verá el tráfico permitido en los registros de flujo de NSG:
+- Ha implementado Application Gateway V2.
+- Tiene un NSG en la subred de Application Gateway.
+- Ha habilitado los registros de flujo de NSG en ese NSG.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

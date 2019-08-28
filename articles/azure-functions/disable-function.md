@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: 183056d01146194b2854a70df790802e1a0bb839
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782231"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650492"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
@@ -29,7 +29,7 @@ En este artículo se explica cómo deshabilitar una función de Azure Functions.
 
 ## <a name="functions-2x---all-languages"></a>Functions 2.x: todos los lenguajes
 
-En Functions 2.x puede deshabilitar una función mediante una configuración de aplicación en el formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Puede crear y modificar esta configuración mediante programación con la CLI de Azure. También puede realizar esta acción desde la pestaña **Administrar** de la función en [Azure Portal](https://portal.azure.com). 
+En Functions 2.x puede deshabilitar una función mediante una configuración de aplicación en el formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Puede crear y modificar esta configuración de aplicación de varias maneras. Por ejemplo, puede usar la [CLI de Azure](/cli/azure/) o usar la pestaña **Administrar** de la función en [Azure Portal](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>CLI de Azure
 

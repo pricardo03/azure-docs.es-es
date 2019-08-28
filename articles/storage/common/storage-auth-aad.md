@@ -9,12 +9,12 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775342"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641093"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas de Azure con Azure Active Directory
 
@@ -54,7 +54,7 @@ Para más información acerca de cómo se definen los roles integrados para Azur
 
 ### <a name="access-permissions-for-data-operations"></a>Permisos de acceso para operaciones de datos
 
-Para obtener detalles sobre los permisos necesarios para llamar a operaciones concretas de Blob Service o Queue Service, vea [Permisos para llamar a operaciones de datos de blobs y colas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Para obtener detalles sobre los permisos necesarios para llamar a operaciones concretas de Blob Service o Queue Service, vea [Permisos para llamar a operaciones de datos de blobs y colas](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 ## <a name="resource-scope"></a>Ámbito de recursos
 
@@ -85,5 +85,5 @@ Azure Files admite autorización con Azure AD a través de SMB solo para máquin
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Autorización del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)
-- [Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas](storage-auth-aad-app.md)
+- [Autorización con Azure Active Directory desde una aplicación para acceder a blobs y colas](storage-auth-aad-app.md)
 - [Compatibilidad de Azure Storage con el control de acceso basado en Azure Active Directory disponible con carácter general](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

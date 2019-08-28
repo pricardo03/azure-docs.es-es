@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7296760a177b949d2f921e11b28105ca6eb67fee
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892076954535d880f9081a269215cb7e2a0a8dce
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036293"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541860"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -99,19 +99,19 @@ La plantilla de proyecto de Azure IoT Edge en Visual Studio crea un proyecto que
 
    ![Creación de un proyecto](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. En la ventana **Agregar la aplicación y el módulo de IoT Edge**, seleccione **Módulo C#** o **Módulo C** y, después, especifique el nombre y el repositorio de imágenes del módulo. Visual Studio completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre de su módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **_\<nombre del registro\>_ .azurecr.io**. Reemplace solo la sección **localhost:5000** de la cadena para que el resultado final se parezca a **\<*nombre del registro*\>.azurecr.io/ _\<nombre del módulo\>_** . El nombre de módulo predeterminado es **IoTEdgeModule1**
+1. En la ventana **Agregar la aplicación y el módulo de IoT Edge**, seleccione **Módulo C#** o **Módulo C** y, después, especifique el nombre y el repositorio de imágenes del módulo. Visual Studio completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre de su módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **_\<nombre del registro\>_ .azurecr.io**. Reemplace solo la sección **localhost:5000** de la cadena para que el resultado final se parezca a **\<*nombre del registro*\>.azurecr.io/ _\<nombre del módulo\>_** . El nombre de módulo predeterminado es **IotEdgeModule1**
 
    ![Adición de la aplicación y el módulo](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. Seleccione **Aceptar** para crear la solución de Azure IoT Edge con un módulo que use C# o C.
 
-Ahora tiene un proyecto **AzureIoTEdgeApp1.Linux.Amd64** o **AzureIoTEdgeApp1.Windows.Amd64** y también uno **IoTEdgeModule1** en la solución. Cada proyecto **AzureIoTEdgeApp1** tiene un archivo `deployment.template.json`, que define los módulos que quiere compilar e implementar para la solución de IoT Edge y, además, define las rutas entre los módulos. La solución predeterminada tiene un módulo **SimulatedTemperatureSensor** y un módulo **IoTEdgeModule1**. El módulo **SimulatedTemperatureSensor** genera datos simulados para el módulo **IoTEdgeModule1**, mientras que el código predeterminado del módulo **IoTEdgeModule1** canaliza directamente los mensajes recibidos a Azure IoT Hub.
+Ahora tiene un proyecto **AzureIoTEdgeApp1.Linux.Amd64** o **AzureIoTEdgeApp1.Windows.Amd64** y también uno **IotEdgeModule1** en la solución. Cada proyecto **AzureIoTEdgeApp1** tiene un archivo `deployment.template.json`, que define los módulos que quiere compilar e implementar para la solución de IoT Edge y, además, define las rutas entre los módulos. La solución predeterminada tiene un módulo **tempSensor** y otro **IotEdgeModule1**. El módulo **tempSensor** genera datos simulados para **IotEdgeModule1**, mientras que el código predeterminado del módulo **IotEdgeModule1** canaliza directamente los mensajes recibidos a Azure IoT Hub.
 
-El proyecto **IoTEdgeModule1** es una aplicación de consola de .NET Core 2.1, si se trata de un módulo de C#. Contiene los archivos de Docker que necesita para que el dispositivo de IoT Edge se ejecute con un contenedor de Windows o Linux. El archivo `module.json` describe los metadatos de un módulo. El código del módulo real, que toma el SDK de dispositivo IoT de Azure como dependencia, se encuentra en los archivos `Program.cs` o `main.c`.
+El proyecto **IotEdgeModule1** es una aplicación de consola de .NET Core 2.1, si se trata de un módulo de C#. Contiene los archivos de Docker que necesita para que el dispositivo de IoT Edge se ejecute con un contenedor de Windows o Linux. El archivo `module.json` describe los metadatos de un módulo. El código del módulo real, que toma el SDK de dispositivo IoT de Azure como dependencia, se encuentra en los archivos `Program.cs` o `main.c`.
 
 ## <a name="develop-your-module"></a>Desarrollo de su módulo
 
-El código del módulo predeterminado que se incluye con la solución se encuentra en **IoTEdgeModule1** > **Program.cs** (para C#) o en **main.c** (para C). El módulo y el archivo `deployment.template.json` se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo con el fin de iniciar la prueba sin tocar el código. El módulo se compila para recibir entradas de un origen (en este caso, el módulo **SimulatedTemperatureSensor** que simula datos) y canalizarlo a Azure IoT Hub.
+El código del módulo predeterminado que se incluye con la solución se encuentra en **IotEdgeModule1** > **Program.cs** (para C#) o en **main.c** (para C). El módulo y el archivo `deployment.template.json` se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo con el fin de iniciar la prueba sin tocar el código. El módulo se compila para recibir entradas de un origen (en este caso, el módulo **tempSensor** que simula datos) y canalizarlo a Azure IoT Hub.
 
 Cuando tenga todo listo para personalizar la plantilla del módulo con su propio código, use los [SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para compilar módulos que aborden las necesidades principales de las soluciones de IoT, como la seguridad, la administración de dispositivos y la fiabilidad.
 
@@ -134,7 +134,7 @@ Cuando tenga todo listo para personalizar la plantilla del módulo con su propio
 
 Por lo general, querrá probar y depurar los módulos antes de que se ejecuten en una solución entera con varios de ellos.
 
-1. Haga clic con el botón derecho en **IoTEdgeModule1** y seleccione **Set as StartUp Project** (Establecer como proyecto de inicio) en el menú contextual.
+1. Haga clic con el botón derecho en **IotEdgeModule1** y seleccione **Establecer como proyecto de inicio** en el menú contextual.
 
    ![Establecimiento del proyecto de inicio](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
@@ -165,16 +165,16 @@ Por lo general, querrá probar y depurar los módulos antes de que se ejecuten e
 
 Cuando haya terminado de desarrollar el módulo, querrá ejecutar y depurar una solución completa de varios módulos.
 
-1. Para agregar un segundo módulo a la solución, haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Agregar** > **Nuevo módulo de IoT Edge**. El nombre predeterminado del segundo módulo es **IoTEdgeModule2** y actuará como otro módulo de canalización.
+1. Para agregar un segundo módulo a la solución, haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Agregar** > **Nuevo módulo de IoT Edge**. El nombre predeterminado del segundo módulo es **IotEdgeModule2** y actuará como otro módulo de canalización.
 
-1. Abra el archivo `deployment.template.json` y verá que **IoTEdgeModule2** se ha agregado a la sección **modules**. Reemplace la sección **routes** por lo siguiente. Si ha personalizado los nombres de módulo, asegúrese de actualizarlos para que coincidan.
+1. Abra el archivo `deployment.template.json` y verá que **IotEdgeModule2** se ha agregado a la sección **modules**. Reemplace la sección **routes** por lo siguiente. Si ha personalizado los nombres de módulo, asegúrese de actualizarlos para que coincidan.
 
     ```json
         "routes": {
-          "IoTEdgeModule1ToIoTHub": "FROM /messages/modules/IoTEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
-          "IoTEdgeModule2ToIoTHub": "FROM /messages/modules/IoTEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
+          "IotEdgeModule1ToIoTHub": "FROM /messages/modules/IotEdgeModule1/outputs/* INTO $upstream",
+          "sensorToIotEdgeModule1": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule1/inputs/input1\")",
+          "IotEdgeModule2ToIoTHub": "FROM /messages/modules/IotEdgeModule2/outputs/* INTO $upstream",
+          "sensorToIotEdgeModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule2/inputs/input1\")"
         },
     ```
 
@@ -232,7 +232,7 @@ En el artículo de la guía de inicio rápido que siguió para configurar el dis
    > [!NOTE]
    > No debe seleccionar `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`.
 
-1. Haga clic en el botón Actualizar para ver los nuevos módulos en ejecución junto con el módulo **SimulatedTemperatureSensor**, **$edgeAgent** y **$edgeHub**.
+1. Haga clic en el botón Actualizar para ver los nuevos módulos en ejecución junto con el módulo **tempSensor**, **$edgeAgent** y **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 

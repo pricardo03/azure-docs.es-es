@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990456"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872430"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
@@ -317,7 +317,7 @@ Para ver los destinos de proceso del área de trabajo, use los pasos siguientes:
 1. Navegue hasta [Azure Portal](https://portal.azure.com) y abra el área de trabajo. 
 1. En __Aplicaciones__, seleccione __Proceso__.
 
-    ![Pestaña en la que se ve el proceso](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![Visualización de la pestaña Proceso](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Creación de un destino de proceso
 
@@ -336,8 +336,6 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
 1. Rellene el formulario. Proporcione valores para las propiedades necesarias, especialmente para **Familia de máquinas virtuales** y **Nodos máximos** que se van a utilizar para acelerar el proceso.  
 
-    ![Rellenado del formulario](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Seleccione __Crear__.
 
 
@@ -348,8 +346,6 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 1. Verá los detalles del destino de proceso: 
 
     ![Ver los detalles del destino de proceso](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Adjuntar destinos de proceso
 

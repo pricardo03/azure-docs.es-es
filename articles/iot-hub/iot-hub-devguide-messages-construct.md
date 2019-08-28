@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: dd45c68fb7d7a7226d18dd1afc508b3dbf7b770b
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950451"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872484"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -49,14 +49,15 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 
 ## <a name="system-properties-of-d2c-iot-hub-messages"></a>Propiedades del sistema de los mensajes de IoT Hub **D2C**
 
-| Propiedad | DESCRIPCIÓN  |¿La puede definir el usuario?|Palabra clave para el enrutamiento de la consulta|
+| Propiedad | DESCRIPCIÓN  |¿La puede definir el usuario?|Palabra clave para </br>la consulta de enrutamiento|
 | --- | --- | --- | --- |
-| message-id |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Sí | MessageId |
-| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [del dispositivo a la nube](iot-hub-devguide-d2c-guidance.md). | Sin | EnqueuedTime |
-| user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sí | UserId |
-| iothub-connection-device-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | Sin | deviceId |
-| iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **generationId** (como se indica en [Propiedades de identidad de dispositivos](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | Sin |DeviceGenerationId |
-| iothub-connection-auth-method |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje.| Sin | AuthMethod |
+| message-id |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Sí | messageId |
+| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [del dispositivo a la nube](iot-hub-devguide-d2c-guidance.md). | Sin | enqueuedTime |
+| user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sí | userId |
+| iothub-connection-device-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | Sin | connectionDeviceId |
+| iothub-connection-module-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **moduleId** del dispositivo que envió el mensaje. | Sin | connectionModuleId |
+| iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **connectionDeviceGenerationId** (como se indica en [Propiedades de identidad del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | Sin |connectionDeviceGenerationId |
+| iothub-connection-auth-method |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje.| Sin | connectionAuthMethod |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propiedades del sistema de los mensajes de IoT Hub **C2D**
 
@@ -72,7 +73,7 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 
 ## <a name="message-size"></a>Tamaño del mensaje
 
-IoT Hub mide el tamaño de los mensajes de una manera independiente del protocolo, teniendo en cuenta solo la carga real. El tamaño en bytes se calcula como la suma de los siguientes elementos:
+IoT Hub mide el tamaño de los mensajes de una manera independiente del protocolo, teniendo en cuenta solo la carga real. El tamaño en bytes se calcula como la suma de los siguientes valores:
 
 * El tamaño del cuerpo en bytes.
 * El tamaño en bytes de todos los valores de las propiedades del sistema de mensajes.

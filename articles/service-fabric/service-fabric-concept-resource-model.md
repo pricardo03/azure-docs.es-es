@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963839"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623824"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>¿Qué es el modelo de recurso de aplicación de Service Fabric?
 Se recomienda que las aplicaciones de Service Fabric se implementen en el clúster de Service Fabric mediante Azure Resource Manager. Este método permite describir las aplicaciones y los servicios en JSON e implementarlos en la misma plantilla de Resource Manager que su clúster. A diferencia de implementar y administrar aplicaciones a través de PowerShell o la CLI de Azure, en este caso no es necesario esperar a que el clúster esté listo. El proceso de registro de la aplicación, su aprovisionamiento e implementación, puede suceder todo en un paso. Este es el procedimiento recomendado para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte los [procedimientos recomendados](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -33,12 +33,12 @@ En este documento, aprenderá a:
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>Implementar recursos de aplicación mediante Azure Resource Manager  
 Para implementar una aplicación y sus servicios con el modelo de recurso de aplicación de Azure Resource Manager, debe empaquetar el código de la aplicación, cargar el paquete y, luego, hacer referencia a la ubicación del paquete en una plantilla de Azure Resource Manager como un recurso de aplicación. Para obtener más información, consulte [Empaquetado de una aplicación](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Luego, cree una plantilla de Azure Resource Manager, actualice el archivo de parámetros con los detalles de la aplicación e impleméntelo en el clúster de Service Fabric. Puede consultar ejemplos aquí.
+Luego, cree una plantilla de Azure Resource Manager, actualice el archivo de parámetros con los detalles de la aplicación e impleméntelo en el clúster de Service Fabric. Puede consultar ejemplos [aquí](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
-### <a name="create-a-storage-account"></a>Creación de una cuenta de almacenamiento 
+### <a name="create-a-storage-account"></a>Creación de una cuenta de Storage 
 La implementación de una aplicación desde una plantilla de Resource Manager requiere una cuenta de almacenamiento para almacenar provisionalmente la imagen de la aplicación. Puede volver a usar una cuenta de almacenamiento existente o crear una nueva para almacenar provisionalmente sus aplicaciones. Si quiere usar una cuenta de almacenamiento existente, puede omitir este paso. 
 
-![Creación de una cuenta de almacenamiento][CreateStorageAccount]
+![Crear una cuenta de almacenamiento][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configuración de la cuenta de almacenamiento 
 Una vez creada la cuenta de almacenamiento, debe crear un contenedor de blobs donde se puedan almacenar provisionalmente las aplicaciones. En Azure Portal, navegue hasta la cuenta de almacenamiento que quiera usar para almacenar sus aplicaciones. Seleccione la hoja **Blobs** y haga clic en el botón **Agregar contenedor**. Agregue un nuevo contenedor con el nivel de acceso Público de blob.

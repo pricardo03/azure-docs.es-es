@@ -5,15 +5,15 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2c9ca71816d6688881de465a575a8a0eef3cde1f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955082"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650438"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restauración de archivos de Azure Files con PowerShell
 
@@ -152,10 +152,11 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="fetch-the-vault-id"></a>Recuperación del identificador del almacén
 
-Tenemos previsto dejar de usar la configuración del contexto de almacén según las directrices de Azure PowerShell. En su lugar, puede almacenar o recuperar el identificador del almacén y pasarlo a los comandos pertinentes, como sigue:
+Tenemos previsto dejar de usar la configuración del contexto de almacén según las directrices de Azure PowerShell. En su lugar, puede almacenar o recuperar el identificador del almacén y pasarlo a los comandos pertinentes. Por lo tanto, si no ha establecido el contexto de almacén o quiere especificar el comando que se va a ejecutar para un determinado almacén, pase el Id. de almacén como "-vaultID" a todos los comandos pertinentes de la manera siguiente:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultID $vaultID
 ```
 
 ## <a name="configure-a-backup-policy"></a>Configuración de una directiva de copia de seguridad
@@ -166,6 +167,18 @@ Una directiva de copia de seguridad especifica la programación para las copias 
 - Vea la retención de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
 - Vea la programación de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 -  El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) se usa para crear una directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
+
+De forma predeterminada, se define una hora de inicio en el objeto de directiva de programación. Use el siguiente ejemplo para cambiar la hora de inicio a la hora de inicio deseada. La hora de inicio deseada debe estar también en formato UTC. En el ejemplo siguiente se supone que la hora de inicio deseada es la 1:00 UTC para las copias de seguridad diarias.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> Solo tiene que proporcionar la hora de inicio en múltiplos de 30 minutos. En el ejemplo anterior, solo puede ser "01:00:00" o "02:30:00". La hora de inicio no puede ser "01:15:00".
 
 En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. Después usa estas variables como parámetros para una nueva directiva (**NewAFSPolicy**). **NewAFSPolicy** realiza una copia de seguridad diaria y la conserva durante 30 días.
 
@@ -180,10 +193,8 @@ La salida será similar a la siguiente.
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
-NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
+NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
-
-
 
 ## <a name="enable-backup"></a>Habilitación de la copia de seguridad
 
@@ -208,6 +219,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 AM
 ```
+
 > [!NOTE]
 > La zona horaria del campo **BackupTime** de PowerShell es Hora universal coordinada (UTC). Cuando el tiempo de copia de seguridad se muestra en Azure Portal, la hora se ajusta a la zona horaria local.
 
@@ -262,6 +274,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 ```
 
 Las instantáneas de recursos compartidos de archivos de Azure se usan al realizar copias de seguridad, por lo que el trabajo normalmente se completa en el momento en que el comando devuelve esta salida.
+
+### <a name="using-on-demand-backups-to-extend-retention"></a>Uso de copias de seguridad a petición para ampliar la retención
+
+Las copias de seguridad a petición se pueden usar para conservar las instantáneas durante 10 años. Los programadores pueden usarse para ejecutar scripts de PowerShell a petición con la retención seleccionada. De este modo, se toman instantáneas a intervalos regulares cada semana, mes o año. Al tomar instantáneas periódicas, se hace referencia a las [limitaciones de las copias de seguridad a petición](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) mediante Azure Backup.
+
+Si busca scripts de ejemplo, puede consultar el script de ejemplo en GitHub (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años.
 
 ### <a name="modify-the-protection-policy"></a>Modificación de la directiva de protección
 

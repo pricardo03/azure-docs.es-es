@@ -4,26 +4,29 @@ description: 'Configuración de integración continua e implementación continua
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e14025a5a7a3e81404498638d6f6f9c5ff18ed58
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414619"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650789"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integración continua e implementación continua en Azure IoT Edge
 
 Puede adoptar fácilmente DevOps con las aplicaciones de Azure IoT Edge con las tareas integradas de Azure IoT Edge en Azure Pipelines. En este artículo se muestra cómo puede usar las características de integración continua e implementación continua de Azure Pipelines para compilar, probar e implementar aplicaciones de forma rápida y eficaz en su instancia de Azure IoT Edge. 
 
-En este artículo, aprenderá a usar las tareas integradas de Azure IoT Edge para Azure Pipelines para crear dos canalizaciones para la solución de IoT Edge. La primera toma el código y compila la solución, insertando las imágenes del módulo en el registro de contenedores y creando un manifiesto de implementación. La segunda implementa los módulos en dispositivos de IoT Edge de destino.  
-
 ![Diagrama: ramas CI y CD para desarrollo y producción](./media/how-to-ci-cd/cd.png)
 
+En este artículo, aprenderá a usar las tareas integradas de Azure IoT Edge para Azure Pipelines para crear dos canalizaciones para la solución de IoT Edge. En las tareas Azure IoT Edge se pueden usar cuatro acciones.
+   - **Azure IoT Edge: Build Module images** usa el código de su solución de IoT Edge y crea las imágenes de contenedor.
+   - **Azure IoT Edge: Push Module images** inserta las imágenes del módulo en el registro de contenedor especificado.
+   - **Azure IoT Edge: Generate Deployment Manifest** usa el archivo deployment.template.json y sus variables para generar el archivo final de manifiesto de implementación de IoT Edge.
+   - **Azure IoT Edge: Deploy to IoT Edge devices** ayuda a crear implementaciones de IoT Edge en varios dispositivos IoT Edge o en uno solo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -77,15 +80,15 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
     
      ![Configuración del grupo de agentes de compilación](./media/how-to-ci-cd/configure-env.png)
 
-5. La canalización viene preconfigurada con un trabajo denominado **Trabajo del agente 1**. Seleccione el signo de más ( **+** ) para agregar tres tareas al trabajo: **Azure IoT Edge** dos veces, y **Publicar los artefactos de la compilación** una vez. (Mantenga el mouse sobre el nombre de cada tarea para ver el botón **Agregar**).
+5. La canalización viene preconfigurada con un trabajo denominado **Trabajo del agente 1**. Seleccione el signo de más ( **+** ) para agregar tres tareas al trabajo: **Azure IoT Edge** dos veces, **Copiar archivos** una vez y **Publicar los artefactos de la compilación** una vez. (Mantenga el mouse sobre el nombre de cada tarea para ver el botón **Agregar**).
 
    ![Agregar la tarea Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-   Cuando se hayan agregado las tres tareas, el Trabajo del agente se verá similar al ejemplo siguiente:
+   Cuando se hayan agregado las cuatro tareas, el Trabajo del agente se verá similar al ejemplo siguiente:
     
    ![Las tres tareas en la canalización de compilación](./media/how-to-ci-cd/add-tasks.png)
 
-6. Seleccione la primera tarea **Azure IoT Edge** para editarla. Esta tarea crea todos los módulos en la solución con la plataforma de destino que especifique, también genera el archivo **deployment.json** que indica a sus dispositivos de IoT Edge cómo configurar la implementación.
+6. Seleccione la primera tarea **Azure IoT Edge** para editarla. Esta tarea compila todos los módulos de la solución con la plataforma de destino que se especificó.
 
    * **Nombre para mostrar**: Acepte el valor predeterminado **Azure IoT Edge - Build module images**.
    * **Acción**: Acepte el valor predeterminado **Build module images**. 
@@ -93,7 +96,7 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
    * **Plataforma predeterminada**: Seleccione la plataforma adecuada para los módulos en función de su dispositivo de IoT Edge de destino. 
    * **Variables de salida**: Las variables de salida incluyen un nombre de referencia que puede usar para configurar la ruta de acceso del archivo donde se generará el archivo deployment.json. Establezca el nombre de referencia en algo fácil de recordar, como **edge**. 
 
-7. Seleccione la segunda tarea **Azure IoT Edge** para editarla. Esta tarea insertará todas las imágenes del módulo en el registro de contenedor que seleccionó. También agrega las credenciales del registro de contenedor al archivo **deployment.json** para que el dispositivo de IoT Edge puede acceder a las imágenes del módulo. 
+7. Seleccione la segunda tarea **Azure IoT Edge** para editarla. Esta tarea insertará todas las imágenes del módulo en el registro de contenedor que seleccionó.
 
    * **Nombre para mostrar**: El nombre para mostrar se actualiza automáticamente cuando cambia el campo de acción. 
    * **Acción**: Use la lista desplegable para seleccionar **Push module images**. 
@@ -103,24 +106,32 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 
    Si tiene varias instancias de Container Registry para hospedar las imágenes de módulo, tiene que duplicar esta tarea, seleccionar otra instancia de Container Registry y usar **Bypass module(s)** (Omitir módulos) en la configuración avanzada para omitir las imágenes que no son de este registro específico.
 
-8. Seleccione la tarea **Publicar los artefactos de la compilación** para editarla. Proporcione la ruta de acceso al archivo de implementación generado por la tarea de compilación. Establezca el valor **Ruta de acceso para publicar** para que coincida con la variable de salida que estableció en la tarea del módulo de compilación. Por ejemplo, `$(edge.DEPLOYMENT_FILE_PATH)`. Deje las restantes opciones con sus valores predeterminados. 
+8. Seleccione la tarea **Copiar archivos** para editarla. Use esta tarea para copiar archivos en el directorio de almacenamiento provisional de artefactos.
 
-9. Abra la pestaña **Desencadenadores** y marque la casilla para **Habilitar la integración continua**. Asegúrese de que se incluye la rama que contiene el código.
+   * **Nombre para mostrar**: Copiar archivos en: carpeta de entrega.
+   * **Contenido**: Ponga dos líneas en esta sección, `deployment.template.json` y `**/module.json`. Estos dos tipos de archivos son las entradas para generar el manifiesto de implementación de IoT Edge. Debe copiarse en la carpeta de almacenamiento provisional de artefactos y publicarse para la canalización de versiones.
+   * **Carpeta de destino**: coloque la variable `$(Build.ArtifactStagingDirectory)`. Consulte las [variables de compilación](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para obtener información acerca de sus descripciones.
+
+9. Seleccione la tarea **Publicar los artefactos de la compilación** para editarla. Proporcione la ruta de acceso del directorio de almacenamiento provisional de artefactos a la tarea para que la ruta de acceso pueda publicarse en la canalización de versión.
+   
+   * **Nombre para mostrar**: Publicar artefacto: drop.
+   * **Ruta de acceso para publicar**: coloque la variable `$(Build.ArtifactStagingDirectory)`. Consulte las [variables de compilación](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para obtener información acerca de sus descripciones.
+   * **Nombre del artefacto**: drop.
+   * **Ubicación de publicación de artefactos**: Azure Pipelines.
+
+
+10. Abra la pestaña **Desencadenadores** y marque la casilla para **Habilitar la integración continua**. Asegúrese de que se incluye la rama que contiene el código.
 
     ![Activación del desencadenador de integración continua](./media/how-to-ci-cd/configure-trigger.png)
 
-10. Guarde la nueva canalización de compilación con el botón **Guardar**.
+11. Guarde la nueva canalización de compilación con el botón **Guardar**.
 
 Esta canalización ahora está configurada para ejecutarse automáticamente al insertar código nuevo en el repositorio. La última tarea, la publicación de los artefactos de la canalización, desencadena una canalización de versión. Continúe con la sección siguiente para compilar la canalización de versión. 
 
 ## <a name="configure-continuous-deployment"></a>Configuración de la implementación continua
 En esta sección, se crea una canalización de versión que está configurada para ejecutarse automáticamente cuando la canalización de compilación coloca artefactos, y mostrará los registros de implementación en Azure Pipelines.
 
-En esta sección, creará dos fases diferentes, una para las implementaciones de prueba y otra para las implementaciones de producción. 
-
-### <a name="create-test-stage"></a>Creación de la fase de prueba
-
-Cree una nueva canalización y configure su primera fase para las implementaciones de control de calidad (QA). 
+Creación de una nueva canalización y adición de una nueva fase 
 
 1. En la pestaña **Versiones**, elija **+ Nueva canalización**. O bien, si ya tiene canalizaciones de versión, elija el botón **+ Nuevo** y seleccione **+ Nueva canalización de versión**.  
 
@@ -130,9 +141,7 @@ Cree una nueva canalización y configure su primera fase para las implementacion
 
     ![Empezar con un trabajo vacío](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. La nueva canalización de versión se inicializa con una fase, llamada **Fase 1**. Cambie el nombre de Fase 1 a **QA** y trátela como un entorno de prueba. Por lo general, las canalizaciones de implementación continua tienen varias fases. Puede crear más en función de sus prácticas de DevOps. Cierre la ventana de detalles de la fase una vez que haya cambiado el nombre. 
-
-    ![Creación de la fase del entorno de prueba](./media/how-to-ci-cd/QA-env.png)
+3. La nueva canalización de versión se inicializa con una fase, llamada **Fase 1**. Cambie el nombre de Fase 1 a **dev** y trátela como un entorno de prueba. Por lo general, las canalizaciones de implementación continua tienen varias fases, incluidas **dev**, **staging** y **prod**. Puede crear más en función de sus prácticas de DevOps. Cierre la ventana de detalles de la fase una vez que haya cambiado el nombre. 
 
 4. Vincule la versión con los artefactos de compilación que publica la canalización de compilación. Haga clic en **Agregar** en el área de artefactos.
 
@@ -146,57 +155,46 @@ Cree una nueva canalización y configure su primera fase para las implementacion
 
    ![Configuración del desencadenador de implementación continua](./media/how-to-ci-cd/add-a-trigger.png)
 
-7. La fase **QA** está preconfigurada con un trabajo y cero tareas. En el menú de la canalización, seleccione **Tareas**, a continuación, elija la fase **QA**.  Seleccione el recuento de trabajos y tareas para configurar las tareas en esta fase.
+7. La fase **dev** está preconfigurada con un trabajo y cero tareas. En el menú de la canalización, seleccione **Tareas** y, a continuación, elija la fase **dev**.  Seleccione el recuento de trabajos y tareas para configurar las tareas en esta fase.
 
-    ![Configurar las tareas de QA](./media/how-to-ci-cd/view-stage-tasks.png)
+    ![Configuración de las tareas de dev](./media/how-to-ci-cd/view-stage-tasks.png)
 
-8. En la fase QA, debería ver un **Trabajo del agente** predeterminado. Puede configurar los detalles sobre el trabajo del agente, pero la tarea de implementación no distingue la plataforma, por lo que puede elegir **Hosted VS2017** o **Hosted Ubuntu 1604** en el **Grupo de agentes** (o cualquier otro agente administrado por usted mismo). 
+8. En la fase **dev**, debería ver un **Trabajo del agente** predeterminado. Puede configurar los detalles sobre el trabajo del agente, pero la tarea de implementación no distingue la plataforma, por lo que puede elegir **Hosted VS2017** o **Hosted Ubuntu 1604** en el **Grupo de agentes** (o cualquier otro agente administrado por usted mismo). 
 
-9. Haga clic en el signo de más ( **+** ) para agregar una tarea. Busque y agregue **Azure IoT Edge**. 
+9. Haga clic en el signo más ( **+** ) para agregar dos tareas. Busque y agregue **Azure IoT Edge** dos veces.
 
-    ![Agregar tareas para QA](./media/how-to-ci-cd/add-task-qa.png)
+    ![Adición de tareas para dev](./media/how-to-ci-cd/add-task-qa.png)
 
-10. Seleccione la nueva tarea de Azure IoT Edge y configúrela con los valores siguientes:
+10. Seleccione la primera tarea de **Azure IoT Edge** y configúrela con los valores siguientes:
 
     * **Nombre para mostrar**: El nombre para mostrar se actualiza automáticamente cuando cambia el campo de acción. 
-    * **Acción**: Use la lista desplegable para seleccionar **Deploy to IoT Edge device** (Implementar en dispositivo IoT Edge). Al cambiar el valor de la acción, también se actualiza el nombre para mostrar de la tarea para que coincidan.
+    * **Acción**: Use la lista desplegable para seleccionar **Generate deployment manifest** (Generar manifiesto de implementación). Al cambiar el valor de la acción, también se actualiza el nombre para mostrar de la tarea para que coincidan.
+    * **Archivo .template.json**: especifique la ruta de acceso `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. La ruta de acceso se publica desde la canalización de compilación.
+    * **Plataforma predeterminada**: elija el mismo valor al compilar las imágenes del módulo.
+    * **Ruta de acceso de salida**: especifique la ruta de acceso `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. Esta es la ruta de acceso del archivo de manifiesto de implementación de IoT Edge final.
+
+    Estas configuraciones ayudan a reemplazar las direcciones URL del módulo en el archivo `deployment.template.json`. **Generate deployment manifest** (Generar manifiesto de implementación) también ayuda a reemplazar las variables con el valor exacto que especificó en el archivo `deployment.template.json`. En VS o VS Code, el valor real se especifica en un archivo `.env`. En Azure Pipelines, el valor se establece en la pestaña Variables de canalización de versión. Vaya a la pestaña Variables y configure el Nombre y Valor de la siguiente manera.
+
+    * **ACR_ADDRESS**: la dirección de Azure Container Registry. 
+    * **ACR_PASSWORD**: la contraseña de Azure Container Registry.
+    * **ACR_USER**: el nombre de usuario de Azure Container Registry.
+
+    Si tiene otras variables en el proyecto, puede especificar el nombre y el valor en esta pestaña. **Generate deployment manifest** (Generar manifiesto de implementación) solo puede reconocer las variables del tipo `${VARIABLE}`, por lo que debe asegurarse de usar este formato en sus archivos `*.template.json`.
+
+    ![Configuración de variables para la canalización de versiones](./media/how-to-ci-cd/configure-variables.png)
+
+10. Seleccione la segunda tarea de **Azure IoT Edge** y configúrela con los valores siguientes:
+
+    * **Nombre para mostrar**: El nombre para mostrar se actualiza automáticamente cuando cambia el campo de acción. 
+    * **Acción**: Use la lista desplegable para seleccionar **Deploy to IoT Edge device** (Implementar en dispositivos IoT Edge). Al cambiar el valor de la acción, también se actualiza el nombre para mostrar de la tarea para que coincidan.
     * **Suscripción de Azure**: Seleccione la suscripción que contiene el centro de IoT.
     * **Nombre de la instancia de IoT Hub**: Seleccione IoT Hub. 
     * **Choose single/multiple device** (Elegir dispositivo único/varios): Elija si quiere que la canalización de versión se implemente en uno o varios dispositivos. 
       * Si implementa en un único dispositivo, escriba el **IoT Edge device ID** (Id. de dispositivo IoT Edge). 
-      * Si va a implementar en varios dispositivos, especifique la **condición de destino** del dispositivo. La condición de destino es un filtro para asociar un conjunto de dispositivos de Edge en IoT Hub. Si quiere usar etiquetas de dispositivo como condición, debe actualizar las etiquetas de dispositivo correspondientes con el dispositivo gemelo de IoT Hub. Actualice **IoT Edge deployment ID** (Id. de implementación de IoT Edge) e **IoT Edge deployment priority** (Prioridad de implementación de IoT Edge) en la configuración avanzada. Para más información acerca de cómo crear una implementación para varios dispositivos, consulte [Descripción de las implementaciones automáticas de IoT Edge](module-deployment-monitoring.md).
+      * Si va a implementar en varios dispositivos, especifique la **condición de destino** del dispositivo. La condición de destino es un filtro para asociar un conjunto de dispositivos de IoT Edge en IoT Hub. Si quiere usar etiquetas de dispositivo como condición, debe actualizar las etiquetas de dispositivo correspondientes con el dispositivo gemelo de IoT Hub. Actualice **IoT Edge deployment ID** (Id. de implementación de IoT Edge) e **IoT Edge deployment priority** (Prioridad de implementación de IoT Edge) en la configuración avanzada. Para más información acerca de cómo crear una implementación para varios dispositivos, consulte [Descripción de las implementaciones automáticas de IoT Edge](module-deployment-monitoring.md).
+    * Expanda Configuración avanzada, seleccione **Id. de implementación de IoT Edge** y coloque la variable `$(System.TeamProject)-$(Release.EnvironmentName)`. De esta forma, el proyecto y el nombre de la versión se asignan con el id. de implementación de IoT Edge.
 
 11. Seleccione **Guardar** para guardar los cambios en la nueva canalización de versión. Vuelva a la vista de canalización seleccionando **Canalización** en el menú. 
-
-### <a name="create-production-stage"></a>Creación de una fase de producción
-
-Cree una segunda fase en la canalización de versión para la implementación de producción. 
-
-1. Cree una segunda fase de producción clonando la fase QA. Mantenga el cursor sobre la fase QA y luego seleccione el botón Clonar. 
-
-    ![Clonar fase](./media/how-to-ci-cd/clone-stage.png)
-
-2. Seleccione la nueva fase, llamada **Copia de QA** para abrir sus propiedades. Cambie el nombre de la fase a **PROD**, para producción. Cierre la ventana de propiedades de la fase. 
-
-3. Para abrir las tareas de la fase PROD, seleccione **Tareas** en el menú de la canalización y, luego, elija la fase **PROD**. 
-
-4. Seleccione la tarea de Azure IoT Edge para configurar si es para el entorno de producción. Probablemente, la configuración de implementación sea la misma para QA que para PROD, salvo que quiere establecer como destino un dispositivo o un conjunto de dispositivos diferentes en producción. Actualice el campo de Id. de dispositivo, o los campos de condición de destino e id. de implementación para los dispositivos de producción. 
-
-5. Guárdelo con el botón **Guardar**. Luego, seleccione **Canalización** para volver a la vista de canalización.
-    
-6. De la manera en que está configurada actualmente esta canalización de versión, el artefacto de compilación desencadenará la fase **QA** y, luego, la fase **PROD** cada vez que se complete una compilación nueva. Sin embargo, normalmente querrá integrar algunos casos de prueba en los dispositivos de QA y aprobar manualmente la implementación para producción. Siga los pasos a continuación para crear una condición de aprobación para la fase PROD:
-
-    1. Abra el panel de configuración **Condiciones anteriores a la implementación**.
-
-        ![Abrir Condiciones anteriores a la implementación](./media/how-to-ci-cd/pre-deploy-conditions.png)    
-
-    2. Cambie la condición **Aprobaciones anteriores a la implementación** a **Habilitado**. Agregue uno o varios usuarios o grupos en el campo **Aprobadores** y personalice las demás directivas de aprobación que quiera. Para guardar los cambios, cierre el panel condiciones anteriores a la implementación.
-    
-       ![Establecer las condiciones](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
-
-
-7. Guarde la canalización de versión con el botón **Guardar**. 
-
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Comprobación de CI/CD de IoT Edge con las canalizaciones de compilación y de versión
 
@@ -208,17 +206,21 @@ Para desencadenar un trabajo de compilación, puede insertar una confirmación e
 
     ![Desencadenador manual](./media/how-to-ci-cd/manual-trigger.png)
 
-3. Seleccione el trabajo de compilación para ver su progreso. Si la canalización de compilación se completa correctamente, desencadena una versión a la fase **QA**. 
+3. Seleccione el trabajo de compilación para ver su progreso. Si la canalización de compilación se completa correctamente, se desencadena una versión en la fase **dev**. 
 
     ![Registros de compilación](./media/how-to-ci-cd/build-logs.png)
 
-4. La implementación correcta en la fase **QA** desencadena una notificación al aprobador. Verifique que los módulos se hayan implementado correctamente en el o los dispositivos de destino con la fase QA. A continuación, vaya a la canalización de versión y apruebe que la versión pase a la fase PROD seleccionando el botón **PROD** y, luego, seleccionando **Aprobar**. 
+4. La versión **dev** correcta crea una implementación de IoT Edge en los dispositivos IoT Edge de destino.
 
-    ![Pendiente de aprobación](./media/how-to-ci-cd/pending-approval.png)
+    ![Versión de dev](./media/how-to-ci-cd/pending-approval.png)
 
-5. Después de que el aprobador aprueba este cambio, se puede implementar en **PROD**.
+5. Haga clic en la fase **dev** para ver los registros de versión.
+
+    ![Registros de versión](./media/how-to-ci-cd/release-logs.png)
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+* Ejemplo de procedimientos recomendados de DevOps en IoT Edge en [Proyecto de Azure DevOps para IoT Edge](how-to-devops-project.md)
 * Puede encontrar información sobre la implementación de IoT Edge en [Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 * Siga los pasos para crear, actualizar o eliminar una implementación en [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor.md).

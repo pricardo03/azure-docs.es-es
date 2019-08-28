@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397879"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650222"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -39,10 +39,16 @@ Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reg
 Una regla de pertenencia que rellena automáticamente un grupo con usuarios o dispositivos es una expresión binaria que genera un resultado true o false. Los tres elementos de una regla simple son:
 
 * Propiedad
-* Operador
+* Operator
 * Valor
 
 El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
+
+### <a name="rule-builder-in-the-azure-portal"></a>Generador de reglas en Azure Portal
+
+Azure AD proporciona un generador de reglas para crear y actualizar las reglas importantes con mayor rapidez. El generador de reglas admite hasta cinco reglas. Para agregar los términos de seis o más reglas, debe usar el cuadro de texto. Para obtener instrucciones paso a paso, consulte [Actualización de un grupo dinámico](groups-update-rule.md).
+
+   ![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-update-rule/update-dynamic-group-rule.png)
 
 ### <a name="rules-with-a-single-expression"></a>Reglas con una expresión única
 
@@ -68,14 +74,14 @@ Las siguientes son las propiedades de usuario que puede utilizar para crear una 
 
 ### <a name="properties-of-type-boolean"></a>Propiedades de tipo booleano
 
-| Properties (Propiedades) | Valores permitidos | Uso |
+| properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propiedades de tipo cadena
 
-| Properties (Propiedades) | Valores permitidos | Uso |
+| properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Cualquier valor de cadena o *null* |(user.city -eq "value") |
 | country |Cualquier valor de cadena o *null* |(user.country -eq "value") |
@@ -106,7 +112,7 @@ Las siguientes son las propiedades de usuario que puede utilizar para crear una 
 
 ### <a name="properties-of-type-string-collection"></a>Propiedades de colección de cadenas de tipo
 
-| Properties (Propiedades) | Valores permitidos | Uso |
+| properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -117,7 +123,7 @@ Para más información sobre las propiedades que se usan para las reglas de disp
 
 En la tabla siguiente se enumeran todos los operadores admitidos y su sintaxis para una expresión única. Los operadores se pueden utilizar con o sin el prefijo de guion (-).
 
-| Operador | Sintaxis |
+| Operator | Sintaxis |
 | --- | --- |
 | Not Equals |-ne |
 | Equals |-eq |
@@ -231,7 +237,7 @@ Una regla de pertenencia puede constar de expresiones complejas donde las propie
 
 Las propiedades de varios valores son colecciones de objetos del mismo tipo. Se pueden usar para crear reglas de pertenencia mediante los operadores lógicos -any y -all.
 
-| Properties (Propiedades) | Valores | Uso |
+| properties (Propiedades) | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans | Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -261,7 +267,7 @@ En la expresión siguiente se seleccionan todos los usuarios que tengan algún p
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>Con la sintaxis de guión bajo (\_)
+### <a name="using-the-underscore-_-syntax"></a>Con la sintaxis de guión bajo (\_)
 
 La sintaxis de guión bajo (\_) coincide con las apariciones de un valor específico en una de las propiedades de la colección de cadenas multivalor para agregar usuarios o dispositivos a un grupo dinámico. Se usa con los operadores -any u -all.
 

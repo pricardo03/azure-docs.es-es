@@ -11,21 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d08105e78274300eb7ee0a8c0ad146a737d0ffa
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237117"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644955"
 ---
-# <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitación y uso de Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
 
 - Habilitar Escritorio remoto para una VM Linux
 - Cómo los profesores pueden conectarse a la VM de plantillas a través de una Conexión a Escritorio remoto (RDP).
-- Cómo los alumnos se conectan a la VM de alumnos a través de RDP
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Habilitar Escritorio remoto para una VM Linux
 Durante la creación del laboratorio, los profesores pueden habilitar la **Conexión a Escritorio remoto** para imágenes **Linux**. La opción **Habilitar Conexión a Escritorio remoto** aparece cuando se selecciona una imagen de Linux para la plantilla. Cuando se habilita esta opción, los profesores pueden conectarse a la VM de plantillas y las VM de alumnos a través de RDP (Escritorio remoto). 
@@ -67,15 +66,6 @@ Un profesor puede conectarse a un VM de alumnos al cambiar a la vista **Máquina
 
 Para más información sobre cómo conectarse a la VM mediante SSH o RDP, consulte Conexión a SSH o RDP((#connect-using-ssh-or-rdp). 
 
-## <a name="students-connecting-to-the-student-vm"></a>Alumnos que se conectan a la VM de alumnos
-Los alumnos pueden usar RDP en conectarse a sus VM Linux después de que el propietario de laboratorio (profesor) **publica** la VM de plantillas con los paquetes de RDP y GUI instalados en la máquina. Estos son los pasos que se deben seguir: 
-
-1. Cuando un alumno inicia sesión en el portal de laboratorios directamente (`https://labs.azure.com`) o mediante un vínculo de registro (`https://labs.azure.com/register/<registrationCode>`), se muestra un icono para cada laboratorio al que el alumno tiene acceso. 
-2. En el icono, seleccione **Iniciar**, si la VM se ha detenido. 
-3. Seleccione **Conectar**. Verá dos opciones para conectarse a la VM: **SSH** y **Escritorio remoto**.
-
-    ![VM de alumnos: opciones de conexión](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
-
 ## <a name="connect-using-ssh-or-rdp"></a>Conexión mediante SSH o RDP
 Si selecciona la opción **SSH**, consulte el siguiente cuadro de diálogo **Conectarse a su máquina virtual**:  
 
@@ -86,10 +76,4 @@ Seleccione el botón **Copiar** situado junto al cuadro de texto para copiarlo e
 Si selecciona la opción **RDP**, se descarga un archivo RDP en la máquina. Guarde el archivo y ábralo para conectarse a la máquina. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
-
-- [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
-- [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
-- [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
-
+Después de que un instructor habilita la característica de Conexión a Escritorio remoto, los alumnos pueden conectarse a sus máquinas virtuales a través de RDP/SSH. Para obtener más información, consulte [Uso de Escritorio remoto para máquinas virtuales Linux en un laboratorio de clase](how-to-use-remote-desktop-linux-student.md). 

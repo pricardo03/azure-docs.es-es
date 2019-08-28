@@ -3,25 +3,25 @@ title: 'Azure VMware Solution by CloudSimple: mantenimiento y actualizaciones de
 description: Describe el proceso de servicio de CloudSimple para las operaciones de mantenimiento y las actualizaciones programadas
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816220"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877930"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Mantenimiento y actualizaciones de CloudSimple
 
-El entorno de nube privada está diseñado para no tener un único punto de error:
+El entorno de nube privada está diseñado para no tener un único punto de error.
 
-* los clústeres de ESXi están configurados con la alta disponibilidad de vSphere. Los clústeres tienen un tamaño para tener al menos un nodo de repuesto para proporcionar resistencia.
+* Los clústeres de ESXi están configurados con la alta disponibilidad de vSphere. Los clústeres tienen un tamaño para tener al menos un nodo de repuesto para proporcionar resistencia.
 * vSAN, que requiere al menos tres nodos para proteger frente a un único error, proporciona almacenamiento principal redundante. vSAN puede configurarse para proporcionar mayor resistencia para clústeres más grandes.
-* Las máquinas virtuales vCenter, PSC y NSX Manager se configuran con la directiva de almacenamiento de RAID-10 para protegerse frente a errores de almacenamiento. La alta disponibilidad de vSphere protege las máquinas virtuales frente a errores de nodo o red.
+* Las VM de vCenter, PSC y NSX Manager se configuran con la directiva de almacenamiento de RAID-10 para protegerse frente a errores de almacenamiento. La alta disponibilidad de vSphere protege las máquinas virtuales frente a errores de nodo o red.
 * Los hosts de ESXi tienen ventiladores y NIC redundantes.
 * Los conmutadores TOR y de tallo se configuran en pares de alta disponibilidad para proporcionar resistencia.
 
@@ -52,14 +52,14 @@ CloudSimple crea copias de seguridad de estos elementos de VMware en las nubes p
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Copia de seguridad y restauración
+## <a name="back-up-and-restore"></a>Creación de copias de seguridad y restauración de datos
 
 La copia de seguridad de CloudSimple incluye:
 
 * Copias de seguridad incrementales nocturnas de las reglas de vCenter, PSC y DVS.
-* Uso de las API nativas de vCenter para crear una copia de seguridad de los componentes en el nivel de aplicación.
+* API nativas de vCenter para crear una copia de seguridad de los componentes en el nivel de aplicación.
 * Copia de seguridad automática antes de cualquier actualización del software de administración de VMware.
-* Cifrado de datos en el origen, por parte de vCenter, antes de transferir datos a través de un canal cifrado TLS1.2 a Azure. Los datos se almacenan en un blob de Azure en que se replican entre regiones.
+* Cifrado de datos de vCenter en el origen antes de transferir datos a través de un canal cifrado TLS1.2 a Azure. Los datos se almacenan en un blob de Azure en que se replican entre regiones.
 
 Puede abrir una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) para solicitar una restauración.
 
@@ -105,4 +105,4 @@ CloudSimple proporciona actualizaciones de mantenimiento trimestrales para los c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Copia de seguridad de máquinas virtuales de carga de trabajo con Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Copia de seguridad de VM de carga de trabajo con Veeam](backup-workloads-veeam.md).

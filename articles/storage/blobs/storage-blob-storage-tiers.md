@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952901"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543673"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -80,6 +80,7 @@ Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluy
 ### <a name="blob-rehydration"></a>Rehidratación de blobs
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md) para obtener más información.  
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 
@@ -164,11 +165,13 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Para ir a un blob en su cuenta de almacenamiento, seleccione **Todos los recursos**, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
+1. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
 
-1. En la hoja **Propiedades del blob**, haga clic en el menú desplegable **Nivel de acceso** para seleccionar el nivel de acceso **Frecuente**, **Esporádico** o **Archivo**.
+1. En la hoja **Propiedades del blob**, seleccione el botón **Change tier** (Cambiar nivel) para abrir la hoja de nivel.
 
-1. Haga clic en **Guardar** en la parte superior de la hoja.
+1. Seleccione el nivel de acceso **Frecuente**, **Esporádico** o **Archivo**. Si actualmente el blob usa el nivel de acceso de archivo y quiere rehidratarlo como un nivel en línea, también puede seleccionar una prioridad de rehidratación **Estándar** o **Alta**.
+
+1. Haga clic en **Aceptar** en la parte inferior de la hoja.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -245,6 +248,8 @@ El almacenamiento de datos, junto con otros límites, se establece en el nivel d
 [Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
 
 [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+
+[Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
 
 [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
 

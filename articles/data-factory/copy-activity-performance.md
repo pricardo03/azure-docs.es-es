@@ -1,5 +1,5 @@
 ---
-title: Guía de optimización y rendimiento de la actividad de copia en Azure Data Factory | Microsoft Docs
+title: Guía de escalabilidad y rendimiento de la actividad de copia en Azure Data Factory | Microsoft Docs
 description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
 services: data-factory
 documentationcenter: ''
@@ -10,78 +10,133 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d8ce0a4f6bacdd1c8c858d474e6f3957a23c6357
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967355"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614189"
 ---
-# <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
+# <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-activity-performance.md)
 > * [Versión actual](copy-activity-performance.md)
 
+Si quiere realizar una migración de datos a gran escala desde un lago de datos o un almacenamiento de datos empresarial (EDW) a Azure, o si quiere ingerir datos a escala desde distintos orígenes en Azure para análisis de macrodatos, es fundamental lograr un rendimiento y escalabilidad óptimos.  Azure Data Factory proporciona un mecanismo eficaz, resistente y rentable para ingerir datos a escala, lo que lo convierte en una buena opción para los ingenieros de datos que buscan crear canalizaciones de ingesta de datos de alto rendimiento y escalabilidad.
 
-La actividad de copia de Azure Data Factory ofrece una solución de carga de datos de alto rendimiento fiable y segura de primera clase. Puede usarla para copiar decenas de terabytes de datos al día en una amplia variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los macrodatos: crear soluciones de análisis avanzadas y profundizar en todos esos datos.
+Después de leer este artículo, podrá responder a las siguientes preguntas:
 
-Azure proporciona un conjunto de soluciones de almacenamiento de datos de nivel empresarial. La actividad de copia ofrece una experiencia de carga de datos altamente optimizada que es fácil de configurar e instalar. Con solo una actividad de copia, puede cargar datos en:
+- ¿Qué nivel de rendimiento y escalabilidad puedo conseguir si uso la actividad de copia de ADF para escenarios de migración de datos y de ingesta de datos?
 
-* Azure SQL Data Warehouse a 1,2 GBps.
-* Azure Blob Storage a 1,0 GBps.
-* Azure Data Lake Store a 1.0 GBps.
-
-En este artículo se describe:
-
-* [Números de referencia de rendimiento](#performance-reference) para los almacenes de datos origen y receptor admitidos que le ayudan a planear su proyecto.
-* Características que pueden potenciar el rendimiento de la copia en diferentes escenarios, lo que incluye [unidades de integración de datos](#data-integration-units) (DIU), [copias en paralelo](#parallel-copy) y [copias almacenadas provisionalmente](#staged-copy).
-* [Guía para el ajuste de rendimiento](#performance-tuning-steps), donde se explica cómo optimizar el rendimiento y los factores clave que pueden afectar al rendimiento de la copia.
+- ¿Qué pasos se deben seguir para optimizar el rendimiento de la actividad de copia de ADF?
+- ¿Qué mecanismos de optimización del rendimiento de ADF puedo utilizar para optimizar el rendimiento de una única ejecución de la actividad de copia?
+- ¿Qué otros factores ajenos a ADF se deben tener en cuenta al optimizar el rendimiento de la copia?
 
 > [!NOTE]
 > Si no está familiarizado con la actividad de copia en general, consulte la [información general de la actividad de copia](copy-activity-overview.md) antes de leer este artículo.
->
 
-## <a name="performance-reference"></a>Referencia de rendimiento
+## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Rendimiento y escalabilidad de copia que pueden lograrse mediante ADF
 
-Como referencia, la siguiente tabla muestra la cantidad de procesamiento de copias, en MBps, de los pares origen-receptor dados en una ejecución individual de la actividad de copia de unas pruebas internas. A efectos de comparación, también muestra cómo distintas opciones de configuración de [unidades de integración de datos](#data-integration-units) o [escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime) (varios nodos) pueden contribuir al rendimiento de la realización de copias.
+ADF ofrece una arquitectura sin servidor que permite paralelismo en diferentes niveles, lo que permite a los desarrolladores crear canalizaciones para aprovechar al máximo el ancho de banda de red, así como el ancho de banda y las IOPS de almacenamiento para maximizar el rendimiento del movimiento de datos para su entorno.  Esto significa que el rendimiento que puede lograr puede calcularse al medir el rendimiento mínimo ofrecido por el almacén de datos de origen, el almacén de datos de destino y el ancho de banda de red entre el origen y el destino.  En la tabla siguiente se calcula la duración de la copia en función del tamaño de los datos y el límite de ancho de banda de su entorno. 
 
-![Matriz de rendimiento](./media/copy-activity-performance/CopyPerfRef.png)
+| Tamaño de los datos\ancho de banda | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
+| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
+| 1 GB                  | 2,7 min    | 1,4 min   | 0,7 min   | 0,3 min   | 0,1 min  | 0,0 min  |
+| 10 GB                 | 27,3 min   | 13,7 min  | 6,8 min   | 2,7 min   | 1,3 min  | 0,1 min  |
+| 100 GB                | 4,6 h    | 2,3 h   | 1,1 h   | 0,5 h   | 0,2 h  | 0,0 h  |
+| 1 TB                  | 46,6 h   | 23,3 h  | 11,7 h  | 4,7 h   | 2,3 h  | 0,2 h  |
+| 10 TB                 | 19,4 días  | 9,7 días  | 4,9 días  | 1,9 días  | 0,9 días | 0,1 días |
+| 100 TB                | 194,2 días | 97,1 días | 48,5 días | 19,4 días | 9,5 días | 0,9 días |
+| 1 PB                  | 64,7 meses    | 32,4 meses   | 16,2 meses   | 6,5 meses    | 3,2 meses   | 0,3 meses   |
+| 10 PB                 | 647,3 meses   | 323,6 meses  | 161,8 meses  | 64,7 meses   | 31,6 meses  | 3,2 meses   |
 
-> [!IMPORTANT]
-> Cuando la actividad de copia se ejecuta en una instancia de Azure Integration Runtime, la cantidad mínima permitida de unidades de integración de datos (antes conocidas como unidades de movimiento de datos) es dos. Si no se especifica, en [Unidades de integración de datos](#data-integration-units) puede ver las unidades de integración de datos predeterminadas que se usan.
+La copia de ADF puede escalarse en diferentes niveles:
 
-**Puntos a tener en cuenta:**
+![Cómo se escala la copia de ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
-* La capacidad de procesamiento se calcula mediante la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de la actividad de copia].
-* Los números de referencia de rendimiento de la tabla se midieron mediante un conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de actividad de copia única. Los archivos de prueba de los almacenes basados en archivos son varios archivos con un tamaño de 10 GB.
-* En los almacenes de datos de Azure, el origen y el receptor se encuentran en la misma región de Azure.
-* Para la copia híbrida entre almacenes de datos locales y en la nube, cada nodo de Integration Runtime autohospedado se ejecutaba en una máquina independiente del almacén de datos con la especificación siguiente. Si se ejecutó una única actividad, la operación de copia solo consumió una pequeña parte del ancho de banda de red, memoria o CPU de la máquina de prueba.
-    <table>
-    <tr>
-        <td>CPU</td>
-        <td>Intel Xeon E5-2660 v2 de 32 núcleos a 2,20 GHz</td>
-    </tr>
-    <tr>
-        <td>Memoria</td>
-        <td>128 GB</td>
-    </tr>
-    <tr>
-        <td>Red</td>
-        <td>Interfaz de Internet: 10 Gbps. Interfaz de intranet: 40 Gbps</td>
-    </tr>
-    </table>
+- Una única actividad de copia puede aprovechar recursos de proceso escalables: si usa Azure Integration Runtime, puede especificar [hasta 256 DIU](#data-integration-units) para cada actividad de copia en modo sin servidor; si usa un entorno de ejecución de integración autohospedado, puede escalar verticalmente la máquina o escalar horizontalmente a varias máquinas ([hasta 4 nodos](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) manualmente y una única actividad de copia creará particiones de su conjunto de archivos en todos los nodos.
+- Una única actividad de copia lee y escribe en el almacén de datos mediante varios subprocesos.
+- El flujo de control de ADF puede iniciar varias actividades de copia en paralelo, por ejemplo, mediante un [bucle ForEach](control-flow-for-each-activity.md).
 
+## <a name="performance-tuning-steps"></a>Pasos de optimización del rendimiento
 
-> [!TIP]
-> Para conseguir un mayor rendimiento es preciso usar más DIU. Por ejemplo, con 100 DIU, es posible copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de 1,0 GBps. Para más información acerca de esta característica y del escenario admitido, consulte la sección [Unidades de integración de datos](#data-integration-units). 
+Para optimizar el rendimiento del servicio Azure Data Factory con la actividad de copia, siga estos pasos.
 
-## <a name="data-integration-units"></a>Unidades de integración de datos
+1. **Establezca una línea de base.** Durante la fase de desarrollo, pruebe la canalización, para lo que debe usar la actividad de copia con unos datos de ejemplo representativos. Recopile los detalles de la ejecución y las características del rendimiento después de la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
+
+2. **Cómo maximizar el rendimiento de una única actividad de copia**:
+
+   Para empezar, se recomienda maximizar primero el rendimiento mediante una única actividad de copia.
+
+   **Si la actividad de copia se va a ejecutar en una instancia de Azure Integration Runtime:**
+
+   Comience con los valores predeterminados de las [unidades de integración de datos (DIU)](#data-integration-units) y la configuración de [copia paralela](#parallel-copy).  Realice una serie de pruebas de rendimiento y tome nota del rendimiento conseguido, así como de los valores reales usados para las DIU y las copias paralelas.  Consulte la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring) para obtener información sobre cómo recopilar los resultados de las pruebas y la configuración de rendimiento.
+
+   Ahora realice una serie de pruebas de rendimiento adicionales y duplique el valor de la configuración de DIU cada vez.  Como alternativa, si cree que el rendimiento conseguido con la configuración predeterminada es mucho menor que el esperado, puede aumentar la configuración de DIU de forma más drástica en las pruebas siguientes.
+
+   La actividad de copia debe escalarse casi perfectamente de forma lineal a medida que aumenta el valor de DIU.  Si duplica el valor de DIU, pero el rendimiento no parece duplicarse, puede tener una de dos causas:
+
+   - El patrón de copia específico que se está ejecutando no se beneficia de agregar más DIU.  Aunque especificó un valor de DIU mayor, el DIU real usado sigue siendo el mismo y, por tanto, se obtiene el mismo rendimiento que antes.  Si es así, vaya al paso número 3.
+   - Si agrega más DIU (más potencia) y, por lo tanto, ocasiona una mayor tasa de extracción, transferencia y carga de datos, el almacén de datos de origen, la red intermedia o el almacén de datos de destino alcanzaron un cuello de botella y posiblemente se están limitando.  Si este es el caso, intente ponerse en contacto con el administrador del almacén de datos o con el administrador de red para aumentar el límite. O bien reduzca el valor de DIU hasta que se produzca la limitación.
+
+   **Si la actividad de copia se va a ejecutar en un entorno de ejecución de integración autohospedado:**
+
+   se recomienda usar un equipo dedicado independiente del servidor que hospeda el almacén de datos para hospedar el entorno de ejecución de integración.
+
+   Comience con los valores predeterminados para la configuración de [copia en paralelo](#parallel-copy) y use un solo nodo para el IR autohospedado.  Realice una serie de pruebas de rendimiento y tome nota del rendimiento conseguido.
+
+   Si quiere lograr un mayor rendimiento, puede escalar verticalmente u horizontalmente el IR autohospedado:
+
+   - si la memoria disponible y la CPU del nodo de IR autohospedado no se utilizan totalmente, pero la ejecución de trabajos simultáneos está alcanzando el límite, debe realizar un escalado vertical aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo.  Consulte [este enlace](create-self-hosted-integration-runtime.md#scale-up) para obtener instrucciones.
+   - Por otro lado, si la CPU tiene un uso elevado en el nodo de IR autohospedado y la memoria disponible es baja, puede agregar un nuevo nodo para ayudar a escalar horizontalmente la carga en varios nodos.  Consulte [este enlace](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para obtener instrucciones.
+
+   A medida que escale verticalmente u horizontalmente la capacidad del IR autohospedado, repita la serie de pruebas de rendimiento para ver si obtiene un rendimiento cada vez mayor.  Si el rendimiento deja de mejorar, lo más probable es que el almacén de datos de origen, la red intermedia o el almacén de datos de destino hayan un cuello de botella y estén comenzado a limitarse. Si este es el caso, intente ponerse en contacto con el administrador del almacén de datos o con el administrador de red para aumentar el límite. O bien vuelva a la configuración de escalado anterior del IR autohospedado. 
+
+3. **Cómo maximizar el rendimiento agregado mediante la ejecución de varias copias simultáneamente:**
+
+   Ahora que ha maximizado el rendimiento de una única actividad de copia, si aún no ha logrado alcanzar los límites de rendimiento de su entorno (red, almacén de datos de origen y almacén de datos de destino), puede ejecutar varias actividades de copia en paralelo mediante las construcciones de flujo de control de ADF, como el [bucle For Each](control-flow-for-each-activity.md).
+
+4. **Diagnostique y optimice el rendimiento.** Si el rendimiento que observa no cumple sus expectativas, identifique los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella.
+
+   En algunos casos, cuando se ejecuta una actividad de copia en Azure Data Factory, se ve el mensaje "Sugerencias para la optimización del rendimiento" en la parte superior de la [supervisión de actividad de copia](copy-activity-overview.md#monitor-visually), como se muestra en el ejemplo siguiente. El mensaje indica que se identificó un cuello de botella para la ejecución de una copia determinada. También sirve de guía para realizar los cambios necesarios para mejorar el rendimiento de la copia. Las sugerencias de optimización de rendimiento actualmente proporcionan sugerencias como:
+
+   - Use PolyBase cuando copie datos en Azure SQL Data Warehouse.
+   - Aumente las unidades de solicitud de Azure Cosmos DB o las DTU (unidades de procesamiento de base de datos) de Azure SQL Database cuando el recurso del almacén de datos es el cuello de botella.
+   - Quite la copia almacenada provisionalmente innecesaria.
+
+   Las reglas de optimización del rendimiento también se enriquecerán de forma gradual.
+
+   **Ejemplo: copia en Azure SQL DB con sugerencias de optimización del rendimiento**
+
+   En este ejemplo, durante la ejecución de una copia, Azure Data Factory observa que la instancia de Azure SQL Database receptora alcanza una utilización elevada de la unidad de procesamiento de base de datos, lo que ralentiza las operaciones de escritura. La sugerencia es aumentar el nivel de Azure SQL Database con más DTU. 
+
+   ![Supervisión de copia con sugerencias de optimización del rendimiento](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+   Además, existen las siguientes consideraciones comunes. Una descripción completa del diagnóstico de rendimiento va más allá del ámbito de este artículo.
+
+   - Características de optimización del rendimiento:
+     - [Copia paralela](#parallel-copy)
+     - [Unidades de integración de datos](#data-integration-units)
+     - [Copias almacenadas provisionalmente](#staged-copy)
+   - [Escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime)
+
+5. **Expanda la configuración a todo el conjunto de datos.** Cuando esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición y la canalización para cubrir todo el conjunto de datos.
+
+## <a name="copy-performance-optimization-features"></a>Características de optimización del rendimiento
+
+Azure Data Factory proporciona las siguientes características de optimización del rendimiento:
+
+- [Copia paralela](#parallel-copy)
+- [Unidades de integración de datos](#data-integration-units)
+- [Copias almacenadas provisionalmente](#staged-copy)
+
+### <a name="data-integration-units"></a>Unidades de integración de datos
 
 Una unidad de integración de datos es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Azure Data Factory. Una unidad de integración de datos solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-El número mínimo de DIU para impulsar la ejecución de una actividad de copia es dos. Si no se especifica, en la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia:
+El número permitido de DIU para impulsar la ejecución de una actividad de copia se encuentra entre 2 y 256. Si no se especifica, en la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia:
 
 | Escenario de copia | DIU predeterminadas que determina el servicio |
 |:--- |:--- |
@@ -89,13 +144,12 @@ El número mínimo de DIU para impulsar la ejecución de una actividad de copia 
 | Copia de datos en Azure SQL Database o Azure Cosmos DB |Entre 4 y 16 en función del nivel de Azure SQL Database o Cosmos DB (número de RU o DTU) del receptor |
 | Los restantes escenarios de copia | 4 |
 
-Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **dataIntegrationUnits** de la manera siguiente. Los *valores admitidos* para la propiedad **dataIntegrationUnits** son 256 como máximo. El *número real de DIU* que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
+Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **dataIntegrationUnits** de la manera siguiente. El *número real de DIU* que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
 
 El número de unidades de integración de datos utilizadas en cada ejecución de copia se puede ver en la salida de la actividad de copia al supervisar una ejecución de actividad. Para más información, consulte el artículo [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
 > El establecimiento de más de cuatro unidades de integración de datos actualmente solo se aplica cuando se copian varios archivos desde Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube.
->
 
 **Ejemplo**
 
@@ -119,11 +173,11 @@ El número de unidades de integración de datos utilizadas en cada ejecución de
 ]
 ```
 
-### <a name="data-integration-units-billing-impact"></a>Impacto de facturación de las unidades de integración de datos
+#### <a name="data-integration-units-billing-impact"></a>Impacto de facturación de las unidades de integración de datos
 
 Recuerde que se cobra en función del tiempo total de la operación de copia. La duración total que se factura por el movimiento de datos es la suma de la duración de todas las DIU. Si un trabajo de copia solía tardar una hora con dos unidades de nube y ahora tarda 15 minutos con ocho, la factura general sigue siendo casi igual.
 
-## <a name="parallel-copy"></a>Copia en paralelo
+### <a name="parallel-copy"></a>Copia en paralelo
 
 Puede usar la propiedad **parallelCopies** para indicar el paralelismo que desea que use la actividad de copia. Esta propiedad se puede considerar como el número máximo de subprocesos dentro de la actividad de copia que se pueden leer del origen o escribir en los almacenes de datos receptores en paralelo.
 
@@ -167,7 +221,7 @@ Para controlar la carga en las máquinas que hospedan los almacenes de datos o p
 * La propiedad **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
 * Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor. Tenga también en cuenta el aumento de carga para IR autohospedado si la actividad de copia tiene autorización, por ejemplo, para la copia híbrida. Dicho aumento sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de **parallelCopies** para aliviar la carga.
 
-## <a name="staged-copy"></a>copia almacenada provisionalmente
+### <a name="staged-copy"></a>copia almacenada provisionalmente
 
 Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
@@ -175,7 +229,7 @@ Al copiar datos de un almacén de datos de origen a un almacén de datos recepto
 - **En ocasiones, se tarda un tiempo en realizar un movimiento de datos híbridos (es decir, copiar desde un almacén de datos local a un almacén de datos en la nube) a través de una conexión de red lenta.** Para mejorar el rendimiento se puede usar una copia almacenada provisionalmente para comprimir los datos de forma local, con el fin de que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en dicho almacén antes de cargarlos en el almacén de datos de destino.
 - **Solo desea abrir los puertos 80 y el 443 en el firewall, a causa de las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Azure SQL Database o a un receptor de Azure SQL Data Warehouse, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, una copia almacenada provisionalmente puede aprovechar la ventaja de IR autohospedado para copiar primero los datos en una instancia provisional de Blob Storage a través de HTTP o HTTPS en el puerto 443. Luego, puede cargar dichos datos en SQL Database o en SQL Data Warehouse desde la instancia provisional de Blob Storage. En este flujo, no es necesario habilitar el puerto 1433.
 
-### <a name="how-staged-copy-works"></a>Funcionamiento de las copias almacenadas provisionalmente
+#### <a name="how-staged-copy-works"></a>Funcionamiento de las copias almacenadas provisionalmente
 
 Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen a la instancia de Blob Storage provisional (use su propio). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. Azure Data Factory administra automáticamente el flujo de dos fases. Azure Data Factory también limpia los datos temporales del almacenamiento provisional cuando se completa el movimiento de los datos.
 
@@ -185,7 +239,7 @@ Cuando activa el movimiento de datos mediante un almacén provisional, puede esp
 
 Actualmente, no es posible copiar datos entre dos almacenes de datos que estén conectados a través de distintos IR autohospedados, ni con copia almacenada provisionalmente ni sin ella. Para dicho escenario, puede configurar dos actividades de copia explícitamente encadenadas, con el fin de copiar desde el origen al almacenamiento provisional y, después, desde este al receptor.
 
-### <a name="configuration"></a>Configuración
+#### <a name="configuration"></a>Configuración
 
 Configure el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. Si no tiene un servicio vinculado a la firma de acceso compartido de Azure Storage o de Storage, debe crearlo.
 
@@ -229,186 +283,12 @@ Este es un ejemplo de definición de una actividad de copia con las propiedades 
 ]
 ```
 
-### <a name="staged-copy-billing-impact"></a>Impacto en la facturación de copia almacenada provisionalmente
+#### <a name="staged-copy-billing-impact"></a>Impacto en la facturación de copia almacenada provisionalmente
 
 Los cargos que se le realizan se basan en dos pasos: duración de la copia y tipo de copia.
 
 * Cuando use el almacenamiento provisional durante una copia en la nube, que copia de datos de un almacén de datos en la nube a otro, donde ambos almacenamientos provisionales usan Azure Integration Runtime, se le cobrará de la siguiente manera: [suma de la duración de la copia de los pasos 1 y 2] x [precio unitario de la copia en la nube].
 * Cuando use el almacenamiento provisional durante una copia híbrida, que copia de datos de un almacén de datos local a uno en la nube, un almacenamiento provisional que usa Integration Runtime autohospedado, se le cobrará de la siguiente manera: [duración de la copia híbrida] x [precio unitario de la copia híbrida] + [duración de la copia de nube] x [precio unitario de la copia de nube].
-
-## <a name="performance-tuning-steps"></a>Pasos de optimización del rendimiento
-
-Para optimizar el rendimiento del servicio Azure Data Factory con la actividad de copia, siga estos pasos.
-
-1. **Establezca una línea de base.** Durante la fase de desarrollo, pruebe la canalización, para lo que debe usar la actividad de copia con unos datos de ejemplo representativos. Recopile los detalles de la ejecución y las características del rendimiento después de la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
-
-2. **Diagnostique y optimice el rendimiento.** Si el rendimiento que observa no cumple sus expectativas, identifique los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella.
-
-    En algunos casos, cuando se ejecuta una actividad de copia en Azure Data Factory, se ve el mensaje "Sugerencias para la optimización del rendimiento" en la parte superior de la [página de supervisión de actividad de copia](copy-activity-overview.md#monitor-visually), como se muestra en el ejemplo siguiente. El mensaje indica que se identificó un cuello de botella para la ejecución de una copia determinada. También sirve de guía para realizar los cambios necesarios para mejorar el rendimiento de la copia. Las sugerencias de optimización de rendimiento actualmente proporcionan sugerencias como:
-
-    - Use PolyBase cuando copie datos en Azure SQL Data Warehouse.
-    - Aumente las unidades de solicitud de Azure Cosmos DB o las DTU (unidades de procesamiento de base de datos) de Azure SQL Database cuando el recurso del almacén de datos es el cuello de botella.
-    - Quite la copia almacenada provisionalmente innecesaria.
-
-    Las reglas de optimización del rendimiento también se enriquecerán de forma gradual.
-
-    **Ejemplo: copia en Azure SQL DB con sugerencias de optimización del rendimiento**
-
-    En este ejemplo, durante la ejecución de una copia, Azure Data Factory observa que la instancia de Azure SQL Database receptora alcanza una utilización elevada de la unidad de procesamiento de base de datos, lo que ralentiza las operaciones de escritura. La sugerencia es aumentar el nivel de Azure SQL Database con más DTU. 
-
-    ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
-
-    Además, existen las siguientes consideraciones comunes. Una descripción completa del diagnóstico de rendimiento va más allá del ámbito de este artículo.
-
-   * Características de rendimiento:
-     * [Copia paralela](#parallel-copy)
-     * [Unidades de integración de datos](#data-integration-units)
-     * [Copias almacenadas provisionalmente](#staged-copy)
-     * [Escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime)
-   * [Integration Runtime autohospedado](#considerations-for-self-hosted-integration-runtime)
-   * [Origen](#considerations-for-the-source)
-   * [Sink](#considerations-for-the-sink)
-   * [Serialización y deserialización](#considerations-for-serialization-and-deserialization)
-   * [Compresión](#considerations-for-compression)
-   * [Asignación de columnas](#considerations-for-column-mapping)
-   * [Otras consideraciones](#other-considerations)
-
-3. **Expanda la configuración a todo el conjunto de datos.** Cuando esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición y la canalización para cubrir todo el conjunto de datos.
-
-## <a name="considerations-for-self-hosted-integration-runtime"></a>Consideraciones acerca de Integration Runtime autohospedado
-
-Si la actividad de copia se ejecuta en una instancia de Integration Runtime autohospedado, tenga en cuenta lo siguiente:
-
-**Configuración**: se recomienda usar una máquina dedicada para hospedar Integration Runtime. Consulte [Consideraciones acerca del uso de Integration Runtime autohospedado](concepts-integration-runtime.md).
-
-**Escalado horizontal**: una instancia lógica individual de Integration Runtime autohospedado con uno o varios nodos puede atender a varias ejecuciones de actividad de copia simultáneamente. Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar horizontalmente Integration Runtime autohospedado](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para aprovisionar más recursos para ampliar la capacidad de copia.
-
-## <a name="considerations-for-the-source"></a>Consideraciones sobre el origen
-
-### <a name="general"></a>General
-
-Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él.
-
-Para información sobre los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos. Estos temas pueden ayudarle a comprender las características de rendimiento de los almacenes de datos y a saber cómo reducir los tiempos de respuesta y aumentar la capacidad de proceso.
-
-* Si copia los datos de Blob Storage a SQL Data Warehouse, considere la posibilidad de usar PolyBase para mejorar el rendimiento. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-* Si copia datos de HDFS a Azure Blob Storage o Azure Data Lake Store, considere la posibilidad de usar DistCp para mejorar el rendimiento. Para más información, consulte [Uso de DistCp para copiar datos desde HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
-* Si copia datos de Redshift a Azure SQL Data Warehouse, Azure Blob Storage o Azure Data Lake Store, considere la posibilidad de usar UNLOAD para potenciar el rendimiento. Para más información, consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
-
-### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
-
-* **Tamaño de archivo promedio y recuento de archivos**: la actividad de copia transfiere los datos de archivo en archivo. Siendo la misma cantidad de datos la que se va a mover, el rendimiento general es menor si los datos constan de muchos archivos pequeños en lugar de algunos grandes, debido a la fase de arranque de cada archivo. Si es posible, combine archivos pequeños para formar otros mayores, con el fin de obtener una mayor capacidad de procesamiento.
-* **Formato de archivo y compresión**: para ver más formas de mejorar el rendimiento, consulte las secciones [Consideraciones sobre serialización y deserialización](#considerations-for-serialization-and-deserialization) y [Consideraciones sobre la compresión](#considerations-for-compression).
-
-### <a name="relational-data-stores"></a>Almacenes de datos relacionales
-
-* **Patrón de datos**: El esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande ofrece un mejor rendimiento que un tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
-* **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
-
-## <a name="considerations-for-the-sink"></a>Consideraciones sobre el receptor
-
-### <a name="general"></a>General
-
-Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él.
-
-Para información sobre los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos. Estos temas pueden ayudarle a comprender las características de rendimiento de los almacenes de datos y a saber cómo reducir los tiempos de respuesta y aumentar la capacidad de proceso.
-
-* Si copia los datos de cualquier almacén de datos a SQL Data Warehouse, considere la posibilidad de uso de PolyBase para mejorar el rendimiento. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-* Si copia datos de HDFS a Azure Blob Storage o Azure Data Lake Store, considere la posibilidad de usar DistCp para mejorar el rendimiento. Para más información, consulte [Uso de DistCp para copiar datos desde HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
-* Si copia datos de Redshift a Azure SQL Data Warehouse, Azure Blob Storage o Azure Data Lake Store, considere la posibilidad de usar UNLOAD para potenciar el rendimiento. Para más información, consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
-
-### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
-
-* **Comportamiento de copia**: si copia datos de otro almacén de datos basado en archivos, la actividad de copia presenta tres opciones mediante la propiedad **copyBehavior**. Conserva la jerarquía, aplana la jerarquía o combina archivos. Conservar o aplanar la jerarquía supone poca o ninguna sobrecarga sobre el rendimiento, mientras que combinar archivos hace que aumente dicha sobrecarga.
-* **Formato de archivo y compresión**: para ver más formas de mejorar el rendimiento, consulte las secciones [Consideraciones sobre serialización y deserialización](#considerations-for-serialization-and-deserialization) y [Consideraciones sobre la compresión](#considerations-for-compression).
-
-### <a name="relational-data-stores"></a>Almacenes de datos relacionales
-
-* **Comportamiento de la copia e implicaciones de rendimiento**: Hay diferentes maneras de escribir datos en un receptor de SQL. Más información en [Procedimiento recomendado para cargar datos en Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
-
-* **Patrón de datos y tamaño de lote**:
-  * El esquema de tabla afecta al rendimiento de la copia. Para copiar la misma cantidad de datos, un tamaño de fila grande proporcionará un mejor rendimiento que un tamaño de fila pequeño porque la base de datos puede confirmar de forma más eficiente menos lotes de datos.
-  * La actividad de copia inserta datos en una serie de lotes. Puede establecer el número de filas en un lote mediante la propiedad **writeBatchSize** . Si los datos tienen filas pequeñas, puede establecer la propiedad **writeBatchSize** con un valor más alto para beneficiarse de una menor sobrecarga de los lotes y un mayor rendimiento. Si el tamaño de fila de los datos es grande, tenga cuidado al aumentar **writeBatchSize**. Un valor alto podría provocar un error de copia provocado por la sobrecarga de la base de datos.
-
-### <a name="nosql-stores"></a>Almacenes NoSQL
-
-* Para **Almacenamiento de tablas**:
-  * **Partición**: escribir datos en particiones intercaladas degrada considerablemente el rendimiento. Ordene los datos de origen por la clave de partición para que los datos se inserten de forma eficiente en una partición después de otra. O bien, puede ajustar la lógica para escribir los datos en una sola partición.
-
-## <a name="considerations-for-serialization-and-deserialization"></a>Consideraciones sobre serialización y deserialización
-
-La serialización y deserialización pueden tener lugar cuando el conjunto de datos de entrada o el conjunto de datos de salida es un archivo. Para más información acerca de los formatos de archivo que se admiten, consulte [Formatos de archivo y códecs de compresión admitidos](supported-file-formats-and-compression-codecs.md).
-
-**Comportamiento de copia**:
-
-* Al copiar archivos entre almacenes de datos basados en archivos:
-  * Cuando los conjuntos de datos de entrada y de salida tienen la misma configuración en cuanto al formato de los archivos, o carecen de dicha configuración, el servicio de movimiento de datos ejecuta una *copia binaria* sin ninguna serialización o deserialización. En este caso, el rendimiento es mayor en comparación con el escenario en el que la configuración del formato de archivo de origen y receptor es diferente.
-  * Cuando los conjuntos de datos de entrada y salida están en formato de texto y solo es diferente el tipo de codificación, el servicio de movimiento de datos solo realiza la conversión de la codificación. No se realiza ninguna serialización y deserialización, lo que provoca cierta sobrecarga en el rendimiento en comparación con una copia binaria.
-  * Cuando los conjuntos de datos de entrada y salida tienen formatos de archivo diferentes o configuraciones diferentes, por ejemplo, los delimitadores, el servicio de movimiento de datos deserializa los datos de origen para transmitirlos, transformarlos y luego serializarlos en el formato de salida indicado. Esta operación da como resultado una sobrecarga mucho mayor sobre el rendimiento en comparación con otros escenarios.
-* Al copiar archivos a un almacén de datos, o desde él, que no se basa en archivos, por ejemplo, desde un almacén basado en archivos hasta un almacén relacional, se requiere el paso de serialización o deserialización. Este paso produce una sobrecarga considerable sobre el rendimiento.
-
-**Formato de archivo**: el formato de archivo que elija puede afectar al rendimiento de la copia. Por ejemplo, Avro es un formato binario compacto que almacena metadatos con datos. Es ampliamente admitido para el procesamiento y la realización de consultas en el ecosistema de Hadoop. Avro resulta más caro para la serialización y deserialización, lo que da lugar a un menor rendimiento de la copia, en comparación con el formato de texto. 
-
-Elija el formato de archivo para el flujo de procesamiento de forma holística. Comience por:
-
-- La forma en que se almacenan los datos en los almacenes de datos de origen o en que se van a extraer de sistemas externos.
-- El mejor formato para el almacenamiento, el procesamiento analítico y la realización de consultas.
-- En qué formato se deben exportar los datos de data marts para las herramientas de visualización y generación de informes.
-
-A veces, un formato de archivo que no es óptimo desde el punto de vista del rendimiento de lectura y escritura podría ser una buena opción al considerar el proceso analítico en general.
-
-## <a name="considerations-for-compression"></a>Consideraciones sobre la compresión
-
-Cuando el conjunto de datos de entrada o salida es un archivo, se puede establecer que la actividad de copia realice la compresión y descompresión de los datos a medida que los escribe en el destino. Si elige compresión, está buscando el equilibrio entre entrada/salida (E/S) y CPU. La compresión de los datos supone un costo adicional en recursos de proceso. Pero, a cambio, se reduce la E/S de red y el almacenamiento. En función de los datos, puede que observe un aumento en el rendimiento general de la copia.
-
-**Códec**: Cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
-
-**Nivel**: para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime lo antes posible, aunque ello suponga que la compresión del archivo resultante no sea óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
-
-**Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere usar la [copia almacenada provisionalmente](#staged-copy) con compresión habilitada. El uso del almacenamiento provisional resulta útil cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y se desea que tanto el conjunto de datos de entrada como el de salida estén en formato sin comprimir.
-
-## <a name="considerations-for-column-mapping"></a>Consideraciones sobre la asignación de columnas
-
-La propiedad **columnMappings** se puede establecer en una actividad de copia para asignar todas las columnas de entrada, o un subconjunto de ellas, a las columnas de salida. Después de que el servicio de movimiento de datos lee los datos del origen, debe realizar la asignación de columnas en los datos antes de escribirlos en el receptor. Este procesamiento adicional reduce la capacidad de proceso de la copia.
-
-Si el almacén de datos de origen es consultable, por ejemplo, si es un almacén relacional, como SQL Database o SQL Server, o es un almacén NoSQL como Table Storage o Azure Cosmos DB, considere la posibilidad de insertar la lógica de filtrado y reordenación de columnas en la propiedad **query**, en lugar de usar la asignación de columnas. De esta forma, la proyección se produce mientras el servicio de movimiento de datos lee los datos del almacén de datos de origen, donde es mucho más eficaz.
-
-Más información en [Asignación de esquemas de la actividad de copia](copy-activity-schema-and-type-mapping.md).
-
-## <a name="other-considerations"></a>Otras consideraciones
-
-Si el tamaño de los datos que desea copiar es grande, puede ajustar la lógica empresarial para particionar los datos aún más. Puede programar la actividad de copia para que se ejecute con mayor frecuencia y así reducir el tamaño de los datos con cada ejecución de actividad de copia.
-
-Tenga cuidado con el número de conjuntos de datos y actividades de copia que necesitan Azure Data Factory para conectarse al mismo almacén de datos a la vez. Muchos trabajos de copia simultáneos podrían limitar un almacén de datos y llevar a una degradación en el rendimiento, reintentos internos de trabajos de copia y, en ocasiones, errores de ejecución.
-
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
-
-**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Blob Storage en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
-
-**Análisis y pruebas**: el rendimiento de la actividad de copia es inferior a 2 MBps, que es mucho más lento que la referencia de rendimiento.
-
-**Análisis y ajuste del rendimiento**: para solucionar el problema de rendimiento, primero veremos cómo se procesan y se mueven los datos.
-
-- **Lectura de datos**: Integration Runtime abre una conexión a SQL Server y envía la consulta. SQL Server responde enviando el flujo de datos a Integration Runtime a través de la intranet.
-- **Serialización y compresión de datos**: Integration Runtime serializa el flujo de datos en formato CSV y comprime los datos en una secuencia bzip2.
-- **Escritura de datos**: Integration Runtime carga la secuencia bzip2 en Blob Storage a través de Internet.
-
-Como puede ver, los datos se procesan y se mueven en streaming de manera secuencial: SQL Server > LAN > Integration Runtime > WAN > Blob Storage. El rendimiento general viene determinado por el procesamiento mínimo a través de la canalización.
-
-![flujo de datos](./media/copy-activity-performance/case-study-pic-1.png)
-
-Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
-
-* **Origen**: el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
-* **Integration Runtime autohospedado**:
-  * **LAN**: Integration Runtime se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
-  * **Integration Runtime**: Integration Runtime alcanzó sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización**: la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
-    * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, que funciona a 2,8 MBps con un procesador i7).
-  * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo, por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps.
-* **Receptor**: Blob Storage tiene un rendimiento bajo. Este escenario es improbable porque su contrato de nivel de servicio garantiza un mínimo de 60 MBps.
-
-En este caso, la compresión de datos bzip2 podría estar ralentizando la canalización entera. El cambio a un códec de compresión gzip podría aliviar este cuello de botella.
 
 ## <a name="references"></a>Referencias
 

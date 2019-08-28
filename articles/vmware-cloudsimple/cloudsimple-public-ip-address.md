@@ -1,23 +1,23 @@
 ---
-title: VMware Solution by CloudSimple - Dirección IP pública de Azure
-description: Obtenga información sobre las direcciones IP públicas y sus ventajas para VMware Solution by CloudSimple
+title: 'Solución de Azure VMware de CloudSimple: dirección IP pública'
+description: Obtenga información sobre las direcciones IP públicas y sus ventajas en Solución de Azure VMware de CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812527"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877674"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Introducción a la dirección IP pública de CloudSimple
 
-Una dirección IP pública permite la comunicación entrante de los recursos de Internet en recursos de nube privada en una dirección IP privada. La dirección IP privada es una máquina virtual o un equilibrador de carga de software. La dirección IP privada se encuentra en el vCenter de la nube privada. La dirección IP pública le permite exponer a Internet los servicios que se ejecutan en la nube privada.
+Una dirección IP pública permite la comunicación entrante de los recursos de Internet en recursos de nube privada en una dirección IP privada. La dirección IP privada es una máquina virtual o un equilibrador de carga de software en el vCenter de la nube privada. La dirección IP pública le permite exponer a Internet los servicios que se ejecutan en la nube privada.
 
 La dirección IP pública estará dedicada a la dirección IP privada hasta que anule su asignación. Una dirección IP pública solo puede asignarse a una dirección IP privada.
 
@@ -33,4 +33,4 @@ El uso de una dirección IP pública para la comunicación entrante proporciona 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [Asignar una dirección IP pública](https://docs.azure.cloudsimple.com/public-ips/)
+* Obtenga información sobre cómo [Asignar una dirección IP pública](public-ips.md).

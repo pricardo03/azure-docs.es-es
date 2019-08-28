@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954494"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650337"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en Azure VM con PowerShell
 
@@ -167,6 +167,18 @@ Una directiva de copia de seguridad especifica la programación para las copias 
 * Vea la programación de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 * El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) se usa para crear una directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
 
+De forma predeterminada, se define una hora de inicio en el objeto de directiva de programación. Use el siguiente ejemplo para cambiar la hora de inicio a la hora de inicio deseada. La hora de inicio deseada debe estar también en formato UTC. En el ejemplo siguiente se supone que la hora de inicio deseada es la 1:00 UTC para las copias de seguridad diarias.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> Solo tiene que proporcionar la hora de inicio en múltiplos de 30 minutos. En el ejemplo anterior, solo puede ser "01:00:00" o "02:30:00". La hora de inicio no puede ser "01:15:00".
+
 En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. A continuación, usa estas variables como parámetros para una nueva directiva (**NewSQLPolicy**). **NewSQLPolicy** toma una copia de seguridad diario "completa" diaria, la conserva durante 180 días y toma una copia de seguridad del registro cada 2 horas
 
 ```powershell
@@ -181,7 +193,7 @@ La salida es similar a la siguiente.
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
                                                                                                                                 Enabled
 ----                 ------------       -------------------- ----------                ---------                                -------------------- ------------------
-NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
+NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
 ## <a name="enable-backup"></a>Habilitación de la copia de seguridad
@@ -198,7 +210,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 El comando devolverá un contenedor de copia de seguridad de este recurso y el estado se registrará.
 
 > [!NOTE]
-> Si no se especifica el parámetro force, se pide al usuario que lo confirme con el mensaje "¿Desea deshabilitar la protección de este contenedor?". Por favor, ignore este texto e indique "Y" para confirmar. Se trata de un problema conocido y estamos trabajando para quitar el mensaje y los requisitos para el parámetro force
+> Si no se especifica el parámetro force, se pide al usuario que lo confirme con el mensaje "¿Desea deshabilitar la protección de este contenedor?". Por favor, ignore este texto e indique "Y" para confirmar. Se trata de un problema conocido y estamos trabajando para quitar el mensaje y los requisitos para el parámetro force.
 
 ### <a name="fetching-sql-dbs"></a>Obtención de bases de datos SQL
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798207"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874345"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Existen dos factores que afectan a la disponibilidad de los métodos de autentic
       > [!NOTE]
       > Al implementar la extensión NPS, use estos factores para estudiar qué métodos están disponibles para los usuarios. Si el cliente RADIUS es compatible con PAP, pero el cliente UX no tiene campos de entrada para un código de verificación, las dos opciones compatibles son la llamada de teléfono y notificación de aplicación móvil.
       >
-      > Además, si la experiencia de usuario del cliente de VPN es compatible con el campo de entrada y ha configurado la directiva de acceso de red, la autenticación puede realizarse correctamente, pero no se aplicará ninguno de los atributos de RADIUS configurados en la directiva de red ni el dispositivo de acceso a la red, como el servidor RRAS o el cliente de VPN. Como resultado, el cliente de VPN puede tener más acceso del deseado o menos o ninguno.
+      > Además, si la experiencia de usuario del cliente de VPN es compatible con el campo de entrada y ha configurado la directiva de acceso de red, la autenticación puede realizarse correctamente, pero ninguno de los atributos de RADIUS configurados en la directiva de red se aplicará al dispositivo de acceso a la red (como el servidor RRAS) ni al cliente de VPN. Como resultado, el cliente de VPN puede tener más acceso del deseado o menos o ninguno.
       >
 
 2. Los métodos de entrada que la aplicación cliente (VPN, servidor Netscaler u otros) puede controlar. Por ejemplo, ¿tiene el cliente de VPN algún medio para que el usuario escriba un código de comprobación de aplicación móvil o de texto?

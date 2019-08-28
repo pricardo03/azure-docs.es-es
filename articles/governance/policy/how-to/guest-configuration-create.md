@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881818"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543513"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
 La configuración de invitados usa un módulo de recursos denominado [Desired State Configuration](/powershell/dsc) (DSC) para crear la configuración para la auditoría de las máquinas virtuales de Azure. La configuración DSC define la condición en la que debe estar la máquina virtual. Si se produce un error en la evaluación de la configuración, se desencadena la **auditoría** del efecto Directiva y se considera que la máquina virtual **no es compatible**.
+
+Solo se puede usar [Guest Configuration de Azure Policy](/azure/governance/policy/concepts/guest-configuration) para auditar la configuración dentro de las máquinas virtuales. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas virtuales.
 
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina virtual de Azure.
 

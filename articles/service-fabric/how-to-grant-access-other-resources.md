@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: b6e1108ffee13f1583d920947404963a69616788
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 07b26fb86392b26ef45c4370741a32efc7dc436b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68957573"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640927"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concesión de acceso a recursos de Azure para la identidad administrada de una aplicación de Service Fabric
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concesión de acceso a recursos de Azure para la identidad administrada de una aplicación de Service Fabric (versión preliminar)
 
 Para que la aplicación pueda usar su identidad administrada a fin de acceder a otros recursos, es necesario conceder permisos a dicha identidad en el recurso de Azure protegido al que se va a acceder. La concesión de permisos suele ser una acción de administración en el "plano de control" del servicio de Azure propietario del recurso protegido enrutado a través de Azure Resource Manager, que aplicará cualquier comprobación aplicable de acceso basado en roles.
 
@@ -70,18 +70,6 @@ Para obtener más información, consulte [Almacenes: actualización de la direct
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
-## <a name="related-articles"></a>Artículos relacionados
-
-* Revisión de la [compatibilidad con la identidad administrada](./concepts-managed-identity.md) en Azure Service Fabric
-
-* [Implementación de un nuevo](./configure-new-azure-service-fabric-enable-managed-identity.md) clúster de Azure Service Fabric con compatibilidad con la identidad administrada 
-
-* [Habilitación de la identidad administrada](./configure-existing-cluster-enable-managed-identity-token-service.md) en un clúster de Azure Service Fabric existente
-
-* Aprovechamiento de la [identidad administrada de una aplicación de Service Fabric desde el código fuente](./how-to-managed-identity-service-fabric-app-code.md)
-
-* Consulte la lista de [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md)

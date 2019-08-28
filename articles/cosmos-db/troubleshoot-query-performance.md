@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986166"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515815"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Solucionar problemas con el rendimiento de las consultas de Azure Cosmos DB
 En este artículo se explica cómo identificar, diagnosticar y solucionar problemas de consultas SQL de Azure Cosmos DB. Para lograr un rendimiento óptimo para las consultas de Azure Cosmos DB, siga los pasos para la solución de problemas que tiene a continuación. 
@@ -24,11 +24,12 @@ Para conseguir la menor latencia posible, asegúrese de que la aplicación que l
 ## <a name="check-consistency-level"></a>Comprobar el nivel de coherencia
 El [nivel de coherencia](consistency-levels.md) puede afectar al rendimiento y a los cargos. Asegúrese de que su nivel de coherencia sea apropiado para el escenario proporcionado. Para obtener más detalles, consulte [Selección del nivel de coherencia adecuado](consistency-levels-choosing.md).
 
-## <a name="log-sql-query-in-storage-account"></a>Registro de una consulta SQL en la cuenta de almacenamiento
-Los [registros de consultas de la API de SQL a través de registros de diagnóstico](logging.md#turn-on-logging-in-the-azure-portal) le permiten registrar la consulta ofuscada en una cuenta de almacenamiento de su elección. De este modo, puede consultar los registros de diagnóstico y buscar consultas con más RU, así como usar el identificador de actividad para que coincida con QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>Registro de la consulta SQL ejecutada 
 
+Puede registrar la consulta SQL ejecutada en una cuenta de almacenamiento o en la tabla del registro de diagnóstico. Los [registros de consultas SQL a través de registros de diagnóstico](logging.md#turn-on-logging-in-the-azure-portal) le permiten registrar la consulta ofuscada en una cuenta de almacenamiento de su elección. Esto le permite examinar los registros y buscar consultas que utilicen más RU. Más adelante puede usar el Id. de actividad para que coincida con la consulta real en QueryRuntimeStatistics. La consulta se ofusca por motivos de seguridad, y los nombres de los parámetros de consulta, así como sus valores en las cláusulas WHERE, son diferentes de los nombres y valores reales. Puede usar el registro en la cuenta de almacenamiento para mantener la retención a largo plazo de las consultas ejecutadas.  
 
 ## <a name="log-query-metrics"></a>Registrar las métricas de consulta
+
 Use `QueryMetrics` para solucionar problemas con consultas lentas o costosas. 
 
   * Establezca `FeedOptions.PopulateQueryMetrics = true` para obtener `QueryMetrics` en la respuesta.

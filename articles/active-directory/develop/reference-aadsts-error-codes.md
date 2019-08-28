@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67482484"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874252"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
 
@@ -265,6 +265,7 @@ ms.locfileid: "67482484"
 | AADSTS700023 | InvalidResourcelessScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido al solicitar un token de acceso. |
 | AADSTS1000000 | UserNotBoundError: la API de Bind requiere que el usuario de Azure AD también se autentique con un IDP externo, que aún no se ha producido. |
 | AADSTS1000002 | BindCompleteInterruptError: el enlace se completó correctamente, pero debe informarse al usuario. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled: la aplicación está deshabilitada. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c225aa5f821925247d27890e9ee75f3eac4d9eb9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976605"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874925"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
@@ -22,7 +22,11 @@ El SDK de Azure Maps para web almacena los datos en orígenes de datos que optim
 
 **Origen de datos de GeoJSON**
 
-Un origen de datos basado en GeoJSON puede cargar y almacenar datos localmente mediante la clase `DataSource`. Los datos de GeoJSON se pueden crear manualmente o mediante las clases auxiliares del espacio de nombres de [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La clase `DataSource` proporciona funciones para importar archivos GeoJSON locales o remotos. Los archivos GeoJSON remotos deben hospedarse en un punto de conexión habilitado para CORs. La clase `DataSource` proporciona funcionalidad para agrupar en clústeres los datos de punto. 
+Un origen de datos basado en GeoJSON puede cargar y almacenar datos localmente mediante la clase `DataSource`. Los datos de GeoJSON se pueden crear manualmente o mediante las clases auxiliares del espacio de nombres de [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La clase `DataSource` proporciona funciones para importar archivos GeoJSON locales o remotos. Los archivos GeoJSON remotos deben hospedarse en un punto de conexión habilitado para CORs. La clase `DataSource` proporciona funcionalidad para agrupar en clústeres los datos de punto. Los datos se pueden agregar, quitar y actualizar con facilidad con la clase `DataSource`.
+
+
+> [!TIP]
+> Si quiere sobrescribir todos los datos en un `DataSource`, puede realizar llamadas a las funciones `clear` y `add`. De esta forma, el mapa intentará volver a representarse dos veces, lo que puede provocar un cierto retraso. En su lugar, use la función `setShapes`, que quitará y reemplazará todos los datos del origen de datos y solo desencadenará una nueva representación del mapa.
 
 **Origen de mosaico vectorial**
 

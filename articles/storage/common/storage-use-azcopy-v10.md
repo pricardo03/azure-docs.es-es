@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6b5be5271e2ff579d93cb70f7c8da93d861d4dc0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985149"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648724"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -65,9 +65,9 @@ Use esta tabla como guía:
 |**Almacenamiento de blobs (espacio de nombres jerárquico)** | Azure AD y SAS |
 |**Almacenamiento de archivos** | SAS solo |
 
-### <a name="option-1-use-azure-ad"></a>Opción 1: Use Azure AD
+### <a name="option-1-use-azure-active-directory"></a>Opción 1: Uso de Azure Active Directory
 
-Con Azure AD, puede proporcionar credenciales una vez en lugar de anexar un token de SAS a cada comando.  
+Con Azure Active Directory, puede proporcionar credenciales una vez en lugar de anexar un token de SAS a cada comando.  
 
 > [!NOTE]
 > En la versión actual, si tiene previsto copiar blobs entre distintas cuentas de almacenamiento, deberá anexar un token de SAS a cada URL de origen. Puede omitir el token de SAS solo de la dirección URL de destino. Si necesita ejemplos, vea [Copia de blobs entre cuentas de almacenamiento](storage-use-azcopy-blobs.md).
@@ -149,7 +149,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, el secreto de cliente no aparecerá en el historial de comandos de la consola. 
+> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola.  
 
 A continuación, escriba el comando siguiente y presione la tecla ENTRAR.
 
@@ -170,7 +170,7 @@ A continuación, establezca la variable de entorno `AZCOPY_SPA_CERT_PASSWORD` en
 > [!NOTE]
 > Asegúrese de establecer este valor desde el símbolo del sistema y no en la configuración de la variable de entorno del sistema operativo. De este modo, el valor está disponible solo en la sesión actual.
 
-En este ejemplo se muestra cómo podría hacer esto en PowerShell.
+En este ejemplo se muestra cómo podría realizar esta tarea en PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
@@ -238,7 +238,7 @@ Puede anexar un token de SAS a cada dirección URL de origen o destino que use e
 El comando de este ejemplo copia recursivamente los datos desde un directorio local a un contenedor de blobs. Un token de SAS ficticio se anexa al final de la dirección URL del contenedor.
 
 ```azcopy
-azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
 Para más información sobre los tokens de SAS y de cómo obtener uno, consulte [Uso de firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).

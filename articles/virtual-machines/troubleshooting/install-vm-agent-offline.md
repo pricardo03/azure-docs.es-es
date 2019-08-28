@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c282a739ad55d6f2c5fcbe3b3a1a69541a7350cd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78be50d234605775bcef4ece2e6ff7c01ec0437f
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705783"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874229"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalación del agente de máquina virtual de Azure en modo sin conexión 
 
@@ -36,27 +36,17 @@ Instale al agente de máquina virtual en modo sin conexión en los escenarios si
 
 Use los pasos siguientes para instalar al agente de máquina virtual en modo sin conexión.
 
-> [!NOTE]
-> Puede automatizar el proceso de instalación del agente de VM en modo sin conexión.
-> Para ello, use los [scripts de recuperación de VM de Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Si decide usar los scripts de recuperación de VM de Azure, puede seguir el proceso a continuación:
-> 1. Omita el paso 1 con los scripts para adjuntar el disco del sistema operativo de la VM afectada a una VM de recuperación.
-> 2. Siga los pasos de 2 a 10 para aplicar las mitigaciones.
-> 3. Omitir el paso 11 con los scripts para recompilar la VM.
-> 4. Siga el paso 12.
-
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Paso 1: Asociación del disco del sistema operativo de la máquina virtual a otra máquina virtual como disco de datos
 
-1.  Elimine la máquina virtual. Asegúrese de seleccionar la opción **Keep the disks** (Mantener los discos) al eliminar la máquina virtual.
+1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y, a continuación, conecte el disco a una máquina virtual de solución de problemas. Para obtener más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-windows.md). Para la máquina virtual clásica, elimine la máquina virtual y conserve el disco del sistema operativo y, a continuación, conecte el disco del sistema operativo a la máquina virtual de solución de problemas.
 
-2.  Asocie el disco del sistema operativo como un disco de datos a otra máquina virtual (lo que se conoce como máquina virtual de _solucionador de problemas_). Para más información, consulte [Cómo conectar un disco de datos administrado a una VM con Windows en Azure Portal](../windows/attach-managed-disk-portal.md).
-
-3.  Conéctese a la máquina virtual de solucionador de problemas. Abra **Administración de equipos** > **Administración de discos**. Confirme que el disco del sistema operativo está en línea y que las letras de unidad están asignadas a las particiones de disco.
+2.  Conéctese a la máquina virtual de solucionador de problemas. Abra **Administración de equipos** > **Administración de discos**. Confirme que el disco del sistema operativo está en línea y que las letras de unidad están asignadas a las particiones de disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Paso 2: Modificación del disco del sistema operativo para instalar al agente de máquina virtual de Azure
 
 1.  Realice una conexión de Escritorio remoto a la máquina virtual de solucionador de problemas.
 
-2.  En el disco del sistema operativo que ha asociado, vaya a la carpeta \windows\system32\config. Realice una copia de seguridad de todos los archivos de esta carpeta, por si fuera necesaria una reversión.
+2.  En la máquina virtual para solucionar problemas, navegue hasta el disco del sistema operativo que conectó y abra la carpeta \windows\system32\config. Realice una copia de seguridad de todos los archivos de esta carpeta, por si fuera necesaria una reversión.
 
 3.  Inicie el **Editor del Registro** (regedit.exe).
 
@@ -109,7 +99,7 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
 
 10.  Seleccione **BROKENSOFTWARE**. En el menú, seleccione **Archivo** > **Descargar subárbol**.
 
-11.  Desasocie el disco del sistema operativo y, a continuación, úselo para volver a crear la máquina virtual.
+11.  Desconecte el disco del sistema operativo y, a continuación, [cambie el disco de la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Para la máquina virtual clásica, cree una nueva máquina virtual con el disco del sistema operativo reparado.
 
 12.  Acceda a la máquina virtual. Tenga en cuenta que se está ejecutando RdAgent y que se están generando los registros.
 

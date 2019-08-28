@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 23e8c82bad60675338a0482155ed8a92cdad3d3d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934999"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617684"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services mediante SMB para Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,9 +46,11 @@ Antes de habilitar Azure AD a través de SMB para Azure Files, asegúrese de hab
 
 2.  **Habilite Azure AD Domain Services en el inquilino de Azure AD.**
 
-    Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD DS para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/create-instance.md).
+<<<<<<< HEAD Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD Domain Services para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
+======= Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD DS para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/create-instance.md).
+>>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
 
-    Una implementación de Azure AD DS suele tardar unos 15 minutos en completarse. Confirme que el estado de mantenimiento de Azure AD muestra **En ejecución**, con la sincronización de hash de contraseña habilitada, antes de continuar con el paso siguiente.
+    It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
 3.  **Unión al dominio de una máquina virtual de Azure con Azure AD DS.**
 

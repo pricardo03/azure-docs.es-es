@@ -11,28 +11,30 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019671"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644890"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL entre SQL Server e Instancia administrada de Azure SQL Database
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
-Este artículo resume y explica las diferencias de sintaxis y comportamiento entre la instancia administrada de Azure SQL Database y el Motor de base de datos de SQL Server local. Se van a analizar los siguientes temas: <a name="Differences"></a>
+Este artículo resume y explica las diferencias de sintaxis y comportamiento entre la instancia administrada de Azure SQL Database y el Motor de base de datos de SQL Server local. La opción de implementación de la Instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
+
+![Migración](./media/sql-database-managed-instance/migration.png)
+
+Existen algunas limitaciones de PaaS que se introdujeron en Instancia administrada y algunos cambios de comportamiento en comparación con SQL Server. Las diferencias se dividen en las siguientes categorías: <a name="Differences"></a>
 
 - [Disponibilidad](#availability), incluye las diferencias en [Always-On](#always-on-availability) y [Copias de seguridad](#backup).
 - [Seguridad](#security), incluye las diferencias en [Auditoría](#auditing), [Certificados](#certificates), [Credenciales](#credential), [Proveedores de servicios criptográficos](#cryptographic-providers), [Inicios de sesión y usuarios](#logins-and-users), [Clave maestra de servicio y clave de servicio](#service-key-and-service-master-key).
 - [Configuración](#configuration), incluye las diferencias en [Extensión del grupo de búferes](#buffer-pool-extension), [Intercalación](#collation), [Niveles de compatibilidad](#compatibility-levels),[Creación de reflejo de la base de datos ](#database-mirroring), [Opciones de base de datos](#database-options), [Agente SQL Server](#sql-server-agent) y [Opciones de tabla](#tables).
 - [Funcionalidades](#functionalities), incluidas [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transacciones distribuidas](#distributed-transactions), [Eventos extendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Filestream y Filetable](#filestream-and-filetable), [Búsqueda semántica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicación](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Funciones, procedimientos almacenados y desencadenadores](#stored-procedures-functions-and-triggers).
 - [Configuración del entorno](#Environment), como las configuraciones de redes virtuales y subredes.
-- [Características que tienen un comportamiento diferente en instancias administradas](#Changes).
-- [Limitaciones temporales y problemas conocidos](#Issues).
 
-La opción de implementación de la Instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
+La mayoría de estas características son restricciones de arquitectura y representan características de servicio.
 
-![Migración](./media/sql-database-managed-instance/migration.png)
+En esta página también se explican los [Problemas temporales conocidos](#Issues) que se detectaron en la instancia administrada y se resolverán en el futuro.
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -62,6 +64,7 @@ Las instancias administradas hacen copias de seguridad automáticas, por lo que 
 Limitaciones: 
 
 - Con una instancia administrada, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo cual es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
+- No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad. Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
 - El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una instancia administrada es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de cada franja y permanecer dentro de este límite.
 
     > [!TIP]
@@ -339,9 +342,9 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 
 Las instancias administradas no admiten instrucciones DBCC no documentadas que estén habilitadas en SQL Server.
 
-- `Trace flags` no se admiten. Consulte [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` no se admite. Consulte [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` no se admite. Consulte [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Solo se admite un número limitado de `Trace flags` globales. No se admiten las `Trace flags` en el nivel de sesión. Consulte [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) y [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funcionan con el número limitado de marcas trace-flags globales.
+- No se puede usar [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) con las opciones REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST y REPAIR_REBUILD porque la base de datos no se puede establecer en el modo `SINGLE_USER`. Consulte las [diferencias de ALTER DATABASE](#alter-database-statement). El equipo de soporte técnico de Azure se encarga de los posibles daños en la base de datos. Póngase en contacto con el soporte técnico de Azure si observa daños en la base de datos que se deben corregir.
 
 ### <a name="distributed-transactions"></a>Transacciones distribuidas
 
@@ -498,6 +501,18 @@ No se admite el agente de servicio entre instancias:
 - No se admiten `Extended stored procedures`, lo cual incluye `sp_addextendedproc` y `sp_dropextendedproc`. Consulte [Procedimientos almacenados extendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - No se admiten `sp_attach_db`, `sp_attach_single_file_db`, y `sp_detach_db`. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), y [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
+### <a name="system-functions-and-variables"></a>Variables y funciones del sistema
+
+Las siguientes variables, funciones y vistas devuelven resultados diferentes:
+
+- `SERVERPROPERTY('EngineEdition')` devuelve el valor 8. Esta propiedad identifica de forma única una instancia administrada. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` devuelve NULL, porque el concepto de instancia tal y como existe para SQL Server no se aplica a una instancia administrada. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` devuelve el nombre DNS completo "conectable", por ejemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS` devuelve un nombre DNS completo "conectable", por ejemplo, `myinstance.domain.database.windows.net`, para las propiedades "name" y "data_source". Consulte [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` devuelve NULL, porque el concepto de servicio tal y como existe para SQL Server no se aplica a una instancia administrada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- Se admite `SUSER_ID`. Devuelve NULL si el inicio de sesión de Azure AD no está en sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID` no se admite. Se devuelven los datos incorrectos, lo cual es un problema temporal conocido. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+
 ## <a name="Environment"></a>Restricciones del entorno
 
 ### <a name="subnet"></a>Subnet
@@ -512,27 +527,55 @@ No se admite el agente de servicio entre instancias:
 - Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
 - Algunos servicios, como App Service Environment, Logic Apps y las instancias administradas (que se usan para la replicación geográfica, la replicación transaccional o a través de servidores vinculados), no pueden acceder a las instancias administradas de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
 
-## <a name="Changes"></a> Cambios de comportamiento
+### <a name="tempdb"></a>TEMPDB
 
-Las siguientes variables, funciones y vistas devuelven resultados diferentes:
+El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en los niveles De uso general y Crítico para la empresa. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB.
 
-- `SERVERPROPERTY('EngineEdition')` devuelve el valor 8. Esta propiedad identifica de forma única una instancia administrada. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` devuelve NULL, porque el concepto de instancia tal y como existe para SQL Server no se aplica a una instancia administrada. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` devuelve el nombre DNS completo "conectable", por ejemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS` devuelve un nombre DNS completo "conectable", por ejemplo, `myinstance.domain.database.windows.net`, para las propiedades "name" y "data_source". Consulte [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` devuelve NULL, porque el concepto de servicio tal y como existe para SQL Server no se aplica a una instancia administrada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- Se admite `SUSER_ID`. Devuelve NULL si el inicio de sesión de Azure AD no está en sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID` no se admite. Se devuelven los datos incorrectos, lo cual es un problema temporal conocido. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+### <a name="error-logs"></a>Registros de error
 
-## <a name="Issues"></a>Problemas conocidos y limitaciones
+Una instancia administrada coloca información detallada en los registros de errores. Existen muchos eventos internos del sistema que se archivan en el registro de errores. use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, consulte [Instancia administrada: sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-### <a name="tempdb-size"></a>Tamaño de TEMPDB
+## <a name="Issues"></a> Problemas conocidos
 
-El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en los niveles De uso general y Crítico para la empresa. La base de datos `tempdb` siempre se divide en 12 archivos de datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB. Siempre se vuelve a crear `Tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará. 
+### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio
 
-### <a name="cant-restore-contained-database"></a>No se puede restaurar la base de datos independiente
+**Fecha:** Agosto de 2019
 
-La instancia administrada no puede restaurar [bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauración a un momento dado de las bases de datos independientes existentes no funciona en la instancia administrada. Mientras tanto, le recomendamos que quite la opción de independencia de las bases de datos colocadas en la instancia administrada. No use esta opción con bases de datos de producción. 
+Los cuadros de diálogo de Service Broker entre bases de datos dejarán de enviar mensajes a los servicios de otras bases de datos después de la operación para cambiar el nivel de servicio. Los mensajes **no se pierden** y se pueden encontrar en la cola del remitente. Todos los cambios de tamaño de almacenamiento en núcleos virtuales o instancias de Instancia administrada harán que `service_broke_guid` cambie el valor de la vista [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) para todas las bases de datos. Todos los `DIALOG` creados con la instrucción [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que hace referencia a los Service Broker de otra base de datos dejarán de entregar mensajes al servicio de destino.
+
+**Solución alternativa**: Detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar el nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
+
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>No se admite la suplantación de tipos de inicio de sesión de AAD
+
+**Fecha:** Julio de 2019
+
+No se admite la suplantación con `EXECUTE AS USER` o `EXECUTE AS LOGIN` de las siguientes entidades de seguridad de AAD:
+-   Usuarios de AAD con alias. Se devuelve el error siguiente en este caso: `15517`.
+- Inicios de sesión y usuarios de AAD basados en aplicaciones de AAD o entidades de servicio. Se devuelve el error siguiente en este caso: `15517` y `15406`.
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>No se admite el parámetro @query en sp_send_db_mail
+
+**Fecha:** Abril de 2019
+
+El parámetro `@query` del procedimiento [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) no funciona.
+
+### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica
+
+**Fecha:** Marzo de 2019
+
+Si la replicación transaccional se habilita en una base de datos en un grupo de conmutación por error automática, el administrador de la instancia administrada debe limpiar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva base principal después de que se produzca una conmutación por error a otra región. Consulte [Replicación](#replication) para obtener más detalles.
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>No se admiten inicios de sesión y usuarios de AAD en las herramientas
+
+**Fecha:** Enero de 2019
+
+SQL Server Management Studio y SQL Server Data Tools no son completamente compatibles con los inicios de sesión y usuarios de Azure Active Directory.
+- Actualmente no se admite el uso de entidades de seguridad (inicios de sesión) y usuarios(versión preliminar pública) del servidor de Azure AD con SQL Server Data Tools.
+- No se admite la creación de scripts para entidades de seguridad (inicios de sesión) y usuarios (versión preliminar pública) del servidor de Azure AD en SQL Server Management Studio.
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>Se vuelve a crear la estructura y el contenido de TEMPDB
+
+La base de datos `tempdb` siempre se divide en 12 archivos de datos y la estructura de archivos no se puede cambiar. No se puede cambiar el tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Siempre se vuelve a crear `Tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
 
@@ -551,34 +594,13 @@ En este ejemplo, las bases de datos existentes seguirán funcionando y pueden cr
 
 También puede [identificar el número de archivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) mediante el uso de vistas del sistema. Si se alcanza este límite, intente [vaciar y eliminar algunos de los archivos más pequeños mediante la instrucción DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o cambie al [nivel Crítico para la empresa, que no tiene este límite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="tooling"></a>Herramientas
-
-SQL Server Management Studio y SQL Server Data Tools podrían tener algunos problemas al acceder a una instancia administrada.
-
-- Actualmente no se admite el uso de entidades de seguridad (inicios de sesión) y usuarios(versión preliminar pública) del servidor de Azure AD con SQL Server Data Tools.
-- No se admite la creación de scripts para entidades de seguridad (inicios de sesión) y usuarios (versión preliminar pública) del servidor de Azure AD en SQL Server Management Studio.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nombres incorrectos de base de datos en algunas vistas, registros y mensajes
+### <a name="guid-values-shown-instead-of-database-names"></a>Se muestran valores de GUID en lugar de nombres de base de datos
 
 Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents y entradas de registro de errores muestran identificadores de base de datos GUID en lugar de los nombres reales de base de datos. No confíe en estos identificadores GUID porque se reemplazarán por los nombres reales de las bases de datos en el futuro.
 
-### <a name="database-mail"></a>Correo electrónico de base de datos
-
-El parámetro `@query` del procedimiento [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) no funciona.
-
-### <a name="database-mail-profile"></a>Perfil de Correo electrónico de base de datos
-
-El perfil de Correo electrónico de base de datos que utiliza el Agente SQL Server debe llamarse `AzureManagedInstance_dbmail_profile`. No hay ninguna restricción para otros nombres de perfil de Correo electrónico de base de datos.
-
 ### <a name="error-logs-arent-persisted"></a>Los registros de errores no se conservan
 
-Los registros de errores que están disponibles en la instancia administrada no se conservan y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error.
-
-### <a name="error-logs-are-verbose"></a>Los registros de errores son detallados
-
-Una instancia administrada coloca información detallada en los registros de errores y gran parte de esta no es pertinente. 
-
-**Solución alternativa**: use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, consulte [Instancia administrada: sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Los registros de errores que están disponibles en la instancia administrada no se conservan y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error. Puede haber huecos en el historial del registro de errores porque Instancia administrada se ha migrado varias veces en varias máquinas virtuales.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
 
@@ -616,12 +638,6 @@ Aunque este código funciona con datos en la misma instancia, requería el coord
 Los módulos de CLR colocados en una instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a una instancia actual en algún momento no pueden resolver la dirección IP de una instancia local. Este error es un problema transitorio.
 
 **Solución alternativa**: use conexiones de contexto en un módulo de CLR, si es posible.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>Las bases de datos con cifrado TDE con una clave administrada por el servicio no son compatibles con las copias de seguridad iniciadas por el usuario
-
-No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad.
-
-**Solución alternativa**: Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

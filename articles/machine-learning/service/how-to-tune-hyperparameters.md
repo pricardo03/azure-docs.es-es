@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815723"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873065"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning Service
 
@@ -325,11 +325,9 @@ También puede visualizar el rendimiento de cada una de las ejecuciones a medida
 
 Además, puede identificar visualmente la correlación entre el rendimiento y los valores de hiperparámetros individuales mediante un trazado de coordenadas paralelas. 
 
-![coordenadas paralelas de ajuste de hiperparámetros](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
+[![coordenadas paralelas de ajuste de hiperparámetros](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en el portal web de Azure. Para más información sobre cómo ver un experimento en el portal web, vea [cómo realizar el seguimiento de experimentos](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
-
-![portal de ajuste de hiperparámetros](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
 ## <a name="find-the-best-model"></a>Identificación del mejor modelo
 

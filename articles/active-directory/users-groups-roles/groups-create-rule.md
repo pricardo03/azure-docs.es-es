@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb4f9d2f78857231d0ecd81a2538a75b4b8a2f74
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472177"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650291"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
 En Azure Active Directory (Azure AD), puede usar reglas para determinar la pertenencia a grupos según las propiedades de usuario o dispositivo. En este artículo se explica cómo configurar una regla para un grupo dinámico en Azure Portal.
-La pertenencia dinámica se admite para grupos de seguridad o grupos de Office 365. Cuando se aplica una regla de pertenencia a grupos, se evalúan los atributos de usuario y dispositivo para ver si coinciden con la regla de pertenencia. Cuando cambian los atributos de un usuario o dispositivo, se procesan todos los cambios de pertenencia de las reglas de grupo dinámico de la organización. Los usuarios y dispositivos se agregan o quitan si cumplen las condiciones de un grupo.
+La pertenencia dinámica se admite para grupos de seguridad o grupos de Office 365. Cuando se aplica una regla de pertenencia a grupos, se evalúan los atributos de usuario y dispositivo para ver si coinciden con la regla de pertenencia. Cuando cambian los atributos de un usuario o dispositivo, se procesan todos los cambios de pertenencia de las reglas de grupo dinámico de la organización. Los usuarios y dispositivos se agregan o quitan si cumplen las condiciones de un grupo. Los grupos de seguridad se pueden usar para dispositivos o usuarios, pero los grupos de Office 365 solo pueden ser grupos de usuarios.
 
 Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de una regla de pertenencia, consulte [Reglas de pertenencia dinámica a grupos de Azure Active Directory](groups-dynamic-membership.md).
 
@@ -36,21 +36,21 @@ Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de un
 
    ![Selección del comando para agregar nuevo grupo](./media/groups-create-rule/new-group-creation.png)
 
-4. En la página **Grupo**, escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y, luego, seleccione **Agregar una consulta dinámica**. Puede usar el generador de reglas para crear una regla sencilla o [escribir usted mismo una regla de pertenencia](groups-dynamic-membership.md).
+4. En la página **Grupo**, escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y, luego, seleccione **Agregar una consulta dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar seis o más expresiones, debe usar el cuadro de texto.
 
    ![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Para ver las propiedades de extensión personalizadas disponibles para su consulta de pertenencia, siga estos pasos:
    1. Seleccione **Obtener las propiedades de extensión personalizadas**.
-   2. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades**. 
-6. Después de crear la regla, seleccione **Agregar consulta** en la parte superior de la hoja.
-7. Seleccione **Crear** on the **Grupo** para crear el grupo.
+   2. Escriba el identificador de aplicación y, luego, seleccione **Actualizar propiedades**.
+6. Después de crear la regla, seleccione **Guardar**.
+7. Seleccione **Crear** en la página **Nuevo grupo** para crear el grupo.
 
-Si la regla que escribió no es válida, se muestra una explicación de por qué no se pudo procesar la regla en la esquina superior derecha del portal. Léala con cuidado para saber cómo corregir la regla.
+Si la regla que escribió no es válida, se muestra una explicación de por qué no se pudo procesar la regla en la notificación de Azure del portal. Léala con cuidado para saber cómo corregir la regla.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activación o desactivación del correo electrónico de bienvenida
 
-Cuando se crea un nuevo grupo de Office 365, se envía una notificación de bienvenida a los usuarios que se agregaron al grupo. Más tarde, si cambian los atributos de un usuario o dispositivo, se procesan los cambios de pertenencia de todas las reglas de grupo dinámico de la organización. Los usuarios que se agregan también reciben la notificación de bienvenida. Este comportamiento se puede desactivar en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Cuando se crea un nuevo grupo de Office 365, se envía una notificación de bienvenida por correo a los usuarios que se agregaron al grupo. Más tarde, si cambian los atributos de un usuario o dispositivo, se procesan los cambios de pertenencia de todas las reglas de grupo dinámico de la organización. Los usuarios que se agregan también reciben la notificación de bienvenida. Este comportamiento se puede desactivar en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Comprobación del estado de procesamiento de una regla
 

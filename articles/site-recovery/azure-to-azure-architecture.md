@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 2ed93846e0a1ab98b25bdfbe33b34779996da82b
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782636"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872758"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -139,6 +139,7 @@ Si se controla el acceso de salida para las máquinas virtuales con direcciones 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
 Para controlar la conectividad de salida para máquinas virtuales con direcciones IP, permita estas direcciones.
+Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se pueden encontrar en [las notas del producto de redes.](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### <a name="source-region-rules"></a>Reglas de la región de origen
 

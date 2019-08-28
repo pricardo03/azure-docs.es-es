@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 50d697f6ddff42690d4d674bd43a01d8a32c313c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272066"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874069"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 
@@ -24,64 +24,44 @@ Puede usar la concesión de un código de autorización de OAuth 2.0 en las apli
 
 El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Puede usarlo para llevar a cabo la autenticación y la autorización en la mayoría de los [tipos de aplicación](active-directory-b2c-apps.md), incluidas las aplicaciones web y las aplicaciones instaladas de forma nativa. Puede usar el flujo de código de autorización de OAuth 2.0 para adquirir de forma segura tokens de acceso y tokens de actualización para las aplicaciones, que se pueden usar para acceder a recursos protegidos por un [servidor de autorización](active-directory-b2c-reference-protocols.md).  El token de actualización permite que el cliente adquiera nuevos tokens de acceso (y de actualización) cuando expira el token de acceso, normalmente al cabo de una hora.
 
-Este artículo se centra en el flujo de código de autorización de OAuth 2.0 de **clientes públicos**. Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye las aplicaciones móviles, las aplicaciones de escritorio y prácticamente cualquier aplicación que se ejecute en un dispositivo y necesite obtener tokens de acceso. 
+Este artículo se centra en el flujo de código de autorización de OAuth 2.0 de **clientes públicos**. Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye las aplicaciones móviles, las aplicaciones de escritorio y prácticamente cualquier aplicación que se ejecute en un dispositivo y necesite obtener tokens de acceso.
 
 > [!NOTE]
 > Para agregar la administración de identidades a una aplicación web mediante Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) en lugar de OAuth 2.0.
 
-Azure AD B2C extiende los flujos de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Incorpora el [parámetro de flujos de usuario](active-directory-b2c-reference-policies.md). Con los flujos de usuario, puede usar OAuth 2.0 para agregar experiencias de usuario a la aplicación, como el registro, el inicio de sesión y la administración de perfiles. Entre los proveedores de identidades que usan el protocolo OAuth 2.0 se incluyen: [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [ Google](active-directory-b2c-setup-goog-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md).
+Azure AD B2C extiende los flujos de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Incorpora el [flujo de usuario](active-directory-b2c-reference-policies.md). Con los flujos de usuario, puede usar OAuth 2.0 para agregar experiencias de usuario a la aplicación, como el registro, el inicio de sesión y la administración de perfiles. Entre los proveedores de identidades que usan el protocolo OAuth 2.0 se incluyen: [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [ Google](active-directory-b2c-setup-goog-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md).
 
-En las solicitudes HTTP de ejemplo de este artículo se usa nuestro directorio de ejemplo de Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. También se usa nuestra aplicación y nuestros flujos de usuario de ejemplo. Puede probar las solicitudes por sí mismo con estos valores, o bien puede reemplazarlos por los suyos propios.
-Obtenga información sobre cómo [obtener su propio directorio, aplicación y flujos de usuario de Azure AD B2C](#use-your-own-azure-ad-b2c-directory).
+Para probar las solicitudes HTTP en este artículo, haga lo siguiente:
+
+1. Reemplace `{tenant}` por el nombre del inquilino de Azure AD B2C.
+1. Reemplace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` por el id. de la aplicación que registró previamente en el inquilino de Azure AD B2C.
+1. Reemplace `{policy}` por el nombre de una directiva que haya creado en el inquilino, por ejemplo `b2c_1_sign_in`.
 
 ## <a name="1-get-an-authorization-code"></a>1. Obtener un código de autorización
-El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . Esta es la parte interactiva del flujo, en la que el usuario lleva a cabo la acción. En esta solicitud, el cliente indica en el parámetro `scope` los permisos que debe obtener por parte del usuario. En el parámetro `p`, indica el flujo de usuario que se debe ejecutar. En los tres ejemplos siguientes (se han agregado saltos de línea para facilitar la lectura), se utilizan flujos de usuario diferentes.
+El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . Esta es la parte interactiva del flujo, en la que el usuario lleva a cabo la acción. En esta solicitud, el cliente indica en el parámetro `scope` los permisos que debe obtener por parte del usuario. Los siguientes tres ejemplos (con saltos de línea para facilitar la lectura) usan cada uno un flujo de usuario diferente.
 
-### <a name="use-a-sign-in-user-flow"></a>Uso de un flujo de usuario de inicio de sesión
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
 &response_mode=query
 &scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-user-flow"></a>Usar un flujo de usuario de registro
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
-&response_mode=query
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_sign_up
-```
-
-### <a name="use-an-edit-profile-user-flow"></a>Usar un flujo de usuario de edición de perfil
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
-&response_mode=query
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_edit_profile
-```
 
 | Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
+|{tenant}| Obligatorio | Nombre de su inquilino de Azure AD B2C.|
+| {policy} | Obligatorio | Flujo de usuario que se va a ejecutar. Especifique el nombre del flujo de usuario que creó en el inquilino de Azure AD B2C. Por ejemplo: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
 | response_type |Obligatorio |El tipo de respuesta, que debe incluir `code` para el flujo de código de autorización. |
 | redirect_uri |Obligatorio |El URI de redirección de la aplicación, donde su aplicación envía y recibe las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redirección que registró en el portal, con la excepción de que debe estar codificado como URL. |
 | scope |Obligatorio |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure Active Directory (Azure AD) los dos permisos que se solicitan. El uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.  El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso de larga duración a los recursos. También puede usar el ámbito `openid` para solicitar un token de identificador desde Azure AD B2C. |
 | response_mode |Recomendado |El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`. |
 | state |Recomendado |Un valor incluido en la solicitud que puede ser una cadena de cualquier contenido que desee usar. Se suele usar un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación. Por ejemplo, la página en la que se encontraba el usuario o el flujo de usuario que se estaba ejecutando. |
-| p |Obligatorio |Flujo de usuario que se ejecuta. Es el nombre del flujo de usuario que se crea en el directorio de Azure AD B2C. El valor del nombre del flujo de usuario debe comenzar por **b2c\_1\_** . Para más información sobre los flujos de usuario, consulte los [flujos de usuario de Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | símbolo del sistema |Opcional |El tipo de interacción necesaria con el usuario. Actualmente, el único valor válido es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. El inicio de sesión único no surtirá efecto. |
 
 En este punto, se le pedirá al usuario que complete el flujo de trabajo del flujo de usuario. Esto puede implicar que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social, registrarse en el directorio o realizar otros pasos. Las acciones del usuario dependerán de cómo se defina el flujo de usuario.
@@ -90,7 +70,7 @@ Cuando el usuario haya completado el flujo de usuario, Azure AD devuelve una res
 
 Una respuesta correcta que usa `response_mode=query` tiene este aspecto:
 
-```
+```HTTP
 GET urn:ietf:wg:oauth:2.0:oob?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the authorization_code, truncated
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
@@ -103,7 +83,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 Las respuestas de error también se pueden enviar al URI de redirección para que la aplicación pueda controlarlas correctamente:
 
-```
+```HTTP
 GET urn:ietf:wg:oauth:2.0:oob?
 error=access_denied
 &error_description=The+user+has+cancelled+entering+self-asserted+information
@@ -121,9 +101,9 @@ Ahora que ha adquirido un código de autorización, puede canjear el elemento `c
 
 También puede solicitar un token de acceso para su propia API web de back-end de la aplicación mediante la convención del uso del identificador del cliente de la aplicación como el ámbito solicitado (lo que resultará en un token de acceso con ese identificador de cliente como el "público"):
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -132,8 +112,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| p |Obligatorio |El flujo de usuario usado para adquirir el código de autorización. No puede usar un flujo de usuario diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
-| client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
+|{tenant}| Obligatorio | Nombre de su inquilino de Azure AD B2C.|
+|{policy}| Obligatorio| El flujo de usuario usado para adquirir el código de autorización. No puede usar un flujo de usuario diferente en esta solicitud. |
+| client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com).|
 | grant_type |Obligatorio |Tipo de concesión. Para el flujo de código de autorización, el tipo de concesión debe ser `authorization_code`. |
 | scope |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.  El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso de larga duración a los recursos.  También puede usar el ámbito `openid` para solicitar un token de identificador desde Azure AD B2C. |
 | código |Obligatorio |El código de autorización que adquirió en el primer segmento del flujo. |
@@ -141,7 +122,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -162,7 +143,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 
 Las respuestas de error tienen un aspecto similar al siguiente:
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -177,18 +158,18 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 ## <a name="3-use-the-token"></a>3. Uso del token
 Ahora que ha adquirido correctamente un token de acceso, puede usar el token en las solicitudes a las API web de back-end incluyéndolo en el encabezado `Authorization`:
 
-```
+```HTTP
 GET /tasks
-Host: https://mytaskwebapi.com
+Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
 ## <a name="4-refresh-the-token"></a>4. Actualización del token
 Los tokens de acceso y los tokens de identificación tienen una corta duración. Una vez expirados, debe actualizarlos para poder seguir obteniendo acceso a los recursos. Para ello, envíe otra solicitud POST al punto de conexión `/token`. Esta vez, proporcione el elemento `refresh_token`, en lugar de `code`:
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -196,7 +177,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| p |Obligatorio |El flujo de usuario usado para adquirir el token de actualización original. No puede usar un flujo de usuario diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
+|{tenant}| Obligatorio | Nombre de su inquilino de Azure AD B2C.|
+|{policy} |Obligatorio |El flujo de usuario usado para adquirir el token de actualización original. No puede usar un flujo de usuario diferente en esta solicitud. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
 | client_secret |Obligatorio |El client_secret asociado a su client_id en [Azure Portal](https://portal.azure.com). |
 | grant_type |Obligatorio |Tipo de concesión. Para este segmento del flujo de código de autorización, el tipo de concesión debe ser `refresh_token`. |
@@ -206,7 +188,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -227,7 +209,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 
 Las respuestas de error tienen un aspecto similar al siguiente:
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -245,4 +227,3 @@ Para probar estas solicitudes, lleve a cabo los siguientes pasos. Reemplace los 
 1. [Cree un directorio de Azure AD B2C](active-directory-b2c-get-started.md). Use el nombre del directorio en las solicitudes.
 2. [Cree una aplicación](active-directory-b2c-app-registration.md) para obtener un identificador de aplicación y un URI de redirección. Incluya un cliente nativo en la aplicación.
 3. [Cree flujos de usuario](active-directory-b2c-reference-policies.md) para obtener sus nombres.
-

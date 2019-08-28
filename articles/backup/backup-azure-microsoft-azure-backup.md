@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18eacc914a30dc6004bef71e9d3910e170c43d9b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018895"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575145"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -176,11 +176,10 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
     Cuando use su propia instancia de SQL 2017, deberá configurar SSRS manualmente. Después de configurar SSRS, asegúrese de que la propiedad de SSRS *IsInitialized* está establecida en *True*. Cuando se establece en True, MABS supone que SSRS ya está configurado y omite la configuración de SSRS.
 
     Se usarán los siguientes valores para la configuración de SSRS: 
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    - Cuenta de servicio: "Usar cuenta integrada" debe ser Servicio de red
+    - URL de servicio web: "Directorio virtual" debe ser ReportServer_<SQLInstanceName>
+    - Base de datos: DatabaseName debe ser ReportServer$<SQLInstanceName>
+    - URL del portal web: "Virtual Directory" debe ser Reports_<SQLInstanceName>
 
     [Obtenga más información](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) acerca de la configuración de SSRS.
 
