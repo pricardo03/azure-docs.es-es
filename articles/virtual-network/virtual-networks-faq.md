@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035337"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892018"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -29,9 +29,11 @@ Azure Virtual Network es una representación de su propia red en la nube. Es un 
 
 Use las redes virtuales para:
 
-* Crear una red virtual solo en una nube privada dedicada. A veces no se requiere una configuración entre entornos para una solución. Cuando se crea una red virtual, los servicios y las máquinas virtuales de la red virtual pueden comunicarse de forma directa y segura entre ellas en la nube. Sin embargo, puede configurar conexiones de punto de conexión para las máquinas virtuales y los servicios que requieren la comunicación a Internet, como parte de la solución.
-* Ampliar su centro de datos de forma segura. Con las redes virtuales, puede crear VPN de sitio a sitio (S2S) tradicionales para ampliar la capacidad de cualquier centro de datos de forma segura. Las redes virtuales de sitio a sitio (S2S) usan IPSEC para proporcionar una conexión segura entre la puerta de enlace VPN corporativa y Azure.
-* Habilitar escenarios en la nube híbrida. Las redes virtuales proporcionan la flexibilidad necesaria para admitir una variedad de escenarios en la nube híbrida. Puede conectar de forma segura aplicaciones basadas en la nube a cualquier tipo de sistema local como grandes sistemas y sistemas Unix.
+* Crear una red virtual dedicada solo en la nube privada. A veces no necesita una configuración entre entornos para su solución. Cuando se crea una red virtual, los servicios y las máquinas virtuales de la red virtual pueden comunicarse de forma directa y segura entre ellas en la nube. Sin embargo, puede configurar conexiones de punto de conexión para las máquinas virtuales y los servicios que requieren la comunicación a Internet, como parte de la solución.
+
+* Extender su centro de datos de forma segura. Con las redes virtuales, puede crear VPN de sitio a sitio (S2S) tradicionales para ampliar la capacidad del centro de datos de forma segura. Las redes virtuales de sitio a sitio (S2S) usan IPSEC para proporcionar una conexión segura entre la puerta de enlace VPN corporativa y Azure.
+
+* Habilitar escenarios de nube híbrida. Las redes virtuales proporcionan la flexibilidad para admitir una variedad de escenarios de nube híbrida. Puede conectar de forma segura aplicaciones basadas en la nube a cualquier tipo de sistema local como grandes sistemas y sistemas Unix.
 
 ### <a name="how-do-i-get-started"></a>¿Cómo empiezo?
 Para comenzar, consulte [Documentación de Virtual Network](https://docs.microsoft.com/azure/virtual-network/). En este artículo encontrará información general y de implementación de todas las características de una red virtual.

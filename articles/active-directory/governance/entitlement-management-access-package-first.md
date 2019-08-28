@@ -92,7 +92,7 @@ Un *paquete de acceso* es una agrupación de todos los recursos que necesita un 
 
 1. En la barra de navegación izquierda de Azure Portal, haga clic en **Azure Active Directory**.
 
-1. En el menú izquierdo, haga clic en **Gobierno de identidades**.
+1. En el menú izquierdo, haga clic en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Paquetes de acceso**.  Si ve **Acceso denegado**, asegúrese de que haya una licencia Azure AD Premium P2 en ese directorio.
 
@@ -268,7 +268,7 @@ Ahora que ha aprobado la solicitud de acceso, en este paso, confirme que se ha a
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con el usuario **Admin1**.
 
-1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobierno de identidades**.
+1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Paquetes de acceso**.
 
@@ -298,7 +298,7 @@ En este paso, quitará los cambios realizados y eliminará el paquete de acceso 
 
 **Rol necesario:**  administrador global o administrador de usuarios.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. Abra **Paquete de acceso del proyecto web**.
 
